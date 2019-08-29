@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967652"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543000"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -228,6 +228,18 @@ Puede buscar en la base de conocimiento publicada, con `isTest=false`, o bien en
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Errores HTTP comunes
+
+|Código|Explicación|
+|:--|--|
+|2xx|Correcto|
+|400|Los parámetros de la solicitud no son correctos, lo que significa que faltan parámetros necesarios, o bien que tienen un formato incorrecto o son demasiado grandes|
+|400|El cuerpo de la solicitud es incorrecto, lo que significa que falta el código JSON, o bien que tiene un formato incorrecto o es demasiado grande|
+|401|Clave no válida|
+|403|Prohibido: no tiene los permisos correctos|
+|404|KB no existe|
+|410|Esta API está en desuso y ya no está disponible|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

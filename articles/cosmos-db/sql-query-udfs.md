@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: e168e450230720f4ad78516e6edcdc3aa08ba3e1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343121"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614337"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
-La API de SQL brinda compatibilidad con funciones definidas por el usuario (UDF). Con las UDF escalares, puede pasar cero o muchos argumentos y devolver un resultado de argumento único. La API comprueba que cada argumento sean valores JSON legales.  
+La API de SQL brinda compatibilidad con funciones definidas por el usuario (UDF). Con las funciones definidas por el usuario escalares, puede pasar ningún argumento o muchos, y devolver un resultado con un único argumento. La API comprueba que cada argumento sea un valor JSON válido.  
 
-La API amplía la sintaxis de SQL para admitir una lógica de aplicación personalizada con UDF. Puede registrar las UDF con la API de SQL y hacer referencia a ellas en las consultas SQL. De hecho, dichas funciones están exquisitamente diseñadas para que se las pueda llamar desde consultas. Como consecuencia, las UDF no tienen acceso al objeto de contexto, como lo tienen otros tipos de JavaScript, por ejemplo, los procedimientos y desencadenadores almacenados. Las consultas son de solo lectura y pueden ejecutarse en réplicas principales o secundarias. Las UDF, a diferencia de otros tipos de JavaScript, están diseñadas para ejecutarse en réplicas secundarias.
+La API amplía la sintaxis de SQL para admitir una lógica de aplicación personalizada con funciones definidas por el usuario. Puede registrar las funciones definidas por el usuario con la API de SQL y hacer referencia a ellas en las consultas SQL. De hecho, dichas funciones están exquisitamente diseñadas para que se las pueda llamar desde consultas. Como consecuencia, las funciones definidas por el usuario no tienen acceso al objeto de contexto, como lo tienen otros tipos de JavaScript, por ejemplo, los procedimientos almacenados y desencadenadores. Las consultas son de solo lectura y pueden ejecutarse en réplicas principales o secundarias. Las funciones definidas por el usuario, a diferencia de otros tipos de JavaScript, están diseñadas para ejecutarse en réplicas secundarias.
 
-En el ejemplo siguiente se registra una UDF en un contenedor de elementos en la base de datos de Cosmos DB. El ejemplo crea una UDF cuyo nombre es `REGEX_MATCH`. Acepta dos valores de cadena JSON, `input` y `pattern`, y comprueba si el primero coincide con el patrón especificado en el segundo mediante la función `string.match()` de JavaScript.
+En el ejemplo siguiente se registra una función definida por el usuario en un contenedor de elementos en la base de datos de Cosmos. El ejemplo crea una función definida por el usuario cuyo nombre es `REGEX_MATCH`. Acepta dos valores de cadena JSON, `input` y `pattern`, y comprueba si el primero coincide con el patrón especificado en el segundo mediante la función `string.match()` de JavaScript.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -37,7 +37,7 @@ En el ejemplo siguiente se registra una UDF en un contenedor de elementos en la 
            regexMatchUdf).Result;  
 ```
 
-Ahora, use esta UDF en la proyección de una consulta. Debe calificar las UDF con el prefijo que distingue mayúsculas de minúsculas `udf.` al llamarlas desde las consultas.
+Ahora, use esta UDF en la proyección de una consulta. Debe calificar las funciones definidas por el usuario con el prefijo que distingue mayúsculas de minúsculas `udf.` al llamarlas desde las consultas.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -57,7 +57,7 @@ Los resultados son:
     ]
 ```
 
-Puede usar la UDF calificada con el prefijo `udf.` dentro de un filtro, como se muestra en el ejemplo siguiente:
+Puede usar la función definida por el usuario calificada con el prefijo `udf.` dentro de un filtro, como se muestra en el ejemplo siguiente:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -74,9 +74,9 @@ Los resultados son:
     }]
 ```
 
-Básicamente, las UDF son expresiones escalares válidas que puede usar tanto en proyecciones como en filtros.
+Básicamente, las funciones definidas por el usuario son expresiones escalares válidas que puede usar tanto en proyecciones como en filtros.
 
-Para ampliar la capacidad de las UDF, echemos un vistazo a otro ejemplo con lógica condicional:
+Para ampliar la capacidad de las funciones definidas por el usuario, echemos un vistazo a otro ejemplo con lógica condicional:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -100,7 +100,7 @@ Para ampliar la capacidad de las UDF, echemos un vistazo a otro ejemplo con lóg
                 seaLevelUdf);
 ```
 
-En el ejemplo siguiente se pone en práctica la UDF:
+En el ejemplo siguiente se usa la función definida por el usuario:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
@@ -122,9 +122,9 @@ Los resultados son:
     ]
 ```
 
-Si las propiedades a las que hacen referencia los parámetros de UDF no están disponibles en el valor JSON, el parámetro se considera Undefined y la invocación de UDF se omite. De forma similar, si el resultado de la UDF es Undefined, no se incluye en el resultado.
+Si las propiedades a las que hacen referencia los parámetros de la función no están disponibles en el valor JSON, el parámetro se considera indefinido y la invocación de la función se omite. De forma similar, si el resultado de la función definida por el usuario es indefinido, no se incluye en el resultado.
 
-Como se muestran en los ejemplos anteriores, las UDF integran la eficacia del lenguaje JavaScript con la API de SQL. Las UDF proporcionan una interfaz programable enriquecida para lograr una lógica condicional de procedimientos compleja con la ayuda de funcionalidades de tiempo de ejecución de JavaScript integradas. La API de SQL proporciona a las UDF los argumentos para cada elemento de origen en la fase actual de procesamiento de las cláusulas WHERE o SELECT. El resultado se incorpora a la perfección en la canalización de ejecución general. En resumen, las UDF son excelentes herramientas para hacer lógica de negocios compleja como parte de las consultas.
+Como se muestra en los ejemplos anteriores, las funciones definidas por el usuario integran la eficacia del lenguaje JavaScript con la API de SQL. Las funciones definidas por el usuario proporcionan una interfaz programable enriquecida para lograr una lógica condicional de procedimientos compleja con la ayuda de funcionalidades de tiempo de ejecución de JavaScript integradas. La API de SQL proporciona a las funciones definidas por el usuario los argumentos para cada elemento de origen en la fase actual de procesamiento de las cláusulas WHERE o SELECT. El resultado se incorpora a la perfección en la canalización de la ejecución general. En resumen, las UDF son excelentes herramientas para hacer lógica de negocios compleja como parte de las consultas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

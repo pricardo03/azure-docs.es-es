@@ -1,24 +1,26 @@
 ---
-title: Información general de los registros de Azure Firewall
-description: Este artículo es una introducción a los registros de diagnóstico de Azure Firewall.
+title: Introducción a la supervisión de métricas y registros de Azure Firewall
+description: Este artículo es una introducción a las métricas y los registros de diagnóstico de Azure Firewall.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065859"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876555"
 ---
-# <a name="azure-firewall-logs"></a>Registros de Azure Firewall
+# <a name="azure-firewall-logs-and-metrics"></a>Métricas y registros de Azure Firewall
 
 Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
 
 Se puede acceder a algunos de estos registros mediante el portal. Se pueden enviar registros a los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), a Storage y a Event Hubs, y se pueden analizar en los registros de Azure Monitor o mediante otras herramientas como Excel y Power BI.
+
+Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo que las hace útiles para alertas y detección rápida de problemas. 
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
@@ -83,7 +85,45 @@ Tiene tres opciones para almacenar los archivos de registro:
 
    Puede usar el [registro de actividades de Azure](../azure-resource-manager/resource-group-audit.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
 
+## <a name="metrics"></a>Métricas
+
+Las métricas de Azure Monitor son valores numéricos que describen algunos aspectos de un sistema en un momento dado. Las métricas se recopilan cada minuto y son útiles para las alertas porque se pueden muestrear con frecuencia. Una alerta puede activarse rápidamente con una lógica relativamente simple.
+
+Las siguientes métricas están disponibles para Azure Firewall:
+
+- **Número de llamadas de reglas de aplicación**: el número de veces que se ha alcanzado una regla de aplicación.
+
+    Unidad: número
+
+- **Número de llamadas de reglas de red**: el número de veces que se ha alcanzado una regla de red.
+
+    Unidad: número
+
+- **Datos procesados**: cantidad de datos que atraviesan el firewall.
+
+    Unidad: bytes
+
+- **Estado de mantenimiento del firewall**: indica el estado del firewall.
+
+    Unit: porcentaje
+
+   Esta métrica tiene dos dimensiones:
+  - **Estado**: los valores posibles son *Correcto*, *Degradado* e *Incorrecto.*
+  - **Motivo**: indica el motivo del estado correspondiente del firewall. Por ejemplo, puede indicar *puertos SNAT* si el estado del firewall es Degradado o Incorrecto.
+
+
+
+
+
+- **Uso de puertos SNAT**: el porcentaje de puertos SNAT que el firewall ha utilizado.
+
+    Unit: porcentaje
+
+   Al agregar más direcciones IP públicas al firewall, hay más puertos SNAT disponibles, lo que reduce el uso de estos puertos. Además, cuando el firewall se escala horizontalmente por distintos motivos (por ejemplo, CPU o rendimiento), los puertos SNAT adicionales también pasan a estar disponibles. De forma eficaz, un porcentaje determinado del uso de puertos SNAT puede reducirse sin agregar ninguna dirección IP pública, simplemente porque el servicio se ha escalado horizontalmente. Puede controlar directamente el número de direcciones IP públicas disponibles para aumentar los puertos disponibles en el firewall. Sin embargo, no puede controlar directamente el escalado del firewall. Actualmente, los puertos SNAT solo se agregan para las primeras cinco direcciones IP públicas.   
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
+- Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
+
+- Para más información sobre las métricas en Azure Monitor, consulte [Métricas en Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

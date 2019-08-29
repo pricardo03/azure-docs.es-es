@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0630e62a08314612cb08b5cb26b5a1563de4f40b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779701"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532448"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -75,9 +75,9 @@ Azure AD Application Proxy ofrece las siguientes ventajas:
 * No hay componentes en la red perimetral, como VPN y soluciones tradicionales de proxy inverso
 * No se requieren conexiones entrantes
 * Inicio de sesión único (SSO) en todos los dispositivos, recursos y aplicaciones en la nube y locales
-* Capacita a los usuarios para ser productivos en cualquier momento y lugar
+* Capacita a los usuarios finales para ser productivos en cualquier momento y lugar
 
-### <a name="discover-shadow-it-with-microsoft-cloud-app-security"></a>Detección de TI en la sombra con Microsoft Cloud App Security
+### <a name="discover-shadow-it-with-microsoft-cloud-app-security"></a>Detectar TI en la sombra con Microsoft Cloud App Security
 
 En las empresas modernas, los departamentos de TI no son a menudo conscientes de todas las aplicaciones en la nube que usan los usuarios para hacer su trabajo. Cuando a los administradores de TI se les pregunta por el número de aplicaciones que creen que usan sus empleados, como media dicen 30 o 40. En realidad, los empleados de la organización usan más de 1000 aplicaciones diferentes. El 80 % de los empleados usan aplicaciones no autorizadas que nadie ha revisado y que puede que no sean compatibles con las directivas de seguridad y cumplimiento.
 

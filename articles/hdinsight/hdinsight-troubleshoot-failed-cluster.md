@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203629"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573638"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
@@ -95,7 +95,7 @@ Puede solicitar que Microsoft aumente el número de recursos de HDInsight dispon
 
 #### <a name="check-the-release-version"></a>Comprobar la versión de lanzamiento
 
-Compare la versión del clúster con la versión más reciente de HDInsight. Cada versión de HDInsight incluye mejoras, como nuevas aplicaciones, características, revisiones y correcciones de errores. Puede que el problema que está afectando a su clúster se haya solucionado en la versión más reciente. Si es posible, vuelva a ejecutar el clúster con la versión más reciente de HDInsight y de las bibliotecas asociadas, como Apache HBase, Apache Spark u otras.
+Compare la versión del clúster con la versión más reciente de HDInsight. Cada versión de HDInsight incluye mejoras, como nuevas aplicaciones, características, revisiones y correcciones de errores. Puede que el problema que está afectando a su clúster se haya solucionado en la versión más reciente. Si es posible, vuelva a ejecutar el clúster con la versión más reciente de HDInsight y las bibliotecas asociadas, como Apache HBase, Apache Spark y otras.
 
 #### <a name="restart-your-cluster-services"></a>Reiniciar los servicios de clúster
 
@@ -119,7 +119,7 @@ Un escenario común en el que se producen errores en Apache Hive, Apache Pig o A
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (código de estado 502)
 
-Se trata de un mensaje genérico de los nodos de la puerta de enlace y es el código de estado de error más común. Una posible causa es la caída del servicio de WebHCat en el nodo principal activo. Para comprobar esta posibilidad, use el siguiente comando de CURL:
+Este código es un mensaje genérico de los nodos de la puerta de enlace y es el código de estado de error más común. Una posible causa es la caída del servicio de WebHCat en el nodo principal activo. Para comprobar esta posibilidad, use el siguiente comando de CURL:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -250,7 +250,7 @@ Para obtener instrucciones detalladas acerca de cómo optimizar las configuracio
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Paso 7: Reproducción del error en otro clúster
 
-Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster nuevo con la misma configuración y, a continuación, reenvíe los pasos del trabajo con errores uno por uno. Compruebe los resultados de cada paso antes de procesar el siguiente. Este método le ofrece la oportunidad de corregir y volver a ejecutar un único paso con errores. Este método también tiene la ventaja de que solo carga los datos de entrada una vez.
+Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster nuevo con la misma configuración y, a continuación, reenvíe los pasos del trabajo con errores uno por uno. Compruebe los resultados de cada paso antes de procesar el siguiente. Este método ofrece la oportunidad de corregir y volver a ejecutar un único paso con errores. Este método también tiene la ventaja de que solo carga los datos de entrada una vez.
 
 1. Cree un nuevo clúster de prueba con la misma configuración que el clúster con errores.
 2. Envíe el primer paso del trabajo para el clúster de prueba.

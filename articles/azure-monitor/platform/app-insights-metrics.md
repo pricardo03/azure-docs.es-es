@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877434"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535036"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas basadas en registros de Application Insights
 
@@ -80,7 +80,7 @@ La métrica de las *Pruebas de disponibilidad* refleja el recuento de las series
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones compatibles|
 |---|---|---|---|---|---|
-|Recuento|Recuento|Ubicación de ejecución, nombre de prueba, resultado de prueba|
+|Count|Count|Ubicación de ejecución, nombre de prueba, resultado de prueba|
 
 ```Kusto
 availabilityResults
@@ -93,7 +93,7 @@ availabilityResults
 El SDK de JavaScript de Application Insights recopila las métricas de explorador de los exploradores de los usuarios finales reales. Proporcionan una gran información sobre la experiencia de los usuarios con la aplicación web. Normalmente, no se muestrean las métricas del explorador, lo que significa que proporcionan una mayor precisión de los números de uso en comparación con las métricas del lado servidor, que podrían sesgarse con el muestreo.
 
 > [!NOTE]
-> Para recopilar las métricas del explorador, la aplicación debe estar instrumentada con el [fragmento de código del SDK de JavaScript de Application Insights](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> Para recopilar las métricas del explorador, la aplicación debe estar instrumentada con el [SDK de JavaScript para Application Insights](../../azure-monitor/app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tiempo de carga de página del explorador (browserTimings/totalDuration)
 
@@ -185,7 +185,7 @@ Esta métrica refleja el número de excepciones producidas a partir del código 
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|
-|Recuento|Recuento|None|La versión basada en registros usa la agregación **Sum**.|
+|Count|Count|None|La versión basada en registros usa la agregación **Sum**.|
 
 ```Kusto
 exceptions
@@ -200,7 +200,7 @@ Cantidad de llamadas de dependencia con errores.
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|
-|Recuento|Recuento|None|La versión basada en registros usa la agregación **Sum**.|
+|Count|Count|None|La versión basada en registros usa la agregación **Sum**.|
 
 ```Kusto
 dependencies
@@ -215,7 +215,7 @@ Cada vez que registra una excepción en Application Insights, se produce una lla
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|
-|Recuento|Recuento|Nombre del rol en la nube, instancia de rol en la nube, tipo de dispositivo|La versión basada en registros usa la agregación **Sum**.|
+|Count|Count|Nombre del rol en la nube, instancia de rol en la nube, tipo de dispositivo|La versión basada en registros usa la agregación **Sum**.|
 
 ```Kusto
 exceptions
@@ -229,7 +229,7 @@ Recuento de solicitudes de servidor de las que se ha realizado un seguimiento y 
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|
-|Recuento|Recuento|Instancia de rol en la nube, nombre de rol en la nube, tráfico real o sintético, rendimiento de la solicitud, código de respuesta|La versión basada en registros usa la agregación **Sum**.|
+|Count|Count|Instancia de rol en la nube, nombre de rol en la nube, tráfico real o sintético, rendimiento de la solicitud, código de respuesta|La versión basada en registros usa la agregación **Sum**.|
 
 ```Kusto
 requests
@@ -244,7 +244,7 @@ Esta métrica muestra el número de excepciones de servidor.
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|
-|Recuento|Recuento|Nombre del rol en la nube, instancia de rol en la nube|La versión basada en registros usa la agregación **Sum**.|
+|Count|Count|Nombre del rol en la nube, instancia de rol en la nube|La versión basada en registros usa la agregación **Sum**.|
 
 ```Kusto
 exceptions

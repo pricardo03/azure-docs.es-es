@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779043"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641052"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -36,8 +36,7 @@ Para ver los niveles de servicio disponibles y sus características, consulte la
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>¿Dónde puedo encontrar soluciones a errores y problemas conocidos?
 
-Para conocer cuáles son los errores y problemas conocidos, consulte los apartados [Cambios de comportamiento](sql-database-managed-instance-transact-sql-information.md#Changes) y [Problemas conocidos](sql-database-managed-instance-transact-sql-information.md#Issues).
-
+Para ver los errores y los problemas conocidos, consulte [Problemas conocidos](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>¿Se pueden llamar igual una instancia administrada y SQL Server en un entorno local?
 

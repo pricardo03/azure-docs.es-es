@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834734"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532411"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ La concesión implícita de OAuth2 es conocida por tratarse de la lista más amp
 
 La [concesión de código de autorización de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) por antonomasia es la concesión de autorización que utiliza dos puntos de conexión independientes. El punto de conexión de autorización se utiliza para la fase de interacción del usuario, lo que resulta en un código de autorización. El cliente usa entonces el punto de conexión de token para intercambiar el código para un token de acceso y, a menudo, también para un token de actualización. Las aplicaciones web son necesarias para presentar sus propias credenciales de aplicación al punto de conexión de token para que el servidor de autorización pueda autenticar al cliente.
 
-La [concesión implícita de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) es una variante de otras concesiones de autorización. Permite a un cliente obtener un token de acceso (y el id_token, cuando se usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) directamente desde el punto de conexión de autorización, sin establecer contacto con el punto de conexión del token ni autenticar al cliente. Esta variante se diseñó para las aplicaciones basadas en JavaScript que se ejecutan en un explorador web: en la especificación de OAuth2 original, los tokens se devuelven en un fragmento de URI. De este modo, los bits de token estarán disponibles en el código JavaScript del cliente, pero garantiza que no se incluirán en las redirecciones hacia el servidor. La devolución de tokens a través del explorador se redirigen directamente desde el punto de conexión de autorización. También tiene la ventaja de eliminar los requisitos para llamadas entre orígenes, que son necesarios si se requiere la aplicación JavaScript para ponerse en contacto con el punto de conexión de token.
+La [concesión implícita de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) es una variante de otras concesiones de autorización. Permite a un cliente obtener un token de acceso (y el id_token, cuando se usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) directamente desde el punto de conexión de autorización, sin establecer contacto con el punto de conexión del token ni autenticar al cliente. Esta variante se diseñó para las aplicaciones basadas en JavaScript que se ejecutan en un explorador web: en la especificación de OAuth2 original, los tokens se devuelven en un fragmento de URI. De este modo, los bits de token estarán disponibles en el código JavaScript del cliente, pero garantiza que no se incluirán en las redirecciones hacia el servidor. En la concesión implícita de OAuth2, el punto de conexión de autorización emite tokens de acceso directamente al cliente mediante un URI de redirección proporcionado anteriormente. También tiene la ventaja de eliminar los requisitos para llamadas entre orígenes, que son necesarios si se requiere la aplicación JavaScript para ponerse en contacto con el punto de conexión de token.
 
 Una característica importante de la concesión implícita de OAuth2 es el hecho de que los flujos nunca devuelven tokens de actualización al cliente. En la sección siguiente se muestra como esto no es realmente necesario y, de hecho, supondría un problema de seguridad.
 

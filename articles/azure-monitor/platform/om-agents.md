@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663732"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543055"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
@@ -65,12 +65,12 @@ Antes de comenzar, revise los siguientes requisitos.
 >[!NOTE]
 >Los cambios recientes en las API de Azure impedirán que los clientes puedan configurar con éxito la integración entre el grupo de administración y Azure Monitor por primera vez. Para los clientes que ya han integrado su grupo de administración con el servicio, no se verán afectados a menos que necesiten reconfigurar su conexión existente.  
 >Se ha publicado un nuevo módulo de administración para las siguientes versiones de Operations Manager:
->  
->* Para System Center Operations Manager 1801, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57173)  
->* Para System Center 2016 - Operations Manager, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57172)  
->* Para System Center Operations Manager 2012 R2, descargue el módulo de administración de [aquí](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->Esta actualización del módulo de administración no es aplicable a System Center Operations Manager 1807, que es una versión de actualización de la versión 1801 y no una compilación completa del producto.   
+> - En System Center Operations Manager 2019, se proporciona el módulo de administración con la compilación Operations Manager.
+>- El módulo de administración de Operations Manager 1801 también es aplicable a Operations Manager 1807.
+>- En el caso de System Center Operations Manager 1801, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57173).
+>- En el caso de System Center 2016 Operations Manager, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- En el caso de System Center Operations Manager 2012 R2, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### <a name="network"></a>Red
 

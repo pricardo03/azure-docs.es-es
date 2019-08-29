@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/19/2019
 ms.author: v-adgera
-ms.openlocfilehash: 64a980ba8ed581b3cad369951220d47baf9e17ab
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849300"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656519"
 ---
 # <a name="security-best-practices"></a>Prácticas recomendadas de seguridad
 
@@ -26,6 +26,9 @@ En este artículo se resumen los principales procedimientos recomendados que deb
 > [!IMPORTANT]
 > Para garantizar la máxima seguridad para el espacio de IoT, revise los recursos de seguridad adicionales. Asegúrese de incluir los proveedores de dispositivos.
 
+> [!TIP]
+> Use [Azure Security Center para IoT](https://docs.microsoft.com/azure/asc-for-iot/) para ayudar a detectar vulnerabilidades y amenazas de seguridad de IoT.
+
 ## <a name="iot-security-best-practices"></a>Procedimientos recomendados para la seguridad de IoT
 
 Algunos de los procedimientos principales para proteger los dispositivos IoT de forma segura son:
@@ -36,6 +39,7 @@ Algunos de los procedimientos principales para proteger los dispositivos IoT de 
 > * Considere la posibilidad de usar el filtrado de direcciones IP de dispositivo y la restricción de puertos.
 > * Limite el ancho de banda de E/S y dispositivo para mejorar el rendimiento. La limitación de velocidad puede mejorar la seguridad al impedir ataques por denegación de servicio.
 > * Mantenga actualizado el firmware del dispositivo.
+> * Audite y revise periódicamente los procedimientos recomendados de seguridad de dispositivos, redes y puertas de enlace, ya que siguen mejorando y evolucionando.
 
 Algunos de los procedimientos más importantes para proteger de forma segura un espacio de IoT son:
 
@@ -43,6 +47,7 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > * Cifre los datos persistentes, guardados o almacenados.
 > * Exija el cambio o la actualización de claves y contraseñas de forma periódica.
 > * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección [Procedimientos recomendados del control de acceso basado en rol](#rbac).
+> * Considere una topología de red dividida para que los dispositivos de cada red estén aislados de los demás.
 > * Use cifrado seguro. Exija contraseñas largas y use protocolos seguros y autenticación en dos fases.
 
 [Supervise](./how-to-configure-monitoring.md) los recursos de IoT para inspeccionar los valores atípicos, las amenazas o los parámetros de recursos que se encuentran fuera del intervalo de funcionamiento habitual. Use Azure Analytics para administrar la supervisión.

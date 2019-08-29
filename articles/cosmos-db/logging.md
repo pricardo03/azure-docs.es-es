@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448991"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615292"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
-Después de comenzar a usar una o más bases de datos de Azure Cosmos DB, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. En este artículo se proporciona información general de los registros que están disponibles en la plataforma Azure. Aprenderá a habilitar el registro de diagnóstico con fines de supervisión para enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), a transmitir registros a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y a exportar registros a los [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/).
+Después de comenzar a usar una o más bases de datos de Azure Cosmos, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. En este artículo se proporciona información general de los registros que están disponibles en la plataforma Azure. Aprenderá a habilitar el registro de diagnóstico con fines de supervisión para enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), a transmitir registros a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y a exportar registros a los [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -183,7 +183,7 @@ Para más información sobre cómo configurar PowerShell de Azure, consulte [Ins
 ### <a id="storage"></a>Creación de una cuenta de almacenamiento nueva para los registros
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, en este tutorial crearemos una nueva cuenta de almacenamiento exclusiva para los registros de Azure Cosmos DB. Para mayor comodidad, almacenamos los detalles de la cuenta de almacenamiento en una variable denominada **sa**.
 
-A fin de facilitar la administración, en este tutorial usamos el mismo grupo de recursos que el que contiene la base de datos de Azure Cosmos DB. Sustituya los valores por los parámetros **ContosoResourceGroup**, **contosocosmosdblogs** y **North Central US**, según corresponda:
+A fin de facilitar la administración, en este tutorial usamos el mismo grupo de recursos que el que contiene la base de datos de Azure Cosmos. Sustituya los valores por los parámetros **ContosoResourceGroup**, **contosocosmosdblogs** y **North Central US**, según corresponda:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -397,7 +397,7 @@ Ahora que ha habilitado la recopilación de datos, ejecute el siguiente ejemplo 
 <a id="#queries"></a>
 ### <a name="queries"></a>Consultas
 
-Estas son algunas consultas adicionales que puede escribir en el cuadro **Búsqueda de registros** para ayudarle a supervisar los contenedores de Azure Cosmos DB. Estas consultas funcionan con el [nuevo lenguaje](../log-analytics/log-analytics-log-search-upgrade.md). 
+Estas son algunas consultas adicionales que puede escribir en el cuadro **Búsqueda de registros** para ayudarle a supervisar los contenedores de Azure Cosmos. Estas consultas funcionan con el [nuevo lenguaje](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 Para obtener información acerca del significado de los datos devueltos por cada búsqueda de registros, consulte [Interpretación de los registros de Azure Cosmos DB](#interpret).
 

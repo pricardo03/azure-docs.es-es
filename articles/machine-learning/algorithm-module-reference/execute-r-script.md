@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016487"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558301"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
@@ -65,6 +65,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+ > [!NOTE]
+    > Compruebe si el paquete ya existe antes de instalarlo para evitar repetir la instalación. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` en el código de ejemplo anterior. La instalación repetida puede provocar el tiempo de espera de la solicitud de servicio web.     
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 

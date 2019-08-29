@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879111"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622712"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
@@ -34,7 +34,7 @@ El autoservicio de restablecimiento de contraseña de Azure AD se ofrece con lic
 * Restablecimiento de contraseña de autoservicio para usuarios en la nube
    * Soy un **usuario solo de nube** y he olvidado mi contraseña.
       * Me gustaría **cambiarla** por otra que conozca.
-   * Esta funcionalidad se incluye en las ediciones Premium P1 o Premium P2 de Azure AD, o Microsoft 365 Empresa.
+   * Esta funcionalidad se incluye en las ediciones Premium P1 o Premium P2 de Azure AD, Microsoft 365 Empresa u Office 365.
 
 * Autoservicio de restablecimiento/cambio/desbloqueo **con escritura diferida local**
    * Soy un **usuario de implementación híbrida**, mi cuenta de usuario de Active Directory local se sincroniza con mi cuenta de Azure AD con Azure AD Connect. Me gustaría cambiar la contraseña, la he olvidado o se ha bloqueado.

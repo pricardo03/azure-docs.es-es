@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814101"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543012"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -60,11 +60,6 @@ La factura original se cancela y se crea una nueva factura. El dinero se devuelv
 
 Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos.
 
-**Directivas de cancelación**
-
-- Si cancela una reserva, podría aplicarse una tarifa por terminación anticipada del 12 %.
-- El reembolso que recibe por una cancelación es el saldo prorrateado restante menos la tarifa por terminación anticipada del 12 %. Para cancelar, vaya a la reserva en Azure Portal y seleccione **Reembolso**.
-
 **Directivas de intercambio**
 
 - Puede devolver varias de las reservas existentes para comprar una reserva nueva del mismo tipo. No puede intercambiar las reservas de un tipo por otro. Por ejemplo, no puede devolver una reserva de máquina virtual para comprar una reserva de SQL.
@@ -77,10 +72,12 @@ Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos
 - No hay ninguna penalización ni límites anuales para los intercambios.
 
 **Directivas de reembolso**
+- Si cancela una reserva, podría aplicarse una tarifa por terminación anticipada del 12 %.
+- El reembolso que recibe por una cancelación es el saldo prorrateado restante menos la tarifa por terminación anticipada del 12 %. Para cancelar, vaya a la reserva en Azure Portal y seleccione **Reembolso**.
 - La cantidad total de reembolso no puede superar los 50 000 dólares estadounidenses en una ventana gradual de 12 meses.
 - Los reembolsos se calculan según el precio más bajo de su precio de compra o en el precio actual de la reserva.
 - Solo los propietarios de una reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft se reserva el derecho a cobrar una penalización del 12 % para las devoluciones, aunque actualmente no se aplica.
+- Microsoft se reserva el derecho a cobrar una penalización del 12 % por cualquier devolución. La penalización no se cobra actualmente, pero se hará en el futuro.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Intercambio de almacenamiento no premium por almacenamiento premium
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226006"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515634"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
@@ -33,8 +33,8 @@ El plano técnico ayuda a garantizar que la transferencia de información con lo
 Este plano técnico ayuda a instaurar la directiva sobre el uso de controles criptográficos mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que instauran controles criptográficos específicos y auditan el uso de configuraciones criptográficas poco seguras.
 Conocer dónde los recursos de Azure pueden tener configuraciones criptográficas subóptimas ayuda a tomar medidas correctivas para garantizar que los recursos se configuran conforme a la directiva de seguridad de la información. En concreto, las directivas asignadas por este plano técnico requieren cifrado para las cuentas de Data Lake Storage y cifrado de datos transparente en las bases de datos SQL; auditan el cifrado que falta en las cuentas de almacenamiento, las bases de datos SQL, los discos de máquina virtual y las variables de cuenta de Automation; auditan las conexiones no seguras a cuentas de almacenamiento y Redis Cache; y auditan el cifrado de contraseñas no seguras de las máquinas virtuales, así como la comunicación sin cifrado de Service Fabric.
 
-- Supervisión de bases de datos SQL sin cifrar en Azure Security Center.
-- Se debe aplicar el cifrado de discos en máquinas virtuales.
+- Se debe permitir el cifrado de datos transparente en bases de datos SQL
+- El cifrado de discos debe aplicarse en máquinas virtuales
 - Se deben cifrar las variables de cuenta de Automation.
 - Se debe habilitar la transferencia segura a cuentas de almacenamiento.
 - Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric
@@ -92,24 +92,24 @@ Este plano técnico también asigna una definición de Azure Policy que audita l
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de Azure Policy que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquina virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
 - \[Versión preliminar\]: Realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
 
 Este plano técnico también ayuda a controlar el acceso a los recursos de Azure mediante la asignación de definiciones de Azure Policy. Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos. Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
 - \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Linux que permitan conexiones remotas de cuentas sin contraseña
-- \[Versión preliminar\]: Realizar una auditoría de las VM Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña
 - \[Versión preliminar\]: Realizar una auditoría de las VM Linux que permitan conexiones remotas desde cuentas sin contraseña
-- Se deben migrar las cuentas de almacenamiento a nuevos recursos de Azure Resource Manager
+- Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager.
 - Auditar las máquinas virtuales que no utilizan discos administrados
 
@@ -151,7 +151,7 @@ Este plano técnico también asigna una definición de Azure Policy que audita l
 
 Este plano técnico permite garantizar que los eventos del sistema se registran. Para ello, se asignan definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
 
-- Supervisión de servidores SQL Server no auditados en Azure Security Center.
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux

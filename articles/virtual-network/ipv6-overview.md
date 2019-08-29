@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 33078439e8f055d746fad9949a9b0d7651e120f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249832"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543808"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>¿Qué es IPv6 para Azure Virtual Network? (versión preliminar)
 
@@ -48,7 +48,9 @@ IPv6 para VNet incluye las siguientes características:
 
 - Los clientes de Azure pueden definir su propio espacio de direcciones de red virtual IPv6 para satisfacer las necesidades de sus aplicaciones y clientes, o bien para la integración sin problemas en su espacio de IP local.
 - Las redes virtuales (IPv4 e IPv6) de pila doble con subredes de pila doble permiten a las aplicaciones conectarse con recursos IPv4 e IPv6 en su red virtual o en Internet.
-- Protección de sus recursos con reglas de IPv6 para grupos de seguridad de red
+    > [!IMPORTANT]
+    > Las subredes para IPv6 deben tener un tamaño exactamente de /64.  Esto garantiza la compatibilidad si decide habilitar el enrutamiento de la subred a una red local, ya que algunos enrutadores sólo pueden aceptar rutas /64 IPv6.  
+- Proteja los recursos con reglas de IPv6 para grupos de seguridad de red.
 - Personalice el enrutamiento del tráfico IPv6 en la red virtual con rutas definidas por el usuario (especialmente al utilizar aplicaciones virtuales de red para mejorar su aplicación).
 - Permita a los clientes de Internet acceder sin problemas a la aplicación de pila dual con el protocolo de su elección con compatibilidad con Azure DNS para registros IPv6 (AAAA). 
 - Compatibilidad IPv6 pública con Standard Load Balancer para crear aplicaciones resistentes y escalables, lo que incluye:

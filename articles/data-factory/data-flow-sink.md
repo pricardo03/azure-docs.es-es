@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640286"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515680"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
 
@@ -79,13 +79,16 @@ Configure la nomenclatura de los archivos:
 
 Seleccione los valores de configuración de la base de datos:
 
+![Pestaña Configuración, en la que se muestran las opciones del receptor de SQL](media/data-flow/alter-row2.png "Opciones de SQL")
+
 * **Método de actualización**: el valor predeterminado es permitir las inserciones. Borre **Allow insert** (Permitir insertar) si quiere dejar de insertar nuevas filas del origen. Para realizar operaciones de actualización, upsert o eliminación de filas, primero agregue una transformación de alteración de fila a fin de etiquetar las filas para esas acciones. 
 * **Volver a crear tabla**: coloque o cree la tabla de destino antes de que el flujo de datos finalice.
 * **Truncar tabla**: quite todas las filas de la tabla de destino antes de que el flujo de datos finalice.
 * **Tamaño del lote**: Escriba un número para depositar las escrituras en fragmentos. Use esta opción para grandes cargas de datos. 
 * **Permitir almacenamiento provisional**: use PolyBase al cargar Azure Data Warehouse como conjunto de datos receptor.
+* **Scripts SQL anteriores y posteriores**: escriba scripts de SQL de varias líneas que se ejecutarán antes (preprocesamiento) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor.
 
-![Pestaña Configuración, en la que se muestran las opciones del receptor de SQL](media/data-flow/alter-row2.png "Opciones de SQL")
+![scripts de procesamiento SQL anteriores y posteriores](media/data-flow/prepost1.png "scripts de procesamiento SQL")
 
 > [!NOTE]
 > En Data Flow, puede indicarle a Data Factory que cree una definición de tabla en la base de datos de destino. Para crear la definición de tabla, establezca un conjunto de datos en la transformación del receptor que tenga un nuevo nombre de tabla. En el conjunto de datos de SQL, debajo del nombre de la tabla, seleccione **Editar** y escriba un nuevo nombre. Después, en la transformación del receptor, active **Allow schema drift** (Permitir el desfase de esquema). Establezca **Importar esquema** en **Ninguno**.

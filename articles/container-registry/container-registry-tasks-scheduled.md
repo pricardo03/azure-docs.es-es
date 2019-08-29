@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967580"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509062"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
 
@@ -48,9 +48,9 @@ A modo de ejemplo sencillo, el siguiente comando desencadena la ejecución de la
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Ejecute el comando [az acr task show][az-acr-task-show] para ver que el desencadenador de temporizador está configurado. De forma predeterminada, el desencadenador de actualización de la imagen de base también está habilitado.
@@ -176,11 +176,11 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 |type  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
-|Un valor específico |<nobr>"5 * * * *"</nobr>|cada hora a "y cinco"|
-|Todos los valores (`*`)|<nobr>"* 5 * * *"</nobr>|cada minuto de la hora empezando a las 5:00 UTC (60 veces al día)|
-|Un intervalo (operador `-`)|<nobr>"0 1-3 * * *"</nobr>|3 veces al día, a la 1:00, a las 2:00 y a las 3:00 UTC|
-|Un conjunto de valores (operador `,`)|<nobr>"20,30,40 * * * *"</nobr>|3 veces por hora, a "y veinte", a la media y a "menos veinte"|
-|Un valor de intervalo (operador `/`)|<nobr>"*/10 * * * *"</nobr>|6 veces por hora, a "y diez", a "y veinte", etc.
+|Un valor específico |<nobr>`"5 * * * *"`</nobr>|cada hora a "y cinco"|
+|Todos los valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|cada minuto de la hora empezando a las 5:00 UTC (60 veces al día)|
+|Un intervalo (operador `-`)|<nobr>`"0 1-3 * * *"`</nobr>|3 veces al día, a la 1:00, a las 2:00 y a las 3:00 UTC|
+|Un conjunto de valores (operador `,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 veces por hora, a "y veinte", a la media y a "menos veinte"|
+|Un valor de intervalo (operador `/`)|<nobr>`"*/10 * * * *"`</nobr>|6 veces por hora, a "y diez", a "y veinte", etc.
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para ver un ejemplo del uso de una tarea programada para limpiar los repositorios de un registro, consulte[Purga automática de imágenes a partir de una instancia de Azure Container Registry](container-registry-auto-purge.md).
 
 Para ver ejemplos de tareas desencadenadas por confirmaciones de código fuente o actualizaciones de la imagen de base, consulte la [serie de tutoriales de ACR Tasks](container-registry-tutorial-quick-task.md).
 

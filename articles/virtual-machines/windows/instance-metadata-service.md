@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 6ddd8922f1830b2f57c8ecb4ff62871961b09fec
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a1c4575ec2ecc65d863ad80f73e64b7a4efdf96f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228324"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563255"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -39,10 +39,10 @@ El servicio está disponible con carácter general en las regiones de Azure. Pue
 
 Regions                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11 
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
-[Azure en China](https://www.azure.cn/)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure en China](https://www.azure.cn/)                                                     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 
 Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
 
@@ -345,7 +345,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
 attested | Consulte [Datos atestiguados](#attested-data) | 01 de octubre de 2018
-identidad | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Vea [API de instancia](#instance-api). | 2017-04-02
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 
@@ -375,6 +375,7 @@ resourceId | El identificador [completo](https://docs.microsoft.com/rest/api/res
 sku | SKU específica de la imagen de VM | 2017-04-02
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
+tagsList | Etiquetas con formato de matriz de JSON para facilitar el análisis mediante programación  | 2019-06-04
 version | Versión de la imagen de máquina virtual | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual. | 2017-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
@@ -425,7 +426,7 @@ Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede u
 }
 ```
 
-> El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar, junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y expiración del documento y la información del plan acerca de la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
+> El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con detalles de la máquina virtual como vmld, nonce, subscriptionId y timeStamp para la creación y expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Recuperación de metadatos atestiguados en una máquina virtual Windows
 
@@ -457,7 +458,7 @@ Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede u
 }
 ```
 
-> El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar, junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y expiración del documento y la información del plan acerca de la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
+> El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con detalles de la máquina virtual como vmld, nonce, subscriptionId y timeStamp para la creación y expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
@@ -568,8 +569,32 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-> [!NOTE]
-> Las etiquetas están separadas por punto y coma. Si se escribe un analizador para extraer las etiquetas mediante programación, los valores y los nombres de etiqueta no deben contener puntos y coma para que el analizador funcione correctamente.
+El campo `tags` es una cadena con las etiquetas delimitadas por puntos y coma. Esto puede ser un problema si se usan puntos y coma en las propias etiquetas. Si se escribe un analizador para extraer las etiquetas mediante programación, debe basarse en el campo `tagsList`, que es una matriz de JSON sin delimitadores y, por tanto, más fácil de analizar.
+
+**Solicitud**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+```
+
+**Respuesta**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Validación de que la máquina virtual se ejecuta en Azure
 
@@ -612,7 +637,8 @@ Verification successful
     "createdOn":"11/28/18 00:16:17 -0000",
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 }
 ```
 
@@ -623,10 +649,11 @@ plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/create
 timestamp/createdOn | La marca de tiempo en la que se creó el primer documento firmado
 timestamp/expiresOn | La marca de tiempo en la que expira el documento firmado
 vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
+subscriptionId | Suscripción de Azure para la máquina virtual publicada con fecha `2019-04-30`
 
 #### <a name="verifying-the-signature"></a>Comprobación de la firma
 
-Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft. También podrá comprobar el certificado intermedio y la cadena de certificados.
+Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft. También podrá comprobar el certificado intermedio y la cadena de certificados. Por último, puede comprobar que el identificador de suscripción es correcto.
 
 > [!NOTE]
 > El certificado para la nube pública y la nube soberana serán diferentes.

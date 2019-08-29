@@ -1,17 +1,17 @@
 ---
 title: Apertura de una incidencia de soporte técnico para Microsoft Azure FXT Edge Filer
-description: Procedimientos de inicio y apagado seguro de un nodo de Azure FXT Edge Filer
+description: Procedimiento para abrir un vale para obtener ayuda con el sistema Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: v-erkell
-ms.openlocfilehash: 82b6477b42d627baff10d9bde46452bf43900ffd
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 04bc7c4d2ff96ef8b403449cf58d131bdc22a101
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828246"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624114"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Apertura de una incidencia de soporte técnico para Azure FXT Edge Filer
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b00b061b1763d4b4e7236d8dc9ac1eedf7f923bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608161"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533022"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)
 
 Los usuarios con acceso a cuentas con privilegios tienen acceso sin restricciones a su entorno. Dadas las facultades de estas cuentas, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta cuando se emplean para iniciar sesión. En Azure Active Directory, puede exigir MFA (Multi-Factor Authentication) para conseguir una verificación de cuentas más estricta.
 
-**Requerir MFA para administradores (versión preliminar)**  es un [directiva de base de referencia](concept-baseline-protection.md) que requiere MFA cada vez que uno de los siguientes roles de administrador con privilegios inicia sesión:
+**Requerir MFA para administradores (versión preliminar)** es una [directiva de base de referencia](concept-baseline-protection.md) que requiere MFA cada vez que uno de los siguientes roles de administrador con privilegios inicia sesión:
 
 * Administrador global
 * Administrador de SharePoint
@@ -52,11 +52,11 @@ La **Directiva de base de referencia: Requerir MFA para administradores (versió
 
 Para habilitar esta directiva y proteger a los administradores:
 
-1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de Acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Directiva de base de referencia: Requerir MFA para administradores (versión preliminar)** .
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
-1. Haga clic en **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
 > [!WARNING]
 > Existía una opción **Habilitar automáticamente la directiva en el futuro** cuando esta directiva estaba en versión preliminar. Se ha eliminado esta opción para minimizar el impacto repentino para el usuario. Si seleccionó esta opción cuando estaba disponible, ahora estará seleccionada automáticamente la opción **No usar la directiva**. Si desean usar esta directiva de base de referencia, consulte los pasos anteriores para habilitarla.

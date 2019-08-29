@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335798"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511008"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -322,9 +322,9 @@ Traffic Manager responde con el nombre DNS o la dirección IP del punto de conex
 
 Normalmente, el Administrador de tráfico se utiliza para dirigir el tráfico a las aplicaciones implementadas en diferentes regiones. Sin embargo, también se puede utilizar en los casos en que una aplicación tenga más de una implementación en la misma región. Los puntos de conexión de Azure de Traffic Manager no permiten que se agregue más de un punto de conexión de aplicación web de la misma región de Azure al mismo perfil de Traffic Manager.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>¿Cómo muevo los puntos de conexión de Azure de mi perfil de Traffic Manager a un grupo de recursos diferente?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>¿Cómo muevo los puntos de conexión de Azure de mi perfil de Traffic Manager a un grupo de recursos o suscripción diferente?
 
-El seguimiento de los puntos de conexión de Azure que están asociados a un perfil de Traffic Manager se realiza mediante sus identificadores de recurso. Cuando un recurso de Azure que se usa como punto de conexión (por ejemplo, una dirección IP pública, un servicio en la nube clásico, una aplicación web u otro perfil de Traffic Manager usado de forma anidada) se mueve a otro grupo de recursos, su identificador de recurso cambia. Actualmente, en este caso, debe actualizar el perfil de Traffic Manager. Para ello, debe eliminar primero los puntos de conexión y, después, volver a agregarlos al perfil.
+El seguimiento de los puntos de conexión de Azure que están asociados a un perfil de Traffic Manager se realiza mediante sus identificadores de recurso. Cuando un recurso de Azure que se usa como punto de conexión (por ejemplo, una dirección IP pública, un servicio en la nube clásico, una aplicación web u otro perfil de Traffic Manager usado de forma anidada) se mueve a otro grupo de recursos o suscripción, su identificador de recurso cambia. Actualmente, en este caso, debe actualizar el perfil de Traffic Manager. Para ello, debe eliminar primero los puntos de conexión y, después, volver a agregarlos al perfil.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 

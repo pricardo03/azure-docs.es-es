@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9e48114d0d4159d40006710f9c8194dea0d775f8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c2adf9bff4c3d91305e71a7688740fa0268ad7b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295630"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69531484"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protección de los servicios de datos y almacenamiento de Azure en Azure Security Center
 En este tema se muestra cómo ver e implementar recomendaciones de seguridad para los recursos de datos y almacenamiento. Azure Security Center encontró estas recomendaciones al analizar el estado de seguridad de los recursos de Azure.
@@ -40,7 +40,7 @@ En esta página puede realizar las siguientes acciones:
 * Haga clic en cada pestaña y vea las recomendaciones por tipo de recurso.
 
     > [!NOTE]
-    > Para más información acerca del cifrado de almacenamiento, consulte [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Habilitación del cifrado para la cuenta de almacenamiento de Azure en Azure Security Center).
+    > Para obtener más información sobre cifrado de almacenamiento, vea [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
 
 
 ## <a name="remediate-a-recommendation-on-a-data-resource"></a>Corrección de una recomendación en un recurso de datos

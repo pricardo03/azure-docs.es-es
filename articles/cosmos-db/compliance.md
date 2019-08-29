@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239695"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615514"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -69,6 +69,6 @@ Para obtener más información acerca de las certificaciones de cumplimiento en 
 
 * Para obtener información acerca de las certificaciones de cumplimiento más recientes para Azure Cosmos DB, consulte [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (información general sobre el cumplimiento de Azure).  
 
-* Para obtener información general sobre la seguridad y las últimas mejoras de Azure Cosmos DB, consulte el artículo [Seguridad de bases de datos de Azure Cosmos DB](database-security.md).
+* Para obtener información general sobre la seguridad y las últimas mejoras de Azure Cosmos DB, consulte el artículo sobre [seguridad de bases de datos de Azure Cosmos](database-security.md).
 
 * Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).

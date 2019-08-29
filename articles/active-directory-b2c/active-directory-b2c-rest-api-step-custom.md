@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439007"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644920"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
@@ -97,8 +97,10 @@ Abra el archivo *TrustFrameworkExtensions.xml* y agregue el siguiente elemento X
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -114,6 +116,8 @@ Abra el archivo *TrustFrameworkExtensions.xml* y agregue el siguiente elemento X
 ```
 
 El elemento **InputClaims** define las notificaciones que se envían al servicio REST. En este ejemplo, el valor de la notificación `givenName` se envía al servicio REST como la notificación `email`. El elemento **OutputClaims** define las notificaciones que se esperan del servicio REST.
+
+Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para obtener información sobre cómo proteger las API de RESTful para producción, vea [Protección de las API de RESTful con autenticación básica](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) y [Protección de las API de RESTful con autenticación de certificado](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## <a name="add-the-claim-definition"></a>Agregar la definición de notificación
 
@@ -251,5 +255,13 @@ Si todo está configurado correctamente, el token incluye la nueva notificación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md).
-- [Modificación de la edición de perfil para recopilar información adicional de sus usuarios](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md).
+
+[Modificación de la edición de perfil para recopilar información adicional de sus usuarios](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
+
+Para obtener información sobre cómo proteger las API, vea los siguientes artículos:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Protección de las API de RESTful con autenticación básica [nombre de usuario y contraseña])
+* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md) (Protección de las API de RESTful con certificados de cliente)

@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Media Encoder Standard para generar automáticamente una escalera de velocidad de bits | Microsoft Docs
+title: 'Uso de Media Encoder Standard para generar automáticamente una escalera de velocidad de bits: Azure | Microsoft Docs'
 description: En este tema se muestra cómo usar Media Encoder Standard (MES) para generar automáticamente una escalera de velocidad de bits en función de la resolución de entrada y la velocidad de bits. La resolución de entrada y la velocidad de bits nunca se superarán. Por ejemplo, si la entrada es 720p a 3 Mbps, la salida permanecerá en 720p en el mejor de los casos y se iniciará a velocidades inferiores a 3 Mbps.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61224351"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543536"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Uso de Azure Media Encoder Standard para generar automáticamente una escalera de velocidad de bits  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Uso de Media Encoder Standard para generar automáticamente una escalera de velocidad de bits  
 
 ## <a name="overview"></a>Información general
 

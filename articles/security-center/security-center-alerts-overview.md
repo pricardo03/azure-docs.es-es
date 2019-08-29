@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295693"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647323"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
@@ -50,7 +50,7 @@ Los temas siguientes explican cómo aprovecha Security Center los diferentes dat
 
 ## <a name="what-are-alert-incidents"></a>¿Qué son los incidentes de alertas?
 
-Un incidente de seguridad es una recopilación de alertas relacionadas, en lugar de una enumeración de alertas individuales. Security Center usa la fusión para poner en correlación diferentes alertas y señales de baja fidelidad en incidentes de seguridad.
+Un incidente de seguridad es una recopilación de alertas relacionadas, en lugar de una enumeración de alertas individuales. Security Center usa la [correlación de alertas inteligentes en la nube](security-center-alerts-cloud-smart.md) para poner en correlación diferentes alertas y señales de baja fidelidad en incidentes de seguridad.
 
 Utilizando los incidentes, Security Center proporciona una vista única de una campaña de ataques y todas las alertas relacionadas. Esta vista le permite comprender rápidamente las acciones que ha realizado el atacante y qué recursos se han visto afectados. Para más información, consulte [Correlación de alertas inteligentes en la nube](security-center-alerts-cloud-smart.md).
 

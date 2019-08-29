@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 07/16/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b6ca43616a2e7e7611b122bce5c95084e1fd5012
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 55cdd864d73ce084d994c64233e79d5a58b17def
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402372"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558449"
 ---
 <!-- This tells how to get the connection string for the service shared access policy of your IoT hub -->
 
 Para obtener la cadena de conexión de IoT Hub para la directiva **service**, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com), abra IoT Hub.  La manera más fácil de acceder a IoT Hub es seleccionar **Grupos de recursos**, seleccionar el grupo de recursos donde se encuentra IoT Hub y después seleccionarlo en la lista de recursos.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos**. Seleccione el grupo de recursos donde se encuentra el centro y, a continuación, seleccione el centro en la lista de recursos.
 
-2. En el panel de la izquierda de IoT Hub, seleccione **Directivas de acceso compartido**.
+1. En el panel de la izquierda de IoT Hub, seleccione **Directivas de acceso compartido**.
 
-3. En la lista de directivas, seleccione la directiva **service**.
+1. En la lista de directivas, seleccione la directiva **service**.
 
-4. En **Claves de acceso compartido**, seleccione el icono de **Cadena de conexión: clave principal** y guarde el valor.
+1. En **Claves de acceso compartido**, seleccione el icono de **Cadena de conexión: clave principal** y guarde el valor.
 
     ![Recuperación de la cadena de conexión](./media/iot-hub-include-find-service-connection-string/iot-hub-get-connection-string.png)
 

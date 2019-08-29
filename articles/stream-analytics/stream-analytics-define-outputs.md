@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383447"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563322"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -270,6 +270,9 @@ Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HT
 | Número máximo de lotes  |Propiedad que permite especificar el número máximo de eventos en cada lote que se envía a Azure Functions. El valor predeterminado es 100. |
 
 Cuando Azure Stream Analytics recibe una excepción 413 ("La entidad de solicitud HTTP es demasiado grande") de una función de Azure, disminuye el tamaño de los lotes que envía a Azure Functions. En el código de función de Azure, use esta excepción para asegurarse de que Azure Stream Analytics no envíe lotes demasiado grandes. También, asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se especifican en el portal de Stream Analytics.
+
+> [!NOTE]
+> Durante la conexión de prueba, Stream Analytics envía un lote vacío a Azure Functions para probar si la conexión entre los dos funciona. Asegúrese de que la aplicación de Functions controla las solicitudes por lotes vacías para asegurarse de que la conexión de prueba es correcta.
 
 También tenga en cuenta que no se genera ninguna salida en las situaciones en las que no se producen eventos en un período de tiempo. Como resultado, no se llama a la función **computeResult**. Este comportamiento es coherente con las funciones integradas de agregado en ventanas.
 

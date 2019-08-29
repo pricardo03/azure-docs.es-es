@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/20/2019
 ms.author: barclayn
-ms.openlocfilehash: 89acc86526d1017e97efbf1812e02cfb6a240953
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035417"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875089"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -254,14 +254,14 @@ Actualmente, la compatibilidad con el cifrado del servidor se proporciona a trav
 
 Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave que les gustaría usar para cifrar cada columna.
 
-|                                  |                    | **Modelo de cifrado y administración de claves** |                    |
-|----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante claves administradas por el cliente**      |
-| **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
+#### <a name="encryption-model-and-key-management"></a>Modelo de cifrado y administración de claves
+
+| **Cifrado del lado servidor mediante claves administradas del servicio** |**Lado servidor mediante claves administradas por el cliente**| **Lado cliente mediante claves administradas por el cliente** | **Inteligencia artificial y aprendizaje automático**   |
+|--------------------|-------------------|----------------------|--------------------|
 | Azure Search                     | Sí                | -                  | -                  |
 | Servicio Azure Machine Learning   | Sí                | -                  | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
-| Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
+| Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -               |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sí                | -                  | -                  |
 | Event Hubs                       | Sí                | -                  | -                  |
@@ -282,7 +282,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Azure SQL Database               | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure SQL Database for MariaDB   | Sí                | -                  | -                  |
 | Azure SQL Database for MySQL     | Sí                | -                  | -                  |
-| Azure SQL Database for PostgreSQL | Sí                | -                  | -                  |
+| Azure SQL Database for PostgreSQL | Sí                | -                  | -                 |
 | Azure SQL Data Warehouse         | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | SQL Server Stretch Database      | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Table Storage                    | Sí                | -                  | Sí                |

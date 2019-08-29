@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945904"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637455"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Pruebas en lote de conjuntos de datos
 
@@ -95,7 +95,7 @@ Para ello, siga los pasos que se describen a continuación:
 
 ## <a name="review-batch-results"></a>Revisar los resultados de lote
 
-El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. De manera predeterminada, el filtro se establece en la primera intención de la lista. El filtro contiene todas las intenciones y solo las entidades simples y compuestas. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
+El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. El filtro contiene intenciones y entidades. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
 
 Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados. 
 
@@ -103,27 +103,27 @@ El gráfico está en cuatro cuadrantes, donde dos de las secciones aparecen en r
 
 ### <a name="getjobinformation-test-results"></a>Resultados de las pruebas GetJobInformation
 
-Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **False positive** (Falso positivo) sobre el cuadrante superior derecho para ver las expresiones debajo del gráfico. 
+Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **Falso negativo** en el cuadrante inferior izquierdo para ver las expresiones debajo del gráfico. 
 
-![Expresiones de prueba por lotes de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Use el teclado, Ctrl + E, para cambiar a la vista de etiqueta a fin de ver el texto exacto de la expresión del usuario. 
 
-¿Por qué hay dos de las expresiones previstas como **ApplyForJob**, en lugar de la intención correcta **GetJobInformation**? Las dos intenciones están muy estrechamente relacionadas en cuanto a la elección y la disposición de palabras. Además, hay casi tres veces más ejemplos para **ApplyForJob** que para **GetJobInformation**. Esta desigualdad de las expresiones de ejemplo influye a favor de la intención **ApplyForJob**. 
+La expresión `Is there a database position open in Los Colinas?` se etiqueta como _GetJobInformation_, pero el modelo actual ha predicho la expresión como _ApplyForJob_. 
+
+Hay casi tres veces más ejemplos para **ApplyForJob** que para **GetJobInformation**. Esta desigualdad de las expresiones de ejemplo influye a favor de la intención **ApplyForJob**, lo que da lugar a la predicción incorrecta. 
 
 Observe que ambas intenciones tienen la misma cantidad de errores. Una predicción incorrecta en una intención afecta también a la otra intención. Ambas tienen errores porque las expresiones se predijeron de manera incorrecta para una intención y también de manera incorrecta no se predijeron para la otra intención. 
 
-![Errores de filtro de pruebas por lotes de LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-Las expresiones que corresponden al punto superior en la sección **False positive** (Falso positivo) son `Can I apply for any database jobs with this resume?` y `Can I apply for any database jobs with this resume?`. Para la primera expresión, la palabra `resume` solo se usó en **ApplyForJob**. Para la segunda expresión, la palabra `apply` solo se usó en la intención **ApplyForJob**.
-
-## <a name="fix-the-app"></a>Corrección de la aplicación
+## <a name="how-to-fix-the-app"></a>Procedimiento para corregir la aplicación
 
 El objetivo de esta sección es predecir correctamente todas las expresiones para **GetJobInformation** mediante la corrección de la aplicación. 
 
-Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Sin embargo, eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos. 
+Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos. 
 
 Tal vez también se pregunte sobre cómo eliminar expresiones de **ApplyForJob** hasta que la cantidad de expresiones sea igual a **GetJobInformation**. Eso puede corregir los resultados de las pruebas, pero impediría que LUIS pueda predecir dicha intención con precisión la próxima vez. 
 
-La primera corrección consiste en agregar más expresiones a **GetJobInformation**. La segunda corrección consiste en reducir el peso de palabras como `resume` y `apply` respecto de la intención **ApplyForJob**. 
+La corrección consiste en agregar más expresiones a **GetJobInformation**. Recuerde variar la longitud de la expresión, la elección y la organización de palabras, al tiempo que mantiene la intención de buscar información del trabajo, _no_ de solicitarlo.
 
 ### <a name="add-more-utterances"></a>Adición de más declaraciones
 
@@ -161,15 +161,13 @@ Para comprobar que las expresiones en la prueba por lotes se predicen correctame
 
 1. Haga clic en **Probar** en la barra de navegación superior. Si los resultados por lotes todavía están abiertos, seleccione **Back to list** (Volver a la lista).  
 
-2. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre del lote y seleccione **Ejecutar conjunto de datos**. Espere hasta que se realice la prueba por lotes. Tenga en cuenta que el botón **Ver resultados** ahora aparece en color verde. Esto significa que todo el lote se ejecutó correctamente.
+1. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre del lote y luego **Ejecutar**. Espere hasta que se realice la prueba por lotes. Tenga en cuenta que el botón **Ver resultados** ahora aparece en color verde. Esto significa que todo el lote se ejecutó correctamente.
 
-3. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención. 
-
-    ![Captura de pantalla de LUIS con el botón de los resultados por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención. 
 
 ## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades 
 
-A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. Se usan solo las entidades de aprendizaje automático: simples y compuestas. No agregue entidades que no son de aprendizaje automático, porque siempre se encuentran ya sea a través de expresiones regulares o de coincidencias de texto explícitas.
+A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. 
 
 La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad. 
 
@@ -178,7 +176,6 @@ Cuando escriba y pruebe archivos por lotes por primera vez, se recomienda empeza
 El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones de prueba, suele ser una o dos palabras, con algunos ejemplos que son más que palabras. Si _su propia_ aplicación de recursos humanos habitualmente tiene nombres de trabajo de muchas palabras, las expresiones de ejemplo etiquetadas con la entidad **Job** (Trabajo) en esta aplicación no funcionarían correctamente.
 
 1. Cree `HumanResources-entities-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/) o [descárguelo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
-
 
 2. En el archivo por lotes con formato JSON, agregue una matriz de objetos que incluyen expresiones con la **intención** que quiere predecir en la prueba, así como las ubicaciones de las entidades en la expresión. Como una entidad se basa en token, asegúrese de empezar y detener cada entidad en un carácter. No empiece ni detenga la expresión en un espacio. Esto genera un error durante la importación del archivo por lotes.  
 
@@ -200,8 +197,6 @@ El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones
 6. Haga clic en el botón **Ejecutar**. Espere hasta que se realice la prueba.
 
 7. Seleccione **Ver resultados**.
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="review-entity-batch-results"></a>Revisión de los resultados de lote de las entidades
 

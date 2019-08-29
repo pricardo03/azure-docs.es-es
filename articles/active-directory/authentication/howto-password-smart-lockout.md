@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879242"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637586"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -48,7 +48,7 @@ Cuando se usa la [autenticación de paso a través](../hybrid/how-to-connect-pta
 Por ejemplo, si quiere que el contador de Azure AD sea mayor que AD, el contador de Azure AD sería de 120 segundos (2 minutos), mientras que el contador de AD local está establecido en 1 minuto (60 segundos).
 
 > [!IMPORTANT]
-> Actualmente, un administrador no puede desbloquear cuentas en la nube de los usuarios si estos han sido bloqueados por la funcionalidad de bloqueo inteligente. El administrador deberá esperar a que expire la duración del bloqueo.
+> Actualmente, un administrador no puede desbloquear cuentas en la nube de los usuarios si estos han sido bloqueados por la capacidad de bloqueo inteligente. El administrador deberá esperar a que expire la duración del bloqueo. Pero el usuario puede desbloquear mediante el autoservicio de restablecimiento de contraseña (SSPR) desde un dispositivo o una ubicación de confianza.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>Comprobación de la directiva de bloqueo de cuenta local
 

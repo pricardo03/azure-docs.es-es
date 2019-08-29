@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372554"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533454"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -57,6 +57,8 @@ Para nodos que ejecutan Windows, se admiten las siguientes versiones:
 - Windows 10
 - Windows 8.1
 - Windows 7
+
+La SKU del producto independiente del [servidor de Hyper-V de Microsoft](/windows-server/virtualization/hyper-v/hyper-v-server-2016) no contiene una implementación de configuración de estado deseado, por lo que no se puede administrar con DSC de PowerShell o con Azure Automation State Configuration.
 
 Para los nodos que ejecutan Linux, se admiten las siguientes versiones o distribuciones:
 
@@ -124,15 +126,6 @@ Para obtener una lista de direcciones IP de regiones en lugar de nombres de regi
 >Semanalmente, se publica un archivo actualizado. El archivo refleja los intervalos implementados actualmente y los próximos cambios en los intervalos IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana.
 >
 > Descargar el archivo XML nuevo cada semana es una buena idea. A continuación, actualice el sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute deberían observar que este archivo se usa para actualizar la publicidad del Protocolo de puerta de enlace de borde (BGP) del espacio de Azure la primera semana de cada mes.
-
-## <a name="introduction-video"></a>Vídeo de presentación
-
-¿Prefiere ver a leer? Eche un vistazo al vídeo siguiente, de mayo de 2015, cuando se anunció Azure Automation State Configuration por primera vez.
-
-> [!NOTE]
-> Aunque los conceptos y el ciclo de vida que se tratan en este vídeo son correctos, Azure Automation State Configuration ha progresado mucho desde que se grabó este vídeo. Ahora está disponible con carácter general, tiene una interfaz de usuario mucho más amplia en el Portal de Azure y admite muchas funciones adicionales.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711557"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515712"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
@@ -39,6 +39,8 @@ Puede instalar tanto componentes libres o sin licencia como componentes de pago 
 -   Si tiene que unir una instancia de Integration Runtime para la integración de SSIS en Azure con instalación personalizada a una red virtual, tiene que ser la red virtual de Azure Resource Manager. No se admite la red virtual clásica.
 
 -   Actualmente no se admite el uso compartido administrativo en la instancia de Integration Runtime para la integración de SSIS en Azure.
+
+-   No se admite el controlador ODBC IBM iSeries Access en Azure-SSIS Integration Runtime. Puede ver un error de instalación durante la instalación personalizada. Póngase en contacto con el servicio de soporte técnico de IBM para obtener ayuda.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

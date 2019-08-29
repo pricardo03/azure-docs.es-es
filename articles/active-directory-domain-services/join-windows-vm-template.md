@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 599d474b7c45274c87878c622149a86bc93af318
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473034"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612274"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Unión de una máquina virtual con Windows Server a un dominio administrado mediante una plantilla de Resource Manager
 En este artículo se muestra cómo unir una máquina virtual con Windows Server a un dominio administrado con Azure AD Domain Services mediante plantillas de Resource Manager.
@@ -31,9 +31,9 @@ En este artículo se muestra cómo unir una máquina virtual con Windows Server 
 Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 1. Una **suscripción de Azure**válida.
 2. Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
-3. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](create-instance.md).
-4. Asegúrese de que ha configurado las direcciones IP del dominio administrado como servidores DNS de la red virtual. Para más información, consulte [cómo actualizar la configuración de DNS para la red virtual de Azure](active-directory-ds-getting-started-dns.md)
-5. Complete los pasos necesarios para [sincronizar contraseñas para el dominio administrado de Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](tutorial-create-instance.md).
+4. Asegúrese de que ha configurado las direcciones IP del dominio administrado como servidores DNS de la red virtual. Para más información, consulte [cómo actualizar la configuración de DNS para la red virtual de Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Complete los pasos necesarios para [sincronizar contraseñas para el dominio administrado de Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="install-and-configure-required-tools"></a>Instalación y configuración de las herramientas necesarias
@@ -101,6 +101,6 @@ Tras completarse correctamente la implementación, las máquinas virtuales Windo
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Introducción a Azure PowerShell](/powershell/azure/overview)
-* [Plantilla de inicio rápido de Azure: Domain join a new VM (Unión a un dominio de una nueva máquina virtual)](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Plantilla de inicio rápido de Azure: Domain join existing VMs (Unión a un dominio de máquinas virtuales existentes)](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+* [Plantilla de inicio rápido de Azure: Unión a un dominio de una nueva máquina virtual](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+* [Plantilla de inicio rápido de Azure: Unión a un dominio de máquinas virtuales existentes](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

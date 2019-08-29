@@ -3,62 +3,63 @@ title: 'Inicio rápido de Azure VMware Solution by CloudSimple: creación de una
 description: Obtenga información sobre cómo crear y configurar una nube privada con Azure VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6b68dcd47377ee56c4ebedc94905e1f0a8b70b38
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: fdf1fc14eb4ab1458c25b484bae6cd84ecec6d7f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812343"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575497"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configuración del entorno de una nube privada
 
 En este artículo, obtenga información sobre cómo crear una nube privada de CloudSimple y configurar el entorno de nube privada.
 
-## <a name="before-you-begin"></a>Antes de empezar
-
-Asigne un intervalo de CIDR para las subredes vSphere/vSAN de la nube privada. Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter. Los componentes de administración se implementan en la red seleccionada para CIDR de subredes vSphere/vSAN. El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.  El espacio de direcciones de la subred vSphere/vSAN debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple.  Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure.  Para más información sobre las subredes vSphere/vSAN, consulte [Introducción a las VLAN y subredes](cloudsimple-vlans-subnets.md).
-
-* Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: /24 
-* Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: /21
-
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Creación de una nube privada
 
+Una nube privada es una pila de VMware aislada que admite hosts ESXi, vCenter, vSAN y NSX.
+
+Las nubes privadas se administran desde el portal de CloudSimple. Tienen su propio servidor vCenter en su propio dominio de administración. La pila se ejecuta en nodos dedicados y nodos de hardware sin sistema operativo aislados.
+
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
-3. Seleccione el servicio de CloudSimple en que quiere crear la nube privada.
-4. En la introducción, haga clic en **Crear nube privada** para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
+3. Seleccione el servicio de CloudSimple en el que quiere crear la nube privada.
+4. En **Información general**, haga clic en **Crear nube privada** para abrir una nueva pestaña del explorador del portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
 
     ![Creación de una nube privada desde Azure](media/create-private-cloud-from-azure.png)
 
-5. En el portal de CloudSimple, proporcione un nombre para su nube privada
-6. Seleccione la **Ubicación** de la nube privada
-7. Seleccione el **Tipo de nodo** que ha aprovisionado en Azure.  Puede elegir entre las [opciones CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Esta última opción incluye la capacidad de proceso y memoria máxima.
-8. Especifique el **Número de nodos**.  Para crear una nube privada, se requiere un mínimo de tres nodos
+5. En el portal de CloudSimple, proporcione un nombre para su nube privada.
+6. Seleccione la **ubicación** de la nube privada.
+7. Seleccione **tipo de nodo** de acuerdo con lo que haya comprado en Azure. Puede elegir entre las [opciones CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Esta última opción incluye la capacidad de proceso y memoria máxima.
+8. Especifique el **número de nodos**.  Para crear una nube privada, se requiere un mínimo de tres nodos.
 
     ![Creación de una nube privada: información básica](media/create-private-cloud-basic-info.png)
 
 9. Haga clic en **Siguiente: Opciones avanzadas**.
-10. Escriba el intervalo CIDR de subredes de vSphere/vSAN. Asegúrese de que el intervalo CIDR no se superponga con ninguna de las subredes locales u otras subredes de Azure.
+10. Escriba el intervalo CIDR de subredes de vSphere/vSAN. Asegúrese de que el intervalo CIDR no se superponga con ninguna de las subredes locales u otras subredes de Azure (redes virtuales) ni con la subred de la puerta de enlace.
 
-    ![Creación de una nube privada: opciones avanzadas](media/create-private-cloud-advanced-options.png)
+    **Opciones de intervalo de CIDR:** /24, /23, /22 o /21. Un intervalo de CIDR /24 admite hasta nueve nodos, un intervalo de CIDR /23 admite hasta 41 nodos y un intervalo de CIDR /22 y /21 admite hasta 64 nodos (el número máximo de nodos en una nube privada).
 
-11. Seleccione **Siguiente: Revisar y crear**.
+      > [!IMPORTANT]
+      > Las direcciones IP en el intervalo CIDR de vSphere/vSAN están reservadas para que las use la infraestructura de nube privada.  No use la dirección IP de este intervalo en ninguna máquina virtual.
+
+11. Haga clic en **Siguiente: Revisar y crear**.
 12. Revise la configuración. Si necesita cambiar la configuración, haga clic en **Anterior**.
 13. Haga clic en **Create**(Crear).
 
-Se iniciará el proceso de aprovisionamiento de la nube privada.  La nube privada puede tardar hasta dos horas en aprovisionarse.
+Se inicia el proceso de aprovisionamiento de la nube privada.  La nube privada puede tardar hasta dos horas en aprovisionarse.
 
 ## <a name="launch-cloudsimple-portal"></a>Inicio del portal de CloudSimple
 
-Puede acceder al portal de CloudSimple desde Azure Portal.  El portal de CloudSimple se iniciará con sus credenciales de inicio de sesión de Azure mediante el inicio de sesión único (SSO).  Para acceder al portal de CloudSimple, debe autorizar la aplicación **Autorización del servicio de CloudSimple**.  Para obtener más información sobre la concesión de permisos, consulte [Dar su consentimiento a la aplicación de autorización de servicio CloudSimple](https://docs.azure.cloudsimple.com/access-cloudsimple-portal/#consent-to-cloudsimple-service-authorization-application)
+Puede acceder al portal de CloudSimple desde Azure Portal.  El portal de CloudSimple se iniciará con sus credenciales de inicio de sesión de Azure mediante el inicio de sesión único (SSO).  Para acceder al portal de CloudSimple, debe autorizar la aplicación **Autorización del servicio de CloudSimple**.  Para obtener más información sobre la concesión de permisos, consulte [Consent to CloudSimple Service Authorization application](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application) (Dar su consentimiento a la aplicación de autorización de servicio CloudSimple).
 
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
@@ -69,7 +70,7 @@ Puede acceder al portal de CloudSimple desde Azure Portal.  El portal de CloudSi
 
 ## <a name="create-point-to-site-vpn"></a>Creación de una VPN de punto a sitio
 
-Una conexión VPN de punto a sitio es la manera más sencilla de conectarse a la nube privada desde su equipo. Utilice la conexión VPN de punto a sitio si se conecta a la nube privada de forma remota.  Para obtener acceso rápido a la nube privada, siga estos pasos.  Desde la red local, se puede acceder a la región de CloudSimple mediante [VPN de sitio a sitio](https://docs.azure.cloudsimple.com/vpn-gateway/) o [Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/).
+Una conexión VPN de punto a sitio es la manera más sencilla de conectarse a la nube privada desde su equipo. Utilice la conexión VPN de punto a sitio si se conecta a la nube privada de forma remota.  Para obtener acceso rápido a la nube privada, siga estos pasos.  Desde la red local, se puede acceder a la región de CloudSimple mediante [VPN de sitio a sitio](vpn-gateway.md) o [Azure ExpressRoute](on-premises-connection.md).
 
 ### <a name="create-gateway"></a>Crear puerta de enlace
 
@@ -94,9 +95,9 @@ Una conexión VPN de punto a sitio es la manera más sencilla de conectarse a la
 6. En la sección VLANs/Subnets (VLAN/Subredes) se pueden especificar las VLAN y las subredes de administración y de usuario para la puerta de enlace y las conexiones.
 
     * Las opciones de **Automatically add** (Agregar automáticamente) establecen la directiva global para esta puerta de enlace. La configuración se aplica a la puerta de enlace actual. Se puede invalidar la configuración en el área **Select** (Seleccionar).
-    * Seleccione **Add management VLANs/Subnets of Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas). 
-    * Para agregar todas las VLAN y subredes definidas por el usuario, haga clic en **Add user-defined VLANs/Subnets** (Agregar VLAN y subredes definidas por el usuario). 
-    * La configuración de **Select** (seleccionar) invalida la configuración global en **Automatically add** (Agregar automáticamente). 
+    * Seleccione **Add management VLANs/Subnets of Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas).
+    * Para agregar todas las VLAN y subredes definidas por el usuario, haga clic en **Add user-defined VLANs/Subnets** (Agregar VLAN y subredes definidas por el usuario).
+    * La configuración de **Select** (seleccionar) invalida la configuración global en **Automatically add** (Agregar automáticamente).
 
 7. Haga clic en **Next** (Siguiente) para revisar la configuración. Haga clic en los iconos de edición para realizar cambios.
 8. Haga clic en **Crete** (Crear) para crear la puerta de enlace VPN.
@@ -113,12 +114,12 @@ Para conectarse a CloudSimple desde su equipo, es necesario el cliente VPN.  Des
 
     ![Descarga de la configuración de VPN](media/download-p2s-vpn-configuration.png)
 
-6. Importación de la configuración en el cliente VPN
+6. Importe la configuración en el cliente VPN.
 
     * Instrucciones para [importar la configuración en el cliente Windows](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
     * Instrucciones para [importar la configuración en macOS u OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
 
-7. Conexión a CloudSimple
+7. Conéctese a CloudSimple.
 
 ## <a name="create-a-vlan-for-your-workload-vms"></a>Creación de una VLAN para las máquinas virtuales de carga de trabajo
 
@@ -138,11 +139,11 @@ Después de crear una nube privada, cree la VLAN en que va a implementar las má
 
     ![Creación de los detalles de una VLAN o subred](media/create-new-vlan-subnet-details.png)
 
-Se creará la VLAN o la subred.  Ahora puede usar este identificador de VLAN para crear un grupo de puertos distribuidos en vCenter de nube privada. 
+Se creará la VLAN o la subred.  Ahora puede usar este identificador de VLAN para crear un grupo de puertos distribuidos en vCenter de nube privada.
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Conexión del entorno a una red virtual de Azure
 
-CloudSimple le proporciona un circuito ExpressRoute para la nube privada. Puede conectar la red virtual de Azure al circuito ExpressRoute. Para obtener detalles completos sobre cómo configurar la conexión, siga los pasos de [Conexión de la red virtual de Azure mediante ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
+CloudSimple le proporciona un circuito ExpressRoute para la nube privada. Puede conectar la red virtual de Azure al circuito ExpressRoute. Para obtener detalles completos sobre cómo configurar la conexión, siga los pasos de [Azure Virtual Network Connection using ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/) (Conexión de la red virtual de Azure mediante ExpressRoute).
 
 ## <a name="sign-in-to-vcenter"></a>Inicio de sesión en vCenter
 
@@ -182,33 +183,29 @@ Si establece una contraseña que no cumpla los requisitos:
 
 El administrador de NSX se implementa con una contraseña predeterminada.  Se recomienda cambiar la contraseña después de crear la nube privada.
 
-   * Nombre de usuario: **admin**
-   * Contraseña: **CloudSimple123!**
+* Nombre de usuario: **admin**
+* Contraseña: **CloudSimple123!**
 
 Puede encontrar el nombre de dominio completo (FQDN) y la dirección IP del administrador de NSX en el portal de CloudSimple.
 
 1. Inicie el portal de CloudSimple y seleccione **Resources** (Recursos).
 2. Haga clic en la nube privada que quiera usar.
 3. Seleccione **vSphere management network** (Red de administración de vSphere).
-4. Use la dirección IP o el FQDN de **NSX Manager** y conéctese mediante un explorador web. 
+4. Use la dirección IP o el FQDN de **NSX Manager** y conéctese mediante un explorador web.
 
     ![Buscar el FQDN de NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
 
-Para cambiar la contraseña, siga las instrucciones de [Administración de la contraseña de un usuario](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
-
-> [!WARNING]
-> De manera predeterminada, la contraseña de administrador de NSX expira después de 90 días.
+Para cambiar la contraseña, siga las instrucciones de [Instalación de NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Creación de un grupo de puertos
 
 Para crear un grupo de puertos distribuidos en vSphere:
 
-1. Siga las instrucciones de "Agregar un grupo de puertos distribuidos" en la [Guía de red de vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
+1. Siga las instrucciones para agregar un grupo de puertos distribuidos en la [Guía de red de vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
 2. Al configurar el grupo de puertos distribuidos, proporcione el identificador de VLAN que ha creado en [Creación de una VLAN para la carga de trabajo de máquinas virtuales](#create-a-vlan-for-your-workload-vms).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso de máquinas virtuales de VMware en Azure](https://docs.azure.cloudsimple.com/quickstart-create-vmware-virtual-machine)
 * [Uso de máquinas virtuales de VMware en Azure](quickstart-create-vmware-virtual-machine.md)
-* [Conectarse a la red local mediante Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Configurar una VPN de sitio a sitio desde un entorno local](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Conexión a la red local mediante Azure ExpressRoute](on-premises-connection.md)
+* [Set up Site-to-Site VPN from on-premises](vpn-gateway.md) (Configurar una VPN de sitio a sitio desde un entorno local)

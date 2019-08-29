@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466ab0737aa5af40bd1bc137b98ab57a48feafde
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550930"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637351"
 ---
 # <a name="transforms-and-jobs"></a>Transformaciones y trabajos
 
@@ -119,5 +119,6 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 - Antes de comenzar con el desarrollo, vea [Desarrollo con las API de Media Services v3](media-services-apis-overview.md) (incluye información sobre cómo acceder a las API, convenciones de nomenclatura, etc.).
 - Consulte estos tutoriales:
 
-    - [Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET](stream-files-tutorial-with-api.md)
-    - [Tutorial: Análisis de vídeos con Media Services v3 mediante .NET](analyze-videos-tutorial-with-api.md)
+    - [Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST](stream-files-tutorial-with-rest.md)
+    - [Tutorial: Carga, codificación y streaming de vídeos](stream-files-tutorial-with-api.md)
+    - [Tutorial: Análisis de vídeos con Media Services v3](analyze-videos-tutorial-with-api.md)

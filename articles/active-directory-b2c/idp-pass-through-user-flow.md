@@ -1,35 +1,32 @@
 ---
-title: 'Transmisión de un token de acceso a través de un flujo de usuario a la aplicación: Azure Active Directory B2C | Microsoft Docs'
-description: Obtenga información sobre cómo se puede pasar un token de acceso para proveedores de identidades de OAuth2.0 como una notificación en un flujo de usuario a la aplicación en Azure Active Directory B2C.
+title: 'Transmisión de un token de acceso a través de un flujo de usuario a la aplicación: Azure Active Directory B2C'
+description: Obtenga información sobre cómo pasar un token de acceso para proveedores de identidades de OAuth 2.0 como una notificación en un flujo de usuario a la aplicación en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846825"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510101"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso a través de un flujo de usuario a la aplicación en Azure Active Directory B2C
 
-> [!NOTE]
-> Esta característica actualmente está en su versión preliminar pública.
-
-Un [flujo de usuario](active-directory-b2c-reference-policies.md) en Azure Active Directory (Azure AD) B2C proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
+Un [flujo de usuario](active-directory-b2c-reference-policies.md) en Azure Active Directory B2C (Azure AD B2C) proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
 
 Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), incluidos [Facebook](active-directory-b2c-setup-fb-app.md) y [Google](active-directory-b2c-setup-goog-app.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md).
-- El flujo de usuario se configura con un proveedor de identidades de OAuth 2.0.
+* La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md).
+* El flujo de usuario se configura con un proveedor de identidades de OAuth 2.0.
 
 ## <a name="enable-the-claim"></a>Habilitación de la notificación
 

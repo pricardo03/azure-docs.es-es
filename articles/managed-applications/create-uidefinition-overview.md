@@ -1,5 +1,5 @@
 ---
-title: CreateUiDefitinion.json para la experiencia de creación de aplicaciones administradas de Azure | Microsoft Docs
+title: CreateUiDefinition.json para la experiencia de creación de aplicaciones administradas de Azure | Microsoft Docs
 description: Describe cómo crear definiciones de interfaz de usuario para aplicaciones administradas de Azure
 services: managed-applications
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 292f2995e7ff1f56c306b8c9859bdb323f21762d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847606"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575654"
 ---
-# <a name="createuidefitinionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefitinion.json para la experiencia de creación de aplicaciones administradas de Azure
+# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para la experiencia de creación de aplicaciones administradas de Azure
 
 Este documento presenta los conceptos básicos del archivo **createUiDefinition.json**, que Azure Portal utiliza para definir la interfaz de usuario al crear una aplicación administrada.
 
@@ -52,13 +52,11 @@ El esquema de la propiedad parameters depende de la combinación de los valores 
 
 Se recomienda incluir `$schema`, aunque es opcional. Si se especifica, el valor de `version` debe coincidir con la versión en el identificador URI de `$schema`.
 
-Puede usar un editor de JSON para crear la definición de la interfaz de usuario y probarla después en el [espacio aislado de la definición de la interfaz de usuario](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para obtener una vista previa. Para obtener más información sobre el espacio aislado, consulte [Probar la interfaz del portal de Azure Managed Applications](test-createuidefinition.md).
+Puede usar un editor de JSON para crear el valor createUiDefinition y luego probarlo en el [espacio aislado createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para obtener una vista previa. Para obtener más información sobre el espacio aislado, consulte [Probar la interfaz del portal de Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Aspectos básicos
 
 El paso Aspectos básicos es el primer paso que se genera cuando Azure Portal analiza el archivo. Además de mostrar los elementos especificados en `basics`, el portal inserta elementos para que los usuarios elijan la suscripción, el grupo de recursos y la ubicación de la implementación. Cuando es posible, los elementos que consultan los parámetros de toda la implementación, como el nombre de un clúster o las credenciales del administrador, deben ir en este paso.
-
-Si el comportamiento de un elemento depende de la suscripción, el grupo de recursos o la ubicación del usuario, ese elemento no puede utilizarse en los aspectos básicos. Por ejemplo, **Microsoft.Compute.SizeSelector** depende de suscripción del usuario y la ubicación para determinar la lista de los tamaños disponibles. Por lo tanto, **Microsoft.Compute.SizeSelector** solo puede utilizarse en steps. Por lo general, solo los elementos del espacio de nombres **Microsoft.Common** pueden usarse en basics. Sin embargo, sí se permiten algunos elementos de otros espacios de nombres (como **Microsoft.Compute.Credentials**) que no dependen del contexto del usuario.
 
 ## <a name="steps"></a>Pasos
 

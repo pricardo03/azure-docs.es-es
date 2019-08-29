@@ -1,19 +1,19 @@
 ---
-title: VLAN y subredes en VMware Solution by CloudSimple - Azure
+title: VLAN y subredes en VMware Solution by CloudSimple
 description: Información acerca de las VLAN y subredes en una nube privada de CloudSimple
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812483"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543802"
 ---
 # <a name="vlans-and-subnets-overview"></a>Introducción a las VLAN y subredes
 
@@ -23,7 +23,7 @@ CloudSimple proporciona una red por región donde se implementa el servicio Clou
 
 ## <a name="vlans"></a>VLAN
 
-Las VLAN (red de nivel 2) se crean por nube privada.  El tráfico de la red de nivel 2 permanece dentro del límite de una nube privada, lo que le permite aislar el tráfico local dentro de la nube privada.  Una VLAN creada en la nube privada puede usarse para crear grupos de puertos distribuidos solo en esa nube privada.  Una VLAN creada en una nube privada se configura automáticamente en todos los conmutadores conectados a los hosts de una nube privada.
+Se crea una VLAN (red de nivel 2) para cada nube privada.  El tráfico de la red de nivel 2 permanece dentro del límite de una nube privada, lo que le permite aislar el tráfico local dentro de la nube privada.  Una VLAN creada en la nube privada puede usarse para crear grupos de puertos distribuidos solo en esa nube privada.  Una VLAN creada en una nube privada se configura automáticamente en todos los conmutadores conectados a los hosts de una nube privada.
 
 ## <a name="subnets"></a>Subredes
 
@@ -33,17 +33,17 @@ Todas las subredes pueden comunicarse entre sí de forma predeterminada, lo que 
 
 ## <a name="vspherevsan-subnets-cidr-range"></a>Intervalo de CIDR de subredes vSphere/vSAN
 
-Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter.  Los componentes de administración se implementan en la red seleccionada para **CIDR de subredes vSphere/vSAN**.  El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.
+Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter.  Los componentes de administración se implementan en la red seleccionada para CIDR de subredes vSphere/vSAN.  El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.
 
-Prefijo de intervalo de CIDR de subredes de vSphere/vSAN mínimo: **/24** Prefijo de intervalo de CIDR de subredes de vSphere/vSAN máximo: **/21**
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: **/24**
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: **/21**
 
-> [!CAUTION]
-> Las direcciones IP en el intervalo CIDR de vSphere/vSAN están reservadas para que las use la infraestructura de nube privada. No use ninguna dirección IP de este intervalo en ninguna máquina virtual.
-
+> [!IMPORTANT]
+> Las direcciones IP en el intervalo CIDR de vSphere/vSAN están reservadas para que las use la infraestructura de nube privada.  No use la dirección IP de este intervalo en ninguna máquina virtual.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>Límites del intervalo de CIDR de subredes vSphere/vSAN
 
-La selección del tamaño del intervalo de CIDR de subredes vSphere/vSAN afecta al tamaño de su nube privada.  La tabla siguiente muestra el número máximo de nodos que puede tener en función del tamaño del intervalo de CIDR de subredes vSphere/vSAN.
+La selección del tamaño del intervalo de CIDR de subredes vSphere/vSAN afecta al tamaño de la nube privada.  En la tabla siguiente se muestra el número máximo de nodos que puede tener en función del tamaño del intervalo de CIDR de subredes vSphere/vSAN.
 
 | Longitud del prefijo de CIDR de subredes vSphere/vSAN especificado | Número máximo de nodos |
 |---------------------------------------------------|-------------------------|
@@ -54,19 +54,19 @@ La selección del tamaño del intervalo de CIDR de subredes vSphere/vSAN afecta 
 
 ### <a name="management-subnets-created-on-a-private-cloud"></a>Subredes de administración creadas en una nube privada
 
-Las siguientes subredes de administración se generan al crear una nube privada. 
+Las siguientes subredes de administración se generan al crear una nube privada.
 
-* **Administración del sistema**: VLAN y subred para la red de administración de hosts ESXi, servidor DNS y servidor vCenter.
-* **VMotion**: VLAN y subred para la red vMotion de hosts ESXi.
-* **VSAN**: VLAN y subred para la red vSAN de hosts ESXi.
-* **NsxtEdgeUplink1**: VLAN y subred para vínculos superiores de VLAN a una red externa.
-* **NsxtEdgeUplink2**: VLAN y subred para vínculos superiores de VLAN a una red externa.
-* **NsxtEdgeTransport**: VLAN y subred para el control de zonas de transporte al alcance de redes de nivel 2 en NSX-T.
-* **NsxtHostTransport**: VLAN y subred para la zona de transporte de host.
+* **Administración del sistema**. VLAN y subred para la red de administración de hosts ESXi, servidor DNS y servidor vCenter.
+* **VMotion**. VLAN y subred para la red vMotion de hosts ESXi.
+* **VSAN**. VLAN y subred para la red vSAN de hosts ESXi.
+* **NsxtEdgeUplink1**. VLAN y subred para vínculos superiores de VLAN a una red externa.
+* **NsxtEdgeUplink2**. VLAN y subred para vínculos superiores de VLAN a una red externa.
+* **NsxtEdgeTransport**. VLAN y subred para el control de zonas de transporte al alcance de redes de nivel 2 en NSX-T.
+* **NsxtHostTransport**. VLAN y subred para la zona de transporte de host.
 
 ### <a name="management-network-cidr-range-breakdown"></a>Desglose del intervalo de CIDR de la red de administración
 
-El intervalo de CIDR de subredes vSphere/vSAN especificado se divide en varias subredes.  La tabla siguiente muestra un ejemplo del desglose de los prefijos permitidos.  En el ejemplo se utiliza **192.168.0.0** como intervalo de CIDR.
+El intervalo de CIDR de subredes vSphere/vSAN especificado se divide en varias subredes.  En la tabla siguiente se muestra un ejemplo del desglose de los prefijos permitidos.  En el ejemplo se utiliza 192.168.0.0 como intervalo de CIDR.
 
 Ejemplo:
 
@@ -82,4 +82,4 @@ Ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación y administración de VLAN y subredes](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Creación y administración de VLAN y subredes](create-vlan-subnet.md)

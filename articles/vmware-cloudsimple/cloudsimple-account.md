@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812685"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563201"
 ---
 # <a name="account-management-overview"></a>Información general sobre la administración de cuentas
 
-Cuando se crea el servicio CloudSimple, se crea una cuenta en CloudSimple.  La cuenta se asocia a su suscripción de Azure donde se encuentra el servicio.  Todos los usuarios con los roles **propietario** y **colaborador** roles en la suscripción tienen acceso al portal de CloudSimple.  El id. de suscripción de Azure y el id. de inquilino asociados con el servicio CloudSimple se encuentran en la página [Cuentas](https://docs.azure.cloudsimple.com/account/).
+Cuando se crea el servicio CloudSimple, se crea una cuenta en CloudSimple.  La cuenta se asocia a su suscripción de Azure donde se encuentra el servicio.  Todos los usuarios con los roles **propietario** y **colaborador** en la suscripción tienen acceso al portal de CloudSimple.  El id. de suscripción de Azure y el id. de inquilino asociados con el servicio CloudSimple se encuentran en la página [Cuentas](account.md).
 
 ## <a name="additional-alert-emails"></a>Correos electrónicos de alerta adicionales
 
@@ -32,9 +32,9 @@ Puede controlar el acceso al portal de CloudSimple para el personal de operacion
 
 ## <a name="users"></a>Usuarios
 
-Todos los usuarios con los roles **propietario** y **colaborador** roles en la suscripción tienen acceso al portal de CloudSimple.  Al acceder al portal, se crea el usuario en la cuenta de CloudSimple.  Puede deshabilitar el acceso al portal de CloudSimple para usuarios específicos desde la página Cuentas.
+Todos los usuarios con los roles **propietario** y **colaborador** en la suscripción tienen acceso al portal de CloudSimple.  Al acceder al portal, se crea el usuario en la cuenta de CloudSimple.  Puede deshabilitar el acceso al portal de CloudSimple para usuarios concretos desde la página Cuentas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ver el resumen de la cuenta](https://docs.azure.cloudsimple.com/account/)
-* [Ver la lista de usuarios](https://docs.azure.cloudsimple.com/users/)
+* [Ver el resumen de la cuenta](account.md)
+* [Ver la lista de usuarios](users.md)

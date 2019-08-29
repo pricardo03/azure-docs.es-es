@@ -6,26 +6,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: e4e26b658bd29e4589be40e4d29935059836c909
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 0eca458c344e5c44ad62121db14e6b286dc19a86
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343159"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614442"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Ejecución de consultas SQL en Azure Cosmos DB
 
-Cualquier lenguaje capaz de hacer solicitudes HTTP/HTTPS puede llamar a la API de REST de Cosmos DB. Cosmos DB también ofrece bibliotecas de programación para los lenguajes de programación .NET, Node.js, JavaScript y Python. La API de REST y las bibliotecas admiten consultas a través de SQL, y el SDK de .NET también admite [consultas LINQ](sql-query-linq-to-sql.md).
+Cualquier lenguaje capaz de hacer solicitudes HTTP/HTTPS puede llamar a la API de REST de Cosmos DB. Cosmos DB también ofrece bibliotecas de programación para los lenguajes de programación .NET, Node.js, JavaScript y Python. La API REST y las bibliotecas admiten consultas con SQL, y el SDK de .NET también admite [consultas LINQ](sql-query-linq-to-sql.md).
 
-En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Cosmos DB.
+En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Cosmos.
 
 ## <a id="REST-API"></a>API DE REST
 
-Cosmos DB ofrece un modelo de programación RESTful sobre HTTP. El modelo de recursos consta de un conjunto de recursos en una cuenta de base de datos, aprovisionada por una suscripción a Azure. La cuenta de base de datos consta de un conjunto de *bases de datos*, cada una de las cuales puede contener varios *contenedores* que, a su vez, contienen *elementos*, UDF y otros tipos de recursos. Cada recurso de Cosmos DB es direccionable mediante un URI lógico y estable. Un conjunto de recursos se denomina *fuente*. 
+Cosmos DB ofrece un modelo de programación RESTful sobre HTTP. El modelo de recursos consta de un conjunto de recursos en una cuenta de base de datos, que una suscripción a Azure aprovisiona. La cuenta de base de datos consta de un conjunto de *bases de datos*, cada una de las cuales puede contener varios *contenedores* que, a su vez, contienen *elementos*, funciones definidas por el usuario y otros tipos de recursos. Cada recurso de Cosmos DB es direccionable mediante un URI lógico y estable. Un conjunto de recursos se denomina *fuente*. 
 
-El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos HTTP `GET`, `PUT`, `POST` y`DELETE` con sus interpretaciones estándar. Use `POST` para crear un nuevo recurso, ejecutar un procedimiento almacenado o emitir una consulta de Cosmos DB. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
+El modelo de interacción básico con estos recursos se lleva a cabo con los verbos HTTP `GET`, `PUT`, `POST` y `DELETE`, con sus interpretaciones estándar. Use `POST` para crear un nuevo recurso, ejecutar un procedimiento almacenado o emitir una consulta de Cosmos DB. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
 
-Los ejemplos siguientes muestran un `POST` para una consulta de API de SQL en los elementos de ejemplo. La consulta tiene un filtro sencillo por la propiedad `name` de JSON. Los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` denotan que la operación es una consulta. Reemplace `mysqlapicosmosdb.documents.azure.com:443` con el URI de la cuenta de Cosmos DB.
+Los ejemplos siguientes muestran un `POST` para una consulta de la API de SQL en los elementos de ejemplo. La consulta tiene un filtro sencillo por la propiedad `name` de JSON. Los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` denotan que la operación es una consulta. Reemplace `mysqlapicosmosdb.documents.azure.com:443` con el URI de la cuenta de Cosmos DB.
 
 ```json
     POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
@@ -143,11 +143,11 @@ Los resultados son:
     }
 ```
 
-Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en los resultados posteriores. Puede controlar el número de resultados por página a través del encabezado numérico `x-ms-max-item-count`.
+Si los resultados de una consulta no caben en una sola página, la API REST devuelve un token de continuación con el encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en los resultados posteriores. También puede controlar el número de resultados por página con el encabezado numérico `x-ms-max-item-count`.
 
 Si una consulta tiene una función de agregación como COUNT, la página de consulta puede devolver un valor parcialmente agregado sobre una sola página de resultados. Los clientes deben realizar una agregación de segundo nivel con estos resultados para generar los resultados finales. Por ejemplo, sume los recuentos devueltos en las páginas individuales para devolver el recuento total.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como en todas las solicitudes de la API de REST. La coherencia de sesión también requiere devolver el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento, y los resultados de la consulta coinciden con la coherencia elegida para los datos. Para más información, consulte [Niveles de coherencia de Azure Cosmos DB][consistency-levels].
+Para administrar la directiva de coherencia de datos para las consultas, use el encabezado `x-ms-consistency-level` como en todas las solicitudes de la API REST. La coherencia de sesión también requiere devolver el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento, y los resultados de la consulta coinciden con la coherencia elegida para los datos. Para más información, consulte [Niveles de coherencia de Azure Cosmos DB][consistency-levels].
 
 Si la directiva de indexación configurada en el contenedor no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 "Solicitud incorrecta". Este mensaje de error se devuelve para las consultas donde las rutas de acceso se han excluido explícitamente de la indexación. Puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
 
@@ -189,7 +189,7 @@ El SDK de .NET admite la realización de consultas de LINQ y SQL. En el ejemplo 
     }
 ```
 
-En el ejemplo siguiente se comparan dos propiedades para igualdad en cada elemento y se usan proyecciones anónimas.
+En el ejemplo siguiente se compara la igualdad de dos propiedades en cada elemento y se usan proyecciones anónimas.
 
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
@@ -217,7 +217,7 @@ En el ejemplo siguiente se comparan dos propiedades para igualdad en cada elemen
     }
 ```
 
-En el ejemplo siguiente se muestran combinaciones, expresadas a través de `SelectMany` de LINQ.
+En el ejemplo siguiente se muestran combinaciones, expresadas con `SelectMany` de LINQ.
 
 ```csharp
     foreach (var pet in client.CreateDocumentQuery(containerLink,
@@ -241,11 +241,11 @@ En el ejemplo siguiente se muestran combinaciones, expresadas a través de `Sele
     }
 ```
 
-El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta en los bloques `foreach`, como se muestra en el ejemplo anterior. Las opciones de consulta especificadas en la sección de la [API de REST](#REST-API) también están disponibles en el SDK de .NET mediante las clases `FeedOptions` y `FeedResponse` del método `CreateDocumentQuery`. Puede controlar el número de páginas con el valor `MaxItemCount`.
+El cliente de .NET itera automáticamente en todas las páginas de resultados de la consulta en los bloques `foreach`, como se muestra en el ejemplo anterior. Las opciones de consulta especificadas en la sección de la [API REST](#REST-API) también están disponibles en el SDK de .NET mediante las clases `FeedOptions` y `FeedResponse` del método `CreateDocumentQuery`. Puede controlar el número de páginas con el valor `MaxItemCount`.
 
-Puede controlar expresamente la paginación creando `IDocumentQueryable` mediante el objeto `IQueryable`; después, leyendo los valores `ResponseContinuationToken` y devolviéndolos como `RequestContinuationToken` en `FeedOptions`. Puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no admita la consulta. En el caso de los contenedores con particiones, puede usar `PartitionKey` para ejecutar la consulta en una sola partición, aunque Azure Cosmos DB puede extraer este valor automáticamente del texto de consulta. Puede usar `EnableCrossPartitionQuery` para ejecutar consultas en varias particiones.
+Puede controlar expresamente la paginación creando `IDocumentQueryable` mediante el objeto `IQueryable`; después, leyendo los valores `ResponseContinuationToken` y devolviéndolos como `RequestContinuationToken` en `FeedOptions`. Puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no admita la consulta. En el caso de los contenedores con particiones, puede usar `PartitionKey` para ejecutar la consulta en una sola partición, aunque Azure Cosmos DB puede extraer este valor automáticamente del texto de consulta. Puede usar `EnableCrossPartitionQuery` para ejecutar consultas en varias particiones.
 
-Para obtener más ejemplos de .NET con consultas, consulte los [ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) en GitHub.
+Para obtener más ejemplos de .NET con consultas, consulte los [ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) en GitHub.
 
 ## <a id="JavaScript-server-side-API"></a>API del servidor de JavaScript
 

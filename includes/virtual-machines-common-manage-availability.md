@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186292"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657871"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -21,7 +21,7 @@ Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimi
 * **Un evento de mantenimiento de hardware no planeado** se produce cuando la plataforma Azure predice que en el hardware o en cualquier componente de plataforma asociado a una máquina física está a punto de producirse un error. Cuando la plataforma predice un error, se emitirá un evento de mantenimiento de hardware no planeado para reducir el efecto en las máquinas virtuales hospedadas en ese hardware. Azure usa la tecnología [Migración en vivo](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) para migrar las máquinas virtuales del hardware con errores a un equipo físico en buen estado. La migración en vivo es una operación de conservación de máquinas virtuales que solo detiene la máquina virtual durante un breve período. Se mantienen la memoria, los archivos abiertos y las conexiones de red pero el rendimiento puede verse reducido antes o después del evento. En los casos en los que no se puede usar la migración en vivo, la máquina virtual experimentará tiempos de inactividad inesperados, tal y como se describe a continuación.
 
 
-* **Un evento de tiempo de inactividad inesperado** se produce cuando el hardware o la infraestructura física de la máquina virtual produce un error de forma imprevista. Entre estos podemos encontrar errores de la red local, errores de los discos locales u otras errores a nivel de bastidor. Cuando se detecta, la plataforma Azure migra (recupera) automáticamente la máquina virtual a una máquina física en buen estado en el mismo centro de datos. Durante el procedimiento de recuperación, las máquinas virtuales experimentan tiempos de inactividad (reinicio) y, en algunos casos, pérdidas de la unidad temporal. El sistema operativo y los discos de datos asociados siempre se conservan. 
+* **Un evento de tiempo de inactividad inesperado** se produce cuando el hardware o la infraestructura física de la máquina virtual produce un error de forma imprevista. Entre estos podemos encontrar errores de la red local, errores de los discos locales u otras errores a nivel de bastidor. Cuando se detecta, la plataforma Azure migra (recupera) automáticamente la máquina virtual a una máquina física en buen estado en el mismo centro de datos. Durante el procedimiento de recuperación, las máquinas virtuales experimentan tiempos de inactividad (reinicio) y, en algunos casos, pérdidas de la unidad temporal. El sistema operativo y los discos de datos asociados siempre se conservan.
 
   Las máquinas virtuales también pueden experimentar tiempos de inactividad en el improbable caso de que una interrupción o desastre afecte a todo un centro de datos, o incluso a toda una región. Para estos casos, Azure proporciona opciones de protección que incluyen [zonas de disponibilidad](../articles/availability-zones/az-overview.md) y [regiones emparejadas](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -37,8 +37,20 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Combinación de un equilibrador de carga con conjuntos de disponibilidad]
 * [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]
 
+## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos
+
+Las [zonas de disponibilidad](../articles/availability-zones/az-overview.md) expanden el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay un mínimo de tres zonas independientes en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios con redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos.
+
+Una zona de disponibilidad de una región de Azure es una combinación de un **dominio de error** y un **dominio de actualización**. Por ejemplo, si crea tres o más máquinas virtuales en tres zonas de una región de Azure, las máquinas virtuales se distribuyen eficazmente en tres dominios de error y tres dominios de actualización. La plataforma Azure reconoce esta distribución entre dominios de actualización para asegurarse de que las máquinas virtuales de distintas zonas no se actualizan al mismo tiempo.
+
+Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. Si diseña las soluciones para que usen máquinas virtuales replicadas en zonas, puede proteger los datos y las aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona.
+
+![Zonas de disponibilidad](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+
+Obtenga más información acerca de cómo implementar una máquina virtual [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) o [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) en una zona de disponibilidad.
+
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia
-Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración en un centro de datos garantiza que, durante un evento de mantenimiento planeado o no planeado, hay al menos una máquina virtual disponible y cumple el 99,95 % del Acuerdo de Nivel de Servicio de Azure. Para obtener más información, consulte [Acuerdo de Nivel de Servicio para máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+Los conjuntos de disponibilidad son otra configuración de centro de datos para proporcionar redundancia y disponibilidad de máquina virtual. Esta configuración en un centro de datos garantiza que, durante un evento de mantenimiento planeado o no planeado, hay al menos una máquina virtual disponible y cumple el 99,95 % del Acuerdo de Nivel de Servicio de Azure. Para obtener más información, consulte [Acuerdo de Nivel de Servicio para máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
 > Evite dejar una máquina virtual de instancia única sola en un conjunto de disponibilidad. En esta configuración, las máquinas virtuales no reciben la garantía del Acuerdo de Nivel de Servicio y sufrirán un tiempo de inactividad durante los eventos de mantenimiento planeado de Azure, excepto cuando solo una máquina virtual use [discos SSD Premium de Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). El Acuerdo de Nivel de Servicio de Azure sí se aplica a las máquinas virtuales únicas que usen discos SSD Premium.
@@ -71,32 +83,26 @@ Si tiene previsto usar máquinas virtuales con discos no administrados, siga los
 
 Cuando se suscribe a [eventos programados](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), se le notifica a la máquina virtual sobre próximos eventos de mantenimiento que pueden afectar a su funcionamiento. Si los eventos programados están habilitados, se le da a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Por ejemplo, las actualizaciones del sistema operativo del host que pueden afectar a la máquina virtual se ponen en cola como eventos en los que se especifica el impacto, así como la hora en que se efectuará el mantenimiento si no se realiza ninguna acción. Los eventos de programación también se ponen en cola cuando Azure detecta un error inminente del hardware que podría afectar a la máquina virtual, lo cual permite al usuario decidir cuándo se debe realizar la recuperación. Los clientes pueden usar el evento para realizar determinadas tareas antes del mantenimiento, como guardar el estado, conmutar por error a la base de datos secundaria, etc. Después de completar la lógica para controlar correctamente el evento de mantenimiento, puede aprobar el evento programado pendiente para permitir que la plataforma continúe con el mantenimiento.
 
-## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configure cada nivel de aplicación en conjuntos separados de disponibilidad
-Si las máquinas virtuales son casi idénticas y tienen la misma función en su aplicación, recomendamos que configure un conjunto de disponibilidad para cada nivel de la aplicación.  Si coloca dos niveles diferentes en el mismo conjunto de disponibilidad, todas las máquinas virtuales en un mismo nivel de aplicación se podrían reiniciar simultáneamente. Al configurar al menos dos máquinas virtuales en un conjunto de disponibilidad para cada nivel, se garantiza que al menos haya disponible una en cada nivel.
+## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>Configure cada capa de aplicación en zonas de disponibilidad o conjuntos de disponibilidad independientes
+Si las máquinas virtuales son todas prácticamente idénticas y tienen la misma función en la aplicación, se recomienda configurar una zona de disponibilidad o un conjunto de disponibilidad para cada capa de la aplicación.  Si coloca dos capas diferentes en la misma zona o conjunto de disponibilidad, todas las máquinas virtuales de la misma capa de aplicación se pueden reiniciar a la vez. Al configurar al menos dos máquinas virtuales en una zona o un conjunto de disponibilidad para cada capa, se garantiza que al menos haya disponible una en cada capa.
 
-Por ejemplo, podría poner todas las máquinas virtuales en el front-end de la aplicación que ejecuta IIS, Apache, Nginx, etc. en un solo conjunto de disponibilidad. Asegúrese de que solo las máquinas virtuales de front-end se colocan en el mismo conjunto de disponibilidad. De la misma manera, asegúrese de que solo las máquinas virtuales de niveles de datos se colocan en su propio conjunto de disponibilidad, por ejemplo, las máquinas virtuales replicadas de SQL Server o las de MySQL.
+Por ejemplo, podría colocar todas las máquinas virtuales del front-end de la aplicación que ejecuta IIS, Apache y Nginx en un solo conjunto o zona de disponibilidad. Asegúrese de que solo las máquinas virtuales del front-end se colocan en el mismo conjunto o zona de disponibilidad. De la misma manera, asegúrese de que solo las máquinas virtuales de la capa de datos se colocan en su propio conjunto o zona de disponibilidad, por ejemplo, las máquinas virtuales replicadas de SQL Server o las de MySQL.
 
 <!--Image reference-->
    ![Capas de aplicación](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
-## <a name="combine-a-load-balancer-with-availability-sets"></a>Combinación de un equilibrador de carga con conjuntos de disponibilidad
-Combine [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) con un conjunto de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. No todos los niveles de las máquinas virtuales incluyen Azure Load Balancer. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
+## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combinación de un equilibrador de carga con conjuntos o zonas de disponibilidad
+Combine [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) con un conjunto o zona de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. No todos los niveles de las máquinas virtuales incluyen Azure Load Balancer. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 Si el equilibrador de carga no está configurado para equilibrar el tráfico entre varias máquinas virtuales, cualquier evento de mantenimiento planeado afectará a la única máquina virtual dedicada al tráfico, lo que provocará una interrupción en el nivel de la aplicación. Si se colocan varias máquinas virtuales del mismo nivel en el mismo equilibrador de carga y conjunto de disponibilidad, se permitirá tener un tráfico continuamente disponible asistido por, al menos, una instancia.
 
-## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos
-
-Las [zonas de disponibilidad](../articles/availability-zones/az-overview.md) son una alternativa a los conjuntos de disponibilidad que permite ampliar el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Una zona de disponibilidad es una zona separada físicamente dentro de una región de Azure. Hay tres zonas de disponibilidad por cada región de Azure admitida. Cada zona de disponibilidad tiene una fuente de alimentación, una red y un dispositivo de enfriamiento independientes y está separada lógicamente de otras zonas de disponibilidad dentro de la región de Azure. Si diseña las soluciones para que utilicen máquinas virtuales replicadas en zonas, podrá proteger sus datos y aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona. 
-
-![Zonas de disponibilidad](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-Obtenga más información acerca de cómo implementar una máquina virtual [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) o [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) en una zona de disponibilidad.
+Para obtener un tutorial sobre cómo equilibrar la carga entre las zonas de disponibilidad, vea [Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md).
 
 
 <!-- Link references -->
 [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-sets
-[Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-sets
+[Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
+[Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]: #use-managed-disks-for-vms-in-an-availability-set
 [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]: #use-availability-zones-to-protect-from-datacenter-level-failures

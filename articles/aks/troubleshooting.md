@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381949"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533522"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -86,10 +86,12 @@ Este error aparece cuando los clústeres entran en un estado con errores por div
 
 *Esta ayuda para solucionar problemas se dirige desde https://aka.ms/aks-pending-upgrade*
 
-Las operaciones de los clústeres se ven limitadas cuando se realizan operaciones de actualización activas o si se intentó realizar una actualización, pero presentó errores. Para diagnosticar el problema, ejecute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar el estado detallado del clúster. En función del resultado:
+Las operaciones de actualización y escala en un clúster con un único grupo de nodos o un clúster con [varios grupos de nodos](use-multiple-node-pools.md) se excluyen mutuamente. No puede tener un grupo de clústeres o de nodos actualizados y escalados simultáneamente. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Como resultado, las operaciones se ven limitadas cuando se realizan operaciones de actualización activas o de escala o se intentaron pero se produjeron errores. 
+
+Para ayudar a diagnosticar el problema, ejecute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar el estado detallado del clúster. En función del resultado:
 
 * Si el clúster se está actualizando activamente, espere hasta que finalice la operación. Si se realizó correctamente, vuelva a intentar realizar la operación que presentó errores.
-* Si el clúster no se pudo actualizar, siga los pasos descritos anteriormente.
+* Si el clúster no se pudo actualizar, siga los pasos descritos en la sección anterior.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>¿Puedo mover el clúster a otra suscripción o mi suscripción con mi clúster a un inquilino nuevo?
 

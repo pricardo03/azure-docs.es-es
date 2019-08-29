@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: iainfou
-ms.openlocfilehash: daddb2d13aee08fe7294ab2d7f0892bab761562b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c6572ab8bc2a10039f327233f983c2e822fba3b0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472683"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617214"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 Este artículo muestra cómo habilitar Azure Active Directory (AD) Domain Services mediante PowerShell.
@@ -62,7 +62,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso100.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,7 +124,7 @@ Escriba el siguiente comando de PowerShell para habilitar Azure AD Domain Servic
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -140,9 +140,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **No olvide los pasos de configuración adicionales después de aprovisionar el dominio administrado.**
 > Después de aprovisiona el dominio administrado, deberá completar las tareas siguientes:
-> * **[Actualice la configuración de DNS](active-directory-ds-getting-started-dns.md)**  para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-> * **[Habilite la sincronización de contraseñas en Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)** de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
-
+> * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios. Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+> * Cree las reglas de grupo de seguridad de red necesarias para restringir el tráfico entrante del dominio administrado. Para crear las reglas de grupo de seguridad de red, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que cree automáticamente las reglas adecuadas de grupo de seguridad de red.
+> * **[Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="powershell-script"></a>Script de PowerShell
 A continuación aparece el script de PowerShell que se usa para realizar todas las tareas enumeradas en este artículo. Copie el script y guárdelo en un archivo con la extensión '. ps1'. Ejecute el script de PowerShell o mediante el Entorno de scripting integrado (ISE) de Windows PowerShell.
@@ -153,9 +153,9 @@ A continuación aparece el script de PowerShell que se usa para realizar todas l
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso100.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -224,11 +224,12 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **No olvide los pasos de configuración adicionales después de aprovisionar el dominio administrado.**
 > Después de aprovisiona el dominio administrado, deberá completar las tareas siguientes:
-> * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-> * Habilite la sincronización de contraseñas en Azure AD Domain Services de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
+> * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios. Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+> * Cree las reglas de grupo de seguridad de red necesarias para restringir el tráfico entrante del dominio administrado. Para crear las reglas de grupo de seguridad de red, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que cree automáticamente las reglas adecuadas de grupo de seguridad de red.
+> * **[Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez creado el dominio administrado, realice las siguientes tareas de configuración para poder usar el dominio administrado:
 
-* [Actualización de la configuración del servidor DNS para la red virtual para señalar al dominio administrado](active-directory-ds-getting-started-dns.md)
-* [Habilitación de la sincronización de contraseñas en el dominio administrado](active-directory-ds-getting-started-password-sync.md)
+* [Actualización de la configuración del servidor DNS para la red virtual para señalar al dominio administrado](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+* [Habilitación de la sincronización de contraseñas en el dominio administrado](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)

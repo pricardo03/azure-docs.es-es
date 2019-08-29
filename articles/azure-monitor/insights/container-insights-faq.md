@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741504"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559082"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor para contenedores
 
@@ -33,7 +33,7 @@ Si no puede ver ningún dato en el área de trabajo de Log Analytics en un momen
 
 La tabla ContainerInventory contiene información sobre los contenedores detenidos y en ejecución. La tabla se rellena con un flujo de trabajo dentro del agente que consulta el docker de todos los contenedores (en ejecución y detenidos) y reenvía dichos datos al área de trabajo de Log Analytics.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>¿Cómo se resuelve el error que indica que **falta el registro de suscripción**?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>¿Cómo se resuelve el error que indica que *falta el registro de suscripción*?
 
 Si recibe el error **Missing Subscription registration for Microsoft.OperationsManagement** (Falta el registro de suscripción de Microsoft.OperationsManagement), puede resolverlo registrando el proveedor de recursos **Microsoft.OperationsManagement** en la suscripción en la que está definida el área de trabajo. La documentación sobre cómo hacer esto se puede encontrar [aquí](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
@@ -86,6 +86,9 @@ Si, después de habilitar Azure Monitor para contenedores en un clúster de AKS,
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *.microsoftonline.com        443
+- *.monitoring.azure.com       443
+- login.microsoftonline.com    443
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442552"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615539"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Atributos de seguridad de Azure Cosmos DB
 
@@ -26,8 +26,8 @@ En este artículo, se explican los atributos de seguridad integrados en Azure Co
 
 | Atributo de seguridad | Sí/no | Notas |
 |---|---|--|
-| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Todas las bases de datos de Cosmos DB y las copias de seguridad se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). No se admite el cifrado del servidor con claves administradas por el cliente. |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |
+| Cifrado en reposo (por ejemplo, cifrado en el servidor, cifrado en el servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Todas las bases de datos de Cosmos y las copias de seguridad se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). No se admite el cifrado del servidor con claves administradas por el cliente. |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |
 | Control de claves de cifrado (CMK, BYOK, etc.)| Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | Solo en las instancias de Table API Premium. No todas las API admiten esta característica. Consulte [Introducción a Azure Cosmos DB: Table API](table-introduction.md). |
 | Llamadas a API cifradas| Sí | Todas las conexiones a Azure Cosmos DB admiten HTTPS. Azure Cosmos DB también admite las conexiones TLS 1.2, pero esto no es obligatorio todavía. Si los clientes desactivan la conexión TLS de nivel inferior por su parte, pueden garantizar la conexión a Cosmos DB.  |
@@ -36,8 +36,8 @@ En este artículo, se explican los atributos de seguridad integrados en Azure Co
 
 | Atributo de seguridad | Sí/no | Notas |
 |---|---|--|
-| Compatibilidad con los puntos de conexión de servicio| Sí |  |
-| Compatibilidad con inserción de red virtual| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall.  Consulte [Acceso a Azure Cosmos DB desde redes virtuales](VNet-service-endpoint.md) |
+| Compatibilidad con el punto de conexión de servicio| Sí |  |
+| Compatibilidad con la inserción de redes virtuales| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall.  Consulte [Acceso a Azure Cosmos DB desde redes virtuales](VNet-service-endpoint.md) |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | Gracias a la compatibilidad con el firewall, puede configurar su cuenta de Azure Cosmos para permitir el acceso solo desde un conjunto de direcciones IP aprobado, un intervalo de direcciones IP o servicios en la nube. Consulte [Configuración del firewall de IP en Azure Cosmos DB](how-to-configure-firewall.md).|
 | Compatibilidad con la tunelización forzada| Sí | Se puede configurar en el cliente en la red virtual donde se encuentran las máquinas virtuales.   |
 

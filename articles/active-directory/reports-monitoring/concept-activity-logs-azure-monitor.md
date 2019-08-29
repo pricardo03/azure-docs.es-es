@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8fb570d328c7391c269d4a2aa91c69003b1cfc8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989884"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656467"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registros de actividad de Azure AD en Azure Monitor
 
@@ -70,7 +70,7 @@ Si ya tiene una licencia de Azure AD, necesita una suscripción a Azure para con
 
 ### <a name="storage-size-for-activity-logs"></a>Tamaño de almacenamiento para registros de actividad
 
-Cada evento del registro de auditoría utiliza aproximadamente 2 KB de almacenamiento de datos. Para un inquilino con 100 000 usuarios, que incurriría en alrededor de 1,5 millones de eventos por día, necesitaría alrededor de 3 GB de almacenamiento de datos al día. Dado que las escrituras se producen en lotes de aproximadamente cinco minutos, puede anticipar cerca de 9 000 operaciones de escritura al mes. 
+Cada evento del registro de auditoría utiliza aproximadamente 2 KB de almacenamiento de datos. Los registros de eventos de inicio de sesión tienen aproximadamente 4 KB de almacenamiento de datos. Para un inquilino con 100 000 usuarios, que incurriría en alrededor de 1,5 millones de eventos por día, necesitaría alrededor de 3 GB de almacenamiento de datos al día. Dado que las escrituras se producen en lotes de aproximadamente cinco minutos, puede anticipar cerca de 9 000 operaciones de escritura al mes. 
 
 
 La siguiente tabla contiene una estimación del costo, dependiendo del tamaño del inquilino, de una cuenta de almacenamiento de uso general v2 en la región Oeste de EE. UU. durante al menos un año de retención. Para crear una estimación más precisa del volumen de datos que prevé para la aplicación, use la [calculadora de precios de almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).

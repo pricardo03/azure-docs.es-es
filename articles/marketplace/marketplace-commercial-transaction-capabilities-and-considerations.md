@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c58a36988e3aee9b122446e3ee3c4878a582b8ad
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871026"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535056"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades y consideraciones sobre transacciones comerciales de Marketplace
 
@@ -144,7 +144,7 @@ Esta opción debe configurarse para vender a través de Microsoft y puede tener 
 |Microsoft le paga el 80 % del costo de licencia <br> \* Microsoft le paga el 90 % del costo de licencia de las aplicaciones SaaS aptas.   |   80,00 USD al mes <br> \* 90,00 USD al mes    |
 |Microsoft se queda con el 20 % del costo de licencia <br> \* Microsoft se queda con el 10 % del costo de licencia de las aplicaciones SaaS aptas.  |  20,00 USD al mes <br> \* 10,00 USD     |
 
-* **Tarifa reducida del servicio Marketplace:** Para determinados productos SaaS que publica en nuestro Marketplace comercial, Microsoft reducirá su tarifa del servicio Marketplace del 20 % (tal como se describe en el Contrato para publicadores de Microsoft) al 10 %.  Para que su producto sea apto, Microsoft debe designar al menos uno de sus productos como IP Co-Sell Ready o IP Co-Sell Prioritized. Para recibir esta tarifa reducida del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de ese mes natural. La tarifa reducida del servicio Marketplace no se aplicará a las máquinas virtuales, las aplicaciones administradas ni ningún otro producto que esté disponible a través de nuestro Marketplace comercial.  Esta tarifa reducida del servicio Marketplace estará disponible para las ofertas aptas, con los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Cuando pase ese tiempo, la tarifa del servicio Marketplace volverá a su importe normal.
+* **Tarifa reducida del servicio Marketplace:** Para determinados productos SaaS que publica en nuestro Marketplace comercial, Microsoft reducirá su tarifa del servicio Marketplace del 20 % (tal como se describe en el Contrato para publicadores de Microsoft) al 10 %.  Para que su producto sea apto, Microsoft debe designar al menos uno de sus productos como IP Co-Sell Ready o IP Co-Sell Prioritized. Para recibir esta tarifa reducida del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final del mes natural anterior. La tarifa reducida del servicio Marketplace no se aplicará a las máquinas virtuales, las aplicaciones administradas ni ningún otro producto que esté disponible a través de nuestro Marketplace comercial.  Esta tarifa reducida del servicio Marketplace estará disponible para las ofertas aptas, con los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Cuando pase ese tiempo, la tarifa del servicio Marketplace volverá a su importe normal.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturación, pago y cobro al cliente
 

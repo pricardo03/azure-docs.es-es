@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310372"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575289"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
 
@@ -185,7 +185,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a la instancia de SQL Data Warehouse para el que desea crear un punto de restauración.
+2. Vaya a la instancia de SQL Data Warehouse para la que desea crear un punto de restauración.
 
 3. En la parte superior de la sección de información general, seleccione **+ Nuevo punto de restauración**.
 

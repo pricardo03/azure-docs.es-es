@@ -1,6 +1,6 @@
 ---
-title: Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux | Microsoft Docs
-description: Procedimiento para usar cloud-init con el fin de configurar un archivo de intercambio en una máquina virtual Linux con la CLI de Azure
+title: Uso de cloud-init para configurar una partición de intercambio en una máquina virtual Linux | Microsoft Docs
+description: Procedimiento para usar cloud-init con el fin de configurar una partición de intercambio en una máquina virtual Linux con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,22 +14,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d8ce12b931b6a30fa375588b73a1140ed4697c2f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671698"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640766"
 ---
-# <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Uso de cloud-init para configurar un archivo de intercambio en una máquina virtual Linux
-Este artículo explica cómo usar [cloud-init](https://cloudinit.readthedocs.io) para configurar el archivo de intercambio en diversas distribuciones de Linux. El archivo de intercambio tradicionalmente se configuró mediante el agente Linux (WALA) en función de qué distribuciones se necesitaban.  Este documento detalla el proceso para crear el archivo de intercambio a petición durante el tiempo de aprovisionamiento mediante cloud-init.  Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
+# <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Uso de cloud-init para configurar una partición de intercambio en una máquina virtual Linux
+En este artículo se explica cómo usar [cloud-init](https://cloudinit.readthedocs.io) para configurar la partición de intercambio en diversas distribuciones de Linux. La partición de intercambio tradicionalmente se ha configurado mediante el agente Linux (WALA) en función de las distribuciones que necesitan una.  En este documento se detalla el proceso de creación de la partición de intercambio a petición durante el tiempo de aprovisionamiento mediante cloud-init.  Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
 
-## <a name="create-swapfile-for-ubuntu-based-images"></a>Creación del archivo de intercambio para imágenes basadas en Ubuntu
-De forma predeterminada en Azure, las imágenes de la galería de Ubuntu no crean archivos de intercambio. Para habilitar la configuración del archivo de intercambio durante el aprovisionamiento de la máquina virtual mediante cloud-init: vea el [documento de AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) en la wiki de Ubuntu.
+## <a name="create-swap-partition-for-ubuntu-based-images"></a>Creación de la partición de intercambio para imágenes basadas en Ubuntu
+De forma predeterminada en Azure, las imágenes de la galería de Ubuntu no crean particiones de intercambio. Para habilitar la configuración de la partición de intercambio durante el tiempo de aprovisionamiento de la máquina virtual mediante cloud-ini, vea el [documento AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) en la wiki de Ubuntu.
 
-## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Creación del archivo de intercambio para imágenes basadas en CentOS y Red Hat
+## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Creación de la partición de intercambio para imágenes basadas en CentOS y Red Hat
 
-En el shell actual, cree un archivo denominado *cloud_init_swapfile.txt* y pegue la configuración siguiente. Para este ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud_init_swapfile.txt` para crear el archivo y ver una lista de editores disponibles. Elija el número 1 para utilizar el editor **nano**. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea.  
+En el shell actual, cree un archivo denominado *cloud_init_swappart.txt* y pegue la configuración siguiente. Para este ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud_init_swappart.txt` para crear el archivo y ver una lista de editores disponibles. Elija el número 1 para utilizar el editor **nano**. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea.  
 
 ```yaml
 #cloud-config
@@ -54,25 +54,25 @@ Antes de implementar esta imagen, debe crear un grupo de recursos con el comando
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm) y especifique el archivo cloud-init con `--custom-data cloud_init_swapfile.txt` como se indica a continuación:
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm) y especifique el archivo cloud-init con `--custom-data cloud_init_swappart.txt` como se indica a continuación:
 
 ```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
   --image OpenLogic:CentOS:7-CI:latest \
-  --custom-data cloud_init_swapfile.txt \
+  --custom-data cloud_init_swappart.txt \
   --generate-ssh-keys 
 ```
 
-## <a name="verify-swapfile-was-created"></a>Compruebe que se creó el archivo de intercambio.
+## <a name="verify-swap-partition-was-created"></a>Comprobación de que se ha creado la partición de intercambio
 SSH a la dirección IP pública de la máquina virtual que se muestra en la salida del comando anterior. Escriba su propia **dirección IP pública**, como se indica a continuación:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Una vez haya accedido mediante SSH a la máquina virtual, compruebe si se ha creado el archivo de intercambio.
+Una vez haya accedido mediante SSH a la máquina virtual, compruebe si se ha creado la partición de intercambio.
 
 ```bash
 swapon -s
@@ -86,7 +86,7 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> Si tiene una imagen de Azure existente con un archivo de intercambio configurado y desea cambiar la configuración del archivo de intercambio para incluir nuevas imágenes, debe quitar el archivo de intercambio existente. Consulte el documento sobre cómo personalizar imágenes para aprovisionar mediante cloud-init para obtener más información.
+> Si tiene una imagen de Azure existente con una partición de intercambio configurada y quiere cambiar la configuración de la partición de intercambio para nuevas imágenes, debe quitar la partición de intercambio existente. Consulte el documento sobre cómo personalizar imágenes para aprovisionar mediante cloud-init para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:

@@ -1,0 +1,73 @@
+---
+title: 'Solución de Azure VMware de CloudSimple: configuración de tablas de firewall y reglas'
+description: Se describe cómo configurar tablas de firewall y reglas de nube privada para restringir el tráfico en las subredes y las redes VLAN.
+author: sharaths-cs
+ms.author: b-shsury
+ms.date: 08/15/2019
+ms.topic: article
+ms.service: azure-vmware-cloudsimple
+ms.reviewer: cynthn
+manager: dikamath
+ms.openlocfilehash: c56d469360814cb663b4c5c11689961225eebb2d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544039"
+---
+# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
+
+Las tablas de firewall y las reglas asociadas permiten aplicar restricciones sobre el tráfico en determinadas subredes y redes VLAN.
+
+* Una subred puede estar asociada a una tabla de firewall.
+* Una tabla de firewall puede estar asociada a varias subredes.
+
+## <a name="add-a-new-firewall-table"></a>Adición de una nueva tabla de firewall
+
+1. [Acceda al portal de CloudSimple](monitor-activity.md) y seleccione **Network** (Red) en el menú lateral.
+2. Seleccione **Firewall Tables** (Tablas de firewall).
+3. Seleccione **Create firewall table** (Crear tabla de firewall).
+
+    ![Página VLAN/subnet (VLAN o subred)](media/firewall-tables-page.png)
+
+4. Escriba un nombre para la tabla.
+5. Se muestra una regla predeterminada para la tabla. Haga clic en **Create New Rule** (Crear nueva regla) para crear otra regla. Vea el procedimiento siguiente para más información.
+6. Haga clic en **Done** (Listo) para guardar la tabla de firewall.
+
+## <a name="firewall-rules"></a>Reglas de firewall
+
+Las reglas de firewall determinan cómo trata el firewall determinados tipos de tráfico. En la pestaña **Rules** (Reglas) de una tabla de firewall seleccionada se enumeran todas las reglas asociadas.
+
+![Tabla de reglas de firewall](media/firewall-rules-tab.png)
+
+## <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
+
+1. Muestre la configuración para crear una regla de firewall de cualquiera de estas maneras:
+    * Haga clic en **Add Rule** (Agregar regla) al crear una tabla de firewall.
+    * Seleccione una tabla de firewall determinada en la página **Network > Firewall Tables** (Red > Tablas de firewall) y haga clic en **Create new firewall rule** (Crear nueva regla de firewall).
+2. Configure la regla de la siguiente manera:
+    * **Nombre**. Asigne un nombre a la regla.
+    * **Prioridad**. Asigne una prioridad a la regla. Las reglas con números más bajos se ejecutan primero.
+    * **Tipo de tráfico**. Seleccione si la regla es para el tráfico de la nube privada, Internet o VPN (sin estado) o para una dirección IP pública (con estado).
+    * **Protocolo**. Seleccione el protocolo que se incluye en la regla (TCP, UDP o cualquier otro).
+    * **Dirección**. Seleccione si la regla es para el tráfico entrante o saliente. Debe definir reglas independientes para el tráfico entrante y saliente.
+    * **Acción**. Seleccione la acción que se realizará si la regla concuerda (permitir o denegar).
+    * **Origen**. Especifique los orígenes que se incluyen en la regla (bloque CIDR, interno o cualquier origen).
+    * **Intervalo de puertos de origen**. Especifique el intervalo de puertos sujetos a la regla.
+    * **Dirección**. Seleccione entrada o salida.
+    * **Destino**. Especifique los destinos que se incluyen en la regla (bloque CIDR, interno o cualquier origen).
+    * **Intervalo de puertos de origen**. Especifique el intervalo de puertos sujetos a la regla.
+
+    ![Regla de adición de tablas de firewall](media/firewall-rule-create.png)
+
+3. Haga clic en **Done** (Listo) para guardar la regla y agregarla a la lista de reglas de la tabla de firewall.
+
+## <a name="attach-vlanssubnets"></a>Asociación de redes VLAN o subredes
+
+Después de definir una tabla de firewall, puede especificar las subredes que están sujetas a las reglas de la tabla.
+
+1. En la página **Network** > **Firewall Tables** (Red > Tablas de firewall), seleccione una tabla de firewall.
+2. Abra la pestaña **Attached VLANs/Subnet** (VLAN o subred asociada).
+3. Haga clic en **Attach to a VLAN/Subnet** (Asociar a VLAN o subred).
+4. Seleccione la nube privada y la red VLAN. Se muestran el nombre de la subred asociada y el bloque CIDR.
+5. Haga clic en **Enviar**.

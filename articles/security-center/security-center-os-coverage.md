@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883593"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640781"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Características y plataformas compatibles con Azure Security Center
 
@@ -30,8 +30,7 @@ La supervisión del estado de seguridad y las recomendaciones están disponibles
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plataformas compatibles con el agente de recopilación de datos 
-
-En esta sección se enumeran las plataformas en las que puede ejecutarse el agente de Azure Security Center y desde las que puede recopilar datos.
+En esta sección se enumeran las plataformas en las que puede ejecutarse el agente de Log Analytics, que Azure Security Center usa.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas compatibles con máquinas virtuales y equipos de Windows
 Se admiten los siguientes sistemas operativos Windows:
@@ -112,7 +111,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, se integra en el sistema operativo.| Sí |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | Sí |
-| Trend Micro: todas las versiones | Familia de Windows Server  | Sin | Sí |
+| Trend Micro: todas las versiones* | Familia de Windows Server  | Sin | Sí |
 | Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
 | McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
 | McAfee v10 o posterior | Familia de Linux Server  | Sin | Sí **\*** |
@@ -122,6 +121,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 
 > [!NOTE]
 > - La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 3.0 (o una versión superior).
+> - La detección de protección de Trend Micro es compatible con los agentes de Deep Security.  No se admiten agentes de OfficeScan.
 
 ## <a name="supported-paas-features"></a>Características admitidas de PaaS
 
@@ -165,6 +165,6 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
-- Obtenga más información acerca del [análisis de comportamiento de máquinas virtuales y análisis de la memoria de volcado en Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Obtenga más información sobre [Detección de amenazas en máquinas virtuales y servidores en Azure Security Center](security-center-alerts-iaas.md).
 - Consulte las [preguntas más frecuentes sobre Azure Security Center](security-center-faq.md).
 - Encuentre [artículos de blog sobre el cumplimiento y la seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/).

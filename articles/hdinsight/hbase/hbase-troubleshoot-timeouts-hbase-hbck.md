@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/01/2019
-ms.openlocfilehash: 4f3f1c22fa1dc05a66a8b6bf0179903a44cef9b6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/16/2019
+ms.openlocfilehash: 941a710e4c3be3e93263bb63a60c3e0fbcfc4fc4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737434"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638397"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Escenario: Tiempos de espera con el comando "hbase hbck" en Azure HDInsight
 
@@ -23,19 +23,21 @@ Se producen tiempos de espera con el comando `hbase hbck` al corregir las asigna
 
 ## <a name="cause"></a>Causa
 
-Aquí la posible causa podría ser que varias regiones estén en el estado "en transición" durante mucho tiempo. Esas regiones pueden verse como sin conexión desde la interfaz de usuario de Apache HBase Master. Debido al gran número de regiones que tratan de realizar la transición, HBase Master podría superar el tiempo de espera y no ser capaz de volver a poner esas regiones en estado en línea.
+Una posible causa de problemas de tiempo de espera cuando se usa el comando `hbck` puede ser que varias regiones estén en el estado "en transición" durante mucho tiempo. En la interfaz de usuario maestra de HBase, dichas regiones se pueden ver como sin conexión. Dado que un elevado número de regiones intentan realizar la transición, HBase Master puede superar el tiempo de espera, lo que impediría que dichas regiones vuelvan a estar en línea.
 
 ## <a name="resolution"></a>Resolución
 
-1. Inicie sesión a través de SSH en el clúster de HBase para HDInsight.
+1. Inicie sesión en el clúster de HDInsight HBase mediante SSH.
 
-1. Ejecute el comando `hbase zkcli` para conectarse al shell de Zookeeper.
+1. Ejecute el comando `hbase zkcli` para conectarse al shell de Apache ZooKeeper.
 
 1. Ejecute el comando `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition`.
 
 1. Salga del shell `hbase zkcli` mediante el comando `exit`.
 
-1. Abra la interfaz de usuario de Ambari y reinicie el servicio Active HBase Master desde Ambari.
+1. En la interfaz de usuario de Apache Ambari, reinicie el servicio Active HBase Master.
+
+1. Ejecute el comando `hbase hbck -fixAssignments`.
 
 1. Supervise la "región en transición" de la interfaz de usuario de HBase Master para asegurarse de que no se bloquee ninguna región.
 
@@ -43,8 +45,8 @@ Aquí la posible causa podría ser que varias regiones estén en el estado "en t
 
 Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
-* Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
+- Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 
-* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener más información, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

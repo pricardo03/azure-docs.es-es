@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/20/2019
+ms.openlocfilehash: ad08bb19f96aadad42e973eebb8adce6875e07b1
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780056"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876590"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Protección de clústeres en Azure Data Explorer
 
@@ -29,6 +29,9 @@ La habilitación del [cifrado en reposo](/azure/security/fundamentals/encryption
 1. En la ventana **Seguridad**, seleccione **Activado** en el valor de seguridad de **Cifrado de disco**. 
 
 1. Seleccione **Guardar**.
+ 
+> [!NOTE]
+> El cifrado se puede deshabilitar una vez activado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

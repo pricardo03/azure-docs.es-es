@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566620"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637284"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Elija entre los niveles de servicio de núcleo virtual y migre desde los niveles de servicio DTU
 
@@ -28,7 +28,7 @@ El modelo de compra basado en núcleo virtual permite escalar los recursos de pr
 El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso.
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
+> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
 > [!NOTE]
 > Para más información sobre los niveles de servicio basados en DTU, consulte el [Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md). Para información sobre las diferencias entre los niveles de servicio basados en DTU y los modelos de compra basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
 

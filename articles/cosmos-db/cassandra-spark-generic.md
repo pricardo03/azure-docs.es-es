@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893650"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615638"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conexión con Cassandra API de Azure Cosmos DB desde Spark
 
@@ -46,8 +46,8 @@ En la tabla siguiente se enumeran los parámetros de configuración de rendimien
 | spark.cassandra.connection.connections_per_executor_max  | None | Número máximo de conexiones por nodo y ejecutor. 10*n equivale a diez conexiones por nodo en un clúster de Cassandra con n nodos. Por lo tanto, si necesita cinco conexiones por nodo y ejecutor para un clúster de Cassandra de cinco nodos, debe establecer esta configuración en 25. Modifique este valor según el grado de paralelismo o el número de ejecutores configurados para los trabajos de Spark.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Define el número de escrituras paralelas que pueden producirse por ejecutor. Dado que ha establecido "batch.size.rows" en 1, asegúrese de escalar verticalmente este valor en consecuencia. Modifique este valor según el grado de paralelismo o el rendimiento que desea lograr para la carga de trabajo. |
 | spark.cassandra.concurrent.reads |  512 | Define el número de lecturas en paralelo que pueden producirse por ejecutor. Modifique este valor según el grado de paralelismo o el rendimiento que desea lograr para la carga de trabajo.  |
-| spark.cassandra.output.throughput_mb_per_sec  | None | Define el rendimiento de escritura total por ejecutor. Este parámetro puede usarse como límite superior para el rendimiento de trabajo de Spark y basarse en el rendimiento aprovisionado de la colección de Cosmos DB.   |
-| spark.cassandra.input.reads_per_sec| None   | Define el rendimiento de lectura total por ejecutor. Este parámetro puede usarse como límite superior para el rendimiento de trabajo de Spark y basarse en el rendimiento aprovisionado de la colección de Cosmos DB.  |
+| spark.cassandra.output.throughput_mb_per_sec  | None | Define el rendimiento de escritura total por ejecutor. Este parámetro puede usarse como límite superior para el rendimiento de trabajo de Spark y basarse en el rendimiento aprovisionado del contenedor de Cosmos.   |
+| spark.cassandra.input.reads_per_sec| None   | Define el rendimiento de lectura total por ejecutor. Este parámetro puede usarse como límite superior para el rendimiento de trabajo de Spark y basarse en el rendimiento aprovisionado del contenedor de Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Define el número de lotes por cada tarea única de Spark que se pueden almacenar en la memoria antes de enviarlos a Cassandra API. |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Define el período de tiempo hasta el que están disponibles las conexiones no utilizadas. | 
 

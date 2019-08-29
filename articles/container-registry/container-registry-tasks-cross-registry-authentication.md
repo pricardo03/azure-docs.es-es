@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641525"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509089"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación entre registros en una tarea de ACR mediante una identidad administrada por Azure 
 
@@ -76,7 +76,7 @@ En los pasos de esta sección se crea una tarea y se habilita una identidad asig
 
 ### <a name="create-task"></a>Crear la tarea
 
-Cree la tarea *helloworldtask* mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]. El contexto de la tarea es el sistema local y el comando hace referencia al archivo `helloworldtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` pasa el identificador de recurso de la identidad asignada por el usuario. 
+Cree la tarea *helloworldtask* mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]. La tarea se ejecuta sin contexto de código fuente y el comando hace referencia al archivo `helloworldtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` pasa el identificador de recurso de la identidad asignada por el usuario. 
 
 ```azurecli
 az acr task create \
@@ -91,11 +91,11 @@ az acr task create \
 
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opción 2: Creación de una tarea con una identidad asignada por el sistema
 
-En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si en su lugar quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity). 
+En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si, en cambio, quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Crear la tarea
 
-Cree la tarea *helloworldtask* mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]. El contexto de la tarea es el sistema local y el comando hace referencia al archivo `helloworldtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` sin valor habilita la identidad asignada por el sistema en la tarea. 
+Cree la tarea *helloworldtask* mediante la ejecución del siguiente comando [az acr task create][az-acr-task-create]. La tarea se ejecuta sin contexto de código fuente y el comando hace referencia al archivo `helloworldtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` sin valor habilita la identidad asignada por el sistema en la tarea. 
 
 ```azurecli
 az acr task create \

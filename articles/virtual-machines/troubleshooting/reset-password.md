@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fc51dfb90158316b3fe6c11b5265f1cf3251505
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306958"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641044"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
 
@@ -30,11 +30,14 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
 
 ## <a name="manual-password-reset-procedure"></a>Procedimiento de restablecimiento de contraseñas manual
 
-1.  Elimine la máquina virtual y mantenga los discos conectados.
+> [!NOTE]
+> Los siguientes pasos no se aplican a la máquina virtual con un disco no administrado.
 
-2.  Asocie la unidad de sistema operativo como un disco de datos a otra máquina virtual temporal en la misma ubicación.
+1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y luego conecte el disco a una máquina virtual de solución de problemas. Para obtener más información, vea [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-linux.md).
 
-3.  Ejecute el siguiente comando SSH en la máquina virtual temporal para convertirse en superusuario.
+2. Conéctese a la máquina virtual de solución de problemas mediante Escritorio remoto.
+
+3.  Ejecute el siguiente comando SSH en la máquina virtual de solución de problemas para convertirse en superusuario.
 
     ```bash
     sudo su
@@ -98,9 +101,9 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
     umount /tempmount
     ```
 
-11. Desconecte el disco del portal de administración.
+11. En Azure Portal, desconecte el disco de la máquina virtual de solución de problemas.
 
-12. Vuelva a crear la máquina virtual.
+12. [Cambie el disco del sistema operativo de la máquina virtual afectada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

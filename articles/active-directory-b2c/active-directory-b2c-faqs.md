@@ -1,21 +1,21 @@
 ---
-title: Preguntas más frecuentes sobre Azure Active Directory B2C
-description: Preguntas más frecuentes (P+F) sobre Azure Active Directory B2C.
+title: Preguntas más frecuentes (P+F) sobre Azure Active Directory B2C
+description: Respuestas a preguntas frecuentes sobre Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6f25cfb2c0e07278220cdd04ee38472157f1be4d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612489"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622265"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -37,7 +37,7 @@ Azure AD B2C no se puede usar para autenticar los usuarios de Microsoft Office 3
 
 En un inquilino de Azure AD, los usuarios que pertenecen al inquilino inician sesión con una dirección de correo electrónico con el formato `<xyz>@<tenant domain>`. `<tenant domain>` es uno de los dominios comprobados del inquilino o el dominio `<...>.onmicrosoft.com` inicial. Este tipo de cuenta es una cuenta profesional o educativa.
 
-En un inquilino de Azure AD B2C, la mayoría de las aplicaciones desean que el usuario inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Este tipo de cuenta es una cuenta local. También se admiten nombres de usuario arbitrarios tales como cuentas locales (por ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos tipos de cuentas locales al configurar proveedores de identidades para Azure AD B2C en Azure Portal. En el inquilino de Azure AD B2C, haga clic en **Proveedores de identidades** y, a continuación, seleccione **Nombre de usuario** en Cuentas locales.
+En un inquilino de Azure AD B2C, la mayoría de las aplicaciones desean que el usuario inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Este tipo de cuenta es una cuenta local. También se admiten nombres de usuario arbitrarios tales como cuentas locales (por ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos tipos de cuentas locales al configurar proveedores de identidades para Azure AD B2C en Azure Portal. En el inquilino de Azure AD B2C, seleccione **Proveedores de identidades**, **Cuenta local** y **Nombre de usuario**.
 
 Las cuentas de usuario de las aplicaciones siempre se deben crear mediante un flujo de usuario de registro, un flujo de usuario de registro o inicio de sesión, o mediante Azure AD Graph API. Las cuentas de usuario creadas en Azure Portal solo se usan para administrar el inquilino.
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 08/19/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73033f91e9d20c56fedc6b4faf26dcf312fce1e1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321105"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638636"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedimientos para: Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -49,6 +49,9 @@ El portal representa la forma más sencilla de comprobar si su cuenta tiene los 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
 
 En el ejemplo siguiente se trata un escenario sencillo. En él se usa [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para crear una entidad de servicio con un certificado autofirmado, y se utiliza [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para asignar el rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) a la entidad de servicio. La asignación de roles se limita a su suscripción de Azure seleccionada actualmente. Para seleccionar una suscripción diferente, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+
+> [!NOTE]
+> El cmdlet New-SelfSignedCertificate y el módulo PKI no se admiten actualmente en PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

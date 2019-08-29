@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705795"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533698"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -30,13 +30,16 @@ El Proxy de aplicación de Azure AD permite que las aplicaciones locales estén 
 La mejor forma de asegurarse de que los vínculos funcionan del mismo modo tanto dentro como fuera de la red corporativa es configurar las direcciones URL externas de sus aplicaciones para que sean iguales que las direcciones URL internas. Use [dominios personalizados](application-proxy-configure-custom-domain.md) para configurar las direcciones URL externas de modo que tengan su nombre de dominio corporativo en lugar del dominio del proxy de aplicación predeterminado.
 
 
-Si no puede usar dominios personalizados en el inquilino, hay algunas otras opciones para proporcionar esta funcionalidad. Todas ellas también son compatibles con los dominios personalizados y entre sí, de forma que pueda configurar dominios personalizados y otras soluciones si es necesario. 
+Si no puede usar dominios personalizados en el inquilino, hay algunas otras opciones para proporcionar esta funcionalidad. Todas ellas también son compatibles con los dominios personalizados y entre sí, de forma que pueda configurar dominios personalizados y otras soluciones si es necesario.
+
+> [!NOTE]
+> No se admite la traducción de vínculos para las direcciones URL internas codificadas de forma rígida y generadas a través de JavaScript.
 
 **Opción 1: usar Managed Browser o Microsoft Edge**. Esta solución solo es aplicable si tiene previsto recomendar o requerir que los usuarios tengan acceso a la aplicación a través de Intune Managed Browser o Microsoft Edge. Controlará todas las URL publicadas. 
 
 **Opción 2: usar la extensión MyApps**. Esta solución requiere que los usuarios instalen una extensión de explorador del lado cliente, pero controlará todas las URL publicadas y funciona con los exploradores más populares. 
 
-**Opción 3: usar el valor de traducción de vínculos**. Se trata de un valor del lado administrador que es invisible para los usuarios. En cambio, solo controlará las URL en HTML y CSS. No funcionarán las URL internas codificadas de forma rígida generadas a través de JavaScript (por ejemplo).  
+**Opción 3: usar el valor de traducción de vínculos**. Se trata de un valor del lado administrador que es invisible para los usuarios. En cambio, solo controlará las URL en HTML y CSS.   
 
 Estas tres características mantendrán sus vínculos en funcionamiento independientemente de dónde estén los usuarios. Cuando tiene aplicaciones que apunta directamente a puertos o puntos de conexión internos, puede asignar estas direcciones URL internas a las direcciones URL del proxy de aplicación externas publicadas. 
 

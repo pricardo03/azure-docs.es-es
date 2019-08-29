@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494835"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557936"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -72,7 +72,7 @@ Todos los ejemplos de Azure Policy se encuentran en [Ejemplos de Azure Policy](.
 
 ## <a name="mode"></a>Mode
 
-El **Modo** se configura en función de si la directiva tiene como destino una propiedad de Azure Resource Manager o una propiedad del proveedor de recursos.
+El **modo** se configura en función de si la directiva tiene como destino una propiedad de Azure Resource Manager o una propiedad del proveedor de recursos.
 
 ### <a name="resource-manager-modes"></a>Modos de Resource Manager
 

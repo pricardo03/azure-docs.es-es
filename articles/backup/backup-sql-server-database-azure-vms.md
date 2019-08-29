@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688641"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872903"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -51,22 +51,29 @@ Establezca la conectividad con una de las siguientes opciones:
 
 - **Allow the Azure datacenter IP ranges** (Permitir los intervalos IP del centro de datos de Azure). Esta opción permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si está en la lista de destinatarios seguros de las direcciones IP específicas de la región, también tendrá que actualizar la lista de destinatarios seguros con la etiqueta de servicio de Azure Active Directory (Azure AD) para habilitar la autenticación.
 
-- **Allow access using NSG tags** (Permitir el acceso mediante etiquetas NSG). Si utiliza los NSG para restringir la conectividad, esta opción agregue una regla al grupo de seguridad de red que permite el acceso saliente a Azure Backup mediante la etiqueta AzureBackup. Además de esta etiqueta, también necesitará las [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) correspondientes para Azure AD y Azure Storage para permitir la conectividad para la autenticación y la transferencia de datos. La etiqueta AzureBackup solo está disponible en PowerShell en estos momentos. Para crear una regla mediante la etiqueta AzureBackup:
+- **Allow access using NSG tags** (Permitir el acceso mediante etiquetas NSG).  Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente a Azure Backup. Además, debe permitir la conectividad para la autenticación y la transferencia de datos mediante [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de Azure AD y Azure Storage. Esto se puede hacer desde el portal o desde PowerShell.
 
-    - Agregue las credenciales de la cuenta de Azure y actualice las nubes nacionales.<br/>
-    `Add-AzureRmAccount`
+    Para crear una regla mediante el portal:
+    
+    - En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
+    - En **Configuración**, seleccione **Reglas de seguridad de salida**.
+    - Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en **Etiqueta de servicio** y de que **Etiqueta de servicio de destino** esté establecida en **AzureBackup**.
+    - Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
+    
+   Para crear una regla mediante PowerShell:
 
-    - Seleccione la suscripción a NSG.<br/>
-    `Select-AzureRmSubscription "<Subscription Id>"`
-
-     - Seleccione el NSG.<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
-    - Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Backup.<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
+   - Agregue las credenciales de la cuenta de Azure y actualice las nubes nacionales.<br/>
+    ``Add-AzureRmAccount``
+  - Seleccione la suscripción a NSG.<br/>
+    ``Select-AzureRmSubscription "<Subscription Id>"``
+  - Seleccione el NSG.<br/>
+    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
+  - Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Backup.<br/>
+   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
   - Guarde el NSG.<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+
+   
 - **Allow access by using Azure Firewall tags** (Permitir el acceso mediante el uso de etiquetas de Azure Firewall). Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de nombre de dominio completo](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. Esto permite el acceso de salida a Azure Backup.
 - **Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
 
@@ -168,7 +175,7 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
    Para optimizar las cargas de copia de seguridad, el número máximo de bases de datos en un trabajo de copia de seguridad en Azure Backup se establece en 50.
 
      * Para proteger más de 50 bases de datos, configure varias copias de seguridad.
-     * Para habilitar [](#enable-auto-protection) toda la instancia o el grupo de disponibilidad Always On, en la lista desplegable **AUTOPROTECT** (Protección automática), seleccione **ON** (Activar) y, a continuación, seleccione **OK** (Aceptar).
+     * Para [habilitar](#enable-auto-protection) toda la instancia o el grupo de disponibilidad Always On, en la lista desplegable **PROTECCIÓN AUTOMÁTICA**, seleccione **ACTIVADA** y luego **ACEPTAR**.
 
     > [!NOTE]
     > La característica de [protección automática](#enable-auto-protection) no solo habilita la protección en todas las bases de datos existentes a la vez, sino que también protege automáticamente las nuevas bases de datos que se agregan a esa instancia o al grupo de disponibilidad.  
@@ -177,7 +184,7 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
     ![Habilitación de la protección automática para el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. En **Directiva de copia de seguridad**, elija una directiva y seleccione **Aceptar**.
+5. En **Directiva de copia de seguridad**, elija una directiva y seleccione **Aceptar**.
 
    - Seleccione la directiva predeterminada como HourlyLogBackup.
    - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
@@ -185,11 +192,11 @@ Detección de las bases de datos que se ejecutan en la máquina virtual:
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. En  **Copia de seguridad**, seleccione  **Habilitar copia de seguridad**.
+6. En **Copia de seguridad**, seleccione **Habilitar copia de seguridad** .
 
     ![Habilitar la directiva de copia de seguridad elegida](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Realice el seguimiento del progreso de la configuración en el área de  **notificaciones**  del portal.
+7. Realice el seguimiento del progreso de la configuración en el área de **notificaciones** del portal.
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +280,7 @@ Puede habilitar la protección automática para hacer una copia de seguridad aut
 
 - No hay límite en el número de bases de datos que se pueden seleccionar para la protección automática en una sola operación.
 - No puede proteger o excluir selectivamente las bases de datos de la protección en una instancia en el momento en que habilita la protección automática.
-- Si la instancia ya incluye algunas bases de datos protegidos, permanecerán protegidos en sus respectivas directivas incluso después de activar la protección automática. Todas las bases de datos desprotegidas agregadas posteriormente tendrán solo una única directiva que se define en el momento de habilitar la protección automática, anuncie  **Configurar copia de seguridad**. Sin embargo, puede cambiar la directiva asociada a una base de datos protegida automáticamente más adelante.  
+- Si la instancia ya incluye algunas bases de datos protegidos, permanecerán protegidos en sus respectivas directivas incluso después de activar la protección automática. Todas las bases de datos no protegidas que se agreguen posteriormente tendrán una única directiva que se define en el momento de habilitar la protección automática, indicada en **Configurar copia de seguridad**. Sin embargo, puede cambiar la directiva asociada a una base de datos protegida automáticamente más adelante.  
 
 Para habilitar la protección automática:
 
@@ -288,7 +295,7 @@ Si tiene que deshabilitar la protección automática, haga clic en el nombre de 
 
 ![Deshabilitación de la protección automática en dicha instancia](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo:

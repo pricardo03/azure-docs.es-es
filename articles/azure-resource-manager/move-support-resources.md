@@ -4,14 +4,14 @@ description: Enumera los tipos de recursos de Azure que se pueden trasladar a un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 7/9/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 73f4b6fe4714d21c12d2c7bd387cd30f6f711d5a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226815"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624323"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -263,7 +263,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 | redis | Sí | Sí |
 
 > [!IMPORTANT]
-> Si la instancia de Azure Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Limitaciones de movimiento de las redes virtuales](./move-limitations/virtual-network-move-limitations.md).
+> Si la instancia de Azure Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Limitaciones de movimiento de las redes virtuales](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo de recurso | Resource group | Subscription |
@@ -765,7 +765,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 | webapplicationfirewallpolicies | Sí | Sí |
 
 > [!IMPORTANT]
-> Vea [Guía de movimiento de Virtual Network](./move-limitations/virtual-network-move-limitations.md).
+> Consulte [Guía de movimiento de redes](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Resource group | Subscription |

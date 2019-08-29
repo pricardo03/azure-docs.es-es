@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812215"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617607"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilegios de nube privada en vCenter desde el portal de CloudSimple 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilegios de nube privada en vCenter desde el portal de CloudSimple
 
 Para obtener acceso administrativo a vCenter de su nube privada, puede escalar temporalmente sus privilegios de CloudSimple.  Con privilegios elevados, puede instalar soluciones de VMware, agregar orígenes de identidad y administrar usuarios.
 
@@ -38,7 +38,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
     ![Cambiar privilegio de vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Seleccione el tipo de usuario de vSphere.  Solo el usuario local **CloudOwner@cloudsimple.local** puede escalarse.
+4. Seleccione el tipo de usuario de vSphere.  Solo el usuario local `CloudOwner@cloudsimple.local` puede escalarse.
 
 5. En la lista desplegable, seleccione el intervalo de elevación. Elija el período más corto que le permita completar la tarea.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616382"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542893"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
@@ -174,6 +174,9 @@ az aks create \
 Un clúster de AKS tarda unos minutos en crearse.
 
 ## <a name="create-an-rbac-binding"></a>Creación de un enlace de RBAC
+
+> [!NOTE]
+> El nombre del enlace del rol de clúster distingue mayúsculas de minúsculas.
 
 Para poder usar una cuenta de Azure Active Directory con un clúster de AKS, debe crear un enlace de rol o de rol de clúster. Los roles definen los permisos que se deben otorgar, y los enlaces aplican dichos roles a los usuarios deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para obtener más información, consulte [Uso de la autorización de RBAC][rbac-authorization].
 

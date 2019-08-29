@@ -5,22 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df98966b69250d31f2a741411aea6e5554f9ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112860"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512558"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guía de concesión de licencias de colaboración B2B de Azure Active Directory
 
-Con la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD), puede invitar a usuarios externos (o "usuarios invitados") a usar sus servicios de Azure AD de pago. Por cada licencia de Azure AD de pago que asigne a un usuario, puede invitar hasta a cinco usuarios invitados con arreglo a la concesión de usuarios externos.
+Con la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD), puede invitar a usuarios externos (o "usuarios invitados") a usar sus servicios de Azure AD de pago. Algunas características son gratuitas, pero para las características de Azure AD de pago, puede invitar hasta cinco usuarios invitados por cada licencia de la edición Azure AD que posea para un empleado o un usuario que no sea invitado en el inquilino.
+
+> [!NOTE]
+> Consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para más información sobre los precios de Azure AD y las características de colaboración B2B.
 
 La licencia de los usuarios invitados B2B se calcula automáticamente y se notifica según la relación 1:5. Actualmente, no es posible asignar licencias de usuario invitado B2B directamente a los usuarios invitados.
 

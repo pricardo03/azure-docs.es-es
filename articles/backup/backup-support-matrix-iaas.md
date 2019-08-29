@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952031"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617359"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar copias de seguridad de cargas de trabajo y máquinas locales, y de las máquinas virtuales de Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad para realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -157,8 +157,8 @@ Restauración de máquinas virtuales ancladas por zona | Compatible (para máqui
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos. <br/><br/> Compatibilidad con tamaños de disco de hasta 4 TB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte [Información general sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Tamaño del disco de datos | El disco individual puede tener hasta 4095 GB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos. <br/><br/> Compatibilidad con tamaños de disco de hasta 4 TB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de más de 4 TB y hasta un máximo de 30 TB, vea este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Tamaño del disco de datos | El disco individual puede tener hasta 4095 GB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de más de 4 TB y hasta un máximo de 30 TB, vea este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Se admite.
 Discos cifrados | Se admite.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.

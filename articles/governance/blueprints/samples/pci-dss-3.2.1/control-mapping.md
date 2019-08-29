@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226027"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515689"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
@@ -35,7 +35,7 @@ Este plano técnico ayuda a instaurar la directiva con el uso de controles cript
 - Acceso a Function App solo a través de HTTPS
 - Acceso a la aplicación web solo a través de HTTPS
 - Acceso a API App solo a través de HTTPS
-- Supervisión de la base de datos SQL sin cifrar en Azure Security Center
+- Se debe permitir el cifrado de datos transparente en bases de datos SQL
 - El cifrado de discos debe aplicarse en máquinas virtuales
 - Las variables de cuenta de automatización deben cifrarse
 - Se deben habilitar solo las conexiones seguras a Redis Cache
@@ -98,11 +98,11 @@ Azure implementa el control de acceso basado en rol (RBAC) para permitirle admin
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
-- \[Versión preliminar\]: Realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
+- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 - \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Windows que permitan volver a usar las 24 contraseñas anteriores
 
 ## <a name="103-and-1054-audit-generation"></a>Generación de auditoría de 10.3 y 10.5.4
@@ -110,7 +110,7 @@ Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignaci�
 Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure.
 Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que se realizaron en recursos de Azure. Los registros de Azure se basan en relojes internos sincronizados para crear un registro con correlación de tiempo de eventos entre recursos.
 
-- Supervisión de servidores SQL Server no auditados en Azure Security Center
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 - Auditar la configuración de diagnóstico
 - Auditar configuración de auditoría de SQL en el nivel de servidor
 - Implementación de auditorías en servidores SQL Server

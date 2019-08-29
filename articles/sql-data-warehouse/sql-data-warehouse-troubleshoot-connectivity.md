@@ -10,12 +10,12 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d7f56b65db09232af4fe7e198675ea0cfd64a25
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595489"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575545"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Solución de problemas de conectividad
 
@@ -31,11 +31,11 @@ En este artículo se enumeran las técnicas de solución de problemas comunes en
 
 ## <a name="check-service-availability"></a>Comprobación de la disponibilidad del servicio
 
-Compruebe si el servicio está disponible. En Azure Portal, vaya al almacenamiento de datos SQL al que está intentando conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
+Compruebe si el servicio está disponible. En Azure Portal, vaya a la instancia de SQL Data Warehouse a la que está intentando conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
 
 ![Selección de Resource Health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Aquí se mostrará el estado del almacenamiento de datos SQL. Si el servicio no se muestra como **disponible**, consulte más pasos.
+Aquí se mostrará el estado del almacenamiento SQL Data Warehouse. Si el servicio no se muestra como **disponible**, consulte más pasos.
 
 ![El servicio está disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
@@ -45,15 +45,15 @@ Si Resource Health muestra que el almacenamiento de datos está en pausa o escal
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Comprobación de la operación de pausa o escalado
 
-Compruebe en el portal si su almacenamiento de datos SQL está en pausa o escalado.
+Compruebe en el portal si su almacenamiento SQL Data Warehouse está en pausa o se está escalando.
 
 ![Servicio en pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal de *información general* para el almacenamiento de datos SQL, verá la programación de mantenimiento seleccionada.
+Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal de *información general* del almacenamiento SQL Data Warehouse, verá la programación de mantenimiento seleccionada.
 
 ![Información general de la programación de mantenimiento](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar el almacenamiento de datos SQL, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar el almacenamiento SQL Data Warehouse, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Comprobación de la configuración de firewall
 
@@ -67,7 +67,7 @@ Si recibe los errores 40914 y 40615, consulte la [descripción del error y la re
 
 ### <a name="software"></a>Software
 
-Asegúrese de usar las herramientas más recientes para conectarse al almacenamiento de datos SQL:
+Asegúrese de usar las herramientas más recientes para conectarse al almacenamiento SQL Data Warehouse:
 
 * SSMS
 * Azure Data Studio

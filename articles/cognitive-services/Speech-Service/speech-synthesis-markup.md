@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855096"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624253"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -31,6 +31,10 @@ La implementación de los servicios de voz de SSML se basa en la [versión 1.0 d
 Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en 4 idiomas y configuraciones regionales. Para obtener una lista completa de los idiomas compatibles, las configuraciones regionales y las voces (neuronales y estándar), consulte [compatibilidad con idiomas](language-support.md).
 
 Para más información sobre las voces estándar, neuronales y personalizadas, consulte la [introducción del texto a voz](text-to-speech.md).
+
+## <a name="special-characters"></a>Caracteres especiales
+
+Al usar SSML para convertir el texto en voz sintetizada, tenga en cuenta que, al igual que con XML, los caracteres especiales, como comillas, apóstrofos y corchetes, deben ser de escape. Para más información, consulte [Lenguaje de marcado extensible (XML) 1.0: Apéndice D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Elementos SSML admitidos
 
@@ -142,6 +146,7 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Expresa una emoción que es positiva y feliz. |
 | | tipo =`empathy` | Expresa un sentimiento de cuidado y comprensión. |
+| | tipo =`chat` | Hablar en un tono informal y relajado |
 | `zh-CN-XiaoxiaoNeural` | tipo =`newscast` | Expresa un tono formal, similar a las retransmisiones de noticias. |
 | | tipo =`sentiment` | Transmite un mensaje conmovedor o una historia. |
 

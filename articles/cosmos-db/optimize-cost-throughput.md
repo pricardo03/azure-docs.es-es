@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967307"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614996"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Puede aprovisionar el rendimiento en bases de datos o contenedores, y cada estra
 
 Las siguientes son algunas directrices para decidir una estrategia de rendimiento aprovisionado:
 
-**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos DB (que contiene un conjunto de contenedores) si**:
+**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos (que contiene un conjunto de contenedores) si**:
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 

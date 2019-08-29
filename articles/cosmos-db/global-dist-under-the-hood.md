@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 849c3a745de08e7cf8ff7f1b8bb237a6d0f54395
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384167"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615352"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Como se observa en la imagen siguiente, los datos de un contenedor se distribuye
 
 Una partición física se implementa por medio de un grupo de réplicas, llamado *conjunto de replicas*. Cada máquina hospeda cientos de réplicas que corresponden a diversas particiones físicas incluidas en un conjunto fijo de procesos, tal y como se muestra en la imagen anterior. Las réplicas que corresponden a las particiones físicas se colocan y su carga se equilibra de forma dinámica en las máquinas de un clúster y los centros de datos de una región.  
 
-Una réplica pertenece de forma exclusiva a un inquilino de Azure Cosmos DB. Cada réplica hospeda una instancia del [motor de base de datos](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) de Cosmos DB, que administra los recursos, así como los índices asociados. El motor de base de datos de Cosmos DB funciona en un sistema tipo basado en la secuencia de registro de átomos (ARS). El motor es independiente del concepto de esquema y difumina el límite entre la estructura y los valores de instancia de los registros. Cosmos DB logra la independencia total del esquema indexando todo automáticamente tras la ingesta de datos de forma eficaz, lo que permite a los usuarios consultar sus datos distribuidos globalmente sin tener que ocuparse de la administración de esquemas o de índices.
+Una réplica pertenece de forma exclusiva a un inquilino de Azure Cosmos DB. Cada réplica hospeda una instancia del [motor de base de datos](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) de Cosmos DB, que administra los recursos, así como los índices asociados. El motor de base de datos de Cosmos funciona en un sistema tipo basado en la secuencia de registro de átomos (ARS). El motor es independiente del concepto de esquema y difumina el límite entre la estructura y los valores de instancia de los registros. Cosmos DB logra la independencia total del esquema indexando todo automáticamente tras la ingesta de datos de forma eficaz, lo que permite a los usuarios consultar sus datos distribuidos globalmente sin tener que ocuparse de la administración de esquemas o de índices.
 
 El motor de base de datos de Cosmos consta de componentes como la implementación de varias primitivas de coordinación, los entornos de ejecución de lenguaje, el procesador de consultas y los subsistemas de almacenamiento e indexación responsables del almacenamiento transaccional y la indexación de datos, respectivamente. Para proporcionar durabilidad y alta disponibilidad, el motor de base de datos conserva sus datos y el índice en discos SSD y los replica entre las instancias de motor de base de datos de los conjuntos de réplicas, respectivamente. Los inquilinos más grandes corresponden a una mayor escala de rendimiento y almacenamiento y tienen réplicas más grandes o una mayor cantidad de las mismas o bien ambas cosas. Todos los componentes del sistema son completamente asincrónicos: no se bloquea ningún subproceso y el trabajo que realiza cada uno es de corta duración, sin incurrir en ningún cambio de subproceso innecesario. La limitación de frecuencia y la contrapresión se asocian en toda la pila desde el control de admisión a todas las rutas de acceso de E/S. El motor de base de datos de Cosmos se ha diseñado para explotar la simultaneidad específica y ofrecer un alto rendimiento mientras opera en cantidades moderadas de recursos del sistema.
 

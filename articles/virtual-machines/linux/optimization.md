@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bd59257c1136f52beaf217c1f983c8aeb7bd81d5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671126"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640754"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -60,9 +60,9 @@ En las imágenes de nube de Ubuntu, debe usar cloud-init para configurar la part
 
 En el caso de las imágenes sin compatibilidad con cloud-init, las imágenes de máquina virtual implementadas desde Azure Marketplace tienen un agente Linux de máquina virtual integrado con el sistema operativo. Este agente permite que la máquina virtual interactúe con diversos servicios de Azure. Suponiendo que ha implementado una imagen estándar desde Azure Marketplace, deberá hacer lo siguiente para configurar correctamente los valores del archivo de intercambio de Linux:
 
-Busque y modifique dos entradas en el archivo **/etc/waagent.conf** . Estas entradas controlan la existencia de un archivo de intercambio dedicado y el tamaño del archivo de intercambio. Los parámetros que desea modificar son `ResourceDisk.EnableSwap=N` y `ResourceDisk.SwapSizeMB=0`. 
+Busque y modifique dos entradas en el archivo **/etc/waagent.conf** . Estas entradas controlan la existencia de un archivo de intercambio dedicado y el tamaño del archivo de intercambio. Los parámetros que debe comprobar son `ResourceDisk.EnableSwap` y `ResourceDisk.SwapSizeMB` 
 
-Cambie los parámetros a la siguiente configuración:
+Para habilitar un disco habilitado correctamente y un archivo de intercambio montado, asegúrese de que los parámetros tengan la siguiente configuración:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={tamaño en MB que satisfaga sus requisitos} 

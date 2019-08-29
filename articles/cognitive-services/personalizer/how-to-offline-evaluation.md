@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663872"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557825"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 
@@ -30,7 +30,7 @@ Consulte [Evaluaciones sin conexión](concepts-offline-evaluation.md) para más 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. Debe tener un bucle Personalizer configurado.
-1. El bucle Personalizer debe tener al menos 50 000 eventos en sus registros para obtener resultados de evaluación significativos.
+1. El bucle de Personalizer debe tener una cantidad de datos representativa: como valor aproximado, recomendamos al menos 50 000 eventos en sus registros para obtener resultados de evaluación significativos.
 
 Opcionalmente, también puede haber exportado previamente archivos de la  _directiva de aprendizaje_ que puede comparar y probar en la misma evaluación.
 

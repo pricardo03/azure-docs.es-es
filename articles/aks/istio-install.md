@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625977"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542886"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalación y uso de Istio en Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,8 @@ En este artículo, aprenderá a:
 En los pasos detallados en este artículo se da por hecho que ha creado un clúster de AKS (Kubernetes `1.11` y versiones posteriores, con RBAC habilitado) y que ha establecido una conexión `kubectl` con el clúster. Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart].
 
 Necesitará [Helm][helm] para seguir estas instrucciones e instalar Istio. Es recomendable que tenga la versión `2.12.2` o posterior instalada y configurada correctamente en su clúster. Si necesita ayuda con la instalación de Helm, consulte las [instrucciones de instalación de Helm para AKS][helm-install]. Todos los pods de Istio también deben programarse para ejecutarse en nodos de Linux.
+
+Asegúrese de leer la documentación de [rendimiento y escalabilidad de Istio](https://istio.io/docs/concepts/performance-and-scalability/) para comprender los requisitos de recursos adicionales para ejecutar Istio en el clúster de AKS. Los requisitos de memoria y núcleos varían en función de la carga de trabajo concreta. Elija el número de nodos y el tamaño de la máquina virtual adecuados para la instalación.
 
 En este artículo, las instrucciones de instalación de Istio se dividen en varios pasos discretos. El resultado final presenta la misma estructura que las [instrucciones][istio-install-helm] de instalación oficiales de Istio.
 

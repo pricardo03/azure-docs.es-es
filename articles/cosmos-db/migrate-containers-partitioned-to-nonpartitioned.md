@@ -1,17 +1,17 @@
 ---
-title: Migrar contenedores de Azure Cosmos DB sin particiones a contenedores con particiones
+title: Migración de contenedores de Azure Cosmos sin particiones a contenedores con particiones
 description: Obtenga información sobre cómo migrar todos los contenedores sin particiones existentes en contenedores con particiones.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8ba9489496a8f9e3703702e344684b4028a002cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d51c200ebff0d92b1bcdf2c8e3e0325103e214b7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241936"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615033"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
 

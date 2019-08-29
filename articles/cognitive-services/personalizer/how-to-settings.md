@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663896"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559093"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -86,6 +86,7 @@ En la sección de administración de recursos para **Modelo y directiva**, revis
 ## <a name="import-and-export-learning-policy"></a>Importación y exportación de una directiva de aprendizaje
 
 En la sección de administración de recursos para **Modelo y directiva**, importe una nueva directiva de aprendizaje o exporte la actual.
+Puede obtener archivos de directiva de aprendizaje de exportaciones anteriores o descargar las directivas optimizadas detectadas durante las evaluaciones sin conexión. La realización de cambios manuales en estos archivos afectará al rendimiento del aprendizaje automático y a la precisión de las evaluaciones sin conexión. Además, Microsoft no podrá avalar la precisión del aprendizaje automático y las evaluaciones, o de las excepciones de servicios derivadas de las directivas editadas manualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

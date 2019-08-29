@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949780"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616143"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Administración de la configuración del método de verificación en dos fases
 
@@ -135,6 +135,10 @@ Dependiendo de la configuración de la organización, es posible que vea una cas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtener sugerencias para solucionar problemas y ayuda en [Problemas con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)
+Después de agregar o actualizar la configuración de la verificación en dos pasos, puede administrar las contraseñas de aplicación, iniciar sesión u obtener ayuda con algunos problemas comunes relacionados con ella.
 
 - [Administración de contraseñas de aplicación para la verificación en dos fases](multi-factor-authentication-end-user-app-passwords.md) de las aplicaciones que no admiten la verificación en dos fases.
+
+- [Inicio de sesión con la verificación en dos pasos](multi-factor-authentication-end-user-signin.md)
+
+- [Obtención de ayuda con la verificación en dos fases](multi-factor-authentication-end-user-troubleshoot.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 3bf89cd3ec0822cee2a3ebcf76de4193046462f9
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335909"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614587"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -23,9 +23,9 @@ Con la integración nativa entre [Azure Cosmos DB](https://azure.microsoft.com/s
 
 Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor y bases de datos de las maneras siguientes:
 
-* Cree un **desencadenador de Azure Functions para Cosmos DB** basado en eventos. Este desencadenador se basa en secuencias de [fuente de cambios](change-feed.md) para supervisar los cambios en el contenedor de Azure Cosmos DB. Cuando se hace algún cambio en un contenedor, la secuencia de fuente de cambios se envía al desencadenador, que invoca la instancia de Azure Function.
-* Como alternativa, enlace una instancia de Azure Function a un contenedor de Azure Cosmos DB mediante un **enlace de entrada**. Los enlaces de entrada leen los datos de un contenedor cuando se ejecuta una función.
-* Enlace una función a un contenedor de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
+* Cree un **desencadenador de Azure Functions para Cosmos DB** basado en eventos. Este desencadenador se basa en secuencias de [fuente de cambios](change-feed.md) para supervisar los cambios en el contenedor de Azure Cosmos. Cuando se hace algún cambio en un contenedor, la secuencia de fuente de cambios se envía al desencadenador, que invoca la instancia de Azure Function.
+* Como alternativa, enlace una instancia de Azure Functions a un contenedor de Azure Cosmos mediante un **enlace de entrada**. Los enlaces de entrada leen los datos de un contenedor cuando se ejecuta una función.
+* Enlace una función a un contenedor de Azure Cosmos mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
 > [!NOTE]
 > Actualmente, el desencadenador de Azure Functions, los enlaces de entrada y los enlaces de salida para Cosmos DB solo son compatibles para usarlos con la API de SQL. En todas las demás API de Azure Cosmos DB, debe acceder a la base de datos desde la función utilizando el cliente estático de la API.
@@ -37,9 +37,9 @@ En el diagrama siguiente se muestran cada una de estas tres integraciones:
 
 El desencadenador de Azure Functions, el enlace de entrada y el enlace de salida para Azure Cosmos DB se pueden usar en las combinaciones siguientes:
 
-* Un desencadenador de Azure Functions para Cosmos DB se puede usar con un enlace de salida a un contenedor de Azure Cosmos DB distinto. Una vez que una función realiza una acción en un elemento de la fuente de cambios, puede escribirlo en otro contenedor (si lo escribe en el mismo contenedor de origen, se crearía efectivamente un bucle recursivo). O bien puede usar un desencadenador de Azure Functions para Cosmos DB para migrar de manera eficaz todos los elementos modificados de un contenedor a otro, mediante un enlace de salida.
+* Un desencadenador de Azure Functions para Cosmos DB se puede usar con un enlace de salida a otro contenedor de Azure Cosmos. Una vez que una función realiza una acción en un elemento de la fuente de cambios, puede escribirlo en otro contenedor (si lo escribe en el mismo contenedor de origen, se crearía efectivamente un bucle recursivo). O bien puede usar un desencadenador de Azure Functions para Cosmos DB para migrar de manera eficaz todos los elementos modificados de un contenedor a otro, mediante un enlace de salida.
 * Los enlaces de entrada y los enlaces de salida de Azure Cosmos DB se pueden usar en la misma instancia de Azure Function. Esto funciona bien cuando desea encontrar ciertos datos con el enlace de entrada, modificarlos en la instancia de Azure Function y, luego, guardarlos en el mismo contenedor o en uno distinto, después de la modificación.
-* Un enlace de entrada a un contenedor de Azure Cosmos DB se puede usar en la misma función que un desencadenador de Azure Functions para Cosmos DB y también se puede usar con un enlace de salida o sin él. Podría usar esta combinación para aplicar información actualizada sobre el cambio de moneda (extraído con un enlace de entrada a un contenedor de intercambio) a la fuente de cambios de los pedidos nuevos en el servicio del carro de la compra. El total actualizado del carro de la compra, con la conversión de moneda actual aplicada, se puede escribir en un tercer contenedor con un enlace de salida.
+* Un enlace de entrada a un contenedor de Azure Cosmos se puede usar en la misma función que un desencadenador de Azure Functions para Cosmos DB y también se puede usar con un enlace de salida o sin él. Podría usar esta combinación para aplicar información actualizada sobre el cambio de moneda (extraído con un enlace de entrada a un contenedor de intercambio) a la fuente de cambios de los pedidos nuevos en el servicio del carro de la compra. El total actualizado del carro de la compra, con la conversión de moneda actual aplicada, se puede escribir en un tercer contenedor con un enlace de salida.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -57,7 +57,7 @@ En las implementaciones de IoT, puede invocar una función cuando la luz de comp
 4. El desencadenador se invoca en cada cambio de datos de la recopilación de datos del sensor, del mismo modo que todos los datos se transmiten a través de la fuente de cambios.
 5. Una condición de umbral se usa en la función para enviar los datos del sensor al departamento de garantías.
 6. Si la temperatura también supera cierto valor, también se envía una alerta al propietario.
-7. El **enlace de salida** en la función actualiza el registro del automóvil en otro contenedor de Azure Cosmos DB para almacenar información sobre el evento de comprobación del motor.
+7. El **enlace de salida** de la función actualiza el registro del automóvil en otro contenedor de Azure Cosmos para almacenar información sobre el evento de comprobación del motor.
 
 La imagen siguiente muestra el código escrito en Azure Portal para este desencadenador.
 
@@ -69,7 +69,7 @@ En implementaciones financieras, puede invocar una función cuando el saldo de u
 
 **Implementación**: desencadenador de temporizador con un enlace de entrada de Azure Cosmos DB
 
-1. Con un [desencadenador de temporizador](../azure-functions/functions-bindings-timer.md), puede recuperar la información del saldo de la cuenta bancaria almacenada en un contenedor de Azure Cosmos DB a intervalos de tiempo con un **enlace de entrada**.
+1. Con un [desencadenador de temporizador](../azure-functions/functions-bindings-timer.md), puede recuperar la información del saldo de la cuenta bancaria almacenada en un contenedor de Azure Cosmos a intervalos de tiempo con un **enlace de entrada**.
 2. Si el saldo está por debajo del umbral de saldo mínimo que establece el usuario, debe hacer seguimiento con una acción desde Azure Function.
 3. El enlace de salida puede ser una [integración de SendGrid](../azure-functions/functions-bindings-sendgrid.md) que envía un correo electrónico desde una cuenta de servicio a las direcciones de correo electrónico identificadas para cada una de las cuentas con saldo bajo.
 
@@ -118,7 +118,7 @@ La integración nativa entre Azure Cosmos DB y Azure Functions está disponible 
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>¿Por qué elegir la integración de Azure Functions para la informática sin servidor?
 
-Azure Functions ofrece la capacidad de crear unidades de trabajo escalables, o partes concisas de lógica que se pueden ejecutar a petición, sin tener que aprovisionar o administrar infraestructura. Con Azure Functions, no es necesario crear una aplicación completa para responder a los cambios en la base de datos de Azure Cosmos DB, porque puede crear funciones pequeñas reutilizables para tareas específicas. Además, también puede usar los datos de Azure Cosmos DB como entrada o salida a una instancia de Azure Functions en respuesta a eventos tales como solicitudes HTTP o un desencadenador de temporizador.
+Azure Functions ofrece la capacidad de crear unidades de trabajo escalables, o partes concisas de lógica que se pueden ejecutar a petición, sin tener que aprovisionar o administrar infraestructura. Con Azure Functions, no es necesario crear una aplicación completa para responder a los cambios en la base de datos de Azure Cosmos, porque puede crear funciones pequeñas reutilizables para tareas específicas. Además, también puede usar los datos de Azure Cosmos DB como entrada o salida a una instancia de Azure Functions en respuesta a eventos tales como solicitudes HTTP o un desencadenador de temporizador.
 
 Azure Cosmos DB es la base de datos recomendada para la arquitectura de informática sin servidor por los motivos siguientes:
 

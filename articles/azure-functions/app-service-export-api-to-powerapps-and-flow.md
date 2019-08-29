@@ -11,18 +11,21 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d7538d064e27e34c33fd92bc6dfcdaba7a1efc1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60499636"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533560"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
 
 [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) es un servicio para generar y utilizar aplicaciones empresariales personalizadas que se conectan a los datos y funcionan en otras plataformas. [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/) facilita la automatización de los flujos de trabajo y los procesos empresariales en sus aplicaciones y servicios favoritos. Tanto PowerApps como Microsoft Flow vienen con una variedad de conectores integrados a los orígenes de datos, como Office 365, 365 Dynamics, Salesforce y mucho más. En algunos casos, los generadores de aplicaciones y flujos también desean conectarse a los orígenes de datos y las API generadas por su organización.
 
 De igual forma, los desarrolladores que desean exponer su API de manera más amplia dentro de la organización pueden poner sus API a disposición de los generadores de aplicaciones y flujos. En este tema se muestra cómo exportar una API generada con [Azure Functions](../azure-functions/functions-overview.md) o [Azure App Service](../app-service/overview.md). La API exportada se convierte en un *conector personalizado*, que se utiliza en PowerApps y Microsoft Flow igual que un conector integrado.
+
+> [!IMPORTANT]
+> La funcionalidad de la definición de la API que se muestra en este artículo solo se admite para la [versión 1.x del entorno de ejecución de Azure Functions](functions-versions.md#creating-1x-apps) y de las aplicaciones de App Services. La versión 2.x de Funciones se integra con API Management para crear y mantener las definiciones de OpenAPI. Para más información, consulte [Creación de una definición de OpenAPI para una función con Azure API Management](functions-openapi-definition.md). 
 
 ## <a name="create-and-export-an-api-definition"></a>Creación y exportación de una definición de API
 Antes de exportar una API, debe describir la API con una definición de OpenAPI (anteriormente conocido como archivo [Swagger](https://swagger.io/)). Esta definición contiene información sobre las operaciones que están disponibles en una API y cómo se deben estructurar los datos de la solicitud y la respuesta para la API. PowerApps y Microsoft Flow pueden crear conectores personalizados para cualquier definición de Open API 2.0. Azure Functions y Azure App Service tienen compatibilidad integrada para crear, hospedar y administrar definiciones de OpenAPI. Para más información, consulte [Hospedaje de una API RESTful con CORS en Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
@@ -75,8 +78,6 @@ Para completar la exportación en la modalidad **Rápida**, siga estos pasos:
     ![Exportación rápida a PowerApps y Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
 3. Haga clic en **OK**. El conector personalizado se ha compilado y agregado al entorno especificado.
-
-Para obtener un ejemplo del uso del modo **rápido** con Azure Functions, consulte [Llamada a una función desde PowerApps](functions-powerapps-scenario.md) y [Llamada a una función desde Microsoft Flow](functions-flow-scenario.md).
 
 <a name="manual"></a>
 ## <a name="use-manual-export"></a>Uso de la exportación manual

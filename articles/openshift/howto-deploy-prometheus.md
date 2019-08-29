@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, red hat
-ms.openlocfilehash: a9748932a72106413677b21fe0efd1f69fb02e47
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827013"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875134"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implementación de una instancia de Prometheus independiente en un clúster de Red Hat OpenShift en Azure
 
@@ -174,8 +174,8 @@ Para aplicar la plantilla a todos los proyectos en los que quiere permitir la de
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
+oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
-Si quiere que Prometheus pueda recopilar métricas de sí mismo, aplique los permisos en prometheus-project.
 
 > [!NOTE]
 > Para comprobar que Role y RoleBinding se han creado correctamente, ejecute los comandos `oc get role` y `oc get rolebinding`.

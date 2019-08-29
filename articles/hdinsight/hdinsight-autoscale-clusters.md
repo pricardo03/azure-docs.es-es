@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000100"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509102"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de Azure HDInsight (versión preliminar)
 
@@ -70,7 +70,7 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emitir�
 
 En función del número de contenedores de AM por nodo y de los requisitos actuales de CPU y memoria, Escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creación de un clúster con Escalabilidad automática basada en carga
 
@@ -186,9 +186,25 @@ Para crear un clúster de HDInsight con el escalado automático basado en progra
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Habilitación y deshabilitación de escalabilidad automática para un clúster en ejecución
 
+#### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 Para habilitar la escalabilidad automática en un clúster en ejecución, seleccione **Tamaño del clúster** en **Configuración**. Luego, haga clic en **Enable autoscale** (Habilitar escalabilidad automática). Seleccione el tipo de escalabilidad automática que quiere y especifique las opciones de escalado basado en carga o basado en programación. Finalmente, haga clic en **Guardar**.
 
 ![Habilitación de la opción de escalabilidad automática basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+#### <a name="using-the-rest-api"></a>Uso de la API de REST
+Para habilitar o deshabilitar el escalado automático en un clúster en ejecución mediante la API REST, realice una solicitud POST al punto de conexión de escalado automático, tal como se muestra en el siguiente fragmento de código:
+
+```
+https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
+```
+
+Use los parámetros adecuados en la carga de solicitud. La carga de JSON siguiente podría usarse para habilitar el escalado automático. Use la carga `{autoscale: null}` para deshabilitar el escalado automático.
+
+```json
+{ autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
+```
+
+Vea la sección anterior sobre [cómo habilitar el escalado automático basado en la carga](#load-based-autoscaling) para obtener una descripción completa de todos los parámetros de carga.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

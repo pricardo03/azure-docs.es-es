@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d94716600305d3d2a567068fc719a83ce94c83d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684927"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557794"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -46,7 +46,7 @@ Reemplace `<headnode-FQDN>` por el nombre de dominio completo de un nodo princip
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Al clúster de Enterprise Security Package (ESP) de HDInsight
 
-Al conectarse desde un cliente a un clúster de Enterprise Security Package (ESP) unido a Azure Active Directory (AAD), también debe especificar el nombre de dominio `<AAD-Domain>` y el nombre de una cuenta de usuario de dominio que tenga permisos para acceder al clúster `<username>`:
+Al conectarse desde un cliente a un clúster de Enterprise Security Package (ESP) unido a Azure Active Directory (AAD) en una máquina del mismo dominio del clúster, también debe especificar el nombre de dominio `<AAD-Domain>` y el nombre de una cuenta de usuario de dominio que tenga permisos para acceder al clúster `<username>`:
 
 ```bash
 kinit <username>
@@ -59,7 +59,7 @@ Reemplace `<username>` con el nombre de una cuenta en el dominio con permisos pa
 
 ### <a name="over-public-internet"></a>A través de la red pública de Internet
 
-Si se conecta a través de la red pública de Internet, debe proporcionar el nombre de la cuenta de inicio de sesión del clúster (de forma predeterminada `admin`) y la contraseña. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `<clustername>.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL:
+Al conectarse a un clúster no ESP o ESP unido a Azure Active Directory (AAD) a través de la red Internet pública, debe proporcionar el nombre (valor predeterminado `admin`) y la contraseña de la cuenta de inicio de sesión del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `<clustername>.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password

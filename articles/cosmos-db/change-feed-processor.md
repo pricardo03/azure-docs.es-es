@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467787"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573971"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
 
@@ -85,12 +85,13 @@ Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Ejemplos de uso en GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [Ejemplos adicionales en GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
+Puede obtener más información sobre el procesador de la fuente de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
-* [Maneras de leer la fuente de cambios](read-change-feed.md)
-* [Uso de la fuente de cambios con Azure Functions](change-feed-functions.md)
+* [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
+* [Hora de inicio del procesador de fuente de cambios](how-to-configure-change-feed-start-time.md)

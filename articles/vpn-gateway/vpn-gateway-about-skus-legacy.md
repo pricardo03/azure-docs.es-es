@@ -2,25 +2,18 @@
 title: SKU de puerta de enlace de red virtual de Azure heredada | Microsoft Docs
 description: 'Cómo trabajar con las SKU antiguas de puerta de enlace de red virtual: Básica, Estándar y HighPerformance.'
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 00f1677e2691f9be5bb4584b07ca00340a52b1e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056442"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533909"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)
 
@@ -42,15 +35,9 @@ Puede ver los precios de las puertas de enlace heredadas en la sección **Puerta
 
 ## <a name="resize"></a>Cambio del tamaño de una puerta de enlace
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Puede cambiar el tamaño de la puerta de enlace a una SKU de puerta de enlace dentro de la misma familia de la SKU. Por ejemplo, si tiene una SKU Estándar, puede cambiar a una SKU HighPerformance. Sin embargo, no se puede cambiar el tamaño de las puertas de enlace de VPN entre las familias de SKU antiguas y las nuevas. Por ejemplo, no se puede pasar de una SKU Estándar a una SKU VpnGw2, o de una SKU Básica a VpnGw1.
 
-Para cambiar el tamaño de una puerta de enlace para el modelo de implementación clásica, use el siguiente comando:
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Resource Manager
 
 Para cambiar el tamaño de una puerta de enlace para el modelo de implementación de Resource Manager mediante PowerShell, use el siguiente comando:
 
@@ -58,7 +45,16 @@ Para cambiar el tamaño de una puerta de enlace para el modelo de implementació
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 También puede cambiar el tamaño de una puerta de enlace en Azure Portal.
+
+### <a name="classicresize"></a>Clásico
+
+Para cambiar el tamaño de una puerta de enlace al modelo de implementación clásica, debe usar los cmdlets de PowerShell de administración de servicios. Use el comando siguiente:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>Cambio a las nuevas SKU de puerta de enlace
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717548"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614058"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -79,11 +79,11 @@ Azure Cosmos DB admite dos tipos de desencadenadores:
 
 ### <a name="pre-triggers"></a>Desencadenadores previos
 
-Azure Cosmos DB proporciona desencadenadores que se pueden invocar mediante la realización de una operación en un elemento de Azure Cosmos DB. Por ejemplo, puede especificar un desencadenador previo al crear un elemento. En este caso, el desencadenador previo se ejecutará antes de la creación del elemento. Los desencadenadores previos no pueden tener parámetros de entrada. Si es necesario, el objeto de la solicitud se puede usar para actualizar el cuerpo del documento de la solicitud original. Cuando se registran los desencadenadores, los usuarios pueden especificar las operaciones que se pueden ejecutar con ellos. Si un desencadenador se creó con `TriggerOperation.Create`, significa que no se podrá usar en una operación de reemplazo. Para obtener ejemplos, vea el artículo [Escritura de desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Azure Cosmos DB proporciona desencadenadores que se pueden invocar mediante una operación en un elemento de Azure Cosmos. Por ejemplo, puede especificar un desencadenador previo al crear un elemento. En este caso, el desencadenador previo se ejecutará antes de la creación del elemento. Los desencadenadores previos no pueden tener parámetros de entrada. Si es necesario, el objeto de la solicitud se puede usar para actualizar el cuerpo del documento de la solicitud original. Cuando se registran los desencadenadores, los usuarios pueden especificar las operaciones que se pueden ejecutar con ellos. Si un desencadenador se creó con `TriggerOperation.Create`, significa que no se podrá usar en una operación de reemplazo. Para obtener ejemplos, vea el artículo [Escritura de desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 ### <a name="post-triggers"></a>Desencadenadores posteriores
 
-De forma similar a los desencadenadores previos, los desencadenadores posteriores también están asociados a una operación en un elemento de Azure Cosmos DB y no requieren ningún parámetro de entrada. Se ejecutan *después* de que se haya completado la operación y tienen acceso al mensaje de respuesta que se envía al cliente. Para obtener ejemplos, vea el artículo [Escritura de desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+De forma similar a los desencadenadores previos, los desencadenadores posteriores también están asociados a una operación en un elemento de Azure Cosmos y no requieren ningún parámetro de entrada. Se ejecutan *después* de que se haya completado la operación y tienen acceso al mensaje de respuesta que se envía al cliente. Para obtener ejemplos, vea el artículo [Escritura de desencadenadores](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
 > Los desencadenadores registrados no se ejecutan automáticamente cuando se producen sus correspondientes operaciones (crear/eliminar/reemplazar/actualizar). Se les debe llamar de forma explícita al ejecutar estas operaciones. Para obtener más información, vea el artículo [Cómo ejecutar desencadenadores](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).

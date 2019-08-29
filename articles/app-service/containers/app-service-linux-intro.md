@@ -76,9 +76,9 @@ Debido a una limitación actual, para el mismo grupo de recursos no puede mezcla
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Si la aplicación no se inicia o desea comprobar el registro desde la aplicación, compruebe que el Docker realiza el registro en LogFiles. A este directorio se accede a través del sitio SCM o a través de FTP. Para registrar `stdout` y `stderr` desde el contenedor, debe habilitar **Registro de contenedor de Docker** en **Registros de App Service**. Esta configuración surte efecto inmediatamente. App Service detecta el cambio y reinicia automáticamente el contenedor.
+Si la aplicación no se inicia o desea comprobar el registro desde la aplicación, compruebe los registros de Docker en el directorio LogFiles. A este directorio se accede a través del sitio SCM o a través de FTP. Para registrar `stdout` y `stderr` desde el contenedor, debe habilitar **Registro de contenedor de Docker** en **Registros de App Service**. Esta configuración surte efecto inmediatamente. App Service detecta el cambio y reinicia automáticamente el contenedor.
 
-Puede acceder al sitio SCM desde **Advanced Tools** (Herramientas avanzadas) en el menú **Herramientas de desarrollo**.
+Puede acceder al sitio SCM desde **Herramientas avanzadas** en el menú **Herramientas de desarrollo**.
 
 ![Uso de Kudu para ver registros de Docker][1]
 

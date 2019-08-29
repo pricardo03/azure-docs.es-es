@@ -3,22 +3,22 @@ title: Imágenes de Red Hat Enterprise Linux en Azure | Microsoft Docs
 description: Obtenga información sobre las imágenes de Red Hat Enterprise Linux en Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: asinn826
+manager: BorisB2015
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 6/6/2019
+ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: 7d34e480dd3cf90f1948e83ea1d18c04f1dcdce2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 25b0ccfa5ed2b7b9ff031565fe7f14b1477769c4
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854437"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543853"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.
@@ -99,13 +99,15 @@ La tabla siguiente se aplicará a las imágenes de RHEL que contienen una versi�
 
 >[!NOTE]
 > En el momento de escribir este artículo, solo RHEL 7.4 y versiones posteriores secundarias tienen compatibilidad con EUS. Esta característica ya no es compatible con la versión 7.3, o versiones anteriores, de RHEL.
+>
+> Puede encontrar más información sobre la disponibilidad de EUS de RHEL [aquí](https://access.redhat.com/support/policy/updates/errata).
 
 Versión secundaria |Ejemplo de imagen de EUS              |Estado de EUS                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Las imágenes publicadas en abril de 2019 y más adelante serán de EUS de forma predeterminada|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Las imágenes publicadas en junio de 2019 y más adelante serán de EUS de forma predeterminada |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Las imágenes publicadas en mayo de 2019 y más adelante serán de EUS de forma predeterminada  |
-RHEL 8.0      |N/D                            | Actualmente no hay imágenes de EUS disponibles                 |
+RHEL 8.0      |N/D                            | No hay EUS disponible de Red Hat                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>Lista de imágenes de RHEL disponibles

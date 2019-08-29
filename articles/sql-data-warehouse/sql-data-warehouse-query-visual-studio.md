@@ -2,20 +2,20 @@
 title: 'Conexión a Azure SQL Data Warehouse: VSTS | Microsoft Docs'
 description: Consultas en SQL Data Warehouse con Visual Studio.
 services: sql-data-warehouse
-author: XiaoyuMSFT
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479460"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575314"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Conexión a SQL Data Warehouse con Visual Studio y SSDT
 > [!div class="op_single_selector"]
@@ -27,17 +27,17 @@ ms.locfileid: "68479460"
 > 
 > 
 
-Utilice Visual Studio para realizar consultas en Azure SQL Data Warehouse en unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio. 
+Utilice Visual Studio para realizar consultas en Azure SQL Data Warehouse en unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar este tutorial, necesitará:
 
-* Una cuenta de Almacenamiento de datos SQL existente. Para crear una, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse].
+* Una cuenta de SQL Data Warehouse existente. Para crear una, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse].
 * SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL][Installing Visual Studio and SSDT].
 * El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Conexión a Almacenamiento de datos SQL).
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conexión a la instancia de SQL Data Warehouse
-1. Abra Visual Studio 2013 o 2015
+1. Abra Visual Studio 2019.
 2. Abra el Explorador de objetos de SQL Server. Para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
    
     ![Explorador de objetos de SQL Server][1]

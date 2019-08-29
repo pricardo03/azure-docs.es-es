@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82a39b049c39cb4facfbc38b5e9020bb46de99b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271800"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637967"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
-La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
+La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación.  Las copias de seguridad se pueden configurar de modo que se conserven durante un período de tiempo indefinido. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación.
 
 Para obtener información sobre cómo restaurar una aplicación desde la copia de seguridad, vea [Restauración de una aplicación en el Servicio de aplicaciones de Azure](web-sites-restore.md).
 
@@ -50,7 +50,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisitos y restricciones
-* La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **estándar** o **premium**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](web-sites-scale.md).  
+* La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **estándar** o **premium**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](manage-scale-up.md).  
   El nivel **premium** permite realizar un mayor número de copias de seguridad diarias que el nivel **estándar**.
 * Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para más información sobre las cuentas de almacenamiento de Azure, consulte [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) (Introducción a la cuenta de almacenamiento de Azure).
 * Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Si el tamaño de la copia de seguridad supera este límite, obtendrá un error.
@@ -69,7 +69,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
    
    > [!NOTE]
    > Si ve el mensaje siguiente, haga clic en él para actualizar su plan de App Service antes de continuar con las copias de seguridad.
-   > Vea [Escalado vertical de aplicaciones en Azure](web-sites-scale.md) para obtener más información.  
+   > Vea [Escalado vertical de aplicaciones en Azure](manage-scale-up.md) para obtener más información.  
    > ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 

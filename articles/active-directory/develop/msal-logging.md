@@ -3,7 +3,7 @@ title: Registro en aplicaciones de MSAL | Azure
 description: Aprenda a registrar aplicaciones de la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835001"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532731"
 ---
 # <a name="logging"></a>Registro
 Aplicaciones de la biblioteca de autenticación de Microsoft (MSAL) para generar mensajes de registro que pueden ayudar a diagnosticar problemas y proporcionan detalles. Una aplicación puede configurar el registro con unas cuentas líneas de código y tener un control personalizado sobre el nivel de detalle y si se registran o no datos de la organización y personales. Se recomienda que establezca una devolución de llamada de registro de MSAL y que proporcione una forma de que los usuarios envíen registros cuando tengan problemas de autenticación.
@@ -40,6 +40,10 @@ El registrador de MSAL permite la captura de varios niveles de detalle:
 De forma predeterminada, el registrador de MSAL no captura datos personales u organizativos sumamente delicados. La biblioteca ofrece la opción de habilitar el registro de datos personales y organizativos si decide hacerlo.
 
 ## <a name="logging-in-msalnet"></a>Registro en MSAL.NET
+
+ > [!NOTE]
+ > Para más información sobre MSAL.NET, consulte la [wiki de MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Obtenga ejemplos de registro de MSAL.NET y mucho más. 
+ 
 En MSAL 3.x, el registro se establece por aplicación en el momento de crear la aplicación mediante el modificador de generador `.WithLogging`. Este método toma parámetros opcionales:
 
 - *Level* le permite decidir el nivel de registro deseado. Si se establece en Errors solo se reciben errores.

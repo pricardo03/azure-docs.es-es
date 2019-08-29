@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608172"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533059"
 ---
 # <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
@@ -41,7 +41,7 @@ Estas cuatro directivas de base de referencia afectarán a los flujos de autenti
 
 Dadas las facultades y el acceso de las cuentas de administrador, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta cuando se emplean para iniciar sesión. En Azure Active Directory, puede exigir a los administradores que se registren y usen Azure Multi-Factor Authentication para conseguir una verificación de cuentas más estricta.
 
-[Requerir MFA para los administradores (versión preliminar)](howto-baseline-protect-administrators.md) es una directiva de base de referencia que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, considerados los roles de Azure AD con más privilegios:
+[Requerir MFA para los administradores (versión preliminar)](howto-baseline-protect-administrators.md) es una directiva de base de referencia que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, considerados los roles de Azure AD con más privilegios:
 
 * Administrador global
 * Administrador de SharePoint
@@ -52,7 +52,7 @@ Dadas las facultades y el acceso de las cuentas de administrador, debe tratarlas
 * Administrador de facturación
 * Administrador de usuarios
 
-Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md).
+Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protección del usuario final (versión preliminar)
 
@@ -87,7 +87,7 @@ Para proteger las acciones con privilegios, esta directiva **Requerir MFA para l
 
 Para habilitar una directiva de base de referencia:
 
-1. Inicie sesión en  **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de Acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione una directiva de base de referencia que te gustaría habilitar.
 1. Establezca **Habilitar directiva** en **Activado**.

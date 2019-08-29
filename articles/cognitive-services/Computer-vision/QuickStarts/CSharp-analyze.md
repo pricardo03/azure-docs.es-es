@@ -38,7 +38,7 @@ Para crear el ejemplo en Visual Studio, siga estos pasos:
     1. En el menú, haga clic en **Herramientas**, seleccione **Administrador de paquetes NuGet** y, luego, **Manage NuGet Packages for Solution** (Administrar paquetes NuGet para la solución).
     1. Haga clic en la pestaña **Examinar** y, en el cuadro **Buscar**, escriba "Newtonsoft.Json".
     1. Seleccione **Newtonsoft.Json** cuando se muestre, marque la casilla junto al nombre del proyecto y haga clic en **Instalar**.
-1. Reemplace el código de `Program.cs` por el código siguiente y, a continuación, realice los cambios siguientes en el código cuando sea necesario:
+1. Reemplace el código de `Program.cs` por el código siguiente y, a continuación, realice los cambios siguientes en el código donde sea necesario:
     1. Reemplace el valor de `subscriptionKey` por la clave de suscripción.
     1. Reemplace el valor de `uriBase` por la dirección URL del punto de conexión para el método [Analizar imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
 1. Ejecute el programa.

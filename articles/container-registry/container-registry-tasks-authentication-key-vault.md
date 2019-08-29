@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641545"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509234"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación externa en una tarea de ACR mediante una identidad administrada por Azure 
 
@@ -101,13 +101,13 @@ Los pasos de la tarea son los siguientes:
 
 ## <a name="option-1-create-task-with-user-assigned-identity"></a>Opción 1: Creación de una tarea con una identidad asignada por el sistema
 
-En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el usuario. Si en su lugar quiere habilitar una identidad asignada por el sistema, consulte [Opción 2: Creación de una tarea con una identidad asignada por el sistema](#option-2-create-task-with-system-assigned-identity) 
+En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el usuario. Si en su lugar quiere habilitar una identidad asignada por el sistema, consulte [Opción 2: Creación de una tarea con una identidad asignada por el sistema](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Crear la tarea
 
-Cree la tarea *dockerhubtask* mediante la ejecución del comando [az acr task create][az-acr-task-create]. El contexto de la tarea es el sistema local y el comando hace referencia al archivo `dockerhubtask.yaml` en el directorio de trabajo. El parámetro `--assign-identity` pasa el identificador de recurso de la identidad asignada por el usuario. 
+Cree la tarea *dockerhubtask* mediante la ejecución del comando [az acr task create][az-acr-task-create]. La tarea se ejecuta sin contexto de código fuente y el comando hace referencia al archivo `dockerhubtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` pasa el identificador de recurso de la identidad asignada por el usuario. 
 
 ```azurecli
 az acr task create \
@@ -122,11 +122,11 @@ az acr task create \
 
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opción 2: Creación de una tarea con una identidad asignada por el sistema
 
-En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si, en cambio, quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity) 
+En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si, en cambio, quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Crear la tarea
 
-Cree la tarea *dockerhubtask* mediante la ejecución del comando [az acr task create][az-acr-task-create]. El contexto de la tarea es el sistema local y el comando hace referencia al archivo `dockerhubtask.yaml` en el directorio de trabajo.  El parámetro `--assign-identity` sin valor habilita la identidad asignada por el sistema en la tarea.  
+Cree la tarea *dockerhubtask* mediante la ejecución del comando [az acr task create][az-acr-task-create]. La tarea se ejecuta sin contexto de código fuente y el comando hace referencia al archivo `dockerhubtask.yaml` del directorio de trabajo. El parámetro `--assign-identity` sin valor habilita la identidad asignada por el sistema en la tarea.  
 
 ```azurecli
 az acr task create \

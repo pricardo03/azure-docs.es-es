@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73e7312eacd11fbec052d2b0b7781528c3b3d50f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748906"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575370"
 ---
 # <a name="monitor-workload---azure-portal"></a>Supervisión de la carga de trabajo - Azure Portal
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo usar Azure Portal para supervisar la carga d
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Azure SQL Data Warehouse: Se recopilarán los registros para un almacenamiento de datos de SQL. Si no tiene ningún almacenamiento de datos de SQL aprovisionado, consulte las instrucciones de [Creación y consulta de una instancia de Azure SQL Data Warehouse con Azure PowerShell](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Azure SQL Data Warehouse: Se recopilarán registros para una instancia de SQL Data Warehouse. Si no tiene una instancia de SQL Data Warehouse aprovisionada, consulte las instrucciones de [Creación de una instancia de SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 
@@ -40,7 +40,7 @@ Para obtener más detalles sobre las áreas de trabajo, visite la siguiente [doc
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnósticos 
 
-Configure las opciones de diagnóstico para emitir registros desde el almacenamiento de datos de SQL. Los registros constan de vistas de telemetría del almacenamiento de datos equivalentes a las DMV de solución de problemas de rendimiento más utilizadas para SQL Data Warehouse. Actualmente se admiten las siguientes vistas:
+Configure las opciones de diagnóstico para emitir registros desde SQL Data Warehouse. Los registros constan de vistas de telemetría del almacenamiento de datos equivalentes a las DMV de solución de problemas de rendimiento más utilizadas para SQL Data Warehouse. Actualmente se admiten las siguientes vistas:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)

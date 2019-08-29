@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a8797afdfacfcfc75445c7f35083aeb9bb847ac1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562941"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535099"
 ---
 # <a name="try-speech-services-for-free"></a>Prueba gratuita de los servicios de Voz
 
@@ -38,7 +38,7 @@ Para registrarse a fin de obtener una evaluación gratuita de 30 días:
 
    ![Pestaña Servicios de voz](media/index/try-speech-api-free-trial1.png)
 
-1. En **Servicios de voz**, seleccione el botón **Obtener clave de API**.
+1. En los **servicios de voz**, seleccione **Obtener clave de API**.
 
    ![Clave de API](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ Para registrarse a fin de obtener una evaluación gratuita de 30 días:
 
 1. Inicie sesión con su cuenta de Microsoft, Facebook, LinkedIn o GitHub.
 
-    Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, haga clic en **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, haga clic en **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
+    Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, seleccione **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, seleccione **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
 
 Después de iniciar sesión en Pruebe Cognitive Services, comienza la evaluación gratuita. En la página web que se muestra, se enumeran todos los servicios de Cognitive Services para los que actualmente tiene suscripciones de prueba. Junto a **Servicios de voz** se muestran dos claves de suscripción. Puede usar cualquiera de ellas en las aplicaciones.
 
@@ -59,9 +59,9 @@ Después de iniciar sesión en Pruebe Cognitive Services, comienza la evaluació
 
 Las cuentas nuevas de Azure reciben un crédito de servicio de 200 USD que está disponible un máximo de 30 días. Este crédito se puede usar para explorar más a fondo los servicios de Voz o para comenzar a desarrollar aplicaciones.
 
-Para registrarse y obtener una nueva cuenta de Azure, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), haga clic en **Comenzar gratis** y cree una nueva cuenta de Azure con su cuenta Microsoft.
+Para registrarse y obtener una nueva cuenta de Azure, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una nueva cuenta de Azure con su cuenta Microsoft.
 
-Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, haga clic en **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, haga clic en **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
+Puede registrarse para obtener una cuenta Microsoft gratuita en el [portal de cuentas de Microsoft](https://account.microsoft.com/account). Para empezar, seleccione **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, seleccione **Crear una**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
 
 Después de crear la cuenta de Azure, siga los pasos de la sección siguiente para iniciar una suscripción a los servicios de Voz.
 
@@ -90,7 +90,7 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
    * Un nombre para el recurso nuevo. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
    * Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
    * Elija la [región](regions.md) donde se va a usar el recurso.
-   * Elija un plan de tarifa de pago o gratuito. Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
+   * Elija un plan de tarifa de pago o gratuito. Seleccione **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
    * Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
    * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.
    * Seleccione **Crear**.
@@ -101,7 +101,7 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
 
      ![Panel Inicio rápido](media/index/try-speech-api-create-speech5.png)
 
-1. En **Inicio rápido**, haga clic en el vínculo **Claves** del paso 1 para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Seleccione el botón situado junto a cada clave para copiarla en el Portapapeles a fin de pegarla en el código.
+1. En **Inicio rápido**, seleccione el vínculo **Claves** del paso 1 para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Seleccione el botón situado junto a cada clave para copiarla en el Portapapeles a fin de pegarla en el código.
 
 > [!NOTE]
 > Puede crear un número ilimitado de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito. Las implementaciones de modelo del plan gratuito que permanezcan inactivas durante siete días se retirarán automáticamente.

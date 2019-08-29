@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7863e4a0f4cab6f6328de19d1611710f9188de3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838757"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638304"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -94,10 +94,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 1. Descargue Raspbian.
 
-   a. [Descargue Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (el archivo .zip).
-
-   > [!WARNING]
-   > Use el vínculo anterior para descargar la imagen `raspbian-2017-07-5` como archivo ZIP. La última versión de las imágenes de Raspbian tiene algunos problemas conocidos con el nodo Wiring-Pi, que puede ocasionar errores en los pasos siguientes.
+   a. [Raspbian Buster con escritorio](https://www.raspberrypi.org/downloads/raspbian/) (el archivo .zip).
 
    b. Extraiga la imagen de Raspbian en una carpeta del equipo.
 
@@ -195,10 +192,10 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    node -v
    ```
 
-   Si la versión es anterior a la 10.x, o bien si no hay ninguna versión de Node.js en Pi, instale la versión más reciente.
+   Si la versión es anterior a la 11.x, o si no hay Node.js en Pi, instale la versión más reciente.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

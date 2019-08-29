@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f9d8bf9161343e4b36a3c16209873962b69d8af5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815040"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615211"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Administración de recursos de Azure Cosmos mediante la CLI de Azure
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ## <a name="create-a-database"></a>Creación de una base de datos
 
-Para crear una base de datos de Cosmos DB, ejecute el siguiente comando:
+Para crear una base de datos de Cosmos, ejecute el siguiente comando:
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -52,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Para crear un contenedor de Cosmos DB con 400 RU/s y una clave de partición, ejecute el siguiente comando:
+Para crear un contenedor de Cosmos con 400 RU/s y una clave de partición, ejecute el siguiente comando:
 
 ```azurecli-interactive
 # Create a container
@@ -67,7 +67,7 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>Cambio del rendimiento de un contenedor
 
-Para cambiar el rendimiento de un contenedor de Cosmos DB de 1000 RU/s, ejecute el siguiente comando:
+Para cambiar el rendimiento de un contenedor de Cosmos de 1000 RU/s, ejecute el siguiente comando:
 
 ```azurecli-interactive
 # Update container throughput

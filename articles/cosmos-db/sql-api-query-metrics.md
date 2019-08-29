@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447254"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614822"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Los SDK ofrecen diversas opciones para la ejecución de consultas. Por ejemplo, 
 | `EnableScanInQuery` | Se debe establecer en true si ha decidido no indexar, pero quiere ejecutar la consulta de todos modos mediante una exploración. Solo es aplicable si la indexación para la ruta de filtro solicitada está deshabilitada. | 
 | `MaxItemCount` | El número máximo de elementos que se devolverán por recorrido de ida y vuelta al servidor. Si se establece en -1, puede dejar que el servidor administre el número de elementos. O bien, puede reducir este valor para recuperar únicamente un pequeño número de elementos por recorrido de ida y vuelta. 
 | `MaxBufferedItemCount` | Esta es una opción de cliente y se usa para limitar el consumo de memoria al usar una cláusula ORDER BY entre particiones. Un valor más alto ayuda a reducir la latencia de ordenación entre particiones. |
-| `MaxDegreeOfParallelism` | Obtiene o establece el número de operaciones simultáneas en el cliente durante la ejecución de consultas en paralelo en el servicio de base de datos de Azure Cosmos DB. Un valor de propiedad positivo limita el número de operaciones simultáneas al valor establecido. Si se establece en un valor menor que 0, el sistema decide automáticamente el número de operaciones simultáneas que se ejecutarán. |
+| `MaxDegreeOfParallelism` | Obtiene o establece el número de operaciones simultáneas en el cliente durante la ejecución de consultas en paralelo en el servicio de base de datos de Azure Cosmos. Un valor de propiedad positivo limita el número de operaciones simultáneas al valor establecido. Si se establece en un valor menor que 0, el sistema decide automáticamente el número de operaciones simultáneas que se ejecutarán. |
 | `PopulateQueryMetrics` | Permite el registro detallado de estadísticas del tiempo empleado en diversas fases de la ejecución de consultas, como tiempo de compilación, hora de ciclo del índice y tiempo de carga de documentos. Puede compartir la salida de las estadísticas de consulta con el soporte técnico de Azure con el fin de diagnosticar problemas de rendimiento de las consultas. |
 | `RequestContinuation` | Puede reanudar la ejecución de consultas pasando el token de continuación opaco devuelto por cualquier consulta. El token de continuación encapsula todo el estado necesario para la ejecución de consultas. |
 | `ResponseContinuationTokenLimitInKb` | Puede limitar el tamaño máximo del token de continuación devuelto por el servidor. Podría ser necesario establecer este valor si el host de la aplicación tiene límites en cuanto al tamaño del encabezado de respuesta. Si se establece, podría aumentar la duración total y las RU usadas para la consulta.  |
