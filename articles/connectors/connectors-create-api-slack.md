@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2606fdc15194264bc3d84496d2de258adfc314be
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105656"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050797"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Supervisión y administración de Slack con Azure Logic Apps
 
@@ -31,7 +31,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y perm
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * La cuenta y las credenciales de usuario de [Slack](https://slack.com/).
 

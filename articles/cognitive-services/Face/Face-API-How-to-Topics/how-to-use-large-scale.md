@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d8ecfb53b78277e4b0e4a85d60fb6712d0bc2292
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449039"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114833"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Ejemplo: Usar la característica a gran escala
 
@@ -32,7 +32,7 @@ Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Azure
 
 Cuando usa la biblioteca cliente de Face API, la clave de suscripción y el punto de conexión de la suscripción se pasan en el constructor de la clase FaceClient. Por ejemplo:
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
@@ -66,14 +66,14 @@ Agregue todas las caras y las personas de PersonGroup al nuevo LargePersonGroup.
 | Crear | Crear |
 | Eliminar | Eliminar |
 | Obtener | Obtener |
-| Enumerar | Enumerar |
+| List | List |
 | Actualizar | Actualizar |
 | - | Train |
 | - | Get Training Status |
 
 La tabla anterior es una comparación de las operaciones en el nivel de lista entre FaceList y LargeFaceList. Tal y como se muestra, LargeFaceList incluye nuevas operaciones (Train y Get Training Status) en comparación con FaceList. Entrenar LargeFaceList es una condición previa de la operación [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). El entrenamiento no es necesario para FaceList. El fragmento de código siguiente es una función auxiliar para esperar el entrenamiento de LargeFaceList:
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -123,7 +123,7 @@ private static async Task TrainLargeFaceList(
 
 Anteriormente, un uso típico de FaceList con caras agregadas y FindSimilar tenía este aspecto:
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -156,7 +156,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 En la migración a LargeFaceList, se convierte en lo siguiente:
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -233,7 +233,7 @@ Si es aceptable una latencia relativamente larga, no es necesario desencadenar l
 
 Supongamos que hay una función `TrainLargePersonGroup` similar a `TrainLargeFaceList`. Una implementación típica del entrenamiento independiente en LargePersonGroup mediante la invocación de la clase [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) en `System.Timers` es:
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.

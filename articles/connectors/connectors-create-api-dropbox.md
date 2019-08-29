@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e0689454ec074348fcbc775373a48d6825cfac4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312565"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050984"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carga y administración de archivos en Dropbox mediante Azure Logic Apps
 
@@ -25,7 +26,7 @@ En este artículo se muestra cómo conectarse a Dropbox desde su aplicación ló
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de Dropbox](https://www.dropbox.com/), que puede abrir de forma gratuita. Las credenciales de la cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox.
 
@@ -68,11 +69,6 @@ En la lista de acciones, seleccione esta acción: **Obtener contenido de archivo
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/dropbox/).
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

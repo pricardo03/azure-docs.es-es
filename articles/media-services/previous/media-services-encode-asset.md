@@ -6,7 +6,6 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "69015820"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019032"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Introducción a los codificadores multimedia a petición de Azure 
-
-## <a name="encoding-overview"></a>Información general sobre la codificación
 
 > [!NOTE]
 > No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
@@ -35,10 +32,7 @@ Los códecs son el software que implementa los algoritmos de compresión/descomp
 
 Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Media Services (MPEG-DASH, HLS y Smooth Streaming) sin tener que volver a realizar el empaquetamiento en estos formatos de streaming.
 
-Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).
-
-> [!Note]
-> La facturación de los puntos de conexión de streaming se produce siempre que el punto de conexión se encuentra en estado de **ejecución**.
+Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Detenido**. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). La facturación de los puntos de conexión de streaming se produce siempre que el punto de conexión se encuentra en estado de **ejecución**.
 
 Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
@@ -50,6 +44,7 @@ En este artículo se ofrece una breve introducción a los codificadores multimed
 De forma predeterminada cada cuenta de Media Services puede tener una tarea de codificación activa a la vez. Puede reservar unidades de codificación que permiten la ejecución simultánea de varias tareas de codificación, una para cada unidad reservada de codificación que ha adquirido. Para obtener información, consulte [Escalado de unidades de codificación](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Estándar
+
 ### <a name="how-to-use"></a>Modo de uso
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 

@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571729"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100663"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
 
@@ -165,7 +164,7 @@ Para probar la conectividad del agente de escucha con la región remota, puede c
 
 Después de probar la conectividad, mueva la réplica principal de nuevo a su centro de datos principal y vuelva a establecer el modo de disponibilidad en su configuración de funcionamiento normal. En la tabla siguiente se muestra la configuración de funcionamiento normal de la arquitectura descrita en este documento:
 
-| Ubicación | Instancia del servidor | Rol | Modo de disponibilidad | Modo de conmutación por error
+| Location | Instancia del servidor | Role | Modo de disponibilidad | Modo de conmutación por error
 | ----- | ----- | ----- | ----- | -----
 | Centro de datos principal | SQL-1 | Principal | Sincrónico | Automático
 | Centro de datos principal | SQL-2 | Secundario | Sincrónico | Automático

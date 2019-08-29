@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816312"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129058"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -190,6 +190,7 @@ Establece la imagen de origen en una versión de la imagen existente de una gale
 El `imageVersionId` debe ser el valor de ResourceId de la versión de la imagen. Use [lista de versiones de imagen con firma de Azure](/cli/azure/sig/image-version#az-sig-image-version-list) para obtener una lista de las versiones de imagen.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propiedades: buildTimeoutInMinutes
+
 De manera predeterminada, Image Builder se ejecutará durante 240 minutos. Después de esto, se agotará el tiempo de espera y se detendrá, así se haya completado la compilación de la imagen como si no. Si se alcanza el tiempo de espera, verá un error similar al siguiente:
 
 ```text
@@ -203,7 +204,6 @@ Si necesita más tiempo para que se completen las personalizaciones, establezca 
 
 
 ## <a name="properties-customize"></a>Propiedades: personalización
-
 
 Image Builder admite varios "personalizadores". Los personalizadores son funciones que se utilizan para personalizar la imagen, como, por ejemplo, ejecutar scripts o reiniciar los servidores. 
 

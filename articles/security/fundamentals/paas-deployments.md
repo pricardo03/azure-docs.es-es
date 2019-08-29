@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726819"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098621"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -139,7 +139,7 @@ Estas son algunos procedimientos recomendados para usar App Service.
 **Detalles**: [App Service Environment](/azure/app-service/environment/intro) tiene una característica de integración de la red virtual que ayuda a restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red. Las redes virtuales permiten colocar recursos de Azure en una red que se pueda enrutar distinta de Internet y a la que se controla el acceso. Vea [Integración de su aplicación con una instancia de Azure Virtual Network](/azure/app-service/web-sites-integrate-with-vnet) para más información.
 
 **Procedimiento recomendado**: supervise el estado de seguridad de los entornos de App Service.   
-**Detalles**: use Azure Security Center para supervisar los entornos de App Service. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](/azure/security-center/security-center-virtual-machine-recommendations) que lo guiarán por el proceso de configuración de los controles necesarios.
+**Detalles**: use Azure Security Center para supervisar los entornos de App Service. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/security-center-virtual-machine-protection.md) que lo guiarán por el proceso de configuración de los controles necesarios.
 
 > [!NOTE]
 > La supervisión de App Service se encuentra en versión preliminar y solo está disponible en el [nivel estándar](/azure/security-center/security-center-pricing) de Security Center.

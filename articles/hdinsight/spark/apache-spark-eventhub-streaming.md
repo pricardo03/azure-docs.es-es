@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0d47c3f0838e22ad8c5185a42f5f0c748335dfa8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489802"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049479"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Procesamiento de tweets con Azure Event Hubs y Apache Spark en HDInsight
 
@@ -135,7 +135,7 @@ Cree un cuaderno de Jupyter Notebook y asignarle el nombre **SendTweetsToEventHu
 
     ```
     %%configure
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
 2. Edite el código siguiente, reemplazando `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` y `<TOKEN SECRET>` por los valores adecuados. Ejecute el código editado para enviar tweets al centro de eventos:
@@ -217,7 +217,7 @@ Cree otro cuaderno de Jupyter Notebook y asignarle el nombre **ReadTweetsFromEve
 
     ```
     %%configure -f
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
 2. Edite el código siguiente, reemplazando `<Event hub name>` y `<Event hub namespace connection string>` por los valores adecuados. Ejecute el código editado para leer tweets del centro de eventos:

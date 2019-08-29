@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704434"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072575"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 
@@ -77,7 +76,7 @@ La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los
 
  Cuando se produce un error y el control salta a la sección de directivas `on-error`, el error se almacena en la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables) a la que pueden acceder las directivas de la sección `on-error`. LastError tiene las siguientes propiedades:  
   
-| NOMBRE       | Type   | DESCRIPCIÓN                                                                                               | Obligatorio |
+| NOMBRE       | type   | DESCRIPCIÓN                                                                                               | Obligatorio |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
 | `Source`   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
 | `Reason`   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin       |
@@ -96,7 +95,7 @@ La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los
 ## <a name="predefined-errors-for-built-in-steps"></a>Errores predefinidos para pasos integrados  
  Los errores siguientes están predefinidos para condiciones de error que se pueden producir durante la evaluación de pasos de procesamiento integrados.  
   
-| Origen        | Condición                                 | Motivo                  | Message                                                                                                                |
+| Source        | Condición                                 | Motivo                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configuración | El identificador URI no coincide con ninguna API u operación. | OperationNotFound       | No se puede hacer coincidir la solicitud entrante con una operación.                                                                      |
 | authorization | No se ha proporcionado la clave de suscripción.             | SubscriptionKeyNotFound | Acceso denegado debido a que falta la clave de suscripción. Asegúrese de incluir la clave de la suscripción al realizar solicitudes a esta API. |
@@ -105,7 +104,7 @@ La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los
 ## <a name="predefined-errors-for-policies"></a>Errores predefinidos en directivas  
  Los errores siguientes están predefinidos para condiciones de error que se pueden producir durante la evaluación de directivas.  
   
-| Origen       | Condición                                                       | Motivo                    | Message                                                                                                                              |
+| Source       | Condición                                                       | Motivo                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | Límite de velocidad excedido                                             | RateLimitExceeded         | Rate limit is exceeded (Se ha excedido el límite de velocidad).                                                                                                               |
 | quota        | Cuota superada                                                  | QuotaExceeded             | Out of call volume quota. (Fuera de la cuota de volumen de la llamada.) La cuota se reabastecerá en xx:xx:xx. O bien, Out of bandwidth quota (Fuera de la cuota de ancho de banda). La cuota se reabastecerá en xx:xx:xx. |

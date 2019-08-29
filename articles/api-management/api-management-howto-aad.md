@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6116ece6035b326440108c1f2b2effd1b6bb9258
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956308"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072542"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -99,7 +98,7 @@ Después de agregar un grupo externo de Azure AD, puede revisar y configurar sus
  
 Los usuarios de la instancia de Azure AD configurada ya pueden iniciar sesión en el portal para desarrolladores. Pueden ver los grupos para los que tengan visibilidad y suscribirse a ellos.
 
-## <a name="a-idlogintodevportalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Inicio de sesión en el portal para desarrolladores con una cuenta de Azure AD
+## <a name="a-idlog_in_to_dev_portalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Inicio de sesión en el portal para desarrolladores con una cuenta de Azure AD
 
 Para iniciar sesión en el portal para desarrolladores mediante una cuenta de Azure AD que ha configurado en las secciones anteriores:
 

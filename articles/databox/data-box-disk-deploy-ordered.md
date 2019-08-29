@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561448"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012939"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -83,7 +83,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
     |Configuración|Valor|
     |---|---|
     |NOMBRE|Especifique un nombre descriptivo para hacer un seguimiento del pedido.<br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
-    |Grupos de recursos| Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
+    |Resource group| Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
     |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten cuentas de almacenamiento de todas las regiones de EE.UU., Europa Occidental, Europa del Norte, Canadá y Australia. |
     |Tamaño de datos estimado, en TB| Escriba una estimación, en TB. <br>Según el tamaño de los datos, Microsoft envía un número adecuado de SSD de 8 TB (7 TB de capacidad utilizable). <br>La capacidad máxima utilizable de cinco discos 35 TB. |
     |Clave de paso de disco| Si marca **Usar la clave personalizada en lugar de la clave de paso generada por Azure**, proporcione la clave de paso de disco. <br> Proporcione una clave alfanumérica de entre 12 y 32 caracteres de longitud que tenga al menos un carácter numérico y un carácter especial. Solo se permiten los caracteres especiales `@?_+`. <br> Puede elegir omitir esta opción y usar la clave de paso generada por Azure para desbloquear los discos.|
@@ -97,11 +97,11 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
     |Configuración  |Valor  |
     |---------|---------|
-    |Grupos de recursos     | Cree un grupo de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Use un grupo de recursos existentes solo si se creó para la solicitud de Data Box Disk para discos administrados realizada por el servicio Data Box. <br> Solo se admite un grupo de recursos.|
+    |Resource group     | Cree un grupo de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Use un grupo de recursos existentes solo si se creó para la solicitud de Data Box Disk para discos administrados realizada por el servicio Data Box. <br> Solo se admite un grupo de recursos.|
 
     ![Solicitud de Data Box Disk para discos administrados](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
 13. Haga clic en **Next**.
 

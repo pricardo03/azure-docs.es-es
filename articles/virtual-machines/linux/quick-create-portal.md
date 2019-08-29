@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 8/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: feaefef23b433a296d25cc11b5cd89d86acd280f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650184"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091543"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
@@ -110,7 +109,7 @@ Cuando haya terminado, escriba `exit` para salir de la sesión de SSH.
 
 Use un explorador web de su elección para ver la página de bienvenida predeterminada de NGINX. Escriba la dirección IP pública de la máquina virtual como dirección web. La dirección IP pública se encuentra en la página de introducción de la máquina virtual o como parte de la cadena de conexión de SSH que usó anteriormente.
 
-![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png)
+![Sitio NGINX predeterminado](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

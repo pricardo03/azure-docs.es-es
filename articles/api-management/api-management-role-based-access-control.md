@@ -10,16 +10,15 @@ ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33d981429f0e79accbe47ea0edea5f3c7a2157b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141487"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072207"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 
@@ -33,7 +32,7 @@ Actualmente, API Management cuenta con tres roles integrados y próximamente agr
 
 En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Estos roles se pueden asignar a través de Azure Portal u otras herramientas, como Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) y la [API de REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Para obtener detalles sobre la asignación de roles integrados, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-| Rol          | Acceso de lectura<sup>[1]</sup> | Acceso de escritura<sup>[2]</sup> | Creación, eliminación y escalado del servicio, VPN y configuración personalizada de dominios | Acceso al portal del editor heredado | DESCRIPCIÓN
+| Role          | Acceso de lectura<sup>[1]</sup> | Acceso de escritura<sup>[2]</sup> | Creación, eliminación y escalado del servicio, VPN y configuración personalizada de dominios | Acceso al portal del editor heredado | DESCRIPCIÓN
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | Colaborador de servicio de Azure API Management | ✓ | ✓ | ✓ | ✓ | Superusuario. Tiene acceso CRUD completo a los servicios y a las entidades de API Management (por ejemplo, API y directivas). Tiene acceso al portal del editor heredado. |
 | Lector de servicio de Azure API Management | ✓ | | || Tiene acceso de solo lectura a los servicios y a las entidades de API Management. |

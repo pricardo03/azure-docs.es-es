@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: b175e68277ab456bea7eaa7b82619d61e45bf722
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442738"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114341"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Ejemplo: Análisis de vídeos en tiempo real
 
@@ -36,7 +36,7 @@ Hay varias formas de solucionar el problema de la ejecución del análisis casi 
 
 El diseño más sencillo para un sistema de análisis casi en tiempo real es un bucle infinito, donde en cada iteración se toma un fotograma, se analiza y, luego, se consume el resultado:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -54,7 +54,7 @@ Si nuestro análisis consistió en un algoritmo de cliente ligero, este enfoque 
 
 Si bien un bucle simple de un único subproceso tiene sentido para un algoritmo de cliente ligero, no se ajusta bien a la latencia involucrada en las llamadas API de la nube. La solución a este problema es permitir que las llamadas API de larga ejecución se ejecuten en paralelo con la captura de fotogramas. En C#, se podría lograr esto usando paralelismo basado en tareas, por ejemplo:
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -75,7 +75,7 @@ Este código inicia cada análisis en una tarea independiente, que se puede ejec
 
 En el sistema final de "productor-consumidor", se cuenta con un subproceso productor que es similar al bucle infinito anterior. No obstante, en lugar de consumir los resultados del análisis en cuanto están disponibles, el productor simplemente coloca las tareas en una cola para realizarles un seguimiento.
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
@@ -112,7 +112,7 @@ while (true)
 
 También se dispone de un subproceso consumidor, que toma tareas de la cola, espera a que finalicen y muestra el resultado, o bien genera la excepción que se produjo. Mediante el uso de la cola, es posible garantizar que resultados se consuman uno a la vez, en el orden correcto, sin limitar la velocidad de fotogramas máxima del sistema.
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -144,7 +144,7 @@ La biblioteca contiene la clase FrameGrabber, que implementa el sistema producto
 
 Para ilustrar algunas de las posibilidades, hay dos aplicaciones de ejemplo que utilizan la biblioteca. La primera es una aplicación de consola simple; una versión simplificada de ella se reproduce a continuación. Toma fotogramas de la cámara web predeterminada y los envía a Face API para la detección de caras.
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c2041984ffa2c455ea4d60a756fcb4142219d91
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967240"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981453"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -60,7 +60,7 @@ Las API de EA usan una clave de API para la autenticación y la autorización. L
 | Hoja de precios | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Compras de la reserva | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Recomendaciones de reserva | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| Uso de las reservas | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| Uso de las reservas | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> El uso de Marketplace de terceros y el servicio de Azure están disponibles con [Usage Details API](/rest/api/consumption/usagedetails).
 
@@ -126,12 +126,12 @@ Para obtener los detalles del uso con la API Usage Details:
 
 La API Usage Details, así como todas las API de Cost Management, está disponible en varios ámbitos. En el caso de los costos facturados, como los recibiría tradicionalmente en un nivel de inscripción, use el ámbito del perfil de facturación.  Para más información sobre los ámbitos de Cost Management, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
-| Type | Formato de identificador |
+| type | Formato de identificador |
 | --- | --- |
 | Cuenta de facturación | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Perfil de facturación | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
 | Subscription | `/subscriptions/{subscriptionId}` |
-| Grupos de recursos | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
 Use los siguientes parámetros de cadena de consulta para actualizar cualquier código de programación.
 
@@ -187,7 +187,7 @@ El nombre de la propiedad que contiene la matriz de los registros de uso cambió
 | ExtendedCost y Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Is Recurring Charge | None | &nbsp;  |
-| Ubicación | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | MeterCategory | meterCategory | Los valores de cadena exactos pueden diferir. |
 | Id. del medidor | meterId | Los valores de cadena exactos difieren. |
 | MeterName | meterName | Los valores de cadena exactos pueden diferir. |
@@ -500,7 +500,7 @@ Puede obtener el uso de reservas de una inscripción con Reserved Instance Usage
 
 Entre ellos se incluyen los siguientes:
 
-- [Detalles de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
+- [Detalles de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Resumen de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 Todas las API de consumo se reemplazan por las API nativas de Azure que usan Azure AD para la autenticación y autorización. Para más información sobre cómo llamar a las API REST de Azure, consulte la [introducción a REST](/rest/api/azure/#create-the-request). Las API de recomendaciones de reservas nombradas anteriormente se reemplazan por la API [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) y la API [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries).

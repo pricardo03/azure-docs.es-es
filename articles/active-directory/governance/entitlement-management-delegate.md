@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967088"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124907"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegación de tareas en Administración de derechos de Azure AD (versión preliminar)
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967088"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-De forma predeterminada, los administradores globales y los administradores de usuarios pueden crear y gestionar todos los aspectos de Administración de derechos de Azure AD. No obstante, es posible que los usuarios de estos roles no conozcan todos los escenarios en los que se requieren paquetes de acceso. Normalmente, son los usuarios de los departamentos los que saben quiénes necesitan colaborar.
+De forma predeterminada, los administradores globales y los administradores de usuarios pueden crear y gestionar todos los aspectos de Administración de derechos de Azure AD. No obstante, es posible que los usuarios de estos roles no conozcan todos los escenarios en los que se requieren paquetes de acceso. Normalmente, son los usuarios de los departamentos los que saben quiénes necesitan colaborar. 
 
-En lugar de conceder permisos sin restricciones a los usuarios que no son administradores, puede conceder a los usuarios los permisos mínimos que necesitan para realizar su trabajo y evitar la creación de derechos de acceso conflictivos o inadecuados. En este artículo se describen los roles que se pueden asignar para delegar diversas tareas de administración de derechos.
+En lugar de conceder permisos sin restricciones a los usuarios que no son administradores, puede conceder a los usuarios los permisos mínimos que necesitan para realizar su trabajo y evitar la creación de derechos de acceso conflictivos o inadecuados. En este artículo se describen los roles que se pueden asignar para delegar diversas tareas de administración de derechos. 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>Ejemplo de delegación para la adopción por departamento
 
-Para comprender cómo puede delegar tareas de administración de derechos, resulta útil plantearse un ejemplo. Supongamos que su organización tiene los cinco usuarios siguientes:
+Para comprender cómo puede delegar tareas de administración de derechos, resulta útil plantearse un ejemplo. 
+
+Supongamos que su organización tiene los cinco usuarios siguientes:
 
 | Usuario | department | Notas |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ Tanto el departamento de investigación como el de marketing quieren utilizar la
 Ahora los departamentos de investigación y marketing pueden utilizar la administración de derechos. Bob, Carol, Dave y Elisa pueden crear y administrar paquetes de acceso en sus respectivos catálogos.
 
 ![Ejemplo de delegación de administración de derechos](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>Roles de administración de derechos
 
@@ -113,6 +116,7 @@ Para que un usuario que no sea administrador global o administrador de usuarios 
 | [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | Usuario | Propietario del catálogo | Solo si es propietario del grupo | Solo si es propietario del grupo | Solo si es propietario de la aplicación |  |
+
 
 ## <a name="add-a-catalog-creator"></a>Adición de un creador de catálogos
 

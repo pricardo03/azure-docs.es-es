@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c63b81e5461af5407d260651b79ec80e79fc9b4d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114356"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Enlace de Twilio para Azure Functions
 
@@ -122,7 +121,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-No puede usar parámetros de salida en el código sincrónico. Este es un ejemplo del código de script de C# asincrónico:
+No puede usar parámetros de salida en el código asincrónico. Este es un ejemplo del código de script de C# asincrónico:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -298,7 +297,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-No puede usar parámetros de salida en el código sincrónico. Este es un ejemplo del código de script de C# asincrónico:
+No puede usar parámetros de salida en el código asincrónico. Este es un ejemplo del código de script de C# asincrónico:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -402,7 +401,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 | Propiedad de function.json v1 | Propiedad de function.json v2 | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|---------|----------------------|
 |**type**|**type**| Se debe establecer en `twilioSms`.|
-|**dirección**|**dirección**| Se debe establecer en `out`.|
+|**direction**|**direction**| Se debe establecer en `out`.|
 |**name**|**name**| Nombre de variable usado en el código de función para el mensaje de texto SMS de Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor debe establecerse en el nombre de una configuración de aplicación que contiene el SID de la cuenta de Twilio, p. ej. TwilioAccountSid. Si no está establecido, el nombre predeterminado de la configuración de aplicación es "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor debe establecerse en el nombre de una configuración de aplicación que contiene el token de autenticación de Twilio, p. ej. TwilioAccountAuthToken. Si no está establecido, el nombre predeterminado de la configuración de aplicación es "AzureWebJobsTwilioAuthToken". |

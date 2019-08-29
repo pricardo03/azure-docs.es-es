@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521944"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067461"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API
 
@@ -75,8 +74,8 @@ La respuesta original debería tener este aspecto:
 1. Seleccione **Demo Conference API** (API de conferencia de demostración).
 2. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
 3. Seleccione **Todas las operaciones**.
-4. En la sección **Procesamiento de salida**, haga clic en el icono **</>**.
-5. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
+4. En la sección **Procesamiento de salida**, haga clic en el icono **</>** .
+5. Coloque el cursor dentro del elemento **&lt;outbound&gt;** .
 6. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Set HTTP header** (Establecer encabezado HTTP) dos veces (para insertar dos fragmentos de directiva).
 
    ![Directivas](./media/transform-api/transform-api.png)
@@ -112,10 +111,10 @@ Para ver la respuesta original, siga estos pasos:
 1.  Seleccione **Demo Conference API** (API de conferencia de demostración).
 2.  Seleccione **Todas las operaciones**.
 3.  En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-4.  En la sección **Procesamiento de salida**, haga clic en el icono **</>**.
-5.  Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
+4.  En la sección **Procesamiento de salida**, haga clic en el icono **</>** .
+5.  Coloque el cursor dentro del elemento **&lt;outbound&gt;** .
 6.  En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
-7.  Modifique el código **find-and-replace** (en el elemento **\<outbound\>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
+7.  Modifique el código **find-and-replace** (en el elemento **\<outbound\>** ) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,10 +127,10 @@ En esta sección se explica cómo agregar protección para la API de back-end co
 1.  Seleccione **Demo Conference API** (API de conferencia de demostración).
 2.  Seleccione **Todas las operaciones**.
 3.  En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-4.  En la sección **Procesamiento de entrada**, haga clic en el icono **</>**.
-5.  Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
+4.  En la sección **Procesamiento de entrada**, haga clic en el icono **</>** .
+5.  Coloque el cursor dentro del elemento **&lt;inbound&gt;** .
 6.  En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
-7.  Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
+7.  Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>** ) por el código siguiente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

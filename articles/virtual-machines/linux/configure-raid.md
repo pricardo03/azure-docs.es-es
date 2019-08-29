@@ -11,17 +11,16 @@ ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a7e6c0b2f260976842a0b3ac1f7f69fa859e2283
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671661"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083804"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuración del software RAID en Linux
 Es un escenario habitual usar el software RAID en máquinas virtuales con Linux en Azure para presentar varios discos de datos conectados como un único dispositivo RAID. Se puede utilizar normalmente para aumentar el rendimiento y permitir una capacidad de proceso mejorada en comparación con el uso de un solo disco.
@@ -122,19 +121,19 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 1. Cree el sistema de archivos en el nuevo dispositivo RAID.
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE y Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE y Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11**: habilitar boot.md y crear mdadm.conf
+    **SLES 11**: habilitar boot.md y crear mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,7 +143,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
    > [!NOTE]
    > Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE. Este paso *no* es necesario en SLES 12.
    > 
-   > 
+   
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Incorporación del nuevo sistema de archivos a /etc/fstab
 > [!IMPORTANT]

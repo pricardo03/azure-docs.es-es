@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480360"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097320"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de Mobile Apps para Azure Functions 
 
@@ -143,7 +142,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 | **type**|| Se debe establecer en "mobileTable"|
-| **dirección**||Se debe establecer en "in"|
+| **direction**||Se debe establecer en "in"|
 | **name**|| Nombre del parámetro de entrada en la firma de la función.|
 |**tableName** |**TableName**|Nombre de la tabla de datos de la aplicación móvil|
 | **id**| **Id** | El identificador único del registro que se va a recuperar. Puede ser estático o se puede basar en el desencadenador que invoca la función. Por ejemplo, si usa un desencadenador de cola para la función, `"id": "{queueTrigger}"` usa el valor de cadena del mensaje de cola como el identificador de registro que se va a recuperar.|
@@ -301,7 +300,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 | **type**|| Se debe establecer en "mobileTable"|
-| **dirección**||Debe establecerse en "out"|
+| **direction**||Debe establecerse en "out"|
 | **name**|| Nombre del parámetro de salida en la firma de la función.|
 |**tableName** |**TableName**|Nombre de la tabla de datos de la aplicación móvil|
 |**conexión**|**MobileAppUriSetting**|El nombre de una configuración de aplicación que tiene la dirección URL de la aplicación móvil. La función utiliza esta dirección URL para construir las operaciones de REST necesarias en su aplicación móvil. Cree una configuración de aplicación en la aplicación de función que contiene la dirección URL de la aplicación móvil y, luego, especifique el nombre de la configuración de la aplicación en la propiedad `connection` del enlace de entrada. La dirección URL tiene el aspecto siguiente: `http://<appname>.azurewebsites.net`.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 579b35a06b74ffcef47ca0b41ff60bfdc4e0eb2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dba50c984984363682efce1f09ef462b3c0c5def
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099780"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integración de Azure Active Directory con IQNavigator VMS
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con IQNavigator VMS, rea
     d. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de cliente de IQNavigator VMS](https://www.beeline.com/iqn-product-support/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de cliente de IQNavigator VMS](https://www.beeline.com/support-iqn/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. La aplicación IQNavigator espera el valor de identificador de usuario único con la notificación del identificador de nombre. El cliente puede asignar el valor correcto de la notificación del identificador de nombre. En este caso, asignamos user.UserPrincipalName para la demostración. Pero debe asignar el valor correcto según la configuración de su organización.
 
@@ -126,7 +126,7 @@ Para configurar el inicio de sesión único de Azure AD con IQNavigator VMS, rea
 
 ### <a name="configure-iqnavigator-vms-single-sign-on"></a>Configuración del inicio de sesión único en IQNavigator VMS
 
-Para configurar el inicio de sesión único en **IQNavigator VMS**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **IQNavigator VMS**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/support-iqn/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -181,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-iqnavigator-vms-test-user"></a>Creación de un usuario de prueba de IQNavigator VMS
 
-En esta sección, creará el usuario Britta Simon en IQNavigator VMS. Colabore con el  [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para agregar los usuarios a la plataforma de IQNavigator VMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en IQNavigator VMS. Colabore con el  [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/support-iqn/) para agregar los usuarios a la plataforma de IQNavigator VMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

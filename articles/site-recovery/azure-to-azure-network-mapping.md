@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521748"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907882"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -97,5 +97,3 @@ La red de destino no es la red virtual de conmutación por error | - La direcci�
 
 - Revise la [Guía de redes](site-recovery-azure-to-azure-networking-guidance.md) para la recuperación ante desastres de máquinas virtuales de Azure.
 - [Más información](site-recovery-retain-ip-azure-vm-failover.md) sobre la conservación de direcciones IP después de una conmutación por error.
-
-Si la red de destino elegida es la red virtual de conmutación por error y el segundo punto dice "Si la red de destino elegida es diferente de la red virtual de conmutación por error, pero tiene el mismo intervalo de subred que la red virtual de conmutación por error"

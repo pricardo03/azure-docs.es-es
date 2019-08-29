@@ -10,16 +10,15 @@ ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b634f871670d252aadaf2d2a672c4d5f43a6e5d9
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557892"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073332"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -134,7 +133,7 @@ Se admiten las siguientes opciones de localización:
 |WebDevelopersAppNotSubmitted|No enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoría|  
 |WebDevelopersAppTableNameHeader|NOMBRE|  
-|WebDevelopersAppTableStateHeader|Estado|  
+|WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Edit|  
 |WebDevelopersRegisterAppLink|Registre la aplicación|  
 |WebDevelopersRemoveLink|Remove|  
@@ -543,7 +542,7 @@ Se admiten las siguientes opciones de localización:
 |WebDevelopersSubscriptionRequested|Solicitud realizada el {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitada|  
 |WebDevelopersSubscriptionTableNameHeader|NOMBRE|  
-|WebDevelopersSubscriptionTableStateHeader|Estado|  
+|WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Informes de análisis|  
 |WebDevelopersYourSubscriptions|Sus suscripciones|  
 |SubscriptionPropertyLabelRequestedDate|Solicitud realizada el|  

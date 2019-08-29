@@ -8,19 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935322"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100616"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Cambio del modelo de licencia en una máquina virtual con SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia de una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de máquina virtual con SQL, **Microsoft.SqlVirtualMachine**.
@@ -182,8 +181,8 @@ Use el código siguiente para comprobar la versión de Azure PowerShell:
 Para más información, consulte los siguientes artículos. 
 
 * [Introducción a SQL Server en máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-overview.md)
-* [Preguntas más frecuentes para SQL Server en máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Orientación de precios de SQL Server en una máquina virtual Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [Notas de la versión para SQL Server en una máquina virtual Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Orientación de precios de SQL Server para máquinas virtuales de Azure](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Notas de la versión de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

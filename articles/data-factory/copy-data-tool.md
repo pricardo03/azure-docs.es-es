@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787740"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996383"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 La herramienta Copy Data de Azure Data Factory facilita y optimiza el proceso de ingerir datos en una instancia de Data Lake, que es normalmente uno de los primeros pasos en un escenario de integración de extremo a extremo.  Ahorra tiempo, en especial cuando se usa Azure Data Factory para ingerir datos de un origen de datos por primera vez. Algunas de las ventajas de usar esta herramienta son:
@@ -95,7 +95,7 @@ A continuación, sustituya **2016** por **{year}** , **03** por **{month}** , **
 
 ![Filtrado de archivos o carpetas](./media/copy-data-tool/filter-file-or-folder.png)
 
-La herramienta Copy Data genera parámetros con expresiones, funciones y variables del sistema que se pueden usar para representar los valores de {year}, {month}, {day}, {hour} y {minute} al crear una canalización. Para más información, consulte el artículo [Lectura o escritura de datos con particiones](how-to-read-write-partitioned-data.md).
+La herramienta Copy Data genera parámetros con expresiones, funciones y variables del sistema que se pueden usar para representar los valores de {year}, {month}, {day}, {hour} y {minute} al crear una canalización.
 
 ## <a name="scheduling-options"></a>Opciones de programación
 Puede ejecutar la operación de copia una vez o de forma periódica (cada hora, día, etc.). Estas opciones se pueden usar para los conectores en diferentes entornos, ya sean locales y en la nube, así como para el escritorio local. 

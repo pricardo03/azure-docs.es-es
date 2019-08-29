@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
 ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/28/2019
 ms.locfileid: "67615431"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS y uso de sus propios certificados TLS en Azure Kubernetes Service (AKS)
@@ -25,11 +25,11 @@ También puede:
 - [Creación de un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitación del complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Creación de un controlador de entrada que use una red privada interna y una dirección IP][aks-ingress-internal]
-- Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS [con una dirección IP pública dinámica][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+- Creación de un controlador de entrada que use Let's Encrypt para generar certificados TLS de forma automática [con una dirección IP pública dinámica][aks-ingress-tls] o [con una dirección IP pública estática][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se usa Helm para instalar el controlador de entrada NGINX y una aplicación web de ejemplo. Debe tener Helm inicializado dentro del clúster de AKS y usar una cuenta de servicio para Tiller. Asegúrese de que está usando la versión más reciente de Helm. Para obtener instrucciones de actualización, vea la [documentación de instalación de Helm][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+En este artículo se usa Helm para instalar el controlador de entrada NGINX y una aplicación web de ejemplo. Debe tener Helm inicializado dentro del clúster de AKS y usar una cuenta de servicio para Tiller. Asegúrese de que está usando la versión más reciente de Helm. Para instrucciones de actualización, consulte la [documentación de instalación de Helm][helm-install]. Para obtener más información sobre cómo configurar y usar Helm, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][use-helm].
 
 En este artículo también se requiere que ejecute la versión 2.0.64 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
@@ -301,7 +301,7 @@ También puede:
 - [Creación de un controlador de entrada básico con conectividad de red externa][aks-ingress-basic]
 - [Habilitación del complemento de enrutamiento de aplicación HTTP][aks-http-app-routing]
 - [Creación de un controlador de entrada que use una red privada interna y una dirección IP][aks-ingress-internal]
-- Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS [con una dirección IP pública dinámica][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+- Creación de un controlador de entrada que use Let's Encrypt para generar certificados TLS de forma automática [con una dirección IP pública dinámica][aks-ingress-tls] o [con una dirección IP pública estática][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

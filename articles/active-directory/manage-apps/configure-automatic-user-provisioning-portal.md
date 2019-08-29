@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807631"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996721"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -92,9 +92,3 @@ Seleccione la casilla **Borrar el estado actual y reiniciar la sincronización**
 * Reiniciar los servicios y ejecutar de nuevo la sincronización inicial
 
 Esta opción permite a los administradores iniciar el proceso de implementación de aprovisionamiento de nuevo.
-
-### <a name="synchronization-details"></a>Detalles de la sincronización
-
-En esta sección se ofrecen detalles adicionales sobre la operación del servicio de aprovisionamiento, incluidos las primeras y últimas veces que se ejecutó el servicio de aprovisionamiento en la aplicación y cuántos objetos de grupo y usuario administra.
-
-Se proporciona un vínculo al **informe de actividad de aprovisionamiento**, que proporciona un registro de todos los usuarios y grupos creados, actualizados y quitados entre Azure AD y la aplicación de destino. También se proporciona un vínculo al **informe de errores de aprovisionamiento**, que proporciona mensajes de error más detallados para los objetos de usuario y grupo que no se pudieron leer, crear, actualizar o quitar.

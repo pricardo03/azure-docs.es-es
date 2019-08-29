@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853985"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071001"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creación de una aplicación de Python en Azure App Service en Linux (versión preliminar)
 
@@ -41,7 +40,7 @@ En Cloud Shell, cree un directorio de inicio rápido y luego cambie a él.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 A continuación, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en el directorio de inicio rápido.
@@ -165,7 +164,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La imagen integrada de Python en App Service en Linux está actualmente en versión preliminar y se puede personalizar el comando que se usa para iniciar la aplicación. También se pueden crear aplicaciones Python de producción mediante un contenedor personalizado.
+La imagen de Python integrada de App Service en Linux está actualmente en versión preliminar y se puede personalizar el comando que se usa para iniciar la aplicación. También se pueden crear aplicaciones Python de producción mediante un contenedor personalizado.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicación de Python con PostgreSQL](tutorial-python-postgresql-app.md)

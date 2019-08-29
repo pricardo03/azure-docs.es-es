@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: diberry
-ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663912"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034370"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 
@@ -163,7 +163,7 @@ Puedes usar motores de recomendaciones con Personalizer:
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Agregar a la aplicación medidas de seguridad para contenido
 
-Si la aplicación permite grandes variaciones del contenido que se muestra a los usuarios, y algunos de estos contenidos pueden no ser seguros o apropiados para algunos usuarios, debes planear con antelación para asegurarte de poner en práctica las medidas de seguridad correctas a para evitar que los usuarios vean contenido inaceptable. El mejor patrón para implementar medidas de seguridad es el siguiente: El mejor patrón para implementar medidas de seguridad es el siguiente:
+Si la aplicación permite grandes variaciones del contenido que se muestra a los usuarios, y algunos de estos contenidos pueden no ser seguros o apropiados para algunos usuarios, debes planear con antelación para asegurarte de poner en práctica las medidas de seguridad correctas a para evitar que los usuarios vean contenido inaceptable. El mejor patrón para implementar medidas de seguridad es el siguiente:
     * Obtén la lista de acciones para clasificar.
     * Filtra las que no sean viables para el público.
     * Clasifica solo estas acciones viables.

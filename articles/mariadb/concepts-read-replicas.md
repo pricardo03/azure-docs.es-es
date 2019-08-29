@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977071"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992182"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -46,11 +46,11 @@ Puede tener un servidor maestro en cualquier [región de Azure Database for Mar
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Siempre puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Estas son las regiones de réplica universal:
 
-Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2.
+Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2.
 
 
 ### <a name="paired-regions"></a>Regiones emparejadas
-Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor maestro. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 Si usa réplicas entre regiones para planear la recuperación ante desastres, se recomienda que cree la réplica en la región emparejada en lugar de en una de las otras regiones. Las regiones emparejadas evitan actualizaciones simultáneas y priorizan el aislamiento físico y la residencia de datos.  
 
@@ -59,7 +59,7 @@ Sin embargo, existen limitaciones que deben considerarse:
 * Disponibilidad regional: Azure Database for MariaDB está disponible en Oeste de EE. UU. 2, Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
     
 * Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
-   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India del Sur. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en Oeste de la India. Esto es debido a que la región secundaria del Oeste de la India es Sur de la India, pero la región secundaria de esta última no es India occidental.
+   Esto significa que un servidor maestro de Oeste de la India puede crear una réplica en India meridional. Sin embargo, un servidor maestro de India del Sur no puede crear una réplica en India occidental. Esto es debido a que la región secundaria del Oeste de la India es India meridional, pero la región secundaria de esta última no es India occidental.
 
 
 ## <a name="create-a-replica"></a>Creación de una réplica

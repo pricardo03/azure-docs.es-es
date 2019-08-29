@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3979920cac8e3ef856b3211733f08c21afac3e26
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7fbeb12f5b221685aad5cac5352318db10bd69a7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693693"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036269"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
@@ -26,3 +26,12 @@ ms.locfileid: "68693693"
 Antes de comenzar, si no está familiarizado con Premium Storage, lea primero los artículos [¿Qué tipos de disco están disponibles en Azure?](disks-types.md) y [Objetivos de escalabilidad y rendimiento de Azure Storage para cuentas de almacenamiento](../../storage/common/storage-scalability-targets.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+Si desea realizar pruebas comparativas de su disco, consulte nuestro artículo sobre cómo [realizar pruebas comparativas realizadas de un disco](disks-benchmarks.md).
+
+Más información sobre los tipos de disco disponibles: [Selección de un tipo de disco](disks-types.md)  
+
+Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
+
+* [Procedimientos recomendados para SQL Server en Azure Virtual Machines](sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

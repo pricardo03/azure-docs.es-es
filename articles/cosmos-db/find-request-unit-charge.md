@@ -3,15 +3,15 @@ title: Búsqueda del cargo de unidad de solicitud (RU) en Azure Cosmos DB
 description: Sepa cómo encontrar el cargo de unidad de solicitud (RU) de cualquier operación que se ejecuta en un contenedor de Azure Cosmos.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356464"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093739"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 

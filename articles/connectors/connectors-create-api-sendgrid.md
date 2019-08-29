@@ -11,12 +11,12 @@ ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105741"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050816"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envío de correos electrónicos y administración de listas de distribución de correo electrónico en SendGrid con Azure Logic Apps
 
@@ -33,7 +33,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Una [cuenta SendGrid](https://www.sendgrid.com/) y una [clave de API de SendGrid](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
 

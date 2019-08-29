@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241816"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073625"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -53,7 +52,7 @@ En este tutorial, aprenderá a:
     | Nombre para mostrar             | El nombre que desea que aparezca en el **portal para desarrolladores**.                                                                                                                                                                                                                                                        |
     | NOMBRE                     | Un nombre descriptivo del producto.                                                                                                                                                                                                                                                                                      |
     | DESCRIPCIÓN              | El campo **Configuración** le permite incluir información detallada sobre el producto, por ejemplo, su finalidad, las API a las que proporciona acceso y otra información útil.                                                                                                                                               |
-    | Estado                    | Presione **Publicado** si desea publicar el producto. Para poder llamar a las API de un producto, este debe publicarse. De forma predeterminada, los nuevos productos no se publican y solo son visibles para el grupo **Administradores**.                                                                                      |
+    | State                    | Presione **Publicado** si desea publicar el producto. Para poder llamar a las API de un producto, este debe publicarse. De forma predeterminada, los nuevos productos no se publican y solo son visibles para el grupo **Administradores**.                                                                                      |
     | Requiere suscripción    | Seleccione **Require subscription** (Requerir suscripción) si se requiere que se suscriba un usuario para usar el producto.                                                                                                                                                                                                                                   |
     | Requiere aprobación        | Seleccione **Require approval** (Requerir aprobación) si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto. Si la casilla está desactivada, los intentos de suscripción se aprueban automáticamente.                                                                                                                         |
     | Límite de recuento de suscripciones | Para limitar el número de varias suscripciones simultáneas, escriba el límite de suscripciones.                                                                                                                                                                                                                                |

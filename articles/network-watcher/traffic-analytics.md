@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620125"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031854"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -178,6 +178,8 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 2. En *Versión de los registros de flujo*, seleccione **Versión 2**. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
 3. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento. Asegúrese de que el almacenamiento no tenga el "espacio de nombres jerárquico de Data Lake Storage Gen2 habilitado" establecido en true. Además, los registros de flujos de los grupos de seguridad de red no se pueden almacenar en una cuenta de Storage con un firewall. 
 4. Establezca **Retención** en el número de días que desea almacenar los datos.
+> [!IMPORTANT]
+> Actualmente, hay un problema por el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superan el período de retención para evitar incurrir en cargos. Para obtener más información sobre cómo eliminar el blob de almacenamiento de registros de flujo de NSG, consulte [Eliminación de los blobs de almacenamiento de los registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 5. Seleccione *Activo* en **Estado de Análisis de tráfico**.
 6. Seleccione el intervalo de procesamiento. En función de su elección, los registros de flujos se recopilan de la cuenta de almacenamiento y se procesan mediante Análisis de tráfico. Puede elegir el intervalo de procesamiento de cada hora o cada 10 minutos.
 7. Seleccione un área de trabajo de Log Analytics (OMS) existente o seleccione **Crear área de trabajo nueva** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las [regiones admitidas](#supported-regions-log-analytics-workspaces) y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).

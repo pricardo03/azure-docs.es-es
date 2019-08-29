@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370720"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034522"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Roles administrativos del Contrato Enterprise de Azure en Azure
 
@@ -36,7 +36,7 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 
 ## <a name="user-limit-for-admin-roles"></a>Límite de usuarios para roles de administrador
 
-|Rol| Límite de usuarios|
+|Role| Límite de usuarios|
 |---|---|
 |Administrador de empresa|Ilimitado|
 |Administrador de empresa (solo lectura)|Ilimitado|
@@ -56,7 +56,7 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 |Agregar o eliminar contactos de notificación<sup>2</sup> |✔|✘|✘|✘|✘|
 |Crear y administrar departamentos |✔|✘|✘|✘|✘|
 |Ver administradores de departamento|✔|✔|✔|✔|✘|
-|Agregar o quitar administradores de departamento|✔|✔|✔|✘|✘|
+|Agregar o quitar administradores de departamento|✔|✘|✔|✘|✘|
 |Ver cuentas en la inscripción |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Agregar cuentas a la inscripción y cambiar el propietario de la cuenta|✔|✘|✔<sup>3</sup>|✘|✘|
 |Crear y administrar suscripciones y permisos de suscripción|✘|✘|✘|✘|✔|

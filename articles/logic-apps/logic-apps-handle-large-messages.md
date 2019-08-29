@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035583"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989919"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
 
@@ -128,7 +128,7 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
    | Campo de encabezado de respuesta del punto de conexión | type | Obligatorio | DESCRIPCIÓN |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |
-   | **Ubicación** | Cadena | Sin | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
+   | **Ubicación** | Cadena | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
    ||||
 
 3. La aplicación lógica crea y envía mensajes HTTP PATCH de seguimiento, cada uno con esta información:

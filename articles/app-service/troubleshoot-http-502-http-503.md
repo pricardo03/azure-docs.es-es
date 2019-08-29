@@ -12,17 +12,16 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d40b11538d5aee20b54ddd6d3ca112f30238b512
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fdbd77db349eed62af2eb8cf539ef749217a187a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636539"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066680"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en Azure App Service
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.

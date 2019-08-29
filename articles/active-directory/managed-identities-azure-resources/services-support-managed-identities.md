@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261901"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905238"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -63,7 +63,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure App Service (en las regiones donde esté disponible):
 
@@ -89,7 +89,7 @@ Consulte la siguiente lista para usar una identidad administrada con [Azure Blue
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Functions (en las regiones donde esté disponible):
 

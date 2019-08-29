@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235170"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077983"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
 Las aplicaciones SAP basadas en la arquitectura SAP NetWeaver o SAP S/4HANA son sensibles a la latencia de red entre la capa de aplicación de SAP y el nivel de base de datos de SAP. La razón de la sensibilidad de estas arquitecturas se basa en el hecho de que la mayor parte de la lógica de negocios se ejecuta en el nivel de aplicación. Como resultado de la ejecución de la lógica de negocios, el nivel de aplicación de SAP emite consultas al nivel de base de datos con una elevada frecuencia de miles y decenas de miles de consultas por segundo. En la mayoría de los casos, la naturaleza de esas consultas es sencilla. A menudo se pueden ejecutar en el nivel de base de datos en 500 microsegundos o incluso menos. El tiempo invertido en la red para enviar una consulta de este tipo desde la capa de aplicación al nivel de base de datos y recibir el conjunto de resultados del nivel de base de datos influye considerablemente en el tiempo que se tarda en ejecutar procesos empresariales. Esta sensibilidad a la latencia de red es la razón por la que se debe dedicar un tiempo a los proyectos de implementación de SAP para lograr una latencia de red óptima. En la [nota de SAP 1100926 sobre preguntas frecuentes de rendimiento de red](https://launchpad.support.sap.com/#/notes/1100926/E), SAP publicó algunas directrices para clasificar la latencia de red.

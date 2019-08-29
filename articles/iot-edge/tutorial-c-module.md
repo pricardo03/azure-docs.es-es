@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 08/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: fa8730c43adb37fa9f62682beec9baeb7e95dfcf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 32b050c86c2a170b1f95943a873c67d15f947c93
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839597"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035662"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo de un módulo IoT Edge con C para dispositivos Linux
 
@@ -133,20 +133,20 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
 1. Busque la función `CreateMessageInstance` en main.c. Reemplace la instrucción interna if-else por el código siguiente que agrega unas líneas de funcionalidad: 
 
    ```c
-   if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
-   {
-       free(messageInstance);
-       messageInstance = NULL;
-   }
-   else
-   {
-       messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
-       MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
-       if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+       if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
        {
-          printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           free(messageInstance);
+           messageInstance = NULL;
        }
-   }
+       else
+       {
+           messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+           MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
+           if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+           {
+              printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           }
+       }
    ```
 
    Las nuevas líneas de código en la instrucción else agregan una nueva propiedad al mensaje, que etiqueta el mensaje como una alerta. Este código etiqueta todos los mensajes como alertas, dado que se agregará una funcionalidad que solo envía mensajes a IoT Hub si notifican altas temperaturas. 
@@ -220,7 +220,7 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
     {
         printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
-            ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
         JSON_Value *root_value = json_parse_string(payLoad);
         JSON_Object *root_object = json_value_get_object(root_value);
         if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
@@ -242,12 +242,12 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else
        {

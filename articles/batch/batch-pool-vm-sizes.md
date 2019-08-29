@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323103"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094667"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -41,26 +40,26 @@ No se garantiza la compatibilidad de los tamaños de máquina virtual promociona
 
 | Series de máquinas virtuales  | Tamaños admitidos | Modo de asignación de grupo de cuenta de Batch<sup>1</sup> |
 |------------|---------|-----------------|
-| Serie A básica | Todos los tamaños *excepto* Basic_A0 (A0) | Cualquiera |
-| Serie A | Todos los tamaños *excepto* Standard_A0 | Cualquiera |
-| Serie Av2 | Todos los tamaños | Cualquiera |
+| Serie A básica | Todos los tamaños *excepto* Basic_A0 (A0) | Any |
+| Serie A | Todos los tamaños *excepto* Standard_A0 | Any |
+| Serie Av2 | Todos los tamaños | Any |
 | Serie B | None | No disponible |
 | Serie DC | None | No disponible |
-| Series Dv2 y Dsv2 | Todos los tamaños | Cualquiera |
-| Series Dv3 y Dsv3 | Todos los tamaños | Cualquiera |
+| Series Dv2 y Dsv2 | Todos los tamaños | Any |
+| Series Dv3 y Dsv3 | Todos los tamaños | Any |
 | [Tamaños optimizados para memoria](../virtual-machines/linux/sizes-memory.md) | None | No disponible |
-| Serie Fsv2 | Todos los tamaños | Cualquiera |
-| Serie H | Todos los tamaños | Cualquiera |
-| Serie Hb<sup>2</sup> | Todos los tamaños | Cualquiera |
-| Serie Hc<sup>2</sup> | Todos los tamaños | Cualquiera |
-| Serie Ls | Todos los tamaños | Cualquiera |
+| Serie Fsv2 | Todos los tamaños | Any |
+| Serie H | Todos los tamaños | Any |
+| Serie Hb<sup>2</sup> | Todos los tamaños | Any |
+| Serie Hc<sup>2</sup> | Todos los tamaños | Any |
+| Serie Ls | Todos los tamaños | Any |
 | Serie Lsv2 | None | No disponible |
-| Serie M | Standard_M64ms (solo baja prioridad), Standard_M128s (solo baja prioridad) | Cualquiera |  
-| Serie NCv2<sup>2</sup> | Todos los tamaños | Cualquiera |
-| Serie NCv3<sup>2</sup> | Todos los tamaños | Cualquiera |
-| Serie ND<sup>2</sup> | Todos los tamaños | Cualquiera |
+| Serie M | Standard_M64ms (solo baja prioridad), Standard_M128s (solo baja prioridad) | Any |  
+| Serie NCv2<sup>2</sup> | Todos los tamaños | Any |
+| Serie NCv3<sup>2</sup> | Todos los tamaños | Any |
+| Serie ND<sup>2</sup> | Todos los tamaños | Any |
 | Serie NDv2 | Todos los tamaños | Modo de suscripción de usuario |
-| Serie NV | Todos los tamaños | Cualquiera |
+| Serie NV | Todos los tamaños | Any |
 | Serie NVv3 | None | No disponible |
 | SAP HANA | None | No disponible |
 

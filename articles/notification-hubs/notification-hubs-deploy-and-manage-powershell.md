@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cff6ef25d0fe812cc6df26bf946daff29d37f84
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457845"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102840"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 
@@ -74,7 +74,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>Creación de la clase `NamespaceManager`
 
-Para aprovisionar Notification Hubs, cree una instancia de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) desde el SDK.
+Para aprovisionar Notification Hubs, cree una instancia de la clase [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) desde el SDK.
 
 Puede usar el cmdlet [Get-AzureSBAuthorizationRule] que se incluye con Azure PowerShell para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Se almacena una referencia a la instancia de `NamespaceManager` en la variable `$NamespaceManager`. Se usa `$NamespaceManager` para aprovisionar un centro de notificaciones.
 

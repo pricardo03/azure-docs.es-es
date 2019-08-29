@@ -7,26 +7,25 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 987f84301608129075b55769f886912ec2354cbb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869249"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099900"
 ---
 # <a name="available-skus-for-hli"></a>SKU disponibles para HLI
 
 El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 3 está disponible en varias configuraciones en las siguientes regiones de Azure:
 
 - Oeste de EE. UU.
-- Este de EE. UU
+- East US
 - Este de Australia
 - Sudeste de Australia
 - Europa occidental
@@ -37,7 +36,7 @@ El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la rev
 El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la revisión 4 está disponible en varias configuraciones en las siguientes regiones de Azure:
 
 - Oeste de EE. UU. 2
-- Este de EE. UU
+- East US
 - Europa occidental
 - Europa del Norte
 

@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1168963c0698c6bdafe20babe2e5143585bf90a8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730553"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087119"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
@@ -35,7 +34,7 @@ En las siguientes secciones se explican la configuración y el código que se ut
 > [!NOTE]
 > Durable Functions de JavaScript están disponibles solo para el entorno de ejecución de Functions 2.x.
 
-## <a name="e1hellosequence"></a>E1_HelloSequence
+## <a name="e1_hellosequence"></a>E1_HelloSequence
 
 ### <a name="functionjson-file"></a>Archivo function.json
 
@@ -72,7 +71,7 @@ Todas las funciones de orquestación de JavaScript tienen que incluir el módulo
 
 El objeto `context` contiene un objeto `df` que le permite llamar a otras funciones de *actividad* y pasar parámetros de entrada mediante su método `callActivity`. El código llama a `E1_SayHello` tres veces en secuencia con valores de parámetro diferentes, utilizando `yield` para indicar que la ejecución debe esperar en las llamadas de función de actividad asincrónica que se van a devolver. El valor devuelto de cada llamada se agrega a la lista `outputs`, que se devuelve al final de la función.
 
-## <a name="e1sayhello"></a>E1_SayHello
+## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>Archivo function.json
 

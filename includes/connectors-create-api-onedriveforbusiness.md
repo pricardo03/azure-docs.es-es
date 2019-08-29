@@ -4,15 +4,15 @@ ms.service: logic-apps
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
-ms.openlocfilehash: 48cd41d432c5969fc4128b055ca61fc86a57bdd2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6c905842778f43196ac463b99993a3cbcd436fa5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186570"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036777"
 ---
 ### <a name="prerequisites"></a>Requisitos previos
-* Una cuenta de [OneDrive](http://OneDrive.com). 
+* Una cuenta de [OneDrive](https://OneDrive.com). 
 
 Para poder usar su cuenta de OneDrive para la Empresa en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en Azure Portal. 
 

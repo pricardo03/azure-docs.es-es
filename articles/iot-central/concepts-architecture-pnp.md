@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879140"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995870"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Arquitectura de Azure IoT Central (características de versión preliminar)
 
@@ -73,7 +73,7 @@ En una aplicación de Azure IoT Central, las plantillas de dispositivo definen e
 
 En una plantilla de dispositivo de aplicación de la versión preliminar de IoT Central:
 
-- **Los modelos de funcionalidad del dispositivo** especifican las capacidades de un dispositivo, como la telemetría que envía, las propiedades que definen el estado del dispositivo y los comandos a los que responde el dispositivo. Las funcionalidades del dispositivo están organizadas en una o varias interfaces. Para obtener más información sobre los modelos de funcionalidad del dispositivo, consulte la documentación de [IoT Plug and Play](https://aka.ms/iot-pnp-docs).
+- **Los modelos de funcionalidad del dispositivo** especifican las capacidades de un dispositivo, como la telemetría que envía, las propiedades que definen el estado del dispositivo y los comandos a los que responde el dispositivo. Las funcionalidades del dispositivo están organizadas en una o varias interfaces. Para obtener más información sobre los modelos de funcionalidad del dispositivo, consulte la documentación de [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
 - **Las propiedades de la nube** especifican las propiedades que IoT Central almacena para un dispositivo. Estas propiedades solo se almacenan en IoT Central y nunca se envían a un dispositivo.
 - Las **vistas** especifican los paneles y los formularios que crea el generador para permitir que el operador supervise y administre los dispositivos.
 - Las **personalizaciones** permiten que el generador invalide algunas de las definiciones en el modelo de funcionalidad del dispositivo para que sean más relevantes para la aplicación de IoT Central.

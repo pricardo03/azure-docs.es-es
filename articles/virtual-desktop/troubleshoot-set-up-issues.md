@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: efc721f7852d50e431be38f52e27d72ad7f3ae76
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877586"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981090"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -53,7 +53,7 @@ Ejemplo de error no procesado:
 
 **Causa:** No han asignado al usuario que ha iniciado sesión el rol TenantCreator en su Azure Active Directory.
 
-**Corrección:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
+**Corrección:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
 
 ![Captura de pantalla del rol TenantCreator asignado.](media/TenantCreatorRoleAssigned.png)
 

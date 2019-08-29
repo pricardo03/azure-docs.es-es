@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342135"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035595"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -45,7 +45,7 @@ Las vistas que se crean con el Diseñador de vistas contienen los elementos que 
 | Elementos de visualización | Presentan una visualización de los datos del área de trabajo de Log Analytics que se basa en una o varias [consultas de registros](../log-query/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccione los elementos para realizar una consulta de registro que proporcione registros detallados. |
 
 ## <a name="required-permissions"></a>Permisos necesarios
-Requiere como mínimo [permisos de nivel de colaborador](manage-access.md#manage-accounts-and-users) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción Diseñador de vistas no se mostrará en el menú.
+Requiere como mínimo [permisos de nivel de colaborador](manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción Diseñador de vistas no se mostrará en el menú.
 
 
 ## <a name="work-with-an-existing-view"></a>Uso de una vista existente

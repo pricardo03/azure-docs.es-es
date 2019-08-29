@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480658"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086822"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -324,7 +323,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json |DESCRIPCIÓN|
 |---------|---------|
 | **type** | Requerida: se debe establecer en `eventGridTrigger`. |
-| **dirección** | Requerida: se debe establecer en `in`. |
+| **direction** | Requerida: se debe establecer en `in`. |
 | **name** | Requerido: el nombre de la variable que se utiliza en el código de función para el parámetro que recibe los datos del evento. |
 
 ## <a name="usage"></a>Uso

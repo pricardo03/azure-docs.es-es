@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 5f083178ca7e28831bf4f60940c3ced73a427dda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092782"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integración de Azure Active Directory con RightAnswers
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con RightAnswers, realic
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de RightAnswers](https://www.rightanswers.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de RightAnswers](https://support.rightanswers.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con RightAnswers, realic
 
 ### <a name="configure-rightanswers-single-sign-on"></a>Configuración de inicio de sesión único de RightAnswers
 
-Para configurar el inicio de sesión único en **RightAnswers**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de RightAnswers](https://www.rightanswers.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **RightAnswers**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de RightAnswers](https://support.rightanswers.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!NOTE]
 > El equipo de soporte técnico de RightAnswers es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.

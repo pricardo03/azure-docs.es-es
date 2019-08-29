@@ -10,16 +10,15 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780353"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072502"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Uso de una instancia externa de Azure Redis Cache en Azure API Management
 
@@ -90,7 +89,7 @@ Una vez que la memoria caché externa está configurada en Azure API Management,
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-* Para más información sobre las directivas de almacenamiento en caché, consulte [Caching policies][Caching policies] (Directivas de almacenamiento en caché) en [API Management policy reference][API Management policy reference] (Referencia de la directiva de API Management).
+* Para más información sobre las directivas de almacenamiento en caché, consulte [Caching policies][Caching policies] (Directivas de almacenamiento en caché) en [API Management policy reference][API Management policy reference] (Referencia de la directiva de Administración de API).
 * Para obtener información sobre el almacenamiento en caché de los elementos por parte de la clave mediante expresiones de directiva, consulte [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx

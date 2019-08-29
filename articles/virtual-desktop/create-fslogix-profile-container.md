@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: b5acfa8da3df45745c86b1c06fd416229c6fdb89
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 05289b8e3aa0e083dd948a2d43f3af92418bc5d2
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877588"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051981"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 

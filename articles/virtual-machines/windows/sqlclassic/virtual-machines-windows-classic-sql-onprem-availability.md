@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481621"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101842"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
 Los grupos de disponibilidad AlwaysOn proporcionan alta disponibilidad para los grupos de la base de datos mediante la incorporación de réplicas secundarias. Estas réplicas permiten la conmutación por error en bases de datos en caso de error. Además puede usarse para descargar las cargas de trabajo de lectura o tareas de copia de seguridad.

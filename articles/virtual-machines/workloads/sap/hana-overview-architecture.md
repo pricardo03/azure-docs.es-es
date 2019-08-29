@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2076778751161d5763d7bd0643cfe8f71a5f522
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ea337101a5fe44e42ce85c17fec32028c75d3b85
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869197"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101181"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
 
@@ -40,7 +39,7 @@ A partir de julio de 2019, diferenciamos entre dos revisiones distintas de los s
 - "Revisión 3" (Rev 3): se trata de los sellos que se pusieron a disposición del cliente para su implementación antes de julio de 2019
 - "Revisión 4" (Rev 4): nuevo diseño de sello que se implementa cerca de los hosts de máquina virtual de Azure y que hasta ahora se publicaban en las siguiente regiones:
     -  Oeste de EE. UU. 2 
-    -  Este de EE. UU 
+    -  East US 
     -  Europa occidental
     -  Europa del Norte
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efc439d56ee864d940942369b3d226ed2a94a383
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60795885"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072627"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -586,7 +585,7 @@ Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar
 | url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
 | method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
 | encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                              |
-| Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                              |
+| body                       | Cuerpo de la solicitud.                                                                                           | Sin                              |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                              |
 
 ### <a name="attributes"></a>Atributos
@@ -670,7 +669,7 @@ En este ejemplo se muestra una forma de comprobar un token de referencia con un 
 | url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
 | method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
 | encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                              |
-| Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                              |
+| body                       | Cuerpo de la solicitud.                                                                                           | Sin                              |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                              |
 
 ### <a name="attributes"></a>Atributos

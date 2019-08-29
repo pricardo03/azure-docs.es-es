@@ -11,17 +11,16 @@ ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff98079c6156783442078546a4783a367863057
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f4191015ee4dc7eb753c70f23be242f2ca88dcc3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722593"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079401"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Windows
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, de hecho, la implementación de sus máquinas virtuales (VM).

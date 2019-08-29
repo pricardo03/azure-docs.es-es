@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849200"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997703"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -105,26 +105,26 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
-| SourceSystem |*Las tablas de Azure* |
-| CallerIpAddress |Dirección IP del cliente que realizó la solicitud. |
-| Categoría | *AuditEvent* |
-| CorrelationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
-| DurationMs |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Este tiempo no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
-| httpStatusCode_d |Código de estado HTTP devuelto por la solicitud (por ejemplo, *200*) |
-| id_s |Identificador único de la solicitud. |
-| identity_claim_appid_g | GUID para el identificador de aplicación |
-| OperationName |Nombre de la operación, como se documenta en el [registro de Azure Key Vault](../../key-vault/key-vault-logging.md). |
-| OperationVersion |Versión de API de REST solicitada por el cliente (por ejemplo, *2015-06-01*) |
-| requestUri_s |URI de la solicitud. |
-| Recurso |Nombre del almacén de claves. |
-| ResourceGroup |Grupo de recursos del almacén de claves. |
-| ResourceId |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *ALMACENES* |
-| ResultSignature |Código de estado HTTP (por ejemplo, *OK*) |
-| ResultType |Resultado de solicitud de API de REST (por ejemplo, *Correcto*) |
-| SubscriptionId |Identificador de la suscripción de Azure que contiene el almacén de claves. |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Las tablas de Azure* |
+| `CallerIpAddress` |Dirección IP del cliente que realizó la solicitud. |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
+| `DurationMs` |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Este tiempo no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
+| `httpStatusCode_d` |Código de estado HTTP devuelto por la solicitud (por ejemplo, *200*) |
+| `id_s` |Identificador único de la solicitud. |
+| `identity_claim_appid_g` | GUID para el identificador de aplicación |
+| `OperationName` |Nombre de la operación, como se documenta en el [registro de Azure Key Vault](../../key-vault/key-vault-logging.md). |
+| `OperationVersion` |Versión de API de REST solicitada por el cliente (por ejemplo, *2015-06-01*) |
+| `requestUri_s` |URI de la solicitud. |
+| `Resource` |Nombre del almacén de claves. |
+| `ResourceGroup` |Grupo de recursos del almacén de claves. |
+| `ResourceId` |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *ALMACENES* |
+| `ResultSignature` |Código de estado HTTP (por ejemplo, *OK*) |
+| `ResultType` |Resultado de solicitud de API de REST (por ejemplo, *Correcto*) |
+| `SubscriptionId` |Identificador de la suscripción de Azure que contiene el almacén de claves. |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migración desde la solución Key Vault antigua
 En enero de 2017, cambia la forma de enviar registros de Key Vault a Log Analytics. Estos cambios proporcionan las siguientes ventajas:

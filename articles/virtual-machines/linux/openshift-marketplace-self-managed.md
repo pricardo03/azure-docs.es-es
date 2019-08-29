@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87b5c4ab006d9129d7530b06d8b31df35e288c75
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233082"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091908"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
@@ -70,7 +69,7 @@ Escriba los valores para los parámetros de entrada y haga clic en **Aceptar**.
 | Clave pública SSH para el usuario administrador | Clave pública SSH usada para iniciar sesión en una máquina virtual: no debe tener una frase de contraseña |
 | Subscription | Suscripción de Azure en la que se implementa el clúster. |
 | Grupo de recursos | Crear un nuevo grupo de recursos o seleccionar uno vacío existente para los recursos de clúster |
-| Ubicación | Región de Azure en la que se implementa el clúster |
+| Location | Región de Azure en la que se implementa el clúster |
 
    ![Hoja de aspectos básicos de la oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

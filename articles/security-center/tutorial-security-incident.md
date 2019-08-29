@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081997"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992057"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
@@ -34,6 +34,28 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
+
+## <a name="scenario"></a>Escenario
+Contoso migró recientemente algunos de sus recursos locales a Azure, incluidas algunas cargas de trabajo empresariales basadas en máquinas virtuales y bases de datos SQL. Actualmente el equipo de respuesta a incidentes de seguridad informática central de Contoso (CSIRT) tiene un problema para investigar asuntos de seguridad, debido a la falta de inteligencia de seguridad integrada en sus herramientas actuales de respuesta a incidentes. Esta falta de integración presenta un problema durante las fases de detección (demasiados falsos positivos), evaluación y diagnóstico. Como parte de esta migración, decidió participar en Security Center para ayudar a solucionar el problema.
+
+La primera fase de migración terminó después de incorporar todos los recursos y abordar todas las recomendaciones de seguridad de Security Center. El equipo CSIRT de Contoso es crucial para tratar los incidentes de seguridad informática. El equipo está formado por un grupo de personas encargadas de manejar los incidentes de seguridad. Los miembros del equipo tienen tareas claramente definidas para asegurarse de que no quede sin cubrir ninguna área de respuesta.
+
+En este escenario, nos vamos a centrar en los roles de las siguientes personas que forman parte del equipo CSIRT de Contoso:
+
+![Ciclo de vida de respuesta a incidentes](./media/tutorial-security-incident/security-center-incident-response.png)
+
+Judy se encarga de las operaciones de seguridad. Entre sus responsabilidades están:
+
+* Supervisar y responder a amenazas de seguridad durante las 24 horas.
+* Remitirlas al propietario de la carga de trabajo en la nube o al analista de seguridad, según sea necesario.
+
+Sam es analista de seguridad y sus responsabilidades incluyen:
+
+* Investigar los ataques.
+* Solucionar las alertas.
+* Trabajar con los propietarios de la carga de trabajo para determinar y aplicar mitigaciones.
+
+Como puede ver, Judy y Sam tienen responsabilidades diferentes, y deben trabajar juntos para compartir la información de Security Center.
 
 ## <a name="triage-security-alerts"></a>Evaluar las prioridades de las alertas de seguridad
 Security Center proporciona una vista unificada de todas las alertas de seguridad. Las alertas de seguridad se clasifican en función de su gravedad y cuando se combinan varias posibles alertas relacionadas, se genera un incidente de seguridad. Cuando la evolución de las prioridades de las alertas e incidentes debería:

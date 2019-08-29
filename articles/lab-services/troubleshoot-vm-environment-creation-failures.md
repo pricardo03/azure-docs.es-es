@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774410"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129036"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs
 DevTest Labs le proporciona advertencias si un nombre de máquina no es válido o si va a infringir una directiva de laboratorio. En ocasiones, verá una `X` roja junto al estado del entorno o la máquina virtual de su laboratorio que le informará de que algo ha ido mal.  En este artículo se proporcionan algunos trucos que puede usar para buscar el problema subyacente y, con suerte, evitar el problema en el futuro.
 
 ## <a name="portal-notifications"></a>Notificaciones del portal
-Si utiliza Azure Portal, el primer lugar donde debe mirar es el **panel de notificaciones**.  El panel de notificaciones, disponible en la barra de comandos principal haciendo clic en el **icono de campana**, le indicará si la creación del entorno o la máquina virtual del laboratorio se ha realizado correctamente o no.  Si se produjo un error, verá el mensaje de error asociado al error de creación. Estos detalles a menudo ofrecen más información que le ayudará a resolver el problema. En el ejemplo siguiente, la máquina virtual no se pudo crear debido a la falta de núcleos. El mensaje detallado le indica cómo corregir el problema y solicitar un aumento de cuota de núcleos.
+Si utiliza Azure Portal, el primer lugar donde debe mirar es el **panel de notificaciones**.  El panel de notificaciones, disponible en la barra de comandos principal haciendo clic en el **icono de campana**, le indicará si la creación del entorno o la máquina virtual del laboratorio se ha realizado correctamente o no.  Si se produjo un error, verá el mensaje de error asociado al error de creación. Estos detalles a menudo ofrecen más información que le ayudará a resolver el problema. En el ejemplo siguiente, la máquina virtual no se pudo crear debido a la falta de núcleos. El mensaje detallado le indica cómo corregir el problema y solicitar un aumento de cuota de núcleos.
 
 ![Notificación de Azure Portal](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

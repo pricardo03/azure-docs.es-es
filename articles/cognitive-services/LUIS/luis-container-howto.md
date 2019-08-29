@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563910"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050080"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -248,7 +248,7 @@ Las versiones V2 y [V3 (versión preliminar)](luis-migration-api-v3.md) de la AP
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. Los puntos de conexión de las aplicaciones publicadas (en ensayo o producción), tienen una ruta _diferente_ a la de los puntos de conexión de las aplicaciones entrenadas. 
 
-Utilice el host, `https://localhost:5000`, con las API de contenedor. 
+Utilice el host, `http://localhost:5000`, con las API de contenedor. 
 
 |Tipo de paquete|Método|Enrutar|Parámetros de consulta|
 |--|--|--|--|

@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: aacaf6c64ef77d0e694f97e3675060eca33794ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029256"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128373"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -41,7 +40,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
   
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Single Parameter** (Parámetro único): si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
+    -   **Parámetro único**: si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
   
 3.  Para **Optimization tolerance** (Tolerancia de optimización), especifique un valor de umbral que se usará al optimizar el modelo. Si la mejora entre iteraciones cae por debajo del umbral especificado, se considera que el algoritmo ha convergido en una solución y el entrenamiento se detiene.  
   
@@ -73,7 +72,7 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
   
 8. Agregue un conjunto de datos etiquetado al experimento y conecte uno de los [módulos de aprendizaje](module-reference.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](./train-model.md).  
   
 9. Ejecute el experimento.  
   

@@ -3,15 +3,15 @@ title: Creación de un contenedor en Azure Cosmos DB
 description: Aprenda a crear un contenedor en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7768f94051c6882f08dce360e35bf673c7b1103d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241017"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093477"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 

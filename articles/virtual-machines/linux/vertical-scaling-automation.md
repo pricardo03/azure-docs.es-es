@@ -11,17 +11,16 @@ ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0317344fd8ee1eb415b61d4f5035219e649b18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e08d0e2084f2310623391a3b20f0f09df4c419e8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695477"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103514"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Escalado vertical de máquinas virtuales Linux de Azure con Azure Automation
 El escalado vertical es el proceso de aumentar o disminuir los recursos de una máquina como respuesta a la carga de trabajo. Para lograrlo en Azure, cambie el tamaño de la máquina virtual. Esto puede ser útil en los siguientes escenarios:
@@ -35,6 +34,7 @@ Los pasos para lograr esto se describen a continuación:
 2. Importar los runbooks de escalado vertical de Azure Automation a la suscripción.
 3. Agregar un webhook al runbook.
 4. Agregar una alerta a la máquina virtual.
+
 
 ## <a name="scale-limitations"></a>Limitaciones de escala
 
@@ -223,6 +223,8 @@ Puede elegir escalar entre los siguientes pares de tamaños:
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
+
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar Azure Automation para tener acceso a las máquinas virtuales.
 Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, el servicio Automation presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:

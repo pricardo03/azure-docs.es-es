@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564590"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034504"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
-La parte de Reconocer texto de Computer Vision también está disponible como un contenedor de Docker. Le permite detectar y extraer texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita.  
+La parte de Reconocer texto de Computer Vision también está disponible como un contenedor de Docker. Le permite detectar y extraer texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita.
+
 > [!IMPORTANT]
 > Actualmente, el contenedor de Reconocer texto solo funciona en inglés.
 
@@ -38,7 +39,7 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -46,16 +47,7 @@ Debe cumplir los siguientes requisitos previos para poder usar el contenedor de 
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Reconocer texto.
-
-| Contenedor | Mínima | Recomendado |TPS<br>(mínimo, máximo)|
-|-----------|---------|-------------|--|
-|Reconocer texto|1 núcleo, 8 GB de memoria, 0,5 TPS|2 núcleos, 8 GB de memoria, 1 TPS|0,5, 1|
-
-* Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
-* TPS: transacciones por segundo
-
-El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 

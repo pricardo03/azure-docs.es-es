@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335994"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099409"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -61,7 +61,7 @@ Un [*Entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-
 
   * **SKU de Desarrollador**: hasta 4 cuentas Estándar más o hasta 5 cuentas Estándar en total. Sin cuentas Básicas.
 
-Para más información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Puede obtener más información sobre los [niveles de las cuentas de integración y su modelo de precios](#integration-accounts) más adelante en este tema. 
+Para más información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Puede obtener más información sobre los [niveles de las cuentas de integración y su modelo de precios](#integration-accounts) más adelante en este tema.
 
 En el caso de la SKU del ISE Premium, la unidad base tiene una capacidad fija, por lo que si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), ya sea durante el proceso de creación o posteriormente. La SKU del ISE de Desarrollador no tiene la funcionalidad para agregar más unidades de escalado. Las aplicaciones lógicas que se ejecutan en un ISE no comportan gastos de retención de datos.
 

@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: b8855fa061e07ec77482ca960971db8252608b51
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901469"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096877"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -42,7 +41,7 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creación de una función desencadenada por Blob Storage
 
-1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
+1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
 
    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 

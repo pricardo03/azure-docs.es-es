@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62232283fb0b2f499601615702fef3292bb88317
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60592162"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100729"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -49,7 +48,7 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](http
 
 3. Haga clic en **grupo de recursos** en la ventana de búsqueda de **Marketplace**.
 
-   ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Haga clic en **Grupo de recursos**.
 5. Haga clic en **Create**(Crear).
 6. En **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
@@ -57,7 +56,7 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](http
 8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. En este artículo se compilan todos los recursos en una ubicación de Azure.
 9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel del Portal de Azure.
 
-   ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Haga clic en **Crear** para crear el grupo de recursos.
 

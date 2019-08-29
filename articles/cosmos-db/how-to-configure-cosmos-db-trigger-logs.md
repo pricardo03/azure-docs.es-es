@@ -3,15 +3,15 @@ title: Configuración y lectura de los registros cuando se usa el desencadenador
 description: Aprenda a exponer los registros a la canalización de registros de Azure Functions cuando se usa el desencadenar de Azure Functions para Cosmos DB.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: ad53762ad490c5e8feedb83007b8721fe4883806
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334519"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093596"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Configuración y lectura de los registros cuando se usa el desencadenador de Azure Functions para Cosmos DB
 

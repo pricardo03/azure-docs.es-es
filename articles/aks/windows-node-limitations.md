@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 501aeb60eba1d94b4c5882a7c6cbfa8d0359e44d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c2c9e3d29ced5f75873656e253ecdbab5efe7df8
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033907"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114405"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ En este artículo se describen algunas de las limitaciones y los conceptos de si
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitaciones de Windows Server en Kubernetes
 
-Los contenedores de Windows Server deben ejecutarse en un host de contenedor basado en Windows. Para ejecutar los contenedores de Windows Server en AKS puede [crear un grupo de nodos que ejecute Windows Server][windows-node-cli] como sistema operativo invitado. La compatibilidad del grupo de nodos de Windows Server incluye algunas limitaciones que forman parte de Windows Server ascendente en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre esta compatibilidad ascendente con Windows Server en Kubernetes, consulte [Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+Los contenedores de Windows Server deben ejecutarse en un host de contenedor basado en Windows. Para ejecutar los contenedores de Windows Server en AKS puede [crear un grupo de nodos que ejecute Windows Server][windows-node-cli] como sistema operativo invitado. La compatibilidad del grupo de nodos de Windows Server incluye algunas limitaciones que forman parte de Windows Server ascendente en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre esta compatibilidad ascendente con Windows Server en Kubernetes, consulte [Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations).
 
 Las siguientes limitaciones ascendentes para contenedores de Windows Server en Kubernetes son pertinentes para AKS:
 

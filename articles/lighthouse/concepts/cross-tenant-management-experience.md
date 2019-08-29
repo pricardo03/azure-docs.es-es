@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 15454d4b3f0abad6166c4b163df6c8652669d649
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810919"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971570"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -112,6 +112,7 @@ Solicitudes de soporte técnico:
 
 - Abra solicitudes de soporte técnico para los recursos delegados en la hoja **Ayuda y soporte técnico** de Azure Portal (selección del plan de soporte técnico disponible para el ámbito delegado)
 
+## <a name="current-limitations"></a>Limitaciones actuales
 Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 
 - Las solicitudes controladas por Azure Resource Manager pueden realizarse mediante la administración de recursos delegados de Azure. Los URI de operación de estas solicitudes comienzan por `https://management.azure.com`. Sin embargo, las solicitudes que se administran mediante una instancia de un tipo de recurso (por ejemplo, acceso a los secretos de KeyVault o acceso a datos de almacenamiento) no son compatibles con la administración de recursos delegados de Azure. Los URI de la operación para estas solicitudes suelen empezar con una dirección que es única para la instancia, como `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Esta última también suelen ser operaciones de datos, en lugar de operaciones de administración. 

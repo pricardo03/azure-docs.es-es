@@ -8,18 +8,17 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475531"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084574"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -178,7 +177,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="details"></a>Detalles
 
-| Nombre de propiedad | Type | DESCRIPCIÓN |
+| Nombre de propiedad | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en **latest**, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son **4.0**, **5.0**, **5.1** y **más recientes**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**. |
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
@@ -197,7 +196,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/dsc/metaconfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
-| Nombre de propiedad | Type | DESCRIPCIÓN |
+| Nombre de propiedad | type | DESCRIPCIÓN |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propiedad obligatoria. Especifica la clave que se usa para que un nodo se registre en el servicio de Azure Automation, como la contraseña de un objeto de credencial de PowerShell. Este valor se puede detectar automáticamente a través del método **listkeys** con la cuenta de Automation.  Observe el [ejemplo](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Propiedad obligatoria. Especifique la dirección URL del punto de conexión de Automation donde el nodo intenta registrarse. Este valor se puede detectar automáticamente a través del método **reference** con la cuenta de Automation. |

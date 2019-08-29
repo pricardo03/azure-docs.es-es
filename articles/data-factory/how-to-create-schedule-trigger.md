@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151086"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996370"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -254,9 +254,7 @@ La versión 1 de Azure Data Factory admite la lectura y la escritura de datos co
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-Para más información, consulte las instrucciones que se incluyen en [How to read and write large data files](how-to-read-write-partitioned-data.md) (Cómo leer o escribir datos con particiones).
+```
 
 ## <a name="json-schema"></a>Esquema JSON
 La siguiente definición de JSON le muestra cómo crear un desencadenador de programación con la programación y periodicidad:
@@ -325,13 +323,13 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | Type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Cadena | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | Object | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Sin | 1 | De 1 a 1000 | `"interval":10` |
 | **endTime** | Cadena | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Objeto | Sin | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | Sin | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:

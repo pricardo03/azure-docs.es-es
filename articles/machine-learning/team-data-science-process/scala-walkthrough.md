@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589572"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907709"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
 Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
@@ -32,7 +32,7 @@ Para llevar a cabo el proceso de modelado hay que realizar entrenamientos y eval
 
 [Spark en HDInsight](../../hdinsight/spark/apache-spark-overview.md) es la oferta de Spark de código abierto hospedada por Azure. Asimismo, incluye compatibilidad con cuadernos de Scala de Jupyter Notebook en el clúster de Spark, y permite ejecutar consultas interactivas de Spark SQL para transformar, filtrar y visualizar los datos almacenados en Almacenamiento de blobs de Azure. Los fragmentos de código de Scala en este artículo proporcionan las soluciones y muestran los trazados pertinentes para visualizar los datos que se ejecutan en cuadernos de Jupyter Notebook instalados en los clústeres de Spark. En estos temas, los pasos de modelado también contienen código que muestra cómo entrenar, evaluar, guardar y usar cada tipo de modelo.
 
-Los pasos de instalación y el código de este artículo están diseñados para Spark 1.6 con HDInsight de Azure 3.4. Sin embargo, este código y el de [Jupyter Notebook de Scala](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight.
+Los pasos de instalación y el código de este artículo están diseñados para Spark 1.6 con HDInsight de Azure 3.4. Sin embargo, este código y el de [Jupyter Notebook de Scala](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb) son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight.
 
 > [!NOTE]
 > Si quiere leer un tema que muestre cómo utilizar Python en lugar de Scala para completar las tareas de un proceso de ciencia de datos de un extremo a otro, consulte [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](spark-overview.md).

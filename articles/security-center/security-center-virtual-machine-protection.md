@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4e0a8473dfadc151ab861a4d749d9ff5e1622fb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428389"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907967"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 Azure Security Center analiza el estado de seguridad de los recursos de Azure, los servidores que no son de Azure y las máquinas virtuales. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -238,7 +238,7 @@ Si desea configurar todos los conjuntos de escalado existentes para instalar Mic
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
 
-* [Descripción de las recomendaciones de Azure Security Center para máquinas virtuales](security-center-virtual-machine-recommendations.md)
+* [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 * [Supervisión de identidad y acceso en Azure Security Center](security-center-identity-access.md)
 * [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 * [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)

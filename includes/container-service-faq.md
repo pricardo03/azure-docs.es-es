@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e1e1266122ebcccc0149ca8e0421577becd6708
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186872"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036779"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(EN DESUDO) Preguntas más frecuentes sobre Azure Container Service
 
@@ -37,7 +37,7 @@ Según el escenario, también puede crear y administrar soluciones de contenedor
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>¿Cuál es la diferencia entre Azure Container Service y ACS Engine? 
 Azure Container Service es un servicio de Azure basado en SLA con características en Azure Portal, las herramientas de línea de comandos de Azure y las API de Azure. El servicio le permite implementar y administrar rápidamente clústeres que ejecutan las herramientas de organización de contenedores estándar con un número relativamente pequeño de opciones de configuración. 
 
-[ACS Engine](http://github.com/Azure/acs-engine) es un proyecto de código abierto que permite a los usuarios avanzados personalizar la configuración de los clústeres en todos los niveles. Esta capacidad de modificar la configuración de la infraestructura y el software significa que no ofrecemos ningún SLA para ACS Engine. El soporte técnico se controla a través del proyecto de código abierto en GitHub, en lugar de a través de los canales oficiales de Microsoft. 
+[ACS Engine](https://github.com/Azure/acs-engine) es un proyecto de código abierto que permite a los usuarios avanzados personalizar la configuración de los clústeres en todos los niveles. Esta capacidad de modificar la configuración de la infraestructura y el software significa que no ofrecemos ningún SLA para ACS Engine. El soporte técnico se controla a través del proyecto de código abierto en GitHub, en lugar de a través de los canales oficiales de Microsoft. 
 
 Para más información, consulte nuestra [directiva de soporte técnico para los contenedores](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 

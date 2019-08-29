@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205296"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071698"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Establecimiento o modificación de directivas de Azure API Management
 
@@ -41,21 +40,23 @@ Para establecer o modificar una directiva, siga estos pasos:
 6. Seleccione una operación en la que desee aplicar la directiva. Si desea aplicar la directiva a todas las operaciones, seleccione **Todas las operaciones**.
 7. Seleccione el icono **</>** (editor de código) en la sección **Procesamiento de entrada** o **Procesamiento de salida**.
 8. Pegue el código de la directiva que desee en uno de los bloques adecuados.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```XML
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>Configuración del ámbito
 

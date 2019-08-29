@@ -6,19 +6,18 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901430"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081650"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux de Azure con Jenkins y Azure DevOps Services
 
@@ -133,7 +132,7 @@ Necesita un [grupo de implementación](https://www.visualstudio.com/docs/build/c
 
 1. Abra la pestaña **Versiones** del concentrador **Compilación y versión**, abra la pestaña **Grupos de implementación** y seleccione **+ Nuevo**.
 2. Especifique un nombre para el grupo de implementación y una descripción opcional. Seleccione **Crear**.
-3. Elija el sistema operativo para la máquina virtual del destino de implementación. Por ejemplo, seleccione **Ubuntu 16.04+**.
+3. Elija el sistema operativo para la máquina virtual del destino de implementación. Por ejemplo, seleccione **Ubuntu 16.04+** .
 4. Seleccione **Usar un token de acceso personal en el script para la autenticación**.
 5. Seleccione el vínculo **Requisitos previos del sistema**. Instalar los requisitos previos para su sistema operativo.
 6. Seleccione **Copiar script en el Portapapeles** para copiar el script.
@@ -166,7 +165,7 @@ Para crear la canalización de versión en Azure Pipelines:
 2. Seleccione la compilación completada en la lista desplegable resaltada y después **Poner en cola**.
 3. Seleccione el enlace de versión en el mensaje emergente. Por ejemplo:  "Se creó la versión **Release-1**".
 4. Abra la pestaña **Registros** para ver la salida de la consola de la versión.
-5. En el explorador, abra la dirección URL de uno de los servidores agregados al grupo de implementación. Por ejemplo, escriba **http://{your-server-ip-address}**.
+5. En el explorador, abra la dirección URL de uno de los servidores agregados al grupo de implementación. Por ejemplo, escriba **http://{your-server-ip-address}** .
 6. Vaya al repositorio de Git de origen y modifique el contenido del encabezado **h1** del archivo app/views/index.jade con parte del texto modificado.
 7. Confirme el cambio.
 8. Pasados unos minutos, verá una nueva versión creada en la página **Versiones** de Azure DevOps. Abra la versión para ver cómo se realiza la implementación. Felicidades.

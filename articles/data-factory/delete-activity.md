@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335670"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996319"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
@@ -44,6 +44,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 -   [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure File Storage](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Almacenes de datos del sistema de archivos
 
@@ -51,6 +52,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintaxis
 

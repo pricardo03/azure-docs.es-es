@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411477"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128391"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
@@ -56,13 +55,13 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
   
 2.  Para obtener información sobre el **método de nuevo muestreo**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre **agregación** o **replicación**.  
   
-    -   **Agregación**: La agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original.  
+    -   **Bagging** (agregación): La agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original.  
   
          Los resultados de los modelos se combinan mediante *votación*, que es una forma de agregación. Cada árbol de un bosque de decisión de clasificación produce un histograma de etiquetas de frecuencia no normalizada. En el proceso de agregación se suman estos histogramas y se normalizan para obtener las "probabilidades" de cada etiqueta. De esta manera, los árboles con un nivel alto de confianza en la predicción tendrán un peso mayor en la decisión final del conjunto.  
   
          Para obtener más información, consulte la entrada de Wikipedia sobre la agregación de arranque.  
   
-    -   **Replicación**: En la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.   
+    -   **Replicación**: en la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.   
   
 3.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -75,9 +74,9 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
   
 5.  En **Profundidad máxima de los árboles de decisión**, escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
   
-6.  En **Número de divisiones aleatorias por nodo**, escriba el número de divisiones que se usarán al crear cada nodo del árbol. Una *división* significa que las características de cada nivel del árbol (nodo) se dividen al azar.
+6.  En **Number of random splits per node** (Número de divisiones aleatorias por nodo), escriba el número de divisiones que se usarán al crear cada nodo del árbol. Una *división* significa que las características de cada nivel del árbol (nodo) se dividen al azar.
   
-7.  En **Número mínimo de muestras por nodo hoja**, indique el número mínimo de casos que son necesarios para crear cualquier nodo terminal (hoja) en un árbol.
+7.  En **Minimum number of samples per leaf node** (Número mínimo de muestras por nodo hoja), indique el número mínimo de casos que son necesarios para crear cualquier nodo terminal (hoja) en un árbol.
   
      Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener cinco casos como mínimo que cumplan las mismas condiciones.  
   

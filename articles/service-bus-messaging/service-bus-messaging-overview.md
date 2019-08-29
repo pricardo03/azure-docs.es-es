@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988484"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013118"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 
@@ -97,7 +97,7 @@ Si se produce un error que hace que el cliente tenga dudas sobre el resultado de
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC e Identidades administradas para recursos de Azure
 
-Service Bus admite protocolos de seguridad como las [firmas de acceso compartido](service-bus-sas.md) (SAS), el [Control de acceso basado en rol](service-bus-role-based-access-control.md) (RBAC) y [Entidades administradas para recursos de Azure](service-bus-managed-service-identity.md).
+Service Bus admite protocolos de seguridad como las [firmas de acceso compartido](service-bus-sas.md) (SAS), el [Control de acceso basado en rol](authenticate-application.md) (RBAC) y [Entidades administradas para recursos de Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperación ante desastres geográfica
 

@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/27/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: ea0a5961aff5935efea3eb98fd53904ce864ec2c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8be4890f01ae2c0d893bb7c45f29c6f8178844f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708908"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082111"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creación de una galería de imágenes compartidas mediante Azure Portal
 
@@ -43,7 +42,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell](tutorial-custom-images.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede ser mayor de 1 TB.
+Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell](tutorial-custom-images.md) para crear una si es necesario. Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede ser mayor de 1 TB.
 
 Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máquina virtual cuando proceda.
 

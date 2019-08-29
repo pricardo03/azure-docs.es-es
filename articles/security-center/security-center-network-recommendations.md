@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234327"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101025"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -134,26 +134,25 @@ El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descr
 
 ## <a name="network-recommendations"></a>Recomendaciones de red
 
-|Nombre de la recomendación|DESCRIPCIÓN|Gravedad|Puntuación segura|Tipo de recurso|
+|Nombre de la recomendación|DESCRIPCIÓN|severity|Puntuación segura|Tipo de recurso|
 |----|----|----|----|----|----|
-|Se deben habilitar los grupos de seguridad de red en el nivel de subred|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.|Alta, media|30|Subred|
+|Se deben habilitar los grupos de seguridad de red en el nivel de subred|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.|Alta, media|30|Subnet|
 |Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|Alta, media|30|Máquina virtual|
-|Se debe restringir el acceso a los grupos de seguridad de red permisivos con máquinas virtuales accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|Alta|20|Máquina virtual|
-|Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.|Alta|20|Máquina virtual|
-|Se debe restringir el acceso a App Services|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.|Alta|10|App Service|
-|Se deben cerrar los puertos de administración en las máquinas virtuales|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.|Alta|10|Máquina virtual|
-Se debe habilitar DDoS Protection estándar|Habilite el estándar del servicio de protección contra DDoS para proteger las redes virtuales que contienen aplicaciones con IP públicas. La protección contra DDoS permite mitigar los ataques volumétricos de red y protocolo.|Alta|10|Virtual network|
-|El reenvío de IP en la máquina virtual debe estar deshabilitado|Deshabilite el reenvío de IP. Cuando el reenvío de IP está habilitado en el adaptador de red de una máquina virtual, la máquina puede recibir tráfico dirigido a otros destinos. El reenvío de IP rara vez es necesario (por ejemplo, cuando se usa la máquina virtual como una aplicación virtual de red) y, por lo tanto, el equipo de seguridad de red debe revisarlo.|Mediana|10|Máquina virtual|
-|Acceso a la aplicación web solo a través de HTTPS|Habilite el acceso "Solo HTTPS" para aplicaciones web. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediana|20|Aplicación web|
-|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.|Alta|20|Máquina virtual|
-|Function App solo debería ser accesible a través de HTTPS|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediana|20|Aplicación de función|
-|Se debe habilitar la transferencia segura a las cuentas de almacenamiento|Habilite la transferencia segura para las cuentas de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|Alta|20|Cuenta de almacenamiento|
+|Se debe restringir el acceso a los grupos de seguridad de red permisivos con máquinas virtuales accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|Alto|20|Máquina virtual|
+|Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.|Alto|20|Máquina virtual|
+|Se debe restringir el acceso a App Services|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.|Alto|10|App Service|
+|Se deben cerrar los puertos de administración en las máquinas virtuales|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.|Alto|10|Máquina virtual|
+Se debe habilitar DDoS Protection estándar|Habilite el estándar del servicio de protección contra DDoS para proteger las redes virtuales que contienen aplicaciones con IP públicas. La protección contra DDoS permite mitigar los ataques volumétricos de red y protocolo.|Alto|10|Virtual network|
+|El reenvío de IP en la máquina virtual debe estar deshabilitado|Deshabilite el reenvío de IP. Cuando el reenvío de IP está habilitado en el adaptador de red de una máquina virtual, la máquina puede recibir tráfico dirigido a otros destinos. El reenvío de IP rara vez es necesario (por ejemplo, cuando se usa la máquina virtual como una aplicación virtual de red) y, por lo tanto, el equipo de seguridad de red debe revisarlo.|Mediano|10|Máquina virtual|
+|Acceso a la aplicación web solo a través de HTTPS|Habilite el acceso "Solo HTTPS" para aplicaciones web. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediano|20|Aplicación web|
+|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.|Alto|20|Máquina virtual|
+|Function App solo debería ser accesible a través de HTTPS|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediano|20|Aplicación de función|
+|Se debe habilitar la transferencia segura a las cuentas de almacenamiento|Habilite la transferencia segura para las cuentas de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|Alto|20|Cuenta de almacenamiento|
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
-* [Protección de las máquinas virtuales en Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protección de las aplicaciones en Azure Security Center](security-center-application-recommendations.md)
+* [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:

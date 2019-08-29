@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfb0464fd7fbd271272a992cffead44e9ba3b553
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318942"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103414"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>No puede conectarse de forma remota a una VM porque el puerto RDP no está habilitado en NSG
 
@@ -47,9 +46,9 @@ Para habilitar el puerto RDP en un NSG, siga estos pasos:
     **Nombre**: Port_3389 </br>
     **Puerto**: 3389 </br>
     **Protocolo**: TCP </br>
-    **Origen**: Cualquiera </br>
-    **Destinos**: Cualquiera </br>
-    **Acción**: PERMITIR </br>
+    **Origen**: Any </br>
+    **Destinos**: Any </br>
+    **Acción**: Allow </br>
 
 Si especifica la dirección IP de origen, esta opción permite el tráfico solo desde una dirección IP específica o intervalo de direcciones IP para conectarse a la VM. Asegúrese de que el equipo que use para iniciar la sesión de RDP esté dentro del intervalo.
 

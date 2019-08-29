@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296489"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905337"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
@@ -128,7 +128,7 @@ Use la tabla siguiente como referencia para ayudarle a conocer las recomendacion
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
-- [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 - [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
 

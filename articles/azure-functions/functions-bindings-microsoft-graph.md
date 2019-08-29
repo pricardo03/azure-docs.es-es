@@ -5,16 +5,15 @@ services: functions
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ae376343103d68df226d30d1d76133a3f055f5c2
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480385"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086595"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -213,7 +212,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el token de autenticación. Consulte [Uso de un enlace de entrada del token de autenticación desde el código](#token-input-code).|
 |**type**||Requerida: se debe establecer en `token`.|
-|**dirección**||Requerida: se debe establecer en `in`.|
+|**direction**||Requerida: se debe establecer en `in`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -348,7 +347,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para la tabla de Excel. Consulte [Uso de un enlace de entrada de la tabla de Excel desde el código](#excel-input-code).|
 |**type**||Requerida: se debe establecer en `excel`.|
-|**dirección**||Requerida: se debe establecer en `in`.|
+|**direction**||Requerida: se debe establecer en `in`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -510,7 +509,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el token de autenticación. Consulte [Uso de un enlace de salida de la tabla de Excel desde el código](#excel-output-code).|
 |**type**||Requerida: se debe establecer en `excel`.|
-|**dirección**||Requerida: se debe establecer en `out`.|
+|**direction**||Requerida: se debe establecer en `out`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**UserId** |**userId** |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -656,7 +655,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función para el archivo. Consulte [Configuración de un enlace de entrada del archivo de OneDrive](#onedrive-input-code).|
 |**type**||Requerida: se debe establecer en `onedrive`.|
-|**dirección**||Requerida: se debe establecer en `in`.|
+|**direction**||Requerida: se debe establecer en `in`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -804,7 +803,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del archivo. Consulte [Uso de un enlace de salida del archivo de OneDrive desde código](#onedrive-output-code).|
 |**type**||Requerida: se debe establecer en `onedrive`.|
-|**dirección**||Requerida: se debe establecer en `out`.|
+|**direction**||Requerida: se debe establecer en `out`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**UserId** |**userId** |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -955,7 +954,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `outlook`.|
-|**dirección**||Requerida: se debe establecer en `out`.|
+|**direction**||Requerida: se debe establecer en `out`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
@@ -1098,7 +1097,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhook`.|
-|**dirección**||Requerida: se debe establecer en `trigger`.|
+|**direction**||Requerida: se debe establecer en `trigger`.|
 |**resourceType**|**ResourceType**|(Requerido): recurso de Graph por el que esta función debería responder a webhooks. Puede ser uno de los siguientes valores:<ul><li><code>#Microsoft.Graph.Message</code>: cambios realizados en los mensajes de Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>: cambios realizados en elementos raíz de OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> : cambios realizados en los contactos personales de Outlook.</li><li><code>#Microsoft.Graph.Event</code>: cambios realizados en los elementos de calendario de Outlook.</li></ul>|
 
 > [!Note]
@@ -1250,7 +1249,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhookSubscription`.|
-|**dirección**||Requerida: se debe establecer en `in`.|
+|**direction**||Requerida: se debe establecer en `in`.|
 |**filter**|**Filter**| Si se establece en `userFromRequest`, el enlace solo recuperará las suscripciones propiedad del usuario que realiza la llamada (válido únicamente con [desencadenador HTTP]).| 
 
 ### <a name="webhook-input---usage"></a>Entrada de webhook: uso
@@ -1391,7 +1390,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**name**||(Requerido): nombre de la variable que se usa en el código de función del mensaje de correo. Consulte [Configuración de un enlace de salida del archivo de OneDrive](#outlook-output-code).|
 |**type**||Requerida: se debe establecer en `graphWebhookSubscription`.|
-|**dirección**||Requerida: se debe establecer en `out`.|
+|**direction**||Requerida: se debe establecer en `out`.|
 |**identity**|**Identidad**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId**|**UserId**  |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|**UserToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |

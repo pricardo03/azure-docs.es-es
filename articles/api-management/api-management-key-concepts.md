@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230629"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073434"
 ---
 # <a name="about-api-management"></a>Acerca de API Management
 
@@ -106,7 +105,7 @@ Las directivas son una eficaz funcionalidad de API Management que permite a Azur
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](/azure/api-management/api-management-advanced-policies#choose) y [Establecer variable](/azure/api-management/api-management-advanced-policies#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) y [Expresiones de directiva](/azure/api-management/api-management-policy-expressions).
 
 
-Para obtener una lista completa de las directivas de API Management, consulte [Referencia de la directiva][Policy reference]. Para más información acerca del uso y la configuración de directivas, consulte [Directivas de API Management][API Management policies]. Para ver un tutorial sobre la creación de un producto con directivas de cuota y límite de tasas, consulte [Creación y definición de configuraciones de productos avanzadas][How create and configure advanced product settings].
+Para obtener una lista completa de las directivas de API Management, consulte [Referencia de la directiva][Policy reference]. Para obtener más información acerca del uso y la configuración de directivas, consulte [Directivas de API Management][API Management policies]. Para ver un tutorial sobre la creación de un producto con directivas de cuota y límite de tasas, consulte [Creación y definición de configuraciones de productos avanzadas][How create and configure advanced product settings].
 
 
 ## <a name="developer-portal"> </a> Portal para desarrolladores

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 7/5/2019
+ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: d9f226213215f66b53eb1ef248fd47f7b6dfee5a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c12e64fc51eb53aebffbef1ad886b7cc404cf699
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705375"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051221"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -29,15 +29,9 @@ La compatibilidad con contenedores en Azure Cognitive Services permite a los des
 * [Speech Service API][sp-containers]
 * [Text Analytics][ta-containers]
 
-<!--
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
--->
+> [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
 La creación de contenedores es un enfoque de distribución de software en el que una aplicación o servicio, incluidas sus dependencias y la configuración, se empaqueta como una imagen de contenedor. La imagen de contenedor puede implementarse en un host de contenedor con pocas o ningunas modificaciones. Los contenedores están aislados entre sí y del sistema operativo subyacente, con una superficie menor que una máquina virtual. Se pueden crear instancias de contenedores a partir de las imágenes de contenedor para las tareas a corto plazo y quitarlas cuando ya no se necesiten.
-
-En el siguiente vídeo se explica cómo se utiliza un contenedor de Cognitive Services.
-
-[![Demostración de contenedores de Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 Los recursos de Cognitive Services están disponibles en [Microsoft Azure](https://azure.microsoft.com). Inicie sesión en [Azure Portal](https://portal.azure.com/) para crear y explorar recursos de Azure para estos servicios.
 
@@ -82,7 +76,7 @@ Los contenedores de Azure Cognitive Services están disponibles públicamente a 
 
 > [!IMPORTANT]
 > Actualmente, debe completar un proceso de registro para obtener acceso a los contenedores siguientes, en el que debe rellenar y enviar un cuestionario con preguntas acerca de usted, su empresa y el caso de uso para el que desea implementar los contenedores. Una vez que se le concede acceso y se le proporcionan las credenciales, puede extraer las imágenes a partir de un registro de contenedor privado hospedado por Azure Container Registry.
-> * [Anomaly detector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Anomaly Detector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Reconocer texto](Computer-vision/computer-vision-how-to-install-containers.md)

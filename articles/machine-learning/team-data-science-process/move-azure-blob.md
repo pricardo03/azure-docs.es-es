@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ca5a75ec61a0f75b3a008762561fed8231fce33d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b45f9950ef63bc29d23d78d20909f223cb30350
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811591"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998154"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Movimiento de datos hacia y desde Azure Blob Storage
 
@@ -27,7 +27,7 @@ El proceso de ciencia de datos en equipos requiere que los datos se introduzcan 
 Los artículos siguientes describen cómo mover datos hacia y desde Azure Blob storage mediante diferentes tecnologías.
 
 * [Explorador de Azure Storage](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
