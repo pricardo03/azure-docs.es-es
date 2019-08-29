@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd085164fc9804e0c1c822df1c72d3ef94093a07
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: cbc6932c3bbe11f0c4def17097c1791cbb1687bf
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672796"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515891"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -46,7 +46,7 @@ Para importar un módulo desde la Galería de PowerShell, vaya a https://www.pow
 
 ![Módulo de importación de la Galería de PowerShell](../media/modules/powershell-gallery.png)
 
-También puede importar módulos desde la Galería de PowerShell directamente desde su cuenta de Automation. En la cuenta de Automation, seleccione **Módulos** en **Recursos compartidos**. En la página de módulos, haga clic en **Examinar galería**. Se abrirá la página **Examinar galería**. Puede usar esta página para buscar la Galería de PowerShell para un módulo. Seleccione el módulo que quiere importar y haga clic en **Importar**. En la página **Importar**, haga clic en **Aceptar** para iniciar el proceso de importación.
+También puede importar módulos desde la Galería de PowerShell directamente desde su cuenta de Automation. En la cuenta de Automation, seleccione **Módulos** en **Recursos compartidos**. En la página Módulos, haga clic en **Examinar galería** y busque la Galería de PowerShell de un módulo. Seleccione el módulo que quiere importar y haga clic en **Importar**. En la página **Importar**, haga clic en **Aceptar** para iniciar el proceso de importación.
 
 ![Importación de la Galería de PowerShell desde Azure Portal](../media/modules/gallery-azure-portal.png)
 
@@ -68,7 +68,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 ## <a name="internal-cmdlets"></a>Cmdlets internos
 
-La siguiente es una lista de cmdlets del módulo `Orchestrator.AssetManagement.Cmdlets` interno que se importa en cada cuenta de Automation. Estos cmdlets son accesibles en los runbooks y en configuraciones de DSC y le permiten interactuar con los recursos dentro de la cuenta de Automation. Además, los cmdlets internos le permiten recuperar secretos de campos de valores de **Variable** cifrados, **Credenciales** y **Conexión** cifrada. Los cmdlets de Azure PowerShell no pueden recuperar estos secretos. Estos cmdlets no requieren implícitamente conectarse a Azure al usarlos. Esto es útil para escenarios donde haya una conexión, como una cuenta de ejecución que debe usar para autenticarse en Azure.
+La siguiente es una lista de cmdlets del módulo `Orchestrator.AssetManagement.Cmdlets` interno que se importa en cada cuenta de Automation. Estos cmdlets son accesibles en los runbooks y en configuraciones de DSC y le permiten interactuar con los recursos dentro de la cuenta de Automation. Además, los cmdlets internos le permiten recuperar secretos de campos de valores de **Variable** cifrados, **Credenciales** y **Conexión** cifrada. Los cmdlets de Azure PowerShell no pueden recuperar estos secretos. Estos cmdlets no requieren que se conecte implícitamente a Azure al usarlos, como al usar una cuenta de ejecución para autenticarse en Azure.
 
 |NOMBRE|DESCRIPCIÓN|
 |---|---|
@@ -86,7 +86,7 @@ Puede proporcionar un [tipo de conexión](../automation-connections.md) personal
 
 ![Uso de una conexión personalizada en Azure Portal](../media/modules/connection-create-new.png)
 
-Para agregar un tipo de conexión de Azure Automation, el módulo debe incluir un archivo llamado `<ModuleName>-Automation.json` que especifique las propiedades del tipo de conexión. Se trata de un archivo json, que se coloca dentro de la carpeta del módulo del archivo .zip comprimido. Este archivo contiene los campos de una conexión que se necesita para conectarse al sistema o servicio que representa el módulo. Esta configuración finaliza la creación de un tipo de conexión en Azure Automation. Con este archivo, puede configurar los nombres y los tipos de campo del tipo de conexión del módulo, además de especificar si los campos deben cifrarse o el cifrado es opcional. El ejemplo siguiente es una plantilla en el formato de archivo json que define una propiedad de nombre de usuario y contraseña:
+Para agregar un tipo de conexión de Azure Automation, el módulo debe incluir un archivo llamado `<ModuleName>-Automation.json` que especifique las propiedades del tipo de conexión. El archivo json se coloca dentro de la carpeta del módulo del archivo .zip comprimido. Este archivo contiene los campos de una conexión que se necesita para conectarse al sistema o servicio que representa el módulo. La configuración finaliza la creación de un tipo de conexión en Azure Automation. Con este archivo, puede configurar los nombres y los tipos de campo del tipo de conexión del módulo, además de especificar si los campos deben cifrarse o el cifrado es opcional. El ejemplo siguiente es una plantilla en el formato de archivo json que define una propiedad de nombre de usuario y contraseña:
 
 ```json
 {
@@ -114,6 +114,17 @@ Para agregar un tipo de conexión de Azure Automation, el módulo debe incluir u
 Los módulos de PowerShell pueden importarse en Azure Automation para que sus cmdlets estén disponibles y puedan usarse en runbooks y para que sus recursos de DSC estén disponibles y puedan usarse en las configuraciones de DSC. En segundo plano, Azure Automation almacena estos módulos y en el tiempo de ejecución del trabajo de compilación de DSC y del trabajo de runbook, los carga en espacios aislados de Azure Automation, donde se ejecutan los runbooks y se compilan las configuraciones de DSC. Todos los recursos de DSC en módulos se sitúan automáticamente en el servidor de extracción de DSC de Automatización. Las máquinas los pueden extraer cuando se aplican las configuraciones de DSC.
 
 Se recomienda que considere lo siguiente al crear un módulo de PowerShell para su uso en Azure Automation:
+
+* NO incluya una carpeta de la versión en el paquete. zip.  Este problema es menos importante para los runbooks, pero causará un problema con el servicio State Configuration.  Azure Automation creará la carpeta de la versión automáticamente cuando el módulo se distribuya a los nodos administrados por DSC y, si ya existe una carpeta de la versión, acabará teniendo dos instancias.  Ejemplo de estructura de carpetas para un módulo de DSC:
+
+```powershell
+myModule
+  - DSCResources
+    - myResourceFolder
+      myResourceModule.psm1
+      myResourceSchema.mof
+  myModuleManifest.psd1
+```
 
 * Incluya una sinopsis, una descripción y un identificador URI de ayuda para todos los cmdlets del módulo. En PowerShell, puede definir cierta información de ayuda para los cmdlets de forma que al usuario le resulte más fácil usarlos con el cmdlet **Get-Help** . En el ejemplo siguiente se muestra cómo definir una sinopsis y ayudar a los URI en un archivo de módulo .psm1:
 
@@ -159,7 +170,7 @@ Se recomienda que considere lo siguiente al crear un módulo de PowerShell para 
 
   ![Ayuda para los módulos de integración](../media/modules/module-activity-description.png)
 
-* Si el módulo se conecta a un servicio externo, debe contener un [tipo de conexión](#add-a-connection-type-to-your-module). En segundo lugar, cada cmdlet del módulo debería poder tomar como parámetro un objeto de conexión (una instancia del tipo de conexión). Esto permite a los usuarios asignar parámetros del recurso de conexión a los parámetros correspondientes del cmdlet cada vez que invoquen un cmdlet. Según el ejemplo de runbook anterior, usa un recurso de conexión de Contoso de ejemplo denominado ContosoConnection para tener acceso a recursos de Contoso y devolver datos desde el servicio externo.
+* Si el módulo se conecta a un servicio externo, debe contener un [tipo de conexión](#add-a-connection-type-to-your-module). En segundo lugar, cada cmdlet del módulo debería poder tomar como parámetro un objeto de conexión (una instancia del tipo de conexión). Los usuarios asignan parámetros del recurso de conexión a los parámetros correspondientes del cmdlet cada vez que llaman a un cmdlet. Según el ejemplo de runbook anterior, usa un recurso de conexión de Contoso de ejemplo denominado ContosoConnection para tener acceso a recursos de Contoso y devolver datos desde el servicio externo.
 
   En el ejemplo siguiente, los campos se asignan a las propiedades de nombre de usuario y contraseña de un objeto `PSCredential` y, a continuación, se pasa al cmdlet.
 
@@ -184,7 +195,7 @@ Se recomienda que considere lo siguiente al crear un módulo de PowerShell para 
 
 * Defina el tipo de salida de todos los cmdlets del módulo. Definir un tipo de salida en un cmdlet permite que IntelliSense le ayude a determinar, en tiempo de diseño, las propiedades de salida del cmdlet, lo que resultará útil durante la creación. Esto resulta especialmente útil durante la creación gráfica de un runbook de Automation, donde la información en tiempo de diseño resulta esencial para facilitar la experiencia del usuario con el módulo.
 
-  Esto puede lograrse mediante la adición de `[OutputType([<MyOutputType>])]`, donde MyOutputType es un tipo válido. Para obtener más información sobre OutputType, consulte [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute) (Acerca de las funciones OutputTypeAttribute). El siguiente código es un ejemplo de cómo agregar `OutputType` a un cmdlet:
+Agregue `[OutputType([<MyOutputType>])]`, donde MyOutputType es un tipo válido. Para obtener más información sobre OutputType, consulte [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute) (Acerca de las funciones OutputTypeAttribute). El siguiente código es un ejemplo de cómo agregar `OutputType` a un cmdlet:
 
   ```powershell
   function Get-ContosoUser {

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 475817985885cdd6023e72f20ecf35a3ca582924
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1c52ac967d241f31d96988fa5ead8b4e049f6f4c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472438"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617097"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronización en dominios administrados de Azure AD Domain Services
 En el siguiente diagrama se ilustra cómo funciona la sincronización en dominios administrados de Azure AD Domain Services.
@@ -60,7 +60,7 @@ Los siguientes objetos o atributos no se sincronizan con el inquilino de Azure A
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Modo de sincronización de atributos específicos con el dominio administrado
 En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo se sincronizan con el dominio administrado.
 
-| Atributo del dominio administrado | Origen | Notas |
+| Atributo del dominio administrado | Source | Notas |
 |:--- |:--- |:--- |
 | UPN |Atributo UPN del usuario del inquilino de Azure AD |El atributo UPN del inquilino de Azure AD se sincroniza tal cual con el dominio administrado. Por lo tanto, la forma más confiable de iniciar sesión en el dominio administrado consiste en usar el UPN. |
 | SAMAccountName |El atributo MailNickname del usuario del inquilino de Azure AD o uno generado automáticamente |El atributo SAMAccountName se obtiene del atributo mailNickname del inquilino de Azure AD. Si varias cuentas de usuario tienen el mismo atributo mailNickname, SAMAccountName se genera automáticamente. Si el prefijo de UPN o el atributo mailNickname del usuario tienen más de 20 caracteres, SAMAccountName se genera automáticamente para cumplir el límite de 20 caracteres de los atributos SAMAccountName. |
@@ -69,7 +69,7 @@ En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo 
 | Historial de SID de usuarios y grupos |SID de usuarios y grupos primarios locales |El atributo SidHistory de usuarios y grupos del dominio administrado se establece para que coincida con el SID de grupos o usuarios primarios correspondiente del dominio local. Gracias a esta característica, le resultará más sencillo trasladar aplicaciones locales al dominio administrado, ya que no tendrá que volver a incluir los recursos en listas ACL. |
 
 > [!NOTE]
-> **Inicie sesión en el dominio administrado usando el formato UPN:** el atributo SAMAccountName puede generarse automáticamente en algunas cuentas de usuario del dominio administrado. Si varios usuarios tienen el mismo atributo mailNickname o prefijos UPN excesivamente largos, el atributo SAMAccountName para estos usuarios puede generarse automáticamente. Por lo tanto, el formato de SAMAccountName (por ejemplo, CONTOSO100\usuarioJuan) no siempre constituye una manera confiable de iniciar sesión en el dominio. Los atributos SAMAccountName generados automáticamente de los usuarios pueden ser distintos de sus prefijos de UPN. Use el formato UPN (por ejemplo, "joeuser@contoso100.com") para iniciar sesión en el dominio administrado de forma confiable.
+> **Inicie sesión en el dominio administrado usando el formato UPN:** el atributo SAMAccountName puede generarse automáticamente en algunas cuentas de usuario del dominio administrado. Si varios usuarios tienen el mismo atributo mailNickname o prefijos UPN excesivamente largos, el atributo SAMAccountName para estos usuarios puede generarse automáticamente. Por lo tanto, el formato de SAMAccountName (por ejemplo, CONTOSO\dee) no siempre constituye una manera confiable de iniciar sesión en el dominio. Los atributos SAMAccountName generados automáticamente de los usuarios pueden ser distintos de sus prefijos de UPN. Use el formato UPN (por ejemplo, "dee@contoso.com") para iniciar sesión en el dominio administrado de forma confiable.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Asignación de atributos para cuentas de usuario
 En la tabla siguiente se muestra cómo determinados atributos de objetos de usuario del inquilino de Azure AD se sincronizan con los atributos correspondientes del dominio administrado.
@@ -116,7 +116,7 @@ En la tabla siguiente se muestra cómo determinados atributos de objetos de grup
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Consideraciones de seguridad y sincronización de hash de contraseña
 Al habilitar Azure AD Domain Services, su directorio de Azure AD genera y almacena varios hash de contraseña en los formatos compatibles NTLM y Kerberos. 
 
-En el caso de las cuentas de usuario existentes en la nube, estos hash no pueden generarse automáticamente, ya que Azure AD nunca almacena las contraseñas no cifradas. Por lo tanto, Microsoft requiere que los [usuarios en la nube restablezcan o cambien sus contraseñas](active-directory-ds-getting-started-password-sync.md) para que sus hash de contraseña se puedan generar y almacenar en Azure AD. En el caso de cualquier cuenta de usuario en la nube creada en Azure AD tras habilitar Azure AD Domain Services, los hash de contraseña se generarán y almacenarán en los formatos compatibles NTLM y Kerberos. 
+En el caso de las cuentas de usuario existentes en la nube, estos hash no pueden generarse automáticamente, ya que Azure AD nunca almacena las contraseñas no cifradas. Por lo tanto, Microsoft requiere que los [usuarios en la nube restablezcan o cambien sus contraseñas](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que sus hash de contraseña se puedan generar y almacenar en Azure AD. En el caso de cualquier cuenta de usuario en la nube creada en Azure AD tras habilitar Azure AD Domain Services, los hash de contraseña se generarán y almacenarán en los formatos compatibles NTLM y Kerberos. 
 
 En el caso de las cuentas de usuario sincronizadas desde el directorio de Azure AD local mediante la sincronización de Azure AD Connect, deberá [configurar Azure AD Connect para que sincronice los hash de contraseña en los formatos compatibles NTLM y Kerberos](active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
@@ -126,7 +126,6 @@ Los hash de contraseña en los formatos compatibles NTLM y Kerberos siempre se a
 Tal y como se describió en la sección anterior de este artículo, no se realiza ningún proceso de sincronización en el dominio administrado con el inquilino de Azure AD. Puede optar por [crear una unidad organizativa personalizada](create-ou.md) en el dominio administrado. Además, puede crear otros usuarios, grupos, cuentas de servicio o unidades organizativas en estas unidades organizativas personalizadas. Ninguno de los objetos creados en las unidades organizativas personalizadas se vuelven a sincronizar con el inquilino de Azure AD. Estos objetos solo están disponibles para utilizarse en el dominio administrado. Por lo tanto, estos objetos no se pueden ver utilizando los cmdlets de PowerShell de Azure AD, Graph API o la interfaz de usuario de administración de Azure AD.
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Características de Azure AD Domain Services](active-directory-ds-features.md)
 * [Escenarios de implementación de Azure AD Domain Services](scenarios.md)
 * [Consideraciones de red de Azure AD Domain Services](network-considerations.md)
-* [Introducción a Azure AD Domain Services](create-instance.md)
+* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566186"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640859"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual
 
@@ -37,7 +37,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Uso general: tamaños de almacenamiento y tamaños de proceso
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en la región Este de Australia.
+> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Uso general: Plataforma de procesos de generación 4 (parte 1)
 
@@ -153,7 +153,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Crítico para la empresa: tamaños de almacenamiento y tamaños de proceso
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en la región AustraliaEast.
+> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 4 (parte 1)
 

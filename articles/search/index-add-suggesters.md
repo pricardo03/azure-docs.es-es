@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73cfdb6a4185689a6485f55a4f6bdd1e7e3b14be
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521883"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648852"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Incorporación de proveedores de sugerencias a un índice de escritura automática en Azure Search
 
@@ -106,6 +106,13 @@ Las propiedades que definen a un proveedor de sugerencias se incluyen las siguie
 |`name`        |El nombre del proveedor de sugerencias. Use el nombre del proveedor de sugerencias al llamar a la [API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) o a la [API REST Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |La estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que establece una correspondencia flexible de frases al principio o en medio de las oraciones.|
 |`sourceFields`|Una lista de uno o más campos que son el origen del contenido para obtener sugerencias. Solo los campos de tipo `Edm.String` y `Collection(Edm.String)` pueden ser orígenes para obtener sugerencias. Solo se pueden usar los campos que no tienen un analizador de lenguaje personalizado establecido.<p/>Especifique solo los campos que se prestan a una respuesta adecuada y esperada, ya sea una cadena completa en una barra de búsqueda o una lista desplegable.<p/>Un nombre de hotel es buen candidato porque tiene precisión. Los campos detallados, como las descripciones y los comentarios, son demasiado densos. De forma similar, los campos repetitivos, como las categorías y las etiquetas, son menos eficaces. En los ejemplos, se incluye "categoría" de todos modos para demostrar que puede incluir varios campos. |
+
+#### <a name="analysis-of-sourcefields-in-a-suggester"></a>Análisis de SourceFields en un proveedor de sugerencias
+
+Azure Search analiza el contenido del campo para habilitar las consultas sobre términos individuales. Los proveedores de sugerencias requieren que se indexen los prefijos además de los términos completos, lo cual requiere un análisis adicional de los campos de origen. Las configuraciones de los analizadores personalizados pueden combinar cualquiera de los distintos tokenizadores y filtros, a menudo de formas que harían imposible la generación de los prefijos necesarios para las sugerencias. Por esta razón, **Azure Search impide que los campos con analizadores personalizados se incluyan en un proveedor de sugerencias**.
+
+> [!NOTE] 
+>  El enfoque recomendado para solucionar la limitación anterior es usar dos campos independientes para el mismo contenido. Esto permitirá que uno de los campos tenga proveedores de sugerencias y el otro se pueda configurar con una configuración personalizada del analizador.
 
 ## <a name="when-to-create-a-suggester"></a>Cuándo crear un proveedor de sugerencias
 

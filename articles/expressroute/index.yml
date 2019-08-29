@@ -1,55 +1,123 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de ExpressRoute
+summary: Aprenda a usar ExpressRoute para configurar una conexión privada rápida con los servicios en la nube de Microsoft desde su infraestructura local o una instalación de colocalización.
 metadata:
-  document_id: null
-  title: ExpressRoute
-  meta.description: 'Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.'
-  author: cherylmc
-  manager: jeconnoc
-  ms.service: ExpressRoute
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Documentación de ExpressRoute
+  description: Más información sobre ExpressRoute
+  services: expressroute
+  ms.service: expressroute
   ms.topic: landing-page
-  ms.date: 05/18/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Aprenda a usar ExpressRoute para configurar una conexión privada rápida con los servicios en la nube de Microsoft desde su infraestructura local o una instalación de colocalización. Los tutoriales, las API de REST y otra documentación lo ayudan a configurar y administrar un circuito ExpressRoute.'
-sections:
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: Aprenda a configurar y administrar un circuito ExpressRoute.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Creación y modificación de un circuito ExpressRoute</a>
-          - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Creación y modificación de la configuración de emparejamiento</a>
-          - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Vinculación de una red virtual a un circuito ExpressRoute</a>
-          - html: <a href="/azure/expressroute/how-to-routefilter-portal">Configuración de filtros de ruta para el emparejamiento de Microsoft</a>
-  - title: Vídeo gratuito de aprendizaje de PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Administrador de Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Arquitecto de soluciones de Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: '<p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">CLI de Azure</a></p>'
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referencia de API de REST</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referencia de API de REST (clásico)</a></p>'
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 67a20fb9adf8351ce6024f4c521852bbf7935c0d
+  ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70114535"
+landingContent:
+- title: Acerca de ExpressRoute
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es ExpressRoute?
+      url: expressroute-introduction.md
+  - linkListType: concept
+    links:
+    - text: Preguntas más frecuentes
+      url: expressroute-faqs.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación y modificación de un circuito
+      url: expressroute-howto-circuit-portal-resource-manager.md
+    - text: Creación y modificación del emparejamiento de un circuito
+      url: expressroute-howto-routing-portal-resource-manager.md
+    - text: Conexión de una red virtual con un circuito
+      url: expressroute-howto-linkvnet-portal-resource-manager.md
+    - text: Configuración de filtros de ruta
+      url: how-to-routefilter-portal.md
+- title: Planificación
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Requisitos previos y lista de comprobación
+      url: expressroute-prerequisites.md
+    - text: Workflows
+      url: expressroute-workflows.md
+    - text: Circuitos y emparejamientos
+      url: expressroute-circuit-peerings.md
+    - text: Requisitos de enrutamiento
+      url: expressroute-routing.md
+    - text: BFD a través de ExpressRoute
+      url: expressroute-bfd.md
+    - text: Requisitos QoS
+      url: expressroute-qos.md
+    - text: Proveedores organizados por ubicación
+      url: expressroute-locations-providers.md
+    - text: Ubicaciones organizadas por proveedor
+      url: expressroute-locations.md
+- title: Diseño
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Modelos de conectividad
+      url: expressroute-connectivity-models.md
+    - text: Diseño para lograr alta disponibilidad
+      url: designing-for-high-availability-with-expressroute.md
+    - text: Diseño para la recuperación ante desastres con emparejamiento privado
+      url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+- title: Cifrado de tráfico
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de una VPN de sitio a sitio mediante un emparejamiento de Microsoft
+      url: site-to-site-vpn-over-microsoft-peering.md
+    - text: Configuración del modo de transporte de IPsec para emparejamiento privado
+      url: expressroute-howto-ipsec-transport-private-windows.md
+- title: Supervisión
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de la supervisión, las métricas y las alertas
+      url: expressroute-monitoring-metrics-alerts.md
+    - text: Configuración de Network Performance Monitor
+      url: how-to-npm.md
+- title: ExpressRoute Direct
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es ExpressRoute Direct?
+      url: expressroute-erdirect-about.md
+    - text: FastPath
+      url: expressroute-about-virtual-network-gateways.md#fastpath
+    - text: Preguntas más frecuentes de ExpressRoute Direct
+      url: expressroute-faqs.md#expressRouteDirect
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de ExpressRoute Direct
+      url: expressroute-howto-erdirect.md
+- title: Global Reach de ExpressRoute
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es Global Reach?
+      url: expressroute-global-reach.md
+    - text: Preguntas más frecuentes sobre Global Reach
+      url: expressroute-faqs.md#globalreach
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de Global Reach
+      url: expressroute-howto-set-global-reach.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI de Azure
+      url: https://docs.microsoft.com/cli/azure/network/express-route
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#expressroute
+    - text: REST
+      url: /rest/api/expressroute

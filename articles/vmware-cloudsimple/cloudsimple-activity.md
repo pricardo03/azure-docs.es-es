@@ -8,34 +8,33 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b87a4e2889e9e65a3173a4c11d9c92a33e8e70b7
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ad7905244ca190badf73c9a812a8f72282cbcdf3
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816250"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563175"
 ---
 # <a name="activity-management-overview"></a>Introducción a la administración de actividad
 
-CloudSimple realiza un seguimiento de todas las actividades que pueden afectar al funcionamiento de sus nubes privadas. Estas actividades incluyen alertas, eventos, tareas y la actividad de auditoría. En las [páginas de Actividad](https://docs.azure.cloudsimple.com/activity/) se resume toda la actividad actual para que pueda explorar en profundidad y obtener más detalles.
+CloudSimple realiza un seguimiento de toda la actividad que puede afectar al funcionamiento de su entorno de nube privada. Estas actividades incluyen alertas, eventos, tareas y la actividad de auditoría. En las [páginas de Actividad](monitor-activity.md) se resume toda la actividad actual para que pueda explorar en profundidad y obtener más detalles.
 
 ## <a name="events"></a>Eventos
 
-Los eventos realizan un seguimiento de la actividad del usuario y del sistema en el portal de CloudSimple.  Los eventos muestran la actividad asociada a un recurso específico y la gravedad del impacto.  Puede ver los eventos en el portal de CloudSimple.
+Los eventos realizan un seguimiento de la actividad del usuario y del sistema en el portal de CloudSimple. Los eventos muestran la actividad asociada a un recurso específico y la gravedad del impacto.  Puede ver los eventos en el portal de CloudSimple.
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas son notificaciones de cualquier actividad significativa en el entorno de CloudSimple.  Los eventos, que afectan a la facturación o al acceso de usuario, se muestran como alertas.  Puede confirmar las alertas activadas desde el portal de CloudSimple.
+Las alertas son notificaciones de cualquier actividad significativa en el entorno de CloudSimple. Los eventos que afectan a la facturación o al acceso de usuario se muestran como alertas.  Puede confirmar las alertas desde el portal de CloudSimple.
 
 ## <a name="tasks"></a>Tareas
 
-Las tareas realizan un seguimiento de cualquier operación de usuario que tarde más de 30 segundos en realizarse.  Puede supervisar el progreso de una tarea en el portal de CloudSimple.  Las tareas finalizadas muestran el tiempo total que se ha necesitado para realizar la tarea.
+Las tareas realizan un seguimiento de cualquier operación de usuario que tarde más de 30 segundos en terminar. Puede supervisar el progreso de una tarea en el portal de CloudSimple.  En el caso de las tareas completadas, la información incluye el tiempo total de finalización.
 
 ## <a name="audit"></a>Auditoría
 
-Los registros de auditoría realizan un seguimiento de las operaciones que el usuario ha realizado.  Los registros contienen los parámetros que el usuario ha proporcionado para la operación.  Puede usar los registros de auditoría para supervisar la actividad de usuario de todos los usuarios.
+Los registros de auditoría hacen un seguimiento de las operaciones del usuario. Los registros de auditoría contienen los parámetros que el usuario ha proporcionado para la operación.  Puede usar los registros de auditoría para supervisar la actividad de usuario de todos los usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ver el resumen de la cuenta](https://docs.azure.cloudsimple.com/account/)
-* [Ver el registro de uso](https://docs.azure.cloudsimple.com/usage/)
+* [Ver el resumen de la cuenta](account.md)

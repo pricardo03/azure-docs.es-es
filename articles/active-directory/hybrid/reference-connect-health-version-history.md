@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27c0d3055512145396f204fdb17e9375f65a0db3
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299000"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562335"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones. En este artículo se enumeran las versiones y características que se han publicado.  
@@ -31,6 +31,21 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
 
 Azure AD Connect Health para Sync se integra con la instalación de Azure AD Connect. Más información sobre el [historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Para enviar comentarios sobre las características, vote en el [canal de UserVoice para Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="july-2019"></a>Julio de 2019
+**Actualización del agente**
+* Agente de Azure AD Connect Health para AD FS (versión 3.1.59.0) 
+   1. Cambio de texto en TestWindowsTransport
+   2. Cambios en la carga de RP de AD FS
+   
+* Agente de Azure AD Connect Health para AD FS (versión 3.1.56.0) 
+   1. Adición de prueba TestWindowsTransport y eliminación de las comprobaciones de puntos de conexión de WsTrust en la prueba CheckOffice365Endpoints
+   2. Registro de información de .NET y del sistema operativo
+   3. Aumento del tamaño de carga de mensajes de configuración de RP a 1 MB
+   4. Corrección de errores
+   
+* Agente de Azure AD Connect Health para AD DS (versión 3.1.56.0) 
+   1. Registro de información de .NET y del sistema operativo 
+   2. Corrección de errores
 
 ## <a name="may-2019"></a>Mayo de 2019
 **Actualización del agente:** 

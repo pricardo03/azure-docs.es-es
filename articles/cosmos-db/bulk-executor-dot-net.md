@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257218"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616963"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en masa en Azure Cosmos DB
 
-En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca de .NET de ejecutor en masa de Azure Cosmos DB para importar y actualizar documentos en contenedores de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial verá una aplicación de .NET de ejemplo que importa en bloque documentos generados de manera aleatoria en un contenedor de Azure Cosmos DB. Después de la importación, muestra cómo se pueden actualizar en masa los datos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos. 
+En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor de .NET de Azure Cosmos DB para importar y actualizar documentos en contenedores de Azure Cosmos. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial verá una aplicación de .NET de ejemplo que importa en bloque documentos generados de manera aleatoria en un contenedor de Azure Cosmos. Después de la importación, muestra cómo se pueden actualizar en masa los datos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos. 
 
 Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de API de SQL de Azure Cosmos DB y Gremlin API. En este artículo se describe cómo usar la biblioteca BulkExecutor de .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca Bulk Executor de .NET con Gremlin API, consulte [realizar operaciones en masa en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
@@ -171,11 +171,11 @@ Tenga en cuenta los siguientes puntos para mejorar el rendimiento al utilizar la
 
 * Para obtener el mejor rendimiento, ejecute la aplicación desde una máquina virtual de Azure en la misma región que la región de escritura de la cuenta de Cosmos DB.  
 
-* Se recomienda crear instancias de un único objeto BulkExecutor para toda la aplicación dentro de una sola máquina virtual que corresponde a un contenedor específico de Cosmos DB.  
+* Se recomienda crear instancias de un único objeto BulkExecutor para toda la aplicación dentro de una sola máquina virtual que corresponde a un contenedor específico de Cosmos.  
 
 * Esto se debe a que una única ejecución de API de operaciones en masa consume un gran fragmento de E/S de red y de CPU del equipo cliente. Esto sucede al generar varias tareas internamente y al evitar la creación de varias tareas simultáneas dentro de su proceso de aplicación, donde cada una ejecuta llamadas API de operaciones en masa. Si una única llamada de API de operaciones en bloque en una única máquina virtual no puede consumir la capacidad de proceso de todo el contenedor (si la capacidad de proceso del contenedor es superior a 1 millón RU/s), es preferible crear máquinas virtuales independientes para ejecutar llamadas de API de operaciones en bloque simultáneamente.  
 
-* Asegúrese de que se invoque InitializeAsync() después de crear la instancia de un objeto BulkExecutor para capturar el mapa de particiones del contenedor de Cosmos DB de destino.  
+* Asegúrese de que se invoque InitializeAsync() después de crear la instancia de un objeto BulkExecutor para capturar el mapa de particiones del contenedor de Cosmos de destino.  
 
 * En el archivo App.Config de la aplicación, asegúrese de que **gcServer** está habilitado para mejorar el rendimiento.
   ```xml  

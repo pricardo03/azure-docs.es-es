@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733770"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087399"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -253,7 +252,7 @@ En la lista siguiente se explica el esquema de los eventos de ciclo de vida:
 * **`id`** : identificador único del evento de Event Grid.
 * **`subject`** : ruta de acceso al asunto del evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed` y `Terminated`.  
 * **`data`** : parámetros específicos de Durable Functions.
-  * **`hubName`** : nombre de [TaskHub](durable-functions-task-hubs.md).
+  * **`hubName`** : nombre de TaskHub](durable-functions-task-hubs.md).
   * **`functionName`** : nombre de una función de orquestador.
   * **`instanceId`** : instanceId de Durable Functions.
   * **`reason`** : información adicional asociada al evento de seguimiento. Para más información, consulte [Diagnóstico con Durable Functions (Azure Functions)](durable-functions-diagnostics.md)

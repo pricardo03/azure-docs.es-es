@@ -3,7 +3,7 @@ title: 'Azure Media Services: modificación del protocolo Smooth Streaming (MS-S
 description: En esta especificación se describe el protocolo y el formato para streaming en vivo basado en MP4 fragmentado para Azure Media Services. Se trata de una modificación de la documentación del protocolo Smooth Streaming (MS-SSTR) para incluir compatibilidad con la ingesta y el streaming de HEVC. En este artículo solo se especifican los cambios necesarios para entregar HEVC, excepto cuando se incluya "(Sin cambios)" para indicar que el texto se copia solo con fines de aclaración.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: dfd6de1ab2e4530afb56d1c6c67e6d78eb9ee474
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015677"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624817"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificación del protocolo Smooth Streaming (MS-SSTR) para HEVC 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69015677"
 
 En este artículo se proporcionan las enmiendas detalladas que se aplican a la especificación del protocolo Smooth Streaming [MS-SSTR] para habilitar el vídeo de Smooth Streaming codificado en HEVC. En esta especificación, se describen solo los cambios necesarios para entregar el códec de vídeo HEVC. El artículo sigue el mismo esquema de numeración que la especificación [MS-SSTR]. Los títulos vacíos que se presentan en este artículo se proporcionan para orientar al lector sobre su posición en la especificación [MS-SSTR].  "(Sin cambios)" indica que el texto se copia únicamente con fines de aclaración.
 
-El artículo proporciona los requisitos de implementación técnicos para la señal del códec de vídeo HEVC en un manifiesto de Smooth Streaming y las referencias de la normativa se actualizan para hacer referencia a los estándares MPEG actuales que incluyen HEVC; el cifrado común de HEVC y los nombres de cuadro del formato de archivo multimedia básico ISO se han actualizado por coherencia con las especificaciones más recientes. 
+El artículo proporciona los requisitos de implementación técnicos para la señal del códec de vídeo HEVC (mediante las pistas de formato "hev1" o "hvc1") en un manifiesto de Smooth Streaming y las referencias de la normativa se actualizan para hacer referencia a los estándares MPEG actuales que incluyen HEVC; el cifrado común de HEVC y los nombres de cuadro del formato de archivo multimedia básico ISO se han actualizado por coherencia con las especificaciones más recientes. 
 
 La especificación del protocolo Smooth Streaming [MS-SSTR] describe el formato de conexión usado para entregar medios digitales en directo y bajo petición, como audio y vídeo, de las maneras siguientes: desde un codificador a un servidor web, desde un servidor a otro servidor y desde un servidor a un cliente HTTP.
 El uso de una entrega de estructura de datos basada en MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) sobre HTTP permite una conmutación perfecta casi en tiempo real entre los distintos niveles de calidad del contenido multimedia comprimido. El resultado es una experiencia de reproducción constante para el usuario final del cliente HTTP, aunque cambien las condiciones de representación de vídeo y de red para el dispositivo o equipo cliente.
@@ -148,10 +148,12 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 >   **FourCC (variable):** un código de cuatro caracteres que identifica el formato multimedia que se utiliza para cada muestra. El siguiente intervalo de valores está reservado con el significado semántico siguiente:
 > 
 > * "hev1": las muestras de vídeo de esta pista utilizan vídeo HEVC, con el formato de descripción de muestras "hev1" especificado en [ISO/IEC-14496-15].
+>
+> * "hvc1”: las muestras de vídeo de esta pista utilizan vídeo HEVC, con el formato de descripción de muestras "hvc1" especificado en [ISO/IEC-14496-15].
 > 
 >   **CodecPrivateData (variable):** datos que especifican los parámetros específicos del formato multimedia y son comunes a todas las muestras de la pista, representados como una cadena de bytes codificada en hexadecimal. El formato y el significado semántico de la secuencia de bytes varía según el valor del campo **FourCC**, como se indica a continuación:
 > 
->   * Cuando un elemento TrackElement describe vídeo HEVC, el campo **FourCC** deberá ser igual a **"hev1"** y;
+>   * Cuando un elemento TrackElement describe vídeo HEVC, el campo **FourCC** deberá ser igual a **"hev1"** o **"hvc1"** .
 > 
 >   El campo **CodecPrivateData** deberá contener una representación de cadena codificada en hexadecimal de la siguiente secuencia de bytes, como se especifica en ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (ningún cambio respecto a MS-SSTR)
 > 
@@ -173,7 +175,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
 ### <a name="223-fragment-request"></a>2.2.3 Solicitud de fragmento 
 
->   **Nota**: El formato multimedia solicitado para **MinorVersion** 2 y "hev1" es "iso8" según el formato de archivo multimedia básico ISO especificado en [ISO/IEC 14496-12] Formato de archivo multimedia básico ISO Cuarta edición e [ISO/IEC 23001-7] Cifrado común, segunda edición.
+>   **Nota**: El formato multimedia solicitado para **MinorVersion** 2 y "hev1" o "hvc1" es "iso8" según el formato de archivo multimedia básico ISO especificado en [ISO/IEC 14496-12] Formato de archivo multimedia básico ISO Cuarta edición e [ISO/IEC 23001-7] Cifrado común, segunda edición.
 
 ### <a name="224-fragment-response"></a>2.2.4 Respuesta de fragmento 
 

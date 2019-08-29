@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 08/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1cc661509a28bb57bed0361b48cdeda5e6338e54
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28def73926294a025d70844e535a0856153ae30a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679306"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611935"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -54,6 +54,13 @@ La conexión entre Azure Sentinel y su dispositivo CEF se lleva a cabo en tres p
 También puede implementar el agente manualmente en una máquina virtual existente, en una máquina virtual en otra nube o en una máquina local. 
 
  ![CEF local](./media/connect-cef/cef-syslog-onprem.png)
+
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
+
+Asegúrese de configurar la seguridad de la máquina de acuerdo con la directiva de seguridad de su organización. Por ejemplo, puede configurar la red para que se alinee con la directiva de seguridad de la red corporativa y cambiar los puertos y protocolos del demonio para que se adapten a sus requisitos. Puede usar las siguientes instrucciones para mejorar la configuración de seguridad de la máquina:   [Protección de máquinas virtuales en Azure](../virtual-machines/linux/security-policy.md), [Procedimientos recomendados de seguridad de la red](../security/fundamentals/network-best-practices.md).
+
+Para usar la comunicación TLS entre la solución de seguridad y la máquina de Syslog, debe configurar el demonio de Syslog (rsyslog o syslog-ng) para que se comunique en TLS: [Cifrado del tráfico de Syslog con TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Cifrado de los mensajes de registro con TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+
 
 ## <a name="step-1-configure-your-syslog-vm"></a>Paso 1: Configuración de la VM de Syslog
 

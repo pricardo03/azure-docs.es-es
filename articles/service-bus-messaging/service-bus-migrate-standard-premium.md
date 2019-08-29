@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67566077"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611910"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migración de espacios de nombres estándar de Azure Service Bus existentes
 Anteriormente, Azure Service Bus ofrecía espacios de nombres solo en el nivel Estándar. Los espacios de nombres son configuraciones multiinquilino optimizadas para entornos de desarrollador y de rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para la latencia predecible y el rendimiento aumentado a un precio fijo. El nivel premium está optimizado para entornos de producción y de alto rendimiento que requieren características empresariales adicionales.
@@ -115,7 +115,8 @@ La migración mediante Azure Portal tiene el mismo flujo lógico que la migraci�
    1. Una vez que se complete la sincronización, seleccione **Next** (Siguiente) en la parte inferior de la página.
 
 1. Revise los cambios en la página de resumen. Seleccione **Complete Migration** (Completar migración) para cambiar los espacios de nombres y completar la migración.
-    ![Cambio de espacio de nombres: menú de cambio][] La página de confirmación aparece cuando se completa la migración.
+    ![Cambio de espacio de nombres: menú de cambio][]  
+    La página de confirmación aparece cuando se completa la migración.
     ![Cambio de espacio de nombres: correcto][]
 
 ## <a name="caveats"></a>Advertencias

@@ -10,7 +10,7 @@
     - name: Implementación y configuración
       href: tutorial-firewall-deploy-portal.md
     - name: Implementación en redes híbridas
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: Filtrado del tráfico de entrada con DNAT
       href: tutorial-firewall-dnat.md
     - name: Supervisión de los registros de diagnóstico
@@ -39,6 +39,8 @@
   items:
     - name: Implementación mediante Azure PowerShell
       href: deploy-ps.md
+    - name: 'Implementación en redes híbridas: PowerShell'
+      href: tutorial-hybrid-ps.md
     - name: Implementación con la CLI de Azure
       href: deploy-cli.md
     - name: Implementación mediante una plantilla

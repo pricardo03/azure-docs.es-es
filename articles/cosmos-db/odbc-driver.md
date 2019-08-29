@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257248"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616899"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -23,9 +23,9 @@ El controlador ODBC de Azure Cosmos DB es compatible con ODBC 3.8 y admite la si
 > La conexión a Azure Cosmos DB con el controlador ODBC actualmente solo se admite para cuentas de API de SQL de Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>¿Por qué es necesario normalizar los datos?
-Azure Cosmos DB es una base de datos sin esquema, lo que permite el desarrollo rápido de aplicaciones y la capacidad de iterar en los modelos de datos sin que se limite a un esquema estricto. Una sola base de datos de Azure Cosmos DB puede contener documentos JSON de varias estructuras. Esto es ideal para el desarrollo rápido de aplicaciones, pero cuando desea analizar y crear informes de los datos mediante análisis de datos y herramientas de BI, suele ser normal eliminar el formato de los datos y que estos se ajusten a un esquema específico.
+Azure Cosmos DB es una base de datos sin esquema, lo que permite el desarrollo rápido de aplicaciones y la capacidad de iterar en los modelos de datos sin que se limite a un esquema estricto. Una sola base de datos de Azure Cosmos puede contener documentos JSON de varias estructuras. Esto es ideal para el desarrollo rápido de aplicaciones, pero cuando desea analizar y crear informes de los datos mediante análisis de datos y herramientas de BI, suele ser normal eliminar el formato de los datos y que estos se ajusten a un esquema específico.
 
-Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC, ahora puede volver a normalizar datos de Azure Cosmos DB en tablas y vistas que se ajusten a sus necesidades de informes y análisis de datos. Los esquemas que ese han vuelto a normalizar no tienen ningún efecto en los datos subyacentes y no obligan a los desarrolladores a ajustarse a ellos. En su lugar, le permiten aprovechar las herramientas compatibles con ODBC para acceder a los datos. Por tanto, la base de datos de Azure Cosmos DB no solo será ahora la favorita del equipo de desarrollo, sino que a los analistas de datos también les encantará.
+Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC, ahora puede volver a normalizar datos de Azure Cosmos DB en tablas y vistas que se ajusten a sus necesidades de informes y análisis de datos. Los esquemas que ese han vuelto a normalizar no tienen ningún efecto en los datos subyacentes y no obligan a los desarrolladores a ajustarse a ellos. En su lugar, le permiten aprovechar las herramientas compatibles con ODBC para acceder a los datos. Por tanto, la base de datos de Azure Cosmos no solo será ahora la favorita del equipo de desarrollo, sino que a los analistas de datos también les encantará.
 
 Empecemos con el controlador ODBC.
 
@@ -48,7 +48,7 @@ Empecemos con el controlador ODBC.
 
     ![Administrador de orígenes de datos ODBC de Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos DB
+## <a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos
 
 1. Después de [instalar el controlador ODBC de Azure Cosmos DB](#install), en la ventana **Administrador de orígenes de datos ODBC**, haga clic en **Agregar**. Puede crear un DSN de usuario o de sistema. En este ejemplo, va a crear un DSN de usuario.
 
@@ -82,7 +82,7 @@ Empecemos con el controlador ODBC.
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de colección. Este método de muestreo recupera los datos de la página de una colección para determinar la estructura de dichos datos. Transpone una colección a una tabla en el lado ODBC. Este método de muestreo es rápido y eficaz cuando los datos de una colección son homogéneos. Si una colección contiene un tipo heterogénea de datos, es recomendable usar el [método de asignación de delimitadores de tabla ](#table-mapping), ya que proporciona un método de muestreo más robusto para determinar las estructuras de datos de la colección. 
 
-1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos DB](#connect), haga clic en **Editor de esquemas** en la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
+1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos](#connect), haga clic en **Editor de esquemas** en la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
 
     ![Botón Editor de esquemas en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
@@ -105,7 +105,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 
 Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de **delimitadores de table**. Se recomienda usar este método de muestreo cuando las colecciones contengan un tipo heterogéneo de datos. Puede usar este método para limitar el muestreo a un conjunto de atributos y sus valores correspondientes. Por ejemplo, si un documento contiene una propiedad "Type", puede limitar el muestreo a los valores de esta propiedad. El resultado final del muestreo sería un conjunto de tablas para cada uno de los valores para el tipo especificado. Por ejemplo, Tipo = Vehículo generará una tabla de vehículos, mientras que Tipo = Plano generaría una tabla de planos.
 
-1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos DB](#connect), haga clic en **Editor de esquemas** en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
+1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos](#connect), haga clic en **Editor de esquemas** en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
 
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
     La ventana **Generate Schema** (Generar esquema) muestra todas las colecciones de la cuenta de Azure Cosmos DB. 

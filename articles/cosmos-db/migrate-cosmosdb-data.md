@@ -7,18 +7,23 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: 041f9c95b22fd4b8c238c603deb0558f2bca01a8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737342"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648896"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
 
 Azure Cosmos DB puede almacenar terabytes de datos. Puede realizar una migración de datos a gran escala para trasladar la carga de trabajo de producción a Azure Cosmos DB. En este artículo se describen los desafíos relacionados con la transferencia de datos a gran escala a Azure Cosmos DB y se presenta la herramienta que ayuda con los desafíos y migra datos a Azure Cosmos DB. En este caso práctico, el cliente usó Cosmos DB SQL API.  
 
 Antes de migrar toda la carga de trabajo a Azure Cosmos DB, puede migrar un subconjunto de datos para validar algunos de los aspectos, como la elección de la clave de partición, el rendimiento de las consultas y el modelado de datos. Después de validar la prueba de concepto, puede trasladar toda la carga de trabajo a Azure Cosmos DB.  
+
+También puede usar el [programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) para acelerar la creación o migración de aplicaciones en Azure Cosmos DB. Como parte de este programa, los ingenieros del equipo de Azure Cosmos DB se asignarán al proyecto y le ayudarán a migrar los datos a Azure Cosmos DB. Haga clic en el botón siguiente para registrarse en el programa de arranque de Cosmos DB:
+
+> [!div class="nextstepaction"]
+> [Programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>Herramientas para la migración de datos 
 
@@ -130,7 +135,7 @@ Una vez completados los requisitos previos, puede migrar los datos con los pasos
 
 1. En primer lugar, importe los datos desde Azure Blob Storage. Para aumentar la velocidad de la migración, es útil paralelizar en particiones de origen distintas. Antes de iniciar la migración, el conjunto de datos de origen se debe dividir en archivos con un tamaño aproximado de 200 MB.   
 
-2. La biblioteca BulkExecutor se puede escalar verticalmente para que consuma 500.000 RU en una sola VM de cliente. Dado que el rendimiento disponible es 5 millones de RU, se deben aprovisionar 10 VM Ubuntu 16.04 (Standard_D32_v3) en la misma región donde se encuentra la base de datos de Azure Cosmos. Debe preparar estas VM con la herramienta de migración y su archivo de configuración.  
+2. La biblioteca Bulk Executor se puede escalar verticalmente para que consuma 500 000 RU en una sola máquina virtual de cliente. Dado que el rendimiento disponible es 5 millones de RU, se deben aprovisionar 10 VM Ubuntu 16.04 (Standard_D32_v3) en la misma región donde se encuentra la base de datos de Azure Cosmos. Debe preparar estas VM con la herramienta de migración y su archivo de configuración.  
 
 3. Ejecute el paso de la cola en una de las máquinas virtuales de cliente. En este paso se crea la colección de seguimiento, que examina el contenedor de ADLS y crea un documento de seguimiento de progreso para cada uno de los archivos de partición del conjunto de datos de origen.  
 
@@ -140,9 +145,19 @@ Una vez completados los requisitos previos, puede migrar los datos con los pasos
 
 6. Algunos de estos errores pueden deberse a documentos incorrectos en los datos de origen. Deben identificarse y corregirse. Después, debe volver a ejecutar el paso de importación en las particiones con errores para volver a ingerirlas. 
 
-Una vez completada la migración, puede validar que el número de documentos en Azure Cosmos DB sea el mismo que en la base de datos de origen. En este ejemplo, el tamaño total de Azure Cosmos DB ha resultado ser de 65 terabytes. Después de la migración, la indexación se puede activar de manera selectiva y las RU pueden reducirse al nivel requerido por las operaciones de la carga de trabajo.   
+Una vez completada la migración, puede validar que el número de documentos en Azure Cosmos DB sea el mismo que en la base de datos de origen. En este ejemplo, el tamaño total de Azure Cosmos DB ha resultado ser de 65 terabytes. Después de la migración, la indexación se puede activar de manera selectiva y las RU pueden reducirse al nivel requerido por las operaciones de la carga de trabajo.
+
+## <a name="contact-the-azure-cosmos-db-team"></a>Ponerse en contacto con el equipo de Azure Cosmos DB
+Aunque puede seguir esta guía para migrar correctamente grandes conjuntos de datos a Azure Cosmos DB, para migraciones a gran escala, se recomienda ponerse en contacto con el equipo de producto de Azure Cosmos DB para validar el modelado de datos y una revisión de arquitectura general. En función del conjunto de datos y la carga de trabajo, el equipo de producto también puede sugerir otras optimizaciones de rendimiento y de costos que podrían ser aplicables a usted. Para ponerse en contacto con el equipo de Azure Cosmos DB para obtener ayuda con las migraciones a gran escala, puede abrir una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y el subtipo de problema "Grandes migraciones (TB+) como se indica a continuación.
+
+![Tema sobre la compatibilidad con la migración](./media/migrate-cosmosdb-data/supporttopic.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
+* Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala. 
+* Use el [programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) para acelerar la creación o migración de aplicaciones en Azure Cosmos DB.
 
+> [!div class="nextstepaction"]
+> [Programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)

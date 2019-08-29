@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827380"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617302"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
 
@@ -98,6 +98,11 @@ Para ver y exportar las solicitudes de datos, debe usarse la [API de consulta de
 Como parte de un caso de tratamiento de privacidad, hemos publicado una ruta de acceso a una API de *purga*. Esta ruta de acceso debe usarse con moderación debido al riesgo asociado inherente, al posible impacto en el rendimiento y a la posibilidad de sesgar completamente agregaciones, medidas y otros aspectos de los datos de Log Analytics. Consulte la sección [Estrategia de tratamiento de datos personales](#strategy-for-personal-data-handling) para conocer otras maneras de administrar los datos privados.
 
 La purga es una operación con privilegios elevados que ninguna aplicación ni usuario de Azure (incluido incluso el propietario del recurso) tiene permisos para ejecutar sin que se le haya concedido expresamente un rol en Azure Resource Manager. Este rol es _Purgador de datos_ y se debe delegar con cuidado debido a la posibilidad de pérdida de datos. 
+
+> [!IMPORTANT]
+> Con el fin de administrar los recursos del sistema, las solicitudes de purga se limitan a 50 solicitudes por hora. Debe procesar por lotes la ejecución de las solicitudes de purga mediante el envío de un único comando cuyo predicado incluya todas las identidades de usuario que requieran purga. Use el [operador in](/azure/kusto/query/inoperator) para especificar varias identidades. Debe ejecutar la consulta antes de ejecutar la solicitud de purga para comprobar que se esperan los resultados. 
+
+
 
 Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles dos nuevas rutas de acceso de API: 
 

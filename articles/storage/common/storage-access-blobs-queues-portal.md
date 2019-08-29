@@ -9,20 +9,20 @@ ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 00f34fa9a1932aebd467163e0ed7441c993387df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abbd436e5d1c88c53af95fd8ba9add20fa67c8e4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154007"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640889"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar Azure Portal para tener acceso a datos de blob o de cola
 
-Cuando se accede a datos de blob o de cola mediante [Azure Portal](https://portal.azure.com), Portal realiza solicitudes a Azure Storage en segundo plano. Estas solicitudes a Azure Storage se pueden autenticar y autorizar utilizando bien la cuenta de Azure AD, bien la clave de acceso a la cuenta de almacenamiento. Portal indica qué método de autenticación está usando, y le permite alternar entre ambos si tiene los permisos adecuados.  
+Cuando se accede a datos de blob o de cola mediante [Azure Portal](https://portal.azure.com), Portal realiza solicitudes a Azure Storage en segundo plano. Una solicitud a Azure Storage se puede autorizar mediante la cuenta de Azure AD o la clave de acceso a la cuenta de almacenamiento. El portal indica qué método está usando, y le permite alternar entre ambos si tiene los permisos adecuados.  
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permisos necesarios para acceder a datos de blob o de cola
 
-Necesitará permisos específicos según cómo quiera autenticar el acceso a los datos de blob o de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para obtener más información sobre RBAC, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
+Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de blob o de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para obtener más información sobre RBAC, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="account-access-key"></a>Clave de acceso a la cuenta
 

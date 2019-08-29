@@ -6,21 +6,28 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: ed6c540cedd21bb5154f8746050d5eaa9444b818
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484720"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624755"
 ---
 # <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registro de la aplicación Azure Digital Twins con Azure Active Directory heredado
 
-En este artículo se indica cómo usar el antiguo método heredado para registrar la aplicación de ejemplo en Azure Active Directory (Azure AD), para que pueda acceder a la instancia de Digital Twins. Es posible que desee probar este método en caso de que el método nuevo de registro de la aplicación de Azure AD no funcione para su configuración.
+En este artículo se describe cómo usar la hoja **Registros de aplicaciones (heredados)** para registrar la aplicación de ejemplo.
+
+> [!IMPORTANT]
+> * La nueva hoja **Azure Active Directory** > **Registros de aplicaciones** sustituye a la hoja heredada **Azure Active Directory** > **Registros de aplicaciones (heredada)** desde mayo de 2019.
+> * Los registros de aplicaciones creados o mostrados en la hoja heredada aparecerán automáticamente en la nueva hoja.
+> * Para información completa sobre la migración a la nueva experiencia de registro de aplicaciones de Azure, lea la [Guía de aprendizaje: registros de aplicaciones en Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) y el [Inicio rápido de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 [!INCLUDE [Digital Twins legacy AAD](../../includes/digital-twins-permissions-legacy.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez registrada la aplicación con AAD, puede conectarse con su instancia de Digital Twins y ayudarle a avanzar en su escenario. Consulte el [inicio rápido](quickstart-view-occupancy-dotnet.md#build-application) o el [tutorial](tutorial-facilities-setup.md#configure-the-digital-twins-sample) para más información sobre los pasos siguientes. 
+Continúe con el [inicio rápido](quickstart-view-occupancy-dotnet.md#build-application) o el [tutorial](tutorial-facilities-setup.md#configure-the-digital-twins-sample).
+
+Aprenda a [registrar la aplicación mediante la nueva hoja **Registros de aplicaciones**](tutorial-facilities-setup.md#grant-permissions-to-your-app).

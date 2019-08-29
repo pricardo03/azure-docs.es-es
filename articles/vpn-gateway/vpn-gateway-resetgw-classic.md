@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612466"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563049"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 
@@ -69,10 +69,12 @@ Cuando reciba un resultado devuelto, se puede suponer que la puerta de enlace se
 
 ### <a name="resetclassic"></a>Modelo de implementación clásica
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). En el ejemplo siguiente, se restablece la puerta de enlace para una red virtual denominada "ContosoVNet":
+El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Los cmdlets de Azure PowerShell para la administración de servicios deben instalarse localmente en el escritorio. No se puede usar Azure Cloud Shell. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Cuando use este comando, asegúrese de que está usando el nombre completo de la red virtual. Las redes virtuales clásicas que se crearon con el portal tienen un nombre largo que es necesario para PowerShell. Puede ver el nombre largo mediante "Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml".
+
+En el ejemplo siguiente se restablece la puerta de enlace de una red virtual denominada "Group TestRG1 TestVNet1" (que se muestra simplemente como "TestVNet1" en el portal):
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 Resultado:

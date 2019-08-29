@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 08/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9da52e5a9dfa3b55431d66ed3162172226f71a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073304"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562841"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -37,7 +37,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de 
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que está supervisando. |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el grupo de recursos nuevo o existente que hospedará los datos de Application Insights. |
-   | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación. |
+   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación. |
 
 Escriba los valores apropiados en los campos obligatorios y, a continuación, seleccione **Revisar y crear**.
 
@@ -60,7 +60,102 @@ Use la clave de instrumentación para configurar [el SDK que instala en la aplic
 El SDK incluye módulos estándar que envían telemetría sin tener que escribir código adicional. Para realizar un seguimiento de las acciones del usuario o diagnosticar los problemas con más detalle, [use la API][api] para enviar su propia telemetría.
 
 ## <a name="creating-a-resource-automatically"></a>Creación de un recurso de forma automática
-Puede escribir un [script de PowerShell](../../azure-monitor/app/powershell.md) para crear automáticamente un recurso.
+
+### <a name="powershell"></a>PowerShell
+
+Creación de un recurso de Application Insights
+
+```powershell
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+#### <a name="example"></a>Ejemplo
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+```
+#### <a name="results"></a>Results
+
+```powershell
+Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
+ResourceGroupName  : testgroup
+Name               : test1027
+Kind               : web
+Location           : eastus
+Type               : microsoft.insights/components
+AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
+ApplicationType    : web
+Tags               : {}
+CreationDate       : 10/27/2017 4:56:40 PM
+FlowType           :
+HockeyAppId        :
+HockeyAppToken     :
+InstrumentationKey : 00000000-aaaa-bbbb-cccc-dddddddddddd
+ProvisioningState  : Succeeded
+RequestSource      : AzurePowerShell
+SamplingPercentage :
+TenantId           : {subid}
+```
+
+Para obtener la documentación completa de PowerShell para este cmdlet y obtener información sobre cómo recuperar la clave de instrumentación, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+
+### <a name="azure-cli-preview"></a>CLI de Azure (versión preliminar)
+
+Para acceder a los comandos de la CLI de Azure de Application Insights en versión preliminar, primero debe ejecutar:
+
+```azurecli
+ az extension add -n application-insights
+```
+
+Si no ejecuta el comando `az extension add`, verá un mensaje de error que indica: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+
+Ahora puede ejecutar lo siguiente para crear el recurso de Application Insights:
+
+```azurecli
+az monitor app-insights component create --app
+                                         --location
+                                         --resource-group
+                                         [--application-type]
+                                         [--kind]
+                                         [--tags]
+```
+
+#### <a name="example"></a>Ejemplo
+
+```azurecli
+az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+```
+
+#### <a name="results"></a>Results
+
+```azurecli
+az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+{
+  "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
+  "applicationId": "demoApp",
+  "applicationType": "web",
+  "creationDate": "2019-08-16T18:15:59.740014+00:00",
+  "etag": "\"0300edb9-0000-0100-0000-5d56f2e00000\"",
+  "flowType": "Bluefield",
+  "hockeyAppId": null,
+  "hockeyAppToken": null,
+  "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
+  "kind": "web",
+  "location": "eastus",
+  "name": "demoApp",
+  "provisioningState": "Succeeded",
+  "requestSource": "rest",
+  "resourceGroup": "demoApp",
+  "samplingPercentage": null,
+  "tags": {},
+  "tenantId": {tenantID},
+  "type": "microsoft.insights/components"
+}
+```
+
+Para obtener la documentación completa de la CLI de Azure para este comando y obtener información sobre cómo recuperar la clave de instrumentación, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md)

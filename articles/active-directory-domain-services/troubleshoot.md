@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772986"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617067"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
@@ -32,7 +32,7 @@ Elija los pasos de solución de problemas que correspondan al mensaje de error q
 
 | **Mensaje de error** | **Resolución** |
 | --- |:--- |
-| *El nombre contoso100.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
+| *El nombre contoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" e intente habilitar Domain Services para el inquilino de Azure AD.)* |[Domain Services carece de permisos suficientes para la aplicación Azure AD Domain Services Sync](troubleshoot.md#inadequate-permissions) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Elimine la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de Domain Services no está configurada correctamente en el inquilino](troubleshoot.md#invalid-configuration) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación Microsoft Azure AD está deshabilitada en el inquilino de Azure AD. Habilite la aplicación con el identificador 00000002-0000-0000-c000-000000000000 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación Microsoft Graph está deshabilitada en el inquilino de Azure AD](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ Elija los pasos de solución de problemas que correspondan al mensaje de error q
 ### <a name="domain-name-conflict"></a>Conflicto de nombres de dominio
 **Mensaje de error:**
 
-*El nombre contoso100.com ya se está usando en esta red. Especifique un nombre que no esté en uso.*
+*El nombre contoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.*
 
 **Corrección:**
 
@@ -135,12 +135,12 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
 >
 >
 
-* Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
+* Asegúrese de que ha [habilitado la sincronización de contraseñas](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) según los pasos que se describen en la Guía de introducción.
 * **Cuentas externas:** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa del inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft; por ejemplo, "joe@live.com" o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
 * **Cuentas sincronizadas:** si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:
 
   * Ha implementado la [versión más reciente recomendada de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)o se ha actualización a dicha versión.
-  * Ha configurado Azure AD Connect para [realizar una sincronización completa](active-directory-ds-getting-started-password-sync.md).
+  * Ha configurado Azure AD Connect para [realizar una sincronización completa](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
   * En función del tamaño de su directorio, se puede tardar algo en que las cuentas de usuario y los hash de credenciales estén disponibles en Servicios de dominio de Azure AD. Asegúrese de esperar lo suficiente antes de reintentar la autenticación.
   * Si el problema persiste después de comprobar los pasos anteriores, pruebe a reiniciar el servicio de sincronización de Microsoft Azure AD. En el equipo de sincronización, inicie un símbolo del sistema y ejecute los comandos siguientes:
 

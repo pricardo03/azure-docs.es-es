@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843325"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541540"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -143,7 +143,48 @@ La creación de particiones de GPT solo se puede usar en discos de datos, no en 
 
 **¿Qué tipos de discos admiten instantáneas?**
 
-SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos SSD Ultra no admiten instantáneas.
+SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos Ultra no admiten instantáneas.
+
+## <a name="ultra-disks"></a>Discos Ultra
+
+**¿En qué regiones se admiten actualmente discos Ultra?**
+- Este de EE. UU. 2
+- Sudeste Asiático
+- Europa del Norte
+
+**¿Qué series de máquinas virtuales admiten actualmente discos Ultra?**
+- ESv3
+- DSv3
+
+**¿Qué rendimiento del disco Ultra se debe establecer?**
+Si no está seguro de qué rendimiento de disco establecer, se recomienda que comience asumiendo un tamaño de E/S de 16 KiB y ajuste el rendimiento a partir de ahí mientras supervisa la aplicación. La fórmula es: Rendimiento en MBps = n.º de IOPS * 16/1000.
+
+**He configurado el disco en 40 000 IOPS pero solo veo 12 800 IOPS, ¿por qué no veo el rendimiento del disco?**
+Además de la limitación del disco, existe una limitación de E/S que se impone a nivel de máquina virtual. Asegúrese de que el tamaño de máquina virtual que está usando puede admitir los niveles que están configurados en los discos. Para más información sobre los límites de E/S impuestos por la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../articles/virtual-machines/windows/sizes.md).
+
+**¿Puedo usar niveles de almacenamiento en caché con un disco Ultra?**
+No, los discos Ultra no admiten los distintos métodos de almacenamiento en caché que se admiten en otros tipos de discos. Establezca el almacenamiento en caché de disco en Ninguno.
+
+**¿Puedo conectar un disco Ultra a mi máquina virtual actual?**
+Es posible. La máquina virtual debe encontrarse en un par de región y zona de disponibilidad que admita discos Ultra. Consulte [Introducción a los discos Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para más información.
+
+**¿Puedo usar un disco Ultra como disco del sistema operativo para mi máquina virtual?**
+No, los discos Ultra solo se admiten como discos de datos y solo se admiten como discos nativos de 4K.
+
+**¿Puedo convertir un disco existente en un disco Ultra?**
+No, pero puede migrar los datos de un disco existente a un disco Ultra. Para migrar un disco existente a un disco Ultra, conecte ambos discos a la misma máquina virtual y copie los datos de un disco al otro o utilice una solución de terceros para migrar los datos.
+
+**¿Se pueden crear instantáneas de discos Ultra?**
+No, las instantáneas no están disponibles todavía.
+
+**¿Está Azure Backup disponible para discos Ultra?**
+No, la compatibilidad con Azure Backup aún no está disponible.
+
+**¿Puedo conectar un disco Ultra a una máquina virtual que se ejecuta en un conjunto de disponibilidad?**
+No, esto aún no es posible.
+
+**¿Puedo habilitar Azure Site Recovery (ASR) para máquinas virtuales que usan discos Ultra?**
+No, ASR todavía no es compatible con discos Ultra.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD estándar
 

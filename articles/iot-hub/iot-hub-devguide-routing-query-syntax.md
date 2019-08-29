@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400650"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877073"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -57,6 +57,7 @@ Las propiedades del sistema ayudan a identificar el contenido y el origen de los
 | contentEncoding | string | El usuario especifica el tipo de codificación del mensaje. Los valores permitidos son UTF-8, UTF-16, UTF-32, si contentType se establece en application/JSON. |
 | iothub-connection-device-id | string | Este valor se establece mediante IoT Hub e identifica el identificador del dispositivo. Para realizar la consulta, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Este valor lo establece IoT Hub y representa la hora real en UTC de espera en cola del mensaje. Para realizar la consulta, use `enqueuedTime`. |
+| iothub-interface-name | string | El usuario establece este valor que representa el nombre de la interfaz del dispositivo gemelo que implementa el mensaje de telemetría. Para realizar la consulta, use `$interfaceName`. Esta característica está disponible como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Como se describe en los [mensajes de IoT Hub](iot-hub-devguide-messages-construct.md), hay propiedades adicionales del sistema en un mensaje. Además de **contentType**, **contentEncoding** y **enqueuedTime**, también se pueden consultar **connectionDeviceId** y  **connectionModuleId**.
 
@@ -86,7 +87,7 @@ Para combinar estas consultas, se pueden usar funciones y expresiones booleanas:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Una lista completa de los operadores y funciones admitidas se enumeran en [Expresiones y condiciones](iot-hub-devguide-query-language.md#expressions-and-conditions).
+Una lista completa de los operadores y funciones admitidas se muestra en [Expresiones y condiciones](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="message-routing-query-based-on-message-body"></a>Consulta de enrutamiento de mensajes basada en el cuerpo del mensaje 
 
@@ -163,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Consulta de enrutamiento de mensajes basada en un dispositivo gemelo 
 
-El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [dispositivos gemelos](iot-hub-devguide-device-twins.md), que son objetos JSON. Tenga en cuenta que no se admite la consulta en el módulo gemelo. A continuación se muestra un ejemplo de propiedades y etiquetas de dispositivo gemelo.
+El enrutamiento de mensajes le permite consultar en etiquetas y propiedades de [dispositivos gemelos](iot-hub-devguide-device-twins.md), que son objetos JSON. No se admite la consulta en el módulo gemelo. A continuación se muestra un ejemplo de propiedades y etiquetas de dispositivo gemelo.
 
 ```JSON
 {

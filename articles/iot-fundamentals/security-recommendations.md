@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 4416f3149c33a0c9a437b2fbd6a48729a5a7f044
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 55ca189d5f4622a395ffe603d7f0d6764db82f3d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722858"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877219"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendaciones de seguridad para la implementación de Azure Internet of Things (IoT)
 
@@ -42,7 +42,7 @@ Este artículo contiene recomendaciones de seguridad para los servicios de Azure
 | Recomendación | Comentarios |
 |-|-|
 | Autenticación de dispositivos segura | Garantice una comunicación segura entre sus dispositivos y el centro de IoT, ya sea mediante [una clave de identidad única o un token de seguridad](iot-security-deployment.md#iot-hub-security-tokens) o bien mediante [un certificado X.509 en el dispositivo](iot-security-deployment.md#x509-certificate-based-device-authentication) para cada uno de los dispositivos. Utilice el método adecuado para [utilizar tokens de seguridad basados en el protocolo elegido (MQTT, AMQP o HTTPS)](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). |
-| Comunicación segura con los dispositivos | IoT Hub protege la conexión con los dispositivos mediante el estándar de seguridad de la capa de transporte (TLS), cuyas versiones admitidas son 1.2, 1.2 y 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) para garantizar la máxima seguridad. |
+| Comunicación segura con los dispositivos | IoT Hub protege la conexión con los dispositivos mediante el estándar de seguridad de la capa de transporte (TLS), cuyas versiones admitidas son 1.2 y 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) para garantizar la máxima seguridad. |
 | Comunicación segura del servicio | IoT Hub proporciona puntos de conexión para conectarse a servicios back-end como, por ejemplo, [Azure Storage](/azure/storage/) o [Event Hubs](/azure/event-hubs), usando únicamente el protocolo TLS, de forma que ningún punto de conexión se expone en un canal no cifrado. Una vez que estos datos lleguen a estos servicios de back-end para el almacenamiento o el análisis, asegúrese de emplear los métodos de seguridad y cifrado adecuados para ese servicio y de proteger la información confidencial en el back-end. |
 
 

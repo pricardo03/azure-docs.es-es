@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828186"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877184"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -39,7 +39,7 @@ Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-r
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub admite la escritura de datos en Azure Blob Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. La funcionalidad de codificar en formato JSON está disponible en general en todas las regiones donde IoT Hub está disponible. El valor predeterminado es AVRO. El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. El formato no se puede editar para un punto de conexión existente. Cuando se usa la codificación JSON, debe establecer contentType en JSON y contentEncoding en UTF-8 en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Si no se establece, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). En el siguiente diagrama se muestra cómo seleccionar el formato de codificación en Azure Portal.
+IoT Hub admite la escritura de datos en Azure Blob Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. La funcionalidad de codificar en formato JSON está disponible en general en todas las regiones donde IoT Hub está disponible. El valor predeterminado es AVRO. El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. El formato no se puede editar para un punto de conexión existente. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). En el siguiente diagrama se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -53,7 +53,7 @@ IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando el l
 
 Puede usar cualquier convención de nomenclatura de archivos, aunque debe usar todos los tokens de la lista. IoT Hub escribirá en un blob vacío si no hay datos que escribir.
 
-Al enrutar a Blob Storage, se recomienda dar de alta los blobs e iterar sobre ellos para garantizar que se leen todos los contenedores sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una [conmutación por error iniciada por Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) o una [conmutación por error manual](iot-hub-ha-dr.md#manual-failover-preview) de IoT Hub. Puede usar la [API Mostrar blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar la lista de blobs. Vea el siguiente ejemplo como guía.
+Al enrutar a Blob Storage, se recomienda dar de alta los blobs e iterar sobre ellos para garantizar que se leen todos los contenedores sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una [conmutación por error iniciada por Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) o una [conmutación por error manual](iot-hub-ha-dr.md#manual-failover) de IoT Hub. Puede usar la [API Mostrar blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar la lista de blobs. Vea el siguiente ejemplo como guía.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -103,7 +103,7 @@ Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enruta
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
-Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo y eventos del ciclo de vida del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. 
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una [propiedad](../iot-pnp/iot-plug-and-play-glossary.md) de gemelo digital, se sustituya un [gemelo digital](../iot-pnp/iot-plug-and-play-glossary.md) o cuando se produzca un evento de cambio para el dispositivo gemelo subyacente.
 
 [IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y la automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
 

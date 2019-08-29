@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371107"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624829"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
@@ -51,7 +51,6 @@ provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2
                                                             # for GPU, use "STANDARD_NC6"
                                                             # vm_priority = 'lowpriority', # optional
                                                             max_nodes=6)
-
 compute_target = ComputeTarget.create(
     ws, amlcompute_cluster_name, provisioning_config)
 
@@ -67,35 +66,37 @@ Entre las restricciones en los nombres del clúster se incluyen:
 + La longitud debe ser inferior a 64 caracteres.
 + No puede contener ninguno de los caracteres siguientes: {`\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## <a name="access-data-using-get_data-function"></a>Acceso a los datos mediante la función get_data()
+## <a name="access-data-using-tabulardataset-function"></a>Acceso a los datos mediante la función TabularDataset
 
-Proporcione a los recursos remotos acceso a los datos de entrenamiento. Para los experimentos de aprendizaje automático automatizado que se ejecutan en el proceso remoto, los datos deben capturarse con una función `get_data()`.
+Se han definido X e y como `TabularDataset`s, las cuales se pasan a Machine Learning Automatizado en AutoMLConfig. `from_delimited_files` establece de forma predeterminada `infer_column_types` en true, lo cual hará que se infiera el tipo de columnas automáticamente. 
 
-Para proporcionar acceso, debe:
-+ Crear un archivo get_data.py que contenga una función `get_data()`
-+ Colocar ese archivo en un directorio accesible como ruta de acceso completa
-
-Puede encapsular el código para leer datos desde un almacenamiento de blobs o un disco local en el archivo get_data.py. En el siguiente ejemplo de código, los datos proceden del paquete sklearn.
+Si desea establecer manualmente los tipos de columna, puede establecer el argumento `set_column_types` para poder establecer manualmente el tipo de cada una de las columnas. En el siguiente ejemplo de código, los datos proceden del paquete sklearn.
 
 ```python
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
-
 from sklearn import datasets
+from azureml.core.dataset import Dataset
 from scipy import sparse
 import numpy as np
+import pandas as pd
 
-def get_data():
+data_train = datasets.load_digits()
 
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
 
-    return { "X" : X_digits, "y" : y_digits }
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
+
+X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
+y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
+
 ```
 
 ## <a name="create-run-configuration"></a>Creación de una configuración de ejecución
@@ -119,7 +120,6 @@ run_config.environment.python.conda_dependencies = dependencies
 Consulte este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) para un ejemplo adicional de este modelo de diseño.
 
 ## <a name="configure-experiment"></a>Configuración del experimento
-
 Especifique la configuración de `AutoMLConfig`.  (Consulte una [lista completa de parámetros](how-to-configure-auto-train.md#configure-experiment) y sus posibles valores).
 
 ```python
@@ -143,7 +143,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              )
 ```
@@ -158,7 +159,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              model_explainability=True,
                              X_valid=X_test

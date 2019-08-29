@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955232"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542847"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>¿Qué es una base de conocimiento de QnA Maker?
 
@@ -59,6 +59,70 @@ El proceso se explica en la tabla siguiente:
 
 Las características que se usan incluyen, entre otros, la semántica en el nivel de palabra, la importancia en el nivel de término en un conjunto y los modelos de semántica de aprendizaje profundo para determinar la similitud e importancia entre dos cadenas de texto.
 
+## <a name="http-request-and-response-with-endpoint"></a>Solicitud y respuesta HTTP con punto de conexión
+Al publicar la base de conocimiento, el servicio crea un **punto de conexión** HTTP basado en REST que se puede integrar en una aplicación, normalmente un bot de chat. 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>Solicitud de consulta de usuario para generar una respuesta
+
+Una **consulta de usuario** es la pregunta que el usuario final formula en la base de conocimiento, como por ejemplo `How do I add a collaborator to my app?`. A menudo la consulta está en un formato de lenguaje natural o se usan unas pocas palabras clave que representan la pregunta, como por ejemplo `help with collaborators`. La consulta se envía a su base de conocimiento desde una **solicitud** HTTP en la aplicación cliente.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+Puede controlar la respuesta estableciendo propiedades como [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)y [stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+
+Use [contenido de conversación](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) con la [funcionalidad de varios turnos](../how-to/multiturn-conversation.md) para mantener la conversación en marcha para refinar las preguntas y respuestas y encontrar la respuesta correcta y final.
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>Respuesta de una llamada para generar una respuesta
+
+La **respuesta** HTTP es la respuesta que se recupera de la base de conocimientos, en función de la coincidencia más alta para una consulta de usuario dada. La respuesta incluye la respuesta y la puntuación de predicción. Si solicitó más de una respuesta principal, con la propiedad `top`, obtendrá más de una respuesta principal, cada una con una puntuación. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>Base de conocimiento de prueba y producción
+Una base de conocimientos es el repositorio de preguntas y respuestas que se crea, se mantiene y se usa en QnA Maker. Cada nivel QnA Maker se puede usar para varias bases de conocimiento.
+
+Una base de conocimientos tiene dos estados: prueba y publicada. 
+
+La **base de conocimiento de prueba** es la versión que se edita, se guarda y se prueba para conocer la precisión e integridad de las respuestas. Los cambios realizados en la base de conocimientos de prueba no afectan al usuario final de la aplicación o bot de chat. La base de conocimiento de prueba se conoce como `test` en la solicitud HTTP. 
+
+La **base de conocimiento publicada** es la versión que se utiliza en la aplicación o en el bot de chat. La acción de publicar una base de conocimientos coloca el contenido de la base de conocimientos de prueba en la versión publicada de la base de conocimientos. Dado que la base de conocimientos publicada es la versión que la aplicación usa a través del punto de conexión, es preciso asegurarse de que el contenido es correcto y que se ha probado profusamente. La base de conocimiento publicada se conoce como `prod` en la solicitud HTTP. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -68,3 +132,11 @@ Las características que se usan incluyen, entre otros, la semántica en el nive
 ## <a name="see-also"></a>Otras referencias
 
 [Introducción de QnA Maker](../Overview/overview.md)
+
+Cree y edite la base de conocimiento con: 
+* [API DE REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Genere la respuesta con: 
+* [API DE REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

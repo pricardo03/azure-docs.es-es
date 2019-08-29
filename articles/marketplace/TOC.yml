@@ -60,6 +60,8 @@
         - name: Sus ventajas de Marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Participación de asociados de venta conjunta
+              href: ./marketplace-co-sell.md
             - name: Soluciones preferidas
               href: ./preferred-solutions.md
             - name: Soluciones integradas
@@ -490,6 +492,13 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Versión de prueba de la oferta
           href: ./partner-center-portal/test-drive.md
+        - name: Opción de venta conjunta
+          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          items:
+            - name: Códigos de país y región
+              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+            - name: Códigos de estado
+              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: Estado de publicación
       href: ./partner-center-portal/publishing-status.md
     - name: Actualización de oferta existente

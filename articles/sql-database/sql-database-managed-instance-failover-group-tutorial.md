@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5bf2ee68ff2cfde2846dff2d94f7478920a18760
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037352"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624980"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -151,7 +151,7 @@ Para que dos instancias administradas participen en un grupo de conmutación por
     | **Tipo de puerta de enlace** | Seleccione **VPN**. |
     | **Tipo de VPN** | Seleccione **Basada en rutas**. |
     | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
-    | **Ubicación**| Ubicación donde se encuentran la instancia administrada secundaria y la red virtual secundaria.   |
+    | **Ubicación**| Ubicación donde se encuentran la instancia administrada principal y la red virtual principal.   |
     | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-primary`. |
     | **Dirección IP pública**| Seleccione **Crear nuevo**. |
     | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `primary-gateway-IP`. |

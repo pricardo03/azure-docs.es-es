@@ -7,16 +7,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68551999"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616943"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
-La fuente de cambios de Azure Cosmos DB es un mecanismo para obtener una fuente continua e incremental de los registros de un contenedor de Azure Cosmos DB a medida que esos registros se crean o modifican. La compatibilidad con la fuente de cambios funciona escuchando al contenedor para detectar los cambios. A continuación, muestra la lista ordenada de los documentos que han cambiado en el orden en el que se modificaron. Para más información sobre la fuente de cambios, vea el artículo [Compatibilidad con la fuente de cambios en Azure Cosmos DB](change-feed.md). 
+La fuente de cambios de Azure Cosmos es un mecanismo para obtener una fuente continua e incremental de los registros de un contenedor de Azure Cosmos DB a medida que esos registros se crean o modifican. La compatibilidad con la fuente de cambios funciona escuchando al contenedor para detectar los cambios. A continuación, muestra la lista ordenada de los documentos que han cambiado en el orden en el que se modificaron. Para más información sobre la fuente de cambios, vea el artículo [Compatibilidad con la fuente de cambios en Azure Cosmos DB](change-feed.md). 
 
 En este artículo se describe cómo una empresa de comercio electrónico puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y obtener su visualización. Analizará eventos tales como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo. Cuando se produce uno de estos eventos, se crea un nuevo registro que la fuente de cambios registra. La fuente de cambios desencadena entonces una serie de pasos que se traducen en la visualización de métricas que analizan el rendimiento y la actividad de la empresa. Las métricas de ejemplo que se pueden visualizar incluyen los ingresos, los visitantes únicos del sitio, los artículos más populares y el precio medio de los artículos que se ven en comparación con los que se agregan al carro y con los que se compran. Estas métricas de ejemplo pueden ayudar a una empresa de comercio electrónico a evaluar la popularidad de su sitio, desarrollar sus estrategias de publicidad y precios y tomar decisiones sobre el inventario en el que invertir.
 
@@ -41,9 +41,9 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
    }
    ```
 
-2. **Cosmos DB:** Los datos generados se almacenan en una colección de Azure Cosmos DB.  
+2. **Cosmos DB:** Los datos generados se almacenan en un contenedor de Azure Cosmos.  
 
-3. **Fuente de cambios:** la fuente de cambios escuchará para detectar cambios en la colección de Azure Cosmos DB. Cada vez que se agregue un nuevo documento a la colección (es decir, cuando se produce un evento tal como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo), la fuente de cambios desencadenará una [función de Azure](../azure-functions/functions-overview.md).  
+3. **Fuente de cambios:** la fuente de cambios escuchará para detectar cambios en el contenedor de Azure Cosmos. Cada vez que se agregue un nuevo documento a la colección (es decir, cuando se produce un evento tal como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo), la fuente de cambios desencadenará una [función de Azure](../azure-functions/functions-overview.md).  
 
 4. **Función de Azure:** procesa los nuevos datos y los envía a un [Centro de eventos de Azure](../event-hubs/event-hubs-about.md).  
 
@@ -143,7 +143,7 @@ Un Centro de eventos de Azure recibe los datos de eventos y los almacena, proces
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Configuración de la función de Azure para leer la fuente de cambios
 
-Cuando se crea un documento o se modifica un documento actual en una colección de Cosmos DB, la fuente de cambios agrega automáticamente el documento modificado a su historial de cambios en la colección. Ahora compilará y ejecutará una función de Azure que procese la fuente de cambios. Cuando se cree o modifique un documento en la colección que ha creado, la fuente de cambios desencadenará la función de Azure. La función de Azure enviará el documento modificado al Centro de eventos.
+Cuando se crea un documento o se modifica un documento actual en un contenedor de Cosmos, la fuente de cambios agrega automáticamente el documento modificado a su historial de cambios en la colección. Ahora compilará y ejecutará una función de Azure que procese la fuente de cambios. Cuando se cree o modifique un documento en la colección que ha creado, la fuente de cambios desencadenará la función de Azure. La función de Azure enviará el documento modificado al Centro de eventos.
 
 1. Vuelva al repositorio que clonó en el dispositivo.  
 
@@ -318,7 +318,7 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualización con un sitio de comercio electrónico
 
-Ahora verá cómo puede usar la nueva herramienta de análisis de datos para conectarse con un sitio de comercio electrónico real. Para compilar el sitio de comercio electrónico, utilice una base de datos de Azure Cosmos DB para almacenar la lista de categorías de producto (Mujer, Hombre, Unisex), el catálogo de productos y una lista de los artículos más populares.
+Ahora verá cómo puede usar la nueva herramienta de análisis de datos para conectarse con un sitio de comercio electrónico real. Para compilar el sitio de comercio electrónico, utilice una base de datos de Azure Cosmos para almacenar la lista de categorías de producto (Mujer, Hombre, Unisex), el catálogo de productos y una lista de los artículos más populares.
 
 1. Navegue de nuevo a [Azure Portal](https://portal.azure.com/), luego a su **cuenta de Cosmos DB** y luego al **Explorador de datos**.  
 

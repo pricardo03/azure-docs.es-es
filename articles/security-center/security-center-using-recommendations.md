@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967974"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640872"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
@@ -48,15 +48,15 @@ Jeff es propietario de la carga de trabajo de la nube. Jeff es responsable de ap
 Jeff realiza las siguientes tareas:
 
 - Supervisar las recomendaciones de seguridad de Security Center
-- Evaluar las recomendaciones de seguridad y decidir si deben aplicar o descartar
+- Evaluar las recomendaciones de seguridad y decidir si se deben aplicar o descartar.
 - Aplicar las recomendaciones de seguridad
 
 ### <a name="remediate-threats-using-recommendations"></a>Corregir las amenazas según las recomendaciones
 Como parte de sus actividades de supervisión diarias, Jeff inicia sesión en Azure y abre Security Center. 
 
-1. Jeff selecciona las suscripciones de su carga de trabajo.
+1. Jeff selecciona las suscripciones de la carga de trabajo.
 
-2. Jeff comprueba su **puntuación segura** para obtener un imagen general de cuán seguras son las suscripciones y ve que su puntuación es de 548.
+2. Jeff comprueba la **puntuación segura** para obtener una imagen general de cuán seguras son las suscripciones y ve que la puntuación es de 548.
 
 3. Jeff tiene que decidir de qué recomendaciones ocuparse primero. Por lo que Jeff hace clic en Puntuación segura y empieza a encargarse de las recomendaciones en función de cuánto mejoran su [Impacto de la puntuación segura](security-center-secure-score.md).
 
@@ -64,7 +64,7 @@ Como parte de sus actividades de supervisión diarias, Jeff inicia sesión en Az
 
 5. Cuando hace clic en **Procesos y aplicaciones**, ve una lista de recomendaciones y se encarga de ellas según el impacto de la puntuación segura.
 
-6. Jeff tiene varias VM que apuntan a Internet y, dado que sus puertos están expuestos, le preocupa que un atacante pueda obtener el control de los servidores. Por lo que Jeff decide usar (**acceso a VM Just-In-Time**) [security-center-just-in-time.md].
+6. Jeff tiene varias máquinas virtuales que apuntan a Internet y, dado que sus puertos están expuestos, le preocupa que un atacante pueda obtener el control de los servidores. Por lo que Jeff decide usar (**acceso a VM Just-In-Time**) [security-center-just-in-time.md].
 
 Jeff continúa explorando las recomendaciones de prioridad alta y media, y toma decisiones de implementación. Para cada recomendación, Jeff examina la información detallada proporcionada por Security Center para comprender qué recursos se ven afectados, cuál es el impacto de la puntuación segura, qué significa cada recomendación y los pasos de corrección para saber cómo mitigar cada problema.
 

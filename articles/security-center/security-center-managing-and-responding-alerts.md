@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
-ms.author: rkarlin
-ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 39849514d772f128434daad590de22f941245af7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235776"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516095"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar Azure Security Center para administrar las alertas de seguridad y responder a ellas.
@@ -96,7 +96,7 @@ En este caso, las alertas desencadenadas hacen referencia a las actividades sosp
 
 En el campo **Descripción**, encontrará más detalles sobre este evento. Estos detalles adicionales ofrecen información detallada sobre lo que activó la alerta de seguridad, el recurso de destino, la dirección IP de origen si corresponde, y recomendaciones sobre cómo corregirla.  En algunos casos, la dirección IP de origen está vacía (no disponible) porque no todos los registros de eventos de seguridad de Windows incluyen la dirección IP.
 
-La corrección sugerida por Security Center varía según la alerta de seguridad. En algunos casos, tendrá que utilizar otras capacidades de Azure para implementar la corrección recomendada. Por ejemplo, la solución para este ataque consiste en colocar la dirección IP que lo está generando en la lista negra mediante una [ACL de red](../virtual-network/virtual-networks-acl.md) o una regla de [grupo de seguridad de red](../virtual-network/security-overview.md#security-rules). Para más información sobre los distintos tipos de alertas, consulte [Alertas de seguridad por tipo en Azure Security Center](security-center-alerts-type.md).
+La corrección sugerida por Security Center varía según la alerta de seguridad. En algunos casos, tendrá que utilizar otras capacidades de Azure para implementar la corrección recomendada. Por ejemplo, la solución para este ataque consiste en no permitir la dirección IP que lo está generando mediante una [ACL de red](../virtual-network/virtual-networks-acl.md) o una regla de [grupo de seguridad de red](../virtual-network/security-overview.md#security-rules). Para más información sobre los distintos tipos de alertas, consulte [Tipos de alertas de seguridad](security-center-alerts-overview.md#security-alert-types).
 
 > [!NOTE]
 > Security Center ha lanzado un nuevo conjunto de detecciones en versión preliminar limitada que aprovecha los registros de auditoría, un marco de auditoría común, para detectar comportamientos malintencionados en máquinas Linux. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_linuxdetections@microsoft.com) para unirse a la versión preliminar.

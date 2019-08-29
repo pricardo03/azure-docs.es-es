@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentación de Azure Data Science Virtual Machine
 metadata:
   title: 'Documentación sobre Data Science Virtual Machine: Azure'
-  description: 'Aprenda a usar Data Science Virtual Machine, un entorno experimental en la nube de Azure creado para la ciencia de datos. Tiene muchas herramientas de ciencia de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado.'
+  description: 'Aprenda a usar Data Science Virtual Machine, un entorno experimental en la nube de Azure creado para la ciencia de datos. Las herramientas de ciencia de datos y aprendizaje automático más populares están preinstaladas y preconfiguradas. Este diseño proporciona un principio para compilar aplicaciones inteligentes para el análisis avanzado.'
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,9 +14,9 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personalizada con herramientas de ciencia de datos y aprendizaje automático. Puede usar esta máquina virtual para compilar aplicaciones de análisis avanzadas e inteligentes. <a href="overview.md">Más información...</a>
+  description: Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personalizada con herramientas de ciencia de datos y aprendizaje automático. Puede usar esta máquina virtual para compilar aplicaciones inteligentes de análisis avanzado. <a href="overview.md">Más información</a>.
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Inicios rápidos en 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a configurar una instancia de Data Science Virtual Machine basada en Windows o Linux:'

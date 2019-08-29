@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467809"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616993"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Uso de la cuenta de Azure Cosmos
 
@@ -25,7 +25,7 @@ Para administrar de forma segura el acceso a todos los datos de la cuenta de Azu
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementos de una cuenta de Azure Cosmos
 
-En Azure Cosmos DB, un contenedor es la unidad fundamental de escalabilidad. Prácticamente puede tener un rendimiento aprovisionado (RU/s) y un almacenamiento ilimitado en un contenedor. Azure Cosmos DB realiza particiones de forma transparente en el contenedor mediante la clave de partición lógica que especifique para escalar elásticamente el rendimiento y el almacenamiento aprovisionados. Para más información, consulte [working with Azure Cosmos containers and items](databases-containers-items.md) (Uso de contenedores y elementos de Azure Cosmos).
+En Azure Cosmos, un contenedor es la unidad fundamental de escalabilidad. Prácticamente puede tener un rendimiento aprovisionado (RU/s) y un almacenamiento ilimitado en un contenedor. Azure Cosmos DB realiza particiones de forma transparente en el contenedor mediante la clave de partición lógica que especifique para escalar elásticamente el rendimiento y el almacenamiento aprovisionados. Para más información, consulte [working with Azure Cosmos containers and items](databases-containers-items.md) (Uso de contenedores y elementos de Azure Cosmos).
 
 Actualmente, puede crear un máximo de 100 cuentas de Azure Cosmos en una suscripción de Azure. Una sola cuenta de Azure Cosmos puede administrar una cantidad casi ilimitada de datos y rendimiento aprovisionado. Para administrar los datos y el rendimiento aprovisionado, puede crear una o varias bases de datos de Azure Cosmos en su cuenta y, dentro de esa base de datos, puede crear uno o varios contenedores. La siguiente imagen muestra la jerarquía de elementos en una cuenta de Azure Cosmos:
 

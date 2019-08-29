@@ -1,7 +1,7 @@
 ---
-title: Diagnóstico de Azure Standard Load Balancer
+title: Diagnóstico de Azure Standard Load Balancer con métricas, alertas y estado de los recursos
 titlesuffix: Azure Load Balancer
-description: Use las métricas y la información de mantenimiento disponibles para el diagnóstico de Azure Load Balancer Estándar.
+description: Use la información de las métricas, las alertas y el estado de los recursos disponible para el diagnóstico de Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,21 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: e0329f5f975b67460796bf7dd9429752549a3483
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b241f753c0de6e14282c679c5aec3c32be68e348
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274474"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516256"
 ---
-# <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métricas y diagnóstico de mantenimiento de Load Balancer Estándar
+# <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
-Azure Load Balancer Estándar expone las siguientes funcionalidades de diagnóstico para los recursos:
-* **Métricas multidimensionales**: Proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones del equilibrador de carga tanto públicas como internas mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga.
+Azure Standard Load Balancer proporciona las siguientes funcionalidades de diagnóstico:
 
-* **Estado de los recursos**: La página Load Balancer en Azure Portal y la página Resource Health (en Monitor) exponen la sección Resource Health de la configuración del equilibrador de carga público de Standard Load Balancer.
+* **Métricas y alertas multidimensionales**: Proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones de Standard Load Balancer mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga estándar.
+
+* **Estado de los recursos**: La página Load Balancer en Azure Portal y la página Resource Health (en Monitor) exponen la sección Resource Health de Standard Load Balancer. 
 
 En este artículo se proporciona una introducción a estas funcionalidades y maneras de usarlas con Load Balancer Estándar.
 
@@ -172,9 +173,6 @@ El gráfico permite a los clientes solucionar los problemas de la implementació
 
 El estado de mantenimiento de los recursos de Load Balancer Estándar se expone en **Mantenimiento de los recursos**, en **Supervisar > Estado del servicio**.
 
->[!NOTE]
->El estado de mantenimiento de los recursos de Load Balancer está disponible actualmente solo para la configuración pública de Load Balancer Estándar. Los recursos internos del equilibrador de carga o la SKU de nivel básico de los recursos de Load Balancer no exponen el mantenimiento de los recursos.
-
 Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
 1. Seleccione **Monitor** > **Service Health**.
 
@@ -198,13 +196,9 @@ En la tabla siguiente se enumeran los estados de mantenimiento de varios recurso
 
 | Estado de mantenimiento de los recursos | DESCRIPCIÓN |
 | --- | --- |
-| Disponible | El recurso de Load Balancer Estándar público está listo y disponible. |
-| No disponible | El recurso de Load Balancer Estándar público no es correcto. Diagnostique el estado seleccionando **Azure Monitor** > **Métricas**.<br>(El estado *No disponible* también puede significar que el recurso no está conectado al Load Balancer Estándar público). |
-| Desconocido | El estado mantenimiento del recurso para Load Balancer Estándar público aún no se ha actualizado.<br>(El estado *Desconocido* también puede significar que el recurso no está conectado al Load Balancer Estándar público).  |
-
-## <a name="limitations"></a>Limitaciones 
-
-- La disponibilidad de la ruta de acceso de datos (disponibilidad VIP) no está disponible en front-end internos de Load Balancer.
+| Disponible | El recurso de Standard Load Balancer está listo y disponible. |
+| No disponible | El recurso de Standard Load Balancer público no es correcto. Diagnostique el estado seleccionando **Azure Monitor** > **Métricas**.<br>(El estado *No disponible* también puede significar que el recurso no está conectado a Standard Load Balancer). |
+| Desconocido | El estado de mantenimiento del recurso para Standard Load Balancer aún no se ha actualizado.<br>(El estado *Desconocido* también puede significar que el recurso no está conectado a Standard Load Balancer).  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -212,5 +206,3 @@ En la tabla siguiente se enumeran los estados de mantenimiento de varios recurso
 - Más información sobre la [conectividad saliente de Load Balancer](https://aka.ms/lboutbound).
 - Más información acerca de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Obtenga información sobre la [API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) y [cómo recuperar las métricas a través de la API REST](/rest/api/monitor/metrics/list).
-
-

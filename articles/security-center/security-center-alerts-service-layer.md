@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295551"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624780"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Detección de amenazas para la capa de servicios de Azure en Azure Security Center
 
@@ -47,6 +47,7 @@ El análisis de la capa de red de Security Center se basa en [datos IPFIX](https
 |**Actividad de red SSH entrante sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación de SSH entrante anómala con destino en un recurso de su implementación. Un número relativamente elevado de conexiones entrantes al recurso se consideran anómalas para este entorno. Esta actividad puede indicar un intento de ataque por fuerza bruta a su interfaz de SSH.
 |**Actividad de red RDP entrante sospechosa procedente de varios orígenes**|El análisis de las muestras de tráfico ha detectado comunicaciones de RDP entrante anómala desde varios orígenes con destino en un recurso de su implementación. Varias direcciones IP únicas conectadas al recurso se consideran anómalas para este entorno. Esta actividad puede indicar un intento de ataque por fuerza bruta a la interfaz de RDP desde varios hosts (Botnet).|
 |**Actividad de red RDP entrante sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación de RDP entrante anómala con destino en un recurso de su implementación. Un número relativamente elevado de conexiones entrantes al recurso se consideran anómalas para este entorno. Esta actividad puede indicar un intento de ataque por fuerza bruta a su interfaz de SSH.|
+|**Detectada comunicación de red con una dirección malintencionada**|El análisis de las muestras de tráfico de red ha detectado una comunicación desde un recurso de su implementación con un posible servidor de comando y control (C&C). Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
 
 Para comprender cómo Security Center puede usar señales relacionadas con la red para aplicar protección contra amenazas, consulte [Detecciones de DNS heurísticas en Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Capa de administración de Azure (Azure Resource Manager) (versión preliminar)<a name ="management-layer"></a>
@@ -77,4 +78,4 @@ Security Center ofrece una capa adicional de protección al aprovechar eventos d
 > 3. En **Enable integrations** (Habilitar integraciones), desactive la opción **Allow Microsoft Cloud App Security to access my data** (Permitir a Microsoft Cloud App Security acceder a mis datos) y haga clic en **Guardar**.
 
 >[!NOTE]
->Azure Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Azure Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Microsoft Cloud App Security (MCAS) esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de MCAS. Para más información, consulte [Almacenamiento de datos para servicios no regionales](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Azure Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Microsoft Cloud App Security (MCAS) esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de MCAS. Para más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).

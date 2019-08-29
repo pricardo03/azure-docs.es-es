@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934340"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562442"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -132,7 +132,7 @@ Esto se aplica solo a desarrollo local. Cuando la solución se implementa en Azu
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Ejecución de la aplicación con una identidad administrada o una identidad asignada por el usuario 
 
-Cuando se ejecuta el código en una instancia de Azure App Service o en una máquina virtual de Azure con una identidad administrada habilitada, la biblioteca usa automáticamente dicha identidad. 
+Cuando se ejecuta el código en una instancia de Azure App Service o en una máquina virtual de Azure con una identidad administrada habilitada, la biblioteca usa automáticamente dicha identidad. No es necesario realizar cambios en el código, pero la identidad administrada debe tener permisos de *obtención* para el almacén de claves. Puede conceder permisos de *obtención* a la identidad administrada mediante las *directivas de acceso* del almacén de claves.
 
 También puede autenticarse con una identidad asignada por el usuario. Para obtener más información sobre las identidades asignadas por el usuario, consulte el artículo sobre [las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Para autenticarse con una identidad asignada por el usuario, debe especificar el identificador de cliente de la identidad asignada por el usuario en la cadena de conexión. La cadena de conexión se especifica en la sección [Compatibilidad con la cadena de conexión](#connection-string-support) más adelante.
 

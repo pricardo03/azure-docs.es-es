@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704374"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611707"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
 Cuando hay regiones de Azure completas o centros de datos (si no se utilizan [zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
-La característica de recuperación ante desastres con localización geográfica está disponible globalmente para los SKU estándar y dedicado de Event Hubs. Tenga en cuenta que solo puede emparejar geográficamente espacio de nombres que estén en el mismo nivel de SKU. Por ejemplo, si hay un espacio de nombres en un clúster que se ofrece solo en nuestra SKU dedicada, solo se puede emparejar con un espacio de nombres que se encuentre en otro clúster. 
+> [!NOTE]
+> La característica de recuperación ante desastres geográfica solo está disponible para las [SKU estándar y dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 
@@ -37,7 +38,9 @@ La característica de recuperación ante desastres con localización geográfica
 
 ## <a name="basic-concepts-and-terms"></a>Términos y conceptos básicos
 
-La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. Tenga en cuenta que la característica de recuperación ante desastres con localización geográfica solo está disponible para las [SKU estándar](https://azure.microsoft.com/pricing/details/event-hubs/). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
+La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. 
+
+La característica de recuperación ante desastres geográfica solo está disponible para las [SKU estándar y dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
 
 Los siguientes términos se utilizan en este artículo:
 
@@ -48,6 +51,19 @@ Los siguientes términos se utilizan en este artículo:
 -  *Metadatos*: entidades como centros de eventos y grupos de consumidores; y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. No se replican los mensajes ni los eventos. 
 
 -  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
+
+## <a name="supported-namespace-pairs"></a>Pares de espacios de nombres admitidos
+Se admiten las siguientes combinaciones de espacios de nombres principales y secundarios:  
+
+| Espacio de nombres principal | Espacio de nombres secundario | Se admiten | 
+| ----------------- | -------------------- | ---------- |
+| Estándar | Estándar | Sí | 
+| Estándar | Dedicado | Sí | 
+| Dedicado | Dedicado | Sí | 
+| Dedicado | Estándar | Sin | 
+
+> [!NOTE]
+> No se pueden emparejar espacios de nombres que se encuentran en el mismo clúster dedicado. Puede emparejar espacios de nombres que se encuentran en clústeres independientes. 
 
 ## <a name="setup-and-failover-flow"></a>Flujo de conmutación por error y configuración
 

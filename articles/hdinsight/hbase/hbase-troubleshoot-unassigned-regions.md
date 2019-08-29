@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935463"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640227"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemas con los servidores regionales en Azure HDInsight
 
@@ -27,7 +27,7 @@ Al ejecutar el comando `hbase hbck`, recibe un mensaje de error parecido a este:
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-En la interfaz de usuario de Apache HBase Master se puede ver que el recuento de regiones está desequilibrado entre todos los servidores regionales.
+En la interfaz de usuario de HBase Master, puede ver el número de regiones desequilibradas en todos los servidores de las regiones. Luego, puede ejecutar el comando `hbase hbck` para ver los orificios en la cadena de regiones.
 
 ### <a name="cause"></a>Causa
 
@@ -37,7 +37,7 @@ Los marcadores pueden ser el resultado de regiones sin conexión.
 
 Corrija las asignaciones. Siga los pasos siguientes para volver a poner las regiones sin asignar en el estado normal:
 
-1. Inicie sesión a través de SSH en el clúster de HBase para HDInsight.
+1. Inicie sesión en el clúster de HDInsight HBase mediante SSH.
 
 1. Ejecute el comando `hbase zkcli` para conectarse al shell de Zookeeper.
 
@@ -45,7 +45,7 @@ Corrija las asignaciones. Siga los pasos siguientes para volver a poner las regi
 
 1. Salga del shell de ZooKeeper mediante el comando `exit`.
 
-1. Abra la interfaz de usuario de Ambari y reinicie el servicio Active HBase Master desde Ambari.
+1. Abra la interfaz de usuario de Apache Ambari y, después, reinicie el servicio Active HBase Master.
 
 1. Ejecute de nuevo el comando `hbase hbck` (sin ninguna opción adicional). Compruebe la salida del comando para asegurarse de que se asignan todas las regiones.
 
@@ -85,6 +85,6 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 
-* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure, para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+* Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
 * Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

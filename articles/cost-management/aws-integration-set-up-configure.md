@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002123"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535188"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
-Con la integración de informes de uso y costo (CUR) de Amazon Web Services (AWS), puede supervisar y controlar los gastos de AWS en Azure Cost Management. La integración permite tener una sola ubicación en Azure Portal donde se puede supervisar y controlar el gasto de Azure y AWS. En este artículo se explica cómo instalar la integración y cómo configurarla para que use las características de Azure Cost Management para analizar los costos y revisar los presupuestos.
+Con la integración de informes de uso y costo (CUR) de Amazon Web Services (AWS), supervisa y controla los gastos de AWS en Azure Cost Management. La integración permite tener una sola ubicación en Azure Portal donde supervisar y controlar el gasto de Azure y AWS. En este artículo se explica cómo instalar la integración y cómo configurarla para usar las características de Azure Cost Management para analizar los costos y revisar los presupuestos.
 
 Cost Management procesa el informe de uso y costo de AWS almacenado en un bucket de S3 con sus credenciales de acceso de AWS para obtener las definiciones del informe y descargar archivos GZIP CSV del informe.
 
@@ -33,18 +33,18 @@ Use la página **Informes de uso y costo** de la consola de Administración de c
 2. Seleccione **Cost & Usage Reports** (Informes de costo y uso) en el panel de navegación.
 3. Seleccione **Crear informe**.
 4. En **Nombre del informe**, escriba un nombre para el informe.
-5. En **Detalles de informes adicionales**, para incluir los id. de cada recurso en el informe, seleccione **Incluir ID de recurso**.
-6. En **Configuración de actualización de datos**, seleccione si desea que el informe de uso y costo de AWS se actualice si AWS aplica reembolsos, créditos o honorarios de soporte técnico a su cuenta después de finalizar la factura. Cuando se actualiza un informe, se carga un nuevo informe a Amazon S3. Se recomienda dejar esta configuración activada.
+5. En **Detalles de informes adicionales**, seleccione **Incluir ID de recurso**.
+6. En **Configuración de actualización de datos**, seleccione si desea que el informe de uso y costo de AWS se actualice si AWS aplica reembolsos, créditos o honorarios de soporte técnico a su cuenta después de finalizar la factura. Cuando se actualiza un informe, se carga un nuevo informe a Amazon S3. Se recomienda dejar la opción seleccionada.
 7. Seleccione **Next** (Siguiente).
 8. En **Bucket de S3**, elija **Configurar**.
-9. En el cuadro de diálogo Configurar bucket de S3, realice una de las siguientes acciones:
+9. En el cuadro de diálogo Configurar bucket de S3, realice una de las siguientes tareas:
     1. Seleccione un bucket existente en la lista desplegable y elija **Siguiente**.
     2. Escriba un nombre de bucket y la región donde desea crear un nuevo bucket y elija **Siguiente**.
-10. Seleccione Confirmo que esta política es correcta y elija Guardar.
+10. Seleccione **Confirmo que esta política es correcta** y haga clic en **Guardar**.
 11. (Opcional) En Prefijo de la ruta del informe, escriba el prefijo de la ruta de acceso del informe que quiera antes del nombre del informe.
-Si no se especifica un prefijo, el prefijo predeterminado es el nombre que especificó para el informe en el paso 4 y el intervalo de fechas para el informe, en el formato siguiente: `/report-name/date-range/`
+Si no especifica un prefijo, el prefijo predeterminado es el nombre que especificó para el informe. El intervalo de fechas tiene el formato `/report-name/date-range/`.
 12. Para **Detalle del tiempo**, elija **Por hora**.
-13. En **Control de versiones de informe**, elija si desea que cada versión del informe sobrescriba la versión anterior o que se entregue además de las versiones anteriores.
+13. En **Control de versiones de informe**, elija si desea que cada versión del informe sobrescriba la versión anterior o si desea informes nuevos adicionales.
 14. En **Habilitar la integración de datos de informe para**, no se requiere ninguna selección.
 15. Para **Tipo de compresión**, seleccione **GZIP**.
 16. Seleccione **Next** (Siguiente).
@@ -109,7 +109,7 @@ Agregue el permiso para AWS Organizations:
 2. Seleccione **Nivel de acceso** > **Enumeración** > **ListAccounts**. Esta acción obtiene los nombres de las cuentas.
 3. En **Revisar la directiva**, escriba un nombre para la nueva directiva. Compruebe que escribió la información correcta y, a continuación, seleccione **Crear directiva**.
 4. Vuelva a la pestaña anterior y actualice la página web de su explorador. Busque la nueva directiva en la barra de búsqueda.
-5. Seleccione **Siguiente:Revisar**.
+5. Seleccione **Siguiente: Review** (Siguiente: revisar).
 6. Escriba un nombre para el nuevo rol. Compruebe que escribió la información correcta y, a continuación, seleccione **Crear rol**.
 
     Anote el rol ARN y el id. externo usados en los pasos anteriores cuando creó el rol. Los usará más adelante al configurar el conector de Azure Cost Management.
@@ -189,7 +189,7 @@ Cuando selecciona un conector en la página **Conectores de nube**, puede:
 
 ## <a name="set-up-azure-management-groups"></a>Configurar grupos de administración de Azure
 
-Para crear un único lugar para ver la información de proveedor de toda la nube, debe colocar sus suscripciones de Azure y cuentas vinculadas de AWS en el mismo grupo de administración. Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).
+Coloque sus suscripciones de Azure y cuentas vinculadas de AWS en el mismo grupo de administración para crear una ubicación única en la que pueda ver la información de proveedor de toda la nube. Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).
 
 Si quiere separar los costos, puede crear un grupo de administración que contenga solo las cuentas vinculadas de AWS.
 
@@ -229,6 +229,6 @@ Las cuentas vinculadas de AWS siempre heredan los permisos del grupo de administ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ahora que ha instalado y configurado la integración de informes de uso y costo de AWS, continúe en [Administración de los costos y el uso de AWS en Azure](aws-integration-manage.md).
+- Ahora que ha instalado y configurado la integración de informes de uso y costo de AWS, continúe con [Administración de los costos y el uso de AWS en Azure](aws-integration-manage.md).
 - Si no está familiarizado con el análisis de costos, consulte [Guía de inicio rápido: Explore y analice los costos con Análisis de costos](quick-acm-cost-analysis.md).
 - Si no está familiarizado con los presupuestos en Azure, consulte [Creación y administración de presupuestos de Azure](tutorial-acm-create-budgets.md).

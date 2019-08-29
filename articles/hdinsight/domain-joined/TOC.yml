@@ -66,6 +66,8 @@
           href: ./domain-joined-zeppelin-signin.md
 - name: Referencia
   items:
+    - name: Configuraciones de nodos admitidas
+      href: ../hdinsight-supported-node-configuration.md
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

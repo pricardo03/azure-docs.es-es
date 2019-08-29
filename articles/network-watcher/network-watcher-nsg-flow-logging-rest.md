@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: ab4b283449ec6c0174f380b0231dd2e78dea419d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688042"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563421"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuración de registros de flujo de grupos de seguridad de red mediante la API de REST
 
@@ -216,6 +216,9 @@ Si se especifica una cuenta de almacenamiento, los archivos de captura de paquet
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+
+> [!IMPORTANT]
+> Actualmente existe el problema de que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superen el período de retención para evitar recargos. Para más información sobre cómo eliminar el blog de almacenamiento de registros de flujo del grupo de seguridad de red, consulte [Eliminación de los blobs de almacenamiento de los registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

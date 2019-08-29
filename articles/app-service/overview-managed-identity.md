@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297147"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563031"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
-
-> [!NOTE] 
-> La compatibilidad de identidades administradas con App Service en Linux y Web App for Containers se encuentra actualmente en versión preliminar.
 
 > [!Important] 
 > Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación necesitará obtener una nueva identidad, lo que se puede hacer deshabitando y volviendo a habilitar la función. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también necesitarán tener directivas de acceso actualizadas para utilizar la nueva identidad.
@@ -30,8 +27,8 @@ ms.locfileid: "68297147"
 En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. Una identidad administrada de Azure Active Directory permite a la aplicación acceder fácilmente a otros recursos protegidos por AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en AAD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 La aplicación puede tener dos tipos de identidades: 
-- Una **identidad asignada por el sistema** está asociada a la aplicación y se elimina si se elimina la aplicación. Una aplicación solo puede tener una identidad asignada por el sistema. La compatibilidad con identidades asignadas por el sistema está disponible con caracter general para las aplicaciones de Windows. 
-- Una **identidad asignada por el usuario** es un recurso de Azure independiente que puede asignarse a la aplicación. Una aplicación puede tener varias identidades asignadas por el usuario. La compatibilidad con identidades asignadas por el usuario está en versión preliminar para todos los tipos de aplicación.
+- Una **identidad asignada por el sistema** está asociada a la aplicación y se elimina si se elimina la aplicación. Una aplicación solo puede tener una identidad asignada por el sistema.
+- Una **identidad asignada por el usuario** es un recurso de Azure independiente que puede asignarse a la aplicación. Una aplicación puede tener varias identidades asignadas por el usuario.
 
 ## <a name="adding-a-system-assigned-identity"></a>Adición de una identidad asignada por el sistema
 
@@ -158,17 +155,11 @@ Cuando se crea el sitio, tiene las siguientes propiedades adicionales:
 Donde `<TENANTID>` y `<PRINCIPALID>` se reemplazan por GUID. La propiedad tenantId identifica a qué inquilino AAD pertenece la identidad. El valor principalId es un identificador único para la nueva identidad de la aplicación. En AAD, la entidad de servicio tiene el mismo nombre que asignó a la instancia de App Service o Azure Functions.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Adición de una identidad asignada por el usuario (versión preliminar)
-
-> [!NOTE] 
-> Las identidades asignadas por el usuario están actualmente en versión preliminar. Todavía no se admiten las nubes soberanas.
+## <a name="adding-a-user-assigned-identity"></a>Adición de una identidad asignada por el usuario
 
 La creación de una aplicación con una identidad asignada por el usuario requiere que se cree la identidad y luego se agregue su identificador de recurso a la configuración de la aplicación.
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
-
-> [!NOTE] 
-> Esta experiencia del portal se está implementando y puede que no esté todavía disponible en todas las regiones.
 
 En primer lugar, tendrá que crear un recurso de identidad asignada por el usuario.
 
@@ -180,7 +171,7 @@ En primer lugar, tendrá que crear un recurso de identidad asignada por el usuar
 
 4. Seleccione **Identidad administrada**.
 
-5. En la pestaña **Usuario asignado (versión preliminar)** , haga clic **Agregar**.
+5. En la pestaña **Usuario asignado**, haga clic **Agregar**.
 
 6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar**.
 
@@ -388,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>En Python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>En PowerShell:

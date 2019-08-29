@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 04/22/2019
-ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/22/2019
+ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729399"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656461"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 Para trabajar con mensajes AS2 en Azure Logic Apps, puede usar el conector AS2, que proporciona los desencadenadores y acciones necesarios para administrar las comunicaciones AS2. Por ejemplo, para garantizar la seguridad y confiabilidad al transmitir mensajes, puede utilizar estas acciones:
 
-* La acción [**Codificar en mensaje AS2**](#encode) para proporcionar firmas digitales, cifrado y confirmaciones mediante las notificaciones de disposición del mensaje (MDN), lo que ayuda a admitir la recepción sin rechazo. Por ejemplo, esta acción se aplica a los encabezados AS2/HTTP y realiza estas tareas cuando se configura:
+* La acción [**Codificar con AS2**](#encode) para proporcionar firmas digitales, cifrado y confirmaciones mediante las notificaciones de disposición del mensaje (MDN), lo que ayuda a admitir la recepción sin rechazo. Por ejemplo, esta acción se aplica a los encabezados AS2/HTTP y realiza estas tareas cuando se configura:
 
   * Firma los mensajes salientes.
   * Cifra los mensajes salientes.
   * Comprime el mensaje.
   * Transmite el nombre de archivo en el encabezado MIME.
 
-* La acción [**Descodificar mensaje AS2**](#decode) para proporcionar firmas digitales, descifrado y confirmaciones a través de las notificaciones de disposición de mensajes (MDN). Por ejemplo, esta acción lleva a cabo estas tareas: 
+* La acción [**Descodificar con AS2**](#decode) para proporcionar firmas digitales, descifrado y confirmaciones a través de las notificaciones de disposición de mensajes (MDN). Por ejemplo, esta acción lleva a cabo estas tareas:
 
   * Procesa los encabezados AS2/HTTP.
   * Reconcilia los MDN recibidos con los mensajes de salida originales.
@@ -42,10 +42,13 @@ Para trabajar con mensajes AS2 en Azure Logic Apps, puede usar el conector AS2, 
 
   * Comprueba la firma.
   * Descifra los mensajes.
-  * Descomprime el mensaje. 
+  * Descomprime el mensaje.
   * Comprueba y prohíbe duplicados de identificador de mensaje.
 
 En este artículo se muestra cómo agregar la codificación AS2 y las acciones de descodificación a una aplicación lógica existente.
+
+> [!IMPORTANT]
+> El conector AS2 original va a quedar en desuso, por lo que debe asegurarse de usar el conector **AS2 (v2)** en su lugar. Esta versión proporciona las mismas funcionalidades que la versión original, es nativa en el entorno de tiempo de ejecución de Logic Apps y proporciona mejoras de rendimiento significativas en cuanto al rendimiento y el tamaño de los mensajes. Además, el conector v2 nativo no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración a la aplicación lógica donde planea usar el conector.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -71,23 +74,19 @@ En este artículo se muestra cómo agregar la codificación AS2 y las acciones d
 
 1. Si aún no lo ha hecho, en [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicación lógica.
 
-1. En el diseñador, agregue una nueva acción a la aplicación lógica. 
+1. En el diseñador, agregue una nueva acción a la aplicación lógica.
 
-1. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**. En el cuadro de búsqueda, escriba "encode as2" y seleccione esta acción: **Codificar en mensaje AS2**.
+1. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**. En el cuadro de búsqueda, escriba "codificación con AS2" y asegúrese de que selecciona la acción AS2 (v2): **Codificación con AS2**
 
-   ![Seleccionar "Codificar en mensaje AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+   ![Seleccionar "Codificación con AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-1. Si no existe una conexión a la cuenta de integración, se le pedirá que cree una ahora. Asigne un nombre a la conexión, seleccione la cuenta de integración que quiera conectar y elija **Crear**.
-
-   ![Crear la conexión con la cuenta de integración](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
- 
 1. Ahora, proporcione la información de las siguientes propiedades:
 
    | Propiedad | DESCRIPCIÓN |
    |----------|-------------|
-   | **AS2-From** | Identificador del remitente del mensaje según lo especificado por su contrato AS2. |
-   | **AS2-To** | Identificador del receptor del mensaje según lo especificado por su contrato AS2. |
-   | **body** | Carga útil del mensaje. |
+   | **Mensaje que se codificará** | Carga útil del mensaje. |
+   | **AS2 desde** | Identificador del remitente del mensaje según lo especificado por su contrato AS2. |
+   | **AS2 hasta** | Identificador del receptor del mensaje según lo especificado por su contrato AS2. |
    |||
 
    Por ejemplo:
@@ -100,21 +99,17 @@ En este artículo se muestra cómo agregar la codificación AS2 y las acciones d
 
 1. Si aún no lo ha hecho, en [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicación lógica.
 
-1. En el diseñador, agregue una nueva acción a la aplicación lógica. 
+1. En el diseñador, agregue una nueva acción a la aplicación lógica.
 
-1. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**. En el cuadro de búsqueda, escriba "decode as2" y seleccione esta acción: **Descodificar mensaje AS2**.
+1. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**. En el cuadro de búsqueda, escriba "descodificación con AS2" y asegúrese de que selecciona la acción AS2 (v2): **Descodificación con AS2**
 
-   ![Seleccionar "Descodificar mensaje AS2"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+   ![Seleccionar "Descodificación con AS2"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-1. Si no existe una conexión a la cuenta de integración, se le pedirá que cree una ahora. Asigne un nombre a la conexión, seleccione la cuenta de integración que quiera conectar y elija **Crear**.
-
-   ![Crear la conexión con la cuenta de integración](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
-
-1. Para **body** y **Headers**, seleccione estos valores de las salidas anteriores de las acciones o desencadenadores.
+1. En las propiedades **Mensaje que se codificará** y **Encabezados del mensaje**, seleccione estos valores de las salidas anteriores del desencadenador o acción.
 
    Por ejemplo, suponga que la aplicación lógica recibe mensajes a través de un desencadenador de solicitud. Puede seleccionar las salidas de ese desencadenador.
 
-   ![Seleccione el cuerpo y los encabezados de las salidas de la solicitud](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
+   ![Seleccione el cuerpo y los encabezados de las salidas de la solicitud](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
 ## <a name="sample"></a>Muestra
 

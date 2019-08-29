@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfecdc4f7545746694fbd0996d3281395ad47df
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fc05e8c7c1536544d9ac7c2a45f66da8316fe088
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013017"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70076930"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -23,8 +23,9 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 
 |  |  |
 |---------|---------|
+| [Canada Federal PBMM](./canada-federal-pbmm/control-mapping.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Proporciona un conjunto de directivas para ayudar a cumplir con las recomendaciones de CIS Microsoft Azure Foundations Benchmark. |
-| [IRS 1075](./irs-1075/index.md)| Proporciona barreras de seguridad para garantizar el cumplimiento con la norma IRS 1075.|
+| [IRS 1075](./irs-1075/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma ISO 27001. |
 | [ISO 27001: servicios compartidos](./iso27001-shared/index.md) | Proporciona un conjunto de patrones de infraestructura compatibles y una directiva de protección que ayuda a la obtención de la certificación ISO 27001. |
 | [Cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001](./iso27001-ase-sql-workload/index.md) | Proporciona una infraestructura adicional para el ejemplo de plano técnico de los [servicios compartidos de la norma ISO 27001](./iso27001-shared/index.md). |
