@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617371"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972924"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple
 
@@ -21,7 +21,7 @@ Puede configurar vCenter de la nube privada de CloudSimple para realizar la aute
 
 Puede configurar el dominio y los controladores de dominio de Active Directory de cualquiera de las maneras siguientes:
 
-* Dominio y controladores de dominio de Active Directory que se ejecutan localmente
+* Dominio y controladores de dominio de Active Directory que se ejecutan localmente
 * Dominio y controladores de dominio de Active Directory que se ejecutan en Azure como máquinas virtuales en la suscripción de Azure
 * Nuevos dominios y controladores de dominio de Active Directory que se ejecutan en la nube privada de CloudSimple
 * Servicio de Azure Active Directory
@@ -85,17 +85,17 @@ También puede configurar otras características de Azure AD,  aunque son neces
 
     | **Opción** | **Descripción** |
     |------------|-----------------|
-    | **Nombre** | Nombre del origen de identidades. |
+    | **Nombre** | Nombre del origen de identidad. |
     | **DN base para usuarios** | Nombre distintivo base para usuarios.  Para Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`. Ejemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
     | **Nombre de dominio** | FDQN del dominio, por ejemplo, ejemplo.com. No proporcione una dirección IP en este cuadro de texto. |
     | **Alias de dominio** | *(Opcional)* Nombre de NetBIOS del dominio. Agregue el nombre de NetBIOS del dominio de Active Directory como un alias del origen de identidades si usa autenticaciones de SSPI. |
     | **DN base para grupos** | Nombre distintivo base para grupos. Para Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`. Ejemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
     | **URL de servidor principal** | Servidor LDAP del controlador de dominio principal para el dominio.<br><br>Use el formato `ldaps://hostname:port`. Normalmente, el puerto es el 636 para las conexiones LDAPS. <br><br>Cuando se usa `ldaps://` en la URL de LDAP principal o secundaria, se requiere un certificado que establezca la confianza para el punto de conexión LDAPS del servidor de Active Directory. |
     | **URL de servidor secundario** | Dirección de un servidor LDAP de controlador de dominio secundario que se usa para la conmutación por error. |
-    | **Elegir certificado** | Si quiere usar LDAPS con el origen de identidades del servidor LDAP de Active Directory o del servidor de OpenLDAP, aparecerá el botón Elegir certificado cuando escriba `ldaps://` en el cuadro de texto de la URL. No se requiere una URL secundaria. |
-    | **Nombre de usuario** | Identificador de usuario del dominio que tiene un mínimo de acceso de solo lectura a DN base para usuarios y grupos. |
+    | **Elegir certificado** | Si quiere usar LDAPS con el origen de identidad del servidor LDAP de Active Directory o del servidor de OpenLDAP, aparecerá el botón Elegir certificado cuando escriba  `ldaps://`  en el cuadro de texto de la URL. No se requiere una URL secundaria. |
+    | **Nombre de usuario** | Identificador de un usuario del dominio que tiene un mínimo de acceso de solo lectura al DN base para usuarios y grupos. |
     | **Contraseña** | Contraseña del usuario que se especifica mediante el nombre de usuario. |
 
 3. Inicie sesión en vCenter de la nube privada una vez que se hayan escalado los privilegios.
 4. Siga las instrucciones indicadas en [Agregar un origen de identidades en vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) con los valores del paso anterior para configurar Azure Active Directory como origen de identidades.
-5. Agregue usuarios o grupos de Azure AD a los grupos de vCenter como se describe en el tema de VMware <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">Incorporación de miembros a un grupo de inicio de sesión único de vCenter</a>.
+5. Agregue usuarios o grupos de Azure AD a los grupos de vCenter como se describe en el tema de VMware [Incorporación de miembros a un grupo de inicio de sesión único de vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).

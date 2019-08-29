@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: aad42ea891b671bd481322d8b499d375ca06a7dc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512644"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036365"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center y Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -59,8 +59,6 @@ Una directiva de seguridad define el conjunto de controles recomendados para los
 
 > [!NOTE]
 > Para más información sobre cada una de las **directivas de prevención** disponibles, consulte el artículo [Configuración de directivas de seguridad](tutorial-security-policy.md).
-> 
-> 
 
 ## <a name="manage-security-recommendations"></a>Administración de recomendaciones de seguridad
 El Centro de seguridad analiza el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones le guían en el proceso de configuración de los controles necesarios.
@@ -90,7 +88,7 @@ Después de habilitar las [directivas de seguridad](tutorial-security-policy.md)
 ![Estado de la seguridad](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Administración de las alertas de seguridad y respuesta a ellas
-Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. Gracias a una agrupación variada de [funcionalidades de detección](security-center-detection-capabilities.md), Security Center es capaz de generar alertas de seguridad por prioridad para ayudarle a investigar el problema rápidamente y proporcionar recomendaciones para corregir posibles ataques.
+Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. Gracias a una agrupación variada de [funcionalidades de detección](security-center-alerts-overview.md#detect-threats), Security Center es capaz de generar alertas de seguridad por prioridad para ayudarle a investigar el problema rápidamente y proporcionar recomendaciones para corregir posibles ataques.
 
 ![Alertas de seguridad](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

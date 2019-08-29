@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616268"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088402"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -47,7 +47,7 @@ Puede crear y eliminar contraseñas de la aplicación, en función de cómo use 
 
 - **Su organización usa la verificación en dos fases y la página de verificación de seguridad adicional.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com) con la verificación en dos fases en su organización, puede administrar las contraseñas de la aplicación en la [página de comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante la página de comprobación de seguridad adicional](#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
-- **Su organización usa la verificación en dos fases y el portal de Office 365.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la verificación en dos fases y aplicaciones de Office 365 en su organización, puede administrar las contraseñas de la aplicación en la [página del portal de Office 365](https://office.portal.com). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal).
+- **Su organización usa la verificación en dos fases y el portal de Office 365.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la verificación en dos fases y aplicaciones de Office 365 en su organización, puede administrar las contraseñas de la aplicación en la [página del portal de Office 365](https://www.office.com). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal).
 
 - **Está usando la verificación en dos fases con una cuenta Microsoft personal.** Si usa una cuenta Microsoft personal (como, por ejemplo, alain@outlook.com) con la verificación en dos fases, puede administrar las contraseñas de aplicación en la [página de aspectos básicos de seguridad](https://account.microsoft.com/security/). Para obtener instrucciones detalladas, consulte [Uso de contraseñas de aplicaciones con aplicaciones que no admiten la verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -61,7 +61,7 @@ Puede crear y eliminar contraseñas de la aplicación en la página de **comprob
 
 2. Seleccione **Crear**, escriba el nombre de la aplicación que requiere la contraseña de la aplicación y, a continuación, seleccione **Siguiente**.
 
-    ![Página de creación de contraseñas de la aplicación, con el nombre de la aplicación que necesita contraseña](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Página de creación de contraseñas de aplicación, con el nombre de la aplicación que necesita contraseña](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
 3. Copie la contraseña de la página **Su contraseña de aplicación** y, luego, seleccione **Cerrar**.
 

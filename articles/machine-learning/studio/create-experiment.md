@@ -19,11 +19,11 @@ ms.locfileid: "68515109"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Inicio rápido: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
 
-En este inicio rápido, se va a crear un experimento de aprendizaje de automático en [Azure Machine Learning Studio](what-is-ml-studio.md) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
+En este inicio rápido, se va a crear un experimento de aprendizaje automático en [Azure Machine Learning Studio](what-is-ml-studio.md) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
 
 Si no está familiarizado con el aprendizaje automático, la serie de vídeos [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Ciencia de datos para principiantes) le puede brindar una excelente introducción al aprendizaje automático con un lenguaje y conceptos de uso diario.
 
-En este inicio rápido se sigue el flujo de trabajo predeterminada para un experimento:
+En este inicio rápido se sigue el flujo de trabajo predeterminado para un experimento:
 
 1. **Crear un modelo**
     - [Obtener los datos]
@@ -158,12 +158,12 @@ Este módulo genera un conjunto de datos filtrado que contiene solo las caracter
 
 ## <a name="choose-and-apply-an-algorithm"></a>Elegir y aplicar un algoritmo
 
-Ahora que los datos están listos, la construcción de un modelo predictivo consiste en entrenar y probar. Usaremos nuestros datos para entrenar el modelo y luego probarlo para ver lo que se aproxima en sus predicciones de los precios.
+Ahora que los datos están listos, la construcción de un modelo predictivo consiste en entrenar y probar. Usaremos nuestros datos para entrenar el modelo y luego probarlo para ver en que medida se aproxima en sus predicciones de los precios.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
 
 *Clasificación* y *regresión* son dos tipos de algoritmos de aprendizaje automático supervisado. La clasificación permite predecir una respuesta a partir de un conjunto definido de categorías, como el color (rojo, azul o verde). La regresión se usa para predecir un número.
 
-Como queremos predecir un precio, que es un número, usaremos un modelo de regresión. En este ejemplo, vamos a usar un modelo de *regresión lineal*.
+Como queremos predecir un precio, que es un número, usaremos un algoritmo de regresión. En este ejemplo, vamos a usar un modelo de *regresión lineal*.
 
 
 Para entrenar el modelo le proporcionamos un conjunto de datos que incluye el precio. El modelo analiza los datos y busca correlaciones entre las características de un automóvil y su precio. A continuación, probaremos el modelo; le daremos un conjunto de características de automóviles con los que estamos familiarizados y veremos si el modelo se acerca en la predicción del precio conocido.
@@ -224,12 +224,12 @@ Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo)
 Se muestran las siguientes estadísticas para nuestro modelo:
 
 - **Desviación media** (MAE): la media de errores absolutos (un *error* es la diferencia entre el valor de predicción y el valor real).
-- **Raíz cuadrada de errores** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
+- **Raíz del error cuadrático medio** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
 - **Error absoluto relativo**: la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
 - **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
 - **Coeficiente de determinación**: conocido también como **valor R cuadrado**, es una métrica estadística que indica cómo de bien se ajusta un modelo a los datos.
 
-Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se adaptan más estrechamente a los valores reales. En **Coeficiente de determinación**, cuanto más cerca está el valor de uno (1,0), mejores son las predicciones.
+Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se ajustan más a los valores reales. En **Coeficiente de determinación**, cuanto más cercano sea su valor a uno (1,0), mejores son las predicciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

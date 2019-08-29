@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574628"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972400"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada
 
@@ -143,7 +143,7 @@ Las páginas de red del portal de CloudSimple permiten especificar la configurac
 
     ![Dirección IP pública](media/quick-create-pc-public-ip.png)
 
-Comienza la tarea de asignar la dirección IP pública. Puede comprobar el estado de la tarea en la página **Activity > Tasks** (Actividad > Tareas). Cuando se complete la asignación, se muestra la nueva entrada en la página de direcciones IP públicas. 
+Comienza la tarea de asignar la dirección IP pública. Puede comprobar el estado de la tarea en la página **Activity > Tasks** (Actividad > Tareas). Cuando se complete la asignación, se muestra la nueva entrada en la página de direcciones IP públicas.
 
 La máquina virtual a la que se debe asignar esta dirección IP se tiene que configurar con la dirección local especificada antes. El procedimiento para configurar una dirección IP es específico del sistema operativo de la máquina virtual. Consulte la documentación del sistema operativo de la máquina virtual para conocer el procedimiento correcto.
 
@@ -205,7 +205,7 @@ o
 ```
 python3 -m http.server 80
 ```
-Inicie un explorador en el escritorio y haga que apunte al puerto 80 para que la dirección IP pública examine los archivos de la máquina virtual. 
+Inicie un explorador en el escritorio y haga que apunte al puerto 80 para que la dirección IP pública examine los archivos de la máquina virtual.
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Reglas de firewall de CloudSimple predeterminadas para la dirección IP pública
 

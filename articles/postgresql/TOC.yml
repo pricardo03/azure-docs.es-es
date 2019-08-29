@@ -43,7 +43,7 @@
           items:
             - name: Portal de Azure
               href: tutorial-design-database-using-azure-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: tutorial-design-database-using-azure-cli.md
         - name: '2 - Diseño de aplicaciones web: Python'
           href: ../app-service/containers/tutorial-python-postgresql-app.md
@@ -58,7 +58,7 @@
           href: tutorial-design-database-hyperscale-realtime.md
 - name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: sample-scripts-azure-cli.md
 - name: Conceptos
   items:
@@ -168,13 +168,13 @@
       items:
         - name: Portal de Azure
           href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
         - name: Portal de Azure
           href: howto-restore-server-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-restore-server-cli.md
     - name: Migración de una base de datos
       items:
@@ -188,17 +188,19 @@
       items:
         - name: Portal de Azure
           href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-configure-server-parameters-using-cli.md
     - name: Almacenamiento de crecimiento automático
       items:
         - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
+        - name: Portal de Azure
+          href: howto-auto-grow-storage-cli.md
     - name: Acceso a registros de servidor
       items:
         - name: Portal de Azure
           href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-configure-server-logs-using-cli.md
     - name: Supervisión
       items:
@@ -216,13 +218,13 @@
       items:
         - name: Portal de Azure
           href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-manage-vnet-using-cli.md
     - name: Reinicio del servidor
       items:
         - name: Portal de Azure
           href: howto-restart-server-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: howto-restart-server-cli.md
     - name: Replicación
       items:
@@ -232,7 +234,7 @@
           href: howto-read-replicas-cli.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/postgres
     - name: API DE REST
       href: /rest/api/postgresql

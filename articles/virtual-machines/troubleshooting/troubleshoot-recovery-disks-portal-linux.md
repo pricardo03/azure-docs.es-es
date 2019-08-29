@@ -7,18 +7,17 @@ author: genlin
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 21122847c1b417b00cfe8c69b8324a2f73bf31ea
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2dcd2009d93fdf39d1221f2a2f5354fe68658077
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641128"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103367"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -76,8 +75,8 @@ Para crear un disco a partir de la instantánea, siga estos pasos:
     #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
     $diskSize = '128'
     
-    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-    $storageType = 'StandardLRS'
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
     
     #Provide the Azure region (e.g. westus) where Managed Disks will be located.
     #This location should be same as the snapshot location

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73e7312eacd11fbec052d2b0b7781528c3b3d50f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575370"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981482"
 ---
 # <a name="monitor-workload---azure-portal"></a>Supervisión de la carga de trabajo - Azure Portal
 
@@ -36,7 +36,7 @@ Navegar a la hoja Examinar de las áreas de trabajo de Log Analytics y crear un
 
 ![Adición de área de trabajo de Analytics](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-Para obtener más detalles sobre las áreas de trabajo, visite la siguiente [documentación](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace).
+Para obtener más detalles sobre las áreas de trabajo, visite la siguiente [documentación](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnósticos 
 

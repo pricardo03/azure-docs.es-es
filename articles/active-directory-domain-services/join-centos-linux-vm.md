@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 183f1190e4ccbd730600290305a5847f83853c39
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612853"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990744"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual CentOS Linux en Azure a un dominio administrado de Azure AD Domain Services.
@@ -84,7 +84,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 1. Detecte el dominio administrado con Servicios de dominio de AAD. En el terminal SSH, escriba el siguiente comando:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     > * Especifique el nombre de dominio en mayúsculas o kinit generará un error.
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Una la máquina al dominio. En el terminal SSH, escriba el siguiente comando:
@@ -111,7 +111,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     > Si la máquina virtual no puede unirse al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 Debe obtener un mensaje (Máquina inscrita correctamente en el dominio kerberos) cuando la máquina está unida correctamente al dominio administrado.
@@ -120,10 +120,10 @@ Debe obtener un mensaje (Máquina inscrita correctamente en el dominio kerberos)
 ## <a name="verify-domain-join"></a>Verificación de la unión a un dominio
 Verifique si la máquina se ha unido correctamente al dominio administrado. Conéctese a la máquina virtual CentOS unida al dominio con otra conexión SSH. Utilice una cuenta de usuario del dominio y, a continuación, compruebe si la cuenta de usuario se ha resuelto correctamente.
 
-1. En el terminal SSH, escriba el comando siguiente para conectarse a la máquina virtual CentOS unida al dominio con SSH. Use una cuenta de dominio que pertenezca al dominio administrado (por ejemplo, "bob@contoso.COM" en este caso).
+1. En el terminal SSH, escriba el comando siguiente para conectarse a la máquina virtual CentOS unida al dominio con SSH. Use una cuenta de dominio que pertenezca al dominio administrado (por ejemplo, "bob@CONTOSO.COM" en este caso).
     
     ```console
-    ssh -l bob@contoso.COM contoso-centos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. En el terminal SSH, escriba el comando siguiente para ver si el directorio principal se ha inicializado correctamente.

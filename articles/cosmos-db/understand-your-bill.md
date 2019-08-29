@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717519"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614165"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Ejemplos de facturación con replicación geográfica y arquitectura multimaestro  
 
-Puede agregar o quitar regiones de Azure de cualquier parte del mundo en su cuenta de base de datos de Azure Cosmos DB en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos DB se reservará en cada una de las regiones de Azure asociadas con su cuenta de base de datos de Azure Cosmos DB. Si la suma del rendimiento aprovisionado (RU/s) configurado en todas las bases de datos y los contenedores dentro de la cuenta de bases de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas con su cuenta de base de datos es N, el rendimiento aprovisionado total para una hora dada, para su cuenta de base de datos, (a) configurado con una única región de escritura es igual a T x N RU/s y (b) configurado con todas las regiones capaces de procesar las operaciones de escritura es igual a T x (N+1) RU/s, respectivamente. El rendimiento aprovisionado (una sola región de escritura) cuesta 0,008 USD/hora por cada 100 RU/s, y el rendimiento aprovisionado con varias regiones de escritura (configuración de arquitectura multimaestro) cuesta 0,016 USD/hora por cada 100 RU/s (consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
+Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuenta de base de datos de Azure Cosmos en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos se reserva en cada una de las regiones de Azure asociadas con la cuenta de base de datos de Azure Cosmos. Si la suma del rendimiento aprovisionado (RU/s) configurado en todas las bases de datos y los contenedores dentro de la cuenta de bases de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas con su cuenta de base de datos es N, el rendimiento aprovisionado total para una hora dada, para su cuenta de base de datos, (a) configurado con una única región de escritura es igual a T x N RU/s y (b) configurado con todas las regiones capaces de procesar las operaciones de escritura es igual a T x (N+1) RU/s, respectivamente. El rendimiento aprovisionado (una sola región de escritura) cuesta 0,008 USD/hora por cada 100 RU/s, y el rendimiento aprovisionado con varias regiones de escritura (configuración de arquitectura multimaestro) cuesta 0,016 USD/hora por cada 100 RU/s (consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en una sola región
 
@@ -228,7 +228,7 @@ Costo mensual total = Costo mensual de almacenamiento + Costo mensual de rendimi
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Facturación con capacidad reservada de Azure Cosmos DB
 
-La capacidad reservada de Azure Cosmos DB le permite comprar rendimiento aprovisionado de antemano (una capacidad reservada o una reserva) que se puede aplicar a todas las bases de datos y contenedores de Azure Cosmos DB (para cualquier modelo de datos o API) en todas las regiones de Azure. Puesto que el precio del rendimiento aprovisionado varía por región, resulta útil pensar que la capacidad reservada es como un crédito monetario que adquiere con un descuento y que puede usarse para pagar el rendimiento aprovisionado al precio correspondiente en cada región. Por ejemplo, supongamos que tiene una cuenta de Azure Cosmos con un único contenedor aprovisionado con 50 000 RU/s y replicación global en dos regiones: Este de EE. UU. y Este de Japón. Si elige la opción de pago por uso, pagaría:  
+La capacidad reservada de Azure Cosmos DB permite comprar rendimiento aprovisionado de antemano (una capacidad reservada o una reserva) que se puede aplicar a todas las bases de datos y contenedores de Azure Cosmos (para cualquier modelo de datos o API) en todas las regiones de Azure. Puesto que el precio del rendimiento aprovisionado varía por región, resulta útil pensar que la capacidad reservada es como un crédito monetario que adquiere con un descuento y que puede usarse para pagar el rendimiento aprovisionado al precio correspondiente en cada región. Por ejemplo, supongamos que tiene una cuenta de Azure Cosmos con un único contenedor aprovisionado con 50 000 RU/s y replicación global en dos regiones: Este de EE. UU. y Este de Japón. Si elige la opción de pago por uso, pagaría:  
 
 * en Este de EE. UU.: para 50 000 RU/s a la tarifa de 0,008 USD por 100 RU/s en dicha región 
 

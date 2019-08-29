@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 4b426fbc1d1b3eeed2321f86bb51c9c5d705adb4
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543055"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035612"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
@@ -47,8 +47,8 @@ Antes de comenzar, revise los siguientes requisitos.
 * Azure Monitor solo admite System Center Operations Manager 2016 y versiones posteriores, Operations Manager 2012 SP1 UR6 y versiones posteriores, y Operations Manager 2012 R2 UR2 y versiones posteriores. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
 * La integración de System Center Operations Manager 2016 con la nube del gobierno de Estados Unidos requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 2 o posterior. System Center Operations Manager 2012 R2 requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 3 o posterior.
 * Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error de comunicación en el agente de Windows así como errores en el registro de eventos de Operations Manager.
-* Un área de trabajo de Log Analytics. Para más información, consulte la [introducción a las áreas de trabajo de Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* El usuario se autentica en Azure con una cuenta que es miembro del [rol Colaborador de Log Analytics](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+* Un área de trabajo de Log Analytics. Para más información, consulte la [introducción a las áreas de trabajo de Log Analytics](design-logs-deployment.md). 
+* El usuario se autentica en Azure con una cuenta que es miembro del [rol Colaborador de Log Analytics](manage-access.md#manage-access-using-azure-permissions).
 
 * Regiones admitidas: System Center Operations Manager solo es compatible con las siguientes regiones de Azure para conectarse a un área de trabajo de Log Analytics:
     - Centro occidental de EE.UU.

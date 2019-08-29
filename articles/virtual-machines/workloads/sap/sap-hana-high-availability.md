@@ -7,18 +7,17 @@ author: MSSedusch
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709095"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078386"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -101,8 +100,8 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
 Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc.
 Para implementar la plantilla, siga estos pasos:
 
-1. Abra la [plantilla de base de datos][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+1. Abra la [plantilla de base de datos][template-multisid-db] o la [plantilla convergente][template-converged] en Azure Portal. 
+    La plantilla de base de datos crea las reglas de equilibrio de carga solo para una base de datos. La plantilla convergida también crea las reglas de equilibrio de carga para una instancia de ASCS/SCS y ERS (solo Linux). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la instancia de ASCS/SCS en las mismas máquinas, use la [plantilla convergente][template-converged].
 
 1. Escriba los siguientes parámetros:
     - **Identificador de sistema SAP**: Escriba el identificador del sistema SAP que se va a instalar. El identificador se usa como prefijo de los recursos que se implementan.
@@ -194,7 +193,7 @@ Para implementar la plantilla, siga estos pasos:
 Para obtener más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en las VM de Azure a las que se aplicó Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** en **0**. Consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
 > Consulte también la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creación de un clúster de Pacemaker

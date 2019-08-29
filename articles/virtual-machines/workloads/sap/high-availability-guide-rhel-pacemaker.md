@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570561"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099593"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -107,12 +106,16 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
-   > Para más información, consulte [la máquina virtual de Azure que se ejecuta como un miembro del clúster de alta disponibilidad de RHEL tarda mucho tiempo en delimitarse, ocurre un error en la delimitación o se agota el tiempo de espera antes de que la máquina virtual se apague](https://access.redhat.com/solutions/3408711)
+   > Para más información, consulte [La máquina virtual de Azure que se ejecuta como un miembro del clúster de alta disponibilidad de RHEL tarda mucho tiempo en delimitarse, ocurre un error en la delimitación o se agota el tiempo de espera antes de que la máquina virtual se apague](https://access.redhat.com/solutions/3408711).
 
    Compruebe la versión del agente de delimitación de Azure. Si es necesario, actualícelo a una versión igual o posterior a la indicada anteriormente.
+
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
+
+   > [!IMPORTANT]
+   > Si necesita actualizar el agente de barrera de Azure y, si usa un rol personalizado, asegúrese de actualizar el rol personalizado para incluir la acción **powerOff**. Para más información, consulte [Creación de un rol personalizado para el agente de barrera](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** Configure la resolución nombres de host
 
@@ -196,11 +199,11 @@ El dispositivo STONITH usa una entidad de servicio para la autorización de Micr
 1. Abra la hoja Azure Active Directory  
    Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
-1. Haga clic en Nuevo registro.
-1. Escriba un nombre y seleccione "Solo las cuentas de este directorio organizativo". 
-2. Seleccione el tipo de aplicación "Web", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en Agregar.  
+1. Haga clic en Nuevo registro
+1. Escriba un nombre y seleccione "Solo las cuentas de este directorio organizativo" 
+2. Seleccione el tipo de aplicación "Web", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en Agregar  
    La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
-1. Seleccione Certificados y secretos y luego haga clic en Nuevo secreto de cliente.
+1. Seleccione Certificados y secretos, y luego haga clic en Nuevo secreto de cliente
 1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Agregar
 1. Anote el valor. Se utiliza como **contraseña** para la entidad de servicio
 1. Seleccione Información general. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (**Id. de inicio de sesión** en los pasos siguientes) de la entidad de servicio

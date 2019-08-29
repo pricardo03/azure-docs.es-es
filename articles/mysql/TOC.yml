@@ -171,6 +171,8 @@
       items:
         - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
+        - name: CLI de Azure
+          href: howto-auto-grow-storage-cli.md
     - name: Acceso a registros de servidor
       items:
         - name: Registros de consultas lentos

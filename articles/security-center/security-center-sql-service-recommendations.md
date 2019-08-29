@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: c2adf9bff4c3d91305e71a7688740fa0268ad7b9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69531484"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100935"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protección de los servicios de datos y almacenamiento de Azure en Azure Security Center
 En este tema se muestra cómo ver e implementar recomendaciones de seguridad para los recursos de datos y almacenamiento. Azure Security Center encontró estas recomendaciones al analizar el estado de seguridad de los recursos de Azure.
@@ -77,8 +77,7 @@ En esta página puede realizar las siguientes acciones:
 ## <a name="see-also"></a>Otras referencias
 Para más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes temas:
 
-* [Protección de las máquinas virtuales en Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protección de las aplicaciones en Azure Security Center](security-center-application-recommendations.md)
+* [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 
 Para más información sobre Security Center, consulte los siguientes temas:

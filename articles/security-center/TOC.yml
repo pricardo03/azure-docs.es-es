@@ -127,8 +127,6 @@
           href: security-center-install-endpoint-protection.md
         - name: Evaluación de vulnerabilidades no instalada
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Habilitar los grupos de seguridad de red
-          href: security-center-enable-network-security-groups.md
         - name: Informes de amenazas
           href: security-center-threat-report.md
         - name: Alertas personalizadas
@@ -143,8 +141,6 @@
           href: security-center-investigation-user-data.md
         - name: Guiones de procedimientos de Logic Apps
           href: security-center-playbooks.md
-        - name: Ver eventos
-          href: security-center-events-dashboard.md
         - name: Search
           href: security-center-search.md
         - name: Planeamiento y operaciones
