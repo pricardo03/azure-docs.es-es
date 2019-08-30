@@ -74,7 +74,17 @@
     - name: Azure Serverless Community Library
       href: 'https://www.serverlesslibrary.net/'
     - name: Ejemplos de Azure
-      href: /samples/browse/?products=azure-functions
+      items:
+        - name: 'C#'
+          href: /samples/browse/?products=azure-functions&languages=csharp
+        - name: JavaScript
+          href: /samples/browse/?products=azure-functions&languages=javascript
+        - name: Java
+          href: /samples/browse/?products=azure-functions&languages=java
+        - name: Python
+          href: /samples/browse/?products=azure-functions&languages=python
+        - name: TypeScript
+          href: /samples/browse/?products=azure-functions&languages=typescript
     - name: CLI de Azure
       href: functions-cli-samples.md
 - name: Conceptos
@@ -102,7 +112,7 @@
           href: functions-bindings-return-value.md
         - name: Control de errores de enlace
           href: functions-bindings-errors.md
-    - name: Languages
+    - name: Lenguajes
       items:
         - name: Idiomas admitidos
           href: supported-languages.md
