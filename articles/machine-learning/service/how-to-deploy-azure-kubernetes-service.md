@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036199"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623958"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -59,6 +59,9 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 **Tiempo estimado**: aproximadamente 20 minutos.
 
 Crear o asociar un clúster de AKS es un proceso único en el área de trabajo. Puede volver a usar este clúster con diferentes implementaciones. Si elimina el clúster o el grupo de recursos que lo contiene, tendrá que crear un nuevo clúster la próxima vez que tenga que realizar una implementación. Puede tener varios clústeres de AKS asociados al área de trabajo.
+
+> [!TIP]
+> Si quiere proteger el clúster de AKS mediante una instancia de Azure Virtual Network, primero debe crear la red virtual. Para más información, consulte [Protección de los trabajos de experimentación e inferencia con Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
 Si desea crear un clúster de AKS para __desarrollo__,  __validación__y __pruebas__, en lugar de producción, en __cluster purpose__ puede especificar __dev test__.
 
@@ -115,6 +118,8 @@ Si ya tiene un clúster de AKS en su suscripción a Azure y es de la versión 1.
 
 > [!TIP]
 > El clúster de AKS existente puede estar en la misma región de Azure que su área de trabajo de Azure Machine Learning Service.
+>
+> Si quiere proteger el clúster de AKS mediante una instancia de Azure Virtual Network, primero debe crear la red virtual. Para más información, consulte [Protección de los trabajos de experimentación e inferencia con Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
 > Cuando se asocia un clúster de AKS a un área de trabajo, puede definir cómo utilizará el clúster estableciendo el parámetro `cluster_purpose`.
@@ -182,6 +187,9 @@ Para implementar un modelo en Azure Kubernetes Service, cree una __configuració
 ### <a name="using-the-sdk"></a>Uso del SDK
 
 ```python
+from azureml.core.webservice import AksWebservice, Webservice
+from azureml.core.model import Model
+
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
@@ -269,6 +277,7 @@ print(token)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Protección de experimentos e inferencias en una red virtual](how-to-enable-virtual-network.md)
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
 * [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)

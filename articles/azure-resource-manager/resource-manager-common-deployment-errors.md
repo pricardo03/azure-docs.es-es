@@ -6,18 +6,20 @@ author: tfitzmac
 keywords: error de implementación, implementación de Azure, implementar en Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 07/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206336"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638536"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
 En este artículo se describen algunos errores comunes de implementación de Azure y se proporciona información sobre cómo resolverlos. Si no encuentra el código del error de implementación, consulte [Búsqueda de códigos de error](#find-error-code).
+
+Si busca información sobre un código de error y esa información no se proporciona en este artículo, háganoslo saber. En la parte inferior de esta página, puede dejar comentarios. Se realiza un seguimiento de los comentarios con problemas de GitHub. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,14 +37,14 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
 | DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) en la CLI de Azure o [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementaciones no afecta a los recursos de implementación. | |
-| DnsRecordInUse | El nombre del registro de DNS debe ser único. Proporcione un nombre diferente o modifique el registro existente. | |
+| DnsRecordInUse | El nombre del registro de DNS debe ser único. Escribe otro nombre. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
-| InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso, pero la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso y la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenga el token de acceso para el inquilino adecuado. Solo puede obtener el token del inquilino al que pertenece su cuenta. | |
-| InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe transmitir un token SAS. | [Plantillas vinculadas](resource-group-linked-templates.md) |
-| InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. Compruebe el mensaje de error para determinar qué valor debe corregirse. | |
-| InvalidRequestContent | Los valores de implementación incluyen valores que no se esperan o faltan los valores requeridos. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
-| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y verifique el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
+| InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe pasar un token de SAS. | [Plantillas vinculadas](resource-group-linked-templates.md) |
+| InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. El mensaje de error debe indicar qué valor debe corregirse. | |
+| InvalidRequestContent | Los valores de implementación incluyen valores que no se reconocen o valores requeridos que faltan. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
+| InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y compruebe el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
 | InvalidResourceNamespace | Compruebe el espacio de nombres del recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
 | InvalidResourceReference | El recurso aún no existe o se hace referencia a él de forma incorrecta. Compruebe si tiene que agregar una dependencia. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de dependencias](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Compruebe el tipo de recurso especificado en la propiedad **type**. | [Referencia de plantilla](/azure/templates/) |
@@ -59,14 +61,14 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | NotFound | Puede que esté intentando implementar un recurso dependiente en paralelo con un recurso principal. Compruebe si tiene que agregar una dependencia. | [Resolución de dependencias](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | La implementación trata de realizar una operación que excede la cuota de la suscripción, del grupo de recursos o de la región. Si es posible, revise la implementación para respetar las cuotas. De lo contrario, considere la posibilidad de solicitar un cambio de las cuotas. | [Resolución de cuotas](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Asegúrese de que existe un recurso principal antes de crear los recursos secundarios. | [Resolución del recurso principal](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | Puede que haya seleccionado una contraseña con demasiados caracteres, o puede que haya convertido el valor de contraseña en una cadena segura antes de pasarlo como parámetro. Si la plantilla incluye un parámetro de **cadena segura**, no es necesario convertir el valor en una cadena segura. Proporcione el valor de contraseña como texto. |  |
+| PasswordTooLong | Puede que haya seleccionado una contraseña con demasiados caracteres, o que haya convertido el valor de contraseña en una cadena segura antes de pasarlo como parámetro. Si la plantilla incluye un parámetro de **cadena segura**, no es necesario convertir el valor en una cadena segura. Proporcione el valor de contraseña como texto. |  |
 | PrivateIPAddressInReservedRange | La dirección IP especificada incluye un intervalo de direcciones requerido por Azure. Cambie la dirección IP para evitar el intervalo reservado. | [Direcciones IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | La dirección IP especificada está fuera del intervalo de subred. Cambie la dirección IP para que esté dentro del intervalo de subred. | [Direcciones IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Algunas propiedades no se pueden cambiar en un recurso implementado. Al actualizar un recurso, limite los cambios a las propiedades permitidas. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | La suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. Busque la directiva que bloquea la acción. Si es posible, modifique la implementación para cumplir con las limitaciones de la directiva. | [Resolución de directivas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| RequestDisallowedByPolicy | La suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. Busque la directiva que bloquea la acción. Si es posible, cambie la implementación para cumplir con las limitaciones de la directiva. | [Resolución de directivas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Proporcione un nombre de recurso que no incluya un nombre reservado. | [Nombres de recurso reservados](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Espere a que la eliminación finalice. | |
-| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. Puede que ya exista en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. El grupo de recursos de destino ya debe existir en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | La implementación hace referencia a un recurso que no se puede resolver. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de referencias](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | La implementación trata de crear recursos que exceden la cuota de la suscripción, del grupo de recursos o de la región. Si es posible, revise la infraestructura para respetar las cuotas. De lo contrario, considere la posibilidad de solicitar un cambio de las cuotas. | [Resolución de cuotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Seleccione la SKU (como el tamaño de la máquina virtual) que está disponible para la ubicación seleccionada. | [Resolución de SKU](resource-manager-sku-not-available-errors.md) |

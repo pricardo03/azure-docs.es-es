@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b813ef89bb1a55f769d0ea2391855ba5d671c140
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946478"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648792"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -29,9 +29,11 @@ Si desea probarlo ahora, consulte cualquiera de estos artículos de inicio rápi
 
 |Si desea utilizar esta herramienta:    |Consulte este artículo: |
 |--|-|
-|Azure Portal    |[Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portal de Azure    |[Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |CLI de Azure    |[Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+Si la cuenta tiene un espacio de nombres jerárquico, este tutorial le mostrará cómo conectar una suscripción de Event Grid, una función de Azure y un [trabajo](https://docs.azuredatabricks.net/user-guide/jobs.html) en Azure Databricks: [Tutorial: Uso de eventos de Azure Data Lake Storage Gen2 para actualizar una tabla de Databricks Delta](data-lake-storage-events.md).
 
 ## <a name="the-event-model"></a>Modelo de evento
 

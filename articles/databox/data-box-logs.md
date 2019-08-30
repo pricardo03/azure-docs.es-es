@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934220"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535178"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Puede realizar un seguimiento del pedido a través de Azure Portal y del sitio w
 
 - Data Box llega a sus instalaciones en un estado de bloqueado. Puede usar las credenciales de dispositivo disponibles en Azure Portal para su pedido.  
 
-    Cuando se configura Data Box, deberá saber quién ha accedido a las credenciales del dispositivo. Para averiguar quién ha accedido a la hoja **Credenciales del dispositivo** puede consultar los registros de actividad.  Cualquier acción que implique el acceso a la hoja **Detalles del dispositivo > Credenciales** se registra en los registros de actividad como una acción `ListCredentials`.
+    Cuando se configura Data Box, deberá saber quién ha accedido a las credenciales del dispositivo. Para averiguar quién ha accedido a la hoja **Credenciales del dispositivo** puede consultar los registros de actividad.  Cualquier acción que implique el acceso a la hoja **Detalles del dispositivo > Credenciales** se registra en los registros de actividad como una acción `ListCredentials`.
 
     ![Consulta de los registros de actividad](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Durante la copia de datos en Data Box o Data Box Heavy, se genera un archivo de 
 
 ### <a name="errorxml-file"></a>Archivo error.xml
 
-Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página  **Conectar y copiar** .
+Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página **Conectar y copiar**.
 
 - Si copió un archivo que no tiene 512 bytes alineados a una carpeta de disco administrado en Data Box, el archivo no se carga como blob en páginas en la cuenta de almacenamiento provisional. Verá un error en los registros. Quite el archivo y copie uno que tenga 512 bytes alineados.
 - Si copió un archivo VHDX, un VHD dinámico o un VHD diferenciado (estos archivos no son compatibles), verá un error en los registros.
@@ -203,7 +203,7 @@ Para cada pedido que se procesa, el servicio Data Box crea un registro de copia 
 
 Se realiza una prueba cíclica de redundancia (CRC) durante la carga en Azure. Se comparan las CRC de la copia de datos y después de que se carguen los datos. Un error de coincidencia de CRC indica que no se pudieron cargar los archivos correspondientes.
 
-De forma predeterminada, los registros se escriben en un contenedor denominado  `copylog`. Los registros se almacenan con la convención de nomenclatura siguiente:
+De forma predeterminada, los registros se escriben en un contenedor denominado `copylog`. Los registros se almacenan con la convención de nomenclatura siguiente:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Descarga del historial de pedidos
 
-El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido**. La opción  ** Descargar historial de pedidos**  estará disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
+El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido**. La opción **Descargar el historial de pedidos** está disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
 
 Si se desplaza por el historial de pedidos, verá:
 

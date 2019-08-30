@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934097"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648638"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -72,7 +72,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo conec
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetría del dispositivo
 
-El mensaje de telemetría del dispositivo debe estar en un formato JSON válido con contentType establecido en JSON y contentEncoding establecido en UTF-8 en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Si no se establece, IoT Hub escribirá los mensajes en formato codificado de base 64.
+El mensaje de telemetría del dispositivo debe estar en un formato JSON válido, el valor de contentType debe establecerse en **application/json** y contentEncoding establecerse en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambas propiedades no distinguen mayúsculas de minúsculas. Si no está establecido la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64.
 
 Puede enriquecer los eventos de telemetría del dispositivo antes de que se publiquen en Event Grid; para ello, seleccione el punto de conexión como Event Grid. Para más información, consulte la [introducción al enriquecimiento de mensajes](iot-hub-message-enrichments-overview.md).
 
@@ -174,9 +174,9 @@ El asunto de los eventos de IoT Hub utiliza el formato:
 devices/{deviceId}
 ```
 
-Event Grid también permite filtrar los atributos de cada evento, incluido el contenido de datos. Esto le permite elegir qué eventos se entregan en función del contenido del mensaje de telemetría. Consulte el [filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) para ver ejemplos. Para filtrar por el cuerpo del mensaje de telemetría, debe establecer contentType en JSON y contentEncoding en UTF-8 en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
+Event Grid también permite filtrar los atributos de cada evento, incluido el contenido de datos. Esto le permite elegir qué eventos se entregan en función del contenido del mensaje de telemetría. Consulte el [filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) para ver ejemplos. Para filtrar por el cuerpo del mensaje de telemetría, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje. Ambas propiedades no distinguen mayúsculas de minúsculas.
 
-Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. Creamos una [ruta](iot-hub-devguide-messages-d2c.md) predeterminada en IoT Hub, en función de su suscripción de Event Grid para la telemetría del dispositivo. Esta ruta única puede controlar todas las suscripciones de Event Grid. Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON. También debe establecer contentType en JSON y contentEncoding en UTF-8 en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
+Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. Creamos una [ruta](iot-hub-devguide-messages-d2c.md) predeterminada en IoT Hub, en función de su suscripción de Event Grid para la telemetría del dispositivo. Esta ruta única puede controlar todas las suscripciones de Event Grid. Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON. También debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado
 
@@ -203,3 +203,5 @@ Las aplicaciones que controlan los eventos de IoT Hub deben seguir estas prácti
 * [Más información sobre Event Grid](../event-grid/overview.md)
 
 * [Compare las diferencias entre el enrutamiento de eventos y mensajes de IoT Hub](iot-hub-event-grid-routing-comparison.md)
+
+* [Obtenga información sobre cómo usar los eventos de telemetría de IoT para implementar el análisis espacial de IoT mediante Azure Maps (y el enrutamiento de mensajes IoT Hub).](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)

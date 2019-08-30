@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979004"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616805"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar datos de Azure Cosmos DB mediante el conector de Power BI
 
@@ -32,7 +32,7 @@ Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de qu
 
 * Descargue los [datos de volcanes de ejemplo](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) de GitHub.
 
-* [Cree una cuenta de base de datos de Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) e importe los datos de volcanes mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md). Al importar datos, tenga en cuenta las opciones siguientes para el origen y los destinos en la herramienta de migración de datos:
+* [Cree una cuenta de base de datos de Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) e importe los datos de volcanes mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md). Al importar datos, tenga en cuenta las opciones siguientes para el origen y los destinos en la herramienta de migración de datos:
 
    * **Parámetros de origen** 
 

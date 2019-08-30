@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945076"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623838"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migración a acceso basado en rol detallado para configuraciones de clúster
 
@@ -201,7 +201,7 @@ Si sigue sin funcionar, póngase en contacto con el administrador de AAD para ad
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>¿Qué ocurrirá si no se realiza ninguna acción?
 
-`GET /configurations` y `POST /configurations/gateway` ya no devolverán ninguna información y la llamada a `GET /configurations/{configurationName}` ya no devolverá parámetros confidenciales, como la clave de la cuenta de almacenamiento o la contraseña del clúster. Lo mismo es cierto para los métodos de SDK y los cmdlets de PowerShell correspondientes.
+Las llamadas `GET /configurations` y `POST /configurations/gateway` ya no devolverán ninguna información y la llamada a `GET /configurations/{configurationName}` ya no devolverá parámetros confidenciales, como las claves de la cuenta de almacenamiento o la contraseña del clúster. Lo mismo es cierto para los métodos de SDK y los cmdlets de PowerShell correspondientes.
 
 Si usa una versión anterior de alguna de las herramientas de Visual Studio, VSCode, IntelliJ o Eclipse que se mencionaron anteriormente, estas dejarán de funcionar hasta que actualice.
 

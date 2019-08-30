@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688311"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534472"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Referencia del SDK del Lector inmersivo
 
@@ -73,6 +73,7 @@ Contiene el contenido que se mostrará en el Lector inmersivo.
 | --------- | ----------- |
 | text/plain | Texto sin formato. |
 | application/mathml+xml | Lenguaje de marcado matemático (MathML). [Más información](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento de Microsoft Word con formato .docx.
 
 ### <a name="options"></a>Opciones
 
@@ -104,7 +105,8 @@ Contiene información sobre el error.
 | ---- | ----------- |
 | BadArgument | El argumento proporcionado no es válido; consulte `message` para detalles. |
 | Tiempo de espera | El Lector inmersivo no se pudo cargar en el tiempo de espera especificado. |
-| TokenExpired| El token suministrado en caché ha expirado. |
+| TokenExpired | El token suministrado en caché ha expirado. |
+| Limitado | Se ha superado el límite de frecuencia de llamadas. |
 
 ## <a name="launching-the-immersive-reader"></a>Inicio del Lector inmersivo
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489430"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513792"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -167,7 +167,7 @@ Si usa App Service Environment, puede emplear el [firewall de Barracuda](https:/
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>¿Cómo se bloquean los puertos en una aplicación web de App Service?
 
-En el entorno de inquilinos compartidos de App Service, no es posible bloquear puertos específicos debido a la naturaleza de la infraestructura. Los puertos TCP 4016, 4018 y 4020 podrían estar también abiertos para la depuración remota de Visual Studio.
+En el entorno de inquilinos compartidos de App Service, no es posible bloquear puertos específicos debido a la naturaleza de la infraestructura. Los puertos TCP 4020, 4022 y 4024 podrían estar también abiertos para la depuración remota de Visual Studio.
 
 En App Service Environment, dispone de control total sobre el tráfico de entrada y de salida. Puede usar grupos de seguridad de red para restringir o bloquear puertos específicos. Para más información sobre App Service Environment, consulte [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/) (Introducción a App Service Environment).
 
@@ -251,7 +251,7 @@ Para más información sobre los trabajos web programados, consulte [Creación d
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>¿Cómo se realizan pruebas de penetración para una aplicación de App Service?
 
-Para realizar pruebas de penetración, [envíe una solicitud](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+Para realizar pruebas de penetración, [envíe una solicitud](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>¿Cómo se configura un nombre de dominio personalizado para una aplicación web de App Service que usa Traffic Manager?
 

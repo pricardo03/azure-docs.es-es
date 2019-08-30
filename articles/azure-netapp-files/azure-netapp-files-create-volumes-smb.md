@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975910"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515422"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -59,6 +59,18 @@ Debe haber una subred delegada en Azure NetApp Files.
     |    LDAP seguro        |    636       |    TCP           |
     |    LDAP seguro        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
+
+* La topología del sitio para la instancia de Active Directory Domain Services de destino debe cumplir los procedimientos recomendados, en particular, la red virtual de Azure donde se implementa Azure NetApp Files.  
+
+    El espacio de direcciones de la red virtual donde se implementa Azure NetApp Files debe agregarse a un sitio de Active Directory nuevo o existente (donde resida un controlador de dominio al que Azure NetApp Files pueda acceder). 
+
+* Los servidores DNS especificados deben ser accesibles desde la [subred delegada](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) de Azure NetApp Files.  
+
+    Consulte [Directrices para el planeamiento de red de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para ver topologías de red admitidas.
+
+    Los grupos de seguridad de red (NSG) y los firewalls deben tener reglas configuradas correctamente para permitir solicitudes de Active Directory y de tráfico DNS.
+
+    Consulte [Diseño de la topología de sitio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) para obtener información acerca de los sitios y servicios de AD. 
 
 ## <a name="create-an-active-directory-connection"></a>Creación de una conexión de Active Directory
 
@@ -117,7 +129,7 @@ Debe haber una subred delegada en Azure NetApp Files.
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.  
 
     * **Red virtual**  
-        Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
+        Especifique la red virtual de Azure desde la que desea tener acceso al volumen.  
 
         La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de redes virtuales. También puede acceder al volumen desde la red local mediante ExpressRoute.   
 
@@ -127,7 +139,7 @@ Debe haber una subred delegada en Azure NetApp Files.
         
         Si no ha delegado una subred, haga clic en **Crear nuevo** en el volumen de creación de un volumen. A continuación, en la página de creación de la subred, especifique la información de la subred y seleccione **Microsoft.NetApp/volumes** para delegar la subred para Azure NetApp Files. En cada red virtual, solo puede delegarse una subred a Azure NetApp Files.   
  
-        ![Creación de un volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Crear un volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creación de una subred](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

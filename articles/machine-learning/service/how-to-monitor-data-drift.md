@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036190"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128277"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Con Azure Machine Learning Service, puede supervisar las entradas en un modelo i
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Cómo se supervisa el desfase de datos en Azure Machine Learning Service
 
-Al usar Azure Machine Learning Service, el desfase de datos se supervisa a través de conjuntos de datos o implementaciones. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un segundo conjunto de datos (normalmente los datos de entrada de modelo recopilados de una implementación) se prueba en el conjunto de datos de base de referencia. Se han [generado perfiles](how-to-explore-prepare-data.md#explore-with-summary-statistics) para ambos conjuntos de datos y se han especificado en el servicio de supervisión del desfase de datos. Un modelo de Machine Learning se entrena para detectar diferencias entre los dos conjuntos de datos. El rendimiento del modelo se convierte en el coeficiente de desfase, que mide la magnitud del desfase entre los dos conjuntos de datos. Al usar la [interpretabilidad del modelo](machine-learning-interpretability-explainability.md), se calculan las características que han contribuido al coeficiente de desfase. En el perfil del conjunto de datos, se realiza un seguimiento de la información estadística sobre cada característica. 
+Al usar Azure Machine Learning Service, el desfase de datos se supervisa a través de conjuntos de datos o implementaciones. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un segundo conjunto de datos (normalmente los datos de entrada de modelo recopilados de una implementación) se prueba en el conjunto de datos de base de referencia. Se han generado perfiles para ambos conjuntos de datos y se han especificado en el servicio de supervisión del desfase de datos. Un modelo de Machine Learning se entrena para detectar diferencias entre los dos conjuntos de datos. El rendimiento del modelo se convierte en el coeficiente de desfase, que mide la magnitud del desfase entre los dos conjuntos de datos. Al usar la [interpretabilidad del modelo](machine-learning-interpretability-explainability.md), se calculan las características que han contribuido al coeficiente de desfase. En el perfil del conjunto de datos, se realiza un seguimiento de la información estadística sobre cada característica. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -178,16 +178,7 @@ Para que pueda configurar acciones y alertas personalizadas, todas las métricas
 
 ## <a name="retrain-your-model-after-drift"></a>Nuevo entrenamiento del modelo después del desfase
 
-Cuando el desfase de datos afecta negativamente al rendimiento del modelo implementado, es el momento de volver a entrenar el modelo. El siguiente método [`diff()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) le permite hacerse una idea de lo que ha cambiado entre los conjuntos de datos de aprendizaje antiguos y nuevos. 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-En función de la salida del código anterior, puede que le interese volver a entrenar el modelo. Para ello, siga los pasos que se indican a continuación.
+Cuando el desfase de datos afecta negativamente al rendimiento del modelo implementado, es el momento de volver a entrenar el modelo. Para ello, siga los pasos que se indican a continuación.
 
 * Investigue los datos recopilados y prepare los datos para entrenar el nuevo modelo.
 * Divídalos en datos de entrenamiento y de prueba.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716657"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622787"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 
@@ -94,13 +94,11 @@ Después de crear la aplicación para el proveedor de identidades que quiere agr
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Incorporación del proveedor de identidades de Azure Active Directory
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-1. Seleccione **Proveedores de identidades** y, después, **Agregar**.
+1. Seleccione **Proveedores de identidades** y luego **Nuevo proveedor de OpenID Connect**.
 1. Escriba un **nombre**. Por ejemplo, escriba *Contoso Azure AD*.
-1. Seleccione **Tipo de proveedor de identidades**, seleccione **OpenID Connect (versión preliminar)** y haga clic en **Aceptar**.
-1. Haga clic en **Configurar este proveedor de identidades**.
-1. En **URL de metadatos**, escriba la URL siguiente y sustituya `your-AD-tenant-domain` por el nombre de dominio del inquilino de Azure AD.
+1. En **URL de metadatos**, escriba la dirección URL siguiente y sustituya `your-AD-tenant-domain` por el nombre de dominio del inquilino de Azure AD:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ Después de crear la aplicación para el proveedor de identidades que quiere agr
 
     Por ejemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. En **Id. de cliente**, escriba el *Id. de aplicación (cliente)* que ha anotado anteriormente.
-1. En **Secreto de cliente**, escriba el valor del *secreto de cliente* que ha anotado anteriormente.
-1. También puede escribir un valor en **Sugerencia de dominio**. Por ejemplo, `ContosoAD`. Las [sugerencias de dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) son directivas que se incluyen en la solicitud de autenticación de una aplicación. Se pueden usar para enviar el usuario a su página de inicio de sesión del IdP federado. O también las puede usar una aplicación de varios inquilinos para enviar al usuario directamente a la página de inicio de sesión de Azure AD del inquilino.
-1. Seleccione **Aceptar**.
-1. Seleccione **Asignar las notificaciones de este proveedor de identidades** y establezca las siguientes notificaciones:
+1. En **Id. de cliente**, escriba el identificador de aplicación que ha anotado anteriormente.
+1. En **Secreto de cliente**, escriba el secreto de cliente que ha anotado anteriormente.
+1. Deje los valores predeterminados de **Ámbito**, **Tipo de respuesta** y **Modo de respuesta**.
+1. (Opcional) Escriba un valor para **Domain_hint**. Por ejemplo, *ContosoAD*. Las [sugerencias de dominio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) son directivas que se incluyen en la solicitud de autenticación de una aplicación. Se pueden usar para enviar el usuario a su página de inicio de sesión del IdP federado. O también las puede usar una aplicación de varios inquilinos para enviar al usuario directamente a la página de inicio de sesión de Azure AD del inquilino.
+1. En **Asignación de notificaciones del proveedor de identidades**, escriba los siguientes valores de asignación de notificaciones:
 
-    - En **Id. de usuario**, escriba `oid`.
-    - En **Nombre para mostrar**, escriba `name`.
-    - En **Nombre propio**, escriba `given_name`.
-    - En **Apellido**, escriba `family_name`.
-    - En **Correo electrónico**, escriba `unique_name`.
+    * **Id. de usuario**: *oid*
+    * **Nombre para mostrar**: *name*
+    * **Nombre propio**: *given_name*
+    * **Apellido**: *family_name*
+    * **Correo electrónico**: *unique_name*
 
-1. Seleccione **Aceptar** y luego **Crear** para guardar la configuración.
+1. Seleccione **Guardar**.
 
 ### <a name="add-the-facebook-identity-provider"></a>Incorporación del proveedor de identidades de Facebook
 
-1. Seleccione **Proveedores de identidades** y, después, **Agregar**.
-1. Escriba un **nombre**. Por ejemplo, escriba *Facebook*.
-1. Seleccione **Tipo de proveedor de identidades**, **Facebook** y luego **Aceptar**.
-1. Seleccione **Configurar este proveedor de identidades** y escriba el *identificador de aplicación* que ha anotado anteriormente como el **identificador de cliente**.
-1. Escriba el *secreto de la aplicación* que ha anotado como el **Secreto de cliente**.
-1. Seleccione **Aceptar** y, después, **Crear** para guardar la configuración de Facebook.
+1. Seleccione **Proveedores de identidades** y luego **Facebook**.
+1. Escriba un **nombre**. Por ejemplo, *Facebook*.
+1. En **Id. de cliente**, escriba el identificador de aplicación de Facebook que ha creado anteriormente.
+1. En **Secreto de cliente**, escriba el secreto de aplicación que ha anotado.
+1. Seleccione **Guardar**.
 
 ## <a name="update-the-user-flow"></a>Actualización del flujo de usuario
 

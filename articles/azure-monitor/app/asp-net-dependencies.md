@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326443"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534604"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -90,7 +90,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Seguimiento de llamadas AJAX desde páginas web
 
-Para las páginas web, el SDK de JavaScript de Application Insights recopila automáticamente las llamadas de AJAX como dependencias, tal como se describe [aquí](javascript.md#ajax-performance). Este documento se centra en las dependencias de los componentes de servidor.
+Para las páginas web, el SDK de JavaScript de Application Insights recopila automáticamente las llamadas AJAX como dependencias.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Seguimiento de SQL avanzado para obtener la consulta SQL completa
 
@@ -113,7 +113,7 @@ En los casos anteriores, la forma correcta de validar que el motor de instrument
 
 * [Asignación de aplicación](app-map.md) visualiza las dependencias entre la aplicación y los componentes colindantes.
 * [Diagnósticos de transacción](transaction-diagnostics.md) muestra los datos de servidor unificados correlacionados.
-* La [pestaña Exploradores](javascript.md#ajax-performance) muestra las llamadas AJAX de los exploradores de los usuarios.
+* La [pestaña Exploradores](javascript.md) muestra las llamadas AJAX de los exploradores de los usuarios.
 * Haga clic en las solicitudes lentas o con errores para comprobar sus llamadas de dependencia.
 * [Análisis](#logs-analytics) puede utilizarse para consultar los datos de dependencia.
 

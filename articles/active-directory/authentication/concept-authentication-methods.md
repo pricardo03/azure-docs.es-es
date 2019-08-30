@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164824"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051437"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -31,7 +31,7 @@ Microsoft recomienda encarecidamente a los administradores que permitan a los us
 | Contraseña | MFA y SSPR |
 | Preguntas de seguridad | Solo SSPR |
 | Dirección de correo electrónico | Solo SSPR |
-| Aplicación Microsoft Authenticator | MFA y versión preliminar pública de SSPR |
+| Aplicación Microsoft Authenticator | MFA y SSPR |
 | Token de hardware OATH | Versión preliminar pública de MFA y SSPR |
 | sms | MFA y SSPR |
 | Llamada de voz | MFA y SSPR |
@@ -41,7 +41,7 @@ Microsoft recomienda encarecidamente a los administradores que permitan a los us
 
 |     |
 | --- |
-| Los tokens de hardware OATH para MFA y SSPR, así como la notificación de aplicación móvil o el código de aplicación móvil, como métodos para el autoservicio de restablecimiento de contraseña de Azure AD son características en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Los tokens OATH de hardware para MFA y SSPR son características en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Contraseña
@@ -156,7 +156,7 @@ Los usuarios pueden tener una combinación de hasta cinco tokens de hardware de 
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens de hardware OATH (versión preliminar pública)
 
-OATH es un estándar abierto que especifica cómo se general los códigos de contraseña de un solo uso (OTP). Azure AD admitirá el uso de tokens OATH-TOTP SHA-1 de la variedad de 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor que elijan. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens.
+OATH es un estándar abierto que especifica cómo se general los códigos de contraseña de un solo uso (OTP). Azure AD admitirá el uso de tokens OATH-TOTP SHA-1 de la variedad de 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor que elijan. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. Las claves secretas se deben codificar en Base32.
 
 ![Carga de tokens OATH en la hoja de tokens OATH del servidor de MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -194,6 +194,8 @@ Para funcionar correctamente, los números de teléfono deben tener el formato *
 > Debe haber un espacio entre el código de país y el número de teléfono.
 >
 > El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato +1 4255551234X12345, las extensiones se quitan antes de realizarse la llamada.
+
+Microsoft no garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, Microsoft puede agregar o quitar códigos cortos cuando lo estime oportuno, ya que se realizan ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
 
 #### <a name="text-message"></a>mensaje de texto
 

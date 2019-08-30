@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620433"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876851"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -91,7 +91,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar un contenedor de perfiles de usuario (FSLogix)
 
-Para incluir el contenedor de FSLogix como parte de la imagen, siga las instrucciones en [Configurar un recurso compartido de perfil de usuario de un grupo de hosts](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Puede probar la funcionalidad del contenedor de FSLogix con [este inicio rápido](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Para incluir el contenedor de FSLogix como parte de la imagen, siga las instrucciones en [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Puede probar la funcionalidad del contenedor de FSLogix con [este inicio rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurar Windows Defender
 
@@ -227,5 +227,5 @@ Ahora que tiene una imagen, puede crear o actualizar los grupos de hosts. Para o
 - [Creación de un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
 - [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
-- [Configurar un recurso compartido de perfil de usuario de un grupo de hosts](create-host-pools-user-profile.md)
+- [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md)
 - [Configuración del método de equilibrio de carga de Windows Virtual Desktop](configure-host-pool-load-balancing.md)

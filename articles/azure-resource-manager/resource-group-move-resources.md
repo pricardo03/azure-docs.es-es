@@ -4,14 +4,14 @@ description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 01ec8facf2771de9ec01b9470521340a59ee4d0d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721387"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035549"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -32,9 +32,9 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
    * [Guía de traslado de App Services](./move-limitations/app-service-move-limitations.md)
    * [Guía de traslado de Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Guía de traslado del modelo de implementación clásica](./move-limitations/classic-model-move-limitations.md): proceso clásico, almacenamiento clásico, redes virtuales clásicas y Cloud Services
+   * [Guía de traslado de red](./move-limitations/networking-move-limitations.md)
    * [Guía de traslado de Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
-   * [Guía de movimiento de Virtual Networks](./move-limitations/virtual-network-move-limitations.md)
 
 1. Las suscripciones de origen y de destino deben estar activas. Si tiene problemas para habilitar una cuenta que se ha deshabilitado, [cree una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
 
@@ -93,6 +93,24 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
    * **Microsoft.Resources/subscriptions/resourceGroups/write** en el grupo de recursos de destino.
 
 1. Antes de mover los recursos, compruebe las cuotas de la suscripción a la que está trasladando los recursos. Si trasladar los recursos significa que la suscripción excederá sus límites, debe revisar si puede solicitar un aumento de la cuota. Para ver una lista de estos límites y cómo solicitar un aumento, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+
+1. **Para un traslado entre suscripciones, el recurso y sus recursos dependientes deben encontrarse en el mismo grupo de recursos y deben trasladarse juntos.** Por ejemplo, una máquina virtual con discos administrados requeriría que la máquina virtual y los discos administrados se trasladaran juntos, junto con otros recursos dependientes.
+
+   Si va a trasladar un recurso a una nueva suscripción, compruebe si el recurso tiene recursos dependientes y si están ubicados en el mismo grupo de recursos. Si los recursos no están en el mismo grupo de recursos, compruebe si los recursos pueden consolidarse en el mismo grupo de recursos. Si es así, lleve todos estos recursos al mismo grupo de recursos mediante una operación de traslado entre grupos de recursos.
+
+   Para más información, consulte [Escenario para el traslado entre suscripciones](#scenario-for-move-across-subscriptions).
+
+## <a name="scenario-for-move-across-subscriptions"></a>Escenario para el traslado entre suscripciones
+
+El traslado de recursos de una suscripción a otra es un proceso de tres pasos:
+
+![escenario de traslado entre suscripciones](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+Con fines ilustrativos, solo tenemos un recurso dependiente.
+
+* Paso 1: Si los recursos dependientes se distribuyen entre diferentes grupos de recursos, trasládelos primero a un grupo de recursos.
+* Paso 2: Traslade el recurso y los recursos dependientes juntos desde la suscripción de origen hasta la de destino.
+* Paso 3: Opcionalmente, redistribuya los recursos dependientes a distintos grupos de recursos dentro de la suscripción de destino. 
 
 ## <a name="validate-move"></a>Validar el movimiento
 

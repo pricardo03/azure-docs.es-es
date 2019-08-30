@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/18/2018
+ms.date: 08/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 64921a2ab69306df0b7c3d968055e698dd6995e7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8f95b802e51b942421bc580d9c3d5704092f5b1d
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323935"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624071"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -81,11 +81,10 @@ Para más información sobre el registro de una aplicación, consulte [Escenario
 El identificador de inquilino identifica al inquilino de Azure AD que proporciona servicios de autenticación a la aplicación. Para obtener el identificador de inquilino, siga estos pasos:
 
 1. En Azure Portal, seleccione Active Directory.
-2. Haga clic en **Propiedades**.
-3. Copie el valor GUID proporcionado para el **identificador de directorio**. Este valor también se denomina identificador de inquilino.
+1. Seleccione **Propiedades**.
+1. Copie el valor GUID proporcionado para el **identificador de directorio**. Este valor también se denomina identificador de inquilino.
 
 ![Copia del identificador del directorio](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## <a name="use-integrated-authentication"></a>Uso de autenticación integrada
 
@@ -93,58 +92,56 @@ Para autenticar mediante autenticación integrada, deberá conceder a la aplicac
 
 Una vez que haya registrado la aplicación, siga estos pasos en Azure Portal para concederle acceso al servicio Batch:
 
-1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**. Haga clic en **Registros de aplicaciones**.
-2. Busque el nombre de la aplicación en la lista de registros de aplicación:
+1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**. Seleccione **Registros de aplicaciones**.
+1. Busque el nombre de la aplicación en la lista de registros de aplicación:
 
     ![Buscar el nombre de la aplicación](./media/batch-aad-auth/search-app-registration.png)
 
-3. Haga clic en la aplicación y en **Configuración**. En la sección **Acceso de API**, seleccione **Permisos necesarios**.
-4. En la hoja **Permisos necesarios**, haga clic en el botón **Agregar**.
-5. En **Seleccionar una API**, busque la API de Batch. Busque cada una de estas cadenas hasta que encuentre la API:
-    1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
-6. Cuando la haya encontrado, selecciónela y haga clic en **Guardar**.
-7. En **Seleccionar permisos**, active la casilla situada junto a **Access Azure Batch Service** (Acceder al servicio Azure Batch) y haga clic en **Seleccionar**.
-8. Haga clic en **Done**(Listo).
+1. Seleccione la aplicación y, después, **Permisos de API**.
+1. En la sección **Permisos de API**, seleccione **Agregar un permiso**.
+1. En **Seleccionar una API**, busque la API de Batch. Busque cada una de estas cadenas hasta que encuentre la API:
+    1. **Microsoft Azure Batch**
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API.
+1. Una vez que encuentre Batch API, selecciónela y seleccione **Seleccionar**.
+1. En **Seleccionar permisos**, active la casilla situada junto a **Access Azure Batch Service** (Acceder al servicio Azure Batch) y haga clic en **Add permissions** (Agregar permisos).
 
-La ventana **Permisos necesarios** muestra ahora que la aplicación de Azure AD tiene acceso tanto a ADAL como a la API del servicio Batch. La primera vez que registra la aplicación con Azure AD, se conceden permisos a ADAL automáticamente.
+El panel **Permisos de API** muestra ahora que la aplicación de Azure AD tiene acceso tanto a Microsoft Graph como a la API del servicio Batch. La primera vez que registra la aplicación con Azure AD, se conceden permisos a Microsoft Graph automáticamente.
 
 ![Concesión de permisos de API](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## <a name="use-a-service-principal"></a>Uso de una entidad de servicio 
+## <a name="use-a-service-principal"></a>Uso de una entidad de servicio
 
 Para autenticar una aplicación que se ejecute desatendida, utilice una entidad de servicio. Una vez que haya registrado la aplicación, siga estos pasos en Azure Portal para configurar una entidad de servicio:
 
-1. Solicite una clave secreta para la aplicación.
-2. Asigne un rol RBAC a la aplicación.
+1. Solicite un secreto para la aplicación.
+1. Asigne el control de acceso basado en rol (RBAC) a la aplicación.
 
-### <a name="request-a-secret-key-for-your-application"></a>Solicitud de una clave secreta para la aplicación
+### <a name="request-a-secret-for-your-application"></a>Solicitud de un secreto para la aplicación
 
-Cuando la aplicación se autentica con una entidad de servicio, envía el identificador de la aplicación y una clave secreta a Azure AD. Debe crear y copiar la clave secreta que usará desde el código.
+Cuando la aplicación se autentica con una entidad de servicio, envía el identificador de la aplicación y un secreto a Azure AD. Debe crear y copiar la clave secreta que usará desde el código.
 
 Siga estos pasos en Azure Portal:
 
-1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**. Haga clic en **Registros de aplicaciones**.
-2. Busque el nombre de la aplicación en la lista de registros de aplicaciones.
-3. Haga clic en la aplicación y en **Configuración**. En la sección **Acceso de API**, seleccione **Claves**.
-4. Para crear una clave, escriba una descripción de la clave. A continuación, seleccione una duración para la clave de uno o dos años. 
-5. Haga clic en el botón **Guardar** para crear y mostrar la clave. Copie el valor de la clave en un lugar seguro, puesto que no podrá acceder a ella nuevamente después de abandonar la hoja. 
+1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**. Seleccione **Registros de aplicaciones**.
+1. Seleccione la aplicación en la página en la lista de registros de aplicaciones.
+1. Seleccione la aplicación y, después, **Certificates & secrets** (Certificados y secretos). En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**.
+1. Para crear un secreto, escriba una descripción del secreto. A continuación, seleccione una expiración para el secreto de un año, dos años o ninguna expiración.
+1. Seleccione **Agregar** para crear y mostrar el secreto. Copie el valor del secreto en un lugar seguro, puesto que no podrá acceder a él nuevamente después de abandonar la página.
 
     ![Creación de una clave secreta](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-an-rbac-role-to-your-application"></a>Asignación de un rol RBAC a la aplicación
+### <a name="assign-rbac-to-your-application"></a>Asignación de RBAC a la aplicación
 
-Para autenticarse con una entidad de servicio, debe asignar un rol RBAC a la aplicación. Siga estos pasos:
+Para autenticarse con una entidad de servicio, debe asignar un RBAC a la aplicación. Siga estos pasos:
 
 1. En Azure Portal, vaya a la cuenta de Batch utilizada por la aplicación.
-2. En la hoja **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)** .
-3. Haga clic en la pestaña **Asignaciones de roles**.
-4. Haga clic en el botón **Agregar asignación de roles**. 
-5. En el menú desplegable **Rol**, elija el rol _Colaborador_ o _Lector_ para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).  
-6. Escriba el nombre de la aplicación en el campo **Seleccionar**. Seleccione la aplicación de la lista y haga clic en **Guardar**.
+1. En la sección **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)** .
+1. Seleccione la pestaña **Asignaciones de roles**.
+1. Seleccione **Agregar asignación de roles**.
+1. En el menú desplegable **Rol**, elija el rol *Colaborador* o *Lector* para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).  
+1. Escriba el nombre de la aplicación en el campo **Seleccionar**. Seleccione la aplicación de la lista y seleccione **Guardar**.
 
-La aplicación debe aparecer ahora en la configuración de control de acceso con un rol RBAC asignado. 
+La aplicación debe aparecer ahora en la configuración de control de acceso con un rol RBAC asignado.
 
 ![Asignación de un rol RBAC a la aplicación](./media/batch-aad-auth/app-rbac-role.png)
 
@@ -153,11 +150,10 @@ La aplicación debe aparecer ahora en la configuración de control de acceso con
 El identificador de inquilino identifica al inquilino de Azure AD que proporciona servicios de autenticación a la aplicación. Para obtener el identificador de inquilino, siga estos pasos:
 
 1. En Azure Portal, seleccione Active Directory.
-2. Haga clic en **Propiedades**.
-3. Copie el valor GUID proporcionado para el **identificador de directorio**. Este valor también se denomina identificador de inquilino.
+1. Seleccione **Propiedades**.
+1. Copie el valor GUID proporcionado para el **identificador de directorio**. Este valor también se denomina identificador de inquilino.
 
 ![Copia del identificador del directorio](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -311,10 +307,10 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
+
 ### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Ejemplo de código: uso de una entidad de servicio de Azure AD con Python de Batch
 
 Para la autenticación mediante una entidad de servicio de Python de Batch, instale los módulos [azure-batch](https://pypi.org/project/azure-batch/) y [azure-common](https://pypi.org/project/azure-common/) y cree una referencia a ellos.
-
 
 ```python
 from azure.batch import BatchServiceClient
@@ -373,13 +369,13 @@ Utilice las credenciales del servicio principal para abrir un objeto **BatchServ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
+- Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
-* Para más información acerca de las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para crear una entidad de servicio mediante Azure Portal, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md). Las entidades de servicio también se pueden crear con PowerShell o la CLI de Azure.
+- Para más información acerca de las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para crear una entidad de servicio mediante Azure Portal, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md). Las entidades de servicio también se pueden crear con PowerShell o la CLI de Azure.
 
-* Para autenticar aplicaciones de administración de Batch con Azure AD, consulte [Autenticación de soluciones de administración de Batch con Active Directory](batch-aad-auth-management.md).
+- Para autenticar aplicaciones de administración de Batch con Azure AD, consulte [Autenticación de soluciones de administración de Batch con Active Directory](batch-aad-auth-management.md).
 
-* Para obtener un ejemplo de Python de cómo crear un cliente de Batch que se autentica utilizando un token de Azure AD, consulte el ejemplo [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) (Implementación de una imagen personalizada de Azure Batch con un script de Python).
+- Para obtener un ejemplo de Python de cómo crear un cliente de Batch que se autentica utilizando un token de Azure AD, consulte el ejemplo [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) (Implementación de una imagen personalizada de Azure Batch con un script de Python).
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "¿Qué es Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

@@ -1,31 +1,29 @@
 ---
-title: Creación de una API sin servidor mediante Azure Functions | Microsoft Docs
-description: Cómo crear una API sin servidor mediante Azure Functions
-services: functions
+title: Personalización de un punto de conexión HTTP en Azure Functions
+description: Obtenga información sobre cómo personalizar un punto de conexión de desencadenador HTTP en Azure Functions.
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f7729f5acb8b7b95004265f6802ba2feb1bc3cd7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698277"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096756"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
 
-En este tutorial, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.JS, C# y muchos más. En este tutorial, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
+En este artículo, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.JS, C# y muchos más. En este artículo, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-La función resultante se usará durante el resto de este tutorial.
+La función resultante se usará durante el resto de este artículo.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -182,7 +180,7 @@ Pruebe la API simulada mediante una llamada al punto de conexión `<YourProxyApp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a compilar y personalizar una API en Azure Functions. También ha aprendido a reunir varias API, incluidas las simuladas, como una superficie de API unificada. Puede utilizar estas técnicas para crear API de cualquier complejidad, todo ello mientras ejecuta el modelo de proceso sin servidor proporcionado por Azure Functions.
+En este artículo, ha aprendido a compilar y personalizar una API en Azure Functions. También ha aprendido a reunir varias API, incluidas las simuladas, como una superficie de API unificada. Puede utilizar estas técnicas para crear API de cualquier complejidad, todo ello mientras ejecuta el modelo de proceso sin servidor proporcionado por Azure Functions.
 
 Las siguientes referencias pueden serle de ayuda a medida que sigue desarrollando su API:
 

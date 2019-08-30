@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648506"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087455"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Puntos de control y reproducción en Durable Functions (Azure Functions)
 
@@ -145,7 +144,7 @@ El comportamiento de reproducción crea restricciones sobre el tipo de código q
 
   Si un orquestador necesita un retraso,puede usar [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API (.NET) o `createTimer` API (JavaScript).
 
-* El código de orquestador **no debe iniciar operaciones asincrónicas**, excepto con [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API o `context.df` API del objeto. Por ejemplo, no hay `Task.Run`, `Task.Delay` o `HttpClient.SendAsync` en .NET, o `setTimeout()` y `setInterval()` en JavaScript. Durable Task Framework ejecuta código de orquestador en un solo subproceso y no puede interactuar con otros puedan estar programados por otras API asincrónicas.
+* El código de orquestador **no debe iniciar operaciones asincrónicas**, excepto con [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API o `context.df` API del objeto. Por ejemplo, no hay `Task.Run`, `Task.Delay` o `HttpClient.SendAsync` en .NET, o `setTimeout()` y `setInterval()` en JavaScript. Durable Task Framework ejecuta código de orquestador en un solo subproceso y no puede interactuar con otros puedan estar programados por otras API asincrónicas. Si esto ocurre, se produce la excepción `InvalidOperationException`.
 
 * **Deben evitarse los bucles infinitos** en el código de orquestador. Como Durable Task Framework guarda el historial de ejecución a medida que avanza la función de orquestación, un bucle infinito podría provocar que una instancia de orquestador se quedara sin memoria. Para escenarios de bucle infinito, use API como [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) o `continueAsNew` (JavaScript) para reiniciar la ejecución de la función y descartar el historial de ejecución anterior.
 

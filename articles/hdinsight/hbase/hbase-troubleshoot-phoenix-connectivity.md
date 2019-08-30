@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: 641d622377bad7a1239efd526b93c6f0f0c08d4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/14/2019
+ms.openlocfilehash: 66077416dca4048fc99047f7d6b967e55aab0a23
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886587"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575726"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Escenario: Problemas de conectividad de Apache Phoenix en Azure HDInsight
 
@@ -27,7 +27,7 @@ Dirección IP incorrecta del nodo activo de Zookeeper.
 
 ### <a name="resolution"></a>Resolución
 
-La dirección IP del nodo activo de Zookeeper se puede identificar desde la interfaz de usuario de Ambari, mediante el seguimiento de los vínculos a **HBase -> Quick Links -> ZK***  **(Active) -> Zookeeper Info** (HBase -> Vínculos rápidos -> ZK (activo) -> Información de Zookeeper). Realice las correcciones necesarias.
+La dirección IP del nodo activo de Zookeeper se puede identificar desde la interfaz de usuario de Ambari mediante el seguimiento de los vínculos a **HBase** > **Quick Links** > **ZK (Active)**  > **Zookeeper Info** (HBAse > Vínculos rápidos > ZK (activo) > Información de Zookeeper). Corrija la dirección IP según sea necesario.
 
 ---
 
@@ -35,27 +35,27 @@ La dirección IP del nodo activo de Zookeeper se puede identificar desde la inte
 
 Al ejecutar comandos, como `!tables`, recibe un mensaje de error parecido a este:
 
-```
+```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
 Al ejecutar comandos, como `count 'SYSTEM.CATALOG'`, recibe un mensaje de error parecido a este:
 
-```
+```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
 ```
 
 ### <a name="resolution"></a>Resolución
 
-Reinicie el servicio HMaster en todos los nodos de Zookeeper desde la interfaz de usuario de Ambari.
+En la interfaz de usuario de Apache Ambari, realice los siguientes pasos para reiniciar el servicio HMaster en todos los nodos de ZooKeeper:
 
-1. Vaya al vínculo **HBase -> Active HBase Master** en la sección de resumen de HBase.
+1. En la sección **Summary** (Resumen) de HBase, vaya a **HBase** > **Active HBase Master**.
 
-1. En la sección de **componentes**, reinicie el servicio HBase Master.
+1. En la sección **Components** (Componentes), reinicie el servicio HBase Master.
 
-1. Repita los pasos anteriores con el resto de servicios **Standby HBase Master**.
+1. Repita estos para todos los servicios **Standby HBase Master** restantes.
 
-Se puede tardar hasta cinco minutos en estabilizar el servicio HBase Master y finalizar la recuperación. Una vez que la tabla `SYSTEM.CATALOG` vuelva al estado normal, el problema de conectividad a Apache Phoenix debería resolverse automáticamente.
+El servicio HBase Master puede tener un máximo de cinco minutos en estabilizar y finalizar la recuperación. Después de que la tabla `SYSTEM.CATALOG` vuelva al estado normal, el problema de conectividad a Apache Phoenix debería resolverse automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

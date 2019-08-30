@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667341"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534691"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -45,7 +45,7 @@ La lista de máquinas virtuales se filtra para mostrar solo las que se encuentra
 
 ### <a name="resource-group-limit"></a> Limitaciones de incorporación
 
-El número de grupos de recursos que puede usar para incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualizaciones, están limitadas a 5 grupos de recursos por implementación. Para garantizar la integridad de la incorporación, dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja tres grupos de recursos para seleccionar para la implementación.
+El número de grupos de recursos que puede usar para incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualizaciones, están limitadas a 5 grupos de recursos por implementación. Para garantizar la integridad de la incorporación, dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja tres grupos de recursos para seleccionar para la implementación. Este límite solo se aplica a la incorporación simultánea, no al número de grupos de recursos que se pueden administrar mediante una solución de Automation.
 
 También puede usar un runbook para la incorporación; para más información, consulte [Incorporación de soluciones de actualización y control de cambios a Azure Automation](automation-onboard-solutions.md).
 

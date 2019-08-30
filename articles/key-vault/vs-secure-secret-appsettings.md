@@ -7,14 +7,14 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934372"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639477"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo guardar de forma segura las opciones de conf
 
 Tradicionalmente, las opciones de configuración de las aplicaciones web se guardaban en archivos de configuración como Web.config. Esta práctica conduce al registro de las opciones de configuración del secreto, como las credenciales de la nube, para los sistemas de control de código fuente públicos como GitHub. Mientras tanto, puede resultar difícil seguir los procedimientos recomendados de seguridad debido a los gastos necesarios para modificar el código fuente y volver a configurar las opciones de desarrollo.
 
-Para asegurarse de que el proceso de desarrollo es seguro, se crean bibliotecas de herramientas y de marco para guardar las opciones de configuración del secreto de la aplicación de forma segura con pocos cambios en el código fuente o ninguno.
+Para asegurarse de que el proceso de desarrollo es seguro, se crean bibliotecas de herramientas y de plataforma para guardar las opciones de configuración del secreto de la aplicación de forma segura con pocos cambios en el código fuente o ninguno.
 
 ## <a name="aspnet-and-net-core-applications"></a>Aplicaciones ASP.NET y .NET Core
 
@@ -50,7 +50,7 @@ Si está desarrollando un proyecto y tiene que compartir código fuente de forma
     ![Agregar secreto de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Antes de Visual Studio 2017 V15.6, se solía recomendar instalar la extensión de autenticación de servicios de Azure para Visual Studio, aunque ya está en desuso porque la funcionalidad se ha integrado en Visual Studio. Por lo tanto, si tiene una versión anterior de Visual Studio 2017, se recomienda actualizar al menos a VS 2017 15.6 o posterior para poder usar esta funcionalidad de forma nativa y acceder a Key Vault desde la propia identidad de inicio de sesión de Visual Studio.
+    > Antes de Visual Studio 2017 V15.6, se solía recomendar instalar la extensión de autenticación de servicios de Azure para Visual Studio, aunque ya está en desuso porque la funcionalidad se ha integrado en Visual Studio. Por lo tanto, si tiene una versión anterior de Visual Studio 2017, se recomienda actualizar al menos a VS 2017 15.6 o posterior para poder usar esta funcionalidad de forma nativa y acceder a Key Vault desde la propia identidad de inicio de sesión de Visual Studio.
     >
  
 4. Agregue los siguientes paquetes de NuGet al proyecto:
@@ -97,7 +97,7 @@ Si está escribiendo un prototipo rápido y no quiere aprovisionar recursos de A
 
 1. Instale el siguiente paquete NuGet en el proyecto.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
 2. Cree un archivo similar al siguiente. Guárdelo en una ubicación fuera de la carpeta del proyecto.

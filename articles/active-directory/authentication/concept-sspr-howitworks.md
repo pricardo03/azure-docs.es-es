@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415640"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561351"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
 ¿Cómo funciona el autoservicio de restablecimiento de contraseña (SSPR)? ¿Qué significa la opción en la interfaz? Siga leyendo para obtener más información acerca de SSPR de Azure Active Directory (Azure AD).
-
-|     |
-| --- |
-| La notificación de aplicación móvil y el código de aplicación móvil como métodos para el autoservicio de restablecimiento de contraseña de Azure AD son características en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
 
@@ -61,8 +56,8 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
 
 Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, se hace referencia a estas opciones como "puertas". Se recomienda encarecidamente **elegir dos o más métodos de autenticación** para que los usuarios tengan más flexibilidad en caso de que no puedan acceder a uno cuando lo necesiten. Se puede encontrar información adicional sobre los siguientes métodos en el artículo [¿Qué son los métodos de autenticación?](concept-authentication-methods.md).
 
-* Notificación de la aplicación móvil (vista previa)
-* Código de la aplicación móvil (vista previa)
+* Notificación en aplicación móvil
+* Código de aplicación móvil
 * Email
 * Teléfono móvil
 * Teléfono del trabajo
@@ -86,7 +81,7 @@ Los usuarios pueden elegir proporcionar más métodos de autenticación si el ad
 
 Si un usuario no tiene los métodos necesarios mínimos registrados, verá una página de error que le redirigirá a solicitar que un administrador restablezca su contraseña.
 
-#### <a name="mobile-app-and-sspr-preview"></a>Aplicación móvil y SSPR (versión preliminar)
+#### <a name="mobile-app-and-sspr"></a>Aplicación móvil y SSPR
 
 Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Authenticator, como un método para restablecer la contraseña, debe ser consciente de las siguientes advertencias:
 

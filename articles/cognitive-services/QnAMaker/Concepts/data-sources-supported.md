@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955549"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615978"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
 QnA Maker extrae automáticamente pares de preguntas y respuestas del contenido semiestructurado, como preguntas más frecuentes, manuales de productos, directrices, documentos de soporte técnico y directivas almacenadas como páginas web, archivos PDF o archivos de documento (DOC) de MS Word. El contenido también se puede agregar a la base de conocimiento de archivos de contenido de preguntas y respuestas estructurados. 
+
+## <a name="data-types"></a>Tipos de datos
 
 En la tabla siguiente se resumen los tipos de contenido y los formatos de archivo que son compatibles con QnA Maker.
 
@@ -32,11 +34,21 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
 
-La mayoría de las ubicaciones de origen de datos deben proporcionar las direcciones URL o los archivos públicos, que no requieren autenticación. 
+Las ubicaciones de origen de datos son **direcciones URL o archivos públicos**, que no requieren autenticación. 
 
-[Las ubicaciones de origen de datos de SharePoint](../How-to/add-sharepoint-datasources.md) tienen permiso para proporcionar archivos autenticados. Los recursos de SharePoint deben ser archivos, no páginas web. 
+Si necesita autenticación para el origen de datos, tenga en cuenta los siguientes métodos para introducir esos datos en QnA Maker:
 
-Si tiene un archivo o una dirección URL autenticados, una opción alternativa es descargar el archivo desde el sitio autenticado hasta el equipo local y luego agregar el archivo desde el equipo local hasta la base de conocimiento. 
+* [Descargar manualmente el archivo](#download-file-from-authenticated-data-source-location) e importarlo en QnA Maker
+* Importar el archivo de la [ubicación de SharePoint](#import-file-from-authenticated-sharepoint) autenticada 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>Descarga del archivo de la ubicación del origen de datos autenticada
+
+Si tiene un archivo o una dirección URL autenticados (no una ubicación de SharePoint autenticada), una opción alternativa es descargar el archivo del sitio autenticado en el equipo local y luego agregarlo desde el equipo local hasta la base de conocimiento.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>Importación del archivo de SharePoint autenticado 
+
+Las [ubicaciones de origen de datos de SharePoint](../How-to/add-sharepoint-datasources.md) tienen permiso para proporcionar **archivos** autenticados. Los recursos de SharePoint deben ser archivos, no páginas web. Si la dirección URL finaliza con una extensión web, como **.ASPX**, no se importará en QnA Maker desde SharePoint.
+
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 
@@ -133,9 +145,21 @@ Las preguntas y respuestas en forma de archivos *.txt*, *.tsv* o *.xls* estructu
 
 Se ignoran las columnas adicionales del archivo de origen.
 
+### <a name="example-of-structured-excel-file"></a>Ejemplo de archivo de Excel estructurado
+
 A continuación se muestra un ejemplo de archivo *.xls* de preguntas y respuestas estructurado, con contenido HTML:
 
  ![Ejemplo de libro Excel de QnA estructurado para una base de conocimiento](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Ejemplo de preguntas alternativas para una sola respuesta en un archivo de Excel
+
+A continuación se muestra un ejemplo de un archivo *.xls* de QnA estructurado, con varias preguntas alternativas para una sola respuesta:
+
+ ![Ejemplo de preguntas alternativas para una sola respuesta en un archivo de Excel](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+Una vez importado el archivo, el par pregunta-respuesta se encuentra en la base de conocimiento, como se muestra a continuación:
+
+ ![Captura de pantalla de preguntas alternativas para una sola respuesta importada en la base de conocimiento](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato de datos estructurado mediante importación
 

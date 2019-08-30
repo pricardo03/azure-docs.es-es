@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479546"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575347"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conexión a SQL Data Warehouse con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Use SQL Server Management Studio (SSMS) para conectarse a y realizar consultas e
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar este tutorial, necesitará:
 
-* Una cuenta de Almacenamiento de datos SQL existente. Para crear una, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse].
+* Una cuenta de SQL Data Warehouse existente. Para crear una, consulte [Creación de una instancia de Azure SQL Data Warehouse][Create a SQL Data Warehouse].
 * SQL Server Management Studio (SSMS) instalado. [Instale SSMS][Install SSMS] de forma gratuita si aún no lo tiene.
 * El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to Azure SQL Data Warehouse][Connect to SQL Data Warehouse](Conexión a Almacenamiento de datos SQL).
 

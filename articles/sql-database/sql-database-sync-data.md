@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566427"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648359"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -118,6 +118,12 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 ### <a name="general-requirements"></a>Requisitos generales
 
 - Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que cambiar un valor de clave principal, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
+
+> [!IMPORTANT]
+> Si se cambia el valor de una clave principal existente, se producirá el siguiente comportamiento erróneo:   
+>   - Los datos entre el concentrador y el miembro pueden perderse aunque la sincronización no notifique ningún problema.
+> - Se puede producir un error en la sincronización porque la tabla de seguimiento tiene una fila no existente del origen debido al cambio de la clave principal.
+
 - Se debe habilitar el aislamiento de instantánea. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitaciones generales

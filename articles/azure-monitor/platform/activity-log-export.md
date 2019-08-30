@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248150"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639628"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
@@ -63,8 +63,10 @@ Si se establecen directivas de retención, pero el almacenamiento de registros e
 
 > [!WARNING]
 > El formato de los datos de registro de la cuenta de almacenamiento ha cambiado a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](diagnostic-logs-append-blobs.md)
->
->
+
+
+> [!IMPORTANT]
+> Es posible que reciba un error al crear un perfil de registro si el proveedor de recursos de Microsoft.Insights no está registrado. Para registrar este proveedor y tipos, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Creación del perfil de registro mediante Azure Portal
 
@@ -158,7 +160,7 @@ Si ya existe un perfil de registro, primero debe quitar el perfil de registro ex
     | storage-account-id |Sí |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
     | locations |Sí |Lista separada por espacios de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `az account list-locations --query [].name`. |
     | days |Sí |Número de días que deben retenerse los eventos, entre 1 y 365. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida).  Si el valor es cero, el parámetro habilitado se debe establecer en true. |
-    |Enabled | Sí |True o False.  Se usa para habilitar o deshabilitar la directiva de retención.  Si el valor es True, el parámetro de días debe ser un valor mayor que 0.
+    |enabled | Sí |True o False.  Se usa para habilitar o deshabilitar la directiva de retención.  Si el valor es True, el parámetro de días debe ser un valor mayor que 0.
     | categories |Sí |Lista separada por espacios de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 

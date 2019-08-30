@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566801"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515287"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Límites de recursos
 
-Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## <a name="billing"></a>Facturación
 
@@ -324,4 +324,4 @@ El nivel de proceso sin servidor está disponible en todas las regiones excepto 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para comenzar, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal](sql-database-single-database-get-started.md).
-- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

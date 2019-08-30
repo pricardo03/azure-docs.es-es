@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828796"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648311"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -92,7 +92,7 @@ Los usuarios finales que están habilitados para MFA a través de un servidor de
 
 ### <a name="device-registration"></a>Registro de dispositivos
 
-Uno de los requisitos previos para crear esta nueva credencial segura es que el dispositivo también debe estar registrado en el inquilino de Azure AD para un usuario individual. Debido a las actuales restricciones del registro de dispositivos, solo se puede registrar un dispositivo en un inquilino. Este límite significa que solo se puede habilitar una cuenta profesional o educativa en la aplicación Microsoft Authenticator para el inicio de sesión telefónico.
+Uno de los requisitos previos para crear esta nueva credencial segura es que el dispositivo, donde está instalada la aplicación Microsoft Authenticator, también debe estar registrado en el inquilino de Azure AD para un usuario individual. Debido a las actuales restricciones del registro de dispositivos, solo se puede registrar un dispositivo en un inquilino. Este límite significa que solo se puede habilitar una cuenta profesional o educativa en la aplicación Microsoft Authenticator para el inicio de sesión telefónico.
 
 > [!NOTE]
 > El registro de dispositivos no es lo mismo que la administración de dispositivos o "MDM". Solo asocia un identificador de dispositivo y un identificador de usuario en el directorio de Azure AD.  

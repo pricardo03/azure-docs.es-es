@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678102"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562123"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678102"
 > La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Con la administración de derechos de Azure AD, los paquetes de acceso permiten realizar una instalación única de los recursos y las directivas que administran automáticamente el acceso durante toda la vida del paquete de acceso. 
+
+Los administradores de paquetes de acceso pueden configurar directivas para requerir que los usuarios tengan que aprobar el acceso a los paquetes de acceso. Los usuarios que necesite acceder a un paquete de acceso pueden enviar una solicitud para obtenerlo. En este artículo se describe cómo enviar una solicitud de acceso.
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Inicio de sesión en el portal Mi acceso
 

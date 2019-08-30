@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748941"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575331"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 
@@ -115,4 +115,4 @@ Para escalar el almacenamiento de datos, se requieren los permisos descritos en 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Otro aspecto de la administración de recursos de proceso es la asignación de diferentes recursos de proceso para consultas individuales. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
+Consulte la guía de procedimientos de [administración del proceso](manage-compute-with-azure-functions.md) Otro aspecto de la administración de recursos de proceso es asignar distintos recursos a las consultas individuales. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).

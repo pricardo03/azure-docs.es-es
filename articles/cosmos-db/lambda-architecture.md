@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 70f3471b22027bbf5ece87897e678370767f6743
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717083"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616887"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
 
@@ -42,7 +42,7 @@ Los principios básicos de una arquitectura lambda se describen en el diagrama a
 
 A medida que avancemos, podremos implementar esta arquitectura usando solo lo siguiente:
 
-* Una o varias colecciones de Azure Cosmos DB
+* Contenedore(s) de Azure Cosmos
 * Clúster de HDInsight (Apache Spark 2.1)
 * Spark Connector [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
@@ -114,7 +114,7 @@ Puesto que los nuevos datos se cargan en Azure Cosmos DB (donde la fuente de cam
 
  1. Todos los **datos** se insertan solo en Azure Cosmos DB (para evitar problemas de multidifusión).
  2. La **capa de procesamiento por lotes** tiene un conjunto de datos maestro (un conjunto inmutable, solo de anexación de datos sin procesar) almacenado en Azure Cosmos DB. Mediante HDI Spark, puede calcular previamente las agregaciones que se van a almacenar en las vistas de procesamiento por lotes calculadas.
- 3. La **capa de servicio** es una base de datos de Azure Cosmos DB con colecciones para el conjunto de datos maestro y las vistas de lotes procesadas.
+ 3. La **capa de servicio** es una base de datos de Azure Cosmos con colecciones para el conjunto de datos maestro y las vistas por lotes procesadas.
  4. La **capa de velocidad** se analizará más adelante en este artículo.
  5. Todas las consultas se pueden resolver mediante la combinación de los resultados de las vistas de lote y las vistas en tiempo real, o haciendo ping en ellas individualmente.
 
@@ -161,7 +161,7 @@ limit 10
 
 ![Gráfico que muestra el número de tweets por hashtag](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-Ahora que tiene la consulta, vamos a guardarla de nuevo en una colección usando el conector de Spark para guardar los datos de salida en otra colección diferente.  En este ejemplo, use Scala para presentar la conexión. De forma parecida a la del ejemplo anterior, cree la configuración de la conexión para guardar la trama de datos de Apache Spark en una colección diferente de Azure Cosmos DB.
+Ahora que tiene la consulta, vamos a guardarla de nuevo en una colección usando el conector de Spark para guardar los datos de salida en otra colección diferente.  En este ejemplo, use Scala para presentar la conexión. De forma parecida al ejemplo anterior, cree la configuración de la conexión para guardar la trama de datos de Apache Spark en una colección diferente de Azure Cosmos.
 
 ```
 val writeConfigMap = Map(
@@ -192,7 +192,7 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-Esta última instrucción ha guardado la trama de datos de Spark en una nueva colección de Azure Cosmos DB. Desde la perspectiva de una arquitectura lambda, se trata de su **vista de lote** de la **capa de servicio**.
+Esta última instrucción ha guardado ahora la trama de datos de Spark en un nuevo contenedor de Azure Cosmos. Desde la perspectiva de una arquitectura lambda, se trata de su **vista por lote** de la **capa de servicio**.
  
 #### <a name="resources"></a>Recursos
 
@@ -205,7 +205,7 @@ Como ya se indicó anteriormente, el uso de la biblioteca de la fuente de cambio
 
 ![Diagrama que muestra la capa de velocidad de la arquitectura lambda](./media/lambda-architecture/lambda-architecture-speed.png)
 
-Para ello, cree una colección de Azure Cosmos DB independiente para guardar los resultados de las consultas de los flujos estructurados.  Esto hace que se permita a otros sistemas acceder a esta información y no solo a Apache Spark. Al igual que con la característica Período de vida (TTL) de Cosmos DB, puede configurar los documentos para que se eliminen automáticamente después de una duración establecida.  Para más información sobre la característica Período de vida de Azure Cosmos DB, consulte [Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida](time-to-live.md)
+Para ello, cree un contenedor de Azure Cosmos independiente para guardar los resultados de las consultas de los flujos estructurados.  Esto hace que se permita a otros sistemas acceder a esta información y no solo a Apache Spark. Al igual que con la característica Período de vida (TTL) de Cosmos DB, puede configurar los documentos para que se eliminen automáticamente después de una duración establecida.  Para más información sobre la característica Período de vida de Azure Cosmos DB, consulte [Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos con período de vida](time-to-live.md).
 
 ```
 // Import Libraries

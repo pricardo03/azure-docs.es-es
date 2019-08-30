@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e4d33756f1e09abedbf828deb447fbf14c6bfed7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779860"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616916"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -57,7 +57,7 @@ El tamaño de la reserva debe basarse en la cantidad total de rendimiento que us
    | Grupo de recursos | Grupo de recursos al que se aplica el descuento de capacidad reservada. |
    |Término  |   Un año o tres años.   |
    |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de arquitectura multimaestro por hora.|
-   | Unidades de capacidad reservada| La cantidad de rendimiento que quiere reservar. Puede calcular este valor si determina el rendimiento necesario para todos los recursos de Cosmos DB (por ejemplo, las bases de datos o contenedores) por región. A continuación, multiplique esa cifra por el número de regiones que asociará a la base de datos de Cosmos DB. Por ejemplo:  Si tiene cinco regiones con un millón de RU/s en todas las regiones, seleccione cinco millones de RU/s para la compra de capacidad de reserva. |
+   | Unidades de capacidad reservada| La cantidad de rendimiento que quiere reservar. Puede calcular este valor si determina el rendimiento necesario para todos los recursos de Cosmos DB (por ejemplo, las bases de datos o contenedores) por región. A continuación, multiplique esa cifra por el número de regiones que asociará a la base de datos de Cosmos. Por ejemplo:  Si tiene cinco regiones con un millón de RU/s en todas las regiones, seleccione cinco millones de RU/s para la compra de capacidad de reserva. |
 
 
 5. Después de rellenar el formulario, se calcula el precio necesario para comprar la capacidad reservada. La salida también muestra el porcentaje de descuento que se obtiene con las opciones seleccionadas. A continuación, haga clic en **Seleccionar**.

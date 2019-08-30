@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952984"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534706"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -250,6 +250,15 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | Control de reinicio| Determina cómo se deben controlar los reinicios. Las opciones disponibles son la siguientes:</br>Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]</br>Always reboot (Reiniciar siempre)</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no se instalarán las actualizaciones|
 
 Las implementaciones de actualizaciones también se pueden crear mediante programación. Para información sobre cómo crear una implementación de actualizaciones con la API de REST, consulte [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create) (Configuraciones de actualización de software: Creación). También hay un runbook de ejemplo que puede usarse para crear una implementación de actualizaciones semanal. Para más información acerca de este runbook, consulte [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Crear una implementación de actualización semanal para una o más VM en un grupo de recursos).
+
+### <a name="maintenance-windows"></a>Ventanas de mantenimiento
+
+Las de ventanas de mantenimiento controlan la cantidad de tiempo permitido para que se instalen las actualizaciones. Tenga en cuenta los siguientes detalles al especificar una ventana de mantenimiento.
+
+* Las ventanas de mantenimiento controlan el número de actualizaciones que se intentan instalar.
+* Update Management no detiene la instalación de nuevas actualizaciones si se está aproximando el final de una ventana de mantenimiento.
+* Update Management no finaliza las actualizaciones en curso si se supera la ventana de mantenimiento.
+* Si la ventana de mantenimiento se supera en Windows, suele deberse a que una actualización de Service Pack tarda mucho tiempo en instalarse.
 
 ### <a name="multi-tenant"></a>Implementaciones de actualizaciones entre inquilinos
 

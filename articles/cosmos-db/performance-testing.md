@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243526"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616783"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Pruebas de escala y rendimiento con Azure Cosmos DB
 
@@ -42,7 +42,7 @@ La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, ta
 **Paso 2:** Modifique la configuración de EndpointUrl, AuthorizationKey, CollectionThroughput y DocumentTemplate (opcional) en el archivo App.config.
 
 > [!NOTE]
-> Antes de aprovisionar colecciones con un alto rendimiento, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar los costos por colección. Azure Cosmos DB realiza una facturación independiente por horas por el almacenamiento y el rendimiento. Puede ahorrar costos si elimina o reduce el rendimiento de las colecciones de Azure Cosmos DB después de realizar las pruebas.
+> Antes de aprovisionar colecciones con un alto rendimiento, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar los costos por colección. Azure Cosmos DB realiza una facturación independiente por horas por el almacenamiento y el rendimiento. Puede ahorrar costos si elimina o reduce el procesamiento de las colecciones de Azure Cosmos después de realizar las pruebas.
 > 
 > 
 
