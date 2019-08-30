@@ -3,15 +3,15 @@ title: 'Uso del calculador de la fuente de cambios: Azure Cosmos DB'
 description: Obtenga información acerca de cómo usar el calculador de la fuente de cambios para analizar el progreso del procesador de la fuente de cambios
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615275"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092946"
 ---
 # <a name="use-the-change-feed-estimator"></a>Uso del calculador de la fuente de cambios
 
@@ -55,7 +55,7 @@ Puede enviarla a su solución de supervisión y usarla para saber cómo se compo
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Ejemplos de uso en GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Ejemplos de uso en GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Ejemplos adicionales en GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Pasos siguientes

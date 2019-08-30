@@ -3,17 +3,17 @@ title: Generación de una cadena de conexión de dispositivos para Azure IoT Cen
 description: Como desarrollador de dispositivos, ¿cómo puedo generar una cadena de conexión para un dispositivo que es necesario conectar a una aplicación de IoT Central?
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c0332656b75c3c8d0cddecb41c7a15ac2f218c
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885645"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019778"
 ---
 # <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Generación de una cadena de conexión de dispositivo para conectarse a una aplicación de Azure IoT Central
 

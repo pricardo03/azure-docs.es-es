@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564141"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114846"
 ---
 # <a name="install-and-run-face-containers"></a>Instalación y uso de contenedores de Face
 
@@ -118,7 +118,7 @@ Hay más [ejemplos](./face-resource-container-config.md#example-docker-run-comma
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
-Utilice el host, `https://localhost:5000`, con las API de contenedor.
+Utilice el host, `http://localhost:5000`, con las API de contenedor.
 
 
 <!--  ## Validate container is running -->
@@ -150,7 +150,6 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 En este artículo aprendió los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Face API. En resumen:
 
-* Face API proporciona tres contenedores de Linux para Docker, que proporcionan la extracción de frases clave, la detección de idioma y el análisis de sentimiento.
 * Las imágenes de contenedor se descargan de Azure Container Registry.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Face API mediante la especificación del URI del host del contenedor.
