@@ -51,7 +51,7 @@ Los eventos se envían a través de objetos de IoT (como dispositivos y sensores
 | --- | --- | --- |
 | id | string | Identificador único para el evento |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
-| data | objeto | Los datos del evento específicos del proveedor de recursos. |
+| data | object | Los datos del evento específicos del proveedor de recursos. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
