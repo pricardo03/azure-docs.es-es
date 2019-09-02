@@ -235,7 +235,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 Para comprobar que la aplicación web funciona desplácese hasta ella (`http://<app-name>.azurewebsites.net`).
 
 > [!NOTE]
-> La primera vez que acceda a la aplicación puede tardar, ya que App Service necesita extraer la imagen completa. Si el tiempo del explorador se agota, simplemente actualice la página.
+> La primera vez que acceda a la aplicación esta puede tardar, ya que App Service necesita extraer la imagen completa. Si el tiempo del explorador se agota, simplemente actualice la página.
 
 ![Prueba de la configuración del puerto de la aplicación web](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -283,7 +283,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para habi
     COPY sshd_config /etc/ssh/
     ```
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L22) expone el puerto 2222 en el contenedor. Se trata de un puerto interno al que solo pueden acceder los contenedores que se encuentren en el puente de una red privada virtual. 
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L22) expone el puerto 2222 en el contenedor. Se trata de un puerto interno al que solo pueden acceder los contenedores que se encuentren en la red puente de una red privada virtual. 
 
     ```Dockerfile
     EXPOSE 8000 2222

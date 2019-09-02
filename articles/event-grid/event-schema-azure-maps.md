@@ -119,9 +119,9 @@ El objeto data tiene las siguientes propiedades:
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoría de API del evento. |
 | apiName | string | Nombre de API del evento. |
-| issues | objeto | Se enumeran los problemas que se encontraron durante el procesamiento. Si se devuelve algún problema, no se devolverán geometrías con la respuesta. |
+| issues | object | Se enumeran los problemas que se encontraron durante el procesamiento. Si se devuelve algún problema, no se devolverán geometrías con la respuesta. |
 | responseCode | número | Código de respuesta HTTP |
-| geometries | objeto | Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
+| geometries | object | Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
 
 Se devuelve el objeto de error cuando se produce un error en la API de Maps. El objeto de error tiene las siguientes propiedades:
 
