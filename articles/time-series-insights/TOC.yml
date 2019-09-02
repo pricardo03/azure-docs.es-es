@@ -142,34 +142,6 @@
       items:
         - name: SDK de cliente de JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
-- name: Temas relacionados
-  items:
-    - name: Soluciones
-      items:
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: Aceleradores de soluciones de IoT
-          href: /azure/iot-accelerators
-    - name: Servicios de plataforma
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: SDK de servicio de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Mapas
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: SDK de dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Solicitudes de datos del cliente
