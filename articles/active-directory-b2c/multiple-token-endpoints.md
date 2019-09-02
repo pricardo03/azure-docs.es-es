@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 En esta sección, actualizará el código para especificar que ambos puntos de conexión de emisores de tokens son válidos.
 
 1. Abra la solución **B2C-WebAPI-DotNet.sln** en Visual Studio.
-1. En el proyecto **TaskService**, abra el archivo *TaskService\\App_Start\\**Startup.Auth.cs*** en el editor.
+1. En el proyecto **TaskService**, abra el archivo *TaskService\\App_Start\\ **Startup.Auth.cs*** en el editor.
 1. Agregue la siguiente directiva `using` al principio del archivo:
 
     `using System.Collections.Generic;`

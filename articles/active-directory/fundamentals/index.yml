@@ -1,47 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación sobre aspectos básicos de Azure Active Directory
+summary: Conozca los conceptos y procesos básicos de Azure Active Directory (Azure AD), incluyendo la creación de un entorno básico, usuarios básicos y grupos para empezar.
 metadata:
-  document_id: null
   title: Documentación sobre aspectos básicos de Azure Active Directory
-  description: Obtenga información sobre los conceptos básicos y los procesos disponibles al usar Azure Active Directory.
-  services: active-directory
-  ms.subservice: fundamentals
-  author: msaburnley
+  description: Conozca los conceptos y procesos básicos de Azure Active Directory (Azure AD), incluyendo la creación de un entorno básico, usuarios básicos y grupos para empezar.
   manager: daveba
-  ms.service: active-directory
-  ms.topic: landing-page
-  ms.date: 09/07/2018
   ms.author: ajburnle
-abstract:
-  description: 'Conozca los conceptos y procesos básicos de Azure Active Directory (Azure AD), incluyendo la creación de usuarios básicos, grupos y la creación de un entorno básico para empezar.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: Introducción al portal de Azure Active Directory.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_portal.png
-            text: Acceso a Azure AD para crear un inquilino
-            href: active-directory-access-create-new-tenant.md
-          - image:
-              src: ./media/index/i_tasks.png
-            text: Visualización de grupos y miembros
-            href: active-directory-groups-view-azure-portal.md
-  - title: Guías detalladas
-    items:
-      - type: paragraph
-        text: Aprenda a realizar tareas básicas para configurar su entorno de Azure Active Directory
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Suscripción a Azure AD Premium</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Adición de un nombre de dominio personalizado</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Creación de un grupo básico e incorporación de miembros</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Incorporación de propietarios de grupo</a>
-          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Incorporación de un nuevo usuario</a>
-          - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Asignación de roles a usuarios</a>
-          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Asignación de licencias a usuarios</a>
+  ms.collection: na
+  ms.date: 08/27/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: c0f85c065a4334f41c7f52a05e2b885f97dde25f
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70124895"
+landingContent:
+- title: Acerca de Azure AD
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Active Directory?
+      url: active-directory-whatis.md
+    - text: Novedades de Azure Active Directory
+      url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: Arquitectura de Azure AD
+      url: active-directory-architecture.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Acceso al portal y creación de un inquilino
+      url: active-directory-access-create-new-tenant.md
+    - text: Visualización de los grupos con miembros asignados
+      url: active-directory-groups-view-azure-portal.md
+- title: Creación de una cuenta de Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Suscripción a las ediciones Azure Active Directory Premium
+      url: active-directory-get-started-premium.md
+    - text: Registro en Azure AD como organización
+      url: sign-up-organization.md
+    - text: Incorporación del nombre de dominio personalizado
+      url: add-custom-domain.md
+- title: Creación de un grupo en Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de un grupo básico y adición de miembros
+      url: active-directory-groups-create-azure-portal.md
+    - text: Incorporación o eliminación de propietarios del grupo
+      url: active-directory-accessmanagement-managing-group-owners.md
+- title: Adición de usuarios y asignación de roles y licencias
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Adición o eliminación de usuarios
+      url: add-users-azure-active-directory.md
+    - text: Asignación de licencias a usuarios
+      url: license-users-groups.md

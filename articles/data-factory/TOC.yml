@@ -187,6 +187,8 @@
           href: iterative-development-debugging.md
     - name: Conectores
       items:
+        - name: Introducción a los conectores
+          href: connector-overview.md
         - name: Servicio Web de Amazon Marketplace
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
@@ -306,7 +308,7 @@
           href: connector-oracle-service-cloud.md
         - name: Formato Parquet
           href: format-parquet.md
-        - name: Paypal
+        - name: PayPal
           href: connector-paypal.md
         - name: Phoenix
           href: connector-phoenix.md
@@ -382,40 +384,40 @@
     - name: Transformación de datos
       href: transform-data.md
       items:
+        - name: Actividad de función de Azure
+          href: control-flow-azure-function-activity.md
+        - name: Actividad personalizada
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Actividad de Jar en Databricks
+          href: transform-data-databricks-jar.md
+        - name: Actividad de cuaderno de Databricks
+          href: transform-data-databricks-notebook.md
+        - name: Actividad de Python en Databricks
+          href: transform-data-databricks-python.md
+        - name: Actividad de U-SQL de Data Lake
+          href: transform-data-using-data-lake-analytics.md
         - name: Actividad de Hive de HDInsight
           href: transform-data-using-hadoop-hive.md
-        - name: Actividad de Pig de HDInsight
-          href: transform-data-using-hadoop-pig.md
         - name: Actividad de MapReduce de HDInsight
           href: transform-data-using-hadoop-map-reduce.md
-        - name: Actividad de streaming de HDInsight
-          href: transform-data-using-hadoop-streaming.md
+        - name: Actividad de Pig de HDInsight
+          href: transform-data-using-hadoop-pig.md
         - name: Actividad de HDInsight Spark
           href: transform-data-using-spark.md
+        - name: Actividad de streaming de HDInsight
+          href: transform-data-using-hadoop-streaming.md
         - name: Actividad de ejecución de lotes de Machine Learning
           href: transform-data-using-machine-learning.md
         - name: Actividad de actualización de recurso de ML
           href: update-machine-learning-models.md
         - name: Actividad de procedimiento almacenado
           href: transform-data-using-stored-procedure.md
-        - name: Actividad de U-SQL de Data Lake
-          href: transform-data-using-data-lake-analytics.md
-        - name: Actividad de cuaderno de Databricks
-          href: transform-data-databricks-notebook.md
-        - name: Actividad de Jar en Databricks
-          href: transform-data-databricks-jar.md
-        - name: Actividad de Python en Databricks
-          href: transform-data-databricks-python.md
-        - name: Actividad personalizada
-          href: transform-data-using-dotnet-custom-activity.md
         - name: Servicios vinculados de proceso
           href: compute-linked-services.md
     - name: Flujo de control
       items:
         - name: Anexar actividad de variable
           href: control-flow-append-variable-activity.md
-        - name: Actividad de función de Azure
-          href: control-flow-azure-function-activity.md
         - name: Ejecución de actividad de Data Flow
           href: control-flow-execute-data-flow-activity.md
         - name: Actividad de ejecución de canalización
@@ -584,6 +586,8 @@
       items:
         - name: Solución de problemas de actividad
           href: data-factory-troubleshoot-guide.md
+        - name: Solución de problemas del conector
+          href: connector-troubleshoot-guide.md
         - name: Solución de problemas de administración de Azure-SSIS Integration Runtime
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Solución de problemas de ejecución de paquetes en Azure-SSIS Integration Runtime

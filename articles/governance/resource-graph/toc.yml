@@ -8,6 +8,9 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: 'Ejecución de la primera consulta: Azure Portal'
+      displayName: 'portal, resource, graph, explorer'
+      href: first-query-portal.md
     - name: 'Ejecución de la primera consulta: CLI de Azure'
       displayName: 'extension, docker'
       href: first-query-azurecli.md

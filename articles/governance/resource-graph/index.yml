@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 05/06/2019
+  ms.date: 08/25/2019
   ms.author: dacoulte
 abstract:
   description: La documentación de Azure Resource Graph le ayuda a configurar y a aprender el lenguaje de consultas para detectar y explorar los recursos a escala.
@@ -21,9 +21,14 @@ sections:
         style: icon48
         items:
           - image:
-              alt: Azure CLI
+              alt: Azure Resource Graph Explorer
+              src: ./media/arg_explorer.svg
+            text: Resource Graph Explorer
+            href: first-query-portal.md
+          - image:
+              alt: CLI de Azure
               src: ./media/cli.svg
-            text: Azure CLI
+            text: CLI de Azure
             href: first-query-azurecli.md
           - image:
               alt: Azure PowerShell
@@ -42,7 +47,7 @@ sections:
         items:
           - title: Línea de comandos
             html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI de Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-          - title: Languages
+          - title: Lenguajes
             html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">SDK de Azure para .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/">SDK de Azure para .NET (NuGet)</a></p><p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph">Azure SDK para Go</a></p><p><a href="/java/api/overview/azure/resourcegraph/management?view=azure-java-stable">SDK de Azure para Java</a></p><p><a href="https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar">SDK de Azure para Java (Maven)</a></p><p><a href="/javascript/api/@azure/arm-resourcegraph">SDK de Azure para Node</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">SDK de Azure para Python</a></p><p><a href="https://rubygems.org/gems/azure_mgmt_resourcegraph">SDK de Azure para Ruby (Gem)</a></p>'
           - title: REST
             html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Referencia de API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01">2019-04-01 (OpenAPI)</a></p>'

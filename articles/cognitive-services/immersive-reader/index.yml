@@ -1,63 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación sobre Lector inmersivo
+summary: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
 metadata:
-  title: 'Documentación sobre Lector inmersivo: inicios rápidos, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
-  description: Aprenda a usar Lector inmersivo en su aplicación.
-  services: cognitive-services
-  author: metanMSFT
-  manager: nitinme
+  title: Documentación sobre Lector inmersivo
+  description: Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.
+  services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
-  ms.date: 06/20/2019
-  ms.author: metanMSFT
-abstract:
-  description: 'Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/immersive-reader/overview
-            html: <p>Más información sobre Lector inmersivo y cómo integrarlo en sus aplicaciones</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: ¿Qué es Lector inmersivo?
-          - href: /azure/cognitive-services/immersive-reader/reference
-            html: <p>Más información sobre el SDK de Javascript para Lector inmersivo</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Uso del SDK de Lector inmersivo
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Introducción a Lector inmersivo:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            alt: 'Logotipo de C#'
-            href: quickstart
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a desarrollar aplicaciones mediante Lector inmersivo:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-nodejs.md">Iniciar Lector inmersivo mediante Node.js</a>
-          - html: <a href="tutorial-python.md">Iniciar Lector inmersivo mediante Python</a>
-          - html: <a href="tutorial-ios-picture-immersive-reader.md">Iniciar Lector inmersivo mediante Swift</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: SDK
-            html: <p><a href="reference.md">Javascript</a></p>
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164491"
+landingContent:
+- title: Acerca del Lector inmersivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Lector inmersivo?
+      url: overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Exploración de Lector inmersivo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticación mediante Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: SDK de JavaScript
+      url: reference.md
+    - text: SDK de iOS
+      url: ios-reference.md

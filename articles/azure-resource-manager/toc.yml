@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Conceptos
   items:
+    - name: Implementaciones de plantilla
+      href: template-deployment-overview.md
     - name: Estructura de archivos de plantilla
       displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
@@ -83,6 +85,8 @@
   items:
     - name: Crear plantillas
       items:
+        - name: 'Herramienta de desarrollo: VS Code'
+          href: resource-manager-tools-vs-code.md
         - name: Creación de una plantilla
           href: how-to-create-template.md
         - name: Nombre y tipo del recurso secundario

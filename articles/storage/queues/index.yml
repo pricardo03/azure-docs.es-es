@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: 'Documentación de Azure Queue Storage: Azure Storage'
+summary: Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes, Acceso a mensajes desde cualquier lugar del mundo mediante HTTP o HTTPS.
+metadata:
+  title: 'Documentación de Azure Queue Storage: Azure Storage'
+  description: Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes. Acceso a mensajes desde cualquier lugar del mundo mediante HTTP o HTTPS.
+  services: storage
+  ms.service: storage
+  ms.subservice: queues
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mhopkins-msft
+  ms.author: mhopkins
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 5de22a49dcc985ca95ee97d9de77180e2c56765b
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70129421"
+landingContent:
+- title: Acerca de las colas de Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué son las colas de Azure?
+      url: storage-queues-introduction.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una cola y agregación de un mensaje con Azure Portal
+      url: storage-quickstart-queues-portal.md
+    - text: Uso de .NET para crear una cola de Azure Storage
+      url: storage-quickstart-queues-dotnet.md
+- title: Desarrollo con colas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introducción al Almacenamiento en cola de Azure mediante .NET
+      url: storage-dotnet-how-to-use-queues.md
+    - text: Uso del almacenamiento de colas de Java
+      url: storage-java-how-to-use-queue-storage.md
+    - text: Uso del almacenamiento de colas de Node.js
+      url: storage-nodejs-how-to-use-queues.md
+    - text: Uso de Queue Storage de C++
+      url: storage-c-plus-plus-how-to-use-queues.md
+    - text: Uso del almacenamiento de colas de Python
+      url: storage-python-how-to-use-queue-storage.md
+- title: Administración de colas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Operaciones en Azure Queue Storage con Azure PowerShell
+      url: storage-powershell-how-to-use-queues.md
+- title: Tutorial
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Uso de las colas de Azure Storage (.NET)
+      url: storage-tutorial-queues.md

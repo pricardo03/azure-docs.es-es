@@ -41,7 +41,7 @@ sections:
       - items:
           - html: <a href="service/tutorial-1st-experiment-sdk-setup">Configure su entorno y entrene su primer experimento de Machine Learning</a>
           - html: <a href="service/tutorial-train-models-with-aml">Entrene e implemente modelos de clasificación de imágenes</a>
-          - html: <a href="service/tutorial-data-prep">Prepare los datos y utilice Machine Learning para predecir tarifas de taxi</a>
+          - html: <a href="service/tutorial-auto-train-models">Uso de Machine Learning para predecir tarifas de taxi</a>
         style: unordered
         type: list
       - text: 'Consuma sus modelos:'

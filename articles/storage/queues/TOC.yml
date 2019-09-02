@@ -1,5 +1,5 @@
-- name: Documentación de Azure Storage
-  href: /azure/storage/
+- name: Documentación de Azure Queues Storage
+  href: /azure/storage/queues/
 - name: Información general
   expanded: true
   items:

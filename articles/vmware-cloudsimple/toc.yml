@@ -60,6 +60,8 @@
           href: access-cloudsimple-portal.md
         - name: Configuración del firewall local
           href: on-premises-firewall-configuration.md
+        - name: Acceso al cliente de vSphere
+          href: vcenter-access.md
         - name: Administración de nodos
           items:
             - name: Aprovisionamiento de nodos
@@ -94,23 +96,19 @@
               href: public-ips.md
             - name: Configuración de las conexiones VPN
               href: vpn-gateway.md
-            - name: Obtención de información del mismo nivel para una conexión de red virtual a CloudSimple
+            - name: Conexión de red virtual a CloudSimple
               href: virtual-network-connection.md
-            - name: Acceso a los privilegios de escalado de clientes de VSphere para tareas de administración
-              href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
         - name: Administración de cuentas en el portal de CloudSimple
           items:
             - name: Ver el resumen de la cuenta
               href: account.md
             - name: Ver la lista de usuarios
               href: users.md
-            - name: Configuración de una conexión de red virtual a la nube privada
-              href: virtual-network-connection.md
-        - name: Configuración de máquinas virtuales de VMware para la nube privada
+        - name: Configuración de máquinas virtuales de CloudSimple
           items:
-            - name: Creación de una máquina virtual en Azure
+            - name: Creación de una máquina virtual de CloudSimple en Azure
               href: azure-create-vm.md
-            - name: Administración de máquinas virtuales en Azure
+            - name: Administración de máquinas virtuales de CloudSimple en Azure
               href: azure-manage-vm.md
     - name: Guías de procedimientos
       items:
@@ -126,12 +124,14 @@
               href: migration-layer-2-vpn.md
         - name: Redes de la nube privada
           items:
-            - name: Conexión VPN entre una nube local y una privada
+            - name: Conexión VPN a la nube privada
               href: set-up-vpn.md
             - name: Conexión de red local con ExpressRoute
               href: on-premises-connection.md
             - name: Conexión de red virtual de Azure con ExpressRoute
               href: azure-expressroute-connection.md
+            - name: Configuración de la resolución de nombres de DNS
+              href: on-premises-dns-setup.md
         - name: Plataforma de VMware
           items:
             - name: Más información sobre el modelo de permisos de la nube privada

@@ -59,6 +59,8 @@
       items:
         - name: Inserción y extracción de una imagen
           href: container-registry-get-started-docker-cli.md
+        - name: Inserción y extracción de un artefacto de OCI
+          href: container-registry-oci-artifacts.md
         - name: Visualización de repositorios
           href: container-registry-repositories.md
         - name: Importación de imágenes de contenedor

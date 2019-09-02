@@ -1,42 +1,63 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Azure Data Catalog
+summary: Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de la API de REST y otra documentación le muestran cómo planear y configurar el repositorio de datos en el que los consumidores puedan detectar los orígenes de datos disponibles y adquirir los conocimientos aportados por expertos en la materia.
 metadata:
-  title: 'Documentación sobre Azure Data Catalog: tutoriales y referencia de API'
-  meta.description: 'Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.'
-  services: data-catalog
-  author: JasonWHowell
+  author: jasonwhowell
+  description: Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de API y otra documentación.
   ms.author: jasonh
+  ms.date: 08/30/2019
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 07/01/2019
-abstract:
-  description: 'Aprenda a usar Data Catalog para ayudar a su organización y al equipo a detectar, comprender y consumir los orígenes de datos. Tutoriales, referencia de la API de REST y otra documentación le muestran cómo planear y configurar el repositorio de datos en el que los consumidores puedan detectar los orígenes de datos disponibles y adquirir los conocimientos aportados por expertos en la materia.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a implementar su primera instancia de Azure Data Catalog:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/data-catalog.svg
-            text: Portal de Azure
-            href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a registrar, buscar, anotar, administrar y eliminar recursos en Azure Data Catalog:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="register-data-assets-tutorial">Registro de recursos de datos en Azure Data Catalog</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/datacatalog/">Referencia de API de REST</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Búsqueda de referencia de sintaxis</a></p>
+  ms.openlocfilehash: eb60085cd76fa9d3857b5e284b2cdd03f35fcb13
+  ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/30/2019
+  ms.locfileid: "70172677"
+landingContent:
+- title: Acerca de Azure Data Catalog
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Data Catalog?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Aprenda a implementar su primera instancia de Data Catalog
+      url: data-catalog-get-started.md
+  - linkListType: concept
+    links:
+    - text: Preguntas más frecuentes
+      url: data-catalog-frequently-asked-questions.md
+- title: Registro de los recursos de datos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aprenda a registrar, buscar, anotar, administrar y eliminar recursos
+      url: register-data-assets-tutorial.md
+  - linkListType: concept
+    links:
+    - text: Orígenes de datos admitidos
+      url: data-catalog-dsr.md
+  - linkListType: how-to-guide
+    links:
+    - text: Registrar orígenes de datos
+      url: data-catalog-how-to-register.md
+- title: Programación de la API REST de Data Catalog
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Creación de una aplicación de Data Catalog con REST
+      url: /rest/api/datacatalog/get-started-creating-a-data-catalog-app
+  - linkListType: reference
+    links:
+    - text: Referencia de la API REST
+      url: /rest/api/datacatalog/
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una aplicación de Data Catalog
+      url: /rest/api/datacatalog/register-a-client-app
+  - linkListType: reference
+    links:
+    - text: Búsqueda de referencia de sintaxis
+      url: /rest/api/datacatalog/data-catalog-search-syntax-reference

@@ -156,6 +156,9 @@
     - name: Actualización de las asignaciones existentes desde el portal
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: Configuración del entorno para un operador de plano técnico
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: Administración de planos técnicos como código (comunidad)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Solución de problemas

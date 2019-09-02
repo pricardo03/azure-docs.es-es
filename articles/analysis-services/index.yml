@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Documentación de Azure Analysis Services
+summary: Aprenda a configurar el modelado de datos con Analysis Services en la nube. La documentación muestra cómo crear una solución de BI empresarial con modelos de datos tabulares.
+metadata:
+  title: 'Documentación sobre Azure Analysis Services: Conceptos, guías paso a paso, tutoriales, referencia de API'
+  description: Azure Analysis Services es una plataforma como un servicio (PaaS) completamente administrada que proporciona modelos de datos en la nube de nivel empresarial.
+  ms.service: analysis-services
+  ms.topic: landing-page
+  ms.collection: 
+  author: minewiskan
+  ms.author: owend
+  manager: mtillman
+  ms.date: 08/28/2019
+  ms.openlocfilehash: 5dfa0e502eb069a7d1a9dc4ef2310ae722ff4bb9
+  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70143023"
+landingContent:
+- title: Acerca de Azure Analysis Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Analysis Services?
+      url: analysis-services-overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 'Creación de un servidor: Portal'
+      url: analysis-services-create-server.md
+    - text: 'Creación de un servidor: PowerShell'
+      url: analysis-services-create-powershell.md
+    - text: 'Configuración del firewall del servidor: Portal'
+      url: analysis-services-qs-firewall.md
+- title: Entender
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Autenticación y permisos de usuario
+      url: analysis-services-manage-users.md
+    - text: Automatización con entidades de servicio
+      url: analysis-services-service-principal.md
+    - text: Conexión a orígenes de datos locales
+      url: analysis-services-gateway.md
+- title: Administración y conexión
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configuración de los roles de administrador del servidor y de usuario
+      url: tutorials/analysis-services-tutorial-roles.md
+    - text: Incorporación de un modelo de ejemplo desde el portal
+      url: analysis-services-create-sample-model.md
+    - text: Conexión con Power BI Desktop
+      url: tutorials/analysis-services-tutorial-pbid.md
+- title: Scripting y API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: PowerShell
+      url: /azure/analysis-services/analysis-services-powershell
+    - text: API DE REST
+      url: /rest/api/analysisservices/
+    - text: Tabular Model Scripting Language (TMSL)
+      url: /bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference

@@ -76,7 +76,7 @@ Si desea que los usuarios inicien sesión con una cuenta de LinkedIn, deberá de
 
 Defina una cuenta de LinkedIn como proveedor de notificaciones; para ello, agréguela al elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
-1. Abra el archivo *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** en el editor. Este archivo se encuentra en el [paquete de inicio de directivas personalizadas][starter-pack] que descargó como parte de uno de los requisitos previos.
+1. Abra el archivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions.xml*** en el editor. Este archivo se encuentra en el [paquete de inicio de directivas personalizadas][starter-pack] que descargó como parte de uno de los requisitos previos.
 1. Busque el elemento **ClaimsProviders**. Si no existe, agréguelo debajo del elemento raíz.
 1. Agregue un nuevo elemento **ClaimsProvider** tal como se muestra a continuación:
 
