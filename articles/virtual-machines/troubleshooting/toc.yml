@@ -97,8 +97,9 @@
 - name: Reinicio o cambio de tamaño de una máquina virtual
   href: restart-resize-error-troubleshooting.md
 - name: Consola serie
-  href: serial-console-overview.md
   items:
+    - name: Introducción a la consola serie
+      href: serial-console-overview.md
     - name: Consola serie para Linux
       href: serial-console-linux.md
       items:

@@ -147,6 +147,8 @@
           href: concepts-data-flow-overview.md
         - name: Modo de depuración
           href: concepts-data-flow-debug-mode.md
+        - name: Administración de JSON
+          href: concepts-data-flow-json.md
         - name: Desfase de esquema
           href: concepts-data-flow-schema-drift.md
         - name: Panel de inspección
@@ -446,6 +448,8 @@
           href: control-flow-webhook-activity.md
     - name: Transformaciones de flujos de datos
       items:
+        - name: Campo de ancho fijo
+          href: how-to-fixed-width.md
         - name: Agregado
           href: data-flow-aggregate.md
         - name: Alteración de fila
@@ -600,6 +604,8 @@
           href: data-migration-guidance-overview.md
         - name: Migración de datos de AWS S3 a Azure
           href: data-migration-guidance-s3-azure-storage.md
+        - name: Migración de datos desde un clúster de Hadoop local a Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
 - name: Referencia
   items:
     - name: .NET
