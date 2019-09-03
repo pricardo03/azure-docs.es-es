@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 2bf66f0d6636ac2a8d92a3a865833c9056cd22da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5892c0b7f18c43c095019caa9fa40ffec0017369
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934138"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231811"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Introducción a los ejemplos del plano técnico para IRS 1075
 
@@ -31,7 +31,7 @@ Ha revisado la introducción al ejemplo de plano técnico para IRS 1075. Ahora, 
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

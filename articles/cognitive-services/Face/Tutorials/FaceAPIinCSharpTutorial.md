@@ -19,7 +19,7 @@ ms.locfileid: "67603338"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Creación de una aplicación WPF que muestre los datos de las caras en una imagen
 
-En este tutorial, aprenderá a usar la API Face de Azure a través del SDK de cliente para .NET, para detectar caras en una imagen y, después, presentar dichos datos en la interfaz de usuario. Creará una aplicación Windows Presentation Framework (WPF) que detecta caras, dibuja un marco en cada una de ellas y muestra una descripción de la cara en la barra de estado. 
+En este tutorial, aprenderá a usar la API Face de Azure a través del SDK de cliente para .NET, para detectar caras en una imagen y, después, presentar dichos datos en la interfaz de usuario. Creará una aplicación Windows Presentation Framework (WPF) simple que detecta caras, dibuja un marco alrededor de cada una de ellas y muestra una descripción de la cara en la barra de estado. 
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -75,7 +75,7 @@ Luego, pegue el siguiente código en el método **MainWindow**.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
 
-Por último, agregue los métodos **BrowseButton_Click** y **FacePhoto_MouseMove** a la clase. Estos métodos corresponden a los controladores de eventos declarados en *MainWindow.xaml*. El método **BrowseButton_Click** crea **OpenFileDialog**, que permite al usuario seleccionar una imagen .jpg. Luego, muestra la imagen en la ventana principal. Se insertará el código restante de **BrowseButton_Click** y **FacePhoto_MouseMove** en los pasos posteriores. Tenga en cuenta también la `faceList`referencia&mdash; a una lista de objetos **DetectedFace**. En esta referencia es donde la aplicación almacenará y llamará a los datos reales de la cara.
+Por último, agregue los métodos **BrowseButton_Click** y **FacePhoto_MouseMove** a la clase. Estos métodos corresponden a los controladores de eventos declarados en *MainWindow.xaml*. El método **BrowseButton_Click** crea **OpenFileDialog**, que permite al usuario seleccionar una imagen .jpg. Luego, muestra la imagen en la ventana principal. Se insertará el código restante de **BrowseButton_Click** y **FacePhoto_MouseMove** en los pasos posteriores. Tenga en cuenta también la referencia`faceList`&mdash; a una lista de objetos **DetectedFace**. En esta referencia es donde la aplicación almacenará y llamará a los datos reales de la cara.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
 

@@ -54,7 +54,7 @@ Siga estos pasos para crear una base de datos única en blanco.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
     | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-    | **Grupos de recursos** | *yourResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+    | **Grupos de recursos** | *yourResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/naming-conventions). |
     | **Seleccionar origen** | Base de datos en blanco | Especifica que se debe crear una base de datos en blanco. |
 
 4. Haga clic en **Servidor** para usar un servidor de bases de datos existente o para crear y configurar uno nuevo. Seleccione un servidor existente o haga clic en **Crear un nuevo servidor** y rellene el formulario **Nuevo servidor** con la información siguiente:
@@ -116,10 +116,10 @@ Ahora la dirección IP puede pasar a través del firewall de IP; además, puede 
 En este tutorial, aprendió tareas básicas de las bases de datos como crear una base de datos y tablas, conectarse a la base de datos, cargar datos y ejecutar consultas. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Creación de una base de datos
+> * Crear una base de datos
 > * Configurar una regla de firewall
 > * Conectarse a la base de datos con [Visual Studio y C#](sql-database-connect-query-dotnet-visual-studio.md)
-> * Cree las tablas.
+> * Crear tablas.
 > * Insertar, actualizar, eliminar y consultar los datos
 
 Prosiga con el tutorial siguiente para aprender sobre la migración de datos.

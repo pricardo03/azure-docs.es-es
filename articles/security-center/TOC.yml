@@ -4,8 +4,10 @@
   items:
     - name: Acerca de Security Center
       href: security-center-intro.md
-    - name: Plataformas y características compatibles con Security Center
+    - name: Plataformas compatibles
       href: security-center-os-coverage.md
+    - name: Características compatibles
+      href: security-center-services.md
 - name: Guías de inicio rápido
   expanded: true
   items:

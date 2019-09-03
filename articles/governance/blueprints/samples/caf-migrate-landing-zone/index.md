@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: a3d697fcc6ef991bec80df02addcac5d4243005a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: dc30aeae842cf9c3cd39422517ed49773c524f1e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876489"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232841"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
@@ -52,7 +52,7 @@ Ya ha revisado la introducción y arquitectura del ejemplo de plano técnico de 
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

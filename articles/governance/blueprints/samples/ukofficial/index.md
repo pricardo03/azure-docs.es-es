@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a1db2fb5738be91fd08830a8e238c217fba34e34
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 21264947756510f139a9c99f23b4a3f28088b2eb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451179"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231603"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Introducción a los ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 
@@ -33,7 +33,7 @@ Ha revisado la introducción y arquitectura de los ejemplos de planos técnicos 
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

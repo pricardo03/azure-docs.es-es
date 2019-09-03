@@ -476,8 +476,6 @@
               items:
                 - name: Sitios de SharePoint
                   href: app/sharepoint.md
-                - name: Dynamics CRM
-                  href: app/sample-mscrm.md
                 - name: Escritorio de Windows
                   href: app/windows-desktop.md
         - name: Contenedores

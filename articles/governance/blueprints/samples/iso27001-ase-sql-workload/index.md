@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b17b07124cf4491a6c58e9be2b10f958e29217ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8877c29341c95d5cd0fe8e35887c44594e0b6d41
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876087"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231767"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
@@ -49,7 +49,7 @@ Ya ha revisado la introducción y arquitectura del ejemplo de plano técnico par
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

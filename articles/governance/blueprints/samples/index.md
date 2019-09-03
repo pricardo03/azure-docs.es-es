@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc05e8c7c1536544d9ac7c2a45f66da8316fe088
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076930"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231842"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -48,7 +48,7 @@ Hay planos técnicos de ejemplo que abordan el escenario del cliente donde los r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
