@@ -54,7 +54,7 @@ En esta guía de inicio rápido aprenderá a configurar el autoservicio de resta
 
 ## <a name="test-self-service-password-reset"></a>Autoservicio de restablecimiento de contraseña de prueba
 
-Ahora permite probar la configuración del autoservicio de restablecimiento de prueba con un usuario de prueba. Dado que Microsoft impone requisitos de autenticación estrictos para las cuentas de administrador de Azure, realizar la prueba con una cuenta de administrador puede cambiar el resultado. Para más información acerca de la directiva de contraseñas de administrador, consulte nuestro artículo sobre la [directiva de contraseñas](concept-sspr-policy.md).
+Ahora probaremos la configuración del autoservicio de restablecimiento de prueba con un usuario de prueba. Dado que Microsoft impone requisitos de autenticación estrictos para las cuentas de administrador de Azure, realizar la prueba con una cuenta de administrador puede cambiar el resultado. Para más información acerca de la directiva de contraseñas de administrador, consulte nuestro artículo sobre la [directiva de contraseñas](concept-sspr-policy.md).
 
 1. Abra una nueva ventana del explorador en modo de incógnito o InPrivate, y vaya a [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 2. Inicie sesión con un usuario de prueba sin privilegios de administrador y registre su teléfono de autenticación.

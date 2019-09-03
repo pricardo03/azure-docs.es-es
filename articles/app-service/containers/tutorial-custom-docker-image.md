@@ -241,7 +241,7 @@ Para comprobar que la aplicación web funciona desplácese hasta ella (`http://<
 
 ## <a name="change-web-app-and-redeploy"></a>Cambio de la aplicación web y nueva implementación
 
-En el repositorio de Git local, abra app/templates/app/index.html. Busque el primer elemento HTML y cambie a él.
+En el repositorio de Git local, abra app/templates/app/index.html. Busque el primer elemento HTML y cambie a:
 
 ```python
 <nav class="navbar navbar-inverse navbar-fixed-top">

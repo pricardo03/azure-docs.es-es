@@ -21,9 +21,9 @@ ms.locfileid: "68640939"
 Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) para:
 
 > [!div class="checklist"]
-> - Creación de una base de datos única mediante Azure Portal*
-> - Configuración de una regla de firewall por IP de nivel de servidor mediante Azure Portal
-> - Conéctese a la base de datos con SSMS
+> - Crear una base de datos única mediante Azure Portal*
+> - Configurar una regla de firewall por IP de nivel de servidor mediante Azure Portal
+> - Conectarse a la base de datos con SSMS
 > - Crear tablas con SSMS
 > - Carga masiva de datos con BCP
 > - Consulta de datos con SSMS
@@ -206,7 +206,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
    )
    ```
 
-   ![Cree las tablas.](./media/sql-database-design-first-database/create-tables.png)
+   ![Crear tablas.](./media/sql-database-design-first-database/create-tables.png)
 
 3. Expanda el nodo **Tablas** en *yourDatabase* en el **Explorador de objetos** de SQL Server Management Studio para ver las tablas que ha creado.
 
@@ -271,10 +271,10 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
 En este tutorial, ha aprendido muchas tareas de base de datos básicas. Ha aprendido a:
 
 > [!div class="checklist"]
-> - Creación de una base de datos única
-> - Configuración de una regla de firewall por IP de nivel de servidor
+> - Crear una base de datos única
+> - Configurar una regla de firewall por IP de nivel de servidor
 > - Conectarse a la base de datos con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-> - Cree las tablas.
+> - Crear tablas.
 > - Realizar cargas masivas de datos
 > - Consultar los datos
 

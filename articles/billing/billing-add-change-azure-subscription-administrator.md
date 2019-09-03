@@ -57,7 +57,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
 
-1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar el directorio de nombres para mostrar y direcciones de correo electrónico.
+1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar y direcciones de correo electrónico.
 
     ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

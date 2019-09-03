@@ -19,7 +19,7 @@ ms.locfileid: "65949794"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Predicción del riesgo de crédito en Azure Machine Learning Studio
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Después va a implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
@@ -69,16 +69,16 @@ Una vez haya creado el área de trabajo, abra Machine Learning Studio ([https://
 
 ## <a name="upload"></a>Carga de datos existentes
 
-Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan datos para entrenar y probar el modelo. Para este tutorial, se usará el conjunto de datos "UCI Statlog (German Credit Data)" del repositorio de Machine Learning de UC Irvine. Puede encontrarlo aquí:   
+Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan datos para entrenar y probar el modelo. Para este tutorial, se usará el conjunto de datos "UCI Statlog (German Credit Data)" del repositorio de Machine Learning de UC Irvine. Puede encontrarlo aquí:  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Usaremos el archivo llamado **german.data**. Descargue este archivo en la unidad de disco duro local.  
 
-El conjunto de datos **german.data** contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el *vector de características*) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
+El conjunto de datos **german.data** contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el *vector de características*) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito calculado del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
 
 El sitio web de UCI proporciona una descripción de los atributos del vector de características de estos datos. Entre estos datos figuran la información financiera, el historial de crédito, el estado de empleo y la información personal. A cada solicitante se le ha dado una calificación binaria para indicar si son de riesgo de crédito alto o bajo. 
 
-Estos datos se usarán para entrenar un modelo de análisis predictivo. Cuando se haya terminado, el modelo debe poder aceptar un nuevo vector de características para una nueva persona y predecir si esta presenta un alto o bajo riesgo de crédito.  
+Estos datos se usarán para entrenar un modelo de análisis predictivo. Cuando se haya terminado, el modelo debe poder aceptar un vector de características para una nueva persona y predecir si esta presenta un alto o bajo riesgo de crédito.  
 
 Aquí hay un giro interesante.
 
@@ -148,8 +148,8 @@ Para obtener más información sobre la importación de diversos tipos de datos 
 
 El siguiente paso de este tutorial es crear un experimento en Machine Learning Studio que utilice el conjunto de datos cargado.  
 
-1. En Estudio de aprendizaje automático, haga clic en **+NUEVO** en la parte inferior de la ventana.
-1. Seleccione **EXPERIMENTO**y luego "Experimento en blanco". 
+1. En Estudio, haga clic en **+NUEVO** en la parte inferior de la ventana.
+1. Seleccione **EXPERIMENTO** y luego ''Experimento en blanco''. 
 
     ![Creación de un nuevo experimento](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -195,7 +195,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
     El signo de exclamación rojo indica que no se han configurado aún las propiedades de este módulo. Se hará a continuación.
 
     > [!TIP]
-    > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Edit Metadata][edit-metadata] (Editar metadatos) y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Para mostrar el comentario, haga clic en la flecha abajo en el módulo.
+    > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba algún texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Edit Metadata][edit-metadata] (Editar metadatos) y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Para mostrar el comentario, haga clic en la flecha abajo en el módulo.
     > 
     > ![Modificación del módulo de metadatos con el comentario agregado](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
     > 
@@ -221,7 +221,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
    ![Propiedades de los metadatos de edición](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
+   > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo de la misma manera, para visualizar el progreso de los datos a lo largo del experimento.
    > 
    > 
 
@@ -245,7 +245,7 @@ Para ello, se usa el módulo [Split Data][split] (Dividir datos).
 
 Se pueden utilizar las salidas del módulo [Split Data][split] (Dividir datos) como se quiera, pero se va a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.  
 
-Como se menciona en el [paso anterior](tutorial-part1-credit-risk.md#upload), el costo de clasificar erróneamente un riesgo de crédito alto como bajo es cinco veces más alto que el costo de clasificar erróneamente un riesgo de crédito bajo como alto. Para tener esto en cuenta, se debe generar un nuevo conjunto de datos que refleje esta función de costo. En el nuevo conjunto de datos, cada ejemplo de alto riesgo se replica cinco veces, mientras que el ejemplo de bajo riesgo no se replica.   
+Como se menciona en el [paso anterior](tutorial-part1-credit-risk.md#upload), el costo de clasificar erróneamente un riesgo de crédito alto como bajo es cinco veces más alto que el costo de clasificar erróneamente un riesgo de crédito bajo como alto. Para tener esto en cuenta, se debe generar un nuevo conjunto de datos que refleje esta función de costo. En el nuevo conjunto de datos, cada ejemplo de alto riesgo se replica cinco veces, mientras que los ejemplos de bajo riesgo no se replican.   
 
 Podemos conseguir esta replicación mediante el código R:  
 
@@ -269,7 +269,7 @@ Hay que hacer esta misma operación de replicación para cada salida del módulo
 
 1. Haga clic con el botón derecho en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y seleccione **Copiar**.
 
-1. Haga clic con el botón secundario en el lienzo del experimento y seleccione **Pegar**.
+1. Haga clic con el botón derecho en el lienzo del experimento y seleccione **Pegar**.
 
 1. Arrastre el nuevo módulo a la posición correspondiente y luego conecte el puerto de salida de la derecha del módulo [Split Data][split] (Dividir datos) al primer puerto de entrada de este nuevo módulo [Execute R Script][execute-r-script] (Ejecutar script R). 
 

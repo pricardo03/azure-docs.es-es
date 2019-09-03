@@ -111,7 +111,7 @@ Agregue el siguiente código al método **Main** de la clase **Program**. Este c
 
 ### <a name="call-the-face-detection-rest-api"></a>Llamada a la API REST de detección de caras
 
-Agregue el método siguiente a la clase **Program**. Construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `requestParameters` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
+Agregue el método siguiente a la clase **Program**. Este método construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `requestParameters` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
 
 Los métodos auxiliares se definirán en los pasos siguientes.
 

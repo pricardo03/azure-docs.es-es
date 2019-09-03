@@ -189,7 +189,7 @@ Enhorabuena, ya está ejecutando una API en Azure App Service con compatibilidad
 
 ## <a name="app-service-cors-vs-your-cors"></a>CORS de App Service frente a CORS del usuario
 
-Puede usar sus propias utilidades CORS en lugar de CORS de App Service para una mayor flexibilidad. Por ejemplo, es posible que desee especificar diferentes orígenes permitidos para rutas o métodos distintos. Dado que CORS de App Service le permite especificar un conjunto de orígenes aceptados para todas las rutas y métodos de API, debería utilizar su propio código CORS. Consulte cómo lo realiza ASP.NET Core en [Habilitación de solicitudes entre orígenes (CORS)](/aspnet/core/security/cors).
+Puede usar sus propias utilidades CORS en lugar de CORS de App Service para una mayor flexibilidad. Por ejemplo, es posible que desee especificar diferentes orígenes permitidos para rutas o métodos distintos. Dado que CORS de App Service le permite especificar un conjunto de orígenes aceptados para todos los métodos y rutas de API, debería utilizar su propio código CORS. Consulte cómo lo realiza ASP.NET Core en [Habilitación de solicitudes entre orígenes (CORS)](/aspnet/core/security/cors).
 
 > [!NOTE]
 > No intente utilizar juntos CORS de App Service y su propio código CORS. Cuando se usan juntos, CORS de App Service tiene prioridad y su propio código CORS no tiene ningún efecto.

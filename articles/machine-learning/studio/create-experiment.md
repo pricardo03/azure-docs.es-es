@@ -227,7 +227,7 @@ Se muestran las siguientes estadísticas para nuestro modelo:
 - **Raíz del error cuadrático medio** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
 - **Error absoluto relativo**: la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
 - **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
-- **Coeficiente de determinación**: conocido también como **valor R cuadrado**, es una métrica estadística que indica cómo de bien se ajusta un modelo a los datos.
+- **Coeficiente de determinación**: conocido también como **valor R cuadrado**, es una métrica estadística que indica en qué medida se ajusta un modelo a los datos.
 
 Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se ajustan más a los valores reales. En **Coeficiente de determinación**, cuanto más cercano sea su valor a uno (1,0), mejores son las predicciones.
 

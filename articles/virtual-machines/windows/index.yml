@@ -13,7 +13,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: gwallace
 abstract:
-  description: 'Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada utilizando Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.'
   aside:
     image:
       alt: null

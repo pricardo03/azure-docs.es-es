@@ -19,7 +19,7 @@ ms.locfileid: "56453494"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Tutorial 2: Entrenamiento de modelos de riesgo crediticio: Azure Machine Learning Studio
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **segunda parte de un tutorial de tres**.
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **segunda parte de un tutorial de tres**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
@@ -70,7 +70,7 @@ En primer lugar, configure el modelo del árbol de decisión ampliado.
    
    El módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) inicializa el modelo genérico, y [Train Model][train-model] (Entrenar modelo) usa los datos de entrenamiento para entrenar el modelo. 
 
-1. Conecte la salida izquierda del módulo [Execute R Script][execute-r-script] (Ejecutar script R) al puerto de entrada de la derecha del módulo [Train Model][train-model] (Entrenar modelo) (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
+1. Conecte la salida izquierda del módulo [Execute R Script (Ejecutar script R)][execute-r-script] izquierdo al puerto de entrada de la derecha del módulo [Train Model (Entrenar modelo)][train-model] (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
    
    > [!TIP]
    > No necesita dos de las entradas y una de las salidas del módulo [Execute R Script][execute-r-script] (Ejecutar script R) para este experimento, así que las puede dejar desconectadas. 
@@ -85,7 +85,7 @@ Ahora es necesario indicar al módulo [Train Model][train-model] (Entrenar model
 
 1. Seleccione el módulo [Train Model][train-model] (Entrenar modelo). En el panel **Propiedades**, haga clic en **Launch column selector** (Iniciar el selector de columnas).
 
-1. En el cuadro de diálogo **Select a single column** (Seleccionar una sola columna), escriba "riesgo de crédito" en el campo de búsqueda en **Columnas disponibles**, seleccione "Riesgo de crédito" a continuación y haga clic en el botón de la flecha derecha (**>**) para mover "Riesgo de crédito" a **Columnas seleccionadas**. 
+1. En el cuadro de diálogo **Select a single column** (Seleccionar una sola columna), escriba "riesgo de crédito" en el campo de búsqueda en **Columnas disponibles**, seleccione "Riesgo de crédito" a continuación y haga clic en el botón de la flecha derecha ( **>** ) para mover "Riesgo de crédito" a **Columnas seleccionadas**. 
 
     ![Seleccione la columna de riesgo de crédito para el módulo Entrenar modelo](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -109,7 +109,7 @@ Para configurar el modelo SVM, realice lo siguiente:
 
 1. Conecte la salida de la izquierda del módulo [Ejecutar script R][execute-r-script] de la izquierda a la entrada de este módulo (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
 
-1. Conecte el puerto de salida izquierdo del módulo [Normalize Data][normalize-data] (Normalizar datos) al puerto de salida derecho del segundo módulo [Train Model][train-model] (Entrenar modelo).
+1. Conecte el puerto de salida izquierdo del módulo [Normalize Data (Normalizar datos)][normalize-data] al puerto de entrada derecho del segundo módulo [Train Model (Entrenar modelo)][train-model].
 
 Esta parte de nuestro experimento debería tener ahora un aspecto similar al siguiente:  
 
@@ -121,7 +121,7 @@ Configure ahora el módulo [Normalize Data][normalize-data] (Normalizar datos):
 
 1. Haga clic en **Launch column selector** (Iniciar el selector de columnas), seleccione "No columns" (Sin columnas) en **Comenzar con**, seleccione **Incluir** en el primer menú desplegable, **Tipo de columna** en el segundo y **Numérica** en el tercero. Esto especifica que todas las columnas numéricas (y solo numéricas) se deben transformar.
 
-1. Haga clic en el signo más (+) a la derecha de esta fila (de esta forma, se crea una fila de menús desplegables). Seleccione **Excluir** en la primera lista desplegable y **Nombres de columna** en la segunda, y escriba "Riesgo de crédito" en el campo de texto. Especifica que se debe ignorar la columna Credit Risk (Riesgo crediticio) (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
+1. Haga clic en el signo más (+) a la derecha de esta fila (de esta forma, se crea una fila de menús desplegables). Seleccione **Excluir** en la primera lista desplegable y **Nombres de columna** en la segunda, y escriba "Riesgo de crédito" en el campo de texto. Esto especifica que se debe ignorar la columna Credit Risk (Riesgo crediticio) (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
 
 1. Haga clic en la marca de verificación **Aceptar**.  
 

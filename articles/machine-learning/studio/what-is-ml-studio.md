@@ -23,7 +23,7 @@ ms.lasthandoff: 07/31/2019
 ms.locfileid: "68677998"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
-Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
+Microsoft Azure Machine Learning Studio es una herramienta colaborativa de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
 
 Machine Learning Studio es el lugar en el que confluyen la ciencia de datos, el análisis predictivo, los recursos en la nube y sus datos.
 
@@ -50,7 +50,7 @@ Haga clic en el menú de la parte superior izquierda ![Menú](./media/what-is-ml
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 Aquí hay dos opciones: **Inicio**, la página donde ha comenzado, y **Studio**.
 
-Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**. Primero se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
+Haga clic en **Studio**, y se le dirigirá a la **Azure Machine Learning Studio**. Primero se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
 
 * **PROYECTOS** : colecciones de experimentos, conjuntos de datos, cuadernos y otros recursos que representan un proyecto individual
 * **EXPERIMENTOS**: experimentos que ha creado y ejecutado, o que ha guardado como borrador.
@@ -60,7 +60,7 @@ Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**.
 * **MODELOS ENTRENADOS** : modelos que entrenó en experimentos y guardó en Estudio
 * **CONFIGURACIÓN** : una colección de ajustes que puede utilizar para configurar la cuenta y los recursos.
 
-### <a name="gallery"></a>Gallery
+### <a name="gallery"></a>Galería
 Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](https://gallery.azure.ai/)** . La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
 Para más información acerca de la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
@@ -89,7 +89,7 @@ Un conjunto de datos son datos que se han cargado en Machine Learning Studio par
 
 Cuando crea un experimento, puede elegir un conjunto de datos en la lista de conjuntos de datos disponibles a la izquierda del lienzo.
 
-Para obtener una lista de conjuntos de datos de ejemplo incluidos en Machine Learning Studio, vea [Uso de los conjuntos de datos de muestra en Azure Machine Learning Studio](use-sample-datasets.md).
+Para obtener una lista de conjuntos de datos de ejemplo incluidos en Machine Learning Studio, vea [Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio](use-sample-datasets.md).
 
 ### <a name="modules"></a>Módulos
 Un módulo es un algoritmo que puede aplicar sobre sus datos. Machine Learning Studio cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
@@ -111,7 +111,7 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>¿En qué se diferencia Machine Learning Studio de Azure Machine Learning Service?
 
-[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) proporciona los SDK **y** una interfaz visual (versión preliminar) para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Esta interfaz visual (versión preliminar) ofrece una experiencia de arrastrar y colocar parecida a la de Studio. Sin embargo, a diferencia de la plataforma de proceso propiedad de Studio, la interfaz visual utiliza sus propios recursos de proceso y está totalmente integrada en Azure Machine Learning Service.
+[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) proporciona los SDK **y** una interfaz visual (versión preliminar) para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Esta interfaz visual (versión preliminar) ofrece una experiencia de arrastrar y colocar parecida a la de Studio. Sin embargo, a diferencia de la plataforma de proceso propietario de Studio, la interfaz visual utiliza sus propios recursos de proceso y está totalmente integrada en Azure Machine Learning Service.
 
 Esta es una comparación rápida.
 
@@ -121,7 +121,7 @@ Esta es una comparación rápida.
 |Módulos de la interfaz| Muchos | Conjunto inicial de módulos conocidos|
 |Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso con Azure Machine Learning, GPU o CPU.<br/>(Se admiten otros procesos en el SDK)|
 |Destinos de proceso de implementación| Formato del servicio web propietario, no personalizable | Opciones de seguridad de empresa y Azure Kubernetes Service. <br/>([Otros procesos](../service/how-to-deploy-and-where.md) que admite el SDK) |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizado | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). | 
+|Entrenamiento de modelos y optimización de hiperparámetros automatizados | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). | 
 
 Pruebe la interfaz visual (versión preliminar) con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](../service/ui-tutorial-automobile-price-train-score.md)
 

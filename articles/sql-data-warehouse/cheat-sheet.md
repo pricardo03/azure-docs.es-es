@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 08/23/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6c198b6d5e9ecfed3f36ddc3be831af85a913ca5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515784"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995833"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Hoja de referencia rápida de Azure SQL Data Warehouse
 En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure SQL Data Warehouse. Antes de empezar, consulte los detalles de cada paso en [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patrones y antipatrones de la carga de trabajo de Azure SQL Data Warehouse), que explica qué es y qué no es SQL Data Warehouse.
@@ -50,7 +50,7 @@ Obtenga más información sobre la [migración de datos], la [carga de datos] y 
 
 Use las siguientes estrategias, en función de las propiedades de tabla:
 
-| Type | Muy adecuado para...| Esté atento a...|
+| type | Muy adecuado para...| Esté atento a...|
 |:--- |:--- |:--- |
 | Replicado | • Tablas de pequeñas dimensiones en esquema de estrella con menos de 2 GB de almacenamiento tras la compresión (compresión ~5x) |•  Se producen muchas transacciones de escritura en la tabla (por ejemplo, insertar, upsert, eliminar, actualizar)<br></br>• Cambia frecuentemente el aprovisionamiento de las unidades de almacenamiento de datos (DWU)<br></br>• Solo usa 2 o 3 columnas, pero la tabla tiene muchas columnas<br></br>• Va a indexar una tabla replicada |
 | Round Robin (valor predeterminado) | • Tabla de almacenamiento provisional/temporal<br></br> • Sin clave de combinación obvia o columna buena candidata |•  El rendimiento es lento debido al movimiento de datos |
@@ -70,7 +70,7 @@ Aprenda más sobre las [tablas replicadas] y las [tablas distribuidas].
 
 La indexación es útil para leer rápidamente las tablas. Existe un conjunto único de tecnologías que puede usar en función de sus necesidades:
 
-| Type | Muy adecuado para... | Esté atento a...|
+| type | Muy adecuado para... | Esté atento a...|
 |:--- |:--- |:--- |
 | Montón | • Tabla de ensayo/temporal<br></br>• Tablas pequeñas con búsquedas pequeñas |• Cualquier búsqueda recorre la tabla completa |
 | Índice agrupado | • Tablas con hasta 100 millones de filas<br></br>• Tablas grandes (más de 100 millones de filas) con solo 1 o 2 columnas muy usadas |•  Se usa en tablas replicadas<br></br>•    Tiene consultas complejas que implican varias operaciones de combinación y Agrupar por<br></br>•  Realiza actualizaciones en las columnas indexadas, ya que consume memoria |
@@ -96,9 +96,11 @@ Aprenda más sobre las [particiones].
 
 ## <a name="incremental-load"></a>Carga incremental
 
-Si se va a cargar los datos incrementalmente, primero asegúrese de que asigna clases de recursos mayores para la carga de los datos. Se recomienda usar PolyBase y ADF V2 para la automatización de las canalizaciones ELT en SQL Data Warehouse.
+Si se va a cargar los datos incrementalmente, primero asegúrese de que asigna clases de recursos mayores para la carga de los datos.  Esto es especialmente importante al cargar en tablas con índices de almacén de columnas en clúster.  Consulte [Clases de recursos](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) para más información.  
 
-En lotes grandes de actualizaciones de los datos históricos, primero elimine los datos en cuestión. A continuación, realice una inserción masiva de los nuevos datos. Este enfoque de dos pasos es más eficaz.
+Se recomienda usar PolyBase y ADF V2 para la automatización de las canalizaciones ELT en SQL Data Warehouse.
+
+En el caso de un lote grande de actualizaciones en los datos históricos, considere la posibilidad de utilizar [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) para escribir los datos que desea conservar en una tabla en lugar de usar INSERT, UPDATE y DELETE.
 
 ## <a name="maintain-statistics"></a>Mantenimiento de estadísticas
  Hasta que las estadísticas automáticas estén disponibles de manera general, SQL Data Warehouse requiere el mantenimiento manual de estadísticas. Es importante actualizar las estadísticas cuando se produzcan cambios *significativos* en los datos. Esto ayuda a optimizar los planes de consulta. Si observa que el mantenimiento de todas las estadísticas tarda demasiado, sea más selectivo sobre qué columnas tienen estadísticas. 
@@ -157,7 +159,7 @@ Implemente con un clic sus radios en bases de datos SQL desde SQL Data Warehouse
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migración de datos]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[migración de datos]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

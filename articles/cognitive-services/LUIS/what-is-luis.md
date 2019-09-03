@@ -34,7 +34,7 @@ Una vez que la aplicación de LUIS está publicada, la aplicación cliente enví
 
 ![Imagen conceptual del trabajo de LUIS con el bot de chat para predecir el texto del usuario con reconocimiento de lenguaje natural (NLP)](./media/luis-overview/luis-overview-process-2.png "Conceptual imagery of LUIS working with Chat bot to predict user text with natural language understanding (NLP)")
 
-|Paso|.|
+|Paso|Acción|
 |:--|:--|
 |1|La aplicación cliente envía la _expresión_ del usuario (el texto en sus propias palabras), "I want to call my HR rep" ("Quiero llamar a mi representante de recursos humanos") al punto de conexión de LUIS como una solicitud HTTP.|
 |2|LUIS aplica el modelo entrenado al texto en lenguaje natural para proporcionar reconocimiento inteligente sobre la entrada del usuario. LUIS devuelve una respuesta con formato JSON con una intención principal, "HRContact" ("Contacto de recursos humanos"). La respuesta en formato JSON del punto de conexión contiene como mínimo la expresión de consulta y la intención con mayor puntuación. También puede extraer datos, como la entidad Tipo de contacto.|
