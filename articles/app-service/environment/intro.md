@@ -9,17 +9,16 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598761"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069234"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
@@ -36,17 +35,17 @@ Azure App Service Environment es una característica de Azure App Service que pr
 Las instancias de App Service Environment (ASE) son adecuadas para cargas de trabajo de aplicaciones que necesitan:
 
 * Una gran escala
-* Aislamiento y acceso a redes seguro
+* Aislamiento y acceso seguro a redes
 * Alta utilización de memoria
 
-Los clientes pueden crear varias instancias de ASE en una o en varias regiones de Azure. Esta flexibilidad hace que las instancias de ASE sean perfectas para capas de aplicación sin estado de escalado horizontal que apoyan a cargas de trabajo RPS elevadas.
+Los clientes pueden crear varias instancias de ASE en una o en varias regiones de Azure. Esta flexibilidad hace que las instancias de ASE sean perfectas para capas de aplicación de escalado horizontal sin estado que apoyan a cargas de trabajo RPS elevadas.
 
-Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones de un solo cliente y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación. Las aplicaciones pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
+Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones de un solo cliente y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación. Las aplicaciones pueden establecer conexiones seguras a alta velocidad por redes virtuales privadas a los recursos corporativos locales.
 
 * ASE viene con su propio plan de tarifa. Vea cómo la [oferta Aislado](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) ayuda a potenciar la hiperescala y la seguridad.
 * [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) proporciona un entorno que protege las aplicaciones de una subred de la red y proporciona su propia implementación privada de Azure App Service.
 * Varias instancias de ASE pueden utilizarse para escalar horizontalmente. Para más información, consulte [Configuración de una huella de aplicaciones distribuidas geográficamente](app-service-app-service-environment-geo-distributed-scale.md).
-* Las instancias de ASE pueden utilizarse para configurar la arquitectura de seguridad, como se muestra en Profundización de AzureCon. Para ver cómo se ha configurado la arquitectura de seguridad mostrada en la inmersión en AzureCon, consulte el artículo sobre cómo implementar una [arquitectura de seguridad en capas](app-service-app-service-environment-layered-security.md) con entornos de App Service.
+* Las instancias de ASE pueden utilizarse para configurar la arquitectura de seguridad, como se muestra en la Profundización en AzureCon. Para ver cómo se ha configurado la arquitectura de seguridad mostrada en la Profundización en AzureCon, consulte el artículo sobre cómo implementar una [arquitectura de seguridad en capas](app-service-app-service-environment-layered-security.md) con entornos de App Service.
 * Las aplicaciones que se ejecutan en ASE pueden tener su acceso validado por dispositivos de subida como firewalls de aplicación web (WAF). Para más información, consulte [Firewall de aplicaciones web (WAF)][AppGW].
 
 ## <a name="dedicated-environment"></a>Entorno dedicado ##
@@ -63,7 +62,7 @@ Los trabajos son roles que hospedan las aplicaciones del cliente. Los trabajos e
 
 Los clientes no necesitan administrar los servidores front-end ni los trabajos. Toda la infraestructura se agrega automáticamente cuando los clientes escalan horizontalmente sus planes de App Service. Cuando se crean o reducen horizontalmente planes de App Service en un ASE, la infraestructura necesaria se agrega o elimina según corresponda.
 
-Hay una tarifa plana mensual para una instancia de ASE que paga por la infraestructura y no cambia con el tamaño de la instancia de ASE. Además, existe un costo por vCPU de plan de App Service. Todas las aplicaciones hospedadas en una instancia de ASE están en el SKU de precios Aislado. Para más información sobre los precios de una instancia de ASE, consulte la página [Precios de App Service][Pricing] y revise las opciones disponibles para ASE.
+Hay una tarifa plana mensual para una instancia de ASE que paga por la infraestructura y no cambia con el tamaño de la instancia de ASE. Además, existe un costo por vCPU de plan de App Service. Todas las aplicaciones hospedadas en una instancia de ASE están en el SKU de precios Aislado. Para más información sobre los precios de una instancia de ASE, consulte la página [Precios de App Service][Pricing] y revise las opciones disponibles para los ASE.
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales ##
 
@@ -85,7 +84,7 @@ App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información ante
 
 En ASEv1, debe administrar todos los recursos de forma manual. Esto incluye los front-end, los trabajos y las direcciones IP utilizadas para SSL basada en IP. Antes de escalar horizontalmente el plan de App Service, primero debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
 
-ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU usadas por servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
+ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU usadas para servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
 
 <!--Links-->
 [App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment

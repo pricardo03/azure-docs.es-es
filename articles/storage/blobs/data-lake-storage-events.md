@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: ce132c6a6859156b209a26b5950eb6a509f446fc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656134"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904652"
 ---
 # <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>Tutorial: Uso de eventos de Azure Data Lake Storage Gen2 para actualizar una tabla de Databricks Delta
 
@@ -140,10 +140,9 @@ Para obtener más información sobre la creación de clústeres, consulte [Creat
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
     spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId")
+    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId>")
     spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
     spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant>/oauth2/token")
-    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
 
     adlsPath = 'abfss://data@contosoorders.dfs.core.windows.net/'
     inputPath = adlsPath + dbutils.widgets.get('source_file')
@@ -151,6 +150,9 @@ Para obtener más información sobre la creación de clústeres, consulte [Creat
     ```
 
     Este código crea un widget denominado **source_file**. Más adelante, creará una función de Azure que llama a este código y pasa una ruta de acceso de archivo a ese widget.  Este código también autentica la entidad de servicio con la cuenta de almacenamiento y crea algunas variables que usará en otras celdas.
+
+    > [!NOTE]
+    > En una configuración de producción, considere la posibilidad de almacenar su clave de autenticación en Azure Databricks. A continuación, agregue una clave de búsqueda a su bloque de código en lugar de la clave de autenticación. <br><br>Por ejemplo, en lugar de usar esta línea de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, debería usar la siguiente: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Una vez completado este tutorial, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio Web de Azure Databricks para ver ejemplos de este enfoque.
 
 2. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 
@@ -309,7 +311,7 @@ Cree una función de Azure que ejecute el trabajo.
         log.LogInformation(eventGridEvent.Data.ToString());
 
         if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" | | eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
-            var fileData = ((JObject)(eventGridEvent.Data)) .ToObject<StorageBlobCreatedEventData>();
+            var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
             if (fileData.Api == "FlushWithClose") {
                 log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
                 var fileUrl = new Uri(fileData.Url);
@@ -382,6 +384,27 @@ En esta sección, creará una suscripción a Event Grid que llama a la función 
    La tabla devuelta muestra el registro más reciente.
 
    ![Registro más reciente mostrado en la tabla](./media/data-lake-storage-events/final_query.png "Latest record appears in table")
+
+6. Para actualizar este registro, cree un archivo denominado `customer-order-update.csv`, pegue la siguiente información en ese archivo y guárdelo en el equipo local.
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
+   ```
+
+   Este archivo CSV es casi idéntico al anterior, salvo que la cantidad del pedido se cambia de `228` a `22`.
+
+7. En el Explorador de Storage, cargue este archivo en la carpeta **input** de su cuenta de almacenamiento.
+
+8. Ejecute la consulta `select` de nuevo para ver la tabla delta actualizada.
+
+   ```
+   %sql select * from customer_data
+   ```
+
+   La tabla devuelta muestra el registro actualizado.
+
+   ![El registro actualizado aparece en la tabla](./media/data-lake-storage-events/final_query-2.png "Latest record appears in table")
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

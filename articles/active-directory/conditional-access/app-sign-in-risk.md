@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509049"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125656"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
@@ -34,7 +34,7 @@ Para completar el escenario de este tutorial, necesita:
 
 - **Acceso a la edición Azure AD Premium P2**: dado que el acceso condicional es una funcionalidad de Azure AD Premium P1, necesita una edición de P2, ya que el escenario de este inicio rápido requiere Identity Protection.
 - **Identity Protection**: el escenario de esta guía de inicio rápido requiere que se habilite Identity Protection. Si no sabe cómo habilitarlo, consulte [Habilitación de Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como inicios de sesión desde direcciones IP anónimas, que tienen un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como inicios de sesión desde direcciones IP anónimas, que tienen un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Una cuenta de prueba denominada Alain Charon**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión
@@ -48,7 +48,7 @@ El objetivo de este paso es asegurarse de que la cuenta de prueba puede acceder 
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional
 
-El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de un evento de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de este evento es medio. Para responder a este evento de riesgo, la condición de riesgo de inicio de sesión se establece en medio. En un entorno de producción, debe establecer la condición de riesgo de inicio de sesión en alto o en medio y alto.
+El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de esta detección es medio. Para responder a esta detección de riesgo, la condición de riesgo de inicio de sesión se establece en medio. En un entorno de producción, debe establecer la condición de riesgo de inicio de sesión en alto o en medio y alto.
 
 En esta sección se muestra cómo crear la directiva de acceso condicional necesaria. En la directiva, establezca:
 
@@ -133,7 +133,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional neces
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Evaluación de un inicio de sesión simulado
 
-Ahora que ha configurado la directiva de acceso condicional, probablemente quiera saber si funciona según lo previsto. Como primer paso, use la **herramienta de directivas What If** de acceso condicional para simular un inicio de sesión del usuario de prueba. La simulación calcula el impacto que este inicio de sesión tiene en las directivas y genera un informe de simulación.  
+Ahora que ha configurado la directiva de acceso condicional, probablemente quiera saber si funciona según lo previsto. Como primer paso, use la **herramienta de directivas What If** del acceso condicional para simular un inicio de sesión del usuario de prueba. La simulación calcula el impacto que este inicio de sesión tiene en las directivas y genera un informe de simulación.  
 
 Al ejecutar la **herramienta de directivas What If** para este escenario, la opción **Block access for medium risk level** (Bloquear el acceso si el nivel de riesgo es medio) debe aparecer en **Policies that will apply** (Directivas que se van a aplicar).
 

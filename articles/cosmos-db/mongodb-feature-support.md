@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/21/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 09d12c817e9e8678cf96c63c0bff623923f7074d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 999b9ed88b6ff2c14defd3424c0fb541b7cf5d8e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978843"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050098"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB: características y sintaxis que se admiten
 
@@ -332,7 +332,7 @@ Algunas aplicaciones se basan en [Write Concern](https://docs.mongodb.com/manual
 
 ## <a name="sharding"></a>Particionamiento
 
-Cosmos DB admite el particionamiento de servidor automático. Cosmos DB no es compatible con comandos de particionamiento manual.
+Azure Cosmos DB admite el particionamiento de servidor automático. Administra la creación de particiones, la ubicación y el equilibrio de forma automática. Azure Cosmos DB no admite comandos de particionamiento manual, lo que significa que no tiene que invocar comandos como shardCollection, addShard, balancerStart, moveChunk, etc. Solo tiene que especificar la clave de partición al crear los contenedores o consultar los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

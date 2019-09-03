@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d5213ff21d92bf811b05802e4cb2ffab9b9a29c6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648549"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077048"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 
@@ -71,7 +71,7 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 En este procedimiento, creará un servicio vinculado para vincular la cuenta de Azure Storage con la factoría de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
 
-1. Seleccione **Conexiones** y, a continuación, seleccione el botón **Nueva** en la barra de herramientas. 
+1. Seleccione **Conexiones** y después el botón **Nuevo** en la barra de herramientas (el botón **Conexiones** se encuentra en la parte inferior de la columna izquierda debajo de **Factory Resources**). 
 
 1. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure Blob Storage** y después **Continue** (Continuar). 
 

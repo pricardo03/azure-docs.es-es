@@ -1,5 +1,5 @@
 ---
-title: Creación de un dispositivo de Azure IoT Plug and Play (versión preliminar) que esté listo para la certificación | Microsoft Docs
+title: Creación de un dispositivo IoT Plug and Play (versión preliminar) que esté preparado para la certificación | Microsoft Docs
 description: Los desarrolladores de dispositivos deben aprender a crear un dispositivo IoT Plug and Play (versión preliminar) que esté listo para su certificación.
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878756"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047912"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Creación de un dispositivo IoT Plug and Play (versión preliminar) que esté listo para la certificación
 
@@ -124,7 +124,7 @@ Para certificar el dispositivo, debe habilitar el aprovisionamiento mediante [Az
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>Implementación de las interfaces de información del modelo e información del SDK
 
-El SDK de dispositivo IoT de Azure implementa las interfaces Model Information (Información del modelo) y SDK Information (Información del SDK). Si usa la función de generación de código en VS Code, el código de dispositivo usa el SDK de dispositivo de Azure IoT Plug and Play.
+El SDK de dispositivo IoT de Azure implementa las interfaces Model Information (Información del modelo) y SDK Information (Información del SDK). Si usa la función de generación de código en VS Code, el código de dispositivo utiliza el SDK de dispositivo de IoT Plug and Play.
 
 Si decide no usar el SDK de dispositivo IoT de Azure, puede usar el código fuente del SDK como referencia para su propia implementación.
 

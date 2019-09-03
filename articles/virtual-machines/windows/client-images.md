@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: fcd97b07416526d71d5bee9bc198eb0d912e1c55
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: dbb771351ee774a7fea33e5aaad3ae4d0c70f8b1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719159"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079900"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
 Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). En este artículo se describen los requisitos de idoneidad para ejecutar Windows 7, Windows 8.1 o Windows 10 Enterprise en Azure y usar las siguientes imágenes de la galería de Azure.

@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: c7da8781767401a79bfca5c70e0a5f6244ed8d8b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f118f27d870f4c69a3bf568bacb3765fefee34c0
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968171"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907218"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 o posterior](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* Una clave de suscripción de Azure para Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>Inicialización de un proyecto con Gradle
 
@@ -90,11 +88,12 @@ public class Detect {
 }
 ```
 
-Agregue estas líneas a la clase `Detect`:
+Agregue estas líneas a la clase `Detect`. Primero, se lee la clave de suscripción y el punto de conexión de las variables de entorno:
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/detect?api-version=3.0";
 ```
 
 Si usa una suscripción a varios servicios de Cognitive Services, también debe incluir `Ocp-Apim-Subscription-Region` en los parámetros de la solicitud. [Más información sobre la autenticación con la suscripción a varios servicios](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).

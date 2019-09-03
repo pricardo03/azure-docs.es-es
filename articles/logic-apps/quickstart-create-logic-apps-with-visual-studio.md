@@ -3,20 +3,21 @@ title: 'Creación de flujos de trabajo automatizados con Visual Studio: Azure Lo
 description: Automatice tareas, procesos empresariales y flujos de trabajo para la integración empresarial mediante Azure Logic Apps y Visual Studio.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9248e5bcc9ebd819518b6ee609f529ea9b8f8bc
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385421"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051700"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -82,6 +83,8 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
    ![Creación de un proyecto de grupo de recursos de Azure](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > Los nombres de los grupos de recursos pueden contener solo letras,números, puntos (`.`),caracteres de subrayado (`_`), guiones (`-`) y paréntesis (`(`, `)`), pero no pueden *acabar* con puntos (`.`).
+   >
    > Si **Nube** o **Grupo de recursos de Azure** no aparecen, asegúrese de que ha instalado el SDK de Azure para Visual Studio.
 
    Si usa Visual Studio 2019, siga estos pasos:

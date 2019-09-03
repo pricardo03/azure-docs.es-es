@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d7419f6133ab32cdea3f44a8def1f736f48c1c4e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f12545bce29d0ca32c7c7a62c56b8c9604c4268
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934156"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983132"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico según la norma IRS 1075
 
@@ -318,7 +318,7 @@ Advanced Threat Protection para Azure Storage detecta los intentos poco habitual
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar en Azure Government y otras nubes nacionales. 
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

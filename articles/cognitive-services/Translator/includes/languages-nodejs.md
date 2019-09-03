@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968219"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906911"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-Esta guía de inicio rápido requiere:
-
-* [Node 8.12.x o posterior](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 Estos módulos son necesarios para construir la solicitud HTTP y crear un identificador único para el encabezado `'X-ClientTraceId'`.
 
+## <a name="set-the-endpoint"></a>Establecimiento del punto de conexión
+
+En este ejemplo se intenta leer el punto de conexión de Translator Text desde una variable de entorno: `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `endpoint` como una cadena y convertir en comentario la instrucción condicional.
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>Configuración de la solicitud
 
 El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
@@ -41,7 +47,7 @@ El método `request()`, disponible mediante el módulo de solicitud, nos permite
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

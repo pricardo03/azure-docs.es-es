@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477801"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126012"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "67477801"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introducción a Azure Data Box Disk mediante Azure Portal
+## <a name="get-started-with-azure-data-box-disk"></a>Introducción a Azure Data Box Disk 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ::: zone target="chromeless"
 
-En esta guía de inicio rápido se describe cómo implementar Azure Data Box Disk mediante Azure Portal. Los pasos incluyen revisar los requisitos previos, desbloquear los discos, conectar y copiar datos a los discos para que se carguen en Azure.
+En esta guía se describe cómo implementar Azure Data Box Disk mediante Azure Portal. Los pasos incluyen revisar los requisitos previos, desbloquear los discos, conectar y copiar datos a los discos para que se carguen en Azure.
 
 ::: zone-end
 
@@ -60,10 +60,11 @@ Inicie sesión en Azure Portal en [https://aka.ms/azuredataboxfromdiskdocs](http
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Ha realizado su pedido de Data Box Disk mediante el [Tutorial: Pedido de Azure Data Box](data-box-disk-deploy-ordered.md).
 - Ha recibido los discos y el estado del trabajo en el portal se actualiza a **Delivered** (Entregado).
+- Ha comprobado el número de discos que ha recibido y que tiene un cable de conexión por disco.
 - Tiene un equipo cliente disponible desde el que puede copiar los datos. El equipo cliente debe:
 
     - Ejecutar un [sistema operativo admitido](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).

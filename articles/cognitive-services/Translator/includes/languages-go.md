@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 707e6c1fb063ca7c8580df4ace2685417fd7847d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968155"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906952"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-Esta guía de inicio rápido requiere:
-
-* [Go](https://golang.org/doc/install)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
@@ -30,6 +28,7 @@ import (
     "log"
     "net/http"
     "net/url"
+    "os"
 )
 ```
 
@@ -37,16 +36,18 @@ import (
 
 Vamos a crear la función main de nuestra aplicación. Observará que es una sola línea de código. Eso se debe a que estamos creando una sola función para obtener e imprimir la lista de idiomas admitidos de Translator Text.
 
+En este ejemplo se intenta leer el punto de conexión de Translator Text desde una variable de entorno: `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `endpoint` como una cadena y convertir en comentario la instrucción condicional.
+
 Copie este código en el proyecto:
 
 ```go
 func main() {
-    /*
-     * This calls our getLanguages function, which we'll
-     * create in the next section. It takes a single argument,
-     * the subscription key.
-     */
-    getLanguages()
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/languages?api-version=3.0"
+    getLanguages(uri)
 }
 ```
 
@@ -55,7 +56,7 @@ func main() {
 Vamos a crear una función para obtener una lista de idiomas admitidos.
 
 ```go
-func getLanguages() {
+func getLanguages(uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -69,9 +70,8 @@ Copie este código en la función `getLanguages`.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
+u, _ := url.Parse(uri)
 q := u.Query()
-q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 

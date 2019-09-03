@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516243"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051635"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -31,14 +31,18 @@ En este tutorial, ha aprendido las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-El único requisito previo es ejecutar el tutorial anterior, [Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+El único requisito previo es ejecutar la parte primera de este tutorial, [Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+
+En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experiment-sdk-train.ipynb` en el cuaderno de Jupyter Notebook de ejemplo que se abrió al final de la parte uno. Este artículo le guía a través del mismo código que se encuentra en el cuaderno.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conexión con el área de trabajo y creación de un experimento
 
-Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. Si está ejecutando este cuaderno en un servidor de cuadernos en la nube en el área de trabajo, el archivo se encuentra automáticamente en el directorio raíz.
+Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. En un servidor de cuadernos en la nube, el archivo se encuentra automáticamente en el directorio raíz.
 
 Si el código siguiente solicita autenticación adicional, simplemente pegue el vínculo en un explorador y escriba el token de autenticación.
 
+> [!TIP]
+> Si no está familiarizado con los cuadernos de Jupyter Notebook, ejecute el código haciendo clic en una celda de código y presionando **Mayús + Entrar** para ejecutar las celdas de una en una. También puede ejecutar todo el cuaderno a la vez, para ello haga clic en **Celda** en la barra de menús superior y, a continuación, haga clic en **Ejecutar todo**.
 
 ```python
 from azureml.core import Workspace

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855489"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992300"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -88,7 +88,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 Para obtener más información sobre la creación de clústeres, consulte [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creación de un clúster de Spark en Azure Databricks).
 
-## <a name="create-storage-account-file-system"></a>Creación de un sistema de archivos de la cuenta de almacenamiento
+## <a name="create-storage-account-container"></a>Creación del contenedor de cuenta de almacenamiento
 
 En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks y, a continuación, ejecutará fragmentos de código para configurar la cuenta de almacenamiento.
 
@@ -113,15 +113,15 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
 
     > [!NOTE]
-    > Dicho bloque de código accede directamente al punto de conexión de Data Lake Gen2 mediante OAuth, pero hay otras maneras de conectarse el área de trabajo de Databricks con su cuenta de Data Lake Storage Gen2. Por ejemplo, podría montar el sistema de archivos mediante OAuth, o bien usar un acceso directo con una clave compartida. <br>Para ver ejemplos de estos métodos, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio web de Azure Databricks.
+    > Dicho bloque de código accede directamente al punto de conexión de Data Lake Gen2 mediante OAuth, pero hay otras maneras de conectarse el área de trabajo de Databricks con su cuenta de Data Lake Storage Gen2. Por ejemplo, podría montar el contenedor de archivos mediante OAuth, o bien usar un acceso directo con una clave compartida. <br>Para ver ejemplos de estos métodos, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio web de Azure Databricks.
 
-5. En este bloque de código, reemplace los valores de marcador de posición `storage-account-name`, `appID`, `password` y `tenant-id` por los valores que recopiló cuando creó la entidad de servicio. Establezca el valor del marcador `file-system-name` en el nombre que desea dar el sistema de archivos.
+5. En este bloque de código, reemplace los valores de marcador de posición `storage-account-name`, `appID`, `password` y `tenant-id` por los valores que recopiló cuando creó la entidad de servicio. Establezca el valor del marcador de posición `container-name` en el nombre que desea dar al contenedor.
 
     > [!NOTE]
     > En una configuración de producción, considere la posibilidad de almacenar su clave de autenticación en Azure Databricks. A continuación, agregue una clave de búsqueda a su bloque de código en lugar de la clave de autenticación. Una vez completado este inicio rápido, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio Web de Azure Databricks para ver ejemplos de este enfoque.
@@ -148,7 +148,7 @@ En la celda, presione **MAYÚS + ENTRAR** para ejecutar el código.
 
 Realice las siguientes tareas para ejecutar un trabajo de Spark SQL en los datos.
 
-1. Ejecute una instrucción SQL para crear una tabla temporal con datos desde el archivo de datos JSON de ejemplo, **small_radio_json.json**. En el siguiente fragmento de código, reemplace los valores del marcador de posición con el nombre del sistema de archivos y el nombre de la cuenta de almacenamiento. Use el cuaderno que ha creado antes, pegue el fragmento de código en una nueva celda de código y, después, presione MAYÚS + ENTRAR.
+1. Ejecute una instrucción SQL para crear una tabla temporal con datos desde el archivo de datos JSON de ejemplo, **small_radio_json.json**. En el siguiente fragmento de código, reemplace los valores del marcador de posición con el nombre del contenedor y el nombre de la cuenta de almacenamiento. Use el cuaderno que ha creado antes, pegue el fragmento de código en una nueva celda de código y, después, presione MAYÚS + ENTRAR.
 
     ```sql
     %sql
@@ -156,7 +156,7 @@ Realice las siguientes tareas para ejecutar un trabajo de Spark SQL en los datos
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
+     path  "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

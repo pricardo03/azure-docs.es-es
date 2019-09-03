@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d4711a6fb8230ab7dd382ec548d7b211fe8c6ee
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968051"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907083"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-Esta guía de inicio rápido requiere:
-
-* Python 2.7.x o 3.x
-* Una clave de suscripción de Azure para Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
@@ -24,10 +21,7 @@ Cree un proyecto de Python con su editor o IDE favoritos, o bien cree una carpet
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,27 +29,25 @@ import json
 
 El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Translator Text API.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Establecimiento de la clave de suscripción, la dirección URL base y la ruta de acceso
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Establecimiento de la clave de suscripción, el punto de conexión y la ruta de acceso
 
-En este ejemplo se intenta leer la clave de suscripción de Translator Text desde la variable de entorno `TRANSLATOR_TEXT_KEY`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` como una cadena y convertir en comentario la instrucción condicional.
+En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Translator Text desde las variables de entorno `TRANSLATOR_TEXT_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscription_key` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
 
 Copie este código en el proyecto:
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key. Then, be sure to delete your "os" import.
-# subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-El punto de conexión global de Translator Text se establece como `base_url`. `path` establece la ruta de `dictionary/lookup` e identifica que deseamos usar la versión 3 de la API.
+El punto de conexión global de Translator Text se establece como `endpoint`. `path` establece la ruta de `dictionary/lookup` e identifica que deseamos usar la versión 3 de la API.
 
 `params` se utiliza para establecer los idiomas de entrada y salida. En este ejemplo, se van a usar inglés y español: `en` y `es`.
 
@@ -63,10 +55,9 @@ El punto de conexión global de Translator Text se establece como `base_url`. `p
 > Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
 params = '&from=en&to=es'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## <a name="add-headers"></a>Incorporación de encabezados
@@ -77,7 +68,7 @@ Copie este fragmento de código en el proyecto:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

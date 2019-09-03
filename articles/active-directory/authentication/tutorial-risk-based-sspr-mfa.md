@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113201"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125177"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Uso de los eventos de riesgo para desencadenar la autenticación multifactor y el cambio de contraseñas
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Uso de detecciones de riesgo para desencadenar Multi-Factor Authentication y cambios de contraseñas
 
 En este tutorial, habilitará las funciones de Azure Active Directory (Azure AD) Identity Protection, una característica de Azure AD Premium P2 que es más que una herramienta de supervisión e informe. Para proteger las identidades de una organización, puede configurar directivas en función del que respondan automáticamente a comportamientos de riesgo. Estas directivas pueden bloquear o iniciar la corrección de forma automática, por ejemplo, requiriendo cambios en las contraseñas y aplicando Multi-Factor Authentication.
 
 Las directivas de Azure AD Identity Protection pueden usarse además de las directivas de acceso condicional existentes como un nivel adicional de protección. Puede que los usuarios nunca pongan en práctica un comportamiento arriesgado que requiera una de estas directivas, pero como administrador sabe que están protegidos.
 
-Algunos elementos que podrían desencadenar un evento de riesgo son:
+Algunos elementos que podrían desencadenar una detección de riesgo son:
 
 * Usuarios con credenciales perdidas
 * Inicios de sesión desde direcciones IP anónimas

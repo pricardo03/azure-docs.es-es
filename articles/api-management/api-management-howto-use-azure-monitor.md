@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680254"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072340"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -64,8 +63,9 @@ Para acceder a la métrica:
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. En la lista desplegable, seleccione las métricas que le interesen. Por ejemplo, **Solicitudes de puerta de enlace correctas**. También puede agregar más métricas al gráfico.
-3. El gráfico muestra el número total de llamadas API correctas.
+1. En la lista desplegable, seleccione las métricas que le interesen. Por ejemplo, **Requests**. 
+1. El gráfico muestra el número total de llamadas API.
+1. El gráfico se puede filtrar mediante las dimensiones de la métrica de **Solicitudes**. Por ejemplo, haga clic en **Agregar filtro**, elija **Backend Response Code** (Código de respuesta de back-end), escriba 500 como valor. Ahora el gráfico muestra el número de solicitudes erróneas en el back-end de la API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configuración de una regla de alerta para solicitudes no autorizadas
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2fd9ccff68eb368107a299af02a54ae6fc6cc0e2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946139"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982360"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Inicio rápido: Creación de un proyecto de clasificación de imágenes con SDK de Custom Vision para Node.js
 
@@ -45,7 +45,7 @@ Cree un archivo llamado *sample.js* en el directorio del proyecto que prefiera.
 
 ### <a name="create-the-custom-vision-service-project"></a>Creación del proyecto de Custom Vision Service
 
-Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de la suscripción en las definiciones pertinentes.
+Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de suscripción en las definiciones adecuadas y establezca el valor de la ruta de acceso sampleDataRoot en la ruta de la carpeta de imágenes. Asegúrese de que el valor endPoint coincide con los puntos de conexión de entrenamiento y predicción que ha creado en [Customvision.ai](https://www.customvision.ai/).
 
 ```javascript
 const util = require('util');

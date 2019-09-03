@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717283"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125645"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>¿Qué es Azure Active Directory Identity Protection (actualizado)?
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection es una característica de Azure Active Directory Pr
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>Eventos de riesgo
+## <a name="risk-detections"></a>Detecciones de riesgo
 
-Azure AD Identity Protection detecta los siguientes eventos de riesgo: 
+Azure AD Identity Protection detecta las siguientes detecciones de riesgo: 
 
-| Tipo de evento de riesgo | DESCRIPCIÓN | Tipo de detección |
+| Tipo de detección de riesgo | DESCRIPCIÓN | Tipo de detección |
 | --- | --- | --- |
 | Viaje atípico | Iniciar sesión desde una ubicación atípica, en función de los recientes inicios de sesión del usuario. | Sin conexión |
 | Dirección IP anónima | Iniciar sesión desde una dirección IP anónima (por ejemplo: el explorador Tor o redes VPN anonimizadoras). | Tiempo real |
 | Propiedades de inicio de sesión desconocidas | Iniciar sesión con propiedades que no hemos observado recientemente en el usuario en cuestión. | Tiempo real |
 | Dirección IP vinculada al malware | Iniciar sesión desde una dirección IP vinculada al malware. | Sin conexión |
-| Filtración de credenciales | Este evento de riesgo indica que se han filtrado las credenciales válidas del usuario. | Sin conexión |
+| Filtración de credenciales | Esta detección de riesgo indica que se han filtrado las credenciales válidas del usuario. | Sin conexión |
 
 ## <a name="types-of-risk"></a>Tipos de riesgo 
 
@@ -80,7 +80,7 @@ Un riesgo de usuario representa la probabilidad de que una identidad determinada
 El riesgo de usuario se calcula teniendo en cuenta todos los riesgos asociados con el usuario:
 
 - Todos los inicios de sesión de riesgo
-- Todos los eventos de riesgo que no están vinculados a ningún inicio de sesión
+- Todas las detecciones de riesgo que no están vinculados a ningún inicio de sesión
 - El riesgo del usuario actual
 - Las acciones de descarte o de corrección de riesgos realizadas en el usuario hasta la fecha
 
@@ -88,7 +88,7 @@ El riesgo de usuario se calcula teniendo en cuenta todos los riesgos asociados c
 
 Azure AD usa el aprendizaje automático para detectar anomalías y actividades sospechosas mediante señales detectadas en tiempo real durante los inicios de sesión, así como con señales que no son en tiempos real relacionadas con los usuarios y sus actividades de inicio de sesión. Con estos datos, Identity Protection calcula un riesgo de inicio de sesión en tiempo real cada vez que un usuario se autentica; asimismo, determina un nivel de riesgo de usuario general para cada usuario. Identity Protection le permite tomar medidas automáticamente en relación con estas detecciones de riesgo mediante la configuración de directivas de riesgo de usuario y riesgo de inicio de sesión de Identity Protection.  
 
-Para entender cómo Identity Protection detecta riesgos, hay dos conceptos importantes: riesgo de usuario y riesgo de inicio de sesión. Un inicio de sesión de riesgo refleja la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Hay dos tipos de inicios de sesión de riesgo: total y en tiempo real. El riesgo de inicio de sesión en tiempo real se detecta en el momento del intento de inicio de sesión determinado (por ejemplo, inicios de sesión desde direcciones IP anónimas). El riesgo de inicio de sesión total es el agregado de los riesgos de inicio de sesión en tiempo real detectados y los eventos de riesgo que no son en tiempo real posteriores asociados con los inicios de sesión del usuario (por ejemplo, viaje imposible). El riesgo del usuario refleja la probabilidad global de que un actor perjudicial haya puesto en peligro una identidad determinada. El riesgo de usuario contiene todas las actividades de riesgo de un usuario determinado, incluidas las siguientes:
+Para entender cómo Identity Protection detecta riesgos, hay dos conceptos importantes: riesgo de usuario y riesgo de inicio de sesión. Un inicio de sesión de riesgo refleja la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Hay dos tipos de inicios de sesión de riesgo: total y en tiempo real. El riesgo de inicio de sesión en tiempo real se detecta en el momento del intento de inicio de sesión determinado (por ejemplo, inicios de sesión desde direcciones IP anónimas). El riesgo de inicio de sesión total es el agregado de los riesgos de inicio de sesión en tiempo real detectados y las detecciones de riesgo que no son en tiempo real posteriores asociados con los inicios de sesión del usuario (por ejemplo, viaje imposible). El riesgo del usuario refleja la probabilidad global de que un actor perjudicial haya puesto en peligro una identidad determinada. El riesgo de usuario contiene todas las actividades de riesgo de un usuario determinado, incluidas las siguientes:
 
 - Riesgo de inicio de sesión en tiempo real
 - Riesgo de inicio de sesión posterior
@@ -102,7 +102,7 @@ En el gráfico anterior se resumen el flujo de línea de base para la detección
 
 Echemos un vistazo al ejemplo de un empleado de Contoso. 
 
-1. Un empleado intenta iniciar sesión en Exchange Online desde el explorador Tor. En el momento de inicio de sesión, Azure AD detecta eventos de riesgo en tiempo real. 
+1. Un empleado intenta iniciar sesión en Exchange Online desde el explorador Tor. En el momento de inicio de sesión, Azure AD detecta detecciones de riesgo en tiempo real. 
 2. Azure AD detecta que el empleado inicia sesión desde una dirección IP anónima, lo que desencadena un nivel de riesgo de inicio de sesión medio. 
 3. El empleado encuentra un símbolo del sistema de MFA, ya que el administrador de TI de Contoso configuró la directiva de acceso condicional de riesgo de inicio de sesión de Identity Protection. La directiva requiere MFA para un riesgo de inicio de sesión medio o superior. 
 4. El empleado supera la autenticación multifactor del símbolo del sistema y obtiene acceso a Exchange Online, y no se cambia su nivel de riesgo de usuario. 
@@ -115,20 +115,20 @@ Pero ¿y si no fuese el empleado quien intentase iniciar sesión?
 2. Azure AD detecta que el intento de inicio de sesión proviene de una dirección IP anónima, lo que desencadena un nivel de riesgo de inicio de sesión en tiempo real. 
 3. El individuo malintencionado encuentra un símbolo del sistema de MFA, ya que el administrador de TI de Contoso configuró la directiva de acceso condicional de riesgo de inicio de sesión de Identity Protection para que requiera MFA con riesgo de inicio de sesión medio o superior. 
 4. El individuo malintencionado no supera el desafío de MFA y no puede obtener acceso a la cuenta de Exchange Online del empleado. 
-5. El símbolo del sistema desencadena un evento de riesgo que se va a registrar, lo que aumenta el riesgo de usuario del empleado para futuros inicios de sesión. 
+5. El símbolo del sistema desencadena una detección de riesgo que se va a registrar, lo que aumenta el riesgo de usuario del empleado para futuros inicios de sesión. 
 
 Ahora que un individuo malintencionado ha intentado obtener acceso a la cuenta de Sara, veamos lo que sucede la próxima vez que el empleado intenta iniciar sesión. 
 
-1. El empleado intenta iniciar sesión en Exchange Online desde Outlook. En el momento de inicio de sesión, Azure AD detecta eventos de riesgo en tiempo real, así como los riesgos de usuario anteriores. 
+1. El empleado intenta iniciar sesión en Exchange Online desde Outlook. En el momento de inicio de sesión, Azure AD detecta detecciones de riesgo en tiempo real, así como los riesgos de usuario anteriores. 
 2. Azure AD no detecta ningún riesgo de inicio de sesión en tiempo real, pero detecta un riesgo de usuario alto debido a la actividad de riesgo precedente en los escenarios anteriores.  
 3. El empleado encuentra un símbolo de sistema de solicitud de restablecimiento de contraseña, ya que el administrador de TI de Contoso configuró la directiva de riesgo de usuario de Identity Protection para requerir un cambio de contraseña cuando un usuario con riesgo alto inicia sesión. 
 4. Puesto que el empleado está registrado para SSPR y MFA, se restablece correctamente su contraseña. 
 5. Al restablecer la contraseña, las credenciales del empleado ya no están en peligro y su identidad vuelve a un estado seguro. 
-6. Los eventos de riesgo anteriores del empleado están resueltos y su nivel de riesgo de usuario se restablece automáticamente como respuesta a la mitigación de riesgo de las credenciales. 
+6. Las detecciones de riesgo anteriores del empleado están resueltos y su nivel de riesgo de usuario se restablece automáticamente como respuesta a la mitigación de riesgo de las credenciales. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Cómo configurar Identity Protection 
 
-Para empezar a trabajar con Identity Protection, primero configure una directiva de riesgo de usuario y una directiva de riesgo de inicio de sesión. Una vez configuradas y aplicadas a un grupo de prueba, puede simular eventos de riesgo para entender cómo responderá Identity Protection en su entorno. Las siguientes guías de inicio rápido proporcionan un tutorial sobre cómo configurar las directivas mencionadas y probarlas en su entorno. 
+Para empezar a trabajar con Identity Protection, primero configure una directiva de riesgo de usuario y una directiva de riesgo de inicio de sesión. Una vez configuradas y aplicadas a un grupo de prueba, puede simular detecciones de riesgo para entender cómo responderá Identity Protection en su entorno. Las siguientes guías de inicio rápido proporcionan un tutorial sobre cómo configurar las directivas mencionadas y probarlas en su entorno. 
 
 Identity Protection es compatible con tres roles de Azure AD para equilibrar las actividades de administración en torno a la implementación: 
 
@@ -145,13 +145,17 @@ Para más información, consulte [Permisos de roles de administrador en Azure Ac
 >[!NOTE]
 > Durante la versión preliminar pública de Identity Protection (actualizado), solo los clientes de Azure AD Premium P2 tendrán acceso a los informes de usuarios de riesgo e inicios de sesión de riesgo.
 
-| Capacidad | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
-| --- | --- | --- | --- |
-| Directiva de riesgo de usuario | Sí | No | Sin |
-| Directiva de riesgo de inicio de sesión | Sí | No | Sin |
-| Informe de usuarios de riesgo | Acceso total | Información limitada | Información limitada |
-| Informe de inicios de sesión peligrosos | Acceso total | Información limitada | Información limitada |
-| Directiva de registro de MFA | Sí | No | Sin |
+| Capacidad | Detalles | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection) | Sí | No | Sin |
+| Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional) | Sí | No | Sin |
+| Informes de seguridad | Información general | Sí | No | Sin |
+| Informes de seguridad | Usuarios de riesgo | Acceso total | Información limitada | Información limitada |
+| Informes de seguridad | Inicios de sesión no seguros | Acceso total | Información limitada | Información limitada |
+| Informes de seguridad | Detecciones de riesgo | Acceso total | Información limitada | Sin |
+| Notificaciones | Alertas detectadas sobre usuarios en riesgo | Sí | No | Sin |
+| Notificaciones | Resumen semanal | Sí | No | Sin |
+| | Directiva de registro de MFA | Sí | No | Sin |
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

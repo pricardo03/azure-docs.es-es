@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624275"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068845"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
@@ -84,12 +84,10 @@ El código de ejemplo está disponible en GitHub para cada uno de los servicios 
 
 Los servicios de voz de Azure funcionan bien con los modelos integrados; sin embargo, es posible que desee personalizar y optimizar más la experiencia para su producto o entorno. Las opciones de personalización abarcan desde la optimización de modelos acústicos a fuentes de voz únicas para su marca. Una vez que haya creado un modelo personalizado, podrá usarlo con cualquiera de los servicios de voz de Azure.
 
-| Speech Service | Modelo | DESCRIPCIÓN |
-|----------------|-------|-------------|
-| Voz a texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Cree un modelo acústico personalizado para las aplicaciones, herramientas o dispositivos usados en entornos concretos como en un automóvil o en una planta de producción, cada uno con unas condiciones de grabación específicas. Los ejemplos incluyen el habla con acento, ruidos de fondo específicos o el uso de un micrófono específico para la grabación. |
-| | [Modelo de lenguaje](how-to-customize-language-model.md) | Cree un modelo de lenguaje personalizado para mejorar la transcripción de gramática y vocabulario específicos del campo, como terminología médica o jerga de TI. |
-| | [Modelo de pronunciación](how-to-customize-pronunciation.md) | Con un modelo de pronunciación personalizado, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple). |
-| Text-to-Speech | [Fuente de voz](how-to-customize-voice-font.md) | Las fuentes de voz personalizadas le permiten crear una voz única y reconocible para su marca. Solo toma una pequeña cantidad de datos para empezar a trabajar. Cuantos más datos proporcione, más natural y similar a la humana sonará su fuente de voz. |
+| Speech Service | Plataforma | DESCRIPCIÓN |
+|----------------|-------------|-------------|
+| Voz a texto | [Custom Speech](https://aka.ms/customspeech) | El reconocimiento de voz personalizado se adapta a sus necesidades y datos disponibles. Elimine las barreras del reconocimiento de voz, como el estilo de habla, el vocabulario y el ruido de fondo. |
+| Text-to-Speech | [Voz personalizada](https://aka.ms/customvoice) | Cree una voz reconocible única para las aplicaciones de texto a voz con los datos de habla disponibles. Puede optimizar aún más las salidas de voz ajustando un conjunto de parámetros de voz. |
 
 ## <a name="reference-docs"></a>Documentos de referencia
 

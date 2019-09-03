@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69894140"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099150"
 ---
 En este paso, creará una base de datos única de Azure SQL Database. 
 
@@ -23,7 +23,7 @@ En este paso, creará una base de datos única de Azure SQL Database.
 
 Cree el grupo de recursos y la base de datos única mediante Azure Portal.
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de las distintas bases de datos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
 3. Seleccione **Crear**:
 
@@ -43,7 +43,7 @@ Cree el grupo de recursos y la base de datos única mediante Azure Portal.
        - **Nombre del servidor**: Escriba `mysqlserver`, junto con algunos números con fines de unicidad.
        - **Inicio de sesión del administrador del servidor**: Escriba `azureuser`.
        - **Contraseña**: Escriba una contraseña compleja que cumpla los requisitos de contraseña.
-       - **Ubicación**: Elija una ubicación en la lista desplegable, como `West US 2`.
+       - **Ubicación**: Elija una ubicación en la lista desplegable, como `West US`.
 
          ![Nuevo servidor](../media/sql-database-get-started-portal/new-server.png)
 
@@ -86,7 +86,7 @@ Cree el grupo de recursos y la base de datos única con PowerShell.
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

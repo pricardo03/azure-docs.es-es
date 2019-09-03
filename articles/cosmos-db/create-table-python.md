@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833079"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020132"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Table API con Python y Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**. 
 
     ![Visualización y copia de la cadena de conexión en el panel Cadena de conexión](./media/create-table-python/connection-string.png)
 
@@ -100,7 +100,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones**, seleccione el entorno de Python actual y haga clic con el botón derecho.
 
-2. Seleccione el paquete de instalación de Python y, a continuación, escriba **azure-storage-table**.
+2. Seleccione el paquete de instalación de Python y, a continuación, escriba **azure-storage-table**
 
 3. Presione F5 para ejecutar la aplicación. La aplicación se muestra en el explorador. 
 

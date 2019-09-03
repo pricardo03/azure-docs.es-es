@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb1e29735a860f5dc3b6ce8996af9fcd4962871
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ed5e5e26a27e13ba09ffcc97e0b2b0f1b37bc8bd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335307"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127692"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection  
 
@@ -34,7 +34,7 @@ Para completar el escenario de este tutorial, necesita:
 
 - **Acceso a una edición de Azure AD Premium P2**: Azure AD Identity Protection es una característica de Azure AD Premium P2. 
 - **Identity Protection**: el escenario de esta guía de inicio rápido requiere que se habilite Identity Protection. Si no sabe cómo habilitarlo, consulte [Habilitación de Azure Active Directory Identity Protection](../identity-protection/enable.md).
-- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como **inicios de sesión desde direcciones IP anónimas**, lo que tiene un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como **inicios de sesión desde direcciones IP anónimas**, lo que tiene un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Una cuenta de prueba denominada Alain Charon**: si no sabe cómo crear una cuenta de prueba, consulte [Adición de un nuevo usuario](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión 
@@ -48,7 +48,7 @@ El objetivo de este paso es asegurarse de que la cuenta de prueba puede acceder 
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional 
 
-El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de un evento de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de este evento es medio. Para responder a este evento de riesgo, la condición de riesgo de inicio de sesión se establece en medio. 
+El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor Browser para generar la detección de riesgo **Inicios de sesión desde direcciones IP anónimas**. El nivel de riesgo de esta detección es medio. Para responder a esta detección de riesgo, la condición de riesgo de inicio de sesión se establece en medio. 
 
 En esta sección se muestra cómo crear la directiva de acceso condicional por riesgo de inicio de sesión que se requiere. En la directiva, establezca:
 

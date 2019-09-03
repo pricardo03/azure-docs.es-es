@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032524"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125622"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -36,7 +36,7 @@ Este tutorial:
 
 Para agregar una aplicación local a Azure AD, se necesita:
 
-* Una [suscripción Basic o Premium a Microsoft Azure AD](https://azure.microsoft.com/pricing/details/active-directory).
+* Una [suscripción Premium a Microsoft Azure AD](https://azure.microsoft.com/pricing/details/active-directory).
 * Una cuenta de administrador de aplicaciones.
 * Las identidades de usuario se deben sincronizar desde un directorio local, o bien se deben crear directamente en los inquilinos de Azure AD. La sincronización de identidades permite a Azure AD realizar una autenticación previa de los usuarios antes de concederles acceso a aplicaciones publicadas en App Proxy y tener la información del identificador de usuario necesarios para realizar el inicio de sesión único (SSO).
 

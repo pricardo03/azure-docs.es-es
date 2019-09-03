@@ -10,27 +10,25 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136494"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113575"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Creación de una aplicación web con implementación continua desde GitHub
 
-Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, configura la implementación continua desde un repositorio de GitHub. Para la implementación de GitHub sin una implementación continua, consulte [Creación de una aplicación web e implementación de código desde GitHub](powershell-deploy-github.md).
+Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, configura la [implementación continua](../deploy-continuous-deployment.md) desde un repositorio de GitHub. Para la implementación de GitHub sin una implementación continua, consulte [Creación de una aplicación web e implementación de código desde GitHub](powershell-deploy-github.md).
 
 Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/overview) y, luego, ejecute `Connect-AzAccount` para crear una conexión con Azure. Asegúrese de lo siguiente:
 
-- Se ha creado una conexión con Azure mediante el comando `az login`.
-- El código de la aplicación está en un repositorio de GitHub público o privado del que usted es el propietario.
-- Ha [creado un token de acceso en su cuenta de GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+- El código de la aplicación está en un repositorio de GitHub público o privado del que usted es el propietario. Para obtener compilaciones automáticas, estructure el repositorio según la tabla que encontrará en la sección [Preparación del repositorio](../deploy-continuous-deployment.md#prepare-your-repository).
+- Ha [creado un token de acceso personal en su cuenta de GitHub](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

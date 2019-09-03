@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515328"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051664"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Tutorial: Comience a crear su primer experimento de Machine Learning
 
@@ -73,7 +73,12 @@ Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas
     > [!TIP]
     > Esta carpeta se encuentra en el [contenedor de almacenamiento](concept-workspace.md#resources) del área de trabajo en lugar de en la propia máquina virtual del cuaderno.  Puede eliminar la máquina virtual del cuaderno y conservar todo el trabajo.  Cuando cree una máquina virtual de cuaderno más adelante, se cargará esta misma carpeta. Si comparte el área de trabajo con otras personas, estas verán su carpeta y usted las suyas.
 
-1. Abra el subdirectorio `samples-*` y luego abra `tutorials/tutorial-1st-experiment-sdk-train.ipynb` para ejecutar la **segunda parte** del tutorial.
+1. Abra el subdirectorio `samples-*` y, después, abra `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+> [!Warning]
+> Asegúrese de que abre el archivo `tutorial-1st-experiment-sdk-train.ipynb` y **no** el archivo `.yml` del > mismo nombre. 
+
+En la **segunda parte** del tutorial, se ejecuta el código en `tutorial-1st-experiment-sdk-train.ipynb` para entrenar un modelo de Machine Learning.
 
 ## <a name="end"></a> Limpieza de recursos
 

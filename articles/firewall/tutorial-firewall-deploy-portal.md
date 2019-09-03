@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405682"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113473"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Configurar un entorno de red de prueba
 > * Implementar un firewall
 > * Crear una ruta predeterminada
-> * Configurar una regla de aplicación que permita acceder a msn.com
+> * Configurar una regla de aplicación para permitir el acceso a www.google.com
 > * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
 > * Probar el firewall
 
@@ -67,6 +67,9 @@ El grupo de recursos contiene todos los recursos necesarios para el tutorial.
 
 Esta red virtual contiene tres subredes.
 
+> [!NOTE]
+> El tamaño de la subred AzureFirewallSubnet es /26. Para más información sobre el tamaño de la subred, consulte [Preguntas más frecuentes sobre Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 1. En la página principal de Azure Portal, seleccione **Crear un recurso**.
 2. En **Redes**, seleccione **Red virtuales**.
 4. En **Nombre**, escriba **Test-FW-VN**.
@@ -75,11 +78,8 @@ Esta red virtual contiene tres subredes.
 7. En **Grupo de recursos**, seleccione **Test-FW-RG**.
 8. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
 9. En **Subred**, como **Nombre** escriba **AzureFirewallSubnet**. El firewall estará en esta subred y el nombre de la subred **debe** ser AzureFirewallSubnet.
-10. En **Intervalo de direcciones**, escriba **10.0.1.0/24**.
+10. En **Intervalo de direcciones**, escriba **10.0.1.0/26**.
 11. Acepte los restantes valores predeterminados y seleccione **Crear**.
-
-> [!NOTE]
-> El tamaño mínimo de la subred AzureFirewallSubnet es /26.
 
 ### <a name="create-additional-subnets"></a>Creación de subredes adicionales
 
@@ -87,7 +87,7 @@ A continuación, cree las subredes para el servidor de salto y una subred para l
 
 1. En la página principal de Azure Portal, seleccione **Grupos de recursos** > **Test-FW-RG**.
 2. Seleccione la red virtual **Test-FW-VN**.
-3. Seleccione **Subredes** > **+Subred**.
+3. Seleccione **Subredes** >  **+Subred**.
 4. En **nombre**, escriba **Workload-SN**.
 5. En **Intervalo de direcciones**, escriba **10.0.2.0/24**.
 6. Seleccione **Aceptar**.
@@ -104,14 +104,14 @@ Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquela
 
    |Configuración  |Valor  |
    |---------|---------|
-   |Grupos de recursos     |**Test-FW-RG**|
+   |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Jump**|
    |Region     |Igual que la anterior|
    |Nombre de usuario del administrador     |**azureuser**|
    |Contraseña     |**Azure123456!**|
 
 4. En **Reglas de puerto de entrada**, en **Puertos de entrada públicos**, seleccione **Permitir los puertos seleccionados**.
-5. En **Seleccionar puertos de entrada**, seleccione **RDP (3389)**.
+5. En **Seleccionar puertos de entrada**, seleccione **RDP (3389)** .
 
 6. Acepte los restantes valores predeterminados y seleccione **Siguiente: Discos**.
 7. Acepte los valores predeterminados del disco y seleccione **Siguiente: Redes**.
@@ -125,7 +125,7 @@ Use la información de la tabla siguiente para configurar otra máquina virtual 
 
 |Configuración  |Valor  |
 |---------|---------|
-|Subred|**Workload-SN**|
+|Subnet|**Workload-SN**|
 |Dirección IP pública|**None**|
 |Puertos de entrada públicos|**None**|
 
@@ -141,9 +141,9 @@ Implemente el firewall en la red virtual.
    |Configuración  |Valor  |
    |---------|---------|
    |Subscription     |\<su suscripción\>|
-   |Grupos de recursos     |**Test-FW-RG** |
+   |Resource group     |**Test-FW-RG** |
    |NOMBRE     |**Test-FW01**|
-   |Ubicación     |Seleccione la misma ubicación que usó anteriormente.|
+   |Location     |Seleccione la misma ubicación que usó anteriormente.|
    |Elegir una red virtual     |**Usar existente**: **Test-FW-VN**|
    |Dirección IP pública     |**Cree uno nuevo**. La dirección IP pública tiene que ser del tipo de SKU estándar.|
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 1361224fb59a32ca227c5ea1e6cc92a4b0fdff6e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541802"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70076895"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas frecuentes
 
@@ -113,7 +113,7 @@ A.  Para acelerar el proceso de copia:
 - Utilice varias sesiones.
 - En lugar de realizar la copia a través de un recurso compartido de red (en el que puede tener la limitación de la velocidad de la red), asegúrese de que los datos se encuentran localmente en el equipo al que se conectan los discos.
 - Asegúrese de que usa USB 3.0, o posterior, en todo el proceso de copia. Descargue la [herramienta USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) y úsela para identificar los controladores USB y dispositivos USB conectados al equipo.
-- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta Bluestop FIO](https://bluestop.org/fio/) y úsela para evaluar el rendimiento del hardware del servidor.
+- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>P: ¿Cómo acelerar los datos si los datos de origen tienen archivos pequeños (de KB o pocos MB)?
 A.  Para acelerar el proceso de copia:

@@ -13,16 +13,16 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 07b5b039e0069702b613619c54eb7eda46bf3051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8678bacb48bdf63abb2ce517f1bead83d86a5827
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313229"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113742"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una factoría de datos de Azure con PowerShell
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-powershell.md)
 
@@ -107,6 +107,7 @@ Tenga en cuenta los siguientes puntos:
 
 * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
+
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
 Cree servicios vinculados en una factoría de datos para vincular los almacenes de datos y los servicios de proceso a la factoría de datos. En esta guía de inicio rápido, creará un servicio vinculado de Azure Storage que se utiliza para ambos almacenes: de origen y de recepción. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
@@ -120,12 +121,10 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
     {
         "name": "AzureStorageLinkedService",
         "properties": {
-            "type": "AzureStorage",
+            "annotations": [],
+            "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
             }
         }
     }
@@ -153,57 +152,99 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
-## <a name="create-a-dataset"></a>Crear un conjunto de datos
+## <a name="create-datasets"></a>Creación de conjuntos de datos
 
-En este paso, define un conjunto de datos que representa los datos que se copian de un origen a un receptor. El conjunto de datos es de tipo **AzureBlob**. Hace referencia al **servicio vinculado de Azure Storage** que creó en el paso anterior. Toma un parámetro para construir la propiedad **folderPath**. Para un conjunto de datos de entrada, la actividad de copia de la canalización pasa la ruta de acceso de entrada como un valor para este parámetro. De forma similar, para un conjunto de datos de salida, la actividad de copia pasa la ruta de acceso de salida como un valor para este parámetro. 
-
-1. Cree un archivo JSON llamado **BlobDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
+En este procedimiento, creará dos conjuntos de datos: **InputDataset** y **OutputDataset**. Estos conjuntos de datos son del tipo **Binario**. Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior.
+El conjunto de datos de entrada representa los datos de origen en la carpeta de entrada. En la definición del conjunto de datos de entrada, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**input**) y el archivo (**emp.txt**) que contiene los datos de origen.
+El conjunto de datos de salida representa los datos que se copian en el destino. En la definición del conjunto de datos de salida, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**output**) y el archivo en el que se copian los datos. 
+1. Cree un archivo JSON llamado **InputDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
     ```json
     {
-        "name": "BlobDataset",
+        "name": "InputDataset",
         "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-                "folderPath": "@{dataset().path}"
-            },
             "linkedServiceName": {
                 "referenceName": "AzureStorageLinkedService",
                 "type": "LinkedServiceReference"
             },
-            "parameters": {
-                "path": {
-                    "type": "String"
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "fileName": "emp.txt",
+                    "folderPath": "input",
+                    "container": "adftutorial"
                 }
             }
         }
     }
     ```
 
-2. Para crear el conjunto de datos: **BlobDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
+2. Para crear el conjunto de datos: **InputDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
-        -DefinitionFile ".\BlobDataset.json"
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "InputDataset" `
+        -DefinitionFile ".\InputDataset.json"
     ```
 
     Este es la salida de ejemplo:
 
     ```console
-    DatasetName       : BlobDataset
+    DatasetName       : InputDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
     Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
+3. Repita los pasos para crear el conjunto de datos de salida. Cree un archivo JSON llamado **OutputDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
+
+    ```json
+    {
+        "name": "OutputDataset",
+        "properties": {
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            },
+            "annotations": [],
+            "type": "Binary",
+            "typeProperties": {
+                "location": {
+                    "type": "AzureBlobStorageLocation",
+                    "folderPath": "output",
+                    "container": "adftutorial"
+                }
+            }
+        }
+    }
+    ```
+
+4. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear **OutDataset**.
+
+    ```powershell
+    Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
+        -ResourceGroupName $ResGrp.ResourceGroupName -Name "OutputDataset" `
+        -DefinitionFile ".\OutputDataset.json"
+    ```
+
+    Este es la salida de ejemplo:
+
+    ```console
+    DatasetName       : OutputDataset
+    ResourceGroupName : <resourceGroupname>
+    DataFactoryName   : <dataFactoryName>
+    Structure         :
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
+    ```
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-En esta guía de inicio rápido, creará una canalización con una actividad que admita dos parámetros: ruta de acceso de blob de entrada y de salida. Los valores para estos parámetros se establecen cuando se desencadena/ejecuta la canalización. La actividad de copia usa el mismo conjunto de datos de blob creado en el paso anterior como entrada y salida. Cuando se usa el conjunto de datos como conjunto de datos de entrada, se especifica una ruta de acceso de entrada. Cuando se usa el conjunto de datos como conjunto de datos de salida, se especifica una ruta de acceso de salida.
+En este procedimiento se crea una canalización con una actividad de copia que utiliza los conjuntos de datos de entrada y de salida. La actividad de copia realiza una copia de los datos desde el archivo especificado en la configuración del conjunto de datos de entrada hasta el archivo especificado en la configuración del conjunto de datos de salida.  
 
 1. Cree un archivo JSON llamado **Adfv2QuickStartPipeline.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
@@ -215,42 +256,46 @@ En esta guía de inicio rápido, creará una canalización con una actividad que
                 {
                     "name": "CopyFromBlobToBlob",
                     "type": "Copy",
+                    "dependsOn": [],
+                    "policy": {
+                        "timeout": "7.00:00:00",
+                        "retry": 0,
+                        "retryIntervalInSeconds": 30,
+                        "secureOutput": false,
+                        "secureInput": false
+                    },
+                    "userProperties": [],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BinarySource",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageReadSettings",
+                                "recursive": true
+                            }
+                        },
+                        "sink": {
+                            "type": "BinarySink",
+                            "storeSettings": {
+                                "type": "AzureBlobStorageWriteSettings"
+                            }
+                        },
+                        "enableStaging": false
+                    },
                     "inputs": [
                         {
-                            "referenceName": "BlobDataset",
-                            "parameters": {
-                                "path": "@pipeline().parameters.inputPath"
-                            },
+                            "referenceName": "InputDataset",
                             "type": "DatasetReference"
                         }
                     ],
                     "outputs": [
                         {
-                            "referenceName": "BlobDataset",
-                            "parameters": {
-                                "path": "@pipeline().parameters.outputPath"
-                            },
+                            "referenceName": "OutputDataset",
                             "type": "DatasetReference"
                         }
-                    ],
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink"
-                        }
-                    }
+                    ]
                 }
             ],
-            "parameters": {
-                "inputPath": {
-                    "type": "String"
-                },
-                "outputPath": {
-                    "type": "String"
-                }
-            }
+            "annotations": []
         }
     }
     ```
@@ -267,24 +312,15 @@ En esta guía de inicio rápido, creará una canalización con una actividad que
 
 ## <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
 
-En este paso, define los valores para los parámetros de canalización: **inputPath** y **outputPath** con valores reales de rutas de acceso de blob de origen y receptor. A continuación, use estos argumentos para crear una canalización.
+En este paso, se crea una ejecución de la canalización.
 
-1. Cree un archivo JSON llamado **BlobDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
-
-    ```json
-    {
-        "inputPath": "adftutorial/input",
-        "outputPath": "adftutorial/output"
-    }
-    ```
-2. Ejecute el cmdlet **Invoke-AzDataFactoryV2Pipeline** para crear una ejecución de canalización y pasar los valores de parámetro. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
+1. Ejecute el cmdlet **Invoke-AzDataFactoryV2Pipeline** para crear una ejecución de la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name `
-        -ParameterFile .\PipelineParameters.json
+        -PipelineName $DFPipeLine.Name 
     ```
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
@@ -317,43 +353,18 @@ En este paso, define los valores para los parámetros de canalización: **inputP
     Pipeline is running...status: InProgress
     Pipeline run finished. The status is:  Succeeded
     
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : SPTestFactory0928
-    RunId             : 0000000000-0000-0000-0000-0000000000000
+    ResourceGroupName : ADFQuickStartRG
+    DataFactoryName   : ADFQuickStartFactory
+    RunId             : 00000000-0000-0000-0000-0000000000000
     PipelineName      : Adfv2QuickStartPipeline
-    LastUpdated       : 9/28/2017 8:28:38 PM
-    Parameters        : {[inputPath, adftutorial/input], [outputPath, adftutorial/output]}
-    RunStart          : 9/28/2017 8:28:14 PM
-    RunEnd            : 9/28/2017 8:28:38 PM
-    DurationInMs      : 24151
+    LastUpdated       : 8/27/2019 7:23:07 AM
+    Parameters        : {}
+    RunStart          : 8/27/2019 7:22:56 AM
+    RunEnd            : 8/27/2019 7:23:07 AM
+    DurationInMs      : 11324
     Status            : Succeeded
-    Message           :
+    Message           : 
     ```
-
-    Puede aparecer el error siguiente:
-
-    ```console
-    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
-    ```
-
-    Si ve el error, realice los pasos siguientes:
-
-    1. En el archivo AzureStorageLinkedService.json, confirme que el nombre y la clave de la cuenta de Azure Storage son correctos.
-    2. Compruebe que el formato de la cadena de conexión es correcto. Las propiedades, por ejemplo, AccountName y AccountKey, están separadas por el carácter de punto y coma (`;`).
-    3. Si el nombre y la clave de la cuenta están entre corchetes, quítelos.
-    4. A continuación, se muestra una cadena de conexión de ejemplo:
-
-        ```json
-        "connectionString": {
-            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.windows.net",
-            "type": "SecureString"
-        }
-        ```
-
-    5. Vuelva a crear el servicio vinculado siguiendo los pasos de la sección [Creación de un servicio vinculado](#create-a-linked-service).
-    6. Vuelva a ejecutar la canalización siguiendo los pasos de la sección [Creación de una ejecución de canalización ](#create-a-pipeline-run).
-    7. Ejecute el comando de supervisión actual para supervisar la nueva ejecución de canalización.
-
 2. Ejecute el script siguiente para recuperar detalles de la ejecución de la actividad de copia, como el tamaño de los datos leídos o escritos.
 
     ```powershell
@@ -370,29 +381,59 @@ En este paso, define los valores para los parámetros de canalización: **inputP
 3. Confirme que ha obtenido una salida similar a la siguiente salida de ejemplo de resultado de ejecución de actividad:
 
     ```console
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : SPTestFactory0928
+    ResourceGroupName : ADFQuickStartRG
+    DataFactoryName   : ADFQuickStartFactory
+    ActivityRunId     : 00000000-0000-0000-0000-000000000000
     ActivityName      : CopyFromBlobToBlob
-    PipelineRunId     : 00000000000-0000-0000-0000-000000000000
+    PipelineRunId     : 00000000-0000-0000-0000-000000000000
     PipelineName      : Adfv2QuickStartPipeline
-    Input             : {source, sink}
-    Output            : {dataRead, dataWritten, copyDuration, throughput...}
+    Input             : {source, sink, enableStaging}
+    Output            : {dataRead, dataWritten, filesRead, filesWritten...}
     LinkedServiceName :
-    ActivityRunStart  : 9/28/2017 8:28:18 PM
-    ActivityRunEnd    : 9/28/2017 8:28:36 PM
-    DurationInMs      : 18095
+    ActivityRunStart  : 8/27/2019 7:22:58 AM
+    ActivityRunEnd    : 8/27/2019 7:23:05 AM
+    DurationInMs      : 6828
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     
     Activity 'Output' section:
-    "dataRead": 38
-    "dataWritten": 38
-    "copyDuration": 7
+    "dataRead": 20
+    "dataWritten": 20
+    "filesRead": 1
+    "filesWritten": 1
+    "sourcePeakConnections": 1
+    "sinkPeakConnections": 1
+    "copyDuration": 4
     "throughput": 0.01
     "errors": []
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
-    "usedDataIntegrationUnits": 2
-    "billedDuration": 14
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (Central US)"
+    "usedDataIntegrationUnits": 4
+    "usedParallelCopies": 1
+    "executionDetails": [
+      {
+        "source": {
+          "type": "AzureBlobStorage"
+        },
+        "sink": {
+          "type": "AzureBlobStorage"
+        },
+        "status": "Succeeded",
+        "start": "2019-08-27T07:22:59.1045645Z",
+        "duration": 4,
+        "usedDataIntegrationUnits": 4,
+        "usedParallelCopies": 1,
+        "detailedDurations": {
+          "queuingDuration": 3,
+          "transferDuration": 1
+        }
+      }
+    ]
+    
+    Activity 'Error' section:
+    "errorCode": ""
+    "message": ""
+    "failureType": ""
+    "target": "CopyFromBlobToBlob"
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para Node.js con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para Node.js con Azure DevOps Projects'
 description: Con DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164533"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991719"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para Node.js con Azure DevOps Projects 
 
@@ -54,9 +54,9 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. Cree una organización de Azure DevOps nueva o elija una existente. 
 
-     a. Elija el nombre del proyecto. 
+    a. Escriba un nombre para el proyecto.
 
-    b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
+    b. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.  
     En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.
      
 3. Seleccione **Examinar** para ver la aplicación en ejecución.
@@ -105,7 +105,7 @@ La compilación ejecuta varias tareas, como capturar códigos fuente del reposit
 1. Cambie el nombre de la canalización de compilación por otro más descriptivo, seleccione **Guardar y poner en cola** y, luego, **Guardar**.
 
 1. En el nombre de la canalización de compilación, seleccione **Historial**.   
-En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar las versiones.
+En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
 
 1. Seleccione **Desencadenadores**.   
  DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
