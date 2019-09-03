@@ -20,7 +20,7 @@ ms.locfileid: "68569096"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guías de inicio rápido: Conexión y consulta de Azure SQL Database
 
-En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran cómo conectarse a una base de datos de Azure SQL y realizar consultas en ella. También se proporciona algunas recomendaciones de seguridad de nivel de transporte.
+En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran cómo conectarse a una base de datos de Azure SQL y realizar consultas en ella. También se proporcionan algunas recomendaciones de seguridad de nivel de transporte.
 
 ## <a name="quickstarts"></a>Guías de inicio rápido
 

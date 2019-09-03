@@ -40,7 +40,7 @@ Las API de consumo de Azure ofrecen acceso a:
 
 ## <a name="usage-details-api"></a>API de detalles de uso
 
-Use la API de detalles de uso para obtener los datos de cargos y uso para todos los recursos propios de Azure. La información presenta la forma de registros de detalles de uso, que actualmente se emiten una vez por cada medidor y por cada recurso al día. La información se puede utilizar para sumar los costos de todos los recursos o investigar los costos o el uso de recursos específicos. 
+Use la API de detalles de uso para obtener los datos de cargos y uso para todos los recursos propios de Azure. La información se presenta en la forma de registros de detalles de uso, que actualmente se emiten una vez por cada medidor y por cada recurso al día. La información se puede utilizar para sumar los costos de todos los recursos o investigar los costos o el uso de recursos específicos. 
 
 La API incluye:
 
@@ -51,7 +51,7 @@ La API incluye:
     - Grupo de recursos
     - Nombre de recurso
 -   **Agregación de datos**: use OData para aplicar expresiones para agregar detalles de uso por etiquetas o propiedades de filtro
--   **Uso para diferentes tipos de ofertas**: la información detallada de uso está disponible actualmente para los clientes de Enterprise y Web Direct.
+-   la **información de los detalles de uso** está disponible actualmente para los clientes de Enterprise y Web Direct.
 
 Para más información, vea la especificación técnica para la [API de detalles de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails).
 
@@ -61,15 +61,15 @@ Use la API de cargos de Marketplace para obtener datos de cobros y uso de todos 
 
 La API incluye:
 
--   **Datos de consumo a nivel de medidor**: consulte datos como el costo de uso del catálogo de soluciones, el medidor que emite el cargo y a qué recurso pertenece el cargo. Todos los registros de detalles de uso se asignan a un cubo diario.
+-   **Datos de consumo a nivel de medidor**: consulte datos como el costo de uso de marketplace, el medidor que emite el cargo y a qué recurso pertenece el cargo. Todos los registros de detalles de uso se asignan a un cubo diario.
 -   **Control de acceso basado en rol de Azure**: configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica. 
--   **Filtrado**: recorte el conjunto de resultados de API para conseguir un conjunto más pequeño de registros del catálogo de soluciones con los siguientes filtros:
+-   **Filtrado**: recorte el conjunto de resultados de API para conseguir un conjunto más pequeño de registros del marketplace con los siguientes filtros:
     - Inicio/fin del uso
     - Grupo de recursos
     - Nombre de recurso
--   **Uso para diferentes tipos de ofertas**: la información del catálogo de soluciones está disponible actualmente para los clientes de Enterprise y Web Direct.
+-   **Uso para diferentes tipos de ofertas**: la información del marketplace está disponible actualmente para los clientes de Enterprise y Web Direct.
 
-Para más información, consulte la especificación técnica de la [API de cargos del catálogo de soluciones](https://docs.microsoft.com/rest/api/consumption/marketplaces).
+Para más información, consulte la especificación técnica de la [API de cargos del marketplace](https://docs.microsoft.com/rest/api/consumption/marketplaces).
 
 ## <a name="balances-api"></a>API de saldos
 
@@ -103,7 +103,7 @@ Para más información, consulte la especificación técnica de la [API de presu
 
 ## <a name="reservation-recommendations-api"></a>API de recomendaciones de reserva
 
-Use esta API para obtener recomendaciones de compra de instancias reservadas de máquina virtual. Las recomendaciones están diseñadas para permitir a los clientes analizar las cantidades compra y de ahorros en costos esperadas. 
+Use esta API para obtener recomendaciones de compra de instancias reservadas de máquina virtual. Las recomendaciones están diseñadas para permitir a los clientes analizar las cantidades de compra y los ahorros en costos esperados. 
 
 La API incluye:
 
@@ -138,12 +138,12 @@ La API incluye:
 -   **Filtrado**: adapte los resultados al usar el nivel de detalle diario con el filtro siguiente:
     - Fecha de uso
 -   **Información de reserva para diferentes tipos de ofertas**: la información de reserva está disponible actualmente para los clientes de Enterprise y Web Direct.
--   **Agregaciones diarias o mensuales**: los autores de llamada pueden especificar si desean que sus datos de resúmenes de reservan presenten un nivel de detalle diario o mensual.
+-   **Agregaciones diarias o mensuales**: los autores de llamada pueden especificar si desean que sus datos de resúmenes de reservas presenten un nivel de detalle diario o mensual.
 
 Para más información, vea la especificación técnica de la [API de resúmenes de reserva](https://docs.microsoft.com/rest/api/consumption/reservationssummaries).
 
 ## <a name="price-sheet-api"></a>API de hoja de precios
-Los clientes de Enterprise pueden usar esta API para recuperar sus precios personalizados para todos los medidores. Las empresas pueden utilizar esto en combinación con los detalles de uso y la información de uso de los catálogos de soluciones para realizar cálculos de costos en función de los datos de uso y del catálogo de soluciones. 
+Los clientes de Enterprise pueden usar esta API para recuperar sus precios personalizados para todos los medidores. Las empresas pueden utilizar esto en combinación con los detalles de uso y la información de uso de marketplace para realizar cálculos de costos en función de los datos de uso y del catálogo de soluciones. 
 
 La API incluye:
 
@@ -157,7 +157,7 @@ Para más información, consulte la especificación técnica de la [API de hoja 
 Estos son algunos de los escenarios posibles con las API de consumo:
 
 -   **Conciliación de facturas**: ¿Microsoft me cobró el importe correcto?  ¿Cuál es mi factura y puedo calcularla yo mismo?
--   **Cargos cruzados**: ahora que ya sé cuándo se me va a cobrar, ¿quién debe encargarse de pagar en mi organización?
+-   **Cargos cruzados**: ahora que ya sé cuánto se me va a cobrar, ¿quién debe encargarse de pagar en mi organización?
 -   **Optimización de costos**: sé cuánto se me ha cobrado... ¿cómo puedo obtener mayor rendimiento del dinero que gasto en Azure?
 -   **Seguimiento de costos**: me gustaría consultar lo que gasto y uso en Azure a lo largo del tiempo. ¿Cuáles son las tendencias? ¿Cómo podría hacerlo mejor?
 -   **Gasto en Azure durante el mes**: ¿cuánto llevo gastado este mes? ¿Debo realizar algún ajuste en mi gasto o uso de Azure? ¿En qué momento del mes registro más consumo de Azure?
