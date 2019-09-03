@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
-ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b330c6010ddb5401dbf9753c2ea91bfeedf35c3b
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256267"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020026"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-copy-data-tool.md)
 
@@ -33,16 +33,16 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Datos y análisis** y, después, seleccione **Data Factory**. 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+1. Vaya a [Azure Portal](https://portal.azure.com). 
+1. Seleccione **Crear un recurso** en el menú izquierdo, seleccione **Analytics** y, luego, elija **Data Factory**. 
    
-   ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. En la página **Nueva factoría de datos**, escriba **ADFTutorialDataFactory** en **Nombre**. 
-      
-   ![Página de la nueva factoría de datos](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si ve el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, **&lt;suNombre&gt;ADFTutorialDataFactory**) e intente crearlo de nuevo. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
   
-   ![Mensaje de error cuando un nombre no está disponible](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
+   ![Mensaje de error cuando un nombre no está disponible](./media/doc-common-process/name-not-available-error.png)
 1. En **Suscripción**, seleccione la suscripción de Azure donde desea crear la factoría de datos. 
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
      
@@ -51,20 +51,21 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
          
    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 1. En **Versión**, seleccione **V2**.
-1. En **Ubicación**, seleccione la ubicación de la factoría de datos. 
+1. En **Ubicación**, seleccione la ubicación de la factoría de datos.
 
-   En la lista solo se muestran las ubicaciones que admite Data Factory y dónde se almacenarán los metadatos de Azure Data Factory. Tenga en cuenta que los almacenes de datos asociados (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory se pueden ejecutar en otras regiones.
+   En la lista solo se muestran las ubicaciones que admite Data Factory y dónde se almacenarán los metadatos de Azure Data Factory. Los almacenes de datos asociados (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory se pueden ejecutar en otras regiones.
 
 1. Seleccione **Crear**.
+
 1. Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
    
-   ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
+   ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/doc-common-process/data-factory-home-page.png)
 
 ## <a name="start-the-copy-data-tool"></a>Inicio de la herramienta Copy Data
 
 1. En la página **Let's get started** (Comencemos), seleccione el icono **Copy Data** para iniciar la herramienta Copy Data. 
 
-   ![Icono Copy Data](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
+   ![Icono Copy Data](./media/doc-common-process/get-started-page.png)
 
 1. En la página **Propiedades** de la herramienta Copiar datos, puede especificar un nombre para la canalización y su descripción, y luego seleccionar **Siguiente**. 
 
@@ -73,37 +74,27 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
-    ![Página del almacén de datos de origen](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
+    b. Seleccione **Azure Blob Storage** en la galería y, a continuación, seleccione **Continue** (Continuar).
 
-    b. Seleccione **Azure Blob Storage** en la galería y, a continuación, seleccione **Siguiente**.
-
-    ![Selección del almacenamiento de blobs en la galería](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
-
-    c. En la página **Specify the Azure Blob storage account** (Especificar la cuenta de Azure Blob Storage), seleccione el **nombre de la cuenta de Storage** y, después, seleccione **Finish** (Finalizar). 
+    c. En la página **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], especifique un nombre para el servicio vinculado. Seleccione su cuenta de almacenamiento en la lista **Storage account name** (Nombre de cuenta de almacenamiento) y, después, seleccione **Finish** (Finalizar). 
 
    ![Configuración de la cuenta de Azure Blob Storage](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-   d. Seleccione el servicio vinculado recién creado como origen y, a continuación, haga clic en **Siguiente**.
-
-   ![Selección del servicio vinculado de origen](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
+    d. Seleccione el servicio vinculado recién creado como origen y, a continuación, haga clic en **Siguiente**.
 
 
 1. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), complete los siguientes pasos:
 
-   a. Haga clic en **Examinar** para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Elegir**. 
+   a. Haga clic en **Browse** (Examinar) para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Choose** (Elegir). 
 
-   ![Página de elección del archivo o la carpeta de entrada](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
-
-   d. Marque la opción **Binary copy** (Copia binaria) para copiar el archivo tal cual está, después, seleccione **Siguiente**. 
+   d. Seleccione la casilla **Binary copy** (Copia binaria) para copiar el archivo tal cual está, después, seleccione **Siguiente**. 
 
    ![Página de elección del archivo o la carpeta de entrada](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
 
-1. En la página **Almacén de datos de destino**, seleccione el servicio vinculado a **Azure Blob Storage** que acaba de crear y, después, en **Siguiente**. 
+1. En la página **Destination data store** (Almacén de datos de destino), seleccione el servicio vinculado a **Azure Blob Storage** que acaba de crear y, después, seleccione **Next** (Siguiente). 
 
-   ![Página del almacén de datos de destino](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
-
-1. En la página **Choose the output file or folder** (Elegir el archivo o la carpeta de salida), escriba **adftutorial/output** como ruta de acceso a la carpeta y, después, seleccione **Siguiente**. 
+1. En la página **Choose the output file or folder** (Elegir el archivo o la carpeta de salida), escriba **adftutorial/output** como ruta de acceso a la carpeta y, después, seleccione **Next** (Siguiente). 
 
    ![Página de elección del archivo o la carpeta de salida](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
 
@@ -111,23 +102,15 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 1. En la página **Resumen**, revise todos los valores y seleccione **Siguiente**. 
 
-    ![Página de resumen](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
-
 1. En la página **Deployment complete** (Implementación finalizada), haga clic en **Monitor** (Supervisión) para supervisar la canalización que ha creado. 
 
     ![Página de implementación completada](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
 1. La aplicación cambia a la pestaña **Monitor** (Supervisión). En esta pestaña verá el estado de la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista. 
     
-    ![Supervisar ejecución de canalización](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
-
 1. Seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). La canalización tiene una única actividad de tipo **Copy** (Copia). 
-
-    ![Supervisión de las ejecuciones de actividad](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
     
 1. Para más información sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (imagen de gafas) de la columna **Actions** (Acciones). Para más información sobre las propiedades, consulte [Introducción a la actividad de copia](copy-activity-overview.md).
-
-    ![Detalles de la operación de copia](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
 
 1. Compruebe que se crea el archivo **emp.txt** en la carpeta **output** del contenedor **adftutorial**. Si no existe la carpeta de salida, el servicio Data Factory la crea automáticamente. 
 

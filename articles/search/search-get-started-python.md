@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido de Python: Creación, carga y consulta de índices mediante las API REST: Azure Search'
 description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante Python, instancias de Jupyter Notebook y la API de REST de Azure Search.
-ms.date: 07/11/2019
+ms.date: 08/28/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 352d26a1f3e781f7dbb6e502caea44bdb45b398a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656787"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129404"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Crear un índice de Azure Search en Python mediante instancias de Jupyter Notebook
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ En esta tarea, inicie un cuaderno de Jupyter Notebook y compruebe que puede cone
    from pprint import pprint
    ```
 
-1. En la segunda celda, introduzca los elementos de solicitud que serán constantes en cada solicitud. Reemplace el nombre del servicio de búsqueda (YOUR-SEARCH-SERVICE-NAME) y la clave de API de administración (YOUR-ADMIN-API-KEY) por los valores correctos. 
+1. En la segunda celda, introduzca los elementos de solicitud que serán constantes en cada solicitud. Reemplace el nombre del servicio de búsqueda (YOUR-SEARCH-SERVICE-NAME) y la clave de API de administración (YOUR-ADMIN-API-KEY) por los valores apropiados. 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
@@ -71,6 +71,8 @@ En esta tarea, inicie un cuaderno de Jupyter Notebook y compruebe que puede cone
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
+
+   Si obtiene ConnectionError `"Failed to establish a new connection"`, compruebe que la clave de API sea una clave de administrador principal o secundaria, y que todos los caracteres iniciales y finales (`?` y `/`) estén en su lugar.
 
 1. En la tercera celda, formule la solicitud. Esta solicitud GET tiene como destino la colección de índices de su servicio de búsqueda y selecciona la propiedad de nombre de los índices existentes.
 

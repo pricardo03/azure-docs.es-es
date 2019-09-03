@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260609"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051715"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Administración de solicitudes de lista de distribución de correo con Azure Logic Apps
 
@@ -37,7 +38,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 ![Aplicación lógica de alto nivel finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/free/" target="_blank">cree una cuenta gratuita de Azure</a> antes de empezar.
+Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,7 +48,7 @@ Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/f
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
+Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
 
@@ -196,7 +197,7 @@ Busque "mailchimp" y seleccione esta acción: **MailChimp: Agregar un miembro a 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
    | **Identificador de la lista** | test-members-ML | El nombre de la lista de distribución de correo electrónico de MailChimp | 
-   | **Estado** | subscribed | El estado de la suscripción del nuevo miembro. Para más información, consulte <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API</a> (Administración de suscriptores con MailChimp API). | 
+   | **Estado** | subscribed | El estado de la suscripción del nuevo miembro. Para más información, consulte [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Administración de suscriptores con MailChimp API). | 
    | **Dirección de correo electrónico** | <*new-member-email-address*> | En la lista de parámetros o la lista de contenido dinámico, seleccione **From** (De) en **When a new email arrives** (Cuando llega un nuevo correo electrónico) que pasará la dirección de correo electrónico del nuevo miembro. 
    |  |  |  | 
 

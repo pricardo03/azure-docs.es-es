@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697616"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032672"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -81,7 +81,7 @@ Esta sección se ha movido a otro artículo para facilitar su detección. Para v
 
 ## <a name="data-limits"></a>Límites de datos
 
-Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5120 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños. Si necesita un límite mayor, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/sales-number/) para poder analizar sus requisitos.
+Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5120 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños.
 
 | Límite | Valor |
 |------------------------|---------------|
@@ -93,8 +93,8 @@ El límite de velocidad variará en función del plan de tarifa.
 
 | Nivel          | Solicitudes por segundo | Solicitudes por minuto |
 |---------------|---------------------|---------------------|
-| Varios servicios | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
+| S / Varios servicios | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |
 | S3            | 500                 | 500                 |

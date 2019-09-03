@@ -9,23 +9,22 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389287"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069460"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
 App Service Environment (ASE) es una implementación de Azure App Service en Azure Virtual Network de un cliente. Muchos clientes configuran sus redes virtuales de Azure como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. La tunelización forzada se produce al redirigir el tráfico de Internet a una VPN o a una aplicación virtual en su lugar. Las aplicaciones virtuales se usan a menudo para inspeccionar y auditar el tráfico de red saliente. 
 
-ASE cuenta con varias dependencias externas, que se describen en el documento de [arquitectura de red de App Service Environment][network]. Normalmente todo el tráfico de dependencias saliente de ASE debe pasar a través de la dirección VIP que se aprovisiona con el ASE. Si cambia la ruta para el tráfico hacia o desde el ASE sin seguir esta información, su ASE dejará de funcionar.
+ASE cuenta con varias dependencias externas, que se describen en el documento sobre [arquitectura de red de App Service Environment][network]. Normalmente todo el tráfico de dependencias saliente de ASE debe pasar a través de la dirección VIP que se aprovisiona con el ASE. Si cambia la ruta para el tráfico hacia o desde el ASE sin seguir esta información, su ASE dejará de funcionar.
 
 En una instancia de Azure Virtual Network, el enrutamiento se realiza según la coincidencia de prefijo más larga (LPM). Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
 
@@ -82,7 +81,7 @@ Para enrutar todo el tráfico saliente desde el ASE, excepto el que va a SQL Azu
 
 Para crear su ASE en una red virtual que ya está configurada para enrutar todo el tráfico de forma local, debe utilizar una plantilla de Resource Manager.  No se pueden crear ASE con el portal en una subred preexistente.  Al implementar el ASE en una red virtual que ya esté configurada para enrutar el tráfico saliente local, es preciso crear un ASE mediante una plantilla de Resource Manager, lo que le permite especificar una subred preexistente. Para más información sobre la implementación de un ASE con una plantilla, lea [Creación de una instancia de App Service Environment mediante una plantilla][template].
 
-Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de red virtual de Azure][serviceendpoints]. 
+Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de red virtual][serviceendpoints]. 
 
 Cuando se habilitan puntos de conexión de servicio en un recurso, hay rutas que se crean con prioridad más alta que las demás. Si usa puntos de conexión de servicio con una ASE con túnel forzado, el tráfico de administración de Azure SQL y de Azure Storage no se enruta a través de tunelización forzada. El resto del tráfico de dependencia de ASE se enruta con tunelización forzada y no se puede perder o el ASE no funcionaría correctamente.
 

@@ -1,6 +1,6 @@
 ---
 title: Traslado de la configuración de Azure Site Recovery a otra región de Azure | Microsoft Docs
-description: Instrucciones para mover la configuración de Site Recovery a otra región de Azure
+description: Instrucciones para mover una configuración de Site Recovery a otra región de Azure
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,42 +8,44 @@ ms.topic: tutorial
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: ba0e2577d6fb8bac66322917936fe06825af0d96
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: 2cf06a0c4e35d22cbad260201183516db2f07436
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708468"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013458"
 ---
-# <a name="moving-recovery-services-vault-and--azure-site-recovery-configuration-to-another-azure-region"></a>Traslado del almacén de Recovery Services y la configuración de Azure Site Recovery a otra región de Azure
+# <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Traslado del almacén de Recovery Services y la configuración de Azure Site Recovery a otra región de Azure
 
-Hay varios escenarios en los que desearía trasladar los recursos existentes de Azure de una región a otra: por motivos de administración, de gobierno o por fusiones/adquisiciones de la empresa, por ejemplo. Uno de los recursos relacionados que podría querer trasladar al mover las máquinas virtuales de Azure es su configuración de recuperación ante desastres. No hay una manera que sea la mejor para trasladar una configuración de recuperación ante desastres existente de una región a otra. En esencia, esto se debe a que la región de destino se configura en función de la región de la máquina virtual de origen y, cuando decide cambiarla, no se pueden volver a usar las configuraciones anteriores de la región de destino y deben restablecerse. En este artículo se define el proceso paso a paso para volver a configurar la recuperación ante desastres y pasar a otra región.
+Hay varios escenarios en los que puede desear mover los recursos de Azure existentes de una región a otra. Por ejemplo, por capacidad de administración, por motivos de gobernanza o quizá a causa de las fusiones y adquisiciones de la empresa. Uno de los recursos relacionados que puede querer trasladar al mover las máquinas virtuales de Azure es la configuración de recuperación ante desastres. 
+
+No existe el método perfecto para trasladar una configuración de recuperación ante desastres existente de una región a otra. Esto se debe a que la región de destino se configura en función de la región de la máquina virtual de origen. Si decide cambiar la región de origen, no podrá volver a usar la configuración anterior de la región de destino y deberá restablecerla. En este artículo se define el proceso paso a paso para volver a establecer la configuración de recuperación ante desastres y moverla a otra región.
 
 En este documento se hará lo siguiente:
 
 > [!div class="checklist"]
-> * Comprobar los requisitos previos para el traslado
-> * Identificar los recursos que usaba Azure Site Recovery 
-> * Deshabilitar replicación
-> * Eliminación de los recursos 
-> * Volver a configurar Site Recovery en función de la nueva región de origen para las máquinas virtuales.
+> * Comprobación de los requisitos previos para el traslado
+> * Identificación de los recursos usados en Azure Site Recovery
+> * Deshabilitación de la replicación
+> * Eliminación de los recursos
+> * Configuración de Site Recovery en función de la nueva región de origen para las máquinas virtuales
 
 > [!IMPORTANT]
-> Actualmente no existe un método que sea el mejor para trasladar un almacén de Recovery Services y la configuración de recuperación ante desastres tal cual a otra región; este documento guía al cliente por el proceso de deshabilitar la replicación y reconfigurarla en la nueva región.
+> Actualmente no existe el método perfecto para mover un almacén de Recovery Services y la configuración de recuperación ante desastres tal como está a una región diferente. Este artículo le guía por el proceso de deshabilitación de la replicación y su configuración en la nueva región.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de quitar y eliminar la configuración de recuperación ante desastres antes de intentar trasladar las máquinas virtuales de Azure a otra región. 
 
-> [!NOTE]
-> Si la nueva región de destino para la máquina virtual de Azure es la misma que la región de destino de recuperación ante desastres, puede usar la configuración de replicación existente y moverla según los pasos que se mencionan [aquí](azure-to-azure-tutorial-migrate.md). 
+  > [!NOTE]
+  > Si la nueva región de destino para la máquina virtual de Azure es la misma que la región de destino de recuperación ante desastres, puede usar la configuración de replicación existente y moverla. Siga los pasos de [Traslado de máquinas virtuales de Azure a otra región](azure-to-azure-tutorial-migrate.md).
 
-- Asegúrese de que va a tomar una decisión informada y de que las partes interesadas están informadas, ya que la máquina virtual no estará protegida contra desastres hasta que se complete su migración. 
+- Asegúrese de que toma la decisión con conocimiento de causa y de que las partes interesadas están informadas. La máquina virtual no estará protegida contra desastres hasta que se complete su traslado.
 
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Identificar los recursos que usaba Azure Site Recovery
-Se recomienda realizar este paso antes de continuar con el siguiente, ya que será más fácil identificar los recursos pertinentes mientras las máquinas virtuales todavía se están replicando.
+Se recomienda llevar a cabo este paso antes de continuar con el siguiente. Es más fácil identificar los recursos pertinentes mientras se replican las máquinas virtuales.
 
-Para cada una de las máquinas virtuales de Azure que se estén replicando, vaya a **Elementos protegidos** > **Elementos replicados**>**Propiedades** e identifique los siguientes recursos.
+Para cada máquina virtual de Azure que se esté replicando, vaya a **Elementos protegidos** > **Elementos replicados** > **Propiedades** e identifique los siguientes recursos:
 
 - Grupo de recursos de destino
 - Cuenta de almacenamiento en caché
@@ -51,27 +53,28 @@ Para cada una de las máquinas virtuales de Azure que se estén replicando, vaya
 - Red de destino
 
 
-## <a name="disable-existing-disaster-recovery-configuration"></a>Deshabilitación de la configuración de recuperación ante desastres existente
+## <a name="disable-the-existing-disaster-recovery-configuration"></a>Deshabilitación de la configuración de recuperación ante desastres existente
 
-1. Vaya a **Almacén de Recovery Services** 
-2.  En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
+1. Vaya al almacén de Recovery Services.
+2. En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina y seleccione **Deshabilitar replicación**.
 3. Repita este paso para todas las máquinas virtuales que desee trasladar.
+
 > [!NOTE]
-> No se desinstalará el servicio de movilidad de los servidores protegidos; tendrá que desinstalarlo manualmente. Si va a proteger el servidor de nuevo, puede omitir la desinstalación del servicio de movilidad.
+> Mobility Service no se desinstalará de los servidores protegidos. Debe desinstalarlo manualmente. Si va a proteger el servidor de nuevo, puede omitir la desinstalación del servicio de movilidad.
 
 ## <a name="delete-the-resources"></a>Eliminación de los recursos
 
-1. Vaya a **Almacén de Recovery Services**
-2. Haga clic en **Eliminar**
-3. Continúe con la eliminación de todos los demás recursos identificados en el [paso anterior](#identify-the-resources-that-were-used-by-azure-site-recovery)
+1. Vaya al almacén de Recovery Services.
+2. Seleccione **Eliminar**.
+3. Elimine todos los demás recursos que [identificó anteriormente](#identify-the-resources-that-were-used-by-azure-site-recovery).
  
 ## <a name="move-azure-vms-to-the-new-target-region"></a>Traslado de máquinas virtuales de Azure a la nueva región de destino
 
-Siga los pasos que se mencionan a continuación en función de sus necesidades para trasladar máquinas virtuales de Azure a la región de destino.
+Siga los pasos que se indican en los artículos siguientes, en función de sus necesidades para trasladar máquinas virtuales de Azure a la región de destino:
 
 - [Traslado de máquinas virtuales de Azure a otra región](azure-to-azure-tutorial-migrate.md)
 - [Traslado de máquinas virtuales de Azure a zonas de disponibilidad](move-azure-VMs-AVset-Azone.md)
 
-## <a name="re-set-up-site-recovery-based-on-the-new-source-region-for-the-vms"></a>Reconfiguración de Site Recovery en función de la nueva región de origen para las máquinas virtuales
+## <a name="set-up-site-recovery-based-on-the-new-source-region-for-the-vms"></a>Configuración de Site Recovery en función de la nueva región de origen para las máquinas virtuales
 
-Configure la recuperación ante desastres para las máquinas virtuales de Azure que se han migrado a la nueva región mediante los pasos mencionados [aquí](azure-to-azure-tutorial-enable-replication.md).
+Configure la recuperación ante desastres para las máquinas virtuales de Azure que se movieron a la nueva región siguiendo los pasos descritos en [Configuración de la recuperación ante desastres de máquinas virtuales de Azure](azure-to-azure-tutorial-enable-replication.md).

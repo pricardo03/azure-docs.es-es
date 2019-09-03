@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534806"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036196"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>Creación o asociación de un recurso de proceso existente
+### <a name="create-or-attach-an-existing-compute-target"></a>Creación o asociación de un destino de proceso existente
 
 Al usar Proceso de Azure Machine Learning, un servicio administrado, los científicos de datos pueden entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, entre las que se incluyen las que tienen compatibilidad con GPU. En este tutorial, va a crear una instancia de Proceso de Azure Machine Learning como entorno de aprendizaje. El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo.
 
- **La creación del proceso tarda aproximadamente 5 minutos.** Si el proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.
+ **La creación del destino de proceso tarda aproximadamente 5 minutos.** Si el recurso de proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ Ahora tiene una idea del aspecto de estas imágenes y el resultado de predicció
 
 ### <a name="upload-data-to-the-cloud"></a>Cargar datos en la nube
 
-Ahora haga que los datos sean accesibles remotamente cargándolos en Azure desde la máquina local. A continuación, se puede acceder a ellos para el entrenamiento remoto. El almacén de datos es una construcción cómoda asociada con el área de trabajo para que cargue y descargue datos. También puede interactuar con ellos desde los destinos de proceso remotos. Cuenta con el respaldo de la cuenta de Azure Blob Storage.
+Descargó y usó los datos de entrenamiento en el equipo en el que se ejecuta el cuaderno.  En la siguiente sección, entrenará un modelo en el proceso de Azure Machine Learning remoto.  El recurso de proceso remoto también necesitará acceso a los datos. Para proporcionar acceso, cargue los datos en un almacén de datos centralizado asociado al área de trabajo. Este almacén de datos proporciona un acceso rápido a los datos al usar destinos de proceso remotos en la nube, como en el centro de datos de Azure.
 
-Los archivos de MNIST se cargan en un directorio denominado `mnist` en la raíz del almacén de datos:
+Cargue los archivos de MNIST en un directorio denominado `mnist` en la raíz del almacén de datos. Consulte [Datos de acceso desde almacenes de datos](how-to-access-data.md) para más información.
 
 ```python
 ds = ws.get_default_datastore()

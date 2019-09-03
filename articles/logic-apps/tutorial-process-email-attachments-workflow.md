@@ -3,19 +3,20 @@ title: 'Tutorial: Automatización del procesamiento de correos electrónicos y d
 description: 'Tutorial: Creación de flujos de trabajo automatizados para gestionar los correos electrónicos y datos adjuntos con Azure Logic Apps, Azure Storage y Azure Functions'
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312658"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051778"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Gestión automática de correos electrónicos y datos adjuntos con Azure Logic Apps
 
@@ -61,9 +62,9 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
    | Configuración | Valor | DESCRIPCIÓN |
    |---------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción a Azure |  
-   | **Grupos de recursos** | LA-Tutorial-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar y administrar los recursos relacionados. <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponibles en todas las regiones, intente usar la misma región siempre que sea posible. |
-   | **Nombre de cuenta de almacenamiento** | attachmentstorageacct | El nombre de la cuenta de almacenamiento. |
-   | **Ubicación** | Oeste de EE. UU. | La región dónde almacenar la información sobre su cuenta de almacenamiento |
+   | **Grupos de recursos** | <*Azure-resource-group*> | El nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar y administrar los recursos relacionados. En este ejemplo se utiliza "LA-tutorial-RG". <p>**Nota:** Existe un grupo de recursos dentro de una región específica. Aunque es posible que los elementos de este tutorial no estén disponibles en todas las regiones, intente usar la misma región siempre que sea posible. |
+   | **Nombre de cuenta de almacenamiento** | <*Azure-storage-account-name*> | El nombre de la cuenta de almacenamiento, que tiene que tener entre 3 y 24 caracteres, y solo puede contener letras minúsculas y números. En este ejemplo se usa "attachmentstorageacct". |
+   | **Ubicación** | <*Azure-region*> | La región en la que se va a almacenar la información sobre su cuenta de almacenamiento. En este ejemplo se utiliza "West US". |
    | **Rendimiento** | Estándar | Esta configuración especifica los tipos de datos admitidos y los medios para almacenar los datos. Consulte [Tipos de cuentas de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo de cuenta** | Uso general | El [tipo de cuenta de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replicación** | Almacenamiento con redundancia local (LRS) | Esta configuración especifica cómo se copian, se almacenan, se administran y se sincronizan los datos. Consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../storage/common/storage-redundancy-lrs.md). |
@@ -621,7 +622,7 @@ A continuación, agregue una acción para que la aplicación lógica envíe un c
    | Configuración | Valor | Notas | 
    | ------- | ----- | ----- | 
    | **Cuerpo** | ```Please review new applicant:``` <p>```Applicant name:``` **From** (De) <p>```Application file location:``` **Path** (Ruta de acceso) <p>```Application email content:``` **Body** (Cuerpo) | El contenido del cuerpo del correo electrónico. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione estos campos: <p>- El campo **From** (De) en **When a new email arrives** (Cuando llega un nuevo correo electrónico) </br>- El campo **Path** (Ruta de acceso) en **Create blob for email body** (Crear blob para el cuerpo del correo electrónico) </br>- El campo **Body** (Cuerpo) en **Call RemoveHTMLFunction to clean email body** (Llamar a RemoveHTMLFunction para limpiar el cuerpo del correo electrónico) |
-   | **Asunto**  | ```ASAP - Review applicant for position:``` **Subject** (Asunto) | El asunto del correo electrónico que quiere incluir. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione el campo **Asunto** en **Cuando llega un nuevo correo electrónico**. |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** (Asunto) | El asunto del correo electrónico que quiere incluir. Haga clic en este cuadro, escriba el texto de ejemplo y, en la lista de contenido dinámico, seleccione el campo **Asunto** en **Cuando llega un nuevo correo electrónico**. |
    | **To** | <*recipient-email-address*> | Para realizar pruebas, puede usar su propia dirección de correo electrónico. |
    ||||
 

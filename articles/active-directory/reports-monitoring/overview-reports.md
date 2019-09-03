@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989719"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127273"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
@@ -54,9 +54,9 @@ Todas las ediciones de Azure AD le proporcionan informes de usuarios marcados en
 
 - En las **ediciones gratuita y básica de Azure Active Directory**, puede obtener una lista de usuarios marcados en riesgo y de inicios de sesión de riesgo. 
 
-- En la edición **Azure Active Directory Premium 1** se extiende este modelo, con lo que también puede examinar algunos de los eventos de riesgo subyacentes que se han detectado para cada informe. 
+- En la edición **Azure Active Directory Premium 1** se extiende este modelo, con lo que también puede examinar algunos de las detecciones de riesgo subyacentes que se han detectado para cada informe. 
 
-- La edición **Azure Active Directory Premium 2** le proporciona la información más detallada acerca de los eventos de riesgo subyacentes y también le permite configurar directivas de seguridad que responden automáticamente a los niveles de riesgo configurados.
+- La edición **Azure Active Directory Premium 2** le proporciona la información más detallada acerca de las detecciones de riesgo subyacentes y también le permite configurar directivas de seguridad que responden automáticamente a los niveles de riesgo configurados.
 
 
 ## <a name="activity-reports"></a>Informes de actividad

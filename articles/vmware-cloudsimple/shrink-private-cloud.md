@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 67bb7e0cd8a800c2c2ba87c768739fd573ef6888
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 00d0067fe51efef8efffe31860e16f4530adf3ac
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812198"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972362"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Reducción de una nube privada de CloudSimple
 
@@ -30,7 +30,7 @@ Las siguientes condiciones deben cumplirse para la reducción de una nube privad
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="shrink-a-private-cloud"></a>Reducción de una nube privada 
+## <a name="shrink-a-private-cloud"></a>Reducción de una nube privada
 
 1. [Acceda al portal de CloudSimple](access-cloudsimple-portal.md).
 

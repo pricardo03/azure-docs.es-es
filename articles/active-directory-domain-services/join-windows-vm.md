@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612402"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073884"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
@@ -153,15 +153,23 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 1. Para completar el proceso de unión al dominio administrado de Azure AD DS, reinicie la máquina virtual.
 
 > [!TIP]
-> También puede unir a un dominio una máquina virtual mediante PowerShell con el cmdlet [Add-Computer][add-computer]. En el ejemplo siguiente se une el dominio *CONTOSO* y, a continuación, se reinicia la máquina virtual. Cuando se le pida, escriba las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*:
+> Puede unir a un dominio una máquina virtual mediante PowerShell con el cmdlet [Add-Computer][add-computer]. En el ejemplo siguiente se une el dominio *CONTOSO* y, a continuación, se reinicia la máquina virtual. Cuando se le pida, escriba las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*:
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> Para unirse a un dominio de una máquina virtual sin conectarse a ella y configurar manualmente la conexión, también puede considerar el uso del cmdlet de Azure PowerShell [Set-AzVmAdDomainExtension][set-azvmaddomainextension].
 
 Una vez que se haya reiniciado la máquina virtual de Windows Server, las directivas aplicadas en el dominio administrado de Azure AD DS se insertarán en la máquina virtual. Ahora también puede iniciar sesión en la máquina virtual de Windows Server con las credenciales de dominio apropiadas.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 En el siguiente tutorial, utilizará esta máquina virtual de Windows Server para instalar las herramientas de administración que permitan administrar el dominio administrado de Azure AD DS. Si no desea continuar en esta serie de tutoriales, revise las siguientes etapas de limpieza para [deshabilitar RDP](#disable-rdp) o [eliminar la máquina virtual](#delete-the-vm). De lo contrario, [continúe con el tutorial siguiente](#next-steps).
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Separación de la máquina virtual del dominio administrado de Azure AD DS
+
+Para retirar la máquina virtual del dominio administrado de Azure AD DS, siga de nuevo los pasos para [unir la máquina virtual a un dominio](#join-the-vm-to-the-azure-ad-ds-managed-domain). En lugar de unirse al dominio administrado de Azure AD DS, elija unirse a un grupo de trabajo, como el predeterminado *WORKGROUP*. Una vez que la máquina virtual se ha reiniciado, el objeto de equipo se quita del dominio administrado de Azure AD DS.
+
+Si [elimina la máquina virtual](#delete-the-vm) sin haberla separado del dominio, se deja un objeto de equipo huérfano en Azure AD DS.
 
 ### <a name="disable-rdp"></a>Deshabilitar RDP
 
@@ -231,3 +239,4 @@ Para administrar el dominio administrado de Azure AD DS, configure una máquin
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

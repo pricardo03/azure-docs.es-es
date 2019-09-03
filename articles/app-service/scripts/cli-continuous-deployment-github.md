@@ -16,18 +16,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43c070513f23564bd4679531e20b411f178920ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d9b9512df294b25fa73b890a646f29dfd0c3d88
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136757"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113635"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Creación de una aplicación App Service con implementación continua desde GitHub mediante la CLI
 
 Este script de ejemplo crea una aplicación en App Service con sus recursos relacionados y, después, configura la implementación continua desde un repositorio de GitHub. Para la implementación de GitHub sin una implementación continua, consulte [Creación de una aplicación e implementación de código desde GitHub](cli-deploy-github.md). Para este ejemplo, se necesita:
 
-* Un repositorio de GitHub con código de aplicación, para el cual deberá tener permisos administrativos.
+* Un repositorio de GitHub con código de aplicación, para el cual deberá tener permisos administrativos. Para obtener compilaciones automáticas, estructure el repositorio según la tabla que encontrará en la sección [Preparación del repositorio](../deploy-continuous-deployment.md#prepare-your-repository).
 * Un [token de acceso personal (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) para su cuenta de GitHub.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

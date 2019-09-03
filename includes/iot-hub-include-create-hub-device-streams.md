@@ -5,55 +5,53 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 03/14/2019
+ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a02c16a75bbdf4827ce6a6c5f50751caf9c5aab8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 46f8e59713896cd94b96de62d982072119c32513
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445971"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050178"
 ---
 En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal](https://portal.azure.com).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Haga clic en **Crear un recurso** y, a continuación, seleccione **Internet de las cosas**.
+1. Seleccione **Crear un recurso** y, después, escriba *IoT Hub* en el campo **Buscar en Marketplace**.
 
-1. En la lista de la derecha, seleccione **Iot Hub**. Se abre la primera página para crear un centro de IoT.
+1. Seleccione **IoT Hub** en los resultados de la búsqueda y, después, haga clic en **Crear**.
 
-   ![Creación de un centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
+1. En la pestaña **Datos básicos**, complete los campos como se indica a continuación:
 
-   Rellene los campos:
+   - **Suscripción**: seleccione la suscripción que quiera usar para el centro.
 
-   a. En la lista desplegable **Suscripción**, seleccione la suscripción que usará con su centro de IoT.
+   - **Grupo de recursos**: seleccione un grupo de recursos o cree uno. Para crear uno, haga clic en **Crear** y escriba el nombre que quiera usar. Para usar un grupo de recursos existente, selecciónelo. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
-   b. Para el **grupo de recursos**, realice uno de los siguientes pasos: 
-      * Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre que desee usar. 
-      * Para usar un grupo de recursos existente, seleccione **Usar existente** y, en la lista desplegable, seleccione el grupo de recursos. 
-      
-        Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   - **Región**: seleccione la región a la que quiera ubicar el centro. Seleccione una región que admita la versión preliminar de los flujos de dispositivo de IoT Hub, bien **Centro de EE. UU.** o **EUAP de centro de EE. UU.** .
 
-   c. En la lista desplegable **Región**, seleccione la región en la que quiere ubicar su centro. Seleccione una región que admita la versión preliminar de los flujos de dispositivo de IoT Hub, bien **Centro de EE. UU.** o **EUAP de centro de EE. UU.** .
+   - **Nombre de la instancia de IoT Hub**: escriba el nombre del centro. Este nombre debe ser único globalmente. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
 
-   d. En el cuadro **Nombre de IoT Hub**, escriba el nombre del centro de IoT. El nombre debe ser único globalmente. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
+   ![Creación de un centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-device-streams.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-1. Para continuar con la creación del centro de IoT, seleccione **Siguiente: Escala y tamaño**.
+1. Seleccione **Siguiente: escala y tamaño** para seguir creando el centro.
 
    ![Configuración del tamaño y la escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   En este panel, puede aceptar la configuración predeterminada y seleccionar **Revisar y crear** en la parte inferior. Considere las opciones siguientes:
+   En **Escala y tamaño**, puede aceptar la configuración predeterminada y seleccionar **Revisar y crear** en la parte inferior. Considere las opciones siguientes:
 
-   * En la lista desplegable **Nivel de precios y de escala** seleccione uno de los niveles estándar (**S1**, **S2** o **S3**), o **F1: nivel Gratis**. Esta elección también puede determinarse por el tamaño de la flota y las cargas de trabajo que no sean de streaming que espera que haya en el centro (por ejemplo, mensajes de telemetría). Por ejemplo, el nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear un centro de IoT en el nivel gratis. 
+   - **Plan de tarifa y escala**: nivel seleccionado. Seleccione uno de los niveles estándar (**S1**, **S2**o **S3**) o **F1: nivel Gratis**. Esta elección también puede determinarse por el tamaño de la flota y las cargas de trabajo que no sean de streaming que espera que haya en el centro (por ejemplo, los mensajes de telemetría). Por ejemplo, el nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear un centro de IoT en el nivel gratis. 
 
-   * **Número de unidades de IoT Hub**: esta opción depende de la carga de trabajo que no sea de streaming que espera en el centro. Puede seleccionar 1 por ahora.
+   - **Número de unidades de IoT Hub**: El número de mensajes que se permiten por unidad al día depende del plan de tarifa del centro. esta opción depende de la carga de trabajo que no sea de streaming que espera en el centro. Puede seleccionar 1 por ahora.
+
+   - **Configuración avanzada** > **Particiones del dispositivo a la nube**: esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros solo necesitan cuatro particiones.
 
    Para más información acerca de las opciones del nivel, consulte [Elección del nivel adecuado de IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
 
-1. Para revisar sus selecciones, haga clic en la pestaña **Revisar y crear**. El panel que se abre es similar al siguiente:
+1. Haga clic en **Revisar y crear** para revisar sus selecciones. Los resultados serán similar a los siguientes:
 
    ![Información para crear el centro de IoT](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 

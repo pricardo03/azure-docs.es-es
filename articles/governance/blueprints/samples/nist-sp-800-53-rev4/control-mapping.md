@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a179c5919f647b567b2109ec1a73ac8bb6cda36b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7f55599c917011180ebb140d53defc0aca3acbb2
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479869"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983122"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Asignación de control de muestra del proyecto de NIST SP 800-53 R4
 
@@ -36,7 +36,7 @@ Azure implementa el [control de acceso basado en rol](../../../../role-based-acc
 
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
 - Auditar el uso de reglas de RBAC personalizadas
-- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.
+- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
 ## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>Administración de cuentas AC-2 (12) | Supervisión o uso inusual de cuentas
 
@@ -148,19 +148,19 @@ Este plano técnico ayuda a garantizar que los eventos del sistema se registran 
 
 El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este proyecto asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicación adaptables en las máquinas virtuales.
+- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
 El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicación adaptables en las máquinas virtuales.
+- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
 El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicación adaptables en las máquinas virtuales.
+- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
 
 ## <a name="cp-7-alternate-processing-site"></a>Sitio de procesamiento alternativo CP-7
 
@@ -257,8 +257,8 @@ Este proyecto le ayuda a proteger la confidencialidad y la integridad de la info
 - Auditoría de los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Implementación de los requisitos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Acceso a Function App solo a través de HTTPS
-- Solo se deben permitir las conexiones seguras a Redis Cache
-- Se debe permitir la transferencia segura a las cuentas de almacenamiento.
+- Solo se deben habilitar las conexiones seguras a Redis Cache
+- Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Acceso a la aplicación web solo a través de HTTPS
 
 ## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>Protección de la información en reposo SC-28 (1) | Protección criptográfica
@@ -326,7 +326,7 @@ Advanced Threat Protection para Azure Storage detecta los intentos poco habitual
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento
 
 > [!NOTE]
-> La disponibilidad de definiciones específicas de Azure Policy puede variar en Azure Government y otras nubes nacionales.
+> La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 05b761dbf9f58f6afca6459e28d2fecca9aa7b06
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881674"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099494"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Creación de una aplicación de Azure IoT Central (características en versión preliminar)
 
@@ -27,7 +27,7 @@ En este inicio rápido se muestra cómo crear una aplicación de Azure IoT Centr
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 
-Vaya a la página [Application Manager](https://aka.ms/iotcentral) (Administrador de aplicaciones) de Azure IoT Central. Luego, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
+Vaya al sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral). Luego, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
 
 Para empezar a crear una nueva aplicación de Azure IoT Central, seleccione **New Application** (Nueva aplicación). Este vínculo le lleva a la página **Create an application** (Crear aplicación).
 
@@ -55,4 +55,4 @@ Para crear una aplicación de Azure IoT Central que incluya características en 
 En este inicio rápido, ha creado una aplicación de IoT Central que usa las características en versión preliminar. El siguiente paso que le sugerimos es:
 
 > [!div class="nextstepaction"]
-> [Dé un paseo por IoT Central](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951993"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070975"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -37,7 +36,7 @@ Para completar esta guía de inicio rápido:
 
 ## <a name="download-the-sample-locally"></a>Descarga local del código
 
-En la ventana de terminal, ejecute los comandos siguientes para clonar la aplicación de ejemplo en el equipo local y desplazarse al directorio con el código de ejemplo.
+En una ventana de terminal, ejecute los comandos siguientes para clonar la aplicación de ejemplo en la máquina local y desplazarse al directorio con el código de ejemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -82,7 +81,7 @@ En Cloud Shell, cree un directorio de inicio rápido y luego cambie a él.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 A continuación, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en el directorio de inicio rápido.
@@ -184,7 +183,7 @@ Una vez que la implementación haya finalizado, vuelva a la ventana del explorad
 
 Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para administrar la aplicación que ha creado.
 
-En el menú izquierdo, haga clic en **App Services** y, luego, en el nombre de la aplicación de Azure.
+En el menú izquierdo, seleccione **App Services** y, después, el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/quickstart-python/app-service-list.png)
 

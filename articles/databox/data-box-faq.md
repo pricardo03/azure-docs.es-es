@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 287fd07f170ec85b07b75e1823cbb67d462004f6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900564"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098798"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -159,7 +159,7 @@ A.  Para acelerar el proceso de copia:
 - Use varias secuencias de copia de datos. Por ejemplo, si usa Robocopy, emplee la opción de varios procesos. Para más información sobre el comando exacto utilizado, vea [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
 - Utilice varias sesiones.
 - En lugar de realizar la copia a través de un recurso compartido de red (en el que se puede encontrar con la velocidad de la red limitada), asegúrese de que los datos se encuentran de forma local en el equipo al que se va a conectar Data Box.
-- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta Bluestop FIO](https://bluestop.org/fio/) y úsela para evaluar el rendimiento del hardware del servidor.
+- Evalúe el rendimiento del equipo usado para copiar los datos. Descargue la [herramienta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) y úsela para evaluar el rendimiento del hardware del servidor. Seleccione la compilación x86 o x64 más reciente, seleccione la pestaña **Artefactos** y descargue el MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -187,7 +187,7 @@ A. En cuanto al servicio Data Box, Microsoft se encarga de administrar el envío
 A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE. Esto se aplica tanto a los dispositivos de Data Box como a los de Data Box Heavy.
 
 ### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>P: Realicé el pedido de un Data Box en la zona este de EE. UU. pero recibí un dispositivo que se envió desde una ubicación de la zona oeste de EE. UU. ¿A dónde debo devolver el dispositivo?
-R: Intentamos que el dispositivo Data Box le llegue lo antes posible. A la hora de realizar el envío damos prioridad a los centros de datos más cercanos a la ubicación de la cuenta de almacenamiento, pero podemos enviarlo desde cualquier centro de disponibilidad de Azure que lo tenga disponible en su inventario. El Data Box se debe devolver a la misma ubicación desde la que se envió, que se muestra en la etiqueta de envío.
+A. Intentamos que el dispositivo Data Box le llegue lo antes posible. A la hora de realizar el envío damos prioridad a los centros de datos más cercanos a la ubicación de la cuenta de almacenamiento, pero podemos enviarlo desde cualquier centro de disponibilidad de Azure que lo tenga disponible en su inventario. El Data Box se debe devolver a la misma ubicación desde la que se envió, que se muestra en la etiqueta de envío.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P: La pantalla E-Ink no muestra la etiqueta del envío de devolución. ¿Cuál debo hacer?
 A. Si la pantalla E-Ink no muestra la etiqueta del envío de devolución, realice los siguientes pasos:

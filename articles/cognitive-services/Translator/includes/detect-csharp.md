@@ -4,20 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 03719408c456a3f99265e1f25a91af66b10640a0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c263ed1f18ceaa2db976632ea31b9fe1eb47a93
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968203"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907151"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* C# 7.1 o posterior
-* [SDK de .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Paquete NuGet de Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código.
-* Una clave de suscripción de Azure para Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>Creación de un proyecto de .NET Core
 
@@ -86,12 +82,37 @@ public class AltTranslations
 }
 ```
 
+## <a name="get-subscription-information-from-environment-variables"></a>Obtención de información de la suscripción a partir de las variables de entorno
+
+Agregue las líneas siguientes a la clase `Program`. Estas líneas leen la clave de suscripción y el punto de conexión de las variables de entorno y devuelven un error si se produce algún problema.
+
+```csharp
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
 ## <a name="create-a-function-to-detect-the-source-texts-language"></a>Creación de una función para detectar el idioma del texto de origen
 
 Dentro de la clase `Program`, cree una función denominada `DetectTextRequest()`. Esta clase encapsula el código que se usa para llamar al recurso Detect e imprime el resultado en la consola.
 
 ```csharp
-static public async Task DetectTextRequest(string subscriptionKey, string host, string route, string inputText)
+static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -138,7 +159,7 @@ Agregue este código a `HttpRequestMessage`:
 // Build the request.
 request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -178,11 +199,11 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
-    string host = "https://api.cognitive.microsofttranslator.com";
     string route = "/detect?api-version=3.0";
-    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
+    string detectSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await DetectTextRequest(subscriptionKey, endpoint, route, detectSentenceText);
+    Console.WriteLine("Press any key to continue.");
+    Console.ReadKey();
 }
 ```
 ## <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
