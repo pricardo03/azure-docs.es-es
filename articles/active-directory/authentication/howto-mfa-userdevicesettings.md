@@ -91,7 +91,7 @@ Cuando esté activada, se solicita a los usuarios de **Restaurar autenticación 
 3. En la derecha, seleccione **Multi-factor Authentication** en la barra de herramientas. Se abre la página de Multi-Factor Authentication.
 4. Active la casilla junto al usuario o usuarios que desea administrar. Aparecerá una lista de opciones de paso rápido a la derecha.
 5. Seleccione **Administrar configuración de usuario**.
-6. Active la casilla **Restaurar autenticación multifactor en todos los dispositivos recordados **
+6. Active la casilla **Restaurar autenticación multifactor en todos los dispositivos recordados**
    ![Restaurar autenticación multifactor en todos los dispositivos recordados ](./media/howto-mfa-userdevicesettings/rememberdevices.png).
 7. Haga clic en **guardar**.
 8. Haga clic en **Cerrar**.

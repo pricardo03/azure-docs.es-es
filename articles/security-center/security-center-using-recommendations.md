@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640872"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990555"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
@@ -75,6 +75,6 @@ Supervisar las recomendaciones de Security Center le ayudar a eliminar vulnerabi
 ## <a name="next-steps"></a>Pasos siguientes
 Asegúrese de haber puesto en práctica un proceso de supervisión, en el que periódicamente compruebe las recomendaciones de Security Center para poder asegurarse de mantener protegidos los recursos a lo largo del tiempo.
 
-En este escenario se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. Consulte el [escenario de respuesta a incidentes](security-center-incident-response.md) para saber cómo tener implantado un plan de respuesta a incidentes antes de que tenga lugar un ataque.
+En este escenario se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad.
 
-Obtenga información sobre cómo responder a amenazas con la [respuesta a incidentes](security-center-incident-response.md).
+Obtenga información sobre cómo responder a las amenazas en el artículo [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md).

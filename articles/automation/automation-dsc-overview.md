@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533454"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061389"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -62,12 +62,7 @@ La SKU del producto independiente del [servidor de Hyper-V de Microsoft](/window
 
 Para los nodos que ejecutan Linux, se admiten las siguientes versiones o distribuciones:
 
-La extensión DSC de Linux admite todas las distribuciones de Linux [aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), excepto:
-
-Distribución | Versión
--|-
-Debian  | Todas las versiones
-Ubuntu  | 18,04
+La extensión DSC de Linux admite todas las distribuciones de Linux que se incluyen en [Distribuciones de Linux admitidas](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 

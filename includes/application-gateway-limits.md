@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148463"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70130118"
 ---
 | Recurso | Límite predeterminado/máximo | Nota: |
 | --- | --- | --- |
@@ -37,6 +37,7 @@ ms.locfileid: "67148463"
 | Tamaño máximo de carga de archivos (estándar) |2 GB | |
 | Tamaño máximo de carga de archivos WAF |Puertas de enlace WAF medianas (100 MB)<br>Puertas de enlace WAF grandes (500 MB)| |
 | Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB||
-|Máximo de reglas personalizadas de WAF|100||
+| Máximo de reglas personalizadas de WAF|100||
+| Exclusiones máximas de WAF|100||
 
 <sup>1</sup> En el caso de las SKU habilitadas para WAF, se recomienda que limite el número de recursos a 40 para un rendimiento óptimo.

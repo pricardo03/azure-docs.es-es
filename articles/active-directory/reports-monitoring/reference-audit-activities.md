@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989628"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127142"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -348,10 +348,10 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 
 |Categoría de auditoría|Actividad|
 |---|---|
-|Administración de unidades administrativas|Descarga de un tipo de evento de riesgo único|
+|Administración de unidades administrativas|Descarga de un tipo de detección de riesgo único|
 |Administración de unidades administrativas|Descarga de administradores y del estado de las notificaciones de ingesta semanales|
-|Administración de unidades administrativas|Descarga de todos los tipos de eventos de riesgo|
-|Administración de unidades administrativas|Descarga de los eventos de riesgo de usuarios gratuitos|
+|Administración de unidades administrativas|Descarga de todos los tipos de detecciones de riesgo|
+|Administración de unidades administrativas|Descarga de las detecciones de riesgo de usuarios gratuitos|
 |Administración de unidades administrativas|Descarga de usuarios marcados en riesgo|
 |Administración de aplicaciones|Invitaciones por lotes procesadas|
 |Administración de aplicaciones|Invitaciones por lotes cargadas|

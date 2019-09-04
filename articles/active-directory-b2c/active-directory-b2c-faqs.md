@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622265"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061379"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -43,11 +43,9 @@ Las cuentas de usuario de las aplicaciones siempre se deben crear mediante un fl
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>¿Qué proveedores de identidades sociales se admiten ahora? ¿Cuáles se prevén que se van a admitir en el futuro?
 
-Actualmente admitimos Facebook, Google+, LinkedIn, Amazon, Twitter (versión preliminar), WeChat (versión preliminar), Weibo (versión preliminar) y QQ (versión preliminar). Agregaremos compatibilidad con otros proveedores de identidades sociales conocidos en función de la demanda del cliente.
+Actualmente se admiten varios proveedores de identidades sociales, como Amazon, Facebook, GitHub (versión preliminar), Google, LinkedIn, Microsoft Account (MSA), QQ (versión preliminar), Twitter, WeChat (versión preliminar) y Weibo (versión preliminar). Se está evaluando la posibilidad de agregar compatibilidad con otros proveedores de identidades de redes sociales conocidas en función de la demanda del cliente.
 
-Azure AD B2C también ha agregado compatibilidad para [directivas personalizadas](active-directory-b2c-overview-custom.md). Estas directivas personalizadas permiten a un desarrollador crear su propia directiva con cualquier proveedor de identidades que admita [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML.
-
-Empiece a trabajar con directivas personalizadas consultando nuestro [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C también admite [directivas personalizadas](active-directory-b2c-overview-custom.md). Las directivas personalizadas le permiten crear su propia directiva para cualquier proveedor de identidades que admita [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML. Empiece a trabajar con directivas personalizadas consultando nuestro [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>¿Puedo configurar ámbitos para recopilar más información acerca de los consumidores de distintos proveedores de identidades sociales?
 

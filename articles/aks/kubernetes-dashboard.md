@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mlearned
-ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5aa8268fee7d43ad13ea8710760ba493683f502e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615234"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126876"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -36,24 +36,36 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si un explorador web no se abre en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente `http://127.0.0.1:8001`.
 
-![Página de información general del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
+![Página de inicio de sesión del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-login.png)
 
-### <a name="for-rbac-enabled-clusters"></a>Para los clústeres habilitados para RBAC
+Tiene las siguientes opciones para iniciar sesión en el panel del clúster:
 
-Si el clúster de AKS usa RBAC, se debe crear un *ClusterRoleBinding* antes de que pueda acceder correctamente al panel. De forma predeterminada, el panel de Kubernetes se implementa con un mínimo acceso de lectura y muestra los errores de acceso del RBAC. El panel de Kubernetes no admite actualmente las credenciales proporcionadas por el usuario para determinar el nivel de acceso, sino que utiliza los roles que se conceden a la cuenta de servicio. Un administrador de clústeres puede conceder acceso adicional a la cuenta de servicio *kubernetes-dashboard*, aunque esto puede ser un vector de elevación de privilegios. También se puede integrar la autenticación de Azure Active Directory para proporcionar un nivel de acceso más pormenorizado.
-
-Para crear un enlace, use el comando [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] como se muestra en el ejemplo siguiente. 
+* Un [archivo kubeconfig][kubeconfig-file]. Puede generar un archivo kubeconfig mediante [az aks get-credentials][az-aks-get-credentials].
+* Un token, como un [token de cuenta de servicio][aks-service-accounts] o un token de usuario. En los [clústeres habilitados para AAD][aad-cluster], este token sería un token de AAD. Puede usar `kubectl config view` para enumerar los tokens en el archivo kubeconfig. Para obtener más información sobre cómo crear un token de AAD para usarlo con un clúster de AKS, vea [Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure][aad-cluster].
+* La cuenta de servicio del panel predeterminada, que se usa si hace clic en *Omitir*.
 
 > [!WARNING]
-> Este enlace de ejemplo no aplica ningún componente de autenticación adicional y puede dar lugar a un uso no seguro. El panel de Kubernetes está abierto a cualquier persona con acceso a la dirección URL. No exponga públicamente el panel de Kubernetes.
+> Nunca exponga el panel de Kubernetes públicamente, independientemente del método de autenticación que utilice.
+> 
+> Al configurar la autenticación para el panel de Kubernetes, se recomienda usar un token sobre la cuenta de servicio de panel predeterminada. Un token permite que cada usuario utilice sus propios permisos. Al usar la cuenta de servicio del panel predeterminada es posible que se permita que un usuario ignore sus propios permisos y use la cuenta de servicio en su lugar.
+> 
+> Si elige usar la cuenta de servicio del panel predeterminada y el clúster de AKS usa RBAC, se debe crear *ClusterRoleBinding* antes de que pueda acceder correctamente al panel. De forma predeterminada, el panel de Kubernetes se implementa con un mínimo acceso de lectura y muestra los errores de acceso del RBAC. Un administrador de clústeres puede conceder acceso adicional a la cuenta de servicio *kubernetes-dashboard*, aunque esto puede ser un vector de elevación de privilegios. También se puede integrar la autenticación de Azure Active Directory para proporcionar un nivel de acceso más pormenorizado.
 >
+> Para crear un enlace, use el comando [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] como se muestra en el ejemplo siguiente. **Este enlace de ejemplo no aplica ningún componente de autenticación adicional y puede dar lugar a un uso no seguro.**
+>
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+> 
+> Ahora puede acceder al panel de Kubernetes en el clúster habilitado para RBAC. Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse] como se detalló en el paso anterior.
+>
+> Si el clúster no usa RBAC, no se recomienda crear *ClusterRoleBinding*.
+> 
 > Para más información sobre cómo usar los distintos métodos de autenticación, consulte la wiki del panel de Kubernetes sobre los [controles de acceso][dashboard-authentication].
 
-```console
-kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-```
+Después de elegir un método para iniciar sesión, se muestra el panel de Kubernetes. Si decide usar *Token* u *Omitir*, el panel de Kubernetes usará los permisos del usuario que ha iniciado sesión actualmente para acceder al clúster.
 
-Ahora puede acceder al panel de Kubernetes en el clúster habilitado para RBAC. Para iniciar el panel de Kubernetes, use el comando [az aks browse][az-aks-browse] como se detalló en el paso anterior.
+![Página de información general del panel web de Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 
@@ -108,12 +120,17 @@ Se tarda unos minutos en que los nuevos pods se creen dentro de un conjunto de r
 Para más información sobre el panel de Kubernetes, consulte el [panel de la interfaz de usuario web de Kubernetes][kubernetes-dashboard].
 
 <!-- LINKS - external -->
-[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubeconfig-file]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 <!-- LINKS - internal -->
+[aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
+[az-account-get-access-token]: /cli/azure/account?view=azure-cli-latest#az-account-get-access-token
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[install-azure-cli]: /cli/azure/install-azure-cli

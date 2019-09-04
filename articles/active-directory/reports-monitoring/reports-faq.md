@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987920"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127021"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede usar la  [API de eventos de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza los eventos de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 ---
 
@@ -107,7 +107,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ## <a name="risky-sign-ins"></a>Inicios de sesión no seguros
 
-**P: Hay un evento de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en el informe de inicios de sesión. ¿Es normal?**
+**P: Hay una detección de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en el informe de inicios de sesión. ¿Es normal?**
 
 **R:** Sí, Identity Protection evalúa el riesgo de todos los flujos de autenticación si es interactivo o no interactivo. Sin embargo, el informe únicamente de todos los inicios de sesión muestra los inicios de sesión interactivos.
 
@@ -115,7 +115,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cómo puedo saber por qué un inicio de sesión o un usuario se marcó como peligroso en Azure Portal?**
 
-**R:** Si tiene una suscripción a **Azure AD Premium**, puede aprender más sobre los eventos de riesgo subyacentes mediante la selección de un usuario en **Usuarios marcados en riesgo** o la selección de un registro en el informe **Inicios de sesión de riesgo**. Si tiene una suscripción **gratuita** o **básica**, puede ver los usuarios en riesgo y los informes de inicios de sesión en riesgo, pero no puede ver la información de los eventos de riesgo subyacentes.
+**R:** Si tiene una suscripción a **Azure AD Premium**, puede aprender más sobre las detecciones de riesgo subyacentes mediante la selección de un usuario en **Usuarios marcados en riesgo** o la selección de un registro en el informe **Inicios de sesión de riesgo**. Si tiene una suscripción **gratuita** o **básica**, puede ver los usuarios en riesgo y los informes de inicios de sesión en riesgo, pero no puede ver la información de las detecciones de riesgo subyacentes.
 
 ---
 
@@ -125,7 +125,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ---
 
-**P: ¿Qué significa el evento de riesgo "Inicio de sesión con riesgo adicional detectado"?**
+**P: ¿Qué significa la detección de riesgo "Inicio de sesión con riesgo adicional detectado"?**
 
 **R:** Para proporcionarle información detallada de todos los inicios de sesión en riesgo en su entorno, "Inicio de sesión con riesgo adicional detectado" funciona como marcador de posición para los inicios de sesión en detecciones exclusivas de los suscriptores de Azure AD Identity Protection.
 

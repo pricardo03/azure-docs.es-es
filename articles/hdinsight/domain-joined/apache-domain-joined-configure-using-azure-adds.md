@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614210"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125590"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Los clústeres de Enterprise Security Package (ESP) proporcionan acceso multiusu
 En este artículo, aprenderá a configurar un clúster de HDInsight con ESP mediante Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP está disponible con carácter general en HDInsight 3.6 y 4.0 para los tipos de clúster: Apache Spark, Interactive, Apache Hadoop y HBase. ESP para los tipos de clúster de Apache Kafka se encuentra en versión preliminar.
+> ESP está disponible con carácter general en HDInsight 3.6 y 4.0 para los tipos de clúster: Apache Spark, Interactive, Hadoop y HBase. El tipo de clúster ESP para Apache Kafka se encuentra en versión preliminar y solo cuenta con soporte técnico según nuestra capacidad técnica. No se admiten los clústeres de ESP creados antes de la fecha de disponibilidad general de ESP (1 de octubre de 2018).
 
 ## <a name="enable-azure-ad-ds"></a>Habilitar Azure AD DS
 

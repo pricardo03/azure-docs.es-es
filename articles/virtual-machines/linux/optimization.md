@@ -12,17 +12,16 @@ ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640754"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091680"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -53,7 +52,7 @@ Al tratar con cargas de trabajo de IOPS elevadas y de haber elegido Standard Sto
 ## <a name="your-vm-temporary-drive"></a>Su unidad temporal de máquina virtual
 De forma predeterminada, cuando se crea una VM, Azure proporciona un disco de SO ( **/dev/sda**) y un disco temporal ( **/dev/sdb**).  Todos los discos adicionales que se agreguen se mostrarán como **/dev/sdc**, **/dev/sdd**, **/dev/sde**, etc. Todos los datos del disco temporal ( **/dev/sdb**) no son duraderos y se pueden perder si eventos específicos, como el cambio de tamaño de la VM, la reimplementación o el mantenimiento, fuerzan un reinicio de la VM.  El tamaño y el tipo de disco temporal está relacionado con el tamaño de memoria virtual que seleccionó en el momento de la implementación. En todas las VM de tamaño premium (series DS, G y DS_V2) se realizará una copia de seguridad de la unidad temporal en una unidad SSD local para obtener un rendimiento adicional de hasta 48 000 IOPS. 
 
-## <a name="linux-swap-file"></a>Archivo de intercambio de Linux
+## <a name="linux-swap-partition"></a>Partición de intercambio de Linux
 Si la VM de Azure procede de una imagen de Ubuntu o CoreOS, puede usar CustomData para enviar una cloud-config a cloud-init. Si [cargó una imagen personalizada de Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que usa cloud-init, configure también particiones de intercambio mediante cloud-init.
 
 En las imágenes de nube de Ubuntu, debe usar cloud-init para configurar la partición de intercambio. Para más información, consulte [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
@@ -127,6 +126,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Uso del software RAID para alcanzar mayores IOPS
 Si las cargas de trabajo necesitan más IOPS de lo que puede proporcionar un único disco, debe utilizar una configuración de software RAID de varios discos. Como Azure ya realiza la resistencia de disco en el nivel de tejido local, obtendrá el máximo nivel de rendimiento en una configuración de creación de bandas RAID-0.  Aprovisione y cree discos en el entorno de Azure y conéctelos a la VM Linux antes de la creación de particiones, del formato y del montaje de las unidades.  Para más información sobre cómo configurar el software RAID en la máquina virtual Linux en Azure, consulte el documento **[Configuración del software RAID en Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+
+Como alternativa a una configuración de RAID tradicional, también puede optar por instalar el administrador de volúmenes lógicos (LVM) para configurar una serie de discos físicos en un único volumen de almacenamiento lógico seccionado. Con esta configuración, las lecturas y escrituras se distribuyan en varios discos del grupo de volúmenes (similar a RAID0). Por motivos de rendimiento, es probable que deba seccionar los volúmenes lógicos para que las lecturas y escrituras utilicen todos los discos de datos conectados.  Para obtener más información sobre cómo configurar un volumen lógico seccionado en la máquina virtual Linux en Azure, vea el documento **[Configuración del LVM en una máquina virtual Linux en Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 Recuerde que, como en todos los debates sobre optimización, debe realizar pruebas antes y después de cada cambio para cuantificar el impacto que tienen dichos cambios.  La optimización es un proceso paso a paso que tiene resultados diferentes en las distintas máquinas en su entorno.  Lo que funciona para una configuración puede no funcionar para otras.
