@@ -47,7 +47,7 @@ Si nunca ha utilizado **Azure Machine Learning Studio**, sería conveniente que 
 
 
 > [!TIP] 
-> Puede encontrar una copia de trabajo del experimento que se ha desarrollado en este tutorial en [Azure AI Gallery](https://gallery.azure.ai). Vaya a **[Walkthrough - Credit risk prediction](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: Predicción de riesgos de crédito) y haga clic en **Abrir en Studio** para descargar una copia del experimento al área de trabajo de Machine Learning Studio.
+> Puede encontrar una copia de trabajo del experimento que se ha desarrollado en este tutorial en [Azure AI Gallery](https://gallery.azure.ai). Vaya al tutorial **[Walkthrough - Credit risk prediction](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: Predicción de riesgos de crédito) y haga clic en **Open in Studio** (Abrir en Studio) para descargar una copia del experimento en el área de trabajo de Machine Learning Studio.
 > 
 
 
@@ -186,7 +186,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
 
 1. Haga clic en el módulo [Edit Metadata][edit-metadata] (Editar metadatos), arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
 
-1. Conecte el conjunto de datos al módulo [Edit Metadata][edit-metadata] (Editar metadatos): haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Edit Metadata][edit-metadata] (Editar metadatos) (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del ratón. El conjunto de datos y el módulo permanecen conectados aunque se desplace por el lienzo.
+1. Conecte el conjunto de datos al módulo [Edit Metadata][edit-metadata] (Editar metadatos): haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrástrelo al puerto de entrada del módulo [Edit Metadata][edit-metadata] (Editar metadatos) (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del ratón. El conjunto de datos y el módulo permanecen conectados aunque se desplace por el lienzo.
  
     El experimento debería tener ahora un aspecto similar al siguiente:  
 

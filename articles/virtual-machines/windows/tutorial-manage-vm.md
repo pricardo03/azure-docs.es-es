@@ -22,7 +22,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 08/28/2019
 ms.locfileid: "70101588"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan tareas básicas de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
@@ -186,7 +186,7 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 | [Proceso optimizado](sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
 | [Memoria optimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](sizes-storage.md)      | Lsv2, Ls              | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
 | [Alto rendimiento](sizes-hpc.md) | H        | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. |
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles
@@ -236,7 +236,7 @@ Start-AzVM `
    -Name $vm.name
 ```
 
-## <a name="vm-power-states"></a>Estados de una máquina virtual
+## <a name="vm-power-states"></a>Estados de energía de una máquina virtual
 
 Una máquina virtual de Azure puede tener uno de muchos estados de energía. 
 
@@ -246,7 +246,7 @@ Una máquina virtual de Azure puede tener uno de muchos estados de energía.
 | Iniciando | La máquina virtual se está iniciando. |
 | En ejecución | La máquina virtual se está ejecutando. |
 | Deteniéndose | La máquina virtual se está deteniendo. |
-| Stopped | La máquina virtual está detenida. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
+| Detenido | La máquina virtual está detenida. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
 | Desasignando | La máquina virtual se está desasignando. |
 | Desasignado | Indica que la máquina virtual se quitó del hipervisor, pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado `Deallocated` no incurren en cargos por los procesos. |
 | - | Se desconoce el estado de la máquina virtual. |
@@ -314,7 +314,7 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales.
 
-Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
+Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales.  
 
 > [!div class="nextstepaction"]
 > [Creación y administración de discos de máquinas virtuales](./tutorial-manage-data-disk.md)

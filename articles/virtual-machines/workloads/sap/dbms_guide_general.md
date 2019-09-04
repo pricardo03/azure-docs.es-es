@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202941"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101359"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -49,7 +48,7 @@ ms.locfileid: "67202941"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Esta guía forma parte de la documentación sobre la implementación del software de SAP en Microsoft Azure. Antes de leer esta guía, consulte la [Guía de planeamiento e implementación][planning-guide]. En este documento se describen los aspectos de implementación genéricos de los sistemas DBMS relacionados con SAP en Microsoft Azure Virtual Machines (VM) mediante las funcionalidades de infraestructura como servicio (IaaS) de Azure.
+Esta guía forma parte de la documentación sobre la implementación del software de SAP en Microsoft Azure. Antes de leer esta guía, vea la [Guía de planeamiento e implementación][planning-guide]. En este documento se describen los aspectos de implementación genéricos de los sistemas DBMS relacionados con SAP en Microsoft Azure Virtual Machines (VM) mediante las funcionalidades de infraestructura como servicio (IaaS) de Azure.
 
 El documento complementa la documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
 
@@ -63,7 +62,7 @@ En todo el documento, se usan estos términos:
 * **SaaS**: software como servicio.
 * **Componente de SAP**: una aplicación de SAP individual, por ejemplo, ERP Central Component (ECC), Business Warehouse (BW), Solution Manager o Enterprise Portal (EP). Los componentes de SAP pueden basarse en tecnologías tradicionales, como ABAP o Java, o en una aplicación no basada en NetWeaver, como Business Objects.
 * **Entorno de SAP**: uno o varios componentes de SAP agrupados lógicamente para desempeñar una función empresarial, como desarrollo, control de calidad, aprendizaje, recuperación ante desastres o producción.
-* **Infraestructura de SAP**: este término hace referencia a todos los recursos de SAP de la infraestructura de TI de un cliente. La infraestructura de SAP incluye todos los entornos, tanto los que son de producción como los que no.
+* **Infraestructura de SAP**: Este término hace referencia a todos los recursos de SAP de la infraestructura de TI de un cliente. La infraestructura de SAP incluye todos los entornos, tanto los que son de producción como los que no.
 * **Sistema SAP**: la combinación de la capa de DBMS y el nivel de aplicación de, por ejemplo, un sistema de desarrollo de SAP ERP, un sistema de prueba de SAP BW y un sistema de producción de SAP CRM. Las implementaciones de Azure no admiten la división de estas dos capas entre la infraestructura local y la de Azure. En consecuencia, un sistema SAP debe implementarse de forma local o en Azure, pero no en ambos. Los diferentes sistemas de un entorno de SAP pueden implementarse en Azure o de forma local. Por ejemplo, pueden implementarse los sistemas de desarrollo y pruebas de SAP CRM en Azure, a la vez que se implementa el de producción de forma local.
 * **Entre locales**: describe un escenario donde se implementan máquinas virtuales en una suscripción de Azure con conexión de sitio a sitio, entre varios sitios o de Azure ExpressRoute entre los centros de datos locales y Azure. En la documentación habitual de Azure, este tipo de implementaciones se denominan "escenarios entre locales". 
 
@@ -360,7 +359,7 @@ Para reducir aún más la latencia de red entre máquinas virtuales de Azure, se
 ## <a name="deployment-of-host-monitoring"></a>Implementación de la supervisión del host
 Para el uso en producción de aplicaciones de SAP en máquinas virtuales de Azure, SAP necesita que se puedan obtener datos de supervisión de los hosts físicos que se ejecutan en dichas máquinas. Se requiere un nivel de revisión específico del agente de host de SAP que permita esta funcionalidad en SAPOSCOL y el agente de host de SAP. El nivel de revisión exacto se menciona en la nota de SAP [1409604].
 
-Para más información sobre la implementación de componentes que proporcionen datos de host a SAPOSCOL y el agente de host de SAP, así como sobre la administración del ciclo de vida de esos componentes, consulte la [Guía de implementación][deployment-guide].
+Para más información sobre la implementación de componentes que proporcionen datos de host a SAPOSCOL y el agente de host de SAP, así como sobre la administración del ciclo de vida de esos componentes, vea la [Guía de implementación][deployment-guide].
 
 
 ## <a name="next-steps"></a>Pasos siguientes
