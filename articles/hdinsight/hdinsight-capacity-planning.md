@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786511"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207163"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -60,7 +60,7 @@ En un clúster de cuarenta y ocho nodos, se recomiendan entre cuatro y ocho cuen
 
 ## <a name="choose-a-cluster-type"></a>Elección de un tipo de clúster
 
-El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
+El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
 
 ## <a name="choose-the-vm-size-and-type"></a>Elección del tipo y el tamaño de la máquina virtual
 
@@ -94,7 +94,7 @@ Se le cobra en función de la duración del clúster. Si solo necesita que el cl
 
 ### <a name="isolate-cluster-job-errors"></a>Aislamiento de errores de trabajo del clúster
 
-A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *avanzada*.
+A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo de trabajo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *Custom (size,settings,apps)* (Personalizar [tamaño, configuración, aplicaciones]) y use un valor de 1 en *Number of Worker nodes* (Número de nodos de trabajo) en la sección **Tamaño de grupo** al aprovisionar un nuevo clúster en el portal.
 
 También puede instalar un entorno de desarrollo de un solo nodo en el equipo local y probar ahí la solución. Hortonworks proporciona un entorno de desarrollo local de un solo nodo para soluciones basadas en Hadoop que resulta útil para el desarrollo inicial, la prueba de concepto y las pruebas. Para más información, vea [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 

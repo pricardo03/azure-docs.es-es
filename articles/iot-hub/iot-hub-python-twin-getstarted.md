@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 62385f4bd07f4b80dc3d571d409e16c7e0dca205
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d729ab4b3f42f5d353309023cf07ae5e212e02ec
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667856"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147598"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introducción a los dispositivos gemelos (Python)
 
@@ -27,7 +27,7 @@ Al final de este tutorial, tendrá dos aplicaciones de consola de Python:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-A continuación se indican las instrucciones de instalación de los requisitos previos.
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -49,11 +49,15 @@ A continuación se indican las instrucciones de instalación de los requisitos p
 
 En esta sección, creará una aplicación de consola de Python que agrega metadatos de ubicación al dispositivo gemelo asociado con **{Device ID}** . Después, consulta los dispositivos gemelos almacenados en la instancia de IoT Hub mediante la selección de los dispositivos ubicados en Redmond (EE. UU.) y, después, los que informan de una conexión de red de telefonía móvil.
 
-1. Abra un símbolo del sistema e instale el **SDK del servicio Azure IoT Hub para Python**. Cierre el símbolo del sistema después de instalar el SDK.
+1. En el directorio de trabajo, abra un símbolo del sistema e instale el **SDK del servicio Azure IoT Hub para Python**.
 
-   ```
+   ```cmd/sh
    pip install azure-iothub-service-client
    ```
+
+   > [!NOTE]
+   > Los paquetes PIP para azure-iothub-service-client y azure-iothub-device-client actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
+   >
 
 2. Con un editor de texto, cree un nuevo archivo **AddTagsAndQuery.py**.
 
@@ -66,7 +70,7 @@ En esta sección, creará una aplicación de consola de Python que agrega metada
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Agregue el código siguiente; para ello, sustituya el marcador de posición de `[IoTHub Connection String]` y `[Device Id]` por la cadena de conexión del centro de IoT y el id. de dispositivo que creó en las secciones anteriores.
+4. Agregue el siguiente código. Reemplace `[IoTHub Connection String]` por la cadena de conexión de IoT Hub que copió en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string). Reemplace `[Device Id]` por el identificador de dispositivo que registró en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -80,7 +84,7 @@ En esta sección, creará una aplicación de consola de Python que agrega metada
 
 5. Agregue el código siguiente al archivo **AddTagsAndQuery.py**:
 
-     ```python
+    ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
@@ -143,7 +147,7 @@ En esta sección, creará una aplicación de consola de Python que agrega metada
 
     Debería ver un dispositivo en los resultados de la consulta que pregunta por todos los dispositivos que se encuentran en **Redmond43** y ninguno para la consulta que restringe los resultados a los dispositivos que utilizan una red de telefonía móvil.
 
-    ![primera consulta que muestra todos los dispositivos de Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![primera consulta que muestra todos los dispositivos de Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
 En la siguiente sección, creará una aplicación de dispositivo que notifica la información de conectividad y cambia el resultado de la consulta en la sección anterior.
 
@@ -151,11 +155,15 @@ En la siguiente sección, creará una aplicación de dispositivo que notifica la
 
 En esta sección, creará una aplicación de consola de Python que se conecta al centro como su **{Device ID}** y, luego, actualiza las propiedades notificadas de su dispositivo gemelo para que contenga la información conectada mediante una red de telefonía móvil.
 
-1. Abra un símbolo del sistema e instale el **SDK del servicio Azure IoT Hub para Python**. Cierre el símbolo del sistema después de instalar el SDK.
+1. En un símbolo del sistema del directorio de trabajo, instale el **SDK del servicio Azure IoT Hub para Python**:
 
-    ```
+    ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Los paquetes PIP para azure-iothub-service-client y azure-iothub-device-client actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
+   >
 
 2. Con un editor de texto, cree un nuevo archivo **ReportConnectivity.py**.
 
@@ -167,7 +175,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-4. Agregue el código siguiente; para ello, sustituya el marcador de posición por `[IoTHub Device Connection String]` con la cadena de conexión del dispositivo de IoT Hub que creó en la sección anterior.
+4. Agregue el siguiente código. Reemplace el valor del marcador de posición `[IoTHub Device Connection String]` por la cadena de conexión de dispositivo que copió en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -227,7 +235,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
             return
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-     ```
+    ```
 
     El objeto **Cliente** expone todos los métodos necesarios para interactuar con dispositivos gemelos del dispositivo. El código anterior, una vez que inicialice el objeto **Cliente**, recupera el dispositivo gemelo del dispositivo, y actualiza su propiedad notificada con la información de conectividad.
 
@@ -248,7 +256,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
 
     Debería ver la confirmación de que se actualizaron los dispositivos gemelos.
 
-    ![actualizar gemelos](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
+    ![actualizar gemelos](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. Ahora que el dispositivo ha informado sobre su información de conectividad, debe aparecer en ambas consultas. Vuelva atrás y ejecute las consultas de nuevo:
 
@@ -258,7 +266,7 @@ En esta sección, creará una aplicación de consola de Python que se conecta al
 
     Esta vez **{Device Id}** debe aparecer en los resultados de ambas consultas.
 
-    ![segunda consulta](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+    ![segunda consulta](./media/iot-hub-python-twin-getstarted/service-2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
