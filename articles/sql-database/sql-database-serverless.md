@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515287"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035718"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -136,7 +136,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 |Copia de base de datos|Creación de base de datos como copia.<br>Exportación a un archivo BACPAC.|
 |Sincronización de datos SQL|Sincronización entre la base de datos central y las bases de datos miembro que se ejecutan según una programación configurable o bien de forma manual|
 |Modificación de algunos metadatos de base de datos|Adición de nuevas etiquetas de base de datos.<br>Cambio del máximo de núcleos virtuales, el mínimo de núcleos virtuales y la demora de pausa automática.|
-|SQL Server Management Studio (SSMS)|Al usar SSMS versión 18 y abrir una nueva ventana de consulta para cualquier base de datos en el servidor se reanudará cualquier base de datos en pausa automática en el mismo servidor. Este comportamiento no se produce si se usa SSMS versión 17.9.1 con IntelliSense deshabilitado.|
+|SQL Server Management Studio (SSMS)|Al usar las versiones de SSMS anteriores a 18.1 y abrir una nueva ventana de consulta para cualquier base de datos en el servidor, se reanudará cualquier base de datos en pausa automática en el mismo servidor. Este comportamiento no se produce si se usa SSMS versión 18.1 o posterior.|
 
 También se desencadena la reanudación automática durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.
 

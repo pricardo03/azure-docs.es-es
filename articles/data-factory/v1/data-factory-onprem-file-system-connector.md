@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3816eebe85f01301c770a50a618142bcbfbb21
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839965"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036279"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copia de datos hacia y desde el sistema de archivos local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -73,7 +73,7 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |Asegúrese de que la propiedad type esté establecida en **OnPremisesFileServer**. |Sí |
+| type |Asegúrese de que la propiedad type esté establecida en **OnPremisesFileServer**. |Sí |
 | host |Especifica la ruta de acceso raíz de la carpeta que quiere copiar. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en [Ejemplos de definiciones de servicio vinculado y conjunto de datos](#sample-linked-service-and-dataset-definitions) . |Sí |
 | userid |Especifique el identificador del usuario que tiene acceso al servidor. |No (si elige encryptedCredential) |
 | password |Especifique la contraseña del usuario (identificador de usuario). |No (si elige encryptedCredential) |
@@ -84,8 +84,8 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Ejemplos de definiciones de servicio vinculado y conjunto de datos
 | Escenario | Host en definición de servicio vinculado | folderPath en definición de conjunto de datos |
 | --- | --- | --- |
-| Carpeta local en la máquina de Data Management Gateway:: <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\* |D:\\\\ (para Data Management Gateway 2.0 y versiones posteriores) <br/><br/> localhost (para versiones anteriores a Data Management Gateway 2.0) |\\\\ o la carpeta\\\\subcarpeta (Data Management Gateway 2.0 y versiones posteriores) <br/><br/>D:\\\\ o D:\\\\carpeta\\\\subcarpeta (para versiones de la puerta de enlace interiores a 2.0) |
-| Carpeta compartida remota: <br/><br/>Ejemplos: \\\\myserver\\share\\\* o \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\ |.\\\\ o carpeta\\\\subcarpeta |
+| Carpeta local en la máquina de Data Management Gateway:: <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\\* |D:\\\\ (para Data Management Gateway 2.0 y versiones posteriores) <br/><br/> localhost (para versiones anteriores a Data Management Gateway 2.0) |\\\\ o la carpeta\\\\subcarpeta (Data Management Gateway 2.0 y versiones posteriores) <br/><br/>D:\\\\ o D:\\\\carpeta\\\\subcarpeta (para versiones de la puerta de enlace interiores a 2.0) |
+| Carpeta compartida remota: <br/><br/>Ejemplos: \\\\myserver\\share\\\\* o \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\ |.\\\\ o carpeta\\\\subcarpeta |
 
 >[!NOTE]
 >Cuando se crean a través de la interfaz de usuario, no es necesario escribir dos barras diagonales (`\\`) de escape como a través de JSON, solo una barra diagonal inversa.

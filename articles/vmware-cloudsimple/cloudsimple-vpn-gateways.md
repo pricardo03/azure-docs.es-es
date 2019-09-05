@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 88c27b920817da5edc2cefe780903c2b94695807
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877654"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972888"
 ---
 # <a name="vpn-gateways-overview"></a>Información general sobre puertas de enlace de VPN
 
@@ -66,7 +66,7 @@ Una conexión VPN de sitio a sitio usa los siguientes parámetros criptográfico
 
 ## <a name="point-to-site-vpn-gateway"></a>Puerta de enlace de VPN de punto a sitio
 
-Una VPN de punto a sitio se usa para enviar tráfico cifrado entre la red de una región de CloudSimple y un equipo cliente.  La VPN de punto a sitio es la manera más fácil de acceder a la red de la nube privada, incluido vCenter y las VM de carga de trabajo de su nube privada.  Use la conectividad de VPN de punto a sitio si se conecta a la nube privada de forma remota.
+Una VPN de punto a sitio se usa para enviar tráfico cifrado entre la red de una región de CloudSimple y un equipo cliente.  La VPN de punto a sitio es la manera más fácil de acceder a la red de la nube privada, incluido vCenter y las máquinas virtuales de carga de trabajo de su nube privada.  Use la conectividad de VPN de punto a sitio si se conecta a la nube privada de forma remota.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

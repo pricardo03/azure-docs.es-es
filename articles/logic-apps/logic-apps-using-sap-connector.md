@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/20/2019
 tags: connectors
-ms.openlocfilehash: 9e46c51ae06920bd57f272248f06020dfad380e7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59263f74086f789e46e854ca320455e84dcb42c1
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326710"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907575"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -109,48 +109,44 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
    **Creación de una conexión de SAP local**
 
-    1. Proporcione la información de conexión para el servidor SAP. Para la propiedad **Data Gateway** (Puerta de enlace de datos), seleccione la puerta de enlace de datos que creó en Azure Portal para la instalación de la puerta de enlace.
+   Proporcione la información de conexión para el servidor SAP. Para la propiedad **Data Gateway** (Puerta de enlace de datos), seleccione la puerta de enlace de datos que creó en Azure Portal para la instalación de la puerta de enlace. Cuando haya finalizado, seleccione **Crear**. Logic Apps configura y comprueba la conexión para asegurarse de que funciona correctamente.
 
-         - Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Application Server** (Servidor de aplicaciones), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
+   * Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Application Server** (Servidor de aplicaciones), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
 
-            ![Creación de conexiones del servidor de aplicaciones de SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![Creación de conexiones del servidor de aplicaciones de SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-         - Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Group** (Grupo), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
+   * Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Group** (Grupo), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
 
-            ![Creación de conexiones del servidor de mensajes de SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+     ![Creación de conexiones del servidor de mensajes de SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-           De forma predeterminada, se usa el establecimiento inflexible de tipos para comprobar si hay valores no válidos, para lo cual se realiza la validación de XML con respecto al esquema. Este comportamiento puede ayudarlo a detectar problemas con antelación. La opción **Escritura segura** está disponible para la compatibilidad con versiones anteriores y solo comprueba la longitud de cadena. Más información sobre la opción [Escritura segura](#safe-typing).
-
-    1. Cuando haya finalizado, seleccione **Crear**.
-
-       Logic Apps configura y comprueba la conexión para asegurarse de que funciona correctamente.
+   De forma predeterminada, se usa el establecimiento inflexible de tipos para comprobar si hay valores no válidos, para lo cual se realiza la validación de XML con respecto al esquema. Este comportamiento puede ayudarlo a detectar problemas con antelación. La opción **Escritura segura** está disponible para la compatibilidad con versiones anteriores y solo comprueba la longitud de cadena. Más información sobre la opción [Escritura segura](#safe-typing).
 
 1. Ahora, busque y seleccione una acción en el servidor SAP.
 
-    1. En el cuadro **SAP Action** (Acción de SAP), elija el icono de carpeta. Desde la lista de archivos, busque y seleccione el mensaje de SAP que quiere utilizar. Para navegar por la lista, utilice las flechas.
+   1. En el cuadro **SAP Action** (Acción de SAP), elija el icono de carpeta. Desde la lista de archivos, busque y seleccione el mensaje de SAP que quiere utilizar. Para navegar por la lista, utilice las flechas.
 
-       En este ejemplo se selecciona un IDOC con el tipo **Orders** (Pedidos).
+      En este ejemplo se selecciona un IDOC con el tipo **Orders** (Pedidos).
 
-       ![Búsqueda y selección de la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      ![Búsqueda y selección de la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
-       Si no encuentra la acción que quiere, puede escribir manualmente una ruta de acceso, por ejemplo:
+      Si no encuentra la acción que quiere, puede escribir manualmente una ruta de acceso, por ejemplo:
 
-       ![Proporcionar manualmente la ruta de acceso a la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+      ![Proporcionar manualmente la ruta de acceso a la acción IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-       > [!TIP]
-       > Proporcione el valor de la **acción de SAP** mediante el editor de expresiones. De este modo, puede usar la misma acción para diferentes tipos de mensajes.
+      > [!TIP]
+      > Proporcione el valor de la **acción de SAP** mediante el editor de expresiones. De este modo, puede usar la misma acción para diferentes tipos de mensajes.
 
-       Para obtener más información sobre las operaciones de IDoc, consulte [Esquemas de mensaje para operaciones de IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      Para obtener más información sobre las operaciones de IDoc, consulte [Esquemas de mensaje para operaciones de IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-    1. Haga clic en el cuadro **Mensaje de entrada** para que aparezca la lista de contenido dinámico. En dicha lista, en **When a HTTP request is received** (Cuando se recibe una solicitud HTTP), seleccione el campo **Cuerpo**.
+   1. Haga clic en el cuadro **Mensaje de entrada** para que aparezca la lista de contenido dinámico. En dicha lista, en **When a HTTP request is received** (Cuando se recibe una solicitud HTTP), seleccione el campo **Cuerpo**.
 
-       En este paso, se incluye el contenido del cuerpo del desencadenador de la solicitud HTTP y se envía la salida al servidor SAP.
+      En este paso, se incluye el contenido del cuerpo del desencadenador de la solicitud HTTP y se envía la salida al servidor SAP.
 
-       ![Selección del campo "Cuerpo"](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+      ![Selección del campo "Cuerpo"](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
-       Cuando haya terminado, la acción SAP debe parecerse a este ejemplo:
+      Cuando haya terminado, la acción SAP debe parecerse a este ejemplo:
 
-       ![Completar una acción SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      ![Completar una acción SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
@@ -217,17 +213,17 @@ En este ejemplo se usa una aplicación lógica que se desencadena cuando la apli
 
    **Creación de una conexión de SAP local**
 
-   - Proporcione la información de conexión para el servidor SAP. Para la propiedad **Data Gateway** (Puerta de enlace de datos), seleccione la puerta de enlace de datos que creó en Azure Portal para la instalación de la puerta de enlace.
+   Proporcione la información de conexión para el servidor SAP. Para la propiedad **Data Gateway** (Puerta de enlace de datos), seleccione la puerta de enlace de datos que creó en Azure Portal para la instalación de la puerta de enlace. Cuando haya finalizado, seleccione **Crear**. Logic Apps configura y comprueba la conexión para asegurarse de que funciona correctamente.
 
-      - Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Application Server** (Servidor de aplicaciones), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
+   * Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Application Server** (Servidor de aplicaciones), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
 
-         ![Creación de conexiones del servidor de aplicaciones de SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![Creación de conexiones del servidor de aplicaciones de SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Group** (Grupo), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
+   * Si la propiedad **Logon Type** (Tipo de inicio de sesión) está establecida en **Group** (Grupo), estas propiedades, que suelen aparecer como opcionales, son obligatorias:
 
-          ![Creación de conexiones del servidor de mensajes de SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+     ![Creación de conexiones del servidor de mensajes de SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-      De forma predeterminada, se usa el establecimiento inflexible de tipos para comprobar si hay valores no válidos, para lo cual se realiza la validación de XML con respecto al esquema. Este comportamiento puede ayudarlo a detectar problemas con antelación. La opción **Escritura segura** está disponible para la compatibilidad con versiones anteriores y solo comprueba la longitud de cadena. Más información sobre la opción [Escritura segura](#safe-typing).
+   De forma predeterminada, se usa el establecimiento inflexible de tipos para comprobar si hay valores no válidos, para lo cual se realiza la validación de XML con respecto al esquema. Este comportamiento puede ayudarlo a detectar problemas con antelación. La opción **Escritura segura** está disponible para la compatibilidad con versiones anteriores y solo comprueba la longitud de cadena. Más información sobre la opción [Escritura segura](#safe-typing).
 
 1. Proporcione los parámetros necesarios en función de la configuración del sistema SAP.
 
@@ -262,6 +258,41 @@ La aplicación lógica está preparada para recibir mensajes del sistema SAP.
 1. En el menú de la aplicación lógica, seleccione **Información general**. Revise el **historial de ejecuciones** para ver las nuevas ejecuciones de la aplicación lógica.
 
 1. Abra la ejecución más reciente, que muestra el mensaje enviado desde su sistema SAP en la sección de salidas del desencadenador.
+
+## <a name="receive-idocs-packets-from-sap"></a>Recepción de paquetes de IDOC de SAP
+
+Puede configurar SAP para [enviar IDOC en paquetes](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), que son lotes o grupos de IDOC. Para recibir paquetes de IDOC, el conector de SAP y, en concreto, el desencadenador, no necesita configuración adicional. Sin embargo, para procesar cada elemento en un paquete IDOC después de que el desencadenador reciba el paquete, se necesitan algunos pasos adicionales para dividir el paquete en IDOC individuales.
+
+Este es un ejemplo que muestra cómo extraer IDOC individuales de un paquete mediante la [función `xpath()`](./workflow-definition-language-functions-reference.md#xpath): 
+
+1. Antes de empezar, necesita una aplicación lógica con un desencadenador de SAP. Si aún no tiene esta aplicación lógica, siga los pasos anteriores de este tema para configurar una [aplicación lógica con un desencadenador de SAP](#receive-from-sap). 
+
+   Por ejemplo:
+
+   ![Desencadenador de SAP](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. Obtiene el espacio de nombres raíz de IDOC XML que la aplicación lógica recibe de SAP. Para extraer este espacio de nombres del documento XML, agregue un paso que cree una variable de cadena local y almacene dicho espacio de nombres mediante una expresión `xpath()`:
+
+   `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+
+   ![Obtención del espacio de nombres](./media/logic-apps-using-sap-connector/get-namespace.png)
+
+1. Para extraer un IDOC individual, agregue un paso que cree una variable de matriz y almacene la colección de IDOC mediante otra expresión `xpath()`:
+
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+
+   ![Obtención de una matriz de elementos](./media/logic-apps-using-sap-connector/get-array.png)
+
+   La variable de matriz hace que cada IDOC esté disponible para que la aplicación lógica lo procese individualmente mediante la enumeración de la colección. En este ejemplo, la aplicación lógica transfiere cada IDOC a un servidor SFTP mediante un bucle:
+
+   ![Envío de IDOC](./media/logic-apps-using-sap-connector/loop-batch.png)
+
+   Cada IDOC debe incluir el espacio de nombres raíz, que es el motivo por el que el contenido del archivo se ajusta dentro de un elemento `<Receive></Receive` junto con el espacio de nombres raíz antes de enviar el IDOC a la aplicación de nivel inferior o servidor SFTP en este caso.
+
+> [!TIP]
+> Puede usar la plantilla de inicio rápido para este patrón si selecciona esta plantilla en el diseñador de aplicaciones lógicas al crear una nueva aplicación lógica.
+>
+> ![Plantilla de Batch](./media/logic-apps-using-sap-connector/batch-template.png)
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>Generar esquemas para artefactos en SAP
 
@@ -457,10 +488,6 @@ Cuando se envían mensajes con **Escritura segura** habilitada, la respuesta DAT
 ## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
 
 Estos son los problemas y limitaciones actualmente conocidos para el conector SAP:
-
-* Solo un envío a una llamada o un mensaje de SAP funciona con tRFC. No se admite el patrón de confirmación de BAPI, como por ejemplo, realizar varias llamadas de tRFC en la misma sesión.
-
-* El desencadenador de SAP no admite la recepción de documentos IDOC por lotes de SAP. Esta acción puede producir un error de conexión de RFC entre el sistema SAP y la puerta de enlace de datos.
 
 * El desencadenador SAP no admite clústeres de puerta de enlace de datos. En algunos casos de conmutación por error, el nodo de puerta de enlace de datos que se comunica con el sistema SAP puede diferir del nodo activo, lo que produce un comportamiento inesperado. En los escenarios de envío, se admiten clústeres de puerta de enlace de datos.
 

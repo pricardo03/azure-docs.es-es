@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950680"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991810"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -32,7 +32,7 @@ Las API de Blob Storage están deshabilitadas para evitar problemas de operativi
 
 Si alguno de los elementos anteriores usa las API de blob y desea usarlas para trabajar con todo el contenido que cargó en su cuenta, tiene dos opciones.
 
-* **Opción 1**: No habilite un espacio de nombres jerárquico en su cuenta de almacenamiento de blobs hasta que las API de blob puedan interoperar con las API de Azure Data Lake Gen2. Cuando usa una cuenta de almacenamiento sin un espacio de nombres jerárquico, carece de acceso a características específicas de Data Lake Storage Gen2, como listas de control de acceso al directorio y al sistema de archivos.
+* **Opción 1**: No habilite un espacio de nombres jerárquico en su cuenta de almacenamiento de blobs hasta que las API de blob puedan interoperar con las API de Azure Data Lake Gen2. Al usar una cuenta de almacenamiento sin un espacio de nombres jerárquico, no tendrá acceso a características específicas de Data Lake Storage Gen2, como listas de control de acceso al directorio y al contenedor.
 
 * **Opción 2**: Inscríbase en la versión preliminar pública del [acceso multiprotocolo en Data Lake Storage](data-lake-storage-multi-protocol-access.md). Las herramientas y las aplicaciones que llaman a las API de blob, así como las características de almacenamiento de blobs, como los registros de diagnóstico, pueden trabajar con cuentas que tienen un espacio de nombres jerárquico.
 

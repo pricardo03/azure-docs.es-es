@@ -3,15 +3,15 @@ title: 'Funciones de la plantilla de Azure Resource Manager: recursos | Microsof
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 08/20/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095747"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306922"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -41,7 +41,7 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
 | apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
-| functionValues |Sin |objeto | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. | 
+| functionValues |Sin |object | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. | 
 
 ### <a name="implementations"></a>Implementaciones
 
@@ -61,7 +61,6 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft.ContainerRegistry/registries | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |

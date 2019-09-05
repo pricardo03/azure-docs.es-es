@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 22a27ba19670344f351205b6a4865bf85daf0bab
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900270"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034584"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -33,7 +33,14 @@ ms.locfileid: "69900270"
 |**Plataforma admitida actualmente**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Informar sobre un problema**|[Informar sobre un problema](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
-## <a name="release-notes"></a>Notas de la versión
+## <a name="release-notes-for-200-series"></a>Notas de la versión para la serie 2.0.0
+La serie 2.0.0 toma la dependencia de [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), con mejoras en el rendimiento y la consolidación de los espacios de nombres en el punto de conexión de Cosmos DB.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+* Versión preliminar inicial del SDK de Table 2.0.0 que toma la dependencia de [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), con mejoras en el rendimiento y la consolidación de los espacios de nombres en el punto de conexión de Cosmos DB. La API pública sigue siendo la misma.
+
+## <a name="release-notes-for-100-series"></a>Notas de la versión de la serie 1.0.0
+La serie 1.0.0 toma la dependencia de [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-preview
 * Corrección de errores
@@ -77,6 +84,12 @@ Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelació
 
 Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) reemplazará a la biblioteca de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
+### <a name="200-series"></a>Serie 2.0.0
+| Versión | Fecha de lanzamiento | Fecha de retirada |
+| --- | --- | --- |
+| [2.0.0-preview](#2.0.0-preview) |22 de agosto de 2019 |--- |
+
+### <a name="100-series"></a>Serie 1.0.0
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.5-preview](#1.0.5-preview) |20 de agosto de 2019 |--- |

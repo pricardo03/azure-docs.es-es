@@ -1,21 +1,19 @@
 ---
 title: Desarrollo de Azure Functions con Visual Studio | Microsoft Docs
 description: Obtenga información sobre cómo desarrollar y probar Azure Functions mediante Herramientas de Azure Functions para Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593270"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905682"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -212,6 +210,9 @@ Con esto aparece el cuadro de diálogo **Configuración de la aplicación** para
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** representa un valor de configuración en el archivo local.settings.json y **Remoto** es el valor actual de la aplicación de función de Azure.  Elija **Agregar configuración** para crear una nueva configuración de aplicación. Use el vínculo **Insertar un valor desde Local** para copiar un valor de configuración para el campo **Remoto**. Los cambios pendientes se escriben en el archivo de configuración local y la aplicación de función cuando se selecciona **Aceptar**.
+
+> [!NOTE]
+> De forma predeterminada, el archivo local.settings.json no se ha insertado en el control de código fuente. Esto significa que al clonar un proyecto de funciones locales desde el control de código fuente, el proyecto no tiene el archivo local.settings.json. En este caso, debe crear manualmente el archivo local.settings.json en la raíz del proyecto para que el cuadro de diálogo **Configuración de la aplicación** funcione según lo previsto. 
 
 También puede administrar la configuración de la aplicación en una de estas otras maneras:
 

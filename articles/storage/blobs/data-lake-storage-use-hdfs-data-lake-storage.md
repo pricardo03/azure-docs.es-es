@@ -9,18 +9,18 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 24123278ff353860ff2af59f4fd77645dfc189e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938851"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992216"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso de la CLI de HDFS con Data Lake Storage Gen2
 
 Puede acceder y administrar los datos en la cuenta de almacenamiento mediante una interfaz de línea de comandos como lo haría con un [Sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). En este artículo se dan algunos ejemplos que le ayudarán a empezar a trabajar.
 
-HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Puede acceder a este sistema de archivos mediante el shell que interactúa directamente con HDFS y con otros sistemas de archivos que admiten Hadoop.
+HDInsight proporciona acceso al contenedor distribuido que se adjunta localmente a los nodos de ejecución. Puede acceder a este contenedor mediante el shell que interactúa directamente con HDFS y con otros sistemas de archivos que admiten Hadoop.
 
 Para más información sobre la CLI de HDFS, consulte la [documentación oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) y la [Guía de permisos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
@@ -44,11 +44,11 @@ La cadena de conexión se encuentra en la sección "SSH e inicio de sesión del 
 >[!IMPORTANT]
 >La facturación del clúster de HDInsight se inicia una vez creado el clúster y se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando. Para obtener información sobre cómo eliminar un clúster, consulte nuestro [artículo sobre el tema](../../hdinsight/hdinsight-delete-cluster.md). Sin embargo, los datos almacenados en una cuenta de almacenamiento que tiene Data Lake Storage Gen2 habilitado continúan incluso después de eliminar un clúster de HDInsight.
 
-## <a name="create-a-file-system"></a>Creación de un sistema de archivos
+## <a name="create-a-container"></a>Crear un contenedor
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Reemplace el marcador de posición `<file-system-name>` por el nombre que desee asignar al sistema de archivos.
+* Reemplace el marcador de posición `<container-name>` por el nombre que desee asignar al contenedor.
 
 * Reemplace el marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
@@ -56,7 +56,7 @@ La cadena de conexión se encuentra en la sección "SSH e inicio de sesión del 
 
     hdfs dfs -ls <path>
 
-Reemplace el marcador de posición `<path>` por el URI del sistema de archivos o de la carpeta del sistema de archivos.
+Reemplace el marcador de posición `<path>` por el URI del contenedor o de la carpeta de contenedor.
 
 Por ejemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,7 +64,7 @@ Por ejemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windo
 
     hdfs dfs -mkdir [-p] <path>
 
-Reemplace el marcador de posición `<path>` por el nombre del sistema de archivos raíz o de una carpeta dentro de su sistema de archivos.
+Reemplace el marcador de posición `<path>` por el nombre del contenedor raíz o de una carpeta dentro del contenedor.
 
 Por ejemplo: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 

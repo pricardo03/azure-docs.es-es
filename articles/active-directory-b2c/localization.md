@@ -1,5 +1,5 @@
 ---
-title: Localization - Azure Active Directory B2C | Microsoft Docs
+title: 'Localization: Azure Active Directory B2C'
 description: Especifique el elemento Localization de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec9b4e7ce761d524d047f4d12cab9e5b782e6032
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510578"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033455"
 ---
 # <a name="localization"></a>Localización
 
@@ -47,7 +47,7 @@ El elemento **Localization** contiene los siguientes elementos XML:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1:n | Lista de idiomas admitidos. | 
+| SupportedLanguages | 1:n | Lista de idiomas admitidos. |
 | LocalizedResources | 0:n | Lista de recursos localizados. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
@@ -65,7 +65,7 @@ El elemento **SupportedLanguages** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1:n | Muestra contenido que cumple con una etiqueta de idioma según RFC 5646 (etiquetas para identificar idiomas). | 
+| SupportedLanguage | 1:n | Muestra contenido que cumple con una etiqueta de idioma según RFC 5646 (etiquetas para identificar idiomas). |
 
 ## <a name="localizedresources"></a>LocalizedResources
 
@@ -112,6 +112,7 @@ El elemento **Item** contiene los atributos siguientes:
 | --------- | -------- | ----------- |
 | Texto | Sí | Cadena para mostrar fácil de identificar que se mostrará al usuario en la interfaz de usuario para esta opción. |
 | Valor | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
+| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 
@@ -131,7 +132,6 @@ En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollection
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
 </LocalizedCollections>
-
 ```
 
 ### <a name="localizedstrings"></a>LocalizedStrings
@@ -147,7 +147,7 @@ El elemento **LocalizedString** contiene los atributos siguientes:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | ElementType | Sí | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage` o `Predicate`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. |
-| ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. | 
+| ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. |
 | StringId | Sí | Si **ElementType** se establece en `ClaimType`, este elemento contiene una referencia a un atributo de un tipo de notificación. Valores posibles: `DisplayName`, `AdminHelpText` o `PatternHelpText`. El valor `DisplayName` se usa para establecer el nombre para mostrar de la notificación. El valor `AdminHelpText` se usa para establecer el nombre del texto de ayuda del usuario de la notificación. El valor `PatternHelpText` se usa para establecer el texto de ayuda del patrón de la notificación. Si **ElementType** se establece en `UxElement`, este elemento contiene una referencia a un atributo de un elemento de la interfaz de usuario. Si **ElementType** se establece en `ErrorMessage`, este elemento especifica el identificador de un mensaje de error. Vea la lista completa de los identificadores de `UxElement` en [Id. de cadena Localization](localization-string-ids.md).|
 
 
@@ -187,7 +187,7 @@ En el ejemplo siguiente, se muestra una localización de **UserHelpText** de **P
 
 <LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>              
+<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
 ## <a name="set-up-localization"></a>Configurar la localización
@@ -207,12 +207,13 @@ En el elemento **BuildingBlocks**, agregue el elemento **Localization** con la l
 </Localization>
 ```
 
-### <a name="provide-language-specific-strings-and-collections"></a>Proporcionar cadenas y colecciones específicas del idioma 
+### <a name="provide-language-specific-strings-and-collections"></a>Proporcionar cadenas y colecciones específicas del idioma
 
-Agregue los elementos **LocalizedResources** dentro del elemento **Localization** después de cerrar el elemento **SupportedLanguages**. Agregue los elementos **LocalizedResources** por cada página (definición de contenido) e idioma que quiera admitir. Para personalizar la página unificada de registro o inicio de sesión, las páginas de registro y autenticación multifactor (MFA) para inglés, español y francés, agregue los siguientes elementos **LocalizedResources**.  
+Agregue los elementos **LocalizedResources** dentro del elemento **Localization** después de cerrar el elemento **SupportedLanguages**. Agregue los elementos **LocalizedResources** por cada página (definición de contenido) e idioma que quiera admitir. Para personalizar la página unificada de registro o inicio de sesión, las páginas de registro y autenticación multifactor (MFA) para inglés, español y francés, agregue los siguientes elementos **LocalizedResources**.
+
 - Página unificada de registro o inicio de sesión, inglés `<LocalizedResources Id="api.signuporsignin.en">`
 - Página unificada de registro o inicio de sesión, español `<LocalizedResources Id="api.signuporsignin.es">`
-- Página unificada de registro o inicio de sesión, francés `<LocalizedResources Id="api.signuporsignin.fr">` 
+- Página unificada de registro o inicio de sesión, francés `<LocalizedResources Id="api.signuporsignin.fr">`
 - Registro, inglés `<LocalizedResources Id="api.localaccountsignup.en">`
 - Registro, español `<LocalizedResources Id="api.localaccountsignup.es">`
 - Registro, francés `<LocalizedResources Id="api.localaccountsignup.fr">`
@@ -220,7 +221,7 @@ Agregue los elementos **LocalizedResources** dentro del elemento **Localization*
 - MFA, español `<LocalizedResources Id="api.phonefactor.es">`
 - MFA, francés `<LocalizedResources Id="api.phonefactor.fr">`
 
-Cada elemento **LocalizedResources** contiene todos los elementos **LocalizedStrings** necesarios con varios elementos **LocalizedString**, así como elementos **LocalizedCollections** con varios elementos **LocalizedCollection**.  En la ejemplo siguiente, se agrega la localización de inglés para la página de registro: 
+Cada elemento **LocalizedResources** contiene todos los elementos **LocalizedStrings** necesarios con varios elementos **LocalizedString**, así como elementos **LocalizedCollections** con varios elementos **LocalizedCollection**.  En la ejemplo siguiente, se agrega la localización de inglés para la página de registro:
 
 Nota: En este ejemplo, se realiza una referencia a los tipos de notificación `Gender` y `City`. Para usar este ejemplo, asegúrese de definir esas notificaciones. Para obtener más información, vea [ClaimsSchema](claimsschema.md).
 
@@ -276,7 +277,7 @@ Localización de la página de registro para español.
 </LocalizedResources>
 ```
 
-### <a name="edit-the-contentdefinition-for-the-page"></a>Edición de ContentDefinition para la página 
+### <a name="edit-the-contentdefinition-for-the-page"></a>Edición de ContentDefinition para la página
 
 Por cada página que quiera localizar, especifique los códigos de idioma que tienen que buscarse en el elemento **ContentDefinition**.
 
@@ -363,7 +364,3 @@ En el ejemplo siguiente, se muestra el XML final:
   </Localization>
 </BuildingBlocks>
 ```
-
-
-
-

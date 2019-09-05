@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854063"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991427"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Manifiestos de filtrado previo con el empaquetador dinámico
 
@@ -107,7 +107,7 @@ Este es el recurso filtrado:
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>Ajustar la ventana de presentación (DVR)
 
-En la actualidad, Azure Media Services ofrecen un archivo circular donde la duración se puede configurar entre 5 minutos y 25 horas. El filtrado de manifiestos se puede usar para crear una ventana de DVR dinámica encima del archivo, sin eliminar medios. Hay muchos escenarios en los que los emisores quieren proporcionar una ventana de DVR limitada que se mueva con el borde dinámico y al mismo tiempo mantener una ventana de archivado más grande. Es posible que un emisor desee usar los datos que están fuera de la ventana de DVR para resaltar clips, o que desee proporcionar diferentes ventanas de DVR para dispositivos diferentes. Por ejemplo, la mayoría de los dispositivos móviles no administran grandes ventanas de DVR (puede tener una ventana de DVR de 2 minutos para dispositivos móviles y 1 hora para clientes de escritorio).
+En la actualidad, Azure Media Services ofrecen un archivo circular donde la duración se puede configurar entre 1 minuto y 25 horas. El filtrado de manifiestos se puede usar para crear una ventana de DVR dinámica encima del archivo, sin eliminar medios. Hay muchos escenarios en los que los emisores quieren proporcionar una ventana de DVR limitada que se mueva con el borde dinámico y al mismo tiempo mantener una ventana de archivado más grande. Es posible que un emisor desee usar los datos que están fuera de la ventana de DVR para resaltar clips, o que desee proporcionar diferentes ventanas de DVR para dispositivos diferentes. Por ejemplo, la mayoría de los dispositivos móviles no administran grandes ventanas de DVR (puede tener una ventana de DVR de 2 minutos para dispositivos móviles y 1 hora para clientes de escritorio).
 
 ![Ventana de DVR][dvr_filter]
 

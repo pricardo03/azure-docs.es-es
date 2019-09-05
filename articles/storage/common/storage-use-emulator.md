@@ -1,28 +1,28 @@
 ---
 title: Uso del emulador de Azure Storage para desarrollo y pruebas | Microsoft Docs
-description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage. Aprenda cómo se autorizan las solicitudes, cómo conectarse al emulador desde su aplicación y cómo usar la herramienta de la línea de comandos.
+description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900340"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013554"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
-Emulador de Microsoft Azure Storage proporciona un entorno local que emula los servicios Azure Blob, Queue y Table para fines de desarrollo. Mediante el emulador de almacenamiento, puede probar la aplicación en los servicios de almacenamiento local, sin crear una suscripción a Azure ni incurrir en ningún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el emulador, puede cambiar al uso de una cuenta de almacenamiento de Azure en la nube.
+El emulador de Microsoft Azure Storage es una herramienta que emula los servicios Azure Blob, Queue y Table para fines de desarrollo local. Puede probar la aplicación en los servicios de almacenamiento local, sin crear una suscripción de Azure ni incurrir en ningún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el emulador, cambie al uso de una cuenta de almacenamiento de Azure en la nube.
 
 ## <a name="get-the-storage-emulator"></a>Obtención del emulador de almacenamiento
 
 El emulador de almacenamiento se encuentra disponible con el [SDK de Microsoft Azure](https://azure.microsoft.com/downloads/). También puede instalar el emulador de almacenamiento mediante el [instalador independiente](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (descarga directa). Para instalar el emulador de almacenamiento, debe tener privilegios de administrador en el equipo.
 
-El emulador de almacenamiento solo se ejecuta actualmente en Windows. Para quienes consideran un emulador de almacenamiento para Linux, una opción es el emulador de código abierto [Azurite](https://github.com/azure/azurite), mantenido por la comunidad.
+El emulador de almacenamiento solo se ejecuta actualmente en Windows. Si necesita un emulador de almacenamiento para Linux, una opción es el emulador de código abierto [Azurite](https://github.com/azure/azurite), mantenido por la comunidad.
 
 > [!NOTE]
 > No se garantiza que los datos que se crean en una versión del emulador de almacenamiento estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de almacenamiento de Azure y no en el mismo emulador de almacenamiento.
@@ -31,7 +31,7 @@ El emulador de almacenamiento solo se ejecuta actualmente en Windows. Para quien
 
 ## <a name="how-the-storage-emulator-works"></a>Cómo funciona el emulador de almacenamiento.
 
-El emulador de almacenamiento usa una instancia de Microsoft SQL Server local, así como el sistema de archivos local para emular los servicios de almacenamiento de Azure. De manera predeterminada, el emulador de almacenamiento usa una base de datos en Microsoft SQL Server 2012 Express LocalDB. Puede configurar el emulador de almacenamiento para acceder a una instancia local de SQL Server en lugar de una de LocalDB. Para más información, consulte la sección [Iniciar e inicializar el emulador de almacenamiento](#start-and-initialize-the-storage-emulator) más adelante en este artículo.
+El emulador de almacenamiento usa una instancia de Microsoft SQL Server 2012 Express LocalDB para emular los servicios de almacenamiento de Azure. Puede configurar el emulador de almacenamiento para acceder a una instancia local de SQL Server en lugar de una de LocalDB. Consulte la sección [Iniciar e inicializar el emulador de almacenamiento](#start-and-initialize-the-storage-emulator) más adelante en este artículo para más información.
 
 El emulador de almacenamiento se conecta a SQL Server o LocalDB mediante la autenticación de Windows.
 
@@ -45,7 +45,10 @@ Para iniciar el emulador de Azure Storage:
 2. Comience a escribir `Azure Storage Emulator`.
 3. Seleccione el emulador de la lista de aplicaciones mostradas.
 
-Cuando se inicie el emulador de almacenamiento, aparecerá una ventana de símbolo del sistema. Puede usar esta ventana de consola para iniciar y detener el emulador de almacenamiento, borrar datos, obtener su estado e inicializar el emulador. Para más información, consulte la sección [Referencia de la herramienta de la línea de comandos del emulador de almacenamiento](#storage-emulator-command-line-tool-reference) más adelante en este artículo.
+Cuando se inicie el emulador de almacenamiento, aparecerá una ventana de símbolo del sistema. Puede usar esta ventana de la consola para iniciar y detener el emulador de almacenamiento. También puede borrar datos, obtener el estado e inicializar el emulador desde el símbolo del sistema. Para más información, consulte la sección [Referencia de la herramienta de la línea de comandos del emulador de almacenamiento](#storage-emulator-command-line-tool-reference) más adelante en este artículo.
+
+> [!NOTE]
+> Es posible que el emulador de almacenamiento de Azure no se inicie correctamente si otro emulador de almacenamiento, como Azurite, se está ejecutando en el sistema.
 
 Cuando se ejecuta el emulador, verá un icono en el área de notificación de la barra de tareas de Windows.
 
@@ -83,7 +86,7 @@ Para más información sobre estos comandos, consulte la sección [Referencia de
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticar solicitudes frente al emulador de almacenamiento
 
-Cuando haya instalado e iniciado el emulador de almacenamiento, puede probar el código en él. De la misma manera que con Azure Storage en la nube, todas las solicitudes que realice en el emulador de almacenamiento se deben autorizar, a menos que sea una solicitud anónima. Puede autorizar solicitudes contra el emulador de almacenamiento mediante la autenticación de clave compartida o con una firma de acceso compartido (SAS).
+Cuando haya instalado e iniciado el emulador de almacenamiento, puede probar el código en él. Todas las solicitudes que realice en el emulador de almacenamiento se deben autorizar, a menos que sea una solicitud anónima. Puede autorizar solicitudes contra el emulador de almacenamiento mediante la autenticación de clave compartida o con una firma de acceso compartido (SAS).
 
 ### <a name="authorize-with-shared-key-credentials"></a>Autorización con credenciales de clave compartida
 
@@ -95,7 +98,7 @@ Para más información sobre las cadenas de conexión, consulte [Configuración 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Puede crear el token de SAS mediante una herramienta como el [Explorador de Storage](https://storageexplorer.com/) u otra aplicación que admita la autenticación de clave compartida.
+Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Puede crear el token de SAS mediante el [Explorador de Storage](https://storageexplorer.com/) u otra aplicación que admita la autenticación de clave compartida.
 
 También puede generar un token de SAS mediante Azure PowerShell. En el ejemplo siguiente se genera un token de SAS con permisos completos a un contenedor de blobs:
 
@@ -124,7 +127,7 @@ Para obtener más información sobre las firmas de acceso compartido, consulte [
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>Direccionar los recursos en el emulador de almacenamiento
 
-Los extremos de servicio para el emulador de almacenamiento son diferentes de los de una cuenta de almacenamiento de Azure. La diferencia se debe al hecho de que el equipo local no realiza la resolución de nombres de dominio, por lo que los puntos de conexión del emulador de almacenamiento requieren una dirección local.
+Los puntos de conexión de servicio para el emulador de almacenamiento son diferentes de los de una cuenta de almacenamiento de Azure. El equipo local no realiza la resolución de nombres de dominio, lo que requiere que los puntos de conexión del emulador de almacenamiento sean direcciones locales.
 
 Al direccionar un recurso en una cuenta de Azure Storage, usará el siguiente esquema. El nombre de cuenta forma parte del nombre de host del identificador URI y el recurso que se redirige forma parte de la ruta de acceso del identificador URI:
 
@@ -134,7 +137,7 @@ Por ejemplo, el siguiente URI es una dirección válida para un blob en una cuen
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Sin embargo, en el emulador de almacenamiento, dado que el equipo local no lleva a cabo la resolución de nombres de dominio, el nombre de la cuenta forma parte de la ruta de acceso del URI en lugar del nombre de host. Use el siguiente formato de URI para un recurso en el emulador de almacenamiento:
+Como el equipo local no realiza la resolución de nombres de dominio, el nombre de la cuenta forma parte de la ruta de acceso del URI en lugar del nombre de host. Use el siguiente formato de URI para un recurso en el emulador de almacenamiento:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -150,7 +153,7 @@ Los extremos de servicio para el emulador de almacenamiento son:
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Direccionar la cuenta secundaria con RA-GRS
 
-A partir de la versión 3.1, el emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Para los recursos de almacenamiento en la nube y en el emulador local, puedes obtener acceso a la ubicación de la cuenta secundaria si anexa -secondary al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en el emulador de almacenamiento:
+A partir de la versión 3.1, el emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Puede acceder a la ubicación secundaria si anexa -secondary al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en el emulador de almacenamiento:
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
@@ -161,14 +164,14 @@ A partir de la versión 3.1, el emulador de almacenamiento admite la replicació
 
 ## <a name="storage-emulator-command-line-tool-reference"></a>Referencia de la herramienta de la línea de comandos del emulador de almacenamiento
 
-A partir de la versión 3.0, se muestra una ventana de consola cuando se inicia el emulador de almacenamiento. Use la línea de comandos de la ventana de consola para iniciar y detener el emulador, así como para consultar el estado y realizar otras operaciones.
+A partir de la versión 3.0, se muestra una ventana de consola cuando se inicia el emulador de almacenamiento. Use la línea de comandos en la ventana de la consola para iniciar y detener el emulador. También puede consultar el estado y realizar otras operaciones desde la línea de comandos.
 
 > [!NOTE]
 > Si tiene instalado el emulador de proceso de Microsoft Azure, aparece un icono de la bandeja del sistema al iniciar el emulador de almacenamiento. Haga clic con el botón derecho en el icono para abrir un menú que ofrece en forma de gráficos las opciones de iniciar y detener el emulador de almacenamiento.
 >
 >
 
-### <a name="command-line-syntax"></a>Sintaxis de la línea de comandos
+### <a name="command-line-syntax"></a>Sintaxis de línea de comandos
 
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
@@ -178,7 +181,7 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
 | Opción | DESCRIPCIÓN | Get-Help | Argumentos |
 | --- | --- | --- | --- |
-| **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
+| **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
 | **Estado** |Imprime el estado del emulador de almacenamiento. |`AzureStorageEmulator.exe status` | |
 | **Borrar** |Borra los datos de todos los servicios especificados en la línea de comandos. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: borra datos del blob. <br/>*queue*: borra datos de la cola. <br/>*table*: borra datos de la tabla. <br/>*all*: borra todos los datos de todos los servicios. |
@@ -186,14 +189,14 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferencias entre el emulador de almacenamiento y Azure Storage
 
-Dado que el emulador de almacenamiento es un entorno emulado que se ejecuta en una instancia de SQL local, hay diferencias de funcionalidad entre el emulador y una cuenta de Azure Storage en la nube:
+Dado que el emulador de almacenamiento es un entorno emulado local, existen diferencias entre el uso del emulador y una cuenta de almacenamiento de Azure en la nube:
 
 * El emulador de almacenamiento es compatible con una sola cuenta fija y una clave de autenticación ya conocida.
 * El emulador de almacenamiento no es un servicio de almacenamiento escalable y no es compatible con un gran número de clientes simultáneos.
-* Como se describe en [Direccionar los recursos en el emulador de almacenamiento](#addressing-resources-in-the-storage-emulator), los recursos se tratan de forma diferente en el emulador de almacenamiento frente a una cuenta de almacenamiento de Azure. Esta diferencia se debe a que la resolución de nombres de dominio está disponible en la nube, pero no en el equipo local.
+* Como se describe en [Direccionar los recursos en el emulador de almacenamiento](#addressing-resources-in-the-storage-emulator), los recursos se tratan de forma diferente en el emulador de almacenamiento frente a una cuenta de almacenamiento de Azure. La diferencia se debe a que la resolución de nombres de dominio está disponible en la nube, pero no en el equipo local.
 * A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). En el emulador, todas las cuentas tienen RA-GRS habilitado y no hay ningún retraso entre las réplicas principal y secundaria. Las operaciones Get Blob Service Stats, Get Queue Service Stats y Get Table Service Stats son compatibles con la cuenta secundaria y siempre devolverán el valor del elemento de respuesta `LastSyncTime` como la hora actual según la base de datos SQL subyacente.
 * El servicio de archivo y los extremos de servicio de protocolo SMB no se admiten actualmente en el emulador de almacenamiento.
-* Si usa una versión de los servicios de almacenamiento que no es compatible aún con el emulador, este devuelve un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
+* Si usa una versión de los servicios de almacenamiento que no es compatible con el emulador, este devuelve un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta).
 
 ### <a name="differences-for-blob-storage"></a>Diferencias en el almacenamiento de blobs
 
@@ -210,8 +213,8 @@ Las siguientes diferencias se aplican al almacenamiento de blobs en el emulador:
 
 Las siguientes diferencias se aplican al almacenamiento de tablas en el emulador:
 
-* Las propiedades de fecha en Table service del emulador de almacenamiento solo admiten el intervalo admitido por SQL Server 2005 (es decir, tienen que ser posteriores al 1 de enero de 1753). Todas las fechas anteriores al 1 de enero de 1753 se cambiarán a este valor. La precisión de las fechas se limita a la precisión de SQL Server 2005, lo que significa que las fechas son precisas hasta 1/300 de un segundo.
-* El emulador de almacenamiento admite valores de propiedad de clave de fila y de clave de partición de menos de 512 bytes. Además, el tamaño total del nombre de la cuenta, el nombre de la tabla y los nombres de las propiedades de clave juntos no pueden superar los 900 bytes.
+* Las propiedades de fecha en Table service del emulador de almacenamiento solo admiten el intervalo admitido por SQL Server 2005 (es decir, tienen que ser posteriores al 1 de enero de 1753). Todas las fechas anteriores al 1 de enero de 1753 se cambiarán a este valor. La precisión de las fechas se limita a la precisión de SQL Server 2005, lo que significa que las fechas son precisas hasta 1/300 de un segundo.
+* El emulador de almacenamiento admite valores de propiedad de clave de fila y de clave de partición de menos de 512 bytes. El tamaño total del nombre de la cuenta, el nombre de la tabla y los nombres de las propiedades de clave no pueden superar en conjunto los 900 bytes.
 * El tamaño total de una fila de una tabla en el emulador de almacenamiento se limita a menos de 1 MB.
 * En el emulador de almacenamiento, las propiedades de tipo de datos `Edm.Guid` o `Edm.Binary` solo admiten los operadores de comparación `Equal (eq)` y `NotEqual (ne)` en las cadenas de filtro de consultas.
 
@@ -223,15 +226,15 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-510"></a>Versión 5.10
 
-* El emulador de almacenamiento no rechazará la versión 2019-07-07 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+* El emulador de almacenamiento no rechazará la versión 2019-07-07 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-59"></a>Versión 5.9
 
-* El emulador de almacenamiento no rechazará la versión 2019-02-02 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+* El emulador de almacenamiento no rechazará la versión 2019-02-02 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-58"></a>Versión 5.8
 
-* El emulador de almacenamiento no rechazará la versión 2018-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
+* El emulador de almacenamiento no rechazará la versión 2018-11-09 de los servicios de almacenamiento en los puntos de conexión de servicio de Blob, Queue y Table.
 
 ### <a name="version-57"></a>Versión 5.7
 
@@ -248,7 +251,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-54"></a>Versión 5.4
 
-* Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si desea realizar la reserva de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
+* Para mejorar la estabilidad de la instalación, el emulador ya no intenta reservar puertos en el momento de la instalación. Si quiere realizar las reservas de puertos, use la opción *-reserveports* del comando **init** para especificarlos.
 
 ### <a name="version-53"></a>Versión 5.3
 
@@ -279,7 +282,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-45"></a>Versión 4.5
 
-* Se ha corregido un error que provocó la inicialización e instalación del emulador de almacenamiento cuando se cambia el nombre de la base de datos de copia de seguridad.
+* Se corrigió un error que provocaba un error en la instalación e inicialización cuando se cambia el nombre de la base de datos auxiliar.
 
 ### <a name="version-44"></a>Version 4.4
 
@@ -298,8 +301,8 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-41"></a>Versión 4.1
 
-* El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table service, con la excepción de las nuevas características de blob en anexos.
-* Si usa una versión de los servicios de almacenamiento que no es compatible aún con el emulador de almacenamiento, este devuelve un mensaje de error descriptivo. Se recomienda usar la versión más reciente del emulador. Si se produce un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta), descargue la última versión del emulador de almacenamiento.
+* El emulador de almacenamiento admite ahora la versión 2015-02-21 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table. No es compatible con las nuevas características de blobs en anexos.
+* El emulador ahora devuelve un mensaje de error significativo para las versiones no admitidas de los servicios de almacenamiento. Se recomienda usar la versión más reciente del emulador. Si se encuentra con un error VersionNotSupportedByEmulator (código de estado HTTP 400 - Solicitud incorrecta), descargue la versión más reciente del emulador.
 * Se ha corregido un error en el que una condición de carrera hacía que los datos de entidad de tabla fuesen incorrectos durante las operaciones de mezcla simultáneas.
 
 ### <a name="version-40"></a>Versión 4.0
@@ -312,12 +315,12 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-31"></a>Versión 3.1
 
-* Ahora se admite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) en el emulador de almacenamiento. Las API de las operaciones Get Blob Service Stats, Get Queue Service Stats y Get Table Service Stats son compatibles con la cuenta secundaria y siempre devolverán el valor del elemento de respuesta LastSyncTime como la hora actual según la base de datos SQL subyacente. Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de cliente de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la Documentación de referencia de la biblioteca cliente de Microsoft Azure Storage para .NET para obtener más información.
+* Ahora se admite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) en el emulador de almacenamiento. Las API `Get Blob Service Stats`, `Get Queue Service Stats` y `Get Table Service Stats` se admiten para la cuenta secundaria y siempre devolverán el valor del elemento de respuesta LastSyncTime como la hora actual según la base de datos SQL subyacente. Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de cliente de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la Documentación de referencia de la biblioteca cliente de Microsoft Azure Storage para .NET para obtener más información.
 
 ### <a name="version-30"></a>Versión 3.0
 
 * El emulador de almacenamiento de Azure ya no se incluye en el mismo paquete que el emulador de proceso.
-* La interfaz gráfica de usuario del emulador de almacenamiento se ha sustituido por una interfaz de la línea de comandos que permite ejecutar scripts. Para obtener más información sobre la interfaz de la línea de comandos, vea Referencia de la herramienta de la línea de comandos del emulador de almacenamiento. La interfaz gráfica seguirá estando presente en la versión 3.0, pero solo se puede acceder a ella cuando se instala el emulador de proceso con el botón secundario en el icono de la bandeja del sistema y se selecciona la opción de mostrar IU del emulador de almacenamiento.
+* La interfaz gráfica de usuario del emulador de almacenamiento está en desuso. Se reemplazó por una interfaz de línea de comandos que admite scripts. Para obtener más información sobre la interfaz de la línea de comandos, vea Referencia de la herramienta de la línea de comandos del emulador de almacenamiento. La interfaz gráfica seguirá estando presente en la versión 3.0, pero solo se puede acceder a ella cuando se instala el emulador de proceso con el botón secundario en el icono de la bandeja del sistema y se selecciona la opción de mostrar IU del emulador de almacenamiento.
 * La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
 ## <a name="next-steps"></a>Pasos siguientes

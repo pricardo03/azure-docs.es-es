@@ -4,7 +4,6 @@ description: Autentique aplicaciones en Service Bus con la autenticación de fir
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7c5a45504b7c44d97ff2250663ef9c47ef6e3595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714513"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013241"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
 
@@ -30,8 +29,19 @@ Los token de SAS los puede generar un cliente de Service Bus directamente o un p
 > [!IMPORTANT]
 > Si utiliza Azure Active Directory Access Control (también conocido como Access Control Service o ACS) junto con Service Bus, tenga en cuenta que la compatibilidad con este método está limitada y debe migrar la aplicación para usar SAS. Para más información, vea [esta publicación del blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) y este [artículo](service-bus-migrate-acs-sas.md).
 
-## <a name="shared-access-signature-authentication"></a>Autenticación con Firma de acceso compartido
+## <a name="azure-active-directory"></a>Azure Active Directory
+La integración de Azure Active Directory (Azure AD) para recursos de Services Bus proporciona control de acceso basado en rol (RBAC) para el control específico de acceso de los clientes a los recursos. Puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. El token se puede usar para autorizar una solicitud de acceso a un recurso de Service Bus (cola, tema, etc.).
 
+Consulte los siguientes artículos para más información sobre la autenticación con Azure AD:
+
+- [Autenticación con identidades administradas](service-bus-managed-service-identity.md)
+- [Autenticación desde una aplicación](authenticate-application.md)
+
+> [!IMPORTANT]
+> La autorización de usuarios o aplicaciones mediante un token de OAuth 2.0 devuelto por Azure AD proporciona una seguridad superior y facilidad de uso sobre las firmas de acceso compartido (SAS). Con Azure AD, no hay ninguna necesidad de almacenar los tokens en su código y arriesgarse a posibles vulnerabilidades de seguridad. Se recomienda usar Azure AD con las aplicaciones de Azure Service Bus siempre que sea posible. 
+
+
+## <a name="shared-access-signature"></a>Firma de acceso compartido
 La [autenticación de SAS](service-bus-sas.md) le permite conceder acceso a un usuario a los recursos de Service Bus con derechos específicos. La autenticación SAS en Service Bus implica la configuración de una clave criptográfica con derechos asociados en un recurso de Service Bus. Los clientes pueden obtener acceso a ese recurso presentando un token SAS, que consta del URI del recurso al que se tiene acceso y una fecha de expiración firmada con la clave configurada.
 
 Puede configurar claves para SAS en un espacio de nombres de Service Bus. La clave se aplica a todas las entidades de mensajes de ese espacio de nombres. También puede configurar claves en temas y colas de Service Bus. SAS también es compatible con [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).

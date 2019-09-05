@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569507"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066020"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
-La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo OMS o Event Hubs. La auditoría también:
+La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo de Log Analytics o Event Hubs. La auditoría también:
 
 - Puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
@@ -121,11 +121,22 @@ Si eligió escribir registros de auditoría en registros de Azure Monitor:
 
 - Usar [Azure Portal](https://portal.azure.com).  Abra la base de datos pertinente. En la parte superior de la página **Auditoría** de la base de datos, haga clic en **Ver registros de auditoría**.
 
-    ![ver registros de auditoría](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![ver registros de auditoría](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- A continuación, al hacer clic en **Open in OMS** (Abrir en OMS) en la parte superior de la página **Registros de auditoría**, se abrirá la vista de registros en Log Analytics, donde puede personalizar el intervalo de tiempo y la consulta de búsqueda.
+- A continuación, dispone de dos formas de ver los registros:
+    
+    Al hacer clic en **Log Analytics** en la parte superior de la página **Registros de auditoría**, se abrirá la vista de registros en el área de trabajo de Log Analytics, donde puede personalizar el intervalo de tiempo y la consulta de búsqueda.
+    
+    ![abrir en el área de trabajo de Log Analytics](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![abrir en Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Al hacer clic en **Ver panel** en la parte superior de la página **Registros de auditoría**, se abrirá un panel con información sobre los registros de auditoría, donde puede explorar en profundidad la información de seguridad, el acceso a datos confidenciales y mucho más. Este panel se ha diseñado para ayudarle a obtener información de seguridad para sus datos.
+    También puede personalizar el intervalo de tiempo y la consulta de búsqueda. 
+    ![Ver panel de Log Analytics](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Panel de Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Información de seguridad de Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - Como alternativa, también puede acceder a los registros de auditoría desde la hoja Log Analytics. Abra el área de trabajo de Log Analytics y, en la sección **General**, haga clic en **Registros**. Puede comenzar con una consulta simple, como: *buscar "SQLSecurityAuditEvents"* para ver los registros de auditoría.
     Desde aquí, también puede usar los [registros de Azure Monitor](../log-analytics/log-analytics-log-search.md) para ejecutar búsquedas avanzadas en los datos de registro de auditoría. Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de registros de Azure Monitor, consulte la [referencia de búsqueda de registros de Azure Monitor](../log-analytics/log-analytics-log-search.md).

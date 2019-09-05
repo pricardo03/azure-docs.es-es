@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405421"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018944"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.
@@ -206,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Si tiene una consulta que consume una gran cantidad de memoria o ha recibido un mensaje de error relacionado con la asignación de tempdb, suele deberse a una instrucción [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) muy grande que da error en la operación de movimiento de datos final. Normalmente esto se identifica como una operación ShuffleMove en el plan de consulta distribuida justo antes de la instrucción INSERT SELECT final.
+Si tiene una consulta que consume una gran cantidad de memoria o ha recibido un mensaje de error relacionado con la asignación de tempdb, podría deberse a una instrucción [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) muy grande que da error en la operación de movimiento de datos final. Normalmente esto se identifica como una operación ShuffleMove en el plan de consulta distribuida justo antes de la instrucción INSERT SELECT final.  Use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) para supervisar las operaciones de ShuffleMove. 
 
-La solución más común consiste en dividir la instrucción CTAS o INSERT SELECT en varias instrucciones de carga para que el volumen de datos no supere el límite de tempdb de 1 TB por nodo. También puede escalar el clúster a un tamaño mayor, lo cual repartirá el tamaño de tempdb entre varios nodos, reduciendo el tamaño de tempdb en cada uno de los nodos. 
+La solución más común consiste en dividir la instrucción CTAS o INSERT SELECT en varias instrucciones de carga para que el volumen de datos no supere el límite de tempdb de 1 TB por nodo. También puede escalar el clúster a un tamaño mayor, lo cual repartirá el tamaño de tempdb entre varios nodos, reduciendo el tamaño de tempdb en cada uno de los nodos.
+
+Además de las instrucciones CTAS e INSERT SELECT, las consultas grandes y complejas que se ejecutan con memoria insuficiente pueden desbordarse en tempdb, lo que provoca un error en las consultas.  Considere la posibilidad de realizar la ejecución con una [clase de recurso](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) mayor para evitar el desbordamiento en tempdb.
 
 ## <a name="monitor-memory"></a>Supervisión de memoria
 
@@ -260,6 +262,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## <a name="monitor-polybase-load"></a>Supervisión de la carga de PolyBase
+La siguiente consulta proporciona una estimación aproximada del progreso de la carga. La consulta solo muestra los archivos que se están procesando actualmente. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

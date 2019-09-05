@@ -1,5 +1,5 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure Virtual Network: plantilla de Resource Manager (versión preliminar)'
+title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla de Resource Manager (versión preliminar)'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se muestra cómo implementar una aplicación de pila doble IPv6 en Azure Virtual Network con Standard Load Balancer mediante las plantillas de máquina virtual de Azure Resource Manager.
 services: virtual-network
@@ -12,16 +12,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fa39285eea14856db1bceba9e90f92b19afabfd0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295421"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012852"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---template-preview"></a>Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure: plantilla (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla (versión preliminar)
 
-En este artículo se proporciona una lista de tareas de configuración de IPv6 con la parte de la plantilla de VM de Azure Resource Manager a la que se aplica. Use la plantilla que se describe en este artículo para implementar en Azure una aplicación de pila doble (IPv4 + IPv6) que contenga una red virtual de pila doble con subredes IPv4 e IPv6, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tengan una configuración de IP dual, un grupo de seguridad de red e IP públicas. 
+En este artículo se proporciona una lista de tareas de configuración de IPv6 con la parte de la plantilla de VM de Azure Resource Manager a la que se aplica. Use la plantilla que se describe en este artículo para implementar en Azure una aplicación de pila doble (IPv4 + IPv6) con Standard Load Balancer que incluya una red virtual de pila doble con subredes IPv4 e IPv6, una instancia de Standard Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tengan una configuración de IP dual, un grupo de seguridad de red e IP públicas. 
 
 ## <a name="required-configurations"></a>Configuraciones necesarias
 

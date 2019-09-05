@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558828"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904473"
 ---
 # <a name="get-started-with-device-management-net"></a>Introducción a la administración de dispositivos (.NET)
 
@@ -34,7 +34,9 @@ Al final de este tutorial tendrá dos aplicaciones de consola de .NET:
 
 * **TriggerReboot**. Esta aplicación llama a un método directo en la aplicación de dispositivo simulado, muestra la respuesta y muestra las propiedades notificadas actualizadas.
 
-Para completar este tutorial, debe cumplir los siguientes requisitos previos:
+## <a name="prerequisites"></a>Requisitos previos
+
+Para completar este tutorial, necesita:
 
 * Visual Studio.
 
@@ -81,7 +83,7 @@ En esta sección, creará una aplicación de consola de .NET, mediante C#, que 
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición por la cadena de conexión de IoT Hub que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición `{iot hub connection string}` por la cadena de conexión del centro de IoT que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ En esta sección, creará una aplicación de consola de .NET, mediante C#, que 
 
 ## <a name="create-a-simulated-device-app"></a>Creación de una aplicación de dispositivo simulado
 
-En esta sección, realizará las siguientes acciones:
+En esta sección:
 
 * Creará una aplicación de consola de .NET que responda a un método directo que se llama desde la nube.
 
@@ -164,11 +166,10 @@ Para crear la aplicación de dispositivo simulado, siga estos pasos:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión del dispositivo del anotó en la sección anterior.
+1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición `{device connection string}` por la cadena de conexión de dispositivo que anotó anteriormente en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ Para crear la aplicación de dispositivo simulado, siga estos pasos:
    }
    ```
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en su solución y seleccione **Establecer proyectos de inicio**. 
+1. En el Explorador de soluciones, haga clic con el botón derecho en su solución y seleccione **Establecer proyectos de inicio**.
 
 1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Proyecto de inicio único** y, después, seleccione el proyecto **SimulateManagedDevice**. Seleccione **Aceptar** para guardar los cambios.
 

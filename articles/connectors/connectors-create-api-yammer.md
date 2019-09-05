@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104738"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050644"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Supervisión y administración de la cuenta de Yammer con Azure Logic Apps
 
@@ -30,7 +30,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Yammer y per
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Sus credenciales de usuario y la cuenta de Yammer
 
@@ -63,7 +63,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Yammer y per
      Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
      
        En el cuadro de búsqueda, escriba "yammer" como filtro. 
-       En la lista de acciones, seleccione la acción que desee.
+       En la lista de acciones, seleccione la que desee.
 
 1. Si se le pide que inicie sesión en Yammer, inicie sesión ahora para permitir el acceso.
 

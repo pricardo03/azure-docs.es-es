@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d8cc67b8e243fb2b97cd1522a850adc63c84428e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835410"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969624"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -44,7 +44,8 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 > Para las actividades CRUD de objeto de usuario, vea la categoría **Core Directory**.
 
 ## <a name="example-activity"></a>Actividad de ejemplo
-En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Ejemplo de la página Detalles de la actividad: Registro de auditoría de Azure Portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo:  
+    ![Ejemplo de la página Detalles de la actividad del Registro de auditoría de Azure Portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 El panel de detalles de actividad contiene la siguiente información pertinente:
 

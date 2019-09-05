@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056285"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980703"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
@@ -36,25 +36,28 @@ Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenan
 ## <a name="register-a-web-application"></a>Registro de una aplicación web
 
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
-2. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-3. Seleccione **Aplicaciones** y **Agregar**.
-4. Escriba un nombre para la aplicación. Por ejemplo, *webapp1*.
-5. En **Incluir aplicación web o API web** y **Permitir flujo implícito**, seleccione **Sí**.
-6. En **Dirección URL de respuesta**, escriba un punto de conexión donde Azure AD B2C devolverá los tokens que solicite la aplicación. Por ejemplo, se puede establecer para la escucha local en `https://localhost:44316`. Si aún no conoce el número de puerto, puede especificar un valor de marcador de posición y cambiarlo más adelante.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Aplicaciones** y **Agregar**.
+1. Escriba un nombre para la aplicación. Por ejemplo, *webapp1*.
+1. En **Incluir aplicación web o API web** y **Permitir flujo implícito**, seleccione **Sí**.
+1. En **Dirección URL de respuesta**, escriba un punto de conexión donde Azure AD B2C devolverá los tokens que solicite la aplicación. Por ejemplo, se puede establecer para la escucha local en `https://localhost:44316`. Si aún no conoce el número de puerto, puede especificar un valor de marcador de posición y cambiarlo más adelante.
 
     Con fines de prueba (como los de este tutorial) puede establecerlo en `https://jwt.ms`, que muestra el contenido de un token para su inspección. Para este tutorial, establezca la **URL de respuesta** en `https://jwt.ms`.
 
-    La dirección URL de respuesta debe comenzar por el esquema `https`, y todos los valores de dicha dirección deben compartir un único dominio DNS. Por ejemplo, si la aplicación tiene una dirección URL de respuesta de `https://login.contoso.com`, puede agregar a ella como esta dirección URL `https://login.contoso.com/new`. O bien, puede hacer referencia a un subdominio DNS de `login.contoso.com`, tal como `https://new.login.contoso.com`. Si quiere una aplicación con `login-east.contoso.com` y `login-west.contoso.com` como URL de respuesta, debe agregar las URL de respuesta en este orden: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. Puede agregar las dos últimas porque son subdominios de la primera URL de respuesta, `contoso.com`.
+    Las siguientes restricciones se aplican a las direcciones URL de respuesta:
 
-7. Haga clic en **Create**(Crear).
+    * La dirección URL de respuesta debe comenzar con el esquema `https`.
+    * La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
+
+1. Haga clic en **Create** (Crear) para completar el registro de la aplicación.
 
 ## <a name="create-a-client-secret"></a>Creación de un secreto de cliente
 
 Si la aplicación intercambia un código para un token, deberá crear un secreto de aplicación.
 
 1. En la página de **aplicaciones de Azure AD B2C**, seleccione la aplicación que ha creado, por ejemplo, *webapp1*.
-2. Seleccione **Claves** y haga clic en **Generar clave**.
-3. Seleccione **Guardar** para ver la clave. Anote el valor de la **Clave de la aplicación**. Use este valor como secreto de aplicación en el código de la aplicación.
+1. Seleccione **Claves** y haga clic en **Generar clave**.
+1. Seleccione **Guardar** para ver la clave. Anote el valor de la **Clave de la aplicación**. Use este valor como secreto de aplicación en el código de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e60f5251f911ffe2b917dcc30e433e0a960823e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522828"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012583"
 ---
 # <a name="create-a-netapp-account"></a>Creación de una cuenta de NetApp
 La creación de una cuenta de NetApp le permite configurar un grupo de capacidad y crear después un volumen. Use la hoja de Azure NetApp Files para crear una nueva cuenta de NetApp.
@@ -64,5 +64,6 @@ También debe haber registrado su suscripción para usar el proveedor de recurso
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-[Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Administración de los recursos de Azure NetApp Files con la CLI de Azure](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)
 

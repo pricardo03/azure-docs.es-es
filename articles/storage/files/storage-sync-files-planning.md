@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699336"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061744"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -245,7 +245,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 |--------|---------------------|
 | Este de Australia | Nueva Gales del Sur |
 | Sudeste de Australia | Victoria |
-| Sur de Brasil | Estado de São Paulo |
+| Sur de Brasil | Estado de Sao Paulo |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
 | India Central | Pune |
@@ -254,12 +254,15 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | East US | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Centro de Francia | París |
-| Corea Central| Seúl |
-| Corea del Sur| Busán |
+| Sur de Francia* | Marsella |
+| Corea Central | Seúl |
+| Corea del Sur | Busán |
 | Este de Japón | Tokio, Saitama |
 | Oeste de Japón | Osaka |
 | Centro-Norte de EE. UU | Illinois |
 | Europa del Norte | Irlanda |
+| Norte de Sudáfrica | Johannesburgo |
+| Oeste de Sudáfrica* | Ciudad del Cabo |
 | Centro-Sur de EE. UU | Texas |
 | Sur de la India | Chennai |
 | Sudeste asiático | Singapur |
@@ -274,6 +277,8 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Oeste de EE. UU. 2 | Washington |
 
 Azure File Sync solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
+
+En el caso de las regiones marcadas con asteriscos, debe ponerse en contacto con el soporte técnico de Azure para solicitar acceso a Azure Storage. El proceso se describe más adelante en[ este documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
 Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
@@ -296,12 +301,15 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | East US             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
 | Centro de Francia      | Sur de Francia       |
+| Sur de Francia        | Centro de Francia     |
 | Este de Japón          | Oeste de Japón         |
 | Oeste de Japón          | Este de Japón         |
 | Corea Central       | Corea del Sur        |
 | Corea del Sur         | Corea Central      |
 | Europa del Norte        | Europa occidental        |
 | Centro-Norte de EE. UU    | Centro-Sur de EE. UU   |
+| Norte de Sudáfrica  | Oeste de Sudáfrica  |
+| Oeste de Sudáfrica   | Norte de Sudáfrica |
 | Centro-Sur de EE. UU    | Centro-Norte de EE. UU   |
 | Sur de la India         | India Central      |
 | Sudeste asiático      | Asia oriental          |

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84eb0e230875b999218b67d47a66a3c92b494253
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237690"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072818"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo crear y configurar un centro de eventos en Az
 1. Después de crear un centro de eventos, selecciónelo en la lista de centros de eventos.
 1. En el menú, en **Entities** (Entidades), seleccione **Event Hubs**.
 1. Seleccione el nombre del centro de eventos para configurarlo.
-1. En **Entidades** seleccione **Grupos de consumidores** y, a continuación **Grupo de consumidores**.
+1. En **Introducción**, seleccione **Grupos de consumidores** y, a continuación, **Grupo de consumidores**.
 
     [![Creación de un grupo de consumidores](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
@@ -68,9 +68,9 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 1. Busque **Event Hubs** en la barra de búsqueda. Haga clic en **Event Hubs** en la lista devuelta.
 
-1. Seleccione su centro de eventos.
+1. Seleccione su instancia de centro de eventos.
 
-1. Vaya a **Shared Access Policies (Directivas de acceso compartido)**  > **RootManageSharedAccessKey**. Copie el valor de **Connection string-primary key**.
+1. Vaya a **Directivas de acceso compartido** > **MySendPolicy**. Copie el valor de **Connection string-primary key**.
 
     [![Copiar el valor de la cadena de conexión de la clave principal](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 

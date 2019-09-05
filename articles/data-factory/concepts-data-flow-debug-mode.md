@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014521"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991923"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de Mapping Data Flow
 
@@ -53,7 +53,14 @@ Con la depuración activada, la pestaña Vista previa de datos se ilumina en el 
 
 ![Vista previa de datos](media/data-flow/datapreview.png "Data Preview")
 
+> [!NOTE]
+> Los orígenes de archivo solo limitan las filas que se ven, no las filas que se leen. En el caso de conjuntos de datos grandes, se recomienda que tome una pequeña parte de ese archivo y la use para las pruebas. Puede seleccionar un archivo temporal en Configuración de depuración para cada origen que sea un tipo de conjunto de datos de archivo.
+
 Cuando se ejecuta en el modo de depuración en Data Flow, no se escribirán los datos en el receptor de transformación. Una sesión de depuración está diseñada para que funcione como una herramienta de ejecución de pruebas para las transformaciones. Los receptores no son necesarios durante la depuración y se omiten en el flujo de datos. Si quiere probar a escribir los datos en el receptor, ejecute la instancia de Data Flow desde una canalización de Azure Data Factory y use la ejecución de la depuración desde una canalización.
+
+### <a name="testing-join-conditions"></a>Condiciones de combinación de pruebas
+
+Cuando las pruebas unitarias realicen transformaciones Joins, Exists o Lookup, asegúrese de usar un pequeño conjunto de datos conocidos para la prueba. Puede usar la opción Configuración de depuración anterior para establecer un archivo temporal que se usará para las pruebas. Esto es necesario porque al limitar o muestrear filas de un conjunto de datos grande, no se puede predecir qué filas y qué claves se leerán en el flujo de las pruebas. El resultado es no determinista, lo que significa que se pueden producir errores en las condiciones de combinación.
 
 ### <a name="quick-actions"></a>Acciones rápidas
 

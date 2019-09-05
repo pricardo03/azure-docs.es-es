@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611905"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019018"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Incorporación en Azure Sentinel (versión preliminar)
 
@@ -59,7 +59,8 @@ Después de conectar los orígenes de datos, puede elegir de una galería de pan
 
    >[!NOTE] 
    > - Las áreas de trabajo predeterminadas creadas por Azure Security Center no aparecerán en la lista; no puede instalar Azure Sentinel en ellas.
-   > - Puede ejecutar Azure Sentinel en áreas de trabajo que se implementan en cualquiera de las siguientes regiones:  Sudeste de Australia, Centro de Canadá, Centro de la India, Este de EE. UU., EUAP de Este de EE. UU. 2 (Canary), Japón Oriental, Sudeste Asiático, Sur de Reino Unido, Europa Occidental y Oeste de EE. UU. 2.
+   > - Puede ejecutar Azure Sentinel en áreas de trabajo que se implementan en cualquiera de las siguientes regiones: Este de Australia, Sudeste de Australia, Centro de Canadá, Centro de la India, Este de EE. UU., Este de EE. UU. 2 EUAP (Canary), Japón Oriental, Asia Suroriental, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro de Francia, Centro de Corea del Sur, Norte de Europa, Este de EE. UU. 2, Asia Oriental, Oeste de EE. UU., Centro de EE. UU., Centro-sur de EE. UU.
+
 
 6. Haga clic en **Agregar Azure Sentinel**.
   

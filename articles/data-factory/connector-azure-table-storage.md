@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986002"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061498"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -221,10 +221,8 @@ Para copiar datos con Azure Table como origen o destino, establezca la propiedad
 
 En los almacenes de datos sin esquemas como Azure Table, Data Factory deduce el esquema de una de las maneras siguientes:
 
-* Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, Data Factory respeta esta como la estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se proporciona un valor nulo para ella.
-* Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, Data Factory deduce el esquema usando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pierden en el resultado de la operación de copia.
-
-Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
+* Si especifica la asignación de columnas en la actividad de copia, Data Factory usa la lista de columnas de origen para recuperar los datos. En este caso, si una fila no contiene un valor para una columna, se proporciona un valor nulo para ella.
+* Si no especifica la asignación de columnas en la actividad de copia, Data Factory deduce el esquema usando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo (por ejemplo, algunas columnas tienen un valor nulo), algunas columnas se pierden en el resultado de la operación de copia.
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 

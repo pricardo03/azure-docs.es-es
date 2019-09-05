@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741656"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061609"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -83,45 +83,46 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
 1. Seleccione **Azure Active Directory** y **Registros de aplicaciones**.
-1. Haga clic en **Nuevo registro de aplicaciones**.
+1. Haga clic en **Nuevo registro**.
 
     ![Adición de un registro de aplicaciones](media/solution-office-365/add-app-registration.png)
-1. Escriba valores de **Nombre** y **Dirección URL de inicio de sesión** de la aplicación.  El nombre debe ser descriptivo.  Use `http://localhost` para la URL y deje _Aplicación web o API_ en **Tipo de aplicación**.
+1. Escriba un **nombre** para la aplicación. Seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)**  para los **tipos de cuenta admitidos**.
     
     ![Creación de la aplicación](media/solution-office-365/create-application.png)
-1. Haga clic en **Crear** y valide la información de la aplicación.
+1. Haga clic en **Registrar** y valide la información de la aplicación.
 
     ![Aplicación registrada](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Configuración de la aplicación para Office 365
 
-1. Haga clic en **Configuración** para abrir el menú **Configuración**.
-1. Seleccione **Propiedades**. Cambie el valor de **Multiinquilino** a _Sí_.
+1. Seleccione **Autenticación** y compruebe que **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)** está seleccionado en **Tipos de cuenta admitidos**.
 
     ![Configuración de varios inquilinos](media/solution-office-365/settings-multitenant.png)
 
-1. En el menú **Configuración**, seleccione **Permisos necesarios** y haga clic en **Agregar**.
-1. Haga clic en **Seleccionar una API** y, a continuación, en **Office 365 Management APIs** (API de administración de Office 365). Haga clic en **Office 365 Management APIs** (API de administración de Office 365). Haga clic en **Seleccionar**.
+1. Seleccione **Permisos de API** y, luego, **Agregar un permiso**.
+1. Haga clic en **Office 365 Management APIs** (API de administración de Office 365). 
 
     ![Seleccionar API](media/solution-office-365/select-api.png)
 
-1. En **Seleccionar permisos**, seleccione las opciones siguientes de **Permisos de la aplicación** y **Permisos delegados**:
+1. En **¿Qué tipo de permiso necesita la aplicación web?** , seleccione las opciones siguientes de **Permisos de la aplicación** y **Permisos delegados**:
    - Leer la información sobre el estado del servicio de su organización
    - Leer datos de actividad de la organización
    - Leer informes de actividad de su organización
 
-     ![Seleccionar API](media/solution-office-365/select-permissions.png)
+     ![Seleccionar API](media/solution-office-365/select-permissions-01.png)![Seleccionar API](media/solution-office-365/select-permissions-02.png)
 
-1. Haga clic en **Seleccionar** y en **Listo**.
-1. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí** cuando se le solicite la comprobación.
+1. Haga clic en **Agregar permisos**.
+1. Haga clic en **Conceder consentimiento de administrador** y, a continuación, haga clic en **Sí** cuando se le solicite la comprobación.
 
-    ![Concesión de permisos](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>Adición de una clave para la aplicación
+### <a name="add-a-secret-for-the-application"></a>Adición de un secreto para la aplicación
 
-1. En el menú **Configuración**, seleccione **Claves**.
+1. Seleccione **Certificados y secretos** y luego **Nuevo secreto de cliente**.
+
+    ![Claves](media/solution-office-365/secret.png)
+ 
 1. Especifique los valores de **Descripción** y **Duración** de la nueva clave.
-1. Haga clic en **Guardar** y, a continuación, copie el **valor** se generó.
+1. Haga clic en **Agregar** y, a continuación, copie el **valor** que se generó.
 
     ![Claves](media/solution-office-365/keys.png)
 

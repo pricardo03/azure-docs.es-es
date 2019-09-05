@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 08/22/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6aa209b6e99be406634e01be47c6dd9572d62a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95c337501c46dd9b30ff20d71a9363ab03fdb608
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853432"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980445"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -81,15 +81,15 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 ### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
 | Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
 | --- | --- | --- | --- | --- | --- |
-| Vigencia del token de acceso |AccessTokenLifetime<sup>4</sup> |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
+| Vigencia del token de acceso |AccessTokenLifetime<sup>2</sup> |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
 | Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
+| Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
+| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
-* <sup>4</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
+* <sup>2</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
 
 ### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |

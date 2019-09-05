@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813853"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034868"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
@@ -46,7 +46,7 @@ union withsource = table *
 Consulte la documentación de cada origen de datos para conocer los detalles de las tablas que crean. Algunos ejemplos son artículos para los [orígenes de datos del agente](../platform/agent-data-sources.md), [los registros de diagnóstico](../platform/diagnostic-logs-schema.md) y las [soluciones de supervisión](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Permisos de área de trabajo
-Consulte [Ámbito y permisos del área de trabajo](../platform/manage-access.md#manage-accounts-and-users) para detalles sobre cómo proporcionar acceso a los datos en un área de trabajo. Además de conceder acceso a la propia área de trabajo, puede limitar el acceso a tablas individuales mediante [RBAC de nivel de tabla](../platform/manage-access.md#table-level-rbac).
+Consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md) para comprender la estrategia de control de acceso y las recomendaciones para proporcionar acceso a los datos de un área de trabajo. Además de conceder acceso a la propia área de trabajo, puede limitar el acceso a tablas individuales mediante [RBAC de nivel de tabla](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Aplicación de Application Insights
 Al crear una aplicación en Application Insights, se crea automáticamente una aplicación correspondiente en los registros de Azure Monitor. No se necesita ninguna configuración para recopilar datos y la aplicación escribirá automáticamente datos tales como las vistas de páginas, solicitudes y excepciones de supervisión.

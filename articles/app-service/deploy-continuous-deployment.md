@@ -9,18 +9,17 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 3c4811d990cfe107bc3bc4e6d359659b1935c6a4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 98f82914af8216789a04d3cfd2972f83c16b3fa0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070666"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 
@@ -28,13 +27,11 @@ ms.locfileid: "68297196"
 
 Para obtener más información sobre los servicios de control de código fuente, consulte [Crear un repositorio (GitHub)], [Crear un repositorio (BitBucket)] o [Crear un nuevo repositorio de Git (Azure Repos)].
 
-Para configurar manualmente la implementación continua desde un repositorio en la nube que el portal no admite directamente, como [GitLab](https://gitlab.com/), consulte [Configurar la implementación continua mediante los pasos manuales](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="authorize-azure-app-service"></a>Autorizar Azure App Service 
 
-Para usar Azure Repos, asegúrese de que su organización de Azure DevOps esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+Para usar Azure Repos, asegúrese de que su organización de Azure DevOps esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
 En cuanto a Bitbucket o GitHub, autorice a Azure App Service a conectarse a su repositorio. Solo necesita realizar la autorización con un servicio de control de código fuente una vez. 
 
@@ -63,7 +60,7 @@ Puede usar el servidor de compilación de App Service para Kudu integrado para r
 1. Seleccione su proveedor de control de código fuente autorizado en la página del **centro de implementación** y seleccione **Continue** (Continuar). En cuanto a GitHub o Bitbucket, también puede seleccionar **Change account** (Cambiar cuenta) para cambiar la cuenta autorizada. 
    
    > [!NOTE]
-   > Para usar Azure Repos, asegúrese de que su organización de Azure DevOps Services esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+   > Para usar Azure Repos, asegúrese de que su organización de Azure DevOps Services esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
    
 1. En cuanto a GitHub o Azure Repos, en la página para **compilar el proveedor**, seleccione **App Service build service** (Servicio de compilación de App Service) y, a continuación, **Continue** (Continuar). Bitbucket siempre usa el servicio de compilación de App Service.
    
@@ -81,7 +78,7 @@ Puede usar el servidor de compilación de App Service para Kudu integrado para r
    - Para Azure Repos, seleccione la **organización de Azure DevOps** , el **proyecto**, el **repositorio** y la **rama** que quiere implementar continuamente.
      
      > [!NOTE]
-     > Si su organización de Azure DevOps no figura en la lista, asegúrese de que esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+     > Si su organización de Azure DevOps no figura en la lista, asegúrese de que esté vinculada a su suscripción de Azure. Para obtener más información, consulte [Configurar una cuenta de Azure DevOps Services para que se pueda implementar en una aplicación web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
      
 1. Seleccione **Continuar**.
    
@@ -149,6 +146,10 @@ Para deshabilitar la implementación continua, seleccione **Disconnect** (Descon
 ![Deshabilitación de la implementación continua](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="use-unsupported-repos"></a>Uso de repositorios no admitidos
+
+En el caso de las aplicaciones de Windows, puede configurar manualmente la implementación continua desde un repositorio GIT o de Mercurial en la nube que el portal no admite directamente, como [GitLab](https://gitlab.com/). Para ello, elija el cuadro Externo en la página **Centro de implementación**. Para obtener más información, consulte [Configuración de la implementación continua mediante pasos manuales](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

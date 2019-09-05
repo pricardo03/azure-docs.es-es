@@ -1,6 +1,6 @@
 ---
 title: Uso del Explorador de Azure Storage para administrar los datos en Azure Data Lake Storage Gen2
-description: En este inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear un sistema de archivos en una cuenta de Azure Data Lake Storage Gen2, así como también un directorio y un archivo. Luego, aprenderá a descargar el archivo en un equipo local y a ver todo el archivo en un directorio.
+description: En este inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear un contenedor en una cuenta de Azure Data Lake Storage Gen2, así como también un directorio y un archivo. Luego, aprenderá a descargar el archivo en un equipo local y a ver todo el archivo en un directorio.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855607"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991421"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Uso del Explorador de Azure Storage para administrar los datos de una cuenta de Azure Data Lake Storage Gen2
 
@@ -41,13 +41,13 @@ Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se car
 
 ![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-file-system"></a>Creación de un sistema de archivos
+## <a name="create-a-container"></a>Crear un contenedor
 
 Los blobs siempre se cargan en un directorio. Esto le permite organizar grupos de blobs de la misma forma que organiza archivos en carpetas en el equipo.
 
-Para crear un directorio, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del sistema de archivos. Cuando haya finalizado, presione **Entrar** para crear el sistema de archivos. Una vez que el directorio de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedor de blobs** de la cuenta de almacenamiento seleccionada.
+Para crear un directorio, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor. Cuando haya finalizado, presione **Entrar** para crear el contenedor. Una vez que el directorio de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedor de blobs** de la cuenta de almacenamiento seleccionada.
 
-![Explorador de Microsoft Azure Storage: creación de un sistema de archivos](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Explorador de Microsoft Azure Storage: creación de un contenedor](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Carga de blobs en el directorio
 

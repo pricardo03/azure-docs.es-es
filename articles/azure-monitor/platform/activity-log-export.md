@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639628"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034861"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
@@ -55,7 +55,7 @@ El perfil de registro define lo siguiente.
 
 **Qué regiones (ubicaciones) se deben exportar.** Debe incluir todas las ubicaciones, ya que muchos eventos del registro de actividad son eventos globales.
 
-**Cuánto tiempo se debe conservar el registro de actividad en una cuenta de almacenamiento.** Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
+**Cuánto tiempo se debe conservar el registro de actividad en una cuenta de almacenamiento.** Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 365.
 
 Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado, las directivas de retención no surten ningún efecto. Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas.
 
@@ -117,7 +117,7 @@ Si ya existe un perfil de registro, primero debe quitarlo y luego crear uno nuev
     | StorageAccountId |Sin |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
     | serviceBusRuleId |Sin |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-    | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+    | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 365. Con el valor cero, se almacenan los registros indefinidamente. |
     | Categoría |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
 
 ### <a name="example-script"></a>Script de ejemplo

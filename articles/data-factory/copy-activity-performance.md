@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614189"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996458"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
@@ -41,30 +41,30 @@ Después de leer este artículo, podrá responder a las siguientes preguntas:
 
 ADF ofrece una arquitectura sin servidor que permite paralelismo en diferentes niveles, lo que permite a los desarrolladores crear canalizaciones para aprovechar al máximo el ancho de banda de red, así como el ancho de banda y las IOPS de almacenamiento para maximizar el rendimiento del movimiento de datos para su entorno.  Esto significa que el rendimiento que puede lograr puede calcularse al medir el rendimiento mínimo ofrecido por el almacén de datos de origen, el almacén de datos de destino y el ancho de banda de red entre el origen y el destino.  En la tabla siguiente se calcula la duración de la copia en función del tamaño de los datos y el límite de ancho de banda de su entorno. 
 
-| Tamaño de los datos\ancho de banda | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1 GB                  | 2,7 min    | 1,4 min   | 0,7 min   | 0,3 min   | 0,1 min  | 0,0 min  |
-| 10 GB                 | 27,3 min   | 13,7 min  | 6,8 min   | 2,7 min   | 1,3 min  | 0,1 min  |
-| 100 GB                | 4,6 h    | 2,3 h   | 1,1 h   | 0,5 h   | 0,2 h  | 0,0 h  |
-| 1 TB                  | 46,6 h   | 23,3 h  | 11,7 h  | 4,7 h   | 2,3 h  | 0,2 h  |
-| 10 TB                 | 19,4 días  | 9,7 días  | 4,9 días  | 1,9 días  | 0,9 días | 0,1 días |
-| 100 TB                | 194,2 días | 97,1 días | 48,5 días | 19,4 días | 9,5 días | 0,9 días |
-| 1 PB                  | 64,7 meses    | 32,4 meses   | 16,2 meses   | 6,5 meses    | 3,2 meses   | 0,3 meses   |
-| 10 PB                 | 647,3 meses   | 323,6 meses  | 161,8 meses  | 64,7 meses   | 31,6 meses  | 3,2 meses   |
+| Tamaño de los datos / <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
+| **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
+| **100 GB**                  | 4,6 h    | 2,3 h   | 0,5 h   | 0,2 h  | 0,05 h | 0,02 h | 0,0 h   |
+| **1 TB**                    | 46,6 h   | 23,3 h  | 4,7 h   | 2,3 h  | 0,5 h  | 0,2 h  | 0,05 h  |
+| **10 TB**                   | 19,4 días  | 9,7 días  | 1,9 días  | 0,9 días | 0,2 días | 0,1 días | 0,02 días |
+| **100 TB**                  | 194,2 días | 97,1 días | 19,4 días | 9,7 días | 1,9 días | 1 día   | 0,2 días  |
+| **1 PB**                    | 64,7 meses    | 32,4 meses   | 6,5 meses    | 3,2 meses   | 0,6 meses   | 0,3 meses   | 0,06 meses   |
+| **10 PB**                   | 647,3 meses   | 323,6 meses  | 64,7 meses   | 31,6 meses  | 6,5 meses   | 3,2 meses   | 0,6 meses    |
 
 La copia de ADF puede escalarse en diferentes niveles:
 
 ![Cómo se escala la copia de ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
-- Una única actividad de copia puede aprovechar recursos de proceso escalables: si usa Azure Integration Runtime, puede especificar [hasta 256 DIU](#data-integration-units) para cada actividad de copia en modo sin servidor; si usa un entorno de ejecución de integración autohospedado, puede escalar verticalmente la máquina o escalar horizontalmente a varias máquinas ([hasta 4 nodos](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) manualmente y una única actividad de copia creará particiones de su conjunto de archivos en todos los nodos.
-- Una única actividad de copia lee y escribe en el almacén de datos mediante varios subprocesos.
 - El flujo de control de ADF puede iniciar varias actividades de copia en paralelo, por ejemplo, mediante un [bucle ForEach](control-flow-for-each-activity.md).
+- Una única actividad de copia puede aprovechar recursos de proceso escalables: si usa Azure Integration Runtime, puede especificar [hasta 256 DIU](#data-integration-units) para cada actividad de copia en modo sin servidor; si usa un entorno de ejecución de integración autohospedado, puede escalar verticalmente la máquina o escalar horizontalmente a varias máquinas ([hasta 4 nodos](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) manualmente y una única actividad de copia creará particiones de su conjunto de archivos en todos los nodos.
+- Una única actividad de copia lee y escribe en el almacén de datos mediante varios subprocesos [en paralelo](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Pasos de optimización del rendimiento
 
 Para optimizar el rendimiento del servicio Azure Data Factory con la actividad de copia, siga estos pasos.
 
-1. **Establezca una línea de base.** Durante la fase de desarrollo, pruebe la canalización, para lo que debe usar la actividad de copia con unos datos de ejemplo representativos. Recopile los detalles de la ejecución y las características del rendimiento después de la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
+1. **Seleccione un conjunto de datos de prueba y establezca una línea de base**. Durante la fase de desarrollo, pruebe la canalización, para lo que debe usar la actividad de copia con unos datos de ejemplo representativos. El conjunto de datos que elija debe representar los patrones de datos habituales (estructura de carpetas, patrón de archivo, esquema de datos, etc.) y es lo suficientemente grande como para evaluar el rendimiento de las copias; por ejemplo, tarda 10 minutos o más en completarse la actividad de copia. Recopile los detalles de la ejecución y las características del rendimiento después de la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 2. **Cómo maximizar el rendimiento de una única actividad de copia**:
 
@@ -78,7 +78,7 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
 
    La actividad de copia debe escalarse casi perfectamente de forma lineal a medida que aumenta el valor de DIU.  Si duplica el valor de DIU, pero el rendimiento no parece duplicarse, puede tener una de dos causas:
 
-   - El patrón de copia específico que se está ejecutando no se beneficia de agregar más DIU.  Aunque especificó un valor de DIU mayor, el DIU real usado sigue siendo el mismo y, por tanto, se obtiene el mismo rendimiento que antes.  Si es así, vaya al paso número 3.
+   - El patrón de copia específico que se está ejecutando no se beneficia de agregar más DIU.  Aunque especificó un valor de DIU mayor, el DIU real usado sigue siendo el mismo y, por tanto, se obtiene el mismo rendimiento que antes.  En este caso, maximice el rendimiento agregado mediante la ejecución de varias copias de manera simultánea en referencia al paso 3.
    - Si agrega más DIU (más potencia) y, por lo tanto, ocasiona una mayor tasa de extracción, transferencia y carga de datos, el almacén de datos de origen, la red intermedia o el almacén de datos de destino alcanzaron un cuello de botella y posiblemente se están limitando.  Si este es el caso, intente ponerse en contacto con el administrador del almacén de datos o con el administrador de red para aumentar el límite. O bien reduzca el valor de DIU hasta que se produzca la limitación.
 
    **Si la actividad de copia se va a ejecutar en un entorno de ejecución de integración autohospedado:**
@@ -90,7 +90,7 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
    Si quiere lograr un mayor rendimiento, puede escalar verticalmente u horizontalmente el IR autohospedado:
 
    - si la memoria disponible y la CPU del nodo de IR autohospedado no se utilizan totalmente, pero la ejecución de trabajos simultáneos está alcanzando el límite, debe realizar un escalado vertical aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo.  Consulte [este enlace](create-self-hosted-integration-runtime.md#scale-up) para obtener instrucciones.
-   - Por otro lado, si la CPU tiene un uso elevado en el nodo de IR autohospedado y la memoria disponible es baja, puede agregar un nuevo nodo para ayudar a escalar horizontalmente la carga en varios nodos.  Consulte [este enlace](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para obtener instrucciones.
+   - Por otro lado, si la CPU tiene un uso elevado en el nodo de IR autohospedado o la memoria disponible es baja, puede agregar un nuevo nodo para ayudar a escalar horizontalmente la carga en varios nodos.  Consulte [este enlace](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para obtener instrucciones.
 
    A medida que escale verticalmente u horizontalmente la capacidad del IR autohospedado, repita la serie de pruebas de rendimiento para ver si obtiene un rendimiento cada vez mayor.  Si el rendimiento deja de mejorar, lo más probable es que el almacén de datos de origen, la red intermedia o el almacén de datos de destino hayan un cuello de botella y estén comenzado a limitarse. Si este es el caso, intente ponerse en contacto con el administrador del almacén de datos o con el administrador de red para aumentar el límite. O bien vuelva a la configuración de escalado anterior del IR autohospedado. 
 
@@ -98,9 +98,7 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
 
    Ahora que ha maximizado el rendimiento de una única actividad de copia, si aún no ha logrado alcanzar los límites de rendimiento de su entorno (red, almacén de datos de origen y almacén de datos de destino), puede ejecutar varias actividades de copia en paralelo mediante las construcciones de flujo de control de ADF, como el [bucle For Each](control-flow-for-each-activity.md).
 
-4. **Diagnostique y optimice el rendimiento.** Si el rendimiento que observa no cumple sus expectativas, identifique los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella.
-
-   En algunos casos, cuando se ejecuta una actividad de copia en Azure Data Factory, se ve el mensaje "Sugerencias para la optimización del rendimiento" en la parte superior de la [supervisión de actividad de copia](copy-activity-overview.md#monitor-visually), como se muestra en el ejemplo siguiente. El mensaje indica que se identificó un cuello de botella para la ejecución de una copia determinada. También sirve de guía para realizar los cambios necesarios para mejorar el rendimiento de la copia. Las sugerencias de optimización de rendimiento actualmente proporcionan sugerencias como:
+4. **Sugerencias de optimización del rendimiento y características de optimización**. En algunos casos, cuando se ejecuta una actividad de copia en Azure Data Factory, se ve el mensaje "Sugerencias para la optimización del rendimiento" en la parte superior de la [supervisión de actividad de copia](copy-activity-overview.md#monitor-visually), como se muestra en el ejemplo siguiente. El mensaje indica que se identificó un cuello de botella para la ejecución de una copia determinada. También sirve de guía para realizar los cambios necesarios para mejorar el rendimiento de la copia. Las sugerencias de optimización de rendimiento actualmente proporcionan sugerencias como:
 
    - Use PolyBase cuando copie datos en Azure SQL Data Warehouse.
    - Aumente las unidades de solicitud de Azure Cosmos DB o las DTU (unidades de procesamiento de base de datos) de Azure SQL Database cuando el recurso del almacén de datos es el cuello de botella.
@@ -114,12 +112,11 @@ Para optimizar el rendimiento del servicio Azure Data Factory con la actividad d
 
    ![Supervisión de copia con sugerencias de optimización del rendimiento](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   Además, existen las siguientes consideraciones comunes. Una descripción completa del diagnóstico de rendimiento va más allá del ámbito de este artículo.
+   Además, las siguientes son algunas características de optimización del rendimiento que debe tener en cuenta:
 
-   - Características de optimización del rendimiento:
-     - [Copia paralela](#parallel-copy)
-     - [Unidades de integración de datos](#data-integration-units)
-     - [Copias almacenadas provisionalmente](#staged-copy)
+   - [Copia paralela](#parallel-copy)
+   - [Unidades de integración de datos](#data-integration-units)
+   - [Copias almacenadas provisionalmente](#staged-copy)
    - [Escalabilidad de Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **Expanda la configuración a todo el conjunto de datos.** Cuando esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición y la canalización para cubrir todo el conjunto de datos.
@@ -136,7 +133,9 @@ Azure Data Factory proporciona las siguientes características de optimización 
 
 Una unidad de integración de datos es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Azure Data Factory. Una unidad de integración de datos solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-El número permitido de DIU para impulsar la ejecución de una actividad de copia se encuentra entre 2 y 256. Si no se especifica, en la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia:
+Se le cobrará **el n.° de DIU usadas\* la duración de la copia \* el precio unitario/hora de DIU**. Consulte [aquí](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) los precios actuales. La moneda local y el descuento independiente pueden aplicarse según el tipo de suscripción.
+
+El número permitido de DIU para impulsar la ejecución de una actividad de copia se encuentra **entre 2 y 256**. Si no se especifica o elige "automático" en la interfaz de usuario, Data Factory aplicará dinámicamente la configuración de DIU óptima según el modelo de datos y el par origen-receptor. En la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia.
 
 | Escenario de copia | DIU predeterminadas que determina el servicio |
 |:--- |:--- |
@@ -151,7 +150,7 @@ El número de unidades de integración de datos utilizadas en cada ejecución de
 > [!NOTE]
 > El establecimiento de más de cuatro unidades de integración de datos actualmente solo se aplica cuando se copian varios archivos desde Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube.
 
-**Ejemplo**
+**Ejemplo:**
 
 ```json
 "activities":[
@@ -173,10 +172,6 @@ El número de unidades de integración de datos utilizadas en cada ejecución de
 ]
 ```
 
-#### <a name="data-integration-units-billing-impact"></a>Impacto de facturación de las unidades de integración de datos
-
-Recuerde que se cobra en función del tiempo total de la operación de copia. La duración total que se factura por el movimiento de datos es la suma de la duración de todas las DIU. Si un trabajo de copia solía tardar una hora con dos unidades de nube y ahora tarda 15 minutos con ocho, la factura general sigue siendo casi igual.
-
 ### <a name="parallel-copy"></a>Copia en paralelo
 
 Puede usar la propiedad **parallelCopies** para indicar el paralelismo que desea que use la actividad de copia. Esta propiedad se puede considerar como el número máximo de subprocesos dentro de la actividad de copia que se pueden leer del origen o escribir en los almacenes de datos receptores en paralelo.
@@ -193,6 +188,15 @@ Para cada ejecución de una actividad de copia, Azure Data Factory determina el 
 > Al copiar datos entre almacenes basados en archivos, normalmente el comportamiento predeterminado es el que ofrece el mejor rendimiento. El comportamiento predeterminado es determina automáticamente en función del patrón del archivo de origen.
 
 Para controlar la carga en las máquinas que hospedan los almacenes de datos o para optimizar el rendimiento de la copia puede reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies**. El valor debe ser un entero mayor o igual que 1. En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
+
+**Puntos a tener en cuenta:**
+
+- Cuando se copian datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un archivo individual se produce por debajo de forma automática y transparente. Está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a **parallelCopies**. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
+- Al copiar datos de almacenes no basados en archivos (salvo si el conector de [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) y [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) es el origen y tiene habilitada la creación de particiones de datos) en almacenes que sí se basan en archivos, el servicio de movimiento de datos omite la propiedad **parallelCopies**. Aunque se especifica el paralelismo, no se aplica en este caso.
+- La propiedad **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
+- Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor. Tenga también en cuenta el aumento de carga para IR autohospedado si la actividad de copia tiene autorización, por ejemplo, para la copia híbrida. Dicho aumento sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de **parallelCopies** para aliviar la carga.
+
+**Ejemplo:**
 
 ```json
 "activities":[
@@ -213,13 +217,6 @@ Para controlar la carga en las máquinas que hospedan los almacenes de datos o p
     }
 ]
 ```
-
-**Puntos a tener en cuenta:**
-
-* Cuando se copian datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un archivo individual se produce por debajo de forma automática y transparente. Está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a **parallelCopies**. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
-* Al copiar datos de almacenes no basados en archivos (salvo si el conector de [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) y [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) es el origen y tiene habilitada la creación de particiones de datos) en almacenes que sí se basan en archivos, el servicio de movimiento de datos omite la propiedad **parallelCopies**. Aunque se especifica el paralelismo, no se aplica en este caso.
-* La propiedad **parallelCopies** es ortogonal para **dataIntegrationUnits**. La información anterior se cuenta en todas las unidades de integración de datos.
-* Cuando especifique un valor para la propiedad **parallelCopies**, tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor. Tenga también en cuenta el aumento de carga para IR autohospedado si la actividad de copia tiene autorización, por ejemplo, para la copia híbrida. Dicho aumento sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o Integration Runtime autohospedado están sobrecargados, disminuya el valor de **parallelCopies** para aliviar la carga.
 
 ### <a name="staged-copy"></a>copia almacenada provisionalmente
 
@@ -305,5 +302,5 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 Consulte los restantes artículos acerca de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
-- [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md)
-- [Tolerancia a errores de la actividad de copia](copy-activity-fault-tolerance.md)
+- [Uso de Azure Data Factory para migrar datos del lago de datos y el almacenamiento de datos a Azure](data-migration-guidance-overview.md)
+- [Migración de datos de AWS S3 a Azure Storage](data-migration-guidance-s3-azure-storage.md)

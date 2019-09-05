@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535204"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982340"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -65,7 +65,7 @@ Por lo general, las audiencias son diferentes:
 
 Un servicio de Cognitive Service proporciona un modelo entrenado. Une los datos y un algoritmo y está disponible desde un SDK o una API de REST. Puede implementar este servicio en cuestión de minutos, en función de su escenario.  Un servicio de Cognitive Services proporciona respuestas a problemas generales, como frases clave en texto o identificación de elementos en imágenes. 
 
-El aprendizaje automático es un proceso que generalmente requiere un período de tiempo más largo para implementarse correctamente. Este tiempo se emplea en la recopilación de datos, la limpieza, la transformación, la selección de algoritmos, el entrenamiento de modelos y la implementación para llegar al mismo nivel de funcionalidad proporcionado por un servicio de Cognitive Services. Con el aprendizaje automático, es posible proporcionar respuestas a cualquier tipo de problema, incluidos problemas muy especializados o específicos. Estos problemas de aprendizaje automático deben estar familiarizados con uno o varios de los siguientes elementos: asunto, aprendizaje automático, ciencia de datos.
+El aprendizaje automático es un proceso que generalmente requiere un período de tiempo más largo para implementarse correctamente. Este tiempo se emplea en la recopilación de datos, la limpieza, la transformación, la selección de algoritmos, el entrenamiento de modelos y la implementación para llegar al mismo nivel de funcionalidad proporcionado por un servicio de Cognitive Services. Con el aprendizaje automático, es posible proporcionar respuestas a problemas muy especializados o específicos. Para los problemas de aprendizaje automático, es necesario estar familiarizado con la materia y los datos específicos del problema en cuestión, así como tener conocimientos de ciencia de datos.
 
 ## <a name="what-kind-of-data-do-you-have"></a>¿Qué tipo de datos tiene?
 

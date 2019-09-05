@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/04/2019
+ms.openlocfilehash: 8a9366005ceef5a99fd66f0ec0cd53c98b481ee1
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304955"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309335"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en la misma región de Azure que el servidor maestro del servicio Azure Database for MySQL mediante la CLI de Azure.
-
-> [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. La replicación entre regiones se encuentra actualmente en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,6 +46,9 @@ Para crear una réplica de lectura entre regiones, use el parámetro `--location
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
+
+> [!NOTE]
+> Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el maestro para asegurarse de que la réplica trabajar al mismo nivel que el servidor maestro.

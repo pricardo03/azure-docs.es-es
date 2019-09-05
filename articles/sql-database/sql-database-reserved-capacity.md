@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/02/2019
-ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 61b646ca1ec5a4826ac6418c1b80b88a89266012
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781313"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972546"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -70,6 +70,10 @@ Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Par
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
 La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir verticalmente dentro de un nivel de rendimiento y una región, sin perder los beneficios de la capacidad reservada. La capacidad reservada de SQL Database también le proporciona la flexibilidad para mover temporalmente las bases de datos de acceso frecuente entre grupos y bases de datos únicas como parte de las operaciones normales (dentro de la misma región y el mismo nivel de rendimiento) sin perder las ventajas de la capacidad reservada. Si se mantiene un búfer no aplicado en la reserva, puede administrar de manera eficaz los picos de rendimiento sin sobrepasar el presupuesto.
+
+## <a name="limitation"></a>Limitación
+
+No se pueden reservar bases de datos SQL basadas en DTU (básicas, estándar o prémium).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

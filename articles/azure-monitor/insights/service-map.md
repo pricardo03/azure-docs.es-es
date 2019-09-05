@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f06345995e30f4d7f165230f4292c560c89e2e8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68489766"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905717"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
+
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
 
 En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para obtener información sobre la configuración de los requisitos previos para esta solución, consulte [Introducción a la habilitación de Azure Monitor para VM](vminsights-enable-overview.md#prerequisites). En resumen, necesita lo siguiente:
@@ -554,16 +555,57 @@ Microsoft recopila automáticamente datos de uso y rendimiento a través del ser
 
 Para más información sobre el uso y la recopilación de datos, vea la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
-
 ## <a name="troubleshooting"></a>solución de problemas
 
-Consulte la [sección de solución de problemas del documento de configuración de Service Map]( service-map-configure.md#troubleshooting).
+Esta sección puede ayudarle si tiene problemas para instalar o ejecutar Service Map. Si sigue sin poder resolver el problema, póngase en contacto con Soporte técnico de Microsoft.
 
+### <a name="dependency-agent-installation-problems"></a>Problemas de instalación de Dependency Agent
+
+#### <a name="installer-prompts-for-a-reboot"></a>El instalador solicita un reinicio
+Dependency Agent, *por lo general*, no requiere un reinicio durante su instalación o retirada. Sin embargo, en algunos casos poco frecuentes, un servidor de Windows Server requiere un reinicio para continuar con una instalación. Esto ocurre cuando una dependencia, normalmente los redistribuibles de Microsoft Visual C++, requiere un reinicio debido a un archivo bloqueado.
+
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Aparece el mensaje "Unable to install Dependency agent: Visual Studio Runtime libraries failed to install (code = [code_number])" (No se puede instalar Dependency Agent: error al instalar las bibliotecas en tiempo de ejecución de Visual Studio (código = [número_código]))
+
+Microsoft Dependency Agent se basa en las bibliotecas del entorno de tiempo de ejecución de Microsoft Visual Studio. Recibirá un mensaje si hay algún problema durante la instalación de las bibliotecas. 
+
+Los instaladores de la biblioteca en tiempo de ejecución crean registros en la carpeta %LOCALAPPDATA%\temp. El archivo es `dd_vcredist_arch_yyyymmddhhmmss.log`, donde *arch* es `x86` o `amd64` y *yyyymmddhhmmss* es la fecha y hora (con formato de 24 horas) en que se creó el registro. El registro proporciona detalles sobre el problema que bloquea la instalación.
+
+Puede ser útil instalar uno mismo las [últimas bibliotecas en entorno de ejecución](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) primero.
+
+En la tabla siguiente se muestran números de código y resoluciones sugeridas.
+
+| Código | DESCRIPCIÓN | Resolución |
+|:--|:--|:--|
+| 0 x 17 | El instalador de la biblioteca requiere una actualización de Windows que no se ha instalado. | Mire el registro del instalador de la biblioteca más reciente.<br><br>Si una referencia a `Windows8.1-KB2999226-x64.msu` va seguida de una línea `Error 0x80240017: Failed to execute MSU package,`, no tiene los requisitos previos para instalar KB2999226. Siga las instrucciones que aparecen en la sección de requisitos previos en el artículo [Universal C Runtime en Windows](https://support.microsoft.com/kb/2999226). Es posible que tenga que ejecutar Windows Update y reiniciar varias veces para instalar los requisitos previos.<br><br>Ejecute de nuevo el instalador Microsoft Dependency Agent. |
+
+### <a name="post-installation-issues"></a>Problemas posteriores a la instalación
+
+#### <a name="server-doesnt-appear-in-service-map"></a>El servidor no aparece en Service Map
+
+Si la instalación de Dependency Agent se ha realizado correctamente, pero no ve la máquina en la solución de Service Map:
+* ¿Se ha instalado Dependency Agent correctamente? Para validarlo, compruebe si el servicio está instalado y se ejecuta.<br><br>
+**Windows**: Busque el servicio llamado **Microsoft Dependency Agent**.
+**Linux**: Busque el proceso en ejecución **microsoft-dependency-agent**.
+
+* ¿Está en el [nivel Gratis de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? El plan Gratis permite hasta cinco máquinas de Service Map únicas. Ninguna máquina posterior aparecerá en Service Map, incluso si los cinco anteriores ya no envían datos.
+
+* ¿El servidor envía datos de registro y de rendimiento a los registros de Azure Monitor? Vaya a Azure Monitor\Logs y ejecute la siguiente consulta para el equipo: 
+
+    ```kusto
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+¿obtuvo una amplia variedad de eventos en los resultados? ¿Son los datos recientes? Si es así, el agente de Log Analytics funciona correctamente y se comunica con el área de trabajo. Si no es así, compruebe el agente en la máquina: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) (Cómo solucionar problemas relacionados con el agente de Windows de Log Analytics) o [Cómo solucionar problemas relacionados con el agente de Linux de Log Analytics](../platform/agent-linux-troubleshoot.md).
+
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>El servidor aparece en Service Map, pero no tiene procesos
+
+Si ve la máquina en Service Map, pero no tiene datos de proceso ni de conexión, quiere decir que Dependency Agent está instalado y se ejecuta. Sin embargo, el controlador kernel no se ha cargado. 
+
+Compruebe `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) o `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). Las últimas líneas del archivo deben indicar por qué no se cargó el kernel. Por ejemplo, es posible que el kernel no sea compatible con Linux si actualizó el kernel.
 
 ## <a name="feedback"></a>Comentarios
 

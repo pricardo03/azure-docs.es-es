@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571132"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982678"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>Control de acceso basado en rol (RBAC) y Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ En líneas generales, la implementación de RBAC requiere tres componentes:
 
 ![Introducción a RBAC](media/rbac-overview.png)
 
-* **Entidades de seguridad**: una entidad de seguridad puede ser un usuario, un grupo, una entidad de servicio o una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Los privilegios de las entidades de seguridad deben asignarse utilizando grupos de Azure Active Directory.
+* **Entidades de seguridad**: una entidad de seguridad puede ser un usuario, un grupo, una [entidad de servicio](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) o una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Los privilegios de las entidades de seguridad deben asignarse utilizando grupos de Azure Active Directory.
 
 * **Definiciones de roles**: una definición de roles, lo que también se denomina "rol", es una colección de permisos. Estos permisos definen las operaciones que pueden realizar las entidades de seguridad asignadas a la definición de roles. Esta funcionalidad está disponible en los roles de recursos de Azure y los roles de administrador de Azure Active Directory. Azure viene con un conjunto de roles integrados (vínculo) que puede ampliarse con roles personalizados.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure Virtual Network: CLI'
+title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se explica cómo se implementa una aplicación de pila doble IPv6 en Azure Virtual Network mediante la CLI de Azure.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7b231ded3fdae7553e101beff2ee77d82fe27e6e
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f67494b229a14b66b593950903184e54e4a8ab8c
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269581"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013700"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure Virtual Network: CLI (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI (versión preliminar)
 
-En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
+En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) con Standard Load Balancer que contiene una red virtual de pila doble y una subred de pila doble, una instancia de Standard Load Balancer con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 
 > [!Important]
 > La pila doble IPv6 para Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -387,4 +387,4 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado una instancia de Standard Load Balancer con una configuración de IP de front-end doble (IPv4 e IPv6). También ha creado dos máquinas virtuales que contienen NIC con configuraciones de IP duales (IPV4 + IPv6) que se agregaron al grupo de back-end del equilibrador de carga. Para más información sobre la compatibilidad de IPv6 en las redes virtuales de Azure, consulte [¿Qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)
+En este artículo, ha creado una instancia de Standard Load Balancer con una configuración IP de front-end doble (IPv4 e IPv6). También ha creado dos máquinas virtuales que contienen NIC con configuraciones de IP duales (IPV4 + IPv6) que se agregaron al grupo de back-end del equilibrador de carga. Para más información sobre la compatibilidad de IPv6 en las redes virtuales de Azure, consulte [¿Qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)

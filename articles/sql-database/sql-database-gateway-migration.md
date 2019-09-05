@@ -1,5 +1,5 @@
 ---
-title: Aviso de migración de puerta de enlace de Azure SQL Database de Gen2 a Gen3 | Microsoft Docs
+title: Aviso de migración del tráfico de puerta de enlace para Azure SQL Database | Microsoft Docs
 description: El artículo proporciona un aviso a los usuarios sobre la migración de direcciones IP de puertas de enlace de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568113"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981288"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 
-A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
+A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
 Se enviará un aviso a los clientes por correo electrónico y en Azure Portal con antelación de cualquier cambios en las puertas de enlace disponibles en cada región. La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses).
 
 ## <a name="impact-of-this-change"></a>Impacto de este cambio
 
-La primera ronda de retirada de la puerta de enlace está programada para el 1 de septiembre de 2019 en las siguientes regiones:
-
+La primera ronda de migración del tráfico a las puertas de enlace más recientes está programada para el **14 de octubre de 2019** en las siguientes regiones:
+- Sur de Brasil
 - Oeste de EE. UU.
 - Europa occidental
 - East US
@@ -40,12 +40,14 @@ La primera ronda de retirada de la puerta de enlace está programada para el 1 d
 - Este de EE. UU. 2
 - Asia oriental
 
-La dirección IP retirada dejará de aceptar tráfico, y cualquier nuevo intento de conexión se enrutará a una de las puertas de enlace de la región.
+La migración del tráfico cambiará la dirección IP pública que DNS resuelve para su instancia de SQL Database.
+Se verá afectado en los siguientes casos:
+- Ha codificado de forma rígida la dirección IP de una puerta de enlace determinada en el firewall local.
+- Tiene subredes que usan Microsoft.SQL como punto de conexión de servicio, pero no se puede comunicar con las direcciones IP de puerta de enlace.
 
-Dónde no se verá el impacto de este cambio:
-
-- Los clientes que usan el redireccionamiento como directiva de conexión no verán ningún impacto.
-- Las conexiones a SQL Database desde Azure y la utilización de etiquetas de servicio no se verán afectadas.
+No se verá afectado en los siguientes casos: 
+- La directiva de conexión tiene redireccionamiento.
+- Tiene conexiones a SQL Database desde Azure y con etiquetas de servicio.
 - Las conexiones realizadas mediante versiones compatibles de JDBC Driver para SQL Server no percibirán ningún impacto. Para las versiones compatibles de JDBC, consulte [Descarga de Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Qué puede hacer si se ve afectado

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 125f1bc14a376523a22984e9d8efa7848408bf7a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472048"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035216"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET y .NET Core en Application Insights
 
@@ -31,15 +31,15 @@ Envíe registros de seguimiento de diagnóstico para la aplicación ASP.NET/ASP.
 Instale el marco de registro elegido en el proyecto, lo que debería producir una entrada en app.config o web.config.
 
 ```XML
-    <configuration>
-      <system.diagnostics>
-    <trace autoflush="true" indentsize="0">
+ <configuration>
+  <system.diagnostics>
+    <trace>
       <listeners>
         <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
       </listeners>
     </trace>
   </system.diagnostics>
-   </configuration>
+</configuration>
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Configuración de Application Insights para recopilar registros

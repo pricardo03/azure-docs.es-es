@@ -1,24 +1,24 @@
 ---
-title: Conectarse a GitHub - Azure Logic Apps | Microsoft Docs
+title: 'Conexión a GitHub: Azure Logic Apps'
 description: Supervisar los eventos de GitHub con las API REST de GitHub y Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/02/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6e2a803ee2a272189abf0f21796b2305eea40b
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462602"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050889"
 ---
-# <a name="connect-to-github"></a>Conexión a GitHub
+# <a name="connect-to-github-from-azure-logic-apps"></a>Conexión a GitHub desde Azure Logic Apps
 
 GitHub es un servicio de almacenaje de repositorios Git basado en web. Ofrece toda la funcionalidad de control de revisión distribuido y de administración de código fuente (SCM) en Git, además de otras características.
 
@@ -37,10 +37,10 @@ Después de crear la conexión, puede ejecutar las acciones y escuchar los desen
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+## <a name="connector-reference"></a>Referencia de conectores
 
-Para los desencadenadores y las acciones definidos en Swagger y los posibles límites, revise los [detalles del conector](/connectors/github/).
+Para obtener información técnica acerca de los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia de los conectores](/connectors/github/).
 
-## <a name="find-more-connectors"></a>Búsqueda de más conectores
+## <a name="next-steps"></a>Pasos siguientes
 
-* Revise la [lista de conectores](apis-list.md).
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

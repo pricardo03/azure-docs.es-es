@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 05/02/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82a44127a470b6366eeffc60c73f762d5a8f525
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348586"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996746"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -112,7 +112,14 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
 
     Para más información, consulte [az ml datastore attach-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
-    
++ Cargue archivos a un almacén de archivos.
+
+    ```azurecli-interactive
+    az ml datastore upload  -n datastorename -p sourcepath
+    ```
+
+    Para más información, consulte [az ml datastore upload](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload).
+
 + Adjunte un clúster de AKS como destino de proceso.
 
     ```azurecli-interactive
@@ -152,7 +159,43 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     az ml experiment list
     ```
 
-    Para más información, consulte [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+    Para obtener más información, consulte [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+## <a name="environment-management"></a>Administrador de entornos
+
+Los comandos siguientes muestran cómo crear, registrar y enumerar los [entornos](how-to-configure-environment.md) de Azure Machine Learning Service para el área de trabajo:
+
++ Creación de archivos de scaffolding para un entorno:
+
+    ```azurecli-interactive
+    az ml environment scaffold -n myenv -d myenvdirectory
+    ```
+
+    Para más información, consulte [az ml environment scaffold](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold).
+
++ Registro de un entorno:
+
+    ```azurecli-interactive
+    az ml environment register -d myenvdirectory
+    ```
+
+    Para más información, consulte [az ml environment register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register).
+
++ Lista de entornos registrados:
+
+    ```azurecli-interactive
+    az ml environment list
+    ```
+
+    Para más información, consulte [az ml environment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list).
+
++ Descargue un entorno registrado:
+
+    ```azurecli-interactive
+    az ml environment download -n myenv -d downloaddirectory
+    ```
+
+    Para más información, consulte [az ml environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
 
 ## <a name="model-registration-profiling-deployment"></a>Registro del modelo, generación de perfiles, implementación
 

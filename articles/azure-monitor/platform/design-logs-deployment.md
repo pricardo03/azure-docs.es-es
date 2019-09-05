@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883213"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034740"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -55,7 +55,7 @@ Si se usan los agentes de Log Analytics para recopilar datos, es preciso conocer
 * Para recopilar datos de los agentes de Windows, puede [configurar cada agente para que informe a una o varias áreas de trabajo](../../azure-monitor/platform/agent-windows.md), aun cuando informen a un grupo de administración de System Center Operations Manager. El agente de Windows puede notificar hasta cuatro áreas de trabajo.
 * El agente de Linux no admite el hospedaje múltiple y solo puede informar a un área de trabajo.
 
-Si usa System Center Operations Manager 2012 R2, o cualquier versión:
+Si usa System Center Operations Manager 2012 R2, o cualquier versión posterior:
 
 * Cada grupo de administración de Operations Manager se puede [conectar a una sola área de trabajo](../platform/om-agents.md). 
 * Los equipos Linux que informan a un grupo de administración deben estar configurados para informar directamente a un área de trabajo Log Analytics. Si los equipos Linux ya están notificando directamente a un área de trabajo y desea supervisarlos con Operations Manager, siga estos para [notificar a un grupo de administración de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
@@ -71,7 +71,7 @@ Los datos a los que un usuario tiene acceso vienen determinados por una combinac
 |:---|:---|
 | [Modo de acceso](#access-mode) | Método que utiliza el usuario para acceder al área de trabajo.  Define el ámbito de los datos disponibles y el modo de control de acceso que se aplica. |
 | [Modo de control de acceso](#access-control-mode) | Configuración en el área de trabajo que define si los permisos se aplican en el nivel de área de trabajo o recurso. |
-| [Permisos](manage-access.md#manage-accounts-and-users) | Permisos aplicados a individuales o grupos de usuarios para el área de trabajo o el recurso. Define los datos a los que el usuario tendrá acceso. |
+| [Permisos](manage-access.md) | Permisos aplicados a individuales o grupos de usuarios para el área de trabajo o el recurso. Define los datos a los que el usuario tendrá acceso. |
 | [RBAC de nivel de tabla](manage-access.md#table-level-rbac) | Permisos granulares opcionales que se aplican a todos los usuarios independientemente de su modo de acceso o su modo de control de acceso. Define a qué tipos de datos puede tener acceso un usuario. |
 
 ## <a name="access-mode"></a>Modo de acceso
@@ -105,7 +105,7 @@ En la tabla siguiente se resumen los modos de acceso:
 | | Contexto del área de trabajo | Contexto del recurso |
 |:---|:---|:---|
 | ¿Para quién está pensado cada modelo? | Administración central. Los administradores que tienen que configurar colecciones de datos y los usuarios que necesitan acceder a una amplia variedad de recursos. También lo requieren actualmente los usuarios que necesitan acceder a registros de recursos fuera de Azure. | Equipos de la aplicación. Los administradores de los recursos de Azure que se están supervisando. |
-| ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Consulte **Permisos del área de trabajo** en [Administración de cuentas y usuarios](manage-access.md#manage-accounts-and-users). | Acceso de lectura al recurso. Consulte **Permisos de recurso** en [Administración de cuentas y usuarios](manage-access.md#manage-accounts-and-users). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
+| ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Vea los **permisos del área de trabajo** en [Administración del acceso mediante los permisos del área de trabajo](manage-access.md#manage-access-using-workspace-permissions). | Acceso de lectura al recurso. Vea los **permisos de los recursos** en [Administración del acceso mediante los permisos de Azure](manage-access.md#manage-access-using-azure-permissions). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
 | ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](manage-access.md#table-level-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
 | ¿Cómo puede el usuario acceder a los registros de acceso? | <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> | <ul><li>Inicie **Registros** en el menú para el recurso de Azure</li></ul> <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> |
 
@@ -128,7 +128,7 @@ En la tabla siguiente se resumen los modos de acceso:
     > [!NOTE]
     > Si un usuario solo tiene permisos de recurso en el área de trabajo, solo podrá acceder al área de trabajo mediante el modo contexto del recurso, siempre que el modo de acceso al área de trabajo esté establecido en **Usar permisos de recurso o de área de trabajo**.
 
-Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Definición del modo de control de acceso en Azure Portal](manage-access.md#define-access-control-mode).
+Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Configuración del modo de control de acceso](manage-access.md#configure-access-control-mode).
 
 ## <a name="recommendations"></a>Recomendaciones
 

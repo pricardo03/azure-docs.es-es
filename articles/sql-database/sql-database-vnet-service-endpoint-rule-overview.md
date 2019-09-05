@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 8948a0fe6112df0d29c0f04685dadbd379a4a382
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d924f0eb89984fbe77f94eff553d00a25b4b7a3a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098918"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309615"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 
@@ -71,8 +71,6 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 ## <a name="limitations"></a>Limitaciones
 
 Para Azure SQL Database, la característica de regla de red virtual tiene las siguientes limitaciones:
-
-- Una aplicación web se puede asignar a una dirección IP privada en una red virtual o subred. Incluso si los puntos de conexión de servicio están ACTIVADOS desde la red virtual o subred proporcionada, las conexiones de la aplicación web con el servidor tendrán un origen IP público de Azure, no un origen de red virtual o subred. Para habilitar la conectividad desde una aplicación web con un servidor que tenga reglas de firewall de red virtual, debe **Permitir que los servicios de Azure accedan al servidor** en el servidor.
 
 - En el firewall de su instancia de SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos SQL.
 

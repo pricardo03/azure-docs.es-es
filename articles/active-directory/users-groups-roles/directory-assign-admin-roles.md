@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/04/2019
+ms.date: 08/23/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851523"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034992"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -28,8 +28,6 @@ Con Azure Active Directory (Azure AD), puede designar administradores limitados 
 ## <a name="limit-the-use-of-global-administrator"></a>Limitación del uso de Administrador global
 
 Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De manera predeterminada, a la persona que se suscribe a Azure se le asigna el rol Administrador global para la organización de Azure AD. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
-
-## <a name="best-practices"></a>Prácticas recomendadas
 
 Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de 5 personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
 
@@ -94,7 +92,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Administrador de dispositivos en la nube](#cloud-device-administrator)** : los usuarios de este rol pueden habilitar, deshabilitar y eliminar dispositivos en Azure AD y leer las claves de BitLocker de Windows 10 (si las hay) en Azure Portal. El rol no concede permisos para administrar otras propiedades en el dispositivo.
 
-* **[Administrador de cumplimiento](#compliance-administrator)** : Los usuarios con este rol tienen permisos para administrar las características relacionadas con el cumplimiento en el Centro de cumplimiento de Microsoft 365, el Centro de administración de Microsoft 365, Azure y el Centro de seguridad y cumplimiento de Office 365. Los usuarios también pueden administrar todas las características dentro del Centro de administración de Exchange y del Centro de administración de Teams y Skype for Business, así como crear incidencias de soporte técnico para Azure y Microsoft 365. Más información disponible en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de cumplimiento](#compliance-administrator)** : Los usuarios con este rol tienen permisos para administrar las características relacionadas con el cumplimiento en el Centro de cumplimiento de Microsoft 365, el Centro de administración de Microsoft 365, Azure y el Centro de seguridad y cumplimiento de Office 365. Los usuarios asignados también pueden administrar todas las características dentro del Centro de administración de Exchange y del Centro de administración de Teams y Skype for Business, así como crear incidencias de soporte técnico para Azure y Microsoft 365. Más información disponible en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
   En | Puede hacer
   ----- | ----------
@@ -104,7 +102,7 @@ Los roles de administrador disponibles son los siguientes:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver todos los datos de auditoría de Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tiene permisos de solo lectura y puede administrar alertas<br>Puede crear y modificar las directivas de archivo y permitir acciones de gobernanza de archivos<br> Puede ver todos los informes integrados en Administración de datos
 
-* **[Administrador de datos de cumplimiento](#compliance-data-administrator)** : Los usuarios con este rol tienen permisos para proteger y realizar un seguimiento de los datos del Centro de cumplimiento de Microsoft 365, el Centro de administración de Microsoft 365 y Azure. Los usuarios también pueden administrar todas las características dentro del Centro de administración de Exchange, el Administrador de cumplimiento y el Centro de administración de Teams y Skype for Business, así como crear incidencias de soporte técnico para Azure y Microsoft 365.
+* **[Administrador de datos de cumplimiento](#compliance-data-administrator)** : Los usuarios con este rol tienen permisos para realizar un seguimiento de los datos del Centro de cumplimiento de Microsoft 365, el Centro de administración de Microsoft 365 y Azure. Los usuarios también pueden hacer un seguimiento de los datos de cumplimiento en el Centro de administración de Exchange, el Administrador de cumplimiento y el Centro de administración de Teams y Skype for Business, así como crear incidencias de soporte técnico para Azure y Microsoft 365.
 
   En | Puede hacer
   ----- | ----------
@@ -249,7 +247,7 @@ Además, el usuario puede acceder a informes relacionados con la adopción y el 
   Identity Protection Center | Leer todos los informes de seguridad y la información de configuración de las características de seguridad<br><ul><li>Filtro de correo no deseado<li>Cifrado<li>Prevención de la pérdida de datos<li>Antimalware<li>Protección contra amenazas avanzada<li>Protección contra suplantación de identidad (anti-phishing)<li>Reglas de flujo de correo
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tiene acceso de solo lectura a toda la información que aparece en PIM de Azure AD: directivas e informes para las asignaciones de roles de Azure AD, revisiones de seguridad y, en el futuro, acceso de lectura a datos e informes de directivas en escenarios distintos a la asignación de roles de Azure AD.<br>**No puede** registrarse para PIM de Azure AD ni realizar ningún cambio en esta característica. En el portal de PIM o mediante PowerShell, alguien con este rol puede activar roles adicionales (por ejemplo, Administrador Global o Administrador de rol con privilegios), si el usuario es apto para ellos.
   [Centro de seguridad y cumplimiento de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visualización de directivas de seguridad<br>Ver e investigar las amenazas de seguridad<br>Ver informes
-  EDR y ATP de Windows Defender | Ver e investigar alertas
+  EDR y ATP de Windows Defender | Ver e investigar alertas. Al activar el control de acceso basado en rol en ATP de Windows Defender, los usuarios con permisos de solo lectura como el rol de lector de seguridad Azure AD pierden el acceso hasta que se asignan a un rol de ATP de Windows Defender.
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver información sobre usuarios, dispositivos, inscripciones, configuración y aplicaciones No se pueden realizar cambios en Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tiene permisos de solo lectura y puede administrar alertas
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios

@@ -10,19 +10,20 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/12/2019
-ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 08/27/2019
+ms.openlocfilehash: 9261bae0d2bee990a5048cb87a863d96e1854d00
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967899"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061924"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
 El Cifrado de datos transparente (TDE) ayuda a proteger Azure SQL Database, la Instancia administrada de Azure SQL Database y Azure Data Warehouse frente a la amenaza de actividades malintencionadas sin conexión, ya que cifra los datos en reposo. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación. De forma predeterminada, TDE está habilitado para todas las bases de datos de Azure SQL recién implementadas. TDE no se puede usar para cifrar la base de datos **maestra** lógica en SQL Database.  La base de datos **maestra** contiene objetos que son necesarios para realizar las operaciones de TDE en las bases de datos de usuario.
 
-TDE debe habilitarse manualmente para la Instancia administrada de Azure SQL Database, las bases de datos anteriores de Azure SQL Database o Azure SQL Data Warehouse.  
+TDE debe habilitarse manualmente para las bases de datos anteriores de Azure SQL Database, la Instancia administrada de Azure SQL Database o Azure SQL Data Warehouse.
+Las bases de datos de Instancia administrada creadas mediante restauración heredan el estado de cifrado de la base de datos de origen.
 
 El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos. Esta clave de cifrado de base de datos está protegida por el protector de cifrado de datos transparente. El protector es un certificado administrado por el servicio (cifrado de datos transparentes administrado por el servicio) o una clave asimétrica almacenada en Azure Key Vault (Bring Your Own Key). Establezca el protector de cifrado de datos transparente a nivel de servidor para Azure SQL Database y Data Warehouse, y a nivel de instancia para la Instancia administrada de Azure SQL Database. El término *servidor* hace referencia tanto a servidor como a instancia a lo largo de este documento, a menos que se indique lo contrario.
 

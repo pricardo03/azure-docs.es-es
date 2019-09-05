@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815260"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970385"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad con regiones e idiomas para los servicios de Voz
 
@@ -24,40 +24,40 @@ Se admiten diferentes idiomas para distintas funciones de los servicios de voz. 
 
 ## <a name="speech-to-text"></a>Voz a texto
 
-El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguientes idiomas (locales). Para cada idioma hay diferentes niveles de personalización disponibles.
+El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguientes idiomas (locales). Para mejorar la precisión, se ofrece la personalización para un subconjunto de idiomas mediante la carga de audio y transcripciones con etiqueta humana o texto relacionado: Oraciones.  La personalización de la pronunciación solo está disponible actualmente para en-US y de-DE. Aprenda más sobre la personalización [aquí](how-to-custom-speech.md).
 
-  Código | Idioma | [Adaptación acústica](how-to-customize-acoustic-models.md) | [Adaptación de idioma](how-to-customize-language-model.md) | [Adaptación de pronunciación](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Árabe (Egipto), estándar moderno | Sin | Sí | Sin
- ca-ES | Catalán | Sin | No | Sin
- da-DK | Danés (Dinamarca) | Sin | No | Sin
- de-DE | Alemán (Alemania) | Sí | Sí | Sí
- en-AU | Inglés (Australia) | Sin | Sí | Sin
- en-CA | Inglés (Canadá) | Sin | Sí | Sin
- en-GB | Inglés (Reino Unido) | Sin | Sí | Sin
- en-IN | Inglés (India) | Sí | Sí | Sin
- en-NZ | Inglés (Nueva Zelanda) | Sin | Sí | Sin 
- en-US | Inglés (Estados Unidos) | Sí | Sí | Sí
- es-ES | Español (España) | Sí | Sí | Sin
- es-MX | Español (México) | Sin | Sí | Sin
- fi-FI | Finés (Finlandia) | Sin | No | Sin
- fr-CA | Francés (Canadá) | Sin | Sí | Sin
- fr-FR | Francés (Francia) | Sí | Sí | Sin
- hi-IN | Hindi (India) | Sin | Sí | Sin
- it-IT | Italiano (Italia) | Sí | Sí | Sin
- ja-JP | Japonés (Japón) | Sin | Sí | Sin
- ko-KR | Coreano (Corea) | Sin | Sí | Sin
- nb-NO | Noruego, Bokmål (Noruego) | Sin | No | Sin
- nl-NL | Neerlandés (Países Bajos) | Sin | Sí | Sin
- pl-PL | Polaco (Polonia) | Sin | No | Sin
- pt-BR | Portugués (Brasil) | Sí | Sí | Sin
- pt-PT | Portugués (Portugal) | Sin | Sí | Sin
- ru-RU | Ruso (Rusia) | Sí | Sí | Sin
- sv-SE | Sueco (Suecia) | Sin | No | Sin
- zh-CN | Chino (mandarín, simplificado) | Sí | Sí | Sin
- zh-HK | Chino (cantonés, tradicional) | Sin | Sí | Sin
- zh-TW | Chino (mandarín, Taiwán) | Sin | Sí | Sin
- th-TH | Tailandés (Tailandia) | Sin | No | Sin
+  Código | Idioma | Compatible | Personalizable
+ ------|----------|---------------------|---------------------
+ ar-EG | Árabe (Egipto), estándar moderno | Sí | Sí
+ ca-ES | Catalán | Sí | Sin
+ da-DK | Danés (Dinamarca) | Sí | Sin
+ de-DE | Alemán (Alemania) | Sí | Sí
+ en-AU | Inglés (Australia) | Sí | Sí
+ en-CA | Inglés (Canadá) | Sí | Sí
+ en-GB | Inglés (Reino Unido) | Sí | Sí
+ en-IN | Inglés (India) | Sí | Sí
+ en-NZ | Inglés (Nueva Zelanda) | Sí | Sí
+ en-US | Inglés (Estados Unidos) | Sí | Sí
+ es-ES | Español (España) | Sí | Sí
+ es-MX | Español (México) | Sí | Sí
+ fi-FI | Finés (Finlandia) | Sí | Sin
+ fr-CA | Francés (Canadá) | Sí | Sí
+ fr-FR | Francés (Francia) | Sí | Sí
+ hi-IN | Hindi (India) | Sí | Sí
+ it-IT | Italiano (Italia) | Sí | Sí
+ ja-JP | Japonés (Japón) | Sí | Sí
+ ko-KR | Coreano (Corea) | Sí | Sí
+ nb-NO | Noruego, Bokmål (Noruego) | Sí | Sin
+ nl-NL | Neerlandés (Países Bajos) | Sí | Sí
+ pl-PL | Polaco (Polonia) | Sí | Sin
+ pt-BR | Portugués (Brasil) | Sí | Sí
+ pt-PT | Portugués (Portugal) | Sí | Sí
+ ru-RU | Ruso (Rusia) | Sí | Sí
+ sv-SE | Sueco (Suecia) | Sí | Sin
+ zh-CN | Chino (mandarín, simplificado) | Sí | Sí
+ zh-HK | Chino (cantonés, tradicional) | Sí | Sí
+ zh-TW | Chino (mandarín, Taiwán) | Sí | Sí
+ th-TH | Tailandés (Tailandia) | Sí | Sin 
 
 
 ## <a name="text-to-speech"></a>Texto a voz

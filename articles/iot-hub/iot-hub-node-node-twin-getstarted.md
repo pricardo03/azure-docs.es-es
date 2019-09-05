@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780931"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060717"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introducción a los dispositivos gemelos (Node.js)
 
@@ -29,9 +29,11 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 > En el artículo [SDK de IoT de Azure](iot-hub-devguide-sdks.md) se proporciona información sobre los SDK de IoT de Azure que se pueden usar para crear aplicaciones de dispositivo y de back-end.
 >
 
-Para completar este tutorial, necesitará lo siguiente:
+## <a name="prerequisites"></a>Requisitos previos
 
-* Versión 10.0.x de Node.js o posterior.
+Para completar este tutorial, necesita:
+
+* Node.js versión 10.0.x o posteriores.
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
@@ -53,28 +55,28 @@ Para completar este tutorial, necesitará lo siguiente:
 
 En esta sección, creará una aplicación de consola de Node.js que agrega metadatos de ubicación al dispositivo gemelo asociado con **myDeviceId**. Después, consulta los dispositivos gemelos almacenados en la instancia de IoT Hub mediante la selección de los dispositivos ubicados en Estados Unidos y, después, los que informan de una conexión de red de telefonía móvil.
 
-1. Cree una nueva carpeta vacía denominada **addtagsandqueryapp**. En la carpeta **addtagsandqueryapp** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **addtagsandqueryapp**. En la carpeta **addtagsandqueryapp** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. El parámetro `--yes` acepta todos los valores predeterminados.
 
-    ```
-    npm init
+    ```cmd/sh
+    npm init --yes
     ```
 
 2. En el símbolo del sistema, en la carpeta **addtagsandqueryapp**, ejecute el siguiente comando para instalar el paquete **azure-iothub**:
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
 3. Con un editor de texto, cree un nuevo archivo **AddTagsAndQuery.js** en la carpeta **addtagsandqueryapp**.
 
-4. Agregue el código siguiente al archivo **AddTagsAndQuery.js** y reemplace el valor del marcador de posición **{iot hub connection string}** con la cadena de conexión de IoT Hub que copió anteriormente en [Obtener la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string):
+4. Agregue el código siguiente al archivo **AddTagsAndQuery.js**. Reemplace `{iot hub connection string}` por la cadena de conexión de IoT Hub que copió en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
-   
+
         registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
@@ -87,7 +89,7 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
                       }
                     }
                 };
-   
+
                 twin.update(patch, function(err) {
                   if (err) {
                     console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
@@ -116,7 +118,7 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
-   
+
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
@@ -130,17 +132,17 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
 
     El código anterior ejecuta dos consultas: la primera selecciona solo los dispositivos gemelos que se encuentran en la planta **Redmond43**, y la segunda mejora la consulta para seleccionar solo los dispositivos que están también conectados a través de la red de telefonía móvil.
 
-    El código anterior, cuando crea el objeto de **consulta**, especifica un número máximo de documentos devueltos. El objeto **consulta** contiene una propiedad booleana **hasMoreResults** que puede utilizar para invocar a los métodos **nextAsTwin** varias veces para recuperar todos los resultados. Un método llamado **siguiente** está disponible para los resultados que no son dispositivos gemelos, por ejemplo, los resultados de consultas de agregación.
+    Cuando el código crea el objeto **consulta**, especifica el número máximo de documentos devueltos en el segundo parámetro. El objeto **consulta** contiene una propiedad booleana **hasMoreResults** que puede utilizar para invocar a los métodos **nextAsTwin** varias veces para recuperar todos los resultados. Un método llamado **siguiente** está disponible para los resultados que no son dispositivos gemelos, por ejemplo, los resultados de consultas de agregación.
 
 6. Ejecute la aplicación con:
 
-    ```
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
    Debería ver un dispositivo en los resultados de la consulta que pregunta por todos los dispositivos que se encuentran en **Redmond43** y ninguno para la consulta que restringe los resultados a los dispositivos que utilizan una red de telefonía móvil.
-   
-    ![Visualización del dispositivo en los resultados de la consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
+
+   ![Visualización del dispositivo en los resultados de la consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 En la siguiente sección, creará una aplicación de dispositivo que notifica la información de conectividad y cambia el resultado de la consulta en la sección anterior.
 
@@ -148,36 +150,36 @@ En la siguiente sección, creará una aplicación de dispositivo que notifica la
 
 En esta sección, creará una aplicación de consola de Node.js que se conecta al centro como **myDeviceId**, y luego actualiza las propiedades notificadas de su dispositivo gemelo para contener la información que está conectada mediante una red de telefonía móvil.
 
-1. Cree una nueva carpeta vacía denominada **reportconnectivity**. En la carpeta **reportconnectivity** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
-   
-    ```
-    npm init
+1. Cree una nueva carpeta vacía denominada **reportconnectivity**. En la carpeta **reportconnectivity** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. El parámetro `--yes` acepta todos los valores predeterminados.
+
+    ```cmd/sh
+    npm init --yes
     ```
 
 2. En el símbolo del sistema, en la carpeta **reportconnectivity**, ejecute el siguiente comando para instalar **azure-iot-device** y el paquete **azure-iot-device-mqtt**:
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
 3. Con un editor de texto, cree un nuevo archivo **ReportConnectivity.js** en la carpeta **reportconnectivity**.
 
-4. Agregue el código siguiente al archivo **ReportConnectivity.js** y sustituya el marcador de posición **{device connection string}** con la cadena de conexión que copió al crear la identidad de dispositivo **myDeviceId**:
+4. Agregue el código siguiente al archivo **ReportConnectivity.js**. Reemplace `{device connection string}` por la cadena de conexión de dispositivo que copió al crear la identidad del dispositivo **myDeviceId** en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
 
-    ```
+    ```javascript
         'use strict';
         var Client = require('azure-iot-device').Client;
         var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
+
         var connectionString = '{device connection string}';
         var client = Client.fromConnectionString(connectionString, Protocol);
-   
+
         client.open(function(err) {
         if (err) {
             console.error('could not open IotHub client');
         }  else {
             console.log('client opened');
-   
+
             client.getTwin(function(err, twin) {
             if (err) {
                 console.error('could not get twin');
@@ -187,7 +189,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
                         type: 'cellular'
                     }
                 };
-   
+
                 twin.properties.reported.update(patch, function(err) {
                     if (err) {
                         console.error('could not update twin');
@@ -206,7 +208,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
 
 5. Ejecute la aplicación del dispositivo
 
-    ```   
+    ```cmd/sh
         node ReportConnectivity.js
     ```
 
@@ -214,7 +216,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
 
 6. Ahora que el dispositivo ha informado sobre su información de conectividad, debe aparecer en ambas consultas. Vuelva a la carpeta **addtagsandqueryapp** y vuelva a ejecutar las consultas:
 
-    ```   
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 

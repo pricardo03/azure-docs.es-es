@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876851"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981074"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -112,7 +112,7 @@ Para configurar directivas de sesión remota:
 1. Vaya a **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Límites de tiempo de sesión**.
 2. En el panel del lado derecho, seleccione la directiva **Establecer el límite de tiempo para las sesiones activas, pero en inactividad, de Servicios de Escritorio remoto**.
 3. Cuando aparezca la ventana modal, cambie la opción de directiva de **No configurada** a **Habilitada** para activar la directiva.
-4. En el menú desplegable situado debajo de la opción de directiva, establezca el período de tiempo en **4 horas**.
+4. En el menú desplegable situado debajo de la opción de directiva, establezca el período de tiempo en **3 horas**.
 
 También puede configurar directivas de sesión remota manualmente, ejecutando los siguientes comandos:
 
@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fRese
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Configurar la redirección de zona horaria

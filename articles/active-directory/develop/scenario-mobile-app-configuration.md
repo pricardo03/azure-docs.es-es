@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414797"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061402"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicación móvil que llama a las API web: configuración de código
 
-Una vez creada la aplicación, aprenderá a configurar el código con los parámetros de la aplicación que obtuvo al registrarla. Las aplicaciones móviles también tienen algunas características complejas, relacionadas con la instalación de la plataforma que se usa para compilar estas aplicaciones.
+Una vez creada la aplicación, aprenderá a configurar el código con los parámetros de registro de la aplicación. Las aplicaciones móviles también tienen algunas características complejas, relacionadas con la instalación de la plataforma que se usa para compilar estas aplicaciones.
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>Bibliotecas MSAL que admiten aplicaciones móviles
 
@@ -38,7 +38,7 @@ Las bibliotecas de Microsoft que admiten aplicaciones móviles son:
 
 ## <a name="configuring-the-application"></a>Configuración de la aplicación
 
-Las aplicaciones móviles usan la clase `PublicClientApplication` de MSAL. Aquí se muestra cómo crear una instancia:
+Las aplicaciones móviles usan la clase `PublicClientApplication`. Aquí se muestra cómo crear una instancia:
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ En el siguiente párrafo se explica cómo configurar el código de la aplicació
 
 #### <a name="instantiating-the-application"></a>Creación de instancias de la aplicación
 
-En Xamarin o UWP, la manera más sencilla de crear una instancia de la aplicación es la siguiente, donde `ClientId` es el GUID de la aplicación como figura en el registro.
+En Xamarin o UWP, la manera más sencilla de crear una instancia de la aplicación es la siguiente, donde `ClientId` es el GUID de la aplicación registrada.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -87,7 +87,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-En Android, le recomendamos `CurrentActivityPlugin`, disponible [aquí](https://github.com/jamesmontemagno/CurrentActivityPlugin).  A continuación, el código del compilador `PublicClientApplication` tendrá el siguiente aspecto:
+En Android, le recomendamos que use `CurrentActivityPlugin` [aquí](https://github.com/jamesmontemagno/CurrentActivityPlugin).  A continuación, el código del compilador `PublicClientApplication` tendrá el siguiente aspecto:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -128,7 +128,7 @@ Por último, hay algunas características que hay que conocer sobre los explorad
 
 #### <a name="uwp-specific-considerations"></a>Consideraciones específicas de UWP
 
-En UWP, puede usar redes corporativas. Para obtener información sobre las características específicas de UWP, consulte las [consideraciones específicas de Plataforma universal de Windows con MSAL.net](msal-net-uwp-considerations.md).
+En UWP, puede usar redes corporativas. Para obtener información sobre cómo usar la biblioteca MSAL con UWP, consulte las [consideraciones específicas de Plataforma universal de Windows con MSAL.NET](msal-net-uwp-considerations.md).
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Configuración de la aplicación para usar el agente
 

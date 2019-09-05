@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927927"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061913"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -70,7 +70,7 @@ Los administradores y coadministradores de la suscripción pueden cambiar esta c
 Las organizaciones que controlan el acceso a la máquina virtual y la configuración mejoran la seguridad general de la máquina virtual.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Uso de varias máquinas virtuales para mejorar la disponibilidad
-Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, use un [conjunto de disponibilidad](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, use un [conjunto de disponibilidad](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) o [zonas](../../availability-zones/az-overview.md) de disponibilidad.
 
 Un conjunto de disponibilidad es una agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocadas en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se ve afectado y la aplicación sigue estando disponible para los clientes. Los conjuntos de disponibilidad son una funcionalidad fundamental para compilar soluciones en la nube confiables.
 
@@ -182,7 +182,7 @@ Supervise y restrinja la conectividad directa a Internet de las máquinas virtua
 **Detalles**: Use RBAC para asegurarse de que solo el grupo de redes central tiene permiso para los recursos de red.
 
 **Procedimiento recomendado**: Identificar y corregir las máquinas virtuales expuestas que permiten el acceso desde "cualquier" dirección IP de origen.   
-**Detalles**: Use Azure Security Center. Security Center le recomendará que restrinja el acceso a través de puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde “cualquier” dirección IP de origen. Security Center recomienda editar estas reglas de entrada para [restringir el acceso](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) a las direcciones IP de origen que realmente necesiten el acceso.
+**Detalles**: Use Azure Security Center. Security Center le recomendará que restrinja el acceso a través de puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde “cualquier” dirección IP de origen. Security Center recomienda editar estas reglas de entrada para [restringir el acceso](../../security-center/security-center-network-recommendations.md) a las direcciones IP de origen que realmente necesiten el acceso.
 
 **Procedimiento recomendado**: Restringir los puertos de administración (RDP, SSH).   
 **Detalles**: Puede usar el [acceso a VM Just-In-Time](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques y se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando el acceso a Just-In-Time está habilitado, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos los controla la solución Just-In-Time.

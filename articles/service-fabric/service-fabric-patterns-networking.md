@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 0a411e0fe3b89eaaa19f4e18f5e614b03dd1d682
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599416"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073948"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -604,6 +604,10 @@ En un clúster de dos tipos de nodo, un tipo de nodo está en el equilibrador de
     ```
 
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
+
+## <a name="notes-for-production-workloads"></a>Notas para cargas de trabajo de producción
+
+Las plantillas de GitHub anteriores se han diseñado para trabajar con la SKU predeterminada para Azure Standard Load Balancer (SLB), la SKU básica. Este SLB no dispone de Acuerdo de Nivel de Servicio, de modo que la SKU estándar debe usarse para las cargas de trabajo de producción. Para obtener más información al respecto, consulte la [introducción a Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Cualquier clúster de Service Fabric que use la SKU estándar para SLB deberá asegurarse de que cada tipo de nodo tiene una regla que permite el tráfico saliente en el puerto 443. Esto es necesario para completar la configuración del clúster, produciéndose un error en cualquier implementación sin esta regla. En el ejemplo anterior de un equilibrador de carga "solo externo", debe agregarse un equilibrador de carga externo adicional a la plantilla con una regla que permite el tráfico saliente para el puerto 443.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de un clúster](service-fabric-cluster-creation-via-arm.md)

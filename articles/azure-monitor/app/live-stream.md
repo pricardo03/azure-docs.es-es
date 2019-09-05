@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f8203cade1d2e34a9852e945df03dc2fddc1fbe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359420"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012751"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -107,7 +107,12 @@ Si quiere supervisar una instancia de rol de servidor en particular, puede filtr
 ![Errores de muestreo de Live](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>Requisitos de SDK
+
+### <a name="net"></a>.NET
 Las secuencias personalizadas de Live Metrics Stream están disponibles con la versión 2.4.0-beta2 o la más reciente del [SDK de Application Insights para la web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). No olvide seleccionar la opción "Incluir versión previa" desde el Administrador de paquetes de NuGet.
+
+### <a name="nodejs"></a>Node.js
+Las secuencias de Live Metrics Stream están disponibles con la versión 1.3.0 o la versión del [SDK de Application Insights para la web](https://npmjs.com/package/applicationinsights) más reciente. Recuerde usar `setSendLiveMetrics(true)` mientras configura el SDK en el código.
 
 ## <a name="secure-the-control-channel"></a>Protección del canal de control
 Los criterios de filtros personalizados que especifique se envían hacia el componente de Live Metrics del SDK de Application Insights. Los filtros podrían contener información confidencial, como identificadores de clientes. Puede hacer que el canal seguro con una clave secreta de API, además de la clave de instrumentación.

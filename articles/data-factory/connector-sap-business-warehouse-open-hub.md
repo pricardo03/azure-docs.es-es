@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c4a70f337166a304bd8664da2180fcda29ca8ac
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967436"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996637"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 
@@ -174,7 +174,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Open Hub para SAP BW, establezca el tipo de origen de la actividad de copia en **SapOpenHubSource**. No se necesitan propiedades específicas para type adicionales en la sección de **origen** de la actividad de copia.
 
-Para acelerar la carga de datos, puede establecer [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia para cargar datos desde Open Hub para SAP BW en paralelo. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory ejecutará simultáneamente cuatro llamadas de RFC, y cada llamada de RFC recuperará una parte de los datos de la tabla de Open Hub para SAP BW, particionada por el identificador de solicitud de DTP y por el identificador de paquete. Esto se aplica cuando la suma de identificadores únicos de solicitud de DTP y de paquete es superior al valor de `parallelCopies`.
+Para acelerar la carga de datos, puede establecer [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia para cargar datos desde Open Hub para SAP BW en paralelo. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory ejecutará simultáneamente cuatro llamadas de RFC, y cada llamada de RFC recuperará una parte de los datos de la tabla de Open Hub para SAP BW, particionada por el identificador de solicitud de DTP y por el identificador de paquete. Esto se aplica cuando la suma de identificadores únicos de solicitud de DTP y de paquete es superior al valor de `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 **Ejemplo:**
 

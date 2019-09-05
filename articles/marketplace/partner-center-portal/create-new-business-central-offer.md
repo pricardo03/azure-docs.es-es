@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900160"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033275"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creación de una nueva oferta de Dynamics 365 Business Central
 
@@ -354,7 +354,7 @@ La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión d
 
 ## <a name="supplemental-content"></a>Contenido complementario
 
-Esta página le permite proporcionar información adicional sobre la oferta.
+Esta página le permite proporcionar información adicional sobre su oferta, lo que nos ayudará a validarla. Esta información no se muestra a los clientes ni se publica en Marketplace.
 
 ### <a name="target-release"></a>Versión de destino
 
@@ -362,15 +362,15 @@ Indique qué versión de Microsoft Dynamics Business Central tiene como destino 
 
 ### <a name="supported-editions"></a>Ediciones compatibles
 
-Indique si la solución es compatible con la edición Essentials o Premium de Microsoft Dynamics 365 Business Central. Debe seleccionarse al menos un valor.
+Si su oferta requiere la edición Premium de Microsoft Dynamics 365 Business Central, seleccione solo **Premium**. En caso contrario, seleccione **Essentials** y **Premium**.
 
 ### <a name="key-usage-scenario"></a>Escenario de uso clave
 
-Cargue un archivo `.pdf` que enumere los escenarios de uso clave de la oferta enumerados en un documento (formato .pdf). Nuestro equipo de validación puede comprobar todos los escenarios que se enumeran aquí antes de aprobar su oferta para Marketplace.
+Debe cargar un archivo `.pdf` que enumere los escenarios de uso clave de la oferta enumerados en un documento (formato .pdf). Nuestro equipo de validación puede comprobar todos los escenarios que se enumeran aquí antes de aprobar su oferta para Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatización de pruebas de la aplicación
 
-Cargue también un archivo de **automatización de pruebas de la aplicación** aquí (.app).
+Si lo desea, también puede cargar un archivo de **automatización de pruebas de la aplicación** aquí (.app).
 
 ### <a name="test-accounts"></a>Cuentas de prueba
 
