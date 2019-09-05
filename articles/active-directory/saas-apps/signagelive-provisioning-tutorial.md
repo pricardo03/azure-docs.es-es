@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de Signagelive para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configuración de Signagelive para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Signagelive.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7838fd30869629298c5b44cc4b3e5c1e5daa7051
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: ef5a605fb0190e67de8b2bb95bbccfd8fd3cf279
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519815"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906032"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: Configuración de Signagelive para aprovisionar usuarios automáticamente
 
@@ -56,14 +56,13 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 Antes de configurar Signagelive para aprovisionar automáticamente usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Signagelive.
 
-1.  Póngase en contacto con[Signagelive](mailto:development@signagelive.com) para obtener el token secreto necesario para configurar el aprovisionamiento de SCIM.
-
+  Póngase en contacto con[Signagelive](mailto:development@signagelive.com) para obtener el token secreto necesario para configurar el aprovisionamiento de SCIM.
 
 ## <a name="add-signagelive-from-the-gallery"></a>Adición de Signagelive desde la galería
 
-Para configurar Signagelive para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Signagelive desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
+Para configurar Signagelive para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Signagelive desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Signagelive desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+**Para agregar Signagelive desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
 1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
@@ -86,7 +85,7 @@ Para configurar Signagelive para el aprovisionamiento automático de usuarios co
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en Signagelive en función de las asignaciones de grupos y usuarios de Azure AD.
 
 > [!TIP]
->  También puede optar por habilitar el inicio de sesión único basado en SAML para Signagelive siguiendo las instrucciones del [tutorial de inicio de sesión único de Signagelive](Signagelive-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+>  También puede optar por habilitar el inicio de sesión único basado en SAML para Signagelive con las instrucciones del [tutorial de inicio de sesión único de Signagelive](Signagelive-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Signagelive en Azure AD:
 
@@ -106,7 +105,8 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección Credenciales de administrador, escriba ` https://samlapi.signagelive.com/scim/v2` en la **URL de inquilino**. En el campo **Token secreto**, escriba el valor del **token de portador** proporcionado por el equipo de desarrollo de ingeniería. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Signagelive. Si la conexión no se establece, asegúrese de que la cuenta de Signagelive tiene permisos de administrador e intente de nuevo ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png).
+5. En la sección Credenciales de administrador, escriba ` https://samlapi.signagelive.com/scim/v2` en la **URL de inquilino**. En el campo **Token secreto**, escriba el valor del **token de portador** proporcionado por el equipo de desarrollo de ingeniería. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Signagelive. Si la conexión no se establece, asegúrese de que la cuenta de Signagelive tiene permisos de administrador e inténtelo de nuevo.
+    ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
@@ -144,9 +144,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Signagelive.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Para más información sobre el tiempo que se tarda en aprovisionar los usuarios o los grupos, consulte [¿Cuánto tiempo se tarda en aprovisionar usuarios?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) 
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+Puede usar la sección **Estado actual** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Signagelive. Para obtener más información, vea [Comprobación del estado de aprovisionamiento](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Para leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

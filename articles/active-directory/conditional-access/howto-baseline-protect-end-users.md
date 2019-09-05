@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0f1a2e0bad39b54edc153416e4120bbc6912578c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532931"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125449"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Directiva de base de referencia: Protección del usuario final (versión preliminar)
 
@@ -24,7 +24,7 @@ Se tiende a pensar que las cuentas de administrador son las únicas cuentas que 
 
 Para lograr un equilibrio razonable de seguridad y facilidad de uso, no se debería solicitar que los usuarios se autentiquen cada vez que inician sesión. Las solicitudes de autenticación que reflejan el comportamiento normal del usuario, como un inicio de sesión desde el mismo dispositivo y desde la misma ubicación, tienen un riesgo bajo. Solo se deben consultar con desafíos de MFA los inicios de sesión que se consideren peligrosos y muestren las características de un delincuente.
 
-La protección del usuario final es una [directiva de base de referencia](concept-baseline-protection.md) de MFA basada en riesgos que protege a todos los usuarios en un directorio, incluidos todos los roles de administrador. Si habilita esta directiva es necesario que todos los usuarios se registren para MFA mediante la aplicación de Microsoft Authenticator. Los usuarios pueden omitir la solicitud de registro de MFA durante 14 días, tras los cuales se bloqueará el inicio de sesión hasta que se registren para MFA. Una vez registrados para MFA, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablezca la contraseña y se hayan descartado los eventos de riesgo.
+La protección del usuario final es una [directiva de base de referencia](concept-baseline-protection.md) de MFA basada en riesgos que protege a todos los usuarios en un directorio, incluidos todos los roles de administrador. Si habilita esta directiva es necesario que todos los usuarios se registren para MFA mediante la aplicación de Microsoft Authenticator. Los usuarios pueden omitir la solicitud de registro de MFA durante 14 días, tras los cuales se bloqueará el inicio de sesión hasta que se registren para MFA. Una vez registrados para MFA, se empleará MFA con los usuarios solo durante los intentos de inicio de sesión de riesgo. Las cuentas de usuario en peligro se bloquean hasta que se restablezca la contraseña y se hayan descartado las detecciones de riesgo.
 
 > [!NOTE]
 > Esta directiva se aplica a todos los usuarios, incluidas las cuentas de invitado, y se evaluará al iniciar sesión en todas las aplicaciones.
@@ -33,7 +33,7 @@ La protección del usuario final es una [directiva de base de referencia](concep
 
 Para ayudar a proteger a nuestros clientes, el servicio de credenciales filtradas de Microsoft busca pares de nombre de usuario y contraseña disponibles públicamente. Si coinciden con alguno de los usuarios de Microsoft, se protege esa cuenta inmediatamente. Los usuarios que se identifican con credenciales filtradas se confirman como en peligro. Estos usuarios no podrán iniciar sesión hasta que restablezcan su contraseña.
 
-Los usuarios con una licencia de Azure AD Premium asignada pueden restaurar el acceso a través del autoservicio de restablecimiento de contraseña (SSPR) si la funcionalidad está habilitada en su directorio. Los usuarios sin una licencia premium que queden bloqueados deben ponerse en contacto con el administrador para realizar un restablecimiento de contraseña manual y descartar el evento de riesgo del usuario marcado.
+Los usuarios con una licencia de Azure AD Premium asignada pueden restaurar el acceso a través del autoservicio de restablecimiento de contraseña (SSPR) si la funcionalidad está habilitada en su directorio. Los usuarios sin una licencia premium que queden bloqueados deben ponerse en contacto con el administrador para realizar un restablecimiento de contraseña manual y descartar la detección de riesgo del usuario marcado.
 
 ### <a name="steps-to-unblock-a-user"></a>Pasos para desbloquear a un usuario
 

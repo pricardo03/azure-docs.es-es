@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302570"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126975"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -272,4 +272,6 @@ Para proporcionar comentarios, use la opción de comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descripción de la correlación](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* Para obtener más información sobre cómo funciona la correlación en Application Insights, consulte el [artículo sobre la correlación de telemetría] (https://docs.microsoft.com/azure/application-insights/application-insights-correlation) ).
+* La [experiencia de diagnóstico de transacción de un extremo a otro](transaction-diagnostics.md) correlaciona la telemetría del lado servidor con todos los componentes supervisados de Application Insights en una única vista.
+* En el caso de escenarios avanzados de correlación en ASP.NET Core y ASP.NET, consulte el artículo [seguimiento de operaciones personalizadas](custom-operations-tracking.md).

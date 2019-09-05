@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879232"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114271"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementación de la detección de modelo de IoT Plug and Play (versión preliminar) en una solución de IoT
 
@@ -69,9 +69,9 @@ Cuando la solución reciba una notificación de que se ha conectado un dispositi
 1. Lea el mensaje de telemetría de detección para recuperar los identificadores del modelo de funcionalidad y las interfaces que ha implementado el dispositivo.
 1. Para cada identificador, lea todo el archivo JSON para buscar las funcionalidades del dispositivo.
 1. Compruebe si cada interfaz está presente en las memorias caché que ha creado para almacenar los archivos JSON que la solución ha recuperado con anterioridad.
-1. Luego, compruebe si hay alguna interfaz con ese identificador en el repositorio de modelos global. Para más información, consulte [Repositorio de modelos global](howto-manage-models.md).
-1. Si la interfaz no se encuentra en el repositorio de modelos global, pruebe a buscarla en los repositorios de modelos privados que conozca en la solución. Para acceder a un repositorio de modelos privado. Para más información, consulte [Repositorio de modelos privado](howto-manage-models.md).
-1. Si no encuentra todas las interfaces en el repositorio de modelos global o en un repositorio de modelos privado, puede comprobar si el dispositivo puede proporcionar la definición de la interfaz. Un dispositivo puede implementar la interfaz [ModelDefinition](concepts-common-interfaces.md) estándar para publicar información sobre cómo recuperar archivos de interfaz con un comando.
+1. Luego, compruebe si hay alguna interfaz con ese identificador en el repositorio de modelos público. Para obtener más información, consulte [Repositorio de modelos público](howto-manage-models.md).
+1. Si la interfaz no se encuentra en el repositorio de modelos público, pruebe a buscarla en los repositorios de modelos de la empresa que conozca la solución. Para acceder a un repositorio de modelos de la empresa necesita una cadena de conexión. Para obtener más información, consulte [Repositorio de modelos de la empresa](howto-manage-models.md).
+1. Si no encuentra todas las interfaces en el repositorio de modelos público o en un repositorio de modelos de la empresa, puede comprobar si el dispositivo puede proporcionar la definición de la interfaz. Un dispositivo puede implementar la interfaz [ModelDefinition](concepts-common-interfaces.md) estándar para publicar información sobre cómo recuperar archivos de interfaz con un comando.
 1. Si ha encontrado archivos JSON para todas las interfaces que ha implementado el dispositivo, puede enumerar las funcionalidades del dispositivo. Use la lógica que escribió anteriormente para que los usuarios puedan interactuar con el dispositivo.
 1. En cualquier momento puede llamar a la API de gemelos digitales para recuperar el identificador del modelo de funcionalidad y los identificadores de interfaz del dispositivo.
 

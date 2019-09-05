@@ -11,12 +11,12 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499557"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126392"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Azure Multi-factor Authentication proporciona un medio para verificar su identid
 Se recomienda requerir Azure Multi-Factor Authentication en los inicios de sesión de usuario por los siguientes motivos:
 
 - Ofrece autenticación segura con una gama de opciones de comprobación sencillas.
-- Desempeña un papel fundamental en la preparación de su organización para protegerse y recuperarse en caso de eventos de riesgo en Identity Protection
+- Desempeña un papel fundamental en la preparación de su organización para protegerse y recuperarse en caso de detecciones de riesgo en Identity Protection.
 
 Para obtener más información sobre MFA, consulte [Qué es Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876750"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073927"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -34,39 +34,45 @@ Siga estas instrucciones si tiene problemas para unir las VM al dominio.
 
 **Causa:** Hubo un error ortográfico al escribir las credenciales en las correcciones de la interfaz de la plantilla de Azure Resource Manager.
 
-**Corrección:** Siga estas instrucciones para corregir las credenciales.
+**Solución:** realice una de las siguientes acciones para resolverlo.
 
-1. Agregue manualmente las VM a un dominio.
-2. Vuelva a implementar una vez que las credenciales se hayan confirmado. Consulte [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Una las VM a un dominio con una plantilla con [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/) (Unir una VM Windows existente a un dominio de AD).
+- Agregue manualmente las VM a un dominio.
+- Vuelva a implementar la plantilla una vez que las credenciales se hayan confirmado. Consulte [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Una las VM a un dominio con una plantilla con [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/) (Unir una VM Windows existente a un dominio de AD).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Error: Se agotó el tiempo de espera para la entrada del usuario
 
 **Causa:** La cuenta usada para completar la unión a un dominio puede tener autenticación multifactor (MFA).
 
-**Corrección:** Siga estas instrucciones para completar la unión a un dominio.
+**Solución:** realice una de las siguientes acciones para resolverlo.
 
-1. Quite temporalmente la MFA para la cuenta.
-2. Use una cuenta de servicio.
+- Quite temporalmente la MFA para la cuenta.
+- Use una cuenta de servicio.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error: La cuenta usada durante el aprovisionamiento no tiene permisos para completar la operación
 
 **Causa:** La cuenta usada no tiene permisos para unir las VM al dominio debido al cumplimiento de normas y reglamentos.
 
-**Corrección:** Siga estas instrucciones.
+**Solución:** realice una de las siguientes acciones para resolverlo.
 
-1. Use una cuenta que sea miembro del grupo Administrador.
-2. Conceda los permisos necesarios para la cuenta usada.
+- Use una cuenta que sea miembro del grupo Administrador.
+- Conceda los permisos necesarios para la cuenta usada.
 
 ### <a name="error-domain-name-doesnt-resolve"></a>Error: El nombre de dominio no se resuelve
 
-**Causa 1:** Las VM están en un grupo de recursos que no está asociado con la red virtual (VNET) donde se encuentra el dominio.
+**Causa 1:** las máquinas virtuales están en una red virtual que no está asociada con la red virtual (VNET) donde se encuentra el dominio.
 
 **Corrección 1:** Cree el emparejamiento de VNET entre la red virtual donde se han aprovisionado las VM y la red virtual donde se ejecuta el controlador de dominio (DC). Consulte [Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Causa 2:** Al usar AadService (AADS), no se han establecido las entradas de DNS.
+**Causa 2:** cuando se usa Azure Active Directory Domain Services (Azure AD DS), la red virtual no tiene la configuración del servidor DNS actualizada para apuntar a los controladores de dominio administrados.
 
-**Corrección 2:** Para establecer los servicios de dominio, consulte [Habilitación de Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Corrección 2:** con el fin de actualizar la configuración DNS de la red virtual que contiene Azure AD DS, [consulte Actualización de la configuración DNS para la red virtual de Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Causa 3:** la configuración del servidor DNS de la interfaz de red no apunta al servidor DNS adecuado en la red virtual.
+
+**Corrección 3:** realice una de las siguientes acciones para resolverlo, siguiendo los pasos descritos en [Cambio de servidores DNS].
+- Cambie la configuración del servidor DNS de la interfaz de red a **Personalizado** con los pasos que se indican en [Cambio de servidores DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) y especifique las direcciones IP privadas de los servidores DNS en la red virtual.
+- Cambie la configuración del servidor DNS de la interfaz de red a **Herencia de la red virtual** con los pasos que se indican en [Cambio de servidores DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) y, después, cambie la configuración del servidor DNS de la red virtual con los pasos que se indican en [Cambio de servidores DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>El agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop no están instalados
 

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532448"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124922"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -141,7 +141,7 @@ De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un re
 
 Azure proporciona informes que puede usarlos usted y su organización para asegurarse de que los usuarios se registren en MFA y SSPR. Puede que los usuarios que aún no se hayan registrado necesiten instrucciones para realizar el proceso.
 
-El [informe de inicios de sesión](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) de MFS incluye información sobre el uso de MFA y le ofrece conclusiones sobre el funcionamiento de MFA en su organización. Tener acceso a la actividad de inicio de sesión (y a las auditorías y los eventos de riesgo) de Azure AD es fundamental para la solución de problemas, el análisis de uso y las investigaciones forenses.
+El [informe de inicios de sesión](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) de MFS incluye información sobre el uso de MFA y le ofrece conclusiones sobre el funcionamiento de MFA en su organización. El acceso a la actividad de inicio de sesión (así como a las auditorías y las detecciones de riesgo) de Azure AD es fundamental para la solución de problemas, el análisis de uso y las investigaciones forenses.
 
 Del mismo modo, el [informe de autoservicio de administración de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) puede usarse para determinar quién se ha registrado (o no) en SSPR.
 

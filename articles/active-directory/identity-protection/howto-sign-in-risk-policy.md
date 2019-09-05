@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335411"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126310"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Instrucciones: Configuración de la directiva de riesgo de inicio de sesión
 
-Azure Active Directory detecta [tipos de eventos de riesgo](../reports-monitoring/concept-risk-events.md#risk-event-types) en tiempo real y sin conexión. Cada evento de riesgo que se haya detectado durante el inicio de sesión de un usuario contribuye a un concepto lógico, llamado inicio de sesión peligroso. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
+Azure Active Directory detecta [tipos de detección de riesgo](../reports-monitoring/concept-risk-events.md#risk-detection-types) en tiempo real y sin conexión. Cada detección de riesgo que se haya detectado durante el inicio de sesión de un usuario contribuye a un concepto lógico, llamado inicio de sesión de riesgo. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>¿Qué es la directiva de riesgo de inicio de sesión?
 
-AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. Por ejemplo, ¿el inicio de sesión se realiza con una dirección IP anónima o el inicio de sesión comenzó en una ubicación desconocida? En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como eventos de riesgo. En función de los eventos de riesgo detectados durante un inicio de sesión, Azure AD calcula un valor. El valor representa la probabilidad (baja, media, alta) de que el inicio de sesión no proceda de un usuario legítimo. Esta probabilidad se denomina **nivel de riesgo de inicio de sesión**.
+AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. Por ejemplo, ¿el inicio de sesión se realiza con una dirección IP anónima o el inicio de sesión comenzó en una ubicación desconocida? En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como detecciones de riesgo. En función de las detecciones de riesgo detectadas durante un inicio de sesión, Azure AD calcula un valor. El valor representa la probabilidad (baja, media, alta) de que el inicio de sesión no proceda de un usuario legítimo. Esta probabilidad se denomina **nivel de riesgo de inicio de sesión**.
 
 La directiva de riesgo de inicio de sesión es una respuesta automatizada que puede configurar para un nivel de riesgo de inicio de sesión específico. En la respuesta, puede bloquear el acceso a los recursos o enviar un desafío de autenticación multifactor (MFA) para obtener acceso.
    

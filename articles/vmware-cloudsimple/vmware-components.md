@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543713"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972356"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nube privada
 
-Una nube privada es un entorno de pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter en un dominio de administración.  El servicio CloudSimple permite implementar de forma nativa VMware en una infraestructura de Azure sin sistema operativo en ubicaciones de Azure.  Las nubes privadas se integran con el resto de la nube de Azure.  Una nube privada se implementa con los siguientes componentes de la pila de VMware:
+Una nube privada es un entorno de pila de VMware aislado (hosts ESXi, vCenter, vSAN y NSX) que administra un servidor vCenter en un dominio de administración.  El servicio CloudSimple permite implementar de forma nativa VMware en una infraestructura de Azure sin sistema operativo en ubicaciones de Azure.  Las nubes privadas se integran con el resto de la nube de Azure.  Una nube privada se implementa con los siguientes componentes de la pila de VMware:
 
 * **VMware ESXi:** hipervisor en nodos dedicados de Azure
 * **VMware vCenter:** dispositivo para la administración centralizada del entorno de nube privada vSphere

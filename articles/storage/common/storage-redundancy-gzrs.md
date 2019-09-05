@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516137"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036332"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
@@ -70,7 +70,7 @@ Cuando una zona de disponibilidad pasa a no estar disponible, Azure realiza actu
 Si un error afecta a toda la región primaria, Microsoft intentará restaurar primero dicha región. Si no es posible la restauración, Microsoft conmutará por error a la región secundaria, de modo que dicha región se convierte en la nueva región primaria. Si la cuenta de almacenamiento tiene habilitado RA-GZRS, las aplicaciones diseñadas para este escenario pueden leer desde la región secundaria mientras esperan la conmutación por error. Si la cuenta de almacenamiento no tiene RA-GZRS habilitado, las aplicaciones no podrán leer desde la región secundaria hasta que se complete la conmutación por error.
 
 > [!NOTE]
-> GZRS y RA-GZRS se encuentran actualmente en versión preliminar solo en la región Este de EE. UU. 2. La conmutación por error de la cuenta administrada por el cliente (versión preliminar) todavía no está disponible en el este de EE. UU. 2, por lo que los clientes no pueden administrar actualmente eventos de conmutación por error de cuenta con cuentas GZRS y RA-GZRS. Durante la versión preliminar, Microsoft administrará los eventos de conmutación por error que afecten a las cuentas GZRS y RA-GZRS.
+> GZRS y RA-GZRS se encuentran actualmente en versión preliminar solo en la región Este de EE. UU. La conmutación por error de la cuenta administrada por el cliente (versión preliminar) todavía no está disponible en el este de EE. UU. 2, por lo que los clientes no pueden administrar actualmente eventos de conmutación por error de cuenta con cuentas GZRS y RA-GZRS. Durante la versión preliminar, Microsoft administrará los eventos de conmutación por error que afecten a las cuentas GZRS y RA-GZRS.
 
 Dado que los datos se replican en la región secundaria de forma asincrónica, un error que afecte a la región primaria puede producir la pérdida de datos si no se puede recuperar dicha región. El intervalo entre las escrituras más recientes en la región primaria y la última escritura en la región secundaria se conoce como objetivo de punto de recuperación (RPO). El RPO indica el punto en el tiempo al que se pueden recuperar los datos. Normalmente, Azure Storage tiene un RPO inferior a 15 minutos, aunque actualmente no hay ningún contrato de nivel de servicio sobre cuánto tiempo tarda la replicación de datos en la región secundaria.
 

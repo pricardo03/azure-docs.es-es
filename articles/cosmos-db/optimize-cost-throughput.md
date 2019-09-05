@@ -4,14 +4,14 @@ description: En este artículo se explica cómo optimizar los costos de rendimie
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614996"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020099"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Al aprovisionar el rendimiento en diferentes niveles, puede optimizar los costos
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Optimización con limitación de velocidad de las solicitudes
 
-Para cargas de trabajo que no son sensibles a la latencia, puede aprovisionar menos rendimiento y dejar que la aplicación controle la limitación de velocidad cuando el rendimiento real supere el rendimiento aprovisionado. El servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado `x-ms-retry-after-ms` para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de reintentar la solicitud. 
+Para cargas de trabajo que no son sensibles a la latencia, puede aprovisionar menos rendimiento y dejar que la aplicación controle la limitación de velocidad cuando el rendimiento real supere el rendimiento aprovisionado. El servidor finalizará de forma preventiva la solicitud con `RequestRateTooLarge` (código de estado HTTP 429) y devolverá el encabezado `x-ms-retry-after-ms` para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de reintentar la solicitud. 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 Los SDK nativos (.NET/.NET Core, Java, Node.js y Python) capturan implícitamente esta respuesta, respetan el encabezado retry-after especificado por el servidor y reintentan la solicitud. A menos que varios clientes accedan a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
-Si tiene más de un cliente de manera acumulativa funcionando constantemente por encima de la tasa de solicitud, el número de reintentos predeterminado que actualmente se establece en 9 puede no ser suficiente. En este caso, el cliente genera un `DocumentClientException` con el estado de código 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo `RetryOptions` en la instancia ConnectionPolicy. De forma predeterminada, la excepción DocumentClientException con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario. 
+Si tiene más de un cliente de manera acumulativa funcionando constantemente por encima de la tasa de solicitud, el número de reintentos predeterminado que actualmente se establece en 9 puede no ser suficiente. En este caso, el cliente genera un `DocumentClientException` con el estado de código 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo `RetryOptions` en la instancia ConnectionPolicy. De forma predeterminada, la excepción `DocumentClientException` con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) se establece en 3, por lo que, en este caso, si una operación de solicitud está limitada por velocidad al exceder el rendimiento reservado para la colección, la operación de solicitud reintenta tres veces antes de iniciar la excepción a la aplicación. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) se establece en 60, por lo que, en este caso, si el tiempo de espera de reintento acumulativo en segundos desde la primera solicitud supera los 60 segundos, se produce la excepción.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) se establece en 3, por lo que, en este caso, si una operación de solicitud tiene una tasa limitada al superar el rendimiento reservado para el contenedor, la operación de solicitud volverá a intentarlo tres veces antes de iniciar la excepción en la aplicación. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) se establece en 60, por lo que, en este caso, si el tiempo de espera acumulativo de reintento desde la primera solicitud supera los 60 segundos, se inicia la excepción.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 

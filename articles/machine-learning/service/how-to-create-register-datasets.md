@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/21/2019
-ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 08/22/2019
+ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616341"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992112"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creación y acceso a conjuntos de datos (versión preliminar) en Azure Machine Learning
 
@@ -44,7 +44,8 @@ Para crear y trabajar con conjuntos de datos, necesita:
 > Algunas clases Dataset (versión preliminar) tienen dependencias en el paquete [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
 ## <a name="dataset-types"></a>Tipos de conjuntos de datos
-Los conjuntos de valores se clasifican en varios tipos en función de cómo los usuarios los consumen en el entrenamiento. Actualmente se admite la clase TabularDatasets que representa los datos en formato tabular mediante el análisis del archivo o de la lista de los archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas. TabularDataset se puede crear a partir de archivos csv, tsv, parquet, resultados de consultas SQL, etc. Para obtener una lista completa, visite nuestra documentación.
+
+Los conjuntos de valores se clasifican en varios tipos en función de cómo los usuarios los consumen en el entrenamiento. Actualmente se admite la clase [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), que representa los datos en formato tabular mediante el análisis del archivo o la lista de los archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas. Se puede crear un objeto `TabularDataset` a partir de archivos csv, tsv o parquet, resultados de consultas SQL, etc. Para obtener una lista completa, visite nuestra documentación.
 
 Para más información sobre los próximos cambios en la API, consulte [¿Qué es Azure Machine Learning Service?](https://aka.ms/tabular-dataset) 
 
@@ -136,7 +137,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-your-data-during-training"></a>Acceso a los datos durante el aprendizaje
 
-Es posible acceder local y remotamente a los conjuntos de datos registrados en clústeres de proceso como el proceso de Azure Machine Learning. Para acceder al conjunto de datos registrado en experimentos, use el siguiente código para obtener el área de trabajo y el conjunto de datos registrado por nombre. De forma predeterminada, el método `get_by_name` en la clase `Dataset` devuelve la versión más reciente del conjunto de los valores registrados en el área de trabajo.
+Es posible acceder local y remotamente a los conjuntos de datos registrados en clústeres de proceso como el proceso de Azure Machine Learning. Para acceder al conjunto de datos registrado en experimentos, use el siguiente código para obtener el área de trabajo y el conjunto de datos registrado por nombre. De forma predeterminada, el método [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) en la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrados con el área de trabajo.
 
 ```Python
 %%writefile $script_folder/train.py

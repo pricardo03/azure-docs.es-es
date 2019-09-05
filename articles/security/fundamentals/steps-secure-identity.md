@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934615"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129315"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -130,7 +130,7 @@ Azure Active Directory tiene varias funcionalidades que interceptan ataques auto
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementar la directiva de seguridad de riesgo de usuario con Azure AD Identity Protection
 
-El riesgo de usuario indica la probabilidad de que la identidad de un usuario se haya visto comprometida, y se calcula en función de los [eventos de riesgo de usuario](../../active-directory/identity-protection/overview.md) que están asociados con la identidad del usuario. Una directiva de riesgo de usuario es una directiva de acceso condicional que evalúa el nivel de riesgo para un usuario o grupo de usuarios específico. Según el nivel de riesgo (bajo, medio o alto), se puede configurar la directiva para que bloquee el acceso o solicite un cambio de contraseña segura mediante la autenticación multifactor. Microsoft le recomienda exigir un cambio de contraseña seguro a aquellos usuarios de alto riesgo.
+El riesgo de usuario indica la probabilidad de que la identidad de un usuario se haya visto comprometida, y se calcula en función de las [detecciones de riesgo de usuario](../../active-directory/identity-protection/overview.md) que están asociadas con la identidad del usuario. Una directiva de riesgo de usuario es una directiva de acceso condicional que evalúa el nivel de riesgo para un usuario o grupo de usuarios específico. Según el nivel de riesgo (bajo, medio o alto), se puede configurar la directiva para que bloquee el acceso o solicite un cambio de contraseña segura mediante la autenticación multifactor. Microsoft le recomienda exigir un cambio de contraseña seguro a aquellos usuarios de alto riesgo.
 
 ![Usuarios marcados con riesgo](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ En [Supervisión de AD FS mediante Azure AD Connect Health](../../active-directo
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Supervisar eventos de Azure AD Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) es una herramienta de supervisión, notificación y generación de informes que se puede usar para detectar posibles vulnerabilidades que afecten a las identidades de una organización. Detecta eventos de riesgo, como credenciales filtradas, viajes imposibles e inicios de sesión desde dispositivos infectados, direcciones IP anónimas, direcciones IP asociadas con la actividad sospechosa y ubicaciones desconocidas. Habilite las alertas de notificación para recibir correos electrónicos de usuarios en riesgo o un correo electrónico semanal de resumen.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) es una herramienta de supervisión, notificación y generación de informes que se puede usar para detectar posibles vulnerabilidades que afecten a las identidades de una organización. Descubre detecciones de riesgo, como credenciales filtradas, viajes imposibles e inicios de sesión desde dispositivos infectados, direcciones IP anónimas, direcciones IP asociadas con la actividad sospechosa y ubicaciones desconocidas. Habilite las alertas de notificación para recibir correos electrónicos de usuarios en riesgo o un correo electrónico semanal de resumen.
 
 Azure AD Identity Protection dispone de dos informes importantes que debe supervisar a diario:
 1. Los informes de inicios de sesión de riesgo ponen de manifiesto las actividades de inicio de sesión de los usuarios que deben investigarse, ya que es posible que el inicio de sesión no lo haya realizado el propietario legítimo.

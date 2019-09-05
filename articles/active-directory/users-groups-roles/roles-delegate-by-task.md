@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4def4a6e8ca743ce03151f45e17da03d748c121e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083785"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126914"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -143,6 +143,8 @@ Actualizar aprovisionamiento de aplicaciones empresariales | Propietario de la a
 Actualizar autoservicio de aplicaciones empresariales | Propietario de la aplicación empresarial ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicaciones en la nube, Administrador de aplicaciones
 Actualizar propiedades del inicio de sesión único | Propietario de la aplicación empresarial ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicaciones en la nube, Administrador de aplicaciones
 
+
+
 ## <a name="groups"></a>Grupos
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
@@ -169,10 +171,10 @@ Configurar y habilitar o deshabilitar la directiva de MFA| Administrador de segu
 Configurar y habilitar o deshabilitar la directiva de riesgo de inicio de sesión| Administrador de seguridad | 
 Configurar y habilitar o deshabilitar la directiva de riesgo de usuario | Administrador de seguridad | 
 Configurar resúmenes semanales | Administrador de seguridad| 
-Descarte de todos los eventos de riesgo | Administrador de seguridad | 
+Descartar todas las detecciones de riesgo | Administrador de seguridad | 
 Corregir o descartar vulnerabilidad | Administrador de seguridad | 
 Leer toda la configuración | Lector de seguridad | 
-Leer todos los eventos de riesgo | Lector de seguridad | 
+Leer todas las detecciones de riesgo | Lector de seguridad | 
 Leer vulnerabilidades | Lector de seguridad | 
 
 ## <a name="licenses"></a>Licencias

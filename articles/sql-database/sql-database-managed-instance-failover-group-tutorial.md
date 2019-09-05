@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624980"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103087"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -29,7 +29,9 @@ Agregue una instancia administrada de SQL Database a un grupo de conmutación po
 > - Conmutación por error de prueba
 
   > [!NOTE]
-  > La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de instancia administrada](sql-database-managed-instance.md#managed-instance-management-operations). El uso de grupos de conmutación por error con instancias administradas actualmente se encuentra en versión preliminar. 
+  > - Al completar este tutorial, asegúrese de que está configurando los recursos con los [requisitos previos para configurar grupos de conmutación por error para la instancia administrada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de instancia administrada](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - El uso de grupos de conmutación por error con instancias administradas actualmente se encuentra en versión preliminar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,16 +40,18 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 - Una suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una. 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1\. Creación de un grupo de recursos y una instancia administrada principal
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1\. Creación de un grupo de recursos y una instancia administrada principal
 En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
-1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal. 
-1. Escriba `managed instance` en el cuadro de búsqueda y seleccione la opción de la instancia administrada de Azure SQL. 
-1. Seleccione **Crear**  para iniciar la página de creación de **Instancia administrada de SQL**. 
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
+
+    ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. En la página **Crear instancia administrada de Azure SQL Database**, desde la pestaña **Aspectos básicos**
     1. En **Detalles del proyecto**, seleccione su **Suscripción** en la lista desplegable y, a continuación, elija **Crear nuevo** en grupo de recursos. Escriba un nombre para el grupo de recursos, como `myResourceGroup`. 
-    1. En **Detalles de la instancia administrada**, proporcione el nombre de la instancia administrada y la región en la que quiere implementar la instancia administrada. Asegúrese de seleccionar una región con una [región emparejada](/azure/best-practices-availability-paired-regions). Deje el campo **Proceso y almacenamiento** con el valor predeterminado. 
+    1. En **Detalles de la instancia administrada**, proporcione el nombre de la instancia administrada y la región en la que quiere implementar la instancia administrada. Deje el campo **Proceso y almacenamiento** con el valor predeterminado. 
     1. En **Cuenta de administrador** proporcione un inicio de sesión de administrador (como `azureuser`) y una contraseña de administrador compleja. 
 
     ![Creación de una instancia administrada principal](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +83,7 @@ Para crear una red virtual, siga estos pasos:
     | **Nombre** |  Nombre de la red virtual que va a usar la instancia administrada secundaria, como `vnet-sql-mi-secondary`. |
     | **Espacio de direcciones** | Espacio de direcciones de la red virtual, como `10.128.0.0/16`. | 
     | **Suscripción** | Suscripción en la que residen la instancia administrada principal y el grupo de recursos. |
-    | **Región** | Ubicación donde se implementará la instancia administrada secundaria; debe estar en una [región emparejada](/azure/best-practices-availability-paired-regions) con la instancia administrada principal.  |
+    | **Región** | Ubicación en la que implementará la instancia administrada secundaria. |
     | **Subred** | Nombre de la subred. De forma predeterminada, se proporciona `default`. |
     | **Intervalo de direcciones**| Intervalo de direcciones para la subred. Debe ser distinto al intervalo de direcciones de subred que usó la red virtual de la instancia administrada principal, como `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
@@ -92,13 +96,16 @@ En este paso, creará una instancia administrada secundaria en Azure Portal, que
 
 La segunda instancia administrada debe:
 - Estar vacía. 
-- Estar ubicada en una [región emparejada](/azure/best-practices-availability-paired-regions) con su homólogo de instancia administrada principal. 
 - Tener una subred y un intervalo de direcciones IP distintos de los de la instancia administrada principal. 
 
 Para crear la instancia administrada secundaria, siga estos pasos: 
 
-1. En [Azure Portal](http://portal.azure.com), seleccione **Crear un recurso** y busque *Instancia administrada de Azure SQL*. 
-1. Seleccione la opción **Instancia administrada de Azure SQL** publicada por Microsoft y, a continuación, seleccione **Crear** en la página siguiente.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
+
+    ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. En la pestaña **Aspectos básicos** de la página **Crear instancia administrada de Azure SQL Database**, rellene los campos obligatorios para configurar la instancia administrada secundaria. 
 
    En la tabla siguiente se muestran los valores necesarios para la instancia administrada secundaria:
@@ -108,7 +115,7 @@ Para crear la instancia administrada secundaria, siga estos pasos:
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Grupos de recursos**| Grupo de recursos en el que reside la instancia administrada principal. |
     | **Nombre de la instancia administrada** | Nombre de la nueva instancia administrada secundaria, como `sql-mi-secondary`  | 
-    | **Región**| Ubicación de la [región emparejada](/azure/best-practices-availability-paired-regions) para la instancia administrada secundaria.  |
+    | **Región**| Ubicación de la instancia administrada secundaria.  |
     | **Inicio de sesión de administrador de la instancia administrada** | Inicio de sesión que quiere usar para la nueva instancia administrada secundaria, como `azureuser`. |
     | **Contraseña** | Contraseña compleja que usará el inicio de sesión del administrador para la nueva instancia administrada secundaria.  |
     | &nbsp; | &nbsp; |
@@ -208,9 +215,8 @@ Para configurar la conectividad, siga estos pasos:
 ## <a name="7---create-a-failover-group"></a>7\. Creación de un grupo de conmutación por error
 En este paso, creará el grupo de conmutación por error y le agregará ambas instancias administradas. 
 
-1. En [Azure Portal](https://portal.azure.com), vaya a **Todos los servicios** y escriba `managed instance` en el cuadro de búsqueda. 
-1. (Opcional) Seleccione la estrella junto a **Instancias administradas de SQL** para agregar las instancias administradas como acceso directo a la barra de navegación izquierda. 
-1. Seleccione **Instancias administradas de SQL** y seleccione la instancia administrada principal, como `sql-mi-primary`. 
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione la instancia administrada principal que creó en la primera sección, por ejemplo, `sql-mi-primary`. 
 1. En **Configuración**, navegue a **Grupos de conmutación por error de instancias** y, después, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
 
    ![Adición de un grupo de conmutación por error](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

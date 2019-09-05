@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639780"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034960"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Limitar el tráfico de salida en los nodos de clúster y controlar el acceso a los puertos y servicios necesarios en Azure Kubernetes Service (AKS), versión preliminar
 
@@ -85,15 +85,13 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 |----------------------------|-----------|----------|
 | *.hcp.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
 | *.tun.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Esta dirección es el punto de conexión del servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
-| aksrepos.azurecr.io        | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Azure Container Registry (ACR). |
+| aksrepos.azurecr.io        | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Azure Container Registry (ACR). Este registro contiene imágenes y gráficos de terceros (por ejemplo, servidor de métricas, DNS principal, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster.|
 | \* .blob.core.windows.net    | HTTPS:443 | Esta dirección es el almacén de back-end para las imágenes almacenadas en ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). |
+| mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
 | *.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
 | management.azure.com       | HTTPS:443 | Esta dirección es necesaria para las operaciones de Kubernetes GET o PUT. |
 | login.microsoftonline.com  | HTTPS:443 | Esta dirección es necesaria para la autenticación de Azure Active Directory. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Esta dirección es necesaria para instalar paquetes de ajuste en nodos de Linux. |
 | ntp.ubuntu.com             | UDP:123   | Esta dirección es necesaria para la sincronización de la hora NTP en nodos de Linux. |
-| *.docker.io                | HTTPS:443 | Esta dirección es necesaria para extraer imágenes de contenedor necesarios para la parte delantera del túnel. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Direcciones y puertos recomendados opcionales para clústeres de AKS
 
@@ -103,7 +101,7 @@ Se recomiendan las siguientes reglas de aplicación / FQDN para que los clúster
 
 | FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Esta dirección permite a los nodos del clúster de Linux descargar las revisiones de seguridad y actualizaciones necesarias. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | Esta dirección permite a los nodos del clúster de Linux descargar las revisiones de seguridad y actualizaciones necesarias. |
 | packages.microsoft.com                  | HTTPS:443 | Esta dirección es el repositorio de paquetes de Microsoft que se usa para las operaciones *apt-get* almacenadas en caché. |
 | dc.services.visualstudio.com            | HTTPS:443 | Se recomienda para la supervisión y las métricas correctas mediante Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Se recomienda para la supervisión y las métricas correctas mediante Azure Monitor. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927884"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129278"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -30,13 +30,13 @@ Azure proporciona una amplia gama de opciones para configurar y personalizar la 
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) es una característica de la edición [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) que proporciona información general de los eventos de riesgo y las posibles vulnerabilidades que pueden afectar a las identidades de la organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure AD que están disponibles mediante [informes de actividad anómala de Azure AD](../../active-directory/active-directory-reporting-azure-portal.md) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) es una característica de la edición [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) que proporciona información general de las detecciones de riesgo y las posibles vulnerabilidades que pueden afectar a las identidades de la organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure AD que están disponibles mediante [informes de actividad anómala de Azure AD](../../active-directory/active-directory-reporting-azure-portal.md) e introduce nuevos tipos de detección de riesgo que pueden detectar anomalías en tiempo real.
 
 ![Diagrama de Azure AD Identity Protection](./media/threat-detection/azure-threat-detection-fig1.png)
 
-En Identity Protection se usan algoritmos de aprendizaje automático adaptables y heurísticos para detectar anomalías y eventos de riesgo que es posible que indiquen que una identidad se ha puesto en peligro. Con estos datos, Identity Protection genera informes y alertas que permiten investigar estos eventos de riesgo y tomar las acciones de corrección o mitigación adecuadas.
+En Identity Protection se usan algoritmos y heurística de aprendizaje automático adaptable para detectar anomalías y detecciones de riesgo que es posible que indiquen que una identidad se ha puesto en peligro. Con estos datos, Identity Protection genera informes y alertas que permiten investigar estas detecciones de riesgo y tomar las acciones de corrección o mitigación adecuadas.
 
-Azure Active Directory Identity Protection es más que una herramienta de supervisión e informes. En función de los eventos de riesgo, Identity Protection calcula un nivel de riesgo del usuario para cada usuario, para que pueda configurar las directivas basadas en riesgos con el fin de proteger de forma automática las identidades de la organización.
+Azure Active Directory Identity Protection es más que una herramienta de supervisión e informes. En función de las detecciones de riesgo, Identity Protection calcula un nivel de riesgo del usuario para cada usuario, de modo que pueda configurar las directivas basadas en riesgos con el fin de proteger de forma automática las identidades de la organización.
 
 Estas directivas basadas en riesgos, además de otros [controles de acceso condicional](../../active-directory/active-directory-conditional-access-azure-portal.md) proporcionados por Azure Active Directory y [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), pueden bloquear automáticamente u ofrecer acciones de corrección adaptables que incluyen el restablecimiento de contraseñas y el cumplimiento de la autenticación multifactor.
 
@@ -46,14 +46,14 @@ Azure Active Directory Identity Protection es más que una herramienta de superv
 
 Ejemplos de algunas de las maneras en que Azure Identity Protection puede ayudar a proteger las cuentas e identidades:
 
-[Detección de eventos de riesgo y cuentas peligrosas](../../active-directory/identity-protection/overview.md)
--   Detectar seis tipos de eventos de riesgo mediante el aprendizaje automático y las reglas heurísticas.
+[Detecciones de riesgo y cuentas peligrosas](../../active-directory/identity-protection/overview.md)
+-   Detecte seis tipos de detecciones de riesgo mediante el aprendizaje automático y las reglas heurísticas.
 -   Calcular los niveles de riesgo del usuario.
 -   Proporcionar recomendaciones personalizadas para mejorar la posición de seguridad general al resaltar los puntos vulnerables.
 
-[Investigación de los eventos de riesgo](../../active-directory/identity-protection/overview.md)
--   Enviar notificaciones de los eventos de riesgo.
--   Investigar los eventos de riesgo con información pertinente y contextual.
+[Investigación de las detecciones de riesgo](../../active-directory/identity-protection/overview.md)
+-   Enviar notificaciones de las detecciones de riesgo.
+-   Investigar las detecciones de riesgo con información pertinente y contextual.
 -   Proporcionar los flujos de trabajo básicos para realizar un seguimiento de las investigaciones.
 -   Proporcionar un acceso fácil a las acciones de corrección, como el restablecimiento de contraseñas.
 
@@ -384,6 +384,6 @@ Para obtener ejemplos de los firewalls de aplicaciones web que están disponible
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Funcionalidades de detección de Azure Security Center](../../security-center/security-center-detection-capabilities.md): ayuda a identificar las amenazas activas dirigidas a los recursos de Azure y proporciona la información necesaria para responder a estas amenazas con rapidez.
+- [Respuesta a las amenazas actuales](../../security-center/security-center-alerts-overview.md#respond-threats): ayuda a identificar las amenazas activas dirigidas a los recursos de Azure y proporciona la información necesaria para responder a estas amenazas con rapidez.
 
 - [Detección de amenazas de Azure SQL Database](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): ayuda a eliminar las preocupaciones sobre las amenazas contra las bases de datos.

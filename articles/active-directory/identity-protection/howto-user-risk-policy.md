@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335443"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126286"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Instrucciones: Configuración de la directiva de riesgo del usuario
 
@@ -26,9 +26,9 @@ En este artículo se proporciona la información necesaria para configurar la di
 
 ## <a name="what-is-a-user-risk-policy"></a>¿Qué es una directiva de riesgo de usuario?
 
-AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como eventos de riesgo. Aunque algunos eventos de riesgo se pueden detectar en tiempo real, también hay eventos de riesgo que requieren más tiempo. Por ejemplo, para detectar un viaje imposible a ubicaciones inusuales, el sistema requiere un período de aprendizaje inicial de 14 días para conocer el comportamiento normal de un usuario. Hay varias opciones para resolver los eventos de riesgo detectados. Por ejemplo, puede resolver los eventos de riesgo individuales manualmente, o puede resolverlos con una directiva de acceso condicional de riesgo de inicio de sesión o de riesgo de usuario.
+AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como detecciones de riesgo. Aunque algunas detecciones de riesgo se pueden detectar en tiempo real, también hay detecciones de riesgo que requieren más tiempo. Por ejemplo, para detectar un viaje imposible a ubicaciones inusuales, el sistema requiere un período de aprendizaje inicial de 14 días para conocer el comportamiento normal de un usuario. Hay varias opciones para resolver las detecciones de riesgo detectadas. Por ejemplo, puede resolver las detecciones de riesgo individuales manualmente, o puede resolverlas con una directiva de acceso condicional de riesgo de inicio de sesión o de riesgo de usuario.
 
-Todos los eventos de riesgo que se han detectado para un usuario y no se resuelven, se conocen como eventos de riesgo activos. Los eventos de riesgo activos que están asociados con un usuario se conocen como riesgos de usuario. Según el riesgo de usuario, Azure AD calcula una probabilidad (baja, media, alta) de que un usuario esté en peligro. La probabilidad se denomina nivel de riesgo de usuario.
+Todas las detecciones de riesgo que se han detectado para un usuario y no se han resuelto se conocen como detecciones de riesgo activas. Las detecciones de riesgo activas que están asociadas con un usuario se conocen como riesgos de usuario. Según el riesgo de usuario, Azure AD calcula una probabilidad (baja, media, alta) de que un usuario esté en peligro. La probabilidad se denomina nivel de riesgo de usuario.
 
 ![Riesgos de usuario](./media/howto-user-risk-policy/1031.png)
 
@@ -72,8 +72,8 @@ Puede establecer una directiva de seguridad de riesgo de usuario para impedir qu
 
 El bloqueo de un inicio de sesión:
 
-* Evita la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
-* Permite a los administradores corregir manualmente los eventos de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
+* Impide la generación de nuevas detecciones de riesgo del usuario para el usuario afectado.
+* Permite a los administradores corregir manualmente las detecciones de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

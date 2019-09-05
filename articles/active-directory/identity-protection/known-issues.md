@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: fe7125174129752e6d6dbe0e00d01d4f32755333
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333892"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126105"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Preguntas frecuentes y problemas conocidos con la versión actualizada de Identity Protection de Azure Active Directory
 
@@ -34,15 +34,15 @@ Las consultas en el campo **Nombre de usuario** distinguen mayúsculas de minús
 
 Si activa o desactiva **Show dates as (Mostrar fechas como)** se ocultará o mostrará la columna **RISK LAST UPDATED** (ÚLTIMA ACTUALIZACIÓN DE RIESGO). Para volver a agregar la columna, haga clic en **Columnas** en la parte superior de la hoja Usuarios de riesgo.
 
-**Descartar todos los eventos** en la versión clásica de Identity Protection establece el estado de los eventos de riesgo en **Closed (resolved)** [Cerrado (resuelto)].
+**Descartar todos los eventos** en la versión clásica de Identity Protection establece el estado de las detecciones de riesgo en **Cerrada (resuelta)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Problemas conocidos del informe de inicios de sesión en riesgo
 
-**Resolver** en un evento de riesgo establece el estado en **Users passed MFA driven by risk-based policy** (Los usuarios superaron el proceso de MFA según una directiva basada en riesgo).
+**Resolver** en una detección de riesgo establece el estado en **Los usuarios superaron el proceso de MFA según una directiva basada en riesgo**.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>¿Por qué no puedo establecer mis propios niveles de riesgo para cada evento de riesgo?
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>¿Por qué no puedo establecer mis propios niveles de riesgo para cada detección de riesgo?
 
 Los niveles de riesgo de Identity Protection se basan en la precisión de la detección y en la tecnología de aprendizaje automático supervisado. Para personalizar qué usuarios de la experiencia se presentan, el administrador puede incluir o excluir ciertos usuarios o grupos de las directivas Riesgo de usuario y Riesgo de inicio de sesión.
 
@@ -68,11 +68,11 @@ La asignación de geolocalización de direcciones IP es un desafío que afecta a
 - Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos.
 
     > [!NOTE]
-    > Si cree que el usuario no está en peligro, use **Descartar el riesgo del usuario** en el nivel de usuario en lugar de usar **Confirmado (seguro)** en el nivel de inicio de sesión. **Descartar el riesgo del usuario** en el nivel de usuario cierra el riesgo del usuario, así como todos los inicios de sesión y los eventos de riesgo pasados.
+    > Si cree que el usuario no está en peligro, use **Descartar el riesgo del usuario** en el nivel de usuario en lugar de usar **Confirmado (seguro)** en el nivel de inicio de sesión. **Descartar el riesgo del usuario** en el nivel de usuario cierra el riesgo del usuario, así como todas las detecciones de riesgo y los inicios de sesión pasados.
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>¿Por qué veo un usuario con una puntuación de riesgo baja (o superior) a pesar de no hay inicios de sesión ni eventos de riesgo en Identity Protection?
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>¿Por qué veo un usuario con una puntuación de riesgo baja (o superior) a pesar de que no hay inicios de sesión ni detecciones de riesgo en Identity Protection?
 
-Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usuario puede tener un riesgo de usuario bajo o superior, incluso si no hay eventos de riesgo o inicios de sesión de riesgo que se muestren en Identity Protection. Esto podría suceder si la actividad malintencionada en un usuario tuvo lugar fuera del período de tiempo durante el cual almacenamos los detalles de los inicios de sesión y de los eventos de riesgo. No permitimos que el riesgo del usuario expire porque se sabe que los malos actores permanecen en el entorno de los clientes más de 140 días detrás de una identidad comprometida antes de impulsar su ataque. Los clientes pueden revisar la escala de tiempo de riesgo del usuario, para entender porqué un usuario está en peligro, si se dirigen a: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usuario puede tener un riesgo de usuario bajo o superior, incluso si no hay detecciones de riesgo o inicios de sesión de riesgo que se muestren en Identity Protection. Esto podría suceder si la actividad malintencionada en un usuario ha tenido lugar fuera del período de tiempo durante el cual almacenamos los detalles de los inicios de sesión y de las detecciones de riesgo. No permitimos que el riesgo del usuario expire porque se sabe que los malos actores permanecen en el entorno de los clientes más de 140 días detrás de una identidad comprometida antes de impulsar su ataque. Los clientes pueden revisar la escala de tiempo de riesgo del usuario, para entender porqué un usuario está en peligro, si se dirigen a: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>¿Por qué un inicio de sesión tiene una puntuación alta en "sign-in risk (aggregate)" [Riesgo de inicio de sesión (agregado)] cuando las detecciones asociadas con él son de riesgo medio o bajo?
 

@@ -11,29 +11,29 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce4e2958978de9339f4340755e3740730025a5f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f244c28b99c429fef5641bb4fc399e09fd451069
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334034"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126553"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instrucciones: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado)
 
-Azure AD detecta eventos de riesgo que son indicadores de identidades potencialmente en peligro. Mediante la configuración de directivas de riesgo, puede definir respuestas automatizadas a los resultados de detección:
+Azure AD detecta detecciones de riesgo que son indicadores de identidades potencialmente en peligro. Mediante la configuración de directivas de riesgo, puede definir respuestas automatizadas a los resultados de detección:
 
-- Con la directiva de riesgo de inicio de sesión, puede configurar una respuesta a eventos de riesgo en tiempo real que se detecten durante el inicio de sesión del usuario. 
+- Con la directiva de riesgo de inicio de sesión, puede configurar una respuesta a detecciones de riesgo en tiempo real que se detecten durante el inicio de sesión del usuario. 
 - Con la directiva de riesgo del usuario, puede configurar una respuesta a todos los riesgos de usuario activo que se han detectado para un usuario a lo largo del tiempo.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>¿Qué es la directiva de riesgo de inicio de sesión?
 
-AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. Por ejemplo, ¿el inicio de sesión se realiza con una dirección IP anónima o el inicio de sesión comenzó en una ubicación desconocida? En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como eventos de riesgo. En función de los eventos de riesgo detectados durante un inicio de sesión, Azure AD calcula un valor. El valor representa la probabilidad (baja, media, alta) de que el inicio de sesión no proceda de un usuario legítimo. Esta probabilidad se denomina **nivel de riesgo de inicio de sesión**.
+AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. Por ejemplo, ¿el inicio de sesión se realiza con una dirección IP anónima o el inicio de sesión comenzó en una ubicación desconocida? En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como detecciones de riesgo. En función de las detecciones de riesgo detectadas durante un inicio de sesión, Azure AD calcula un valor. El valor representa la probabilidad (baja, media, alta) de que el inicio de sesión no proceda de un usuario legítimo. Esta probabilidad se denomina **nivel de riesgo de inicio de sesión**.
 
 La directiva de riesgo de inicio de sesión es una respuesta automatizada que puede configurar para un nivel de riesgo de inicio de sesión específico. En la respuesta, puede bloquear el acceso a los recursos o enviar un desafío de autenticación multifactor (MFA) para obtener acceso.
 
-Cuando un usuario completa correctamente un mensaje de AMF activado por la directiva de riesgo de inicio de sesión, proporciona comentarios a Identity Protection que indican que el inicio de sesión procede de un usuario legítimo. Por lo tanto, el evento de riesgo de inicio de sesión que desencadenó el aviso de MFA se cerrará automáticamente y Identity Protection impedirá que este evento contribuya a la elevación del riesgo del usuario. La habilitación de la directiva de riesgo de inicio de sesión puede reducir el ruido de la vista de inicios de sesión de riesgo permitiendo a los usuarios solucionarlo cuando se les pida MFA y, posteriormente, cerrar el inicio de sesión de riesgo asociado.
+Cuando un usuario completa correctamente un mensaje de AMF activado por la directiva de riesgo de inicio de sesión, proporciona comentarios a Identity Protection que indican que el inicio de sesión procede de un usuario legítimo. Por lo tanto, la detección de riesgo de inicio de sesión que ha desencadenado el mensaje de MFA se cerrará automáticamente e Identity Protection impedirá que este evento contribuya a la elevación del riesgo del usuario. La habilitación de la directiva de riesgo de inicio de sesión puede reducir el ruido de la vista de inicios de sesión de riesgo permitiendo a los usuarios solucionarlo cuando se les pida MFA y, posteriormente, cerrar el inicio de sesión de riesgo asociado.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo de inicio de sesión?
    
@@ -93,9 +93,9 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 ## <a name="what-is-a-user-risk-policy"></a>¿Qué es una directiva de riesgo de usuario?
 
-AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como eventos de riesgo. Aunque algunos eventos de riesgo se pueden detectar en tiempo real, también hay eventos de riesgo que requieren más tiempo. Por ejemplo, para detectar un viaje imposible a ubicaciones inusuales, el sistema requiere un período de aprendizaje inicial de 14 días para conocer el comportamiento normal de un usuario. Hay varias opciones para resolver los eventos de riesgo detectados. Por ejemplo, puede resolver los eventos de riesgo individuales manualmente, o puede resolverlos con una directiva de acceso condicional de riesgo de inicio de sesión o de riesgo de usuario.
+AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis es detectar acciones sospechosas que se realicen con el inicio de sesión. En Azure AD, las acciones sospechosas que el sistema puede detectar también se conocen como detecciones de riesgo. Aunque algunas detecciones de riesgo se pueden detectar en tiempo real, también hay detecciones de riesgo que requieren más tiempo. Por ejemplo, para detectar un viaje imposible a ubicaciones inusuales, el sistema requiere un período de aprendizaje inicial de 14 días para conocer el comportamiento normal de un usuario. Hay varias opciones para resolver las detecciones de riesgo detectadas. Por ejemplo, puede resolver las detecciones de riesgo individuales manualmente, o puede resolverlas con una directiva de acceso condicional de riesgo de inicio de sesión o de riesgo de usuario.
 
-Todos los eventos de riesgo que se han detectado para un usuario y no se resuelven, se conocen como eventos de riesgo activos. Los eventos de riesgo activos que están asociados con un usuario se conocen como riesgos de usuario. Según el riesgo de usuario, Azure AD calcula una probabilidad (baja, media, alta) de que un usuario esté en peligro. La probabilidad se denomina nivel de riesgo de usuario.
+Todas las detecciones de riesgo que se han detectado para un usuario y no se han resuelto se conocen como detecciones de riesgo activas. Las detecciones de riesgo activas que están asociadas con un usuario se conocen como riesgos de usuario. Según el riesgo de usuario, Azure AD calcula una probabilidad (baja, media, alta) de que un usuario esté en peligro. La probabilidad se denomina nivel de riesgo de usuario.
 
 ![Riesgos de usuario](./media/howto-configure-risk-policies/11031.png)
 
@@ -139,8 +139,8 @@ Puede establecer una directiva de seguridad de riesgo de usuario para impedir qu
 
 El bloqueo de un inicio de sesión:
 
-* Evita la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
-* Permite a los administradores corregir manualmente los eventos de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
+* Impide la generación de nuevas detecciones de riesgo del usuario para el usuario afectado.
+* Permite a los administradores corregir manualmente las detecciones de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

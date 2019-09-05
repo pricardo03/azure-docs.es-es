@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573971"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018781"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
 
@@ -76,7 +76,9 @@ Como se mencionó en la introducción, el procesador de fuente de cambios puede 
 
 Si estas tres condiciones son aplicables, el procesador de fuente de cambios, mediante el uso de un algoritmo de distribución equitativa, distribuye todas las concesiones en el contenedor de concesión en todas las instancias en ejecución y paraleliza el proceso. Una concesión solo puede ser propiedad de una instancia en un momento dado, por lo que el número máximo de instancias es igual al número de concesiones.
 
-Las instancias pueden aumentarse y reducirse, y el procesador de fuente de cambios ajustará dinámicamente la carga redistribuyéndola en consecuencia.
+El número de instancias pueden aumentar y reducir, y el procesador de fuente de cambios ajustará dinámicamente la carga redistribuyéndola en consecuencia.
+
+Además, el procesador de fuente de cambios puede ajustarse de forma dinámica a la escala de los contenedores debido a un aumento en el rendimiento o almacenamiento. Cuando el contenedor crece, el procesador de fuente de cambios controla de forma transparente estos escenarios al aumentar dinámicamente las concesiones y distribuir las nuevas concesiones entre las instancias existentes.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Fuente de cambios y rendimiento aprovisionado
 
@@ -85,7 +87,7 @@ Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Ejemplos de uso en GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Ejemplos de uso en GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Ejemplos adicionales en GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Pasos siguientes

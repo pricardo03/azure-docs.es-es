@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8e8b4ed3e101a13d369fff7b47ecbb00f8c04a52
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129346"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -270,6 +270,7 @@ El firewall de aplicaciones web (WAF) es una característica de [Azure Applicati
 
 
 Disponer de un firewall de aplicaciones web centralizado que ofrezca protección contra los ataques web facilita enormemente la administración de la seguridad y proporciona mayor protección a la aplicación contra amenazas de intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web.
+
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) permite controlar la distribución del tráfico de los usuarios para puntos de conexión de servicio en distintos centros de datos. Entre los puntos de conexión de servicio compatibles con Traffic Manager, se incluyen máquinas virtuales de Azure, Web Apps y servicios en la nube. También puede utilizar el Administrador de tráfico con puntos de conexión externos, que no forman parte de Azure. Traffic Manager usa el sistema de nombres de dominio (DNS) para dirigir las solicitudes del cliente al punto de conexión más adecuado en función de un [método de enrutamiento del tráfico](../../traffic-manager/traffic-manager-routing-methods.md) y el estado de los puntos de conexión.
 
@@ -295,18 +296,8 @@ Puede habilitar las siguientes categorías de registro de diagnóstico para los 
 -   Contador de regla: contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Security Center ayuda a evitar amenazas y a detectar y responder a estas, y proporciona una mayor visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad. Las recomendaciones sobre redes se centran en los firewalls, los grupos de seguridad de red, la configuración de reglas de tráfico entrante y mucho más.
 
-Algunas recomendaciones sobre redes disponibles son las siguientes:
-
--   [Agregar un firewall de última generación](../../security-center/security-center-add-next-generation-firewall.md) Recomienda agregar un firewall de próxima generación (NGFW) de un asociado de Microsoft para aumentar la protección.
-
--   [Enrutar el tráfico solo a través de un firewall de nueva generación](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) Recomienda configurar reglas de grupos de seguridad de red (NSG) que fuercen que el tráfico entrante llegue a su máquina virtual a través del NGFW.
-
--   [Habilitar los grupos de seguridad de red en subredes o máquinas virtuales](../../security-center/security-center-enable-network-security-groups.md) Recomienda que habilite grupos de seguridad de red en subredes o máquinas virtuales.
-
--   [Restringir el acceso a través de un punto de conexión accesible desde Internet](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) Recomienda que configure las reglas de tráfico entrante para grupos de seguridad de red.
-
+[Azure Security Center](../../security-center/security-center-intro.md) analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea [recomendaciones](../../security-center/security-center-recommendations.md) que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
 
 ## <a name="compute"></a>Proceso
 
@@ -374,7 +365,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) es una característica Premium de Azure Active Directory que permite identificar aplicaciones en la nube usadas por los empleados de su organización.
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) es un servicio de seguridad que usa las funcionalidades de detección de anomalías de Azure Active Directory para proporcionar una vista consolidada de eventos de riesgo y vulnerabilidades potenciales que podrían afectar a las identidades de su organización.
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) es un servicio de seguridad que usa las funcionalidades de detección de anomalías de Azure Active Directory para proporcionar una vista consolidada de detecciones de riesgo y vulnerabilidades potenciales que podrían afectar a las identidades de su organización.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite unir máquinas virtuales de Azure a un dominio sin necesidad de implementar controladores de dominio. Los usuarios inician sesión en estas máquinas virtuales usando sus credenciales corporativas de Active Directory y pueden acceder a los recursos sin problemas.
 

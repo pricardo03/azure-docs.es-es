@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 288a05fc09e0c59a01a8d4c9940c0d51cabdd28f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640963"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972329"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configuración del cifrado de vSAN para la nube privada de CloudSimple
 
 Puede configurar la característica de cifrado de software de vSAN para que la nube privada de CloudSimple pueda trabajar con un servidor de administración de claves que se ejecuta en la red virtual de Azure.
 
-VMware requiere el uso de una herramienta externa de servidor de administración de claves (KMS) de terceros que cumple con el protocolo KMIP 1.1 cuando se usa el cifrado de vSAN. Puede aprovechar cualquier servidor de administración de claves compatible que esté certificado por VMware y que esté disponible para Azure. 
+VMware requiere el uso de una herramienta externa de servidor de administración de claves (KMS) de terceros que cumple con el protocolo KMIP 1.1 cuando se usa el cifrado de vSAN. Puede aprovechar cualquier servidor de administración de claves compatible que esté certificado por VMware y que esté disponible para Azure.
 
 En esta guía se describe cómo usar el servidor de administración de claves de HyTrust KeyControl que se ejecuta en una red virtual de Azure. Se puede usar un enfoque similar con cualquier otra solución de KMS de terceros certificada para vSAN.
 
