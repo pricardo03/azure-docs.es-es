@@ -173,7 +173,7 @@ El objeto data tiene las siguientes propiedades:
 | id | string | El identificador de evento. |
 | timestamp | string | La hora a la que se produjo el evento. |
 | action | string | La acción que abarca el evento proporcionado. |
-| target | object | El destino del evento. |
+| Destino | object | El destino del evento. |
 | request | object | La solicitud que generó el evento. |
 
 El objeto target tiene las siguientes propiedades:
