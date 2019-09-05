@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 206763e2d17f4ad711ff5fd897f1429814e61837
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a4b2690c067e1081efdc9637e79b181fc75ad6d4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228871"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232698"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implementación del ejemplo del plano técnico de NIST SP 800-53 R4
 
@@ -125,7 +125,7 @@ Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

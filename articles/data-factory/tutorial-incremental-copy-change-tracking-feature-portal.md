@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66168530"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140802"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos de Azure SQL hasta un almacenamiento de blobs de Azure.  
@@ -294,7 +293,7 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
 5. Cambie a la pestaña **Sink** (Receptor) y seleccione **SinkDataset** en el campo **Sink Dataset** (Conjunto de datos receptor). 
 
     ![Actividad de copia: receptor](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Para comprobar la definición de la canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**. 
+6. Para comprobar la definición de la canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** . 
 
     ![Comprobación de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones), haga clic en **Publish** (Publicar). Espere hasta que la publicación se realice correctamente. 
@@ -423,7 +422,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 14. **Conecte la actividad de copia a la de procedimiento almacenado**. Arrastre el botón **verde** asociado a la actividad Copy (Copiar) y colóquelo en la actividad Stored Procedure (Procedimiento almacenado). 
 
     ![Conexión de las actividades de copia y de procedimiento almacenado](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**. 
+15. Haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** . 
 
     ![Botón Validate (Comprobar)](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publish All** (Publicar todo). Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta). 

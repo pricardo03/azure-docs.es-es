@@ -3,15 +3,15 @@ title: Proveedor de recursos de Azure Resource Manager por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5f5ffbd9b1f2bde08023d1758792fab54c2885f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3df481245db8d737032d1abf5906a2ffe949a2fe
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442611"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275704"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -102,9 +102,9 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Grupos de administración](/azure/governance/management-groups/) |

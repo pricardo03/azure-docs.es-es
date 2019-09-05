@@ -1,18 +1,18 @@
 ---
 title: Actualización de una oferta existente de Marketplace comercial
 description: Cómo realizar actualizaciones en una oferta de Marketplace comercial existente, incluyendo editar, eliminar un borrador, cancelar una solicitud de publicación, detener la venta de una oferta o plan y sincronizar audiencias privadas.
-author: mattwojo
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442091"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191766"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Actualización de una oferta existente en Marketplace comercial
 

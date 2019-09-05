@@ -1,18 +1,18 @@
 ---
 title: Obtener soporte técnico para el portal de Marketplace comercial en el Centro de partners
 description: Obtenga información acerca de las opciones de soporte técnico en el Centro de partners, incluida la forma de presentar una solicitud de soporte técnico.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 355694f7f1d5fe0588c6f93bcbdb47f3086aec79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65958081"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195254"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa Marketplace comercial en el Centro de partners
 

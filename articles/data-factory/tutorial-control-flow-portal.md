@@ -3,21 +3,20 @@ title: Bifurcación de la canalización de Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449366"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140907"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -42,7 +41,7 @@ En este tutorial se usa Azure Portal. Puede usar otros mecanismos para interactu
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-blob-table"></a>Creación de la tabla de blobs
 
@@ -272,7 +271,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 23. Arrastre el botón **rojo** situado junto a la actividad de copia a la segunda actividad web **SendFailureEmailActivity**. Puede mover las actividades de forma que la canalización tenga un aspecto similar al de la siguiente imagen: 
 
     ![Canalización completa con todas las actividades](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Para comprobar la canalización, haga clic en el botón **Validate** (Comprobar) en la barra de herramientas. Haga clic en el botón**>>** para cerrar la ventana **Pipeline Validation Output** (Salida de comprobación de canalización).
+24. Para comprobar la canalización, haga clic en el botón **Validate** (Comprobar) en la barra de herramientas. Haga clic en el botón **>>** para cerrar la ventana **Pipeline Validation Output** (Salida de comprobación de canalización).
 
     ![Comprobar la canalización](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Para publicar las entidades (conjuntos de datos, canalizaciones, etc.) en el servicio Data Factory, seleccione **Publish All** (Publicar todo). Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente).

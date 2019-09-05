@@ -7,13 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799207"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241322"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -28,8 +27,6 @@ Entender cómo crear y asignar planos técnicos permite la definición de patron
 > - Eliminación de un plano técnico que se ha asignado a una suscripción
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introducción a la API REST
 
@@ -439,7 +436,7 @@ Para quitar el mismo plano técnico, utilice la siguiente operación de la API R
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](./concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](./concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).

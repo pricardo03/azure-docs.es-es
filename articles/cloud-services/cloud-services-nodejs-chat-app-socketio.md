@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359078"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306759"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creación de una aplicación de chat Node.js con Socket.IO en un servicio de Azure Cloud Services
 
@@ -144,7 +144,7 @@ Su aplicación se está ejecutando ahora en Azure y puede retransmitir los mensa
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió a crear una aplicación de chat básica hospedada en un Servicio en la nube de Azure. Para aprender a hospedar esta aplicación en un sitio web de Azure, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure][chatwebsite].
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Para obtener más información, consulte también el [Centro para desarrolladores de Node.js](https://docs.microsoft.com/azure/javascript/).
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

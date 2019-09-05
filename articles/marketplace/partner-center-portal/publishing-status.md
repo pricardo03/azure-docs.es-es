@@ -1,18 +1,18 @@
 ---
 title: Comprobación del estado de publicación de una oferta de Marketplace comercial
 description: Compruebe el estado de la validación, la certificación y los pasos de versión preliminar necesarios para publicar una oferta a través de Marketplace comercial en el centro de partners de Microsoft.
-author: mattwojo
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c547ad256e6ba44da4ef81aa2a3aa2c77ba24815
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982745"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191785"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Comprobación del estado de publicación de una oferta de Marketplace comercial
 

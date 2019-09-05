@@ -3,22 +3,20 @@ title: Supervisión y administración de canalizaciones usando Azure Portal y Po
 description: Obtenga información sobre el uso de Azure Portal y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que haya creado.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122745"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139652"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -89,7 +87,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
+    <th align="left">State</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
 </tr>
 <tr>
     <td rowspan="8">En espera</td><td>ScheduleTime</td><td>No ha llegado la hora para que se ejecute el segmento.</td>

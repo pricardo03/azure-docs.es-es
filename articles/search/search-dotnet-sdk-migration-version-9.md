@@ -2,7 +2,7 @@
 title: 'Actualización a la versión 9 del SDK de Azure Search para .NET: Azure Search'
 description: Migre el código a la versión 9 del SDK de Azure Search para .NET a partir de versiones anteriores. Obtenga información sobre las novedades y los cambios de código necesarios.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541762"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183229"
 ---
 # <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Actualizar a la versión 9 del SDK de .NET para Azure Search
 

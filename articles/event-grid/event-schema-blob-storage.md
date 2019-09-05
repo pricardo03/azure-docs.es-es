@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: bed6c3f1efcb2d0ef34e827ddb2b521f8c038940
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bd85353aa37cf182a807d99cdc9fb63ead00edeb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445775"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232435"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
@@ -317,14 +317,12 @@ El objeto data tiene las siguientes propiedades:
 | contentOffset | número | Desplazamiento en bytes de una operación de escritura realizada en el punto en el que la aplicación de desencadenamiento de eventos completa la escritura del archivo. <br>Solo aparece para los eventos desencadenados en las cuentas de almacenamiento de blobs que tienen un espacio de nombres jerárquico.|
 | destinationUrl |string | Dirección URL del archivo que existirá una vez completada la operación. Por ejemplo, si se cambia el nombre de un archivo, la propiedad `destinationUrl` contiene la dirección URL del nuevo nombre de archivo. <br>Solo aparece para los eventos desencadenados en las cuentas de almacenamiento de blobs que tienen un espacio de nombres jerárquico.|
 | sourceUrl |string | Dirección URL del archivo que existe antes de la operación. Por ejemplo, si se cambia el nombre de un archivo, `sourceUrl` contiene la dirección URL del nombre de archivo original antes de la operación de cambio de nombre. <br>Solo aparece para los eventos desencadenados en las cuentas de almacenamiento de blobs que tienen un espacio de nombres jerárquico. |
-| url | string | Ruta de acceso al blob. <br>Si el cliente utiliza una API REST de Blob, la dirección URL tiene esta estructura:  *\<nombre-de-la-cuenta-de-almacenamiento\>.blob.core.windows.net/\<nombre-del-contenedor\>/\<nombre-de-archivo\>* . <br>Si el cliente utiliza una API REST de Data Lake Store, la dirección URL tiene esta estructura:  *\<nombre-de-la-cuenta-de-almacenamiento\>.dfs.core.windows.net/\<nombre-del-sistema-de-archivos\>/\<nombre-de-archivo\>* .
-|
-| recursive| string| `True` para realizar la operación en todos los directorios secundarios; en caso contrario, `False`. <br>Solo aparece para los eventos desencadenados en las cuentas de almacenamiento de blobs que tienen un espacio de nombres jerárquico. |
+| url | string | Ruta de acceso al blob. <br>Si el cliente utiliza una API REST de Blob, la dirección URL tiene esta estructura:  *\<nombre-de-la-cuenta-de-almacenamiento\>.blob.core.windows.net/\<nombre-del-contenedor\>/\<nombre-de-archivo\>* . <br>Si el cliente utiliza una API REST de Data Lake Store, la dirección URL tiene esta estructura:  *\<nombre-de-la-cuenta-de-almacenamiento\>.dfs.core.windows.net/\<nombre-del-sistema-de-archivos\>/\<nombre-de-archivo\>* . |
+| recursive | string | `True` para realizar la operación en todos los directorios secundarios; en caso contrario, `False`. <br>Solo aparece para los eventos desencadenados en las cuentas de almacenamiento de blobs que tienen un espacio de nombres jerárquico. |
 | sequencer | string | Un valor de cadena opaco que representa la secuencia lógica de eventos para cualquier nombre de blob concreto.  Los usuarios pueden usar una comparación de cadenas estándar para conocer la secuencia relativa de dos eventos que estén en el mismo nombre de blob. |
 | storageDiagnostics | object | Datos de diagnóstico que, en ocasiones, incluye el servicio Azure Storage. Cuando están presentes, los consumidores de eventos deben ignorarlos. |
-
 |Propiedad|Escriba|DESCRIPCIÓN|
- |-------------------|------------------------|-----------------------------------------------------------------------|
+|-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

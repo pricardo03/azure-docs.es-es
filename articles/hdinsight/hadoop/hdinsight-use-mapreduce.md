@@ -8,49 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1bb7a6737115f903391997a5430c32f9a40465f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707954"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207114"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Uso de MapReduce con Apache Hadoop en HDInsight
 
-Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de HDInsight. 
-
-## <a id="whatis"></a>Qué es MapReduce
-
-MapReduce de Apache Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
-
-* **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor).
-
-* **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador.
-
-En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:
-
-![HDI.ProgramaRecuentoPalabras][image-hdi-wordcountdiagram]
-
-La salida de este trabajo es un recuento de las veces que aparece cada palabra en el texto.
-
-* El asignador utiliza cada línea del texto de entrada como una entrada y la desglosa en palabras. Emite un par clave-valor cada vez que se detecta una palabra, seguida por un 1. La salida se ordena antes de enviarla al reductor.
-* El reductor suma estos recuentos individuales de cada palabra y emite un solo par clave-valor que contiene la palabra seguido de la suma de sus apariciones.
-
-MapReduce se puede implementar en varios lenguajes. Java es la implementación más común y se utiliza para fines de demostración en este documento.
-
-## <a name="development-languages"></a>Lenguajes de desarrollo
-
-Los lenguajes o marcos de trabajo basados en Java y la máquina virtual de Java se pueden ejecutar directamente como un trabajo de MapReduce. El ejemplo usado en este documento es una aplicación de MapReduce de Java. Los lenguajes que no son Java, como C# o Python, o ejecutables independientes, deben usar **streaming de Hadoop**.
-
-El streaming de Hadoop se comunica con el asignador y el reductor a través de STDIN y STDOUT. El asignador y reductor leen datos línea a línea desde STDIN y escriben el resultado en STDOUT. Cada línea leída o emitida por el asignador y el reductor debe estar en el formato de un par de clave-valor delimitado por un carácter de tabulación:
-
-    [key]/t[value]
-
-Para obtener más información, consulte [Streaming de Hadoop](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-Para obtener ejemplos del uso del streaming de Hadoop con HDInsight, consulte el siguiente documento:
-
-* [Desarrollar trabajos de MapReduce de C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de HDInsight.
 
 ## <a id="data"></a>Datos de ejemplo
 
@@ -158,7 +125,6 @@ Para conocer más acerca del trabajo con datos en HDInsight, consulte los siguie
 
 * [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
 
-
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -167,5 +133,3 @@ Para conocer más acerca del trabajo con datos en HDInsight, consulte los siguie
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344672"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278605"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
 Entre las tareas de ciencia de datos habituales se incluyen la implementación, el modelado y la exploración de datos. En este artículo se muestra cómo usar las utilidades **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** y **Automated Modeling and Reporting (AMAR)** para completar varias tareas de ciencia de datos comunes como la exploración interactiva de datos, el análisis de datos, la creación de informes y la creación de modelos. Asimismo, se describen las opciones existentes para implementar un modelo en un entorno de producción mediante diversos kits de herramientas y plataformas de datos, como los siguientes:
 
-- [Azure Machine Learning](../service/index.yml)
+- [Azure Machine Learning](../index.yml)
 - [SQL-Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -73,7 +73,7 @@ Para más información, consulte la [utilidad de modelado y servicio de informes
 ### <a name="model-management"></a>Administración de modelos
 Tras la creación de varios modelos, suele ser necesario tener un sistema para registrar y administrar los modelos. Normalmente, necesita una combinación de scripts o API y una base de datos back-end o un sistema de control de versiones. Algunas opciones que puede tener en cuenta para estas tareas de administración son:
 
-1. [Azure Machine Learning: servicio Administración de modelos](../service/index.yml)
+1. [Azure Machine Learning: servicio Administración de modelos](../index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server como sistema de administración de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/22/2019
-ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.date: 08/29/2019
+ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972542"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164300"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en núcleo virtual
 
@@ -74,7 +74,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño máximo de datos de TempDB (GB)|224|256|288|320|384|384|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
-|IOPS de datos máx. (64 KB)|3500|4000|4500|5000|7000|7000|
+|IOPS de datos máx. (64 KB)|3500|4000|4500|5000|8000|12000|
 |Velocidad de registro máx. (Mbps)|26,25|30|30|30|30|30|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1\.800|2000|3200|4800|
 |N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|30000|
@@ -120,7 +120,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño máximo de datos de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de datos máx. (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|IOPS de datos máx. (64 KB)|8000|9000|10000|12000|16000|20000|40000|
 |Velocidad de registro máx. (Mbps)|30|30|30|30|30|30|30|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1\.800|2000|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|30000|30000|

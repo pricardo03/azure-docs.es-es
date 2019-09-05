@@ -3,21 +3,20 @@ title: Creación de desencadenadores de programación en Azure Data Factory | Mi
 description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una programación.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: shlo
-ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996370"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141619"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -359,8 +358,8 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 
 | Elemento JSON | DESCRIPCIÓN | Valores válidos |
 |:--- |:--- |:--- |
-| **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
-| **hours** | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul> |
+| **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Integer</li><li>Matriz de enteros</li></ul>
+| **hours** | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Integer</li><li>Matriz de enteros</li></ul> |
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado, domingo</li><li>Matriz de valores de día (el tamaño máximo de la matriz es 7)</li><li>Los valores de día no distinguen mayúsculas de minúsculas.</li></ul> |
 | **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Matriz de valores</li></ul> |

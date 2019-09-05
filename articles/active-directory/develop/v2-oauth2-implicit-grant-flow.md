@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ab5ba4fde7469854954ed19d2e643f2b8a23f34f
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482222"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193260"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -130,7 +130,7 @@ error=access_denied
 | `error` |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
-## <a name="validate-the-idtoken"></a>Validar el id_token
+## <a name="validate-the-id_token"></a>Validar el id_token
 
 Recibir solo un valor id_token no es suficiente para autenticar al usuario; también se tiene que validar la firma del id_token y comprobar las notificaciones en el token según los requisitos de la aplicación. El punto de conexión de la plataforma de identidad de Microsoft usa los [JSON Web Token (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
@@ -213,16 +213,6 @@ error=user_authentication_required
 | `error_description` |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
 Si recibe este error en la solicitud de iframe, el usuario debe iniciar sesión de nuevo de manera interactiva para recuperar un nuevo token. Puede elegir tratar este caso de la manera que más sentido tenga para su aplicación.
-
-## <a name="validating-access-tokens"></a>Validación de tokens de acceso
-
-Una vez que reciba un token de acceso, asegúrese de validar la firma del token, así como las siguientes notificaciones. También puede validar notificaciones adicionales según su escenario.
-
-* Notificación **audience**, para comprobar que el token estaba destinado a su aplicación.
-* Notificación **issuer**, para comprobar que el punto de conexión de la plataforma de identidad de Microsoft emitió el token a la aplicación
-* Notificaciones **not before** y **expiration time**, para comprobar que el token no ha expirado.
-
-Para más información sobre las notificaciones presentes en el token de acceso, consulte la [referencia del token de acceso](access-tokens.md).
 
 ## <a name="refreshing-tokens"></a>Actualización de tokens
 

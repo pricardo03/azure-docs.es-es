@@ -1,5 +1,5 @@
 ---
-title: 'Entidad de expresión regular: LUIS'
+title: 'Tutorial: Entidad de expresión regular: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Extraiga datos con formato de forma coherente desde una expresión con la entidad de expresión regular.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563589"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307598"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obtención de datos con formato correcto a partir de la expresión
 En este tutorial va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.

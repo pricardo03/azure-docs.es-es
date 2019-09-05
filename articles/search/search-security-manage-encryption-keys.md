@@ -2,19 +2,19 @@
 title: 'Cifrado en reposo mediante claves administradas por el cliente en Azure Key Vault (versión preliminar): Azure Search'
 description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos en Azure Search mediante las claves que se crean y se administran en Azure Key Vault.
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779100"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182397"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de Azure Search mediante claves administradas por el cliente en Azure Key Vault
 

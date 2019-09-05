@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60682850"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232892"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -332,7 +332,7 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).

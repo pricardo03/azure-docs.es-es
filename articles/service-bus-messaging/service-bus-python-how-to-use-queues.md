@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360846"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141911"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Uso de colas de Service Bus con Python
 
@@ -36,7 +36,7 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de Pytho
 
         > [!NOTE]
         > Creará una **cola** en el espacio de nombres de Service Bus con Python en este tutorial. 
-1. Para instalar Python o el [paquete de Azure Service Bus para Python][Python Azure Service Bus package], consulte la [Guía de instalación de Python](../python-how-to-install.md). Consulte la documentación completa del SDK de Python de Service Bus [aquí](/python/api/overview/azure/servicebus?view=azure-python).
+1. Para instalar Python o el [paquete de Azure Service Bus para Python][Python Azure Service Bus package], consulte la [Guía de instalación de Python](/azure/python/python-sdk-azure-install). Consulte la documentación completa del SDK de Python de Service Bus [aquí](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Creación de una cola
 El objeto **ServiceBusService** le permite trabajar con colas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:

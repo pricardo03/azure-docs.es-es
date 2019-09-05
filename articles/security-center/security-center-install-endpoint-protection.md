@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609950"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231309"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
 Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
@@ -31,12 +31,12 @@ Security Center notifica los siguientes problemas de Endpoint Protection:
 - Estado de Endpoint Protection:
 
   - Firma sin actualizar: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no cuenta con las firmas de antimalware más recientes.
-  - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-os-coverage.md#supported-endpoint-protection-solutions) para ver una lista de las soluciones compatibles.
+  - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-services.md#endpoint-supported) para ver una lista de las soluciones compatibles.
   - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
   - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
 
     > [!NOTE]
-    > Vea [Integración de soluciones de seguridad en Azure Security Center](security-center-os-coverage.md#supported-endpoint-protection-solutions) para obtener una lista de soluciones de seguridad de protección de punto de conexión integradas con Security Center.
+    > Vea [Integración de soluciones de seguridad en Azure Security Center](security-center-services.md#endpoint-supported) para obtener una lista de soluciones de seguridad de protección de punto de conexión integradas con Security Center.
     >
     >
 

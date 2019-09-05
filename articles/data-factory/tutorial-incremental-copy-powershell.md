@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161739"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140605"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage. 
@@ -524,7 +523,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
+2. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -644,7 +643,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
+3. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"

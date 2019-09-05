@@ -7,13 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356983"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231955"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -240,7 +239,7 @@ Para establecer **parámetros dinámicos** durante la asignación, debe escribir
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Vea la lista de [funciones de plano técnico](../reference/blueprint-functions.md).
-- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).

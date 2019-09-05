@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535056"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279738"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades y consideraciones sobre transacciones comerciales de Marketplace
 
@@ -75,7 +75,7 @@ Al publicar una oferta de transacción gratuita o de traiga su propia licencia, 
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Precios de pago por uso y de suscripción (basados en el sitio)
 
-Precios de pago por uso y de suscripción. Al publicar una oferta de transacción de pago por uso o de suscripción, Microsoft proporciona la tecnología y los servicios para procesar las compras, las devoluciones y los contracargos de las licencias de software. En este escenario, el publicador autoriza a Microsoft a actuar como agente para estos fines. El publicador permite a Microsoft facilitar la transacción con las licencias de software, a la vez que conserva su designación como vendedor, proveedor, distribuidor y el emisor de licencias.
+Al publicar una oferta de transacción de pago por uso o de suscripción, Microsoft proporciona la tecnología y los servicios para procesar las compras, las devoluciones y los contracargos de las licencias de software. En este escenario, el publicador autoriza a Microsoft a actuar como agente para estos fines. El publicador permite a Microsoft facilitar la transacción con las licencias de software, a la vez que conserva su designación como vendedor, proveedor, distribuidor y el emisor de licencias.
 
 Microsoft permite a los clientes pedir, licenciar y usar el software del publicador, sujeto a los términos y condiciones de Marketplace comercial de Microsoft y del contrato de licencia para el usuario final del publicador. Los publicadores deben proporcionar su contrato de licencia para el usuario final o seleccionar el [contrato estándar](https://docs.microsoft.com/azure/marketplace/standard-contract) al crear la oferta.
 

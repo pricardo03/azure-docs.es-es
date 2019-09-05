@@ -1,5 +1,5 @@
 ---
-title: 'Cambio y entrenamiento de una aplicación con Go: LUIS'
+title: 'Inicio rápido: Cambio y entrenamiento de una aplicación con Go: LUIS'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido del lenguaje Go, agregará expresiones de ejemplo a una aplicación de automatización de dispositivos del hogar y entrenará la aplicación.
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 690ea26cb5c6effda71ec1d8236c6dabd02f02ee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 84704e000688c6681773b14542d80a1046228c3f
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560551"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307622"
 ---
 # <a name="quickstart-change-model-using-go"></a>Guía de inicio rápido: Cambio del modelo con Go
 

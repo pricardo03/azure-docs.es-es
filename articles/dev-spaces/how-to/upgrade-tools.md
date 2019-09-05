@@ -9,12 +9,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 4e0a3c5aa849799872371ef1c5ac0867babffebb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24a66c5218bb75672ae784b19213116efdb83690
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686431"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232448"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Procedimiento para actualizar las herramientas de Azure Dev Spaces
 
@@ -48,6 +48,3 @@ Para actualizar las herramientas de Visual Studio, elija el elemento de menú **
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las nuevas herramientas creando un clúster. Pruebe las guías de inicio rápido y los tutoriales en [Azure Dev Spaces](/azure/dev-spaces).
-
-> [!WARNING]
-> La revisión de Azure Dev Spaces en los clústeres existentes no se aplicará inmediatamente, por lo que, para asegurarse de que usa la versión más reciente en todas las implementaciones de Azure, cree un clúster nuevo después de actualizar las herramientas.

@@ -2,19 +2,19 @@
 title: 'Cómo usar Azure Search desde una aplicación .NET: Azure Search'
 description: Obtenga información sobre cómo usar Azure Search en una aplicación de .NET con C# y el SDK de. NET. Las tareas basadas en código incluyen la conexión al servicio, el contenido del índice y la consulta de un índice.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450012"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208246"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Cómo usar Azure Search desde una aplicación .NET
 
@@ -579,7 +579,7 @@ El SDK usa JSON.NET para serializar y deserializar documentos. Puede personaliza
 * Asignar entre los nombres de propiedad del código y los nombres de campo del índice.
 * Cree atributos personalizados que se puedan usar para asignar propiedades a campos de documento.
 
-Puede encontrar ejemplos de implementación de serialización personalizada en las pruebas unitarias del SDK de .NET para Azure Search en GitHub. [Esta carpeta](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models) es un buen punto de partida. Contiene clases que las pruebas de serialización personalizada utilizan.
+Puede encontrar ejemplos de implementación de serialización personalizada en las pruebas unitarias del SDK de .NET para Azure Search en GitHub. [Esta carpeta](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models) es un buen punto de partida. Contiene clases que las pruebas de serialización personalizada utilizan.
 
 ### <a name="searching-for-documents-in-the-index"></a>Búsqueda de documentos en el índice
 El último paso de la aplicación de ejemplo es buscar algunos documentos en el índice:

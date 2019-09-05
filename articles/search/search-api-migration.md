@@ -2,19 +2,19 @@
 title: 'Actualización a la versión más reciente de la API REST de Azure Search Service: Azure Search'
 description: Revise las diferencias en las versiones de API y conozca qué acciones son necesarias para migrar código existente a la versión más reciente de la API REST de Azure Search Service.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c1f7fdb1f349c9e31ba63d79a9b9e26ea9f09da
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540693"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182389"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST de Azure Search Service
 Si usa una versión anterior de la [API REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2019-05-06.
@@ -144,8 +144,8 @@ Puede actualizar índices "planos" al formato nuevo mediante los pasos siguiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la documentación de referencia de la API REST del servicio Azure Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [contactar con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
+Revise la documentación de referencia de la API de REST del servicio Azure Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Referencia de la API REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Cambio y entrenamiento de una aplicación con Java: LUIS'
+title: 'Inicio rápido: Cambio y entrenamiento de una aplicación con Java: LUIS'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido de Java, agregará expresiones de ejemplo a una aplicación de automatización de dispositivos del hogar y entrenará la aplicación.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: bfe195ecd4dd777d5073c03c2e4fbd4bfcaaaa06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 934ec14356448fc03d501a407c45086035ab3e04
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560582"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307531"
 ---
 # <a name="quickstart-change-model-using-java"></a>Inicio rápido: Cambio del modelo con Java 
 

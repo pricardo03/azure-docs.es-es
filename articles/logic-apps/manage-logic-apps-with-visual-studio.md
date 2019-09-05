@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 694ff490d7623b2dff26a61ccae8106a276b84af
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447899"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164887"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -99,13 +99,13 @@ En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e 
    ![Abrir aplicación lógica implementada desde Azure Portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    Una vez que la aplicación lógica se abre en el diseñador de Logic Apps, en la parte inferior del diseñador, puede elegir la **Vista de código** para poder revisar la estructura de definición de aplicación lógica subyacente. 
-   Si quiere crear una plantilla de implementación para la aplicación lógica, obtenga información sobre [cómo descargar una plantilla de Azure Resource Manager](#download-logic-app) para esa aplicación lógica. Obtenga más información sobre las [plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
+   Si quiere crear una plantilla de implementación para la aplicación lógica, obtenga información sobre [cómo descargar una plantilla de Azure Resource Manager](#download-logic-app) para esa aplicación lógica. Obtenga más información sobre las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Descarga de Azure
 
-Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.com) y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación. Al descargar las aplicaciones lógicas, se *parametrizan* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que también usan la notación de objetos JavaScript (JSON).
+Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.com) y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación. Al descargar las aplicaciones lógicas, se *parametriza* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md), que también usan la notación de objetos JavaScript (JSON).
 
 1. En Visual Studio, abra Cloud Explorer y busque y seleccione la aplicación lógica que desea descargar de Azure.
 

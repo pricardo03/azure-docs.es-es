@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8e19c89cec00bba05eb74e752268e1da43a1ac0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035852"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278124"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>¿Qué es el servicio Azure Machine Learning?
 
@@ -35,9 +35,12 @@ Explore y prepare datos, entrene y pruebe modelos e impleméntelos mediante herr
 + [Cuadernos de Jupyter Notebook](https://jupyter.org) en los que puede utilizar [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) para escribir su propio código como, por ejemplo [estos cuadernos de ejemplo](https://aka.ms/aml-notebooks).
 + [Extensión de Visual Studio Code](how-to-vscode-tools.md)
 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>¿Qué puedo hacer con el servicio Azure Machine Learning?
 
-Use el <a href="https://aka.ms/aml-sdk" target="_blank">SDK de Azure Machine Learning para Python</a> con paquetes Python de código abierto, o bien use la [interfaz visual (versión preliminar)](ui-tutorial-automobile-price-train-score.md) para crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático muy precisos en un área de trabajo de Azure Machine Learning Service.
+Use el <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Azure Machine Learning para Python</a> con paquetes Python de código abierto, o bien use la [interfaz visual (versión preliminar)](ui-tutorial-automobile-price-train-score.md) para crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático muy precisos en un área de trabajo de Azure Machine Learning Service.
 
 Puede elegir entre muchos componentes de aprendizaje automático disponibles en los paquetes de Python de código abierto como, por ejemplo, <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> y <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -45,7 +48,7 @@ Tanto si escribe código como si usa la interfaz visual, puede realizar el segui
 
 ### <a name="code-first-experience"></a>Experiencia con modelo "el código primero"
 
-Comience a entrenar en su máquina local mediante el <a href="https://aka.ms/aml-sdk" target="_blank">SDK de Python para Azure Machine Learning</a> y, luego, escale horizontalmente a la nube. Con muchos [destinos de proceso](how-to-set-up-training-targets.md) disponibles, por ejemplo, los procesos de Azure Machine Learning y [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), y con los [servicios avanzados de ajuste de hiperparámetros](how-to-tune-hyperparameters.md), puede compilar mejores modelos de forma más rápida gracias al potencial de la nube.
+Comience a entrenar en su máquina local mediante el <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python para Azure Machine Learning</a> y, luego, escale horizontalmente a la nube. Con muchos [destinos de proceso](how-to-set-up-training-targets.md) disponibles, por ejemplo, los procesos de Azure Machine Learning y [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), y con los [servicios avanzados de ajuste de hiperparámetros](how-to-tune-hyperparameters.md), puede compilar mejores modelos de forma más rápida gracias al potencial de la nube.
 
 También puede [automatizar el entrenamiento y optimización del modelo](tutorial-auto-train-models.md) mediante el SDK.
 
@@ -63,7 +66,7 @@ Para el entrenamiento sin código, pruebe:
 
 Cuando tenga el modelo adecuado, podrá usarlo fácilmente en un servicio web, en un dispositivo de IoT o en Power BI. Para más información, consulte el artículo sobre [cómo y dónde llevar a cabo la implementación](how-to-deploy-and-where.md).
 
-Después, puede administrar los modelos implementados mediante el [SDK para Python de Azure Machine Learning](https://aka.ms/aml-sdk) o [Azure Portal](https://portal.azure.com/).
+Después, puede administrar los modelos implementados mediante el [SDK para Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [Azure Portal](https://portal.azure.com/).
 
 Se pueden usar estos modelos para que devuelvan predicciones en [tiempo real](how-to-consume-web-service.md) o de forma [asincrónica](how-to-run-batch-predictions.md) para grandes cantidades de datos.
 
@@ -80,7 +83,7 @@ Para comenzar a usar Azure Machine Learning Service, consulte la sección [Pasos
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) es un área de trabajo visual colaborativa de arrastrar y colocar, en la que se pueden crear, probar e implementar soluciones de aprendizaje automático sin necesidad de escribir código. Utiliza algoritmos de aprendizaje automático y módulos de control de datos pregenerados y preconfigurados así como una plataforma de procesamiento propietario.
 
-Azure Machine Learning Service proporciona los SDK **y** una interfaz visual (versión preliminar) para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Esta interfaz visual (versión preliminar) ofrece una experiencia de arrastrar y colocar parecida a la de Studio. Sin embargo, a diferencia de la plataforma de proceso propiedad de Studio, la interfaz visual utiliza sus propios recursos de proceso y está totalmente integrada en Azure Machine Learning Service.
+Azure Machine Learning Service proporciona los SDK **y** una interfaz visual (versión preliminar) para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Esta interfaz visual (versión preliminar) ofrece una experiencia de arrastrar y colocar parecida a la de Studio. Sin embargo, a diferencia de la plataforma de proceso propietario de Studio, la interfaz visual utiliza sus propios recursos de proceso y está totalmente integrada en Azure Machine Learning Service.
 
 Esta es una comparación rápida.
 
@@ -90,7 +93,7 @@ Esta es una comparación rápida.
 |Módulos de la interfaz| Muchos | Conjunto inicial de módulos conocidos|
 |Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso con Azure Machine Learning, GPU o CPU.<br/>(Se admiten otros procesos en el SDK)|
 |Destinos de proceso de implementación| Formato del servicio web propietario, no personalizable | Opciones de seguridad de empresa y Azure Kubernetes Service. <br/>([Otros procesos](how-to-deploy-and-where.md) que admite el SDK) |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizado | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). |
+|Entrenamiento de modelos y optimización de hiperparámetros automatizados | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). |
 
 Pruebe la interfaz visual (versión preliminar) con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md).
 

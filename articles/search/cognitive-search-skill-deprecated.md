@@ -2,7 +2,7 @@
 title: 'Aptitudes cognitivas en desuso: Azure Search'
 description: Esta página contiene una lista de aptitudes de Cognitive Search que se consideran en desuso y no se admitirán en un futuro próximo.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 57dd8e47d44248270920e44268b99c98d399504d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e149edbf89ae68364439876ee59dd0605d33b882
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635914"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183419"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 

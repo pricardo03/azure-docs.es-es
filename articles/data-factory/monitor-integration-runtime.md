@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b84ea0b9859e69eaf45cd9a89b2443cf42949f79
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122643"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141079"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
 **Integration Runtime** es la infraestructura de proceso que usa Azure Data Factory para proporcionar varias funcionalidades de integración de datos en distintos entornos de red. Data Factory ofrece tres tipos de instancia de Integration Runtime:
@@ -38,7 +38,7 @@ El cmdlet devuelve información diferente para distintos tipos de instancia de I
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
 El recurso de proceso para una instancia de Azure Integration Runtime se puede administrar completamente de manera elástica en Azure. En la tabla siguiente se proporcionan las descripciones de las propiedades que devuelve el comando **Get-AzDataFactoryV2IntegrationRuntime**:
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 En la siguiente tabla se proporcionan las descripciones de las propiedades que devuelve el cmdlet para una instancia de Azure Integration Runtime:
 
 | Propiedad | Descripción |
@@ -64,7 +64,7 @@ En la sección siguiente se proporcionan las descripciones de las propiedades qu
 > [!NOTE] 
 > Las propiedades y estado devueltos contienen información sobre la instancia de Integration Runtime autohospedada y de los nodos en tiempo de ejecución.  
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 En la tabla siguiente se proporcionan las descripciones de las propiedades de supervisión para **cada nodo**:
 
@@ -77,7 +77,7 @@ En la tabla siguiente se proporcionan las descripciones de las propiedades de su
 | Uso de CPU | Uso de CPU de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. |
 | Redes (Entrada/Salida) | Uso de las redes de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
 | Trabajos simultáneos (En ejecución / Límite) | **En ejecución**. Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. <br/><br/>**Límite**. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, cuando se supera el tiempo de espera de las actividades, aunque la CPU, la memoria o la red estén infrautilizadas. Esta funcionalidad también está disponible con una instancia de Integration Runtime autohospedada de nodo único. |
-| Rol | En una instancia multinodo de Integration Runtime autohospedada hay dos tipos de roles: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y las tareas de Cloud Services y enviarlos a los diferentes nodos de trabajo. El nodo distribuidor también es un nodo de trabajo. |
+| Role | En una instancia multinodo de Integration Runtime autohospedada hay dos tipos de roles: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y las tareas de Cloud Services y enviarlos a los diferentes nodos de trabajo. El nodo distribuidor también es un nodo de trabajo. |
 
 Algunos valores de las propiedades tienen más sentido cuando hay dos o más nodos en el entorno de ejecución de integración autohospedado (es decir, en un escenario de escalado horizontal).
 
@@ -155,7 +155,7 @@ Salida de ejemplo (se supone que hay dos nodos asociados a esta instancia de Int
 ## <a name="azure-ssis-integration-runtime"></a>Integration Runtime de SSIS de Azure
 Integration Runtime de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales (o nodos) de Azure que se dedica a ejecutar los paquetes SSIS. No ejecuta otras actividades de Azure Data Factory. Una vez aprovisionado, puede consultar sus propiedades y supervisar su estado general o el específico del nodo.
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 
 | Propiedad/estado | Description |
 | --------------- | ----------- |
@@ -173,9 +173,9 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | CatalogAdminPassword | Contraseña del administrador del servidor de Azure SQL Database/de la instancia administrada. |
 | CatalogPricingTier | Plan de tarifa de SSISDB hospedado en el servidor de Azure SQL Database existente.  No es aplicable a la Instancia administrada de Azure SQL Database que hospeda SSISDB. |
 | VNetId | Identificador del recurso de red virtual para que se una la instancia de Integration Runtime de SSIS de Azure. |
-| Subred | Nombre de la subred para que se una la instancia de Integration Runtime de SSIS de Azure. |
-| ID | Identificador del recurso de la instancia de Integration Runtime de SSIS de Azure. |
-| Type | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
+| Subnet | Nombre de la subred para que se una la instancia de Integration Runtime de SSIS de Azure. |
+| id | Identificador del recurso de la instancia de Integration Runtime de SSIS de Azure. |
+| type | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se crearon las instancias de Data Factory y de Integration Runtime de SSIS de Azure. |
 | DataFactoryName | Nombre de la instancia de Azure Data Factory. |
 | Name | Nombre de la instancia de Integration Runtime de SSIS de Azure. |
@@ -199,7 +199,7 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | Iniciando | Los nodos de la instancia de Integration Runtime de SSIS de Azure se están asignando/preparando y la facturación ha comenzado. |
 | Started | Los nodos de la instancia de Integration Runtime de SSIS de Azure se han asignado/preparado y están listos para la implementación/ejecución de paquetes SSIS. |
 | Deteniéndose  | Se están liberando los nodos de la instancia de Integration Runtime de SSIS de Azure. |
-| Stopped | Los nodos de la instancia de Integration Runtime de SSIS de Azure se han liberado y la facturación se ha detenido. |
+| Detenido | Los nodos de la instancia de Integration Runtime de SSIS de Azure se han liberado y la facturación se ha detenido. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Supervisión de Integration Runtime de SSIS de Azure en Azure Portal
 

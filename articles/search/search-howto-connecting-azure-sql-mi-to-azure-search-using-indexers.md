@@ -2,18 +2,18 @@
 title: 'Conexión de Instancia administrada de SQL de Azure para la indexación de búsqueda: Azure Search'
 description: Habilite el punto de conexión público para permitir conexiones con Instancias administradas de SQL desde un indexador en Azure Search.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228987"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186609"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Configuración de una conexión desde un indexador de Azure Search a Instancia administrada de SQL
 Como se indicó en [Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **Instancias administradas de SQL** es compatible con Azure Search a través del punto de conexión público.

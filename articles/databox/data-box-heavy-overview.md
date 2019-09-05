@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592296"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142912"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>¿Qué es Azure Data Box Heavy?
 
@@ -68,7 +68,7 @@ El dispositivo Data Box Heavy tiene las siguientes características en esta ve
 | Potencia                                                    | 4 fuentes de alimentación (PSU) integradas compartidas entre ambos nodos del dispositivo <br> Consumo de potencia típico de 1200 vatios|
 | Capacidad de almacenamiento                                        | Alrededor de 1 PB sin procesar, 70 discos de 14 TB cada uno <br> 770 TB de capacidad utilizable|
 | Número de nodos                                          | 2 nodos independientes por dispositivo (500 TB cada uno) |
-| Interfaces de red por nodo                             | 4 interfaces de red por nodo <br><br> MGMT, DATA3 <ul><li> 2 interfaces de 1 GbE </li><li> MGMT es para la administración y la configuración inicial y no es configurable por el usuario. </li><li> DATA3 es un Protocolo de configuración dinámica de host (DHCP) y configurable por el usuario de manera dinámica.</li><li>Las interfaces de red de 1 GbE también se pueden configurar como interfaces de 10 GbE</li></ul>Interfaces de datos DATA1, DATA2 <ul><li>2 interfaces de 40 GbE </li><li> Estáticas o configurables por el usuario para DHCP (valor predeterminado).</li></ul>|
+| Interfaces de red por nodo                             | 4 interfaces de red por nodo <br><br> MGMT, DATA3 <ul><li> 2 interfaces de 1 GbE </li><li> MGMT es para la administración y la configuración inicial y no es configurable por el usuario. </li><li> DATA3 es un Protocolo de configuración dinámica de host (DHCP) y configurable por el usuario de manera dinámica.</li></ul>Interfaces de datos DATA1, DATA2 <ul><li>2 interfaces de 40 GbE </li><li> Estáticas o configurables por el usuario para DHCP (valor predeterminado).</li></ul>|
 
 
 ## <a name="components"></a>Componentes

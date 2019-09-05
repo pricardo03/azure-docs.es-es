@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcf073c58a723b8dbd835ac331c0ce9d16187445
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209403"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232854"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 
@@ -35,7 +35,7 @@ Devuelve un objeto de propiedades rellenadas con los resultados de los artefacto
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sí |string |El nombre de un artefacto de plano técnico. |
 
@@ -107,12 +107,12 @@ Un artefacto de plantilla de Resource Manager con el identificador _myTemplateA
 
 Algunos ejemplos de recuperación de datos de la plantilla _myTemplateArtifact_ son los siguientes:
 
-| Expression | Type | Valor |
+| Expression | type | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadena | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | Cadena | "my string value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadena | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
@@ -124,7 +124,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | string1 |Sí |string |El primer valor para la concatenación. |
 | argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación |
@@ -149,7 +149,7 @@ Devuelve un valor de parámetro de plano técnico. El nombre del parámetro espe
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sí |string |El nombre del parámetro que se va a devolver. |
 
@@ -270,7 +270,7 @@ Devuelve un objeto que representa el artefacto del grupo de recursos especificad
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sí |string |El nombre de marcador de posición del artefacto del grupo de recursos que se va a devolver. |
 
@@ -368,7 +368,7 @@ Utilice el nombre para mostrar de la suscripción y la función `concat()` para 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).

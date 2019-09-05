@@ -1,19 +1,19 @@
 ---
 title: Incorporación de sugerencias y de la función de autocompletar en un cuadro de búsqueda en Azure Search
 description: Para habilitar acciones de escritura automática en Azure Search, puede crear proveedores de sugerencias y formular las solicitudes que rellenan en un cuadro de búsqueda con los términos o las frases completadas.
-manager: pablocas
+manager: nitinme
 author: mrcarter8
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
-ms.openlocfilehash: dc8bc43d6d7b17d1ecd4cf2a1dbe7b2890594e55
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ec343228e32c9dd6fb126560a7a17b54c5e36cb
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640460"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183295"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Incorporación de sugerencias o de la función de autocompletar a la aplicación de Azure Search
 

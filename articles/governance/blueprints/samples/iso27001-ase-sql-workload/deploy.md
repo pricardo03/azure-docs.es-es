@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fbd765ef94f4dbb26f076d8bc9520b4e4860bbae
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791018"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232772"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001
 
@@ -115,35 +115,35 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
 |-|-|-|-|
-|Grupo de recursos de Log Analytics|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-log-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Log Analytics|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Log Analytics|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-log-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Log Analytics|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Ubicación|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
-|Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-net-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Location|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
+|Grupo de recursos de red|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-net-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de red|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada del [firewall de Azure](../../../../firewall/overview.md). Debe formar parte de la notación CIDR definida en el parámetro _Prefijo de la dirección de subred de Azure Firewall_ del artefacto de **ISO 27001: servicios compartidos.** El valor predeterminado es: _10.0.4.4_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Identificador de suscripción de servicios compartidos|Valor utilizado para habilitar el emparejamiento de VNET entre una carga de trabajo y los servicios compartidos.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de Virtual Network|La notación CIDR de la red virtual. El valor predeterminado es _10.1.0.0/16_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de la subred predeterminada|La notación CIDR de la subred predeterminada de la red virtual. El valor predeterminado es _10.1.0.0/16_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Dirección IP de AD DS|Dirección IP de la primera máquina virtual de AD DS. Este valor se utiliza como DNS de red virtual personalizado.|
-|Grupo de recursos de Key Vault|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-kv-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Key Vault|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Key Vault|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-kv-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Key Vault|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU de Key Vault que se crea. El valor predeterminado es _Premium_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario de administrador de Azure SQL Server|Nombre de usuario que se utiliza para acceder a Azure SQL Server. Debe coincidir con el mismo valor de propiedad de **plantilla de Azure SQL Database**. El valor predeterminado es _sql-admin-user_.|
-|Grupo de recursos de Azure SQL Database|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-azsql-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Azure SQL Database|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Azure SQL Database|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-azsql-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Azure SQL Database|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Nombre de usuario de administrador de Azure SQL Server|Nombre de usuario de Azure SQL Server. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _sql-admin-user_.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña del administrador de Azure SQL Server (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña del administrador de Azure SQL Server (nombre del secreto de Key Vault)|Nombre de usuario del administrador de Azure SQL Server. El valor debe coincidir con el del **nombre de usuario del administrador de Azure SQL Server** de la propiedad **plantilla de Key Vault**.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Identificador de objeto de administrador de AAD|Identificador de objeto de AAD del usuario que se asignará como administrador de Active Directory. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.|
 |Plantilla de Azure SQL Database|Plantilla de Resource Manager|Inicio de sesión de administrador de AAD|Actualmente no es posible establecer cuentas Microsoft (como live.com o outlook.com) como administrador. Solo los usuarios y grupos de seguridad de su organización pueden establecerse como administrador. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, copie el valor de _Nombre de usuario_.|
-|Grupo de recursos de App Service Environment|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-ase-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de App Service Environment|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de App Service Environment|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-ase-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de App Service Environment|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de App Service Environment|Plantilla de Resource Manager|Nombre de dominio|Nombre de la instancia de Active Directory creada por el ejemplo. El valor predeterminado es _contoso.com_.|
 |Plantilla de App Service Environment|Plantilla de Resource Manager|Ubicación de ASE|Ubicación de App Service Environment. El valor predeterminado es _Oeste de EE. UU. 2_.|
 |Plantilla de App Service Environment|Plantilla de Resource Manager|Retención del registro de Application Gateway, en días|Retención de datos, en días. El valor predeterminado es _365_.|
@@ -158,7 +158,7 @@ Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

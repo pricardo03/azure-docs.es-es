@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388155"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164765"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -47,7 +47,7 @@ En el resto de esta guía se describen las áreas que se deben tener en cuenta c
 * Asegúrese de que los parámetros de plantilla que usa funcionan en las nubes de destino.
 * Compruebe que las propiedades específicas de los recursos están disponibles en las nubes de destino.
 
-Para obtener una introducción a las plantillas de Azure Resource Manager, vea [Implementación de plantilla](resource-group-overview.md#template-deployment).
+Para obtener una introducción a las plantillas de Azure Resource Manager, vea [Implementación de plantilla](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Garantizar el funcionamiento de la plantilla
 
@@ -154,7 +154,7 @@ A lo largo de la plantilla, se generan vínculos mediante la combinación del UR
 
 Con este enfoque, se usa el valor predeterminado para el parámetro `_artifactsLocation`. Si es necesario recuperar las plantillas vinculadas desde otra ubicación, se puede usar el parámetro de entrada en tiempo de implementación para reemplazar el valor predeterminado: no se necesita ningún cambio en la propia plantilla.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Usar _artifactsLocation en lugar de vínculos codificados de forma rígida
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Usar _artifactsLocation en lugar de vínculos codificados de forma rígida
 
 Además de usarse en las plantillas anidadas, la dirección URL del parámetro `_artifactsLocation` se usa como base para todos los artefactos relacionados de una plantilla de implementación. Algunas extensiones de máquina virtual incluyen un vínculo a un script almacenado fuera de la plantilla. Para estas extensiones, los vínculos no se deben codificar de forma rígida. Por ejemplo, las extensiones Custom Script y PowerShell DSC pueden vincular a un script externo en GitHub, como se muestra a continuación: 
 

@@ -4,15 +4,15 @@ description: En este artículo se describe la forma de crear y usar bases de dat
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: de9b0a372d04b40a24b6dc0a8952722129f4a55f
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598484"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241210"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -74,7 +74,7 @@ Un contenedor de Azure Cosmos está especializado en entidades específicas de A
 
 | Entidad de Azure Cosmos | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Contenedor de Azure Cosmos | Colección | Tabla | Colección | Grafo | Tabla |
+|Contenedor de Azure Cosmos | Contenedor | Tabla | Colección | Grafo | Tabla |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propiedades de un contenedor de Azure Cosmos
 

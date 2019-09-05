@@ -3,18 +3,18 @@ title: Programación de indexadores (Azure Search)
 description: Programe los indexadores de Azure Search para indexar el contenido periódicamente o en horas específicas.
 ms.date: 05/31/2019
 author: HeidiSteen
-manager: HeidiSteen
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 245a2139aae0910ea1415811234667f2c06500ec
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855798"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186578"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Programación de indexadores para Azure Search
 Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Se pueden ejecutar a petición mediante el portal, la API REST o el SDK de .NET. También se puede configurar un indexador para que se ejecute periódicamente según una programación.

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975734"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135537"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -88,7 +88,7 @@ Al configurar DNS para el nombre de dominio personalizado, tiene dos opciones:
 -   Configurar un registro A que apunte a la dirección IP de la puerta de enlace de API Management.
 
 > [!NOTE]
-> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Lea más en las [preguntas más frecuentes sobre API Management](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).
+> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Lea más en las [preguntas más frecuentes sobre API Management](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354863"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141180"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Ejecución de cargas de trabajo de Azure Machine Learning con aprendizaje automático automatizado (AutoML) en Apache Spark en Azure HDInsight
 
@@ -34,7 +34,7 @@ También puede usar cuadernos de Zeppelin para usar AutoML.
 
 ## <a name="authentication-for-workspace"></a>Autenticación de áreas de trabajo
 
-La creación de un área de trabajo y el envío de experimentos requieren un token de autenticación. Este token se puede generar mediante una [aplicación de Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). Un [usuario de Azure AD](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) también puede usarse para generar el token de autenticación necesario en caso de que no esté habilitada la autenticación multifactor en la cuenta.  
+La creación de un área de trabajo y el envío de experimentos requieren un token de autenticación. Este token se puede generar mediante una [aplicación de Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). Un [usuario de Azure AD](/azure/python/python-sdk-azure-authenticate) también puede usarse para generar el token de autenticación necesario en caso de que no esté habilitada la autenticación multifactor en la cuenta.  
 
 El siguiente fragmento de código crea un token de autenticación mediante una **aplicación de Azure AD**.
 

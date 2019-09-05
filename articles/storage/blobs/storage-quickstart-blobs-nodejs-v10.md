@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: cada5c3dd74832140fd76cbdd637554b5f829c33
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9d709d19f179dc29b5e290a141d446f3353f4971
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722000"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306037"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Inicio rápido: Carga, descarga, enumeración y eliminación de blobs mediante la versión v10 del SDK de Azure Storage para JavaScript
 
@@ -348,4 +348,4 @@ En esta guía de inicio rápido se muestra cómo administrar blobs y contenedore
 
 > [!div class="nextstepaction"]
 > [Repositorio del SDK de Azure Storage v10 para JavaScript](https://github.com/Azure/azure-storage-js)
-> [Referencia de la API de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)
+> [Referencia de la API de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/storage/client)

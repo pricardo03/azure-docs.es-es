@@ -7,13 +7,12 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 98b05f74f0d6f7d20b5aa7ed77047818f217f147
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 688c591cbe94c69c73779843011cb24c3d2fd4cf
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691186"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241096"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
 
@@ -36,8 +35,6 @@ Le guiaremos por las siguientes consultas de inicio:
 > - [Show distinct values for a specific alias](#distinct-alias-values)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -96,7 +93,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/>Show first five virtual machines by name and their OS type
 
-Esta consulta utilizará `limit` para recuperar únicamente cinco registros coincidentes que se ordenan por nombre. El tipo de recurso de Azure es `Microsoft.Compute/virtualMachines`. `project` indica a Azure Resource Graph qué propiedades se incluirán.
+Esta consulta utilizará `top` para recuperar únicamente cinco registros coincidentes que se ordenan por nombre. El tipo de recurso de Azure es `Microsoft.Compute/virtualMachines`. `project` indica a Azure Resource Graph qué propiedades se incluirán.
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -270,7 +267,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 |
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
 ## <a name="a-namedistinct-alias-valuesshow-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"/>Show distinct values for a specific alias

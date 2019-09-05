@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: f95bd3959693879c6560d00be1fb036748d3a439
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129379"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141142"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** o **Almacenamiento optimizado**.
@@ -115,7 +115,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
 | Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4&nbsp;millones |4&nbsp;millones |4&nbsp;millones |N/D |4&nbsp;millones |4&nbsp;millones |
 
-<sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos. Para la indexación de IA que llama a Cognitive Services, los servicios gratuitos se limitan a 20 transacciones gratuitas por indizador por día, donde una transacción se define como un documento que pasa correctamente a través de la canalización enriquecimiento. 
+<sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos. Para la indexación de IA que llama a Cognitive Services, los servicios gratuitos se limitan a 20 transacciones gratuitas por día, donde una transacción se define como un documento que pasa correctamente a través de la canalización enriquecimiento.
 
 <sup>2</sup> Los servicios básicos creados antes de diciembre de 2017 tienen límites inferiores (5 en lugar de 15) en los indexadores, los orígenes de datos y los conjuntos de aptitudes.
 
@@ -131,8 +131,8 @@ El número máximo de asignaciones de sinónimos permitidas varía según el niv
 
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
-| Asignaciones máximas de sinónimos |3 |3|5 |10 |20 |20 | 5 | 5 |
-| Número máximo de reglas por asignación |5000 |10000|10000 |10000 |10000 |10000 | 10000 | 10000  |
+| Asignaciones máximas de sinónimos |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Número máximo de reglas por asignación |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 

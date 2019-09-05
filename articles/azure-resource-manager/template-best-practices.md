@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542987"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258845"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 
@@ -175,7 +175,7 @@ A la hora de decidir qué [dependencias](resource-group-define-dependencies.md) 
 
 * Establezca un recurso secundario como dependiente de su recurso principal.
 
-* Los recursos con el [elemento condition](resource-group-authoring-templates.md#condition) establecido en false se quitan automáticamente de la orden de dependencia. Establezca las dependencias como si siempre se implementase el recurso.
+* Los recursos con el [elemento condition](conditional-resource-deployment.md) establecido en false se quitan automáticamente de la orden de dependencia. Establezca las dependencias como si siempre se implementase el recurso.
 
 * Permita dependencias en cascada sin establecerlas explícitamente. Por ejemplo, la máquina virtual depende de una interfaz de red virtual y la interfaz de red virtual depende de una red virtual y las direcciones IP públicas. Por lo tanto, la máquina virtual se implementa después de los tres recursos, pero no se establece explícitamente la máquina virtual como dependiente de los tres recursos. Este enfoque aclara el orden de dependencia y facilita el cambio de la plantilla más adelante.
 

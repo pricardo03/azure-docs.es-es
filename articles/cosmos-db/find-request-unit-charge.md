@@ -4,14 +4,14 @@ description: Sepa cómo encontrar el cargo de unidad de solicitud (RU) de cualqu
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093739"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240785"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -176,7 +176,7 @@ Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una co
 
 1. [Cree una cuenta de Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) y suminístrele datos, o seleccione una cuenta existente que ya contenga datos.
 
-1. Vaya al panel **Data Explorer** y seleccione la colección en la que quiere trabajar.
+1. Vaya al panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
 1. Seleccione **Nueva consulta**.
 

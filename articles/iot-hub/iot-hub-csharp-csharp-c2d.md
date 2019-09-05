@@ -9,18 +9,16 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 5fb6b17bcbc39b4e7531f79b832853a4f1ed1fd5
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 99acd43128bedcf3dba470f84c0a406861d77e2d
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558667"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147790"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## <a name="introduction"></a>Introducción
 
 IoT Hub de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y una solución de back-end. En el inicio rápido [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md) se muestra cómo crear un centro de IoT, aprovisionar en él la identidad del dispositivo y codificar una aplicación de dispositivo que envíe mensajes del dispositivo a la nube.
 
@@ -46,7 +44,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 > IoT Hub ofrece compatibilidad con SDK en muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java, Python y Javascript, mediante los [SDK de dispositivo IoT de Azure](iot-hub-devguide-sdks.md). Para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general a Azure IoT Hub consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 >
 
-Para completar este tutorial, debe cumplir los siguientes requisitos previos:
+## <a name="prerequisites"></a>Requisitos previos
 
 * Visual Studio
 

@@ -3,23 +3,20 @@ title: Uso de plantillas de Resource Manager en Data Factory | Microsoft Docs
 description: Aprenda a crear y usar plantillas de Azure Resource Manager para crear entidades de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583373"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164676"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
 > [!NOTE]
@@ -35,7 +32,7 @@ En este caso, se deberá repetir una tarea dentro del mismo entorno pero con val
 Además, como la organización desea implementar estas 10 factorías de datos varias veces en distintos entornos, las plantillas pueden utilizar esta característica de **reusabilidad** mediante los archivos de parámetros independientes para entornos de desarrollo, prueba y producción.
 
 ## <a name="templating-with-azure-resource-manager"></a>Creación de plantillas con Azure Resource Manager
-Las [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md#template-deployment) son una excelente manera de lograr la creación de plantillas en Azure Data Factory. Las plantillas de Resource Manager definen la infraestructura y la configuración de la solución de Azure mediante un archivo JSON. Como las plantillas de Azure Resource Manager funcionan con todos los servicios de Azure (o la mayoría de ellos), se pueden usar ampliamente para administrar fácilmente todos los recursos de Azure. Consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para conocer más información acerca de estas plantillas en general.
+Las [plantillas de Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) son una excelente manera de lograr la creación de plantillas en Azure Data Factory. Las plantillas de Resource Manager definen la infraestructura y la configuración de la solución de Azure mediante un archivo JSON. Como las plantillas de Azure Resource Manager funcionan con todos los servicios de Azure (o la mayoría de ellos), se pueden usar ampliamente para administrar fácilmente todos los recursos de Azure. Consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para conocer más información acerca de estas plantillas en general.
 
 ## <a name="tutorials"></a>Tutoriales
 Consulte los siguientes tutoriales para obtener instrucciones detalladas para crear entidades de Data Factory mediante plantillas de Resource Manager:

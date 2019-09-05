@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905222"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142075"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -201,7 +201,7 @@ Para usar la visualización de dependencias, debe asociar un área de trabajo de
 1. Para asociar un área de trabajo de Log Analytics a un proyecto, en **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en **Requiere configuración**.
 2. Puede crear una nueva área de trabajo o adjuntar una existente:
   - Para crear una nueva área de trabajo, especifique un nombre. El área de trabajo se crea en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
-  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Solo se enumeran las áreas de trabajo que se crearon en una [región donde se admite Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
+  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Solo se enumeran las áreas de trabajo que se crearon en una [región donde se admite Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Para asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
 > [!NOTE]
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.

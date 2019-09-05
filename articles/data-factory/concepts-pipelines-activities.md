@@ -3,21 +3,20 @@ title: Canalizaciones y actividades en Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre las canalizaciones y actividades en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976740"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142552"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -173,8 +172,8 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 Nombre JSON | DESCRIPCIÓN | Valores permitidos | Obligatorio
 --------- | ----------- | -------------- | --------
 timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
-retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
-retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es 30 segundos.
+retry | Número máximo de reintentos | Integer | No. El valor predeterminado es 0.
+retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Integer | No. El valor predeterminado es 30 segundos.
 secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | Boolean | No. El valor predeterminado es false.
 
 ### <a name="control-activity"></a>Actividad de control

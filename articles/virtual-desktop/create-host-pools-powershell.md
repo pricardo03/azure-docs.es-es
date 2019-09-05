@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563276"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163674"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
@@ -25,7 +25,7 @@ En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de Po
 Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Windows Virtual Desktop.
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 A continuación, ejecute este cmdlet para crear un nuevo grupo de hosts en el inquilino de Windows Virtual Desktop.
@@ -82,7 +82,7 @@ Para realizar correctamente una unión a un dominio, realice los siguientes paso
 5. Autentíquese con una cuenta de dominio que tenga privilegios en máquinas unidas a dominio.
 
     >[!NOTE]
-    > Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services, asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores de controlador de dominio de AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registro de las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop (versión preliminar)
 

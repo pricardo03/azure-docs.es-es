@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7f3a3ac2559e23eecbab46cb801f73fb09c20211
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036603"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231910"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
@@ -397,7 +397,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](./concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](./concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).

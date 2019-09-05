@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609583"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308580"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -234,12 +234,12 @@ Azure se basa en un conjunto de API de REST que dan soporte a la interfaz de usu
 Además de las API de REST, muchos servicios de Azure también permiten administrar mediante programación los recursos desde las aplicaciones mediante SDK de Azure específicos de la plataforma, incluidos los SDK para las siguientes plataformas de desarrollo:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](https://docs.microsoft.com/python/azure)
+-   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/go/azure)
+-   [Go](https://docs.microsoft.com/azure/go)
 
 Servicios como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) y [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) proporcionan SDK de cliente para que pueda acceder a los servicios desde aplicaciones de cliente móviles y web.
 

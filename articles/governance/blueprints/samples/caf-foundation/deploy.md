@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 088591d30d768193fe74150cc33727fe47081624
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f4235599d3156c35b50aea1815f3d62d925f326a
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876524"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231858"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Microsoft Cloud Adoption Framework para Azure Foundation
 
@@ -113,7 +113,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Tipos de recursos que no desea permitir en su entorno|Asignación de directiva|Policy _Allowed-Resource-Types|Qué recursos de Azure quiere permitir en su entorno|
 |Implementar Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o usuario de Azure AD <Object ID> al que conceder permisos en Key Vault|
 |Implementar Log Analytics|Plantilla de Resource Manager|LogAnalytics_DataRetention|**Bloqueado**: número de días que se conservarán los datos en Log Analytics.|
-|Implementar Log Analytics|Plantilla de Resource Manager|LogAnalytics_Location|**Bloqueado**: región que se usa al establecer el área de trabajo.|
+|Implementación de Log Analytics|Plantilla de Resource Manager|LogAnalytics_Location|**Bloqueado**: región que se usa al establecer el área de trabajo.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -124,7 +124,7 @@ Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

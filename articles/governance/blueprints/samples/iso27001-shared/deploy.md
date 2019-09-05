@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04285ace1713a03a812f1c79895da64e6dac42a8
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926300"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231715"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -89,8 +89,8 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - **Nombre de la organización**: Escriba un nombre corto para su organización. Esta propiedad se utiliza principalmente para asignar nombres a los recursos.
      - **Prefijo de la dirección de subred de los servicios compartidos**: Proporcione el valor de la notación CIDR para conectar en red los recursos implementados.
      - **Ubicación de los servicios compartidos**: Determina en qué ubicación se implementan los artefactos. No todos los servicios están disponibles en todas las ubicaciones. Los artefactos que implementan tales servicios proporcionan una opción de parámetro para la ubicación en la que se va a implementar ese artefacto.
-     - **Ubicación permitida (Directiva: Iniciativa de plano técnico para ISO 27001)**: Valor que indica las ubicaciones permitidas para los grupos de recursos y los recursos.
-     - **Área de trabajo de Log Analytics para los agentes de máquina virtual (directiva: Iniciativa de plano técnico para ISO 27001)**: Especifica el identificador de recurso de un área de trabajo. Este parámetro utiliza una función `concat` para construir el identificador de recurso.
+     - **Ubicación permitida (Directiva: Iniciativa de plano técnico para ISO 27001)** : Valor que indica las ubicaciones permitidas para los grupos de recursos y los recursos.
+     - **Área de trabajo de Log Analytics para los agentes de máquina virtual (directiva: Iniciativa de plano técnico para ISO 27001)** : Especifica el identificador de recurso de un área de trabajo. Este parámetro utiliza una función `concat` para construir el identificador de recurso.
 
    - Parámetros de artefacto
 
@@ -107,21 +107,21 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
 |-|-|-|-|
-|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_ .|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_ .|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_ .|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_ .|
 |Tipos de recursos permitidos|Asignación de directiva|Tipos de recursos permitidos|Lista de tipos de recursos que se pueden implementar. Esta lista se compone de todos los tipos de recursos implementados en los servicios compartidos.|
-|SKU de cuenta de almacenamiento permitida|Asignación de directiva|SKU de almacenamiento permitidas|Lista de SKU de cuenta de almacenamiento de registros de diagnóstico permitidas. El valor predeterminado es _["Standard_LRS"]_.|
-|SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquinas virtuales que se pueden implementar. El valor predeterminado es _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
+|SKU de cuenta de almacenamiento permitida|Asignación de directiva|SKU de almacenamiento permitidas|Lista de SKU de cuenta de almacenamiento de registros de diagnóstico permitidas. El valor predeterminado es _["Standard_LRS"]_ .|
+|SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquinas virtuales que se pueden implementar. El valor predeterminado es _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
 |Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Tipos de recursos para auditar registros de diagnóstico|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Grupo de recursos de Log Analytics|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Log Analytics|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Log Analytics|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Log Analytics|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Ubicación|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
-|Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-net-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Location|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
+|Grupo de recursos de red|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-net-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de red|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Azure Firewall|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada de [Azure Firewall](../../../../firewall/overview.md). Este valor también se usa como tabla de rutas predeterminadas en la subred de servicios compartidos. Debe ser parte de la notación CIDR definida en **Prefijo de la dirección de subred de Azure Firewall**. El valor predeterminado es _10.0.4.4_.|
 |Plantilla de Azure Firewall|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
@@ -132,8 +132,8 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de subred de Application Gateway|La notación CIDR de la subred de Application Gateway. El valor predeterminado es _10.0.2.0/24_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de subred de la puerta de enlace de Virtual Network|La notación CIDR de la subred de la puerta de enlace de red virtual. El valor predeterminado es _10.0.3.0/24_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de subred de Azure Firewall|La notación CIDR de la subred de [Azure Firewall](../../../../firewall/overview.md). Debe incluir el parámetro de **dirección IP privada de Azure Firewall**.|
-|Grupo de recursos de Key Vault|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-kv-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Key Vault|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Key Vault|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-kv-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Key Vault|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario del administrador de jumpbox|Nombre de usuario de jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de jumpbox**. El valor predeterminado es _jb-admin-user_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Contraseña o clave SSH del administrador de jumpbox|Clave o contraseña de la cuenta en el jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de jumpbox**. No hay ningún valor predeterminado y no puede dejarse en blanco.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario del administrador de dominio|Nombre de usuario que se usa para acceder a la máquina virtual de Active Directory y unir otras máquinas virtuales a un dominio. Debe coincidir con el valor de propiedad del **usuario administrador de dominio** de la **plantilla de Active Directory Domain Services**. El valor predeterminado es _domain-admin-user_.|
@@ -141,14 +141,14 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.  |
 |Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU de Key Vault que se crea. El valor predeterminado es _Premium_.|
-|Grupo de recursos de jumpbox|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-jb-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de jumpbox|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de jumpbox|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-jb-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de jumpbox|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Nombre de usuario del administrador de jumpbox|Nombre de usuario que se usa para acceder a las máquinas virtuales de jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _jb-admin-user_.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Contraseña del administrador de Jumpbox (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Contraseña del administrador de jumpbox (nombre del secreto de Key Vault)|Nombre de usuario del administrador de jumpbox. El valor debe coincidir con el del **nombre de usuario del administrador de jumpbox** de la propiedad **plantilla de Key Vault**.|
 |Plantilla de jumpbox|Plantilla de Resource Manager|Sistema operativo de jumpbox|Determina el sistema operativo de la máquina virtual de jumpbox. El valor predeterminado es _Windows_.|
-|Grupo de recursos de Active Directory Domain Services|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-adds-rg` para que el grupo de recursos sea único.|
-|Grupo de recursos de Active Directory Domain Services|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Grupo de recursos de Active Directory Domain Services|Resource group|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-adds-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Active Directory Domain Services|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Nombre de usuario del administrador de dominio|Nombre de usuario de jumpbox de ADDS. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _adds-admin-user_.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Contraseña del administrador de dominio (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
 |Plantilla de Active Directory Domain Services|Plantilla de Resource Manager|Contraseña del administrador de dominio (nombre del secreto de Key Vault)|Nombre de usuario del administrador de dominio. El valor debe coincidir con el del **nombre de usuario del administrador de dominio** de la propiedad **plantilla de Key Vault**.|
@@ -166,7 +166,7 @@ Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).

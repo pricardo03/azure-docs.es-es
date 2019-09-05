@@ -2,7 +2,7 @@
 title: 'Inicio rápido de Java: creación, carga y consulta de índices en Java'
 description: Se explica cómo crear un índice, cargar datos y ejecutar consultas mediante Java y las API REST de Azure Search.
 author: lisaleib
-manager: cgronlun
+manager: nitinme
 ms.author: jjed
 tags: azure-portal
 services: search
@@ -11,12 +11,12 @@ ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.openlocfilehash: eff5674f2675d7764a068f72f7d7aa35660b62e4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eec22d14c2d71a94f21a2403463315d477032ede
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047669"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186732"
 ---
 # <a name="quickstart-create-load-and-query-indexes-using-azure-search-rest-apis-with-java"></a>Inicio rápido: creación, carga y consulta de índices mediante las API REST de Azure Search con Java
 > [!div class="op_single_selector"]
