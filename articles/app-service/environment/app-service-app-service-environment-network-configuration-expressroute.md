@@ -10,21 +10,20 @@ ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130677"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070039"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalles de configuración de red para entornos de App Service para PowerApps con Azure ExpressRoute
 
-Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a su infraestructura de red virtual para ampliar la red local a Azure. Se crea una instancia de App Service Environment en una subred de la infraestructura de la [red virtual][virtualnetwork]. Las aplicaciones que se ejecutan en App Service Environment pueden establecer conexiones seguras con los recursos de back-end a los que solo se puede tener acceso través de la conexión de ExpressRoute.  
+Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a su infraestructura de red virtual para ampliar la red local a Azure. App Service Environment se crea en una subred de la infraestructura de [red virtual][virtualnetwork]. Las aplicaciones que se ejecutan en App Service Environment pueden establecer conexiones seguras con los recursos de back-end a los que solo se puede tener acceso través de la conexión de ExpressRoute.  
 
 Se puede crear una instancia de App Service Environment en estos escenarios:
 - Redes virtuales de Azure Resource Manager.
@@ -59,7 +58,7 @@ App Service Environment requiere los siguientes valores de conectividad de red p
 
 * El acceso de red entrante a los puertos requeridos para las instancias de App Service Environment debe estar permitido. Para más información, consulte [Cómo controlar el tráfico de entrada a App Service Environment][requiredports].
 
-Para cumplir los requisitos de DNS, asegúrese de que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si se cambia la configuración de DNS después de haber creado una instancia de App Service Environment, los desarrolladores pueden forzar a esta para que recoja la nueva configuración de DNS. Puede desencadenar un reinicio gradual del entorno mediante el icono **Restart** (Reiniciar) en la administración de App Service Environment en [Azure Portal][NewPortal]. El reinicio hace que el entorno recoja la nueva configuración de DNS.
+Para cumplir los requisitos de DNS, asegúrese de que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si se cambia la configuración de DNS después de haber creado una instancia de App Service Environment, los desarrolladores pueden forzar a esta para que recoja la nueva configuración de DNS. Puede desencadenar un reinicio gradual del entorno mediante el icono **Reiniciar** en la administración de App Service Environment en [Azure Portal][NewPortal]. El reinicio hace que el entorno recoja la nueva configuración de DNS.
 
 Para cumplir los requisitos de acceso de la red entrante, configure un [grupo de seguridad de red (NSG)][NetworkSecurityGroups] en la subred de App Service Environment. Este grupo permite el acceso necesario [para controlar el tráfico entrante en App Service Environment][requiredports].
 
@@ -85,7 +84,7 @@ El efecto combinado de esta configuración es que la ruta definida por el usuari
 > 
 > 
 
-Para más información acerca de las rutas definidas por el usuario, consulte [Enrutamiento del tráfico de redes virtuales][UDROverview].  
+Para más información sobre las rutas definidas por el usuario, consulte [Enrutamiento del tráfico de redes virtuales][UDROverview].  
 
 Para aprender a crear y configurar rutas definidas por el usuario, consulte [Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell][UDRHowTo].
 

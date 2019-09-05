@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 37921c655cc3c5de5c3c5079eda47fb7513fdf9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114645"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -37,7 +37,13 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |Operaciones [Prediction](https://go.microsoft.com/fwlink/?linkid=865445) sin almacenamiento (transacciones por segundo)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (llamadas API por segundo)|2|10|
 |[Otras llamadas API](https://go.microsoft.com/fwlink/?linkid=865446) (transacciones por segundo)|10|10|
+|Tipos de imágenes aceptadas|JPG, PNG, BMP, GIF|JPG, PNG, BMP, GIF|
+|Alto y ancho mínimos de la imagen, en píxeles|256 (vea la nota)|256 (vea la nota)|
+|Alto y ancho máximos de la imagen, en píxeles|sin límite|sin límite|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
 |Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|200|200|
 |Núm. máximo de etiquetas por imagen de clasificación|30|30|
+
+> [!NOTE]
+> Se aceptarán imágenes de menos de 256 píxeles, pero se escalarán.

@@ -10,17 +10,16 @@ ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eaefebc569f5bf5461ff7c4407fa77a0c62d4fe8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130728"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070214"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuida geográficamente con entornos de App Service
 ## <a name="overview"></a>Información general
@@ -33,7 +32,7 @@ Los entornos de App Service son una plataforma ideal para el escalado horizontal
 
 Por ejemplo, imagine una aplicación que se ejecuta en una configuración de entorno de App Service y en la que se probó el procesamiento de 20.000 solicitudes por segundo (RPS).  Si la capacidad de carga máxima deseada es 100.000 RPS, se pueden crear y configurar cinco (5) entornos de App Service para asegurarse de que la aplicación pueda afrontar la carga máxima prevista.
 
-Puesto que los clientes suelen acceder a las aplicaciones mediante un dominio personalizado (o mnemónico), los desarrolladores necesitan una forma de distribuir las solicitudes de aplicaciones a todas las instancias del entorno de App Service.  Una excelente manera de lograr esto es resolver el dominio personalizado con un [perfil de Traffic Manager de Azure][AzureTrafficManagerProfile].  El perfil del Administrador de tráfico puede configurarse para que apunte a todos los entornos de App Service individuales.  Traffic Manager controlará automáticamente la distribución de los clientes por todos los entornos de App Service en función de la configuración de equilibrio de carga en el perfil de Traffic Manager.  Este enfoque funciona independientemente de si todos los entornos de App Service están implementados en una sola región de Azure o en varias regiones de Azure del mundo.
+Puesto que los clientes suelen acceder a las aplicaciones mediante un dominio personalizado (o mnemónico), los desarrolladores necesitan una forma de distribuir las solicitudes de aplicaciones a todas las instancias del entorno de App Service.  Una excelente manera de lograr esto es resolver el dominio personalizado con un [perfil de Azure Traffic Manager][AzureTrafficManagerProfile].  El perfil del Administrador de tráfico puede configurarse para que apunte a todos los entornos de App Service individuales.  Traffic Manager controlará automáticamente la distribución de los clientes por todos los entornos de App Service en función de la configuración de equilibrio de carga en el perfil de Traffic Manager.  Este enfoque funciona independientemente de si todos los entornos de App Service están implementados en una sola región de Azure o en varias regiones de Azure del mundo.
 
 Además, como los clientes acceden a las aplicaciones a través del dominio mnemónico, desconocen el número de entornos de App Service que ejecutan una aplicación.  Como resultado, los desarrolladores pueden agregar y quitar rápida y fácilmente entornos de App Service según la carga de tráfico observada.
 
@@ -47,7 +46,7 @@ El resto de este tema lo guía por los pasos necesarios para configurar una topo
 Antes de crear la superficie de una aplicación distribuida, resulta útil tener algunos datos con antelación.
 
 * **Dominio personalizado para la aplicación:**  ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación?  Para la aplicación de ejemplo, el nombre de dominio personalizado es `www.scalableasedemo.com`.
-* **Dominio de Traffic Manager:**  se tiene que elegir un nombre de dominio al crear un [perfil de Azure Traffic Manager][AzureTrafficManagerProfile].  Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico.  Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*.  Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
+* **Dominio de Traffic Manager:**  se debe elegir un nombre de dominio al crear un [perfil de Azure Traffic Manager][AzureTrafficManagerProfile].  Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico.  Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*.  Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
 * **Estrategia para escalar la superficie de la aplicación:**  ¿se va a distribuir el entorno de la aplicación entre varias instancias de App Service Environment de una sola región?  ¿Varias regiones?  ¿Una combinación de ambos enfoques?  La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse.  Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva mediante una combinación de varias instancias de App Service Environment por región de Azure, multiplicados por más instancias de App Service Environment implementadas en varias regiones de Azure.  Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo.  Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de App Service en una sola región de Azure (Centro y Sur de EE. UU.).
 * **Convención de nomenclatura para las instancias de App Service Environment:**  cada instancia de App Service Environment requiere un nombre único.  Si existen más de uno o dos entornos de App Service, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos.  Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla.  Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
 * **Convención de nomenclatura para las aplicaciones:**  dado que se van a implementar varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada.  Una característica poco conocida pero muy cómoda de los entornos de App Service es que se puede usar el mismo nombre de aplicación en varios entornos de App Service.  Dado que cada entorno de App Service tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno.  Por ejemplo, un desarrollador podría asignar los siguientes nombres a las aplicaciones:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net, etc*.  No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único.  Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
@@ -59,7 +58,7 @@ Una vez que se implementan varias instancias de una aplicación en varias instan
 * **webfrontend2.fe2ase.p.azurewebsites.net:**  una instancia de la aplicación de ejemplo implementada en la segunda instancia de App Service Environment.
 * **webfrontend3.fe3ase.p.azurewebsites.net:**  una instancia de la aplicación de ejemplo implementada en la tercera instancia de App Service Environment.
 
-La forma más sencilla de registrar varios puntos de conexión de Azure App Service, todos los cuales se ejecutan en la **misma** región de Azure, es usando la [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].  
+La forma más sencilla de registrar varios puntos de conexión de Azure App Service, todos los cuales se ejecutan en la **misma** región de Azure, es usar la [compatibilidad de Azure Resource Manager con Traffic Manager][ARMTrafficManager].  
 
 El primer paso consiste en crear un perfil del Administrador de tráfico de Azure.  El código siguiente muestra cómo se creó el perfil para la aplicación de ejemplo:
 
@@ -99,7 +98,7 @@ En este ejemplo, el dominio personalizado es `www.scalableasedemo.com` y cada in
 
 ![Dominio personalizado][CustomDomain] 
 
-Como resumen del registro de un dominio personalizado con las aplicaciones de Azure App Service, consulte el siguiente artículo sobre el [registro de dominios personalizados][RegisterCustomDomain].
+Puede encontrar un resumen del registro de un dominio personalizado con las aplicaciones de Azure App Service en el siguiente artículo sobre el [registro de dominios personalizados][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Prueba de la topología distribuida
 El resultado final de la configuración de Traffic Manager y de DNS es que las solicitudes de `www.scalableasedemo.com` fluirán en la siguiente secuencia:
@@ -117,7 +116,7 @@ En la imagen de consola siguiente, se muestra una búsqueda DNS para el dominio 
 ![Búsqueda DNS][DNSLookup] 
 
 ## <a name="additional-links-and-information"></a>Información y vínculos adicionales
-Documentación sobre [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].  
+Documentación sobre la compatibilidad de [Azure Resource Manager con Azure Traffic Manager][ARMTrafficManager].  
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

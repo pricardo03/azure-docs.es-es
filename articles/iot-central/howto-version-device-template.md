@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877304"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100901"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
 
@@ -50,7 +50,7 @@ En la lista siguiente se describen las acciones del usuario que podrían requeri
 
 ¿Qué ocurre con las reglas y los paneles de dispositivo cuando se produce un cambio de versión?
 
-Las **reglas** podrían contener condiciones que dependen de propiedades. Si ha quitado una o varias de estas propiedades, estas reglas podrían interrumpirse en la nueva versión de la plantilla de dispositivo. Puede ir a estas reglas específicas y actualizar las condiciones para corregir las reglas. Las reglas para la versión anterior deben funcionar sin ningún impacto.
+Las **reglas** de la versión anterior de la plantilla de dispositivo siguen funcionando sin cambios. Las reglas no se migran automáticamente a la nueva versión de la plantilla del dispositivo. Puede crear reglas en la nueva versión de la plantilla como de costumbre. Para más información, consulte el artículo de procedimientos [Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central](howto-create-telemetry-rules.md).
 
 Los **paneles de dispositivo** puede contener varios tipos de iconos. Algunos de los iconos pueden contener configuraciones y propiedades. Cuando se quita una propiedad o configuración usada en un icono, este queda interrumpido total o parcialmente. Puede ir al icono y corregir el problema quitando dicho icono o actualizando el contenido del mismo.
 

@@ -10,23 +10,22 @@ ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130694"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070143"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementación de una arquitectura de seguridad por capas con entornos de App Service
 ## <a name="overview"></a>Información general
 Como los entornos de App Service proporcionan un entorno de tiempo de ejecución aislado que está implementado en una red virtual, los desarrolladores pueden crear una arquitectura de seguridad por capas que proporcione diferentes niveles de acceso a la red para cada capa de aplicación física.
 
-Un objetivo común es ocultar los back-ends de API al acceso general desde Internet y permitir que solo las aplicaciones web ascendentes puedan llamar a las API.  Los [Grupos de seguridad de red (NSG)][NetworkSecurityGroups] pueden usarse para restringir el acceso público a aplicaciones API en subredes que contengan los entornos de App Service.
+Un objetivo común es ocultar los back-ends de API al acceso general desde Internet y permitir que solo las aplicaciones web ascendentes puedan llamar a las API.  Los [grupos de seguridad de red (NSG)][NetworkSecurityGroups] pueden usarse para restringir el acceso público a aplicaciones API en subredes que contengan App Service Environment.
 
 El diagrama a continuación muestra una arquitectura de ejemplo con una aplicación basada en WebAPI, implementada en un entorno de App Service.  Tres instancias de aplicación web independiente, implementadas en tres entornos de App Service independientes, realizan llamadas de back-end a la misma aplicación WebAPI.
 
@@ -39,9 +38,9 @@ El resto de este artículo le guiará por los pasos necesarios para configurar e
 ## <a name="determining-the-network-behavior"></a>Determinación del comportamiento de la red
 Para saber qué reglas de seguridad de red son necesarias, tiene que determinar a qué clientes de red se les permitirá ponerse en contacto con el entorno de App Service que contiene la aplicación de API, y a qué clientes se bloqueará.
 
-Puesto que los [Grupos de seguridad de red (NSG)][NetworkSecurityGroups] están aplicados a las subredes y los entornos de App Service están implementados en las subredes, las reglas contenidas en un NSG se aplican a **todas** las aplicaciones que se ejecutan en un entorno de App Service.  En la arquitectura de ejemplo de este artículo, una vez que un grupo de seguridad de red se aplica a la subred que contiene "apiase", todas las aplicaciones que se ejecuten en el entorno de App Service "apiase" estarán protegidas por el mismo conjunto de reglas de seguridad. 
+Puesto que los [grupos de seguridad de red (NSG)][NetworkSecurityGroups] se aplican a las subredes y App Service Environment se implementa en las subredes, las reglas contenidas en un NSG se aplican a **todas** las aplicaciones que se ejecutan en App Service Environment.  En la arquitectura de ejemplo de este artículo, una vez que un grupo de seguridad de red se aplica a la subred que contiene "apiase", todas las aplicaciones que se ejecuten en el entorno de App Service "apiase" estarán protegidas por el mismo conjunto de reglas de seguridad. 
 
-* **Determinar la dirección IP de salida de los autores de llamadas ascendentes:**  ¿Cuál es la dirección o direcciones IP de los autores de llamadas ascendentes?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para obtener más información sobre cómo determinar la dirección IP de salida para aplicaciones que se ejecutan en un entorno de App Service, consulte el artículo de información general sobre la [arquitectura de red][NetworkArchitecture].
+* **Determinar la dirección IP de salida de los autores de llamadas ascendentes:**  ¿Cuál es la dirección o direcciones IP de los autores de llamadas ascendentes?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para más información sobre cómo determinar la dirección IP de salida para las aplicaciones que se ejecutan en App Service Environment, consulte el artículo [Información general sobre la arquitectura de red][NetworkArchitecture].
 * **¿Tiene la aplicación de API de back-end que llamarse a sí misma?**  Un punto sutil que a veces se pasa por alto es el escenario en el que la aplicación back-end tiene que llamarse a sí misma.  Si una aplicación de API de back-end en un entorno de App Service tiene que llamarse a sí misma, también se trata como una llamada de "Internet".  En la arquitectura de ejemplo, esto requiere que se permita también el acceso desde la dirección IP saliente del entorno de App Service "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Creación del grupo de seguridad de red
@@ -51,7 +50,7 @@ Para la arquitectura del ejemplo, los entornos se encuentran en "South Central U
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-En primer lugar, se agrega una regla de permiso explícito para la infraestructura de administración de Azure como se indica en el artículo sobre [tráfico de entrada][InboundTraffic] para entornos de App Service.
+En primer lugar, se agrega una regla de permiso explícito para la infraestructura de administración de Azure como se indica en el artículo sobre el [tráfico de entrada][InboundTraffic] para App Service Environment.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
@@ -94,9 +93,9 @@ Con el NSG aplicado a la subred, solo los tres entornos de App Service y el ento
 ## <a name="additional-links-and-information"></a>Información y vínculos adicionales
 Información acerca de los [grupos de seguridad de red](../../virtual-network/security-overview.md).
 
-Descripción de las [direcciones IP saliente][NetworkArchitecture] y entornos de App Service.
+Descripción de las [direcciones IP salientes][NetworkArchitecture] y App Service Environment.
 
-[Puertos de red][InboundTraffic] usados en un entorno de App Service
+[Puertos de red][InboundTraffic] usados en App Service Environment.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

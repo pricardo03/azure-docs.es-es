@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607027"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113521"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
@@ -99,11 +99,22 @@ Las **métricas personalizadas** son métricas que se definen además de las mé
 
 ## <a name="retention-of-metrics"></a>Retención de métricas
 Para la mayoría de los recursos en Azure, las métricas se almacenan durante 93 días. Hay algunas excepciones:
-  * **Métricas clásicas de SO invitado**. Las métricas clásicas de SO invitado se conservan durante 14 días. Para una retención más larga, es recomendable que use las nuevas métricas de SO invitado que se recopilan con la [extensión de diagnóstico de Windows (WAD)](../platform/diagnostics-extension-overview.md) y para las máquinas virtuales Linux con el [agente de InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
-  * **Métricas basadas en registros de Application Insights**. Entre bastidores, las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md) se traducen en consultas de registros. Su retención coincide con la retención de eventos en registros subyacentes. Para los recursos de Application Insights, los registros se almacenan durante 90 días. 
+
+**Métricas de SO invitado**
+-   **Métricas clásicas de SO invitado**. Estos son los contadores de rendimiento que recopila la [extensión de diagnóstico de Windows (WAD)](../platform/diagnostics-extension-overview.md) o la [extensión de diagnóstico de Linux (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) y que se enrutan a una cuenta de almacenamiento de Azure. La retención de estas métricas es de 14 días.
+-   **Métricas de SO invitado enviadas a las métricas de Azure Monitor**. Estos son los contadores de rendimiento que recopila la extensión de diagnóstico de Windows (WAD) y que se envían al [receptor de Azure Monitor](diagnostics-extension-overview.md#data-storage) o a través del [Agente de InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) en máquinas Linux. La retención de estas métricas es de 93 días.
+-   **Métricas de SO invitado que recopila el agente de Log Analytics**. Estos son contadores de rendimiento que recopila el agente de Log Analytics y que se envían a un área de trabajo de Log Analytics. La retención de estas métricas es de 31 días y se puede ampliar a un máximo de 2 años.
+
+**Métricas basadas en registros de Application Insights**. 
+- Entre bastidores, las [métricas basadas en registros](../app/pre-aggregated-metrics-log-metrics.md) se traducen en consultas de registros. Su retención coincide con la retención de eventos en registros subyacentes. Para los recursos de Application Insights, los registros se almacenan durante 90 días.
+
 
 > [!NOTE]
 > También puede [enviar métricas de plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](diagnostic-logs-stream-log-store.md) para tendencias a largo plazo.
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

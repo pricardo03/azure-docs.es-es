@@ -1,7 +1,7 @@
 ---
-title: Implementación de modelos con una imagen de Docker personalizada
+title: Implementación de modelos con una imagen base de Docker personalizada
 titleSuffix: Azure Machine Learning service
-description: Aprenda a usar una imagen de Docker al implementar los modelos de Azure Machine Learning Service. Al implementar un modelo entrenado, se crea una imagen de Docker para hospedar la imagen, el servidor web y otros componentes necesarios para ejecutar el servicio. Aunque Azure Machine Learning Service proporciona una imagen predeterminada, también puede usar una propia.
+description: Aprenda a usar una imagen base de Docker personalizada al implementar los modelos de Azure Machine Learning Service. Cuando se implementa un modelo entrenado, se implementa una imagen de contenedor base para ejecutar el modelo para la inferencia. Aunque Azure Machine Learning Service proporciona una imagen base predeterminada, también puede usar una propia.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
-ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/22/2019
+ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990527"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971518"
 ---
-# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Implementación de un modelo con una imagen de Docker personalizada
+# <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 
-Aprenda a usar una imagen de Docker personalizada al implementar modelos entrenados con Azure Machine Learning Service.
+Aprenda a usar una imagen base de Docker al implementar modelos entrenados con Azure Machine Learning Service.
 
-Al implementar un modelo entrenado en un servicio web o dispositivo IoT Edge, se crea una imagen de Docker. Esta imagen contiene el modelo, el entorno de Conda y los recursos necesarios para usar el modelo. También contiene un servidor web para controlar las solicitudes entrantes cuando se implementa como servicio web y los componentes necesarios para trabajar con Azure IoT Hub.
+Cuando se implementa un modelo entrenado en un servicio web o un dispositivo IoT Edge, se crea un paquete que contiene un servidor web para controlar las solicitudes entrantes.
 
-Azure Machine Learning Service proporciona una imagen de Docker predeterminada para que no tenga que preocuparse de crear una. También puede usar una imagen personalizada que se crea como _imagen base_. Una imagen base se usa como punto de partida cuando se crea una imagen para una implementación. Proporciona el sistema operativo y los componentes subyacentes. A continuación, el proceso de implementación agrega componentes adicionales, como el modelo, el entorno de Conda y otros recursos, a la imagen antes de implementarla.
+Azure Machine Learning Service proporciona una imagen base de Docker predeterminada para que no tenga que preocuparse de crear una. También puede usar una imagen base personalizada que cree como _imagen base_. 
 
-Normalmente, se crea una imagen personalizada para controlar las versiones del componente o ahorrar tiempo durante la implementación. Por ejemplo, es posible que quiera estandarizar a partir de una versión específica de Python, Conda u otro componente. También puede querer instalar el software necesario para el modelo, caso en que el proceso de instalación lleva mucho tiempo. Instalar el software al crear la imagen base significa que no tendrá que instalarlo para cada implementación.
+Una imagen base se usa como punto de partida cuando se crea una imagen para una implementación. Proporciona el sistema operativo y los componentes subyacentes. A continuación, el proceso de implementación agrega componentes adicionales, como el modelo, el entorno de Conda y otros recursos, a la imagen antes de implementarla.
+
+Normalmente, se crea una imagen base personalizada cuando se desea usar Docker para administrar las dependencias, mantener un mayor control sobre las versiones de los componentes o ahorrar tiempo durante la implementación. Por ejemplo, es posible que quiera estandarizar a partir de una versión específica de Python, Conda u otro componente. También puede querer instalar el software necesario para el modelo, caso en que el proceso de instalación lleva mucho tiempo. Instalar el software al crear la imagen base significa que no tendrá que instalarlo para cada implementación.
 
 > [!IMPORTANT]
 > Al implementar un modelo, no se pueden invalidar los componentes principales, como el servidor web o los componentes de IoT Edge. Estos componentes proporcionan un entorno conocido de trabajo que Microsoft ha probado y admite.
@@ -35,8 +37,8 @@ Normalmente, se crea una imagen personalizada para controlar las versiones del c
 
 Este documento se divide en dos secciones:
 
-* Crear una imagen personalizada: proporciona información para administradores y DevOps para crear una imagen personalizada y configurar la autenticación en Azure Container Registry mediante la CLI de Azure y la CLI de Machine Learning.
-* Usar una imagen personalizada: proporciona información a los científicos de datos y DevOps/MLOps sobre el uso de imágenes personalizadas al implementar un modelo entrenado desde el SDK de Python o la CLI de ML.
+* Creación de una imagen base personalizada: proporciona información para administradores y DevOps para crear una imagen personalizada y configurar la autenticación en Azure Container Registry mediante la CLI de Azure y la CLI de Machine Learning.
+* Implementación de un modelo con una imagen base personalizada: proporciona información a los científicos de datos y DevOps/ingenieros de ML sobre el uso de imágenes personalizadas al implementar un modelo entrenado desde el SDK de Python o la CLI de ML.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,7 +49,7 @@ Este documento se divide en dos secciones:
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
 * En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-to-deploy).
 
-## <a name="create-a-custom-image"></a>Crear una imagen personalizada
+## <a name="create-a-custom-base-image"></a>Creación de una imagen base personalizada
 
 Para la información de esta sección, se da por supuesto que usa Azure Container Registry para almacenar imágenes de Docker. Use la lista de comprobación siguiente a la hora de planear la creación de imágenes personalizadas para Azure Machine Learning Service:
 
@@ -109,7 +111,7 @@ Si ya ha entrenado o implementado modelos mediante Azure Machine Learning Servic
 
     El valor `<registry_name>` es el nombre de Azure Container Registry para el área de trabajo.
 
-### <a name="build-a-custom-image"></a>Crear una imagen personalizada
+### <a name="build-a-custom-base-image"></a>Compilación de una imagen base personalizada
 
 Los pasos de esta sección le orientan a lo largo de la creación de una imagen de Docker personalizada en Azure Container Registry.
 
@@ -162,7 +164,7 @@ Para obtener más información sobre la creación de imágenes con Azure Contain
 
 Para más información acerca de cómo cargar imágenes existentes en una instancia de Azure Container Registry, consulte [Inserción de la primera imagen en un registro de contenedor privado de Docker](/azure/container-registry/container-registry-get-started-docker-cli).
 
-## <a name="use-a-custom-image"></a>Uso de una imagen personalizada
+## <a name="use-a-custom-base-image"></a>Uso de una imagen base personalizada
 
 Para usar una imagen personalizada, necesitará la siguiente información:
 
@@ -174,7 +176,7 @@ Para usar una imagen personalizada, necesitará la siguiente información:
 
     Si no tiene esta información, hable con el administrador de la instancia de Azure Container Registry que contiene la imagen.
 
-### <a name="publicly-available-images"></a>Imágenes disponibles públicamente
+### <a name="publicly-available-base-images"></a>Imágenes base disponibles públicamente
 
 Microsoft proporciona varias imágenes de Docker en un repositorio accesible públicamente que se pueden usar mediante los pasos descritos en esta sección:
 

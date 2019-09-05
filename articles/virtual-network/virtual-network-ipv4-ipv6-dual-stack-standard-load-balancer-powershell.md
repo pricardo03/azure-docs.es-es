@@ -1,5 +1,5 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure Virtual Network: PowerShell'
+title: Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network - PowerShell
 titlesuffix: Azure Virtual Network
 description: En este artículo, se muestra cómo implementar una aplicación de pila doble IPv6 en Azure Virtual Network con Standard Load Balancer.
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 99e01aa611eea3d6379e2a250cc99d121e41aa82
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 05794cfaf6a550d32acdfb731a5f477111e65606
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269597"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011415"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---powershell-preview"></a>Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer en Azure: PowerShell (versión preliminar)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure - PowerShell (versión preliminar)
 
-En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, un grupo de seguridad de red e IP públicas.
+En este artículo se explica cómo se implementa mediante Standard Load Balancer una aplicación de doble pila (IPv4 + IPv6) en Azure que contiene una red virtual de doble pila y una subred, un equilibrador de carga estándar con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, un grupo de seguridad de red y direcciones IP públicas.
 
 > [!Important]
 > La compatibilidad de IPv6 con Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -39,7 +39,7 @@ Regístrese del modo siguiente:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando los siguientes comandos de Azure PowerShell: Hágalo del modo siguiente:
+Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro mediante la ejecución del siguiente comando de Azure PowerShell: Compruebe en el registro del modo siguiente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 

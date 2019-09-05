@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310258"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114700"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticación con Azure Container Registry desde Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Cuando se usa Azure Container Registry (ACR) con Azure Kubernetes Service (AKS),
 
 Solo debe configurar uno de estos métodos de autenticación. El enfoque más común es [conceder acceso mediante la entidad de servicio de AKS](#grant-aks-access-to-acr). Si tiene necesidades específicas, puede, opcionalmente, [conceder acceso usando los secretos de Kubernetes](#access-with-kubernetes-secret).
 
-En este artículo se da por supuesto que ya ha creado un clúster de AKS y es posible tener acceso al clúster con el cliente de línea de comandos `kubectl`.
+En este artículo se da por supuesto que ya ha creado un clúster de AKS y es posible tener acceso al clúster con el cliente de línea de comandos `kubectl`. Si en su lugar desea crear un clúster y configurar el acceso a un registro de contenedor en el momento de la creación del clúster, consulte [Tutorial: Implementación de un clúster de Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md) o [Autenticación con Azure Container Registry desde Azure Kubernetes Service (versión preliminar)](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Concesión de acceso de AKS a ACR
 

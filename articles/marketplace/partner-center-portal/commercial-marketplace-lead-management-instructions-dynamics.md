@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 17ae6dc8d1d583e5223a64ee079731fa5d9dc63c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901440"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102978"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar la administración de clientes potenciales para Dynamics 365 for Customer Engagement
 
@@ -97,7 +97,7 @@ Siga los pasos a continuación para configurar Azure Active Directory para Dynam
 
     ![Adición de permisos](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Después de completar los pasos 1-13 de Azure Portal, navegue a la dirección URL para ir a la instancia de Dynamics 365 for Customer Engagement (por ejemplo, https://tenant.crm.dynamics.com) ).
+14. Después de completar los pasos 1-13 de Azure Portal, navegue a la dirección URL para ir a la instancia de Dynamics 365 for Customer Engagement (por ejemplo, `https://tenant.crm.dynamics.com`).
 15. Para acceder a la configuración, seleccione el icono de engranaje y **Configuración avanzada** en la barra de navegación superior.
 16. En la página Configuración, acceda al menú Configuración desde la barra de navegación superior y seleccione **Seguridad**.
 17. En la página Seguridad, seleccione **Usuarios**.  En la página Usuarios, seleccione la lista desplegable "Usuarios habilitados" para cambiar a **Usuarios de la aplicación**.

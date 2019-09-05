@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899737"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114671"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -54,15 +54,15 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
 | [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de Avere vFXT. |
 | [Operador de Avere](#avere-operator) | Lo usa el clúster de Avere vFXT para su administración. |
-| [Propietario de los datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-owner-preview) | Concede acceso total a los recursos de Azure Event Hubs. |
-| [Receptor de datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-receiver-preview) | Concede acceso de recepción a los recursos de Azure Event Hubs. |
-| [Emisor de datos de Azure Event Hubs (versión preliminar)](#azure-event-hubs-data-sender-preview) | Concede acceso de emisión a los recursos de Azure Event Hubs. |
+| [Propietario de los datos de Azure Event Hubs](#azure-event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. |
+| [Receptor de datos de Azure Event Hubs](#azure-event-hubs-data-receiver) | Concede acceso de recepción a los recursos de Azure Event Hubs. |
+| [Emisor de datos de Azure Event Hubs](#azure-event-hubs-data-sender) | Concede acceso de emisión a los recursos de Azure Event Hubs. |
 | [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. |
 | [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. |
 | [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. |
-| [Propietario de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-owner-preview) | Concede acceso total a los recursos de Azure Service Bus. |
-| [Receptor de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-receiver-preview) | Concede acceso de recepción a los recursos de Azure Service Bus. |
-| [Emisor de datos de Azure Service Bus (versión preliminar)](#azure-service-bus-data-sender-preview) | Concede acceso de emisión a los recursos de Azure Service Bus. |
+| [Propietario de los datos de Azure Service Bus](#azure-service-bus-data-owner) | Concede acceso total a los recursos de Azure Service Bus. |
+| [Receptor de datos de Azure Service Bus](#azure-service-bus-data-receiver) | Concede acceso de recepción a los recursos de Azure Service Bus. |
+| [Emisor de datos de Azure Service Bus](#azure-service-bus-data-sender) | Concede acceso de emisión a los recursos de Azure Service Bus. |
 | [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. |
 | [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes ni conceder acceso a otros usuarios |
 | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
@@ -70,6 +70,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. |
 | [Colaborador de BizTalk](#biztalk-contributor) | Permite administrar los servicios de BizTalk, pero no acceder a ellos. |
 | [Acceso al nodo de miembro de la cadena de bloques (versión preliminar)](#blockchain-member-node-access-preview) | Permite acceder a los nodos de miembro de la cadena de bloques. |
+| [Colaborador de plano técnico](#blueprint-contributor) | Puede administrar las definiciones del plano técnico, pero no asignarlas. |
+| [Operador del plano técnico](#blueprint-operator) | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: Esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. |
 | [Colaborador de punto de conexión de CDN](#cdn-endpoint-contributor) | Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros usuarios. |
 | [Lector de punto de conexión de CDN](#cdn-endpoint-reader) | Puede ver puntos de conexión de CDN, pero no hacer cambios. |
 | [Colaborador de perfil de CDN](#cdn-profile-contributor) | Puede administrar perfiles de CDN y sus puntos de conexión, pero no conceder acceso a otros usuarios. |
@@ -139,7 +141,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 | [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Proporciona acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 | [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Lee y enumera blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Delegador de Blob Storage](#storage-blob-delegator) | Obtiene la clave de delegación de usuarios, que se puede usar a continuación para crear una firma de acceso compartido para un contenedor o un blob firmado con credenciales de Azure AD. Para más información, vea [Creación de SAS de delegación de usuarios](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
+| [Delegador de Blob Storage](#storage-blob-delegator) | Obtiene una clave de delegación de usuarios, que se puede usar a continuación para crear una firma de acceso compartido para un contenedor o un blob firmado con credenciales de Azure AD. Para más información, vea [Creación de SAS de delegación de usuarios](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 | [Colaborador de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-contributor) | Permite el acceso de lectura, escritura y eliminación a los recursos compartidos de archivos de Azure Storage mediante SMB. |
 | [Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-elevated-contributor) | Permite el acceso de lectura, escritura, eliminación y modificación de permisos NTFS a los recursos compartidos de archivos de Azure Storage mediante SMB. |
 | [Lector de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-reader) | Permite el acceso de lectura a los recursos compartidos de archivos de Azure mediante SMB. |
@@ -556,7 +558,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Propietario de los datos de Azure Event Hubs (versión preliminar)
+## <a name="azure-event-hubs-data-owner"></a>Propietario de los datos de Azure Event Hubs
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +573,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Receptor de datos de Azure Event Hubs (versión preliminar)
+## <a name="azure-event-hubs-data-receiver"></a>Receptor de datos de Azure Event Hubs
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +588,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Emisor de datos de Azure Event Hubs (versión preliminar)
+## <a name="azure-event-hubs-data-sender"></a>Emisor de datos de Azure Event Hubs
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +648,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Propietario de datos de Azure Service Bus (versión preliminar)
+## <a name="azure-service-bus-data-owner"></a>Propietario de los datos de Azure Service Bus
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +663,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Receptor de datos de Azure Service Bus (versión preliminar)
+## <a name="azure-service-bus-data-receiver"></a>Receptor de datos de Azure Service Bus
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +680,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Emisor de datos de Azure Service Bus (versión preliminar)
+## <a name="azure-service-bus-data-sender"></a>Emisor de datos de Azure Service Bus
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -945,6 +947,44 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Se conecta a un nodo de transacción de miembro de la cadena de bloques. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="blueprint-contributor"></a>Colaborador de plano técnico
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede administrar las definiciones del plano técnico, pero no asignarlas. |
+> | **Id** | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Blueprint/blueprints/* | Crea y administra definiciones de plano técnico o artefactos de plano técnico. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="blueprint-operator"></a>Operador del plano técnico
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. |
+> | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Blueprint/blueprintAssignments/* | Crea y administra asignaciones de plano técnico. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -1268,7 +1308,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Acciones** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read | Enumera los períodos de facturación disponibles. |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
@@ -1291,7 +1331,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Acciones** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read | Enumera los períodos de facturación disponibles. |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
@@ -1899,6 +1939,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Leer, escribir o eliminar pruebas web de Application Insights. |
+> | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Lee, escribe o elimina paquetes de soluciones de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lee, escribe o elimina búsquedas guardadas de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
@@ -2474,6 +2515,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Crear y administrar directivas de auditoría de SQL Server |
 > | Microsoft.Sql/servers/auditingSettings/* | Crear y administrar configuración de auditoría de SQL Server |
@@ -2494,6 +2536,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Crear y administrar directivas de alerta de seguridad de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Crear y administrar métricas de seguridad de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft.Sql/servers/databases/transparentDataEncryption/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |

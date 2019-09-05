@@ -10,21 +10,20 @@ ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130796"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070399"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service
 ## <a name="overview"></a>Información general
-Un entorno de App Service se puede crear **en** una red virtual de Azure Resource Manager **o en** una [red virtual][virtualnetwork] del modelo de implementación clásica.  Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno de App Service.  También puede crearse un entorno de App Service en una red virtual y subred preexistentes.  Tras el cambio realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno de App Service][HowToCreateAnAppServiceEnvironment].
+Se puede crear una instancia de App Service Environment **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica.  Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno de App Service.  También puede crearse un entorno de App Service en una red virtual y subred preexistentes.  Tras el cambio realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  Para más información sobre la creación de una instancia de App Service Environment, consulte [Creación de una instancia de Azure App Service Environment][HowToCreateAnAppServiceEnvironment].
 
 Siempre debe crearse un entorno de App Service dentro de una subred al proporcionar esta un límite de red que puede utilizarse para bloquear el tráfico entrante tras dispositivos y servicios ascendentes de forma que solo se acepta el tráfico HTTP y HTTPS de determinadas direcciones IP ascendentes.
 
@@ -53,12 +52,12 @@ A continuación se muestra una lista de puertos utilizados por un entorno de App
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisitos de DNS y conectividad saliente
 Para que un entorno de App Service funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos utilizados por un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
 
-Los Entornos de App Service requieren una infraestructura DNS válida configurada para la red virtual.  Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno de App Service, los desarrolladores pueden forzar a un entorno de App Service para recoger la nueva configuración de DNS.  Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno de App Service en [Azure Portal][NewPortal], el entorno recogerá la nueva configuración de DNS.
+Los Entornos de App Service requieren una infraestructura DNS válida configurada para la red virtual.  Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno de App Service, los desarrolladores pueden forzar a un entorno de App Service para recoger la nueva configuración de DNS.  Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", ubicado en la parte superior de la hoja de administración de App Service Environment en [Azure Portal][NewPortal], el entorno recogerá la nueva configuración de DNS.
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno de App Service.  Si se cambia la configuración de DNS de una red virtual al crear un entorno de App Service, se generará un error en el proceso de creación de dicho entorno.  De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de App Service también producirá un error.
 
 ## <a name="creating-a-network-security-group"></a>Creación de un grupo de seguridad de red
-Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups].  El ejemplo siguiente de Azure Service Management hace referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno de App Service.
+Para más información sobre cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups].  El ejemplo siguiente de Azure Service Management hace referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno de App Service.
 
 **Nota:** Los grupos de seguridad de red se pueden configurar gráficamente con [Azure Portal](https://portal.azure.com) o mediante Azure PowerShell.
 
@@ -118,9 +117,9 @@ El par de puertos que utiliza cada dirección IP-SSL individual puede encontrars
 Cuando una aplicación de un ASE está configurada para usar IP-SSL, los clientes externos no verán la asignación del par de puertos especial.  El tráfico a las aplicaciones fluirá con normalidad a la dirección IP-SSL configurada.  La traslación del par de puertos especial se realiza de manera automática e interna durante el tramo final del enrutamiento del tráfico en la subred que contiene el ASE. 
 
 ## <a name="getting-started"></a>Introducción
-Para empezar a trabajar con los entornos de App Service, consulte [Introducción al entorno de App Service][IntroToAppServiceEnvironment].
+Para empezar a trabajar con los entornos de App Service, consulte [Introducción al entorno de App Service][IntroToAppServiceEnvironment]
 
-Para obtener detalles en torno a las aplicaciones que se conectan de forma segura al recurso de back-end desde un entorno de App Service, consulte [Conexión segura a los recursos de back-end desde un entorno de App Service][SecurelyConnecttoBackend].
+Para más información sobre las aplicaciones que se conectan de forma segura al recurso de back-end desde App Service Environment, consulte [Conexión segura a los recursos de back-end desde una instancia de App Service Environment][SecurelyConnecttoBackend].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

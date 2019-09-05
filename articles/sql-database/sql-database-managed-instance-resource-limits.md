@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874393"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060633"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -42,7 +42,8 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 | Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
+> - El hardware de Gen4 está en proceso de eliminación gradual. Se recomienda implementar nuevas instancias administradas en el hardware de Gen5.
+> - El hardware de Gen4 en este momento está disponible en las siguientes regiones: Norte de Europa, Europa Occidental, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Centro de Canadá, India del Sur, Sudeste Asiático y Centro de Corea.
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
@@ -50,7 +51,7 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
-| Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 |
+| Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 |
 | Memoria máxima | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. |
 | Tamaño máximo de almacenamiento reservado de instancia | - 2 TB para 4 núcleos virtuales (solo para Gen5)<br/>- 8 TB para otros tamaños | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
 | Tamaño máximo de base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
@@ -64,10 +65,12 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más espacio para TempDB. | El límite viene dado por el tamaño máximo de almacenamiento de la instancia. El tamaño del archivo de registro de TempDB está limitado actualmente a 24 GB/núcleo virtual. |
 | OLTP en memoria (optimización en memoria | No compatible | Disponible |
 | Número máximo de sesiones | 30000 | 30000 |
+| Réplicas legibles | 0 | 1 |
 
 > [!NOTE]
 > - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
 > - El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
+> Puede crear otra réplica legible en diferentes regiones de Azure mediante grupos de conmutación por error automática.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -106,7 +109,7 @@ En la tabla siguiente se muestran los límites regionales predeterminados para l
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional y plataformas de MSDN|2|32|
 
-\* Al planear las implementaciones, tenga en cuenta que un núcleo virtual Crítico para la empresa (BC) (debido a la redundancia agregada) consume 4 veces más capacidad que un núcleo virtual De uso general (GP). Por tanto, para los cálculos, 1 núcleo virtual GP = 1 unidad de núcleo virtual y 1 núcleo virtual BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
+\* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo:  1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementan instancias administradas y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
 \*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 

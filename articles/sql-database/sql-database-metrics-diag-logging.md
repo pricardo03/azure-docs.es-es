@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567263"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998221"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -344,9 +344,12 @@ La manera más sencilla de configurar la ubicación en que las bases de datos re
 
 Si utiliza grupos elásticos o instancias administradas, también tendrá que configurar los valores de diagnóstico de estos recursos para habilitar los datos de telemetría de diagnóstico que se transmitirán al área de trabajo.
 
-### <a name="use-the-sql-analytics-solution"></a>Uso de la solución SQL Analytics
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Uso de la solución SQL Analytics para supervisión y alertas
 
-Puede usar SQL Analytics como panel jerárquico para ver sus recursos de SQL Database. Para obtener información sobre cómo utilizar la solución SQL Analytics, consulte [Supervisión de Azure SQL Database mediante Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+Puede usar SQL Analytics como panel jerárquico para ver sus recursos de SQL Database.
+
+- Para obtener información sobre cómo utilizar la solución SQL Analytics, consulte [Supervisión de Azure SQL Database mediante Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Para aprender a configurar las alertas de SQL Database y las instancias administradas basadas en SQL Analytics, consulte [Creación de alertas para SQL Database e Instancia administrada](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Transmisión a Event Hubs
 
@@ -715,3 +718,7 @@ Para obtener información sobre Event Hubs, lea lo siguiente:
 
 - [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+Para aprender a configurar alertas basadas en la telemetría de Log Analytics, consulte:
+
+- [Creación de alertas para SQL Database e Instancia administrada](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

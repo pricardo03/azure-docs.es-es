@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60952665"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051001"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps
 
@@ -23,8 +24,8 @@ En este artículo se muestra cómo se pueden buscar noticias, vídeos y otros ar
 
 Por ejemplo, puede encontrar noticias basadas en criterios de búsqueda y hacer que Twitter las publique como tweets en su fuente de Twitter.
 
-Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Para obtener información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referencia sobre el conector de Bing Search</a>.
+Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Bing Search](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,7 +69,7 @@ O bien, si la conexión ya existe, especifique la información necesaria para el
 
 4. Seleccione el intervalo y la frecuencia con la que desea que el desencadenador busque resultados.
 
-5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
+5. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
 6. Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador.
 
@@ -80,7 +81,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. En Azure Portal o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
-2. En el desencadenador o acción, elija **Nuevo paso** > **Agregar una acción**.
+2. En el desencadenador o la acción, seleccione **Nuevo paso** > **Agregar una acción**.
 
    En este ejemplo se utiliza este desencadenador:
 
@@ -89,7 +90,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    ![Agregar una acción](./media/connectors-create-api-bing-search/add-action.png)
 
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
-   Elija el signo más ( **+** ) que aparece y, luego, elija **Agregar una acción**.
+   Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "Bing Search" como filtro.
 En la lista de acciones, seleccione la que desee.
@@ -131,7 +132,7 @@ En la lista de acciones, seleccione la que desee.
 
       ![Selección de un campo](./media/connectors-create-api-bing-search/expression-select-field.png)
 
-   4. Cuando termine, elija **Aceptar**.
+   4. Cuando finalice, seleccione **Aceptar**.
 
       La expresión ahora aparece en el cuadro **Consulta de búsqueda** en este formato:
 
@@ -141,7 +142,7 @@ En la lista de acciones, seleccione la que desee.
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
+5. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
 <a name="create-connection"></a>
 
@@ -162,16 +163,11 @@ En la lista de acciones, seleccione la que desee.
 
    ![Crear conexión](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. Cuando termine, seleccione **Crear**.
+2. Seleccione **Crear** cuando haya terminado.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/bingsearch/).
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 49780ec342ea168d27ab8a029c41a1c18a6ffcc4
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019045"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051823"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -1435,33 +1435,33 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
 |physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
-|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|Sin dimensiones|
-|storage|Espacio de datos usado|Bytes|Máxima|Tamaño total de base de datos|Sin dimensiones|
+|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|storage|Espacio de datos usado|Bytes|Máxima|Tamaño total de base de datos. No es aplicable a los almacenes de datos.|Sin dimensiones|
 |connection_successful|Conexiones correctas|Count|Total|Conexiones correctas|Sin dimensiones|
 |connection_failed|Conexiones con errores|Count|Total|Conexiones con errores|Sin dimensiones|
 |blocked_by_firewall|Bloqueado por el firewall|Count|Total|Bloqueado por el firewall|Sin dimensiones|
-|deadlock|Interbloqueos|Count|Total|Interbloqueos|Sin dimensiones|
-|storage_percent|Porcentaje de espacio de datos usado|Percent|Máxima|Porcentaje de tamaño de base de datos|Sin dimensiones|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
-|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|Sin dimensiones|
-|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|Sin dimensiones|
-|dtu_limit|Límite de DTU|Count|Media|Límite de DTU|Sin dimensiones|
-|dtu_used|DTU utilizada|Count|Media|DTU utilizada|Sin dimensiones|
-|cpu_limit|Límite de CPU|Count|Media|Límite de CPU|Sin dimensiones|
-|cpu_used|CPU utilizada|Count|Media|CPU utilizada|Sin dimensiones|
-|dwu_limit|Límite de DWU|Count|Máxima|Límite de DWU|Sin dimensiones|
-|dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU|Sin dimensiones|
-|dwu_used|DWU utilizada|Count|Máxima|DWU utilizada|Sin dimensiones|
+|deadlock|Interbloqueos|Count|Total|Interbloqueos. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|storage_percent|Porcentaje de espacio de datos usado|Percent|Máxima|Porcentaje de tamaño de base de datos. No se aplica a los almacenamientos de datos ni a las bases de datos de hiperescala.|Sin dimensiones|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|dtu_limit|Límite de DTU|Count|Media|Límite de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|dtu_used|DTU utilizada|Count|Media|DTU utilizada. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
+|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
+|dwu_limit|Límite de DWU|Count|Máxima|Límite de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|dwu_used|DWU utilizada|Count|Máxima|DWU utilizada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
 |dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
 |dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
-    |cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máxima|Porcentaje de aciertos de caché|Sin dimensiones|
-|cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada|Sin dimensiones|
-|local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Media|Porcentaje de tempdb local|Sin dimensiones|
-|app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada|Sin dimensiones|
-|app_cpu_percent|Porcentaje de CPU de la aplicación|Percent|Media|Porcentaje de CPU de la aplicación|Sin dimensiones|
-|app_memory_percent|Porcentaje utilizado de memoria de la aplicación|Percent|Media|Porcentaje utilizado de memoria de la aplicación|Sin dimensiones|
-|allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado|Sin dimensiones|
+|cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máxima|Porcentaje de aciertos de caché. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Media|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
+|app_cpu_percent|Porcentaje de CPU de la aplicación|Percent|Media|Porcentaje de CPU de la aplicación. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
+|app_memory_percent|Porcentaje utilizado de memoria de la aplicación|Percent|Media|Porcentaje utilizado de memoria de la aplicación. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
+|allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado. No es aplicable a los almacenes de datos.|Sin dimensiones|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -1470,17 +1470,17 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
 |physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
 |log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
 |storage_percent|Porcentaje de espacio de datos usado||Percent|Media|Porcentaje de almacenamiento|Sin dimensiones|
 |workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|Sin dimensiones|
 |sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|Sin dimensiones|
-|eDTU_limit|Límite de eDTU|Count|Media|Límite de eDTU|Sin dimensiones|
+|eDTU_limit|Límite de eDTU|Count|Media|Límite de eDTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
 |storage_limit|Tamaño máximo de datos|Bytes|Media|Límite de almacenamiento|Sin dimensiones|
-|eDTU_used|eDTU utilizada|Count|Media|eDTU utilizada|Sin dimensiones|
+|eDTU_used|eDTU utilizada|Count|Media|eDTU utilizada. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
 |storage_used|Espacio de datos usado|Bytes|Media|Almacenamiento utilizado|Sin dimensiones|
 |xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
-|cpu_limit|Límite de CPU|Count|Media|Límite de CPU|Sin dimensiones|
-|cpu_used|CPU utilizada|Count|Media|CPU utilizada|Sin dimensiones|
+|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
+|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado|Sin dimensiones|
 |allocated_data_storage_percent|Porcentaje asignado de espacio de datos|Percent|Máxima|Porcentaje asignado de espacio de datos|Sin dimensiones|
 

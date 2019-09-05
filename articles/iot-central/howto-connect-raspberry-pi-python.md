@@ -3,17 +3,17 @@ title: Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT C
 description: Como desarrollador de dispositivos, aprenderá a conectar Raspberry Pi a su aplicación de Azure IoT Central mediante Python.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bd506bf1210692feb017f3b526c3b6d4bca36004
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3f91e09e35eec0685cb4333802b860fb08412cb6
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877420"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019740"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT Central (Python)
 
@@ -29,6 +29,9 @@ Para completar los pasos descritos en este artículo, necesita los siguientes co
 
 * Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 * Un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian. Raspberry Pi debe poder conectarse a Internet. Para obtener más información, consulte [Configuración del dispositivo Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
+
+> [!TIP]
+> Para más información sobre cómo configurar y conectarse a un dispositivo Raspberry Pi, consulte [Get started with Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi) (Introducción a Raspberry Pi).
 
 ## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
 
@@ -63,12 +66,37 @@ En los pasos siguientes se describe cómo descargar y configurar la aplicación 
 * Envía telemetría y valores de propiedad a Azure IoT Central.
 * Responde a los cambios de configuración realizados en Azure IoT Central.
 
-Para configurar el dispositivo, [siga las instrucciones detalladas de GitHub](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md).
+1. Conéctese a un entorno de shell en Raspberry Pi, ya sea desde el escritorio de Raspberry Pi o de forma remota mediante SSH.
 
-1. Cuando se configura el dispositivo, este comienza a enviar medidas de telemetría a Azure IoT Central.
+1. Ejecute el siguiente comando para instalar el cliente de Python de IoT Central:
+
+    ```sh
+    pip install iotc
+    ```
+
+1. Descargue el código de ejemplo de Python:
+
+    ```sh
+    curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
+    ```
+
+1. Edite el archivo `app.py` que ha descargado y reemplace los marcadores de posición `DEVICE_ID`, `SCOPE_ID` y `PRIMARY/SECONDARY device KEY` por los valores de conexión que ha anotado anteriormente. Guarde los cambios.
+
+    > [!TIP]
+    > En el dispositivo Raspberry Pi, puede usar los editores de texto **nano** o **vi**.
+
+1. Use el siguiente comando para ejecutar el ejemplo:
+
+    ```sh
+    python app.py
+    ```
+
+    Raspberry Pi comienza a enviar las medidas de telemetría a Azure IoT Central.
+
 1. En la aplicación de Azure IoT Central, puede ver cómo el código que se ejecuta en Raspberry Pi interactúa con la aplicación:
 
     * En la página **Measurements** (Medidas) del dispositivo real, puede ver la telemetría enviada desde Raspberry Pi.
+    * En la página **Properties** (Propiedades), puede ver la propiedad del dispositivo **Die Number** (Número de chip) notificado.
     * En la página **Configuración**, puede cambiar las opciones de configuración del dispositivo Raspberry Pi, como el voltaje y la velocidad del ventilador. Cuando el dispositivo Raspberry Pi confirma el cambio, el valor se muestra como **sincronizado** en Azure IoT Central.
 
 ## <a name="raspberry-pi-device-template-details"></a>Detalles de la plantilla de dispositivo Raspberry Pi

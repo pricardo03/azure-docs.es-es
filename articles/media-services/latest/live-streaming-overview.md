@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/16/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5883c1aa20af106dd39bffc95036ee90f312ffea
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295659"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051594"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -26,7 +26,7 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 
 - Una cámara que se utilice para capturar el evento en directo.<br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
 
-    Si no tiene acceso a una cámara, puede usar herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para generar una fuente en directo de un archivo de vídeo.
+    Si no tiene acceso a una cámara, puede usar herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para generar una fuente en directo a partir de un archivo de vídeo.
 - Un codificador de vídeo en vivo que convierte las señales de una cámara (u otro dispositivo, como un portátil) en una fuente de contribución que se envía a Media Services. La fuente de contribución puede incluir señales relacionadas con la publicidad, como los marcadores SCTE-35.<br/>Para obtener una lista de los codificadores de streaming en vivo recomendados, consulte [Codificadores de streaming en vivo](recommended-on-premises-live-encoders.md). Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 - Componentes de Media Services, que permiten ingerir, previsualizar, empaquetar, registrar, cifrar y difundir el evento en directo a los clientes o a una red CDN para una futura distribución.
 
@@ -77,13 +77,29 @@ Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, pri
 2. Cree un [evento en directo](live-events-outputs-concept.md). <br/>Al crear el evento, puede especificar que se inicie automáticamente. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming.<br/> Cuando el inicio automático está establecido en true, el evento en directo se iniciará después de la creación. La facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
 3. Obtenga las direcciones URL de ingesta y configure el codificador local a fin de usar la dirección URL para enviar la fuente de contribución.<br/>Consulte [Codificadores de streaming en vivo recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
-5. Cree un nuevo objeto de **recurso**.
-6. Cree un objeto de **salida en directo** y use el nombre del recurso que ha creado.<br/>El objeto **LiveOutput** archivará la secuencia en el objeto **Asset**.
+5. Cree un nuevo objeto de **recurso**. 
+
+    Cada objeto Live Output está asociado a un recurso cuya salida utiliza para grabar el vídeo en el contenedor de Azure Blob Storage asociado. 
+6. Cree un objeto **Live Output** y use el nombre del recurso que ha creado para que se pueda archivar el flujo en el recurso.
+
+    Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto Live Output, no se elimina el recurso subyacente ni su contenido.
 7. Cree un objeto **Streaming Locator** con los [tipos del objeto Streaming Policy integrados](streaming-policy-concept.md).
+
+    Para publicar Live Output, debe crear un objeto Streaming Locator para el recurso asociado. 
 8. Enumere las rutas de acceso en el **localizador de streaming** para recuperar las direcciones URL que se van a usar (estas son deterministas).
 9. Obtenga el nombre de host para el **Punto de conexión de streaming** desde el que quiere hacer el streaming.
 10. Combine la dirección URL del paso 8 con el nombre de host del paso 9 para obtener la dirección URL completa.
 11. Si desea que **LiveEvent** deje de estar visible, es preciso que deje de transmitir en secuencias el evento y que elimine el objeto **StreamingLocator**.
+12. Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados anteriormente, siga el procedimiento siguiente.
+
+    * Detenga la inserción de la secuencia en el codificador.
+    * Detenga el objeto LiveEvent. Una vez que el objeto LiveEvent se detenga, dejará de suponer un coste. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
+    * Puede detener el extremo de streaming, a menos que desee seguir proporcionando el archivo de su evento en vivo como una secuencia a petición. Si el evento en directo está en estado detenido, no supondrá ningún coste.
+
+El evento en directo convierte automáticamente los eventos en contenido a petición cuando se detiene. Incluso después de detener y eliminar el evento, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso. No se puede eliminar un recurso si lo está usando un evento; primero se debe eliminar el evento.
+
+> [!TIP]
+> Consulte el [tutorial sobre streaming en vivo](stream-live-tutorial-with-api.md), en el artículo se examina el código que implementa los pasos descritos anteriormente.
 
 ## <a name="other-important-articles"></a>Otros artículos importantes
 

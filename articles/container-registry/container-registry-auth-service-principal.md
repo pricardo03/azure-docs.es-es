@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: bee8b801f46c0018e75d58f941470adcc271daf0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309959"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032375"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -27,31 +27,65 @@ En el contexto de Azure Container Registry, puede crear una entidad de servicio 
 
 ## <a name="why-use-a-service-principal"></a>Razones para usar una entidad de servicio
 
-Al usar una entidad de servicio de Azure AD, podrá proporcionar acceso limitado a su registro de contenedor privado. Puede crear distintas entidades de servicio para cada uno de sus servicios o aplicaciones, cada una con derechos de acceso personalizados a su registro. Además, puesto que es posible evitar el uso compartido de credenciales entre servicios y aplicaciones, podrá alternar las credenciales o revocar el acceso solo a la entidad principal (y, por lo tanto, a la aplicación) que elija.
+Al usar una entidad de servicio de Azure AD, podrá proporcionar acceso limitado a su registro de contenedor privado. Cree distintas entidades de servicio para cada uno de sus servicios o aplicaciones, cada una con derechos personalizados de acceso a su registro. Además, puesto que es posible evitar el uso compartido de credenciales entre servicios y aplicaciones, podrá alternar las credenciales o revocar el acceso solo a la entidad principal (y, por lo tanto, a la aplicación) que elija.
 
-Por ejemplo, su aplicación web puede usar una entidad de servicio que solo proporcione acceso a la imagen `pull`, mientras el sistema de compilación puede usar una entidad de servicio que proporcione acceso a las imágenes `push` y `pull`. Si el desarrollo de su aplicación cambia de manos, puede alternar las credenciales de entidad de servicio sin que ello afecte al sistema de compilación.
+Por ejemplo, configure su aplicación web para usar una entidad de servicio que solo proporcione acceso a la imagen `pull`, mientras el sistema de compilación utiliza una entidad de servicio que proporciona acceso a las imágenes `push` y `pull`. Si el desarrollo de su aplicación cambia de manos, puede alternar las credenciales de entidad de servicio sin que ello afecte al sistema de compilación.
 
 ## <a name="when-to-use-a-service-principal"></a>Cuándo usar una entidad de servicio
 
-Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida.
+Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida. Por ejemplo:
 
-Para obtener acceso individual a un registro, como, por ejemplo, al extraer manualmente una imagen de contenedor en su estación de trabajo de desarrollo, debe usar en su lugar su propia [identidad de Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acceder al registro (por ejemplo, con [az acr login][az-acr-login]).
+  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) y otros.
+
+  * *Envío de cambios*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
+
+Para obtener acceso individual a un registro, como, por ejemplo, al extraer manualmente una imagen de contenedor en la estación de trabajo de desarrollo, se recomienda usar su propia [identidad de Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acceder al registro (por ejemplo, con [az acr login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+### <a name="sample-scripts"></a>Scripts de ejemplo
 
 Puede encontrar los scripts del ejemplo anterior para la CLI de Azure en GitHub, así como versiones para Azure PowerShell:
 
 * [CLI de Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="authenticate-with-the-service-principal"></a>Autenticación con la entidad de servicio
 
-Cuando disponga de una entidad de servicio con acceso a su registro de contenedor, podrá usar sus credenciales en aplicaciones y servicios para interactuar con el registro. Puede usar las credenciales de la entidad de servicio desde cualquier servicio de Azure que pueda autenticarse en un registro de contenedor de Azure. Algunos ejemplos son:
+Cuando disponga de una entidad de servicio con acceso a su registro de contenedor, podrá configurar sus credenciales para acceder a aplicaciones y servicios sin periféricos, o especificarlos mediante el comando `docker login`. Use los valores siguientes:
+
+* **Nombre de usuario**: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente*)
+* **Contraseña**: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
+
+Cada valor es un identificador único global con el formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+
+> [!TIP]
+> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
+>
+
+### <a name="use-credentials-with-azure-services"></a>Uso de credenciales con los servicios de Azure
+
+Puede usar las credenciales de la entidad de servicio desde cualquier servicio de Azure que pueda autenticarse en un registro de contenedor de Azure. Algunos ejemplos son:
 
 * [Autenticación con Azure Container Registry desde Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Autenticación con Azure Container Registry desde Azure Container Instances (ACI)](container-registry-auth-aci.md)
+
+### <a name="use-with-docker-login"></a>Uso con el inicio de sesión de Docker
+
+También puede ejecutar `docker login` mediante una entidad de servicio. En el ejemplo siguiente, el identificador de aplicación de la entidad de servicio se pasa en la variable de entorno `$SP_APP_ID` y la contraseña en la variable `$SP_PASSWD`. Si desea ver procedimientos recomendados para administrar credenciales de Docker, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+
+```bash
+# Log in to Docker with service principal credentials
+docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
+```
+
+Una vez iniciada la sesión, Docker almacena las credenciales en caché.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Consulte [Información general sobre la autenticación](container-registry-authentication.md) para ver otros escenarios de autenticación con Azure Container Registry.
+
+* Si desea ver un ejemplo del uso de Azure Key Vault para almacenar y recuperar las credenciales de la entidad de servicio de un registro de contenedor, consulte [Tutorial: Compilación e implementación de imágenes de contenedor con ACR Tasks](container-registry-tutorial-quick-task.md).
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry

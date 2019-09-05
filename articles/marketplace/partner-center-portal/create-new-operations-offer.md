@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900103"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033217"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Creación de una nueva oferta de Dynamics 365 for Operations
 
@@ -339,11 +339,11 @@ La opción **Lista de Marketplace** que se encuentra en la pestaña **Versión d
 
 ## <a name="supplemental-content"></a>Contenido complementario
 
-Esta página le permite proporcionar información adicional sobre la oferta.
+Esta página le permite proporcionar información adicional sobre su oferta, lo que nos ayudará a validarla. Esta información no se muestra a los clientes ni se publica en Marketplace.
 
 ### <a name="validation-assets"></a>Recursos de validación
 
-Debe cargar un informe de análisis de personalización (CAR) en esta sección. Este informe se genera mediante el análisis de los modelos de personalización y extensión, en función de un conjunto predefinido de reglas de procedimientos recomendados.
+Debe cargar un [informe de análisis de personalización (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) en esta sección. Este informe se genera mediante el análisis de los modelos de personalización y extensión, en función de un conjunto predefinido de reglas de procedimientos recomendados.
 
 Este archivo debe estar en formato .xls o .xlsx. Si tiene más de un informe, puede cargar un archivo ZIP que contenga todos los informes.
 

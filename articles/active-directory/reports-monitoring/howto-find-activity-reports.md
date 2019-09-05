@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988285"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127387"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -112,12 +112,12 @@ Puede utilizar el informe de inicios de sesión para ver detalles sobre el uso d
 
 ### <a name="anomalous-activity-reports"></a>Informes de actividades anómalas
 
-Los informes de actividades anómalas proporcionan información sobre eventos de riesgo relacionados con la seguridad que Azure AD puede detectar y notificar.
+Los informes de actividades anómalas proporcionan información sobre detecciones de riesgos relacionadas con la seguridad que Azure AD puede detectar y notificar.
 
-En la tabla siguiente aparecen los informes de seguridad de actividad anómala de Azure AD y los tipos de eventos de riesgo correspondientes en Azure Portal. Para más información, consulte [Eventos de riesgo de Azure Active Directory](concept-risk-events.md).  
+En la tabla siguiente aparecen los informes de seguridad de actividad anómala de Azure AD y los tipos de detecciones de riesgos correspondientes en Azure Portal. Para más información, consulte [Detecciones de riesgos de Azure Active Directory](concept-risk-events.md).  
 
 
-| Informe de actividad anómala de Azure AD |  Tipo de evento de riesgo de Identity Protection|
+| Informe de actividad anómala de Azure AD |  Tipo de detección de riesgos de Identity Protection|
 | :--- | :--- |
 | Usuarios con credenciales perdidas | Credenciales con fugas |
 | Actividad de inicio de sesión irregular | Viaje imposible a ubicaciones inusuales |
@@ -126,15 +126,15 @@ En la tabla siguiente aparecen los informes de seguridad de actividad anómala d
 | Inicios de sesión desde direcciones IP con actividad sospechosa | Inicios de sesión desde direcciones IP con actividad sospechosa |
 | - | Inicios de sesión desde ubicaciones desconocidas |
 
-Los informes de seguridad de actividad anómala de Azure AD siguientes no se incluyen como eventos de riesgo en Azure Portal:
+Los informes de seguridad de actividad anómala de Azure AD siguientes no se incluyen como detecciones de riesgos en Azure Portal:
 
 * Inicios de sesión tras varios errores
 * Inicios de sesión desde varias ubicaciones geográficas
 
 
-### <a name="detected-risk-events"></a>Eventos de riesgo detectados
+### <a name="detected-risk-detections"></a>Detecciones de riesgos detectadas
 
-Puede acceder a los informes acerca de los eventos de riesgo detectados en la sección **Seguridad** de la hoja **Azure Active Directory** de [Azure Portal](https://portal.azure.com). En los informes siguientes se hace un seguimiento de los eventos de riesgo detectados:   
+Puede acceder a los informes acerca de las detecciones de riesgos observadas en la sección **Seguridad** de la hoja **Azure Active Directory** de [Azure Portal](https://portal.azure.com). En los informes siguientes se hace un seguimiento las detecciones de riesgos observadas:   
 
 - [Usuarios en riesgo](concept-user-at-risk.md)
 - [Inicios de sesión no seguros](concept-risky-sign-ins.md)

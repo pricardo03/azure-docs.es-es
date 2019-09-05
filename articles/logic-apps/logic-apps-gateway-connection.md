@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 029dc8daaf456c155d46eefa699772882bdabee5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546275"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982882"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -65,7 +65,7 @@ Después de instalar la puerta de enlace en un equipo local, puede crear un recu
 
    | Propiedad | DESCRIPCIÓN | 
    |----------|-------------|
-   | **Nombre** | Nombre del recurso de puerta de enlace. | 
+   | **Nombre de recurso** | El nombre del recurso de puerta de enlace, que solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`,`)`) y puntos (`.`). | 
    | **Suscripción** | Nombre de la suscripción de Azure, que debe ser la misma suscripción de la aplicación lógica. La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión. | 
    | **Grupos de recursos** | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para organizar recursos relacionados. | 
    | **Ubicación** | Azure restringe esta ubicación a la misma región que se seleccionó para el servicio en la nube de la puerta de enlace durante la [instalación de puerta de enlace](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: Asegúrese de que esta ubicación de recurso de puerta de enlace coincida con la ubicación del servicio en la nube de puerta de enlace. De lo contrario, es posible que la instalación de la puerta de enlace no aparezca en la lista de puertas de enlace instaladas para que la pueda seleccionar en el paso siguiente. Puede usar regiones diferentes para el recurso de puerta de enlace y la aplicación lógica. | 

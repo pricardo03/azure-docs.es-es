@@ -10,17 +10,16 @@ ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130626"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069947"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
 
@@ -71,7 +70,7 @@ Si las aplicaciones requieren un mayor tamaño de recursos de proceso, no le ser
 
 **Escalabilidad automática**: Una de las herramientas que le pueden ayudar a administrar el consumo de recursos de proceso es la escalabilidad automática. Este se puede aplicar a grupos de trabajo o servidores front-end. Puede, por ejemplo, aumentar las instancias de cualquier tipo de grupo por la mañana y reducirlo por la noche. O puede agregar instancias cuando la cantidad de trabajo disponible en un grupo de trabajo caiga por debajo de un umbral determinado.
 
-Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más detalles sobre el escalado automático de los entornos de App Service, consulte [Escalado automático y el entorno de App Service][ASEAutoscale].
+Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más información sobre la escalabilidad automática de las instancias de App Service Environment, consulte [Configuración de la escalabilidad automática en una instancia de App Service Environment][ASEAutoscale].
 
 ### <a name="storage"></a>Storage
 Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar su espacio de almacenamiento. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a Azure Storage o, de lo contrario, ASE no funcionará.
@@ -97,14 +96,14 @@ Dado que esta funcionalidad coloca Azure App Service en la red virtual, signific
 
 Por ejemplo, puede usar la integración de red virtual para integrarse con una red virtual que está en su suscripción, pero que no está conectada a la red virtual en la que se encuentra el ASE. También puede usar las conexiones híbridas para tener acceso a los recursos de otras redes, de la manera habitual.  
 
-Si la red virtual está configurada con una VPN de ExpressRoute, debe tener en cuenta las necesidades de enrutamiento que tenga un ASE. Existen algunas configuraciones de rutas definidas por el usuario (UDR) que son incompatibles con un ASE. Para información detallada respecto a la ejecución de un ASE en una red virtual con ExpressRoute, consulte el artículo sobre la [ejecución de un entorno de App Service en una red virtual con ExpressRoute][ExpressRoute].
+Si la red virtual está configurada con una VPN de ExpressRoute, debe tener en cuenta las necesidades de enrutamiento que tenga un ASE. Existen algunas configuraciones de rutas definidas por el usuario (UDR) que son incompatibles con un ASE. Para más información respecto a la ejecución de una instancia de ASE en una red virtual con ExpressRoute, consulte el artículo [Ejecución de una instancia de App Service Environment en una red virtual con ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Protección del tráfico de entrada
 Hay dos métodos principales para controlar el tráfico entrante en el ASE.  Puede utilizar grupos de seguridad de red (NSG) para controlar qué direcciones IP pueden tener acceso al ASE como se describe aquí [Cómo controlar el tráfico de entrada a un entorno de App Service](app-service-app-service-environment-control-inbound-traffic.md) y también puede configurar el ASE con un equilibrador de carga interno (ILB).  Estas características también pueden utilizarse a la vez si desea restringir el acceso mediante los NSG al ASE del ILB.
 
 Cuando se crea un ASE, este creará a una dirección VIP de la red virtual.  Hay dos tipos de direcciones VIP, internas y externas.  Cuando se crea un ASE con una dirección VIP externa, se podrá acceder a las aplicaciones del ASE a través de una dirección IP enrutable de Internet. Si selecciona una dirección VIP interna, el ASE se configurara con un ILB y no podrá acceder directamente a ella a través de Internet.  Un ASE del ILB seguirá necesitando una dirección VIP externa pero solo se utilizará para la administración de Azure y el acceso de mantenimiento.  
 
-Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para más información sobre la creación y utilización de un ASE del ILB, lea [Uso de un equilibrador de carga interno con un entorno de App Service][ILBASE]. 
+Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para más información sobre la creación y el uso de una instancia de ASE de ILB, lea [Uso de un equilibrador de carga interno con una instancia de App Service Environment][ILBASE]. 
 
 ## <a name="portal"></a>Portal
 Puede administrar y supervisar el entorno de App Service mediante la interfaz de usuario que está disponible en Azure Portal. Si tiene un ASE, es probable que vea el símbolo de App Service en la barra lateral. Este símbolo se usa para representar entornos de App Service en Azure Portal:

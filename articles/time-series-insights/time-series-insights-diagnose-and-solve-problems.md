@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164515"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129173"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnóstico y solución de problemas de su entorno Time Series Insights
 
@@ -69,13 +69,14 @@ La limitación se aplica según el tipo y la capacidad de la SKU del entorno. To
 
 En la siguiente figura se muestra un entorno de Time Series Insights con una SKU S1 y una capacidad 3. Este entorno registra 3 millones de eventos al día.
 
-![Capacidad actual de la SKU del entorno](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Capacidad actual de la SKU del entorno](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-Por ejemplo, supongamos que este entorno ingiere mensajes de un centro de eventos. La figura siguiente muestra la velocidad de entrada:
+Por ejemplo, supongamos un entorno que ingiere mensajes de un centro de eventos. La velocidad de entrada diaria es de 67 000 mensajes aproximadamente. Esta velocidad se traduce aproximadamente en 46 mensajes por minuto. 
 
-[![Velocidad de entrada de ejemplo de un centro de eventos](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+* Si cada mensaje de centro de eventos se acopla a un evento de Time Series Insights, no se produce ninguna limitación. 
+* Si cada mensaje de centro de eventos se acopla a 100 eventos de Time Series Insights, se deben ingerir 4600 mensajes por minuto. 
 
-La velocidad de entrada diaria es de 67 000 mensajes aproximadamente. Esta velocidad se traduce aproximadamente en 46 mensajes por minuto. Si cada mensaje de centro de eventos se acopla a un evento de Time Series Insights, no se produce ninguna limitación. Si cada mensaje de centro de eventos se acopla a 100 eventos de Time Series Insights, se deben ingerir 4600 mensajes por minuto. Un entorno de SKU S1 que tiene una capacidad de 3 solo puede admitir la entrada de 2100 eventos por minuto (1 millón de eventos por día = 700 eventos por minuto por 3 unidades = 2100 eventos por minuto). En el caso de esta configuración, experimentará un retraso debido a la limitación.
+Un entorno de SKU S1 que tiene una capacidad de 3 solo puede admitir la entrada de 2100 eventos por minuto (1 millón de eventos por día = 700 eventos por minuto por 3 unidades = 2100 eventos por minuto). 
 
 Para comprender de una manera más profunda cómo funciona la lógica de aplanamiento, consulte [Formas JSON admitidas](./how-to-shape-query-json.md).
 

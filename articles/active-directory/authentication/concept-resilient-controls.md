@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779669"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125112"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -232,7 +232,7 @@ En función de las mitigaciones o contingencias que se usen durante una interrup
 1. Como parte de su estrategia de control de cambios, documentar todos los cambios y el estado anterior para poder revertir cualquier contingencia que haya implementado tan pronto como los controles de acceso estén completamente operativos.
 2. Suponer que actores malintencionados intentarán obtener contraseñas a través de ataques de difusión de contraseña o de suplantación de identidad mientras la MFA esté deshabilitada. Además, es posible que los actores malintencionados ya tengan contraseñas que anteriormente no concediesen acceso a ningún recurso que pueden probar durante este período. Para los usuarios críticos como los ejecutivos, puede mitigar parcialmente este riesgo si restablece sus contraseñas antes de deshabilitar MFA para ellos.
 3. Archivar todas las actividades de inicio de sesión para identificar quién accedió a qué durante el tiempo que se deshabilitó la MFA.
-4. [Evaluar todos los eventos de riesgo notificados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante esta ventana.
+4. [Evalúe todas las detecciones de riesgos notificadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante este período.
 
 ## <a name="after-a-disruption"></a>Después de una interrupción
 
@@ -242,7 +242,7 @@ Deshaga los cambios realizados como parte del plan de contingencia activado una 
 2. Deshabilite las directivas de contingencia. 
 3. Revierta los cambios realizados y documentados durante la interrupción.
 4. Si usa una cuenta de acceso de emergencia, no olvide volver a generar las credenciales y proteger físicamente la nueva información de credenciales como parte de los procedimientos de la cuenta de acceso de emergencia.
-5. Siga [evaluando todos los eventos de riesgo notificados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) después de la interrupción para detectar actividad sospechosa.
+5. Siga [evaluando todas las detecciones de riesgos notificadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) después de la interrupción para detectar actividad sospechosa.
 6. Revoque todos los tokens de actualización que se emitieron [mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) que tenían como destino un conjunto de usuarios. Revocar todos los tokens de actualización es importante para las cuentas con privilegios que se usaron durante la interrupción y hacerlo les obligará a volver autenticarse y cumplir con el control de las directivas restauradas.
 
 ## <a name="emergency-options"></a>Opciones de emergencia
@@ -254,7 +254,7 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
    1. Si no tiene el inventario de direcciones IP de salida o tiene que habilitar el acceso dentro y fuera de la red corporativa, puede agregar todo el espacio de direcciones IPv4 como direcciones IP de confianza especificando 0.0.0.0/1 y 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Si amplía las direcciones IP de confianza para desbloquear el acceso, no se generarán los eventos de riesgo asociados con las direcciones IP (por ejemplo, viajes imposibles o ubicaciones desconocidas).
+ > Si amplía las direcciones IP de confianza para desbloquear el acceso, no se generarán las detecciones de riesgos asociados con las direcciones IP (por ejemplo, viajes imposibles o ubicaciones desconocidas).
 
 >[!NOTE]
  > La configuración de [direcciones IP de confianza](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) solo está disponible para Azure MFA con [licencias de Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).

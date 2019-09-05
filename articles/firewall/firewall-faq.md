@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304593"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114773"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -150,3 +150,15 @@ Si configura * **.contoso.com**, permite *cualquiervalor*.contoso.com, pero no c
 ## <a name="what-does-provisioning-state-failed-mean"></a>¿Qué significa *Estado de aprovisionamiento: error*?
 
 Cada vez que se aplique un cambio de configuración, Azure Firewall intenta actualizar todas sus instancias de back-end subyacentes. En raras ocasiones, una de estas instancias de back-end puede producir un error al actualizar con la nueva configuración y el proceso de actualización se detiene con un estado de aprovisionamiento con error. Azure Firewall todavía está operativo, pero es posible que la configuración aplicada se encuentre en un estado incoherente, donde algunas instancias tienen la configuración anterior y otras tienen el conjunto de reglas actualizado. Si esto sucede, intente actualizar la configuración una vez más, hasta que la operación se realice correctamente y el firewall se encuentre en un estado de aprovisionamiento *Correcto*.
+
+## <a name="is-there-a-character-limit-for-a-firewall-name"></a>¿Hay un límite de caracteres para un nombre de firewall?
+
+Sí. Hay un límite de 50 caracteres para un nombre de firewall.
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>¿Por qué Azure Firewall necesita un tamaño de subred de /26?
+
+Azure Firewall debe aprovisionar más instancias de máquinas virtuales a medida que se escalan. Un espacio de direcciones /26 garantiza que el firewall tiene suficientes direcciones IP disponibles para acomodar el escalado.
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>¿Es necesario cambiar el tamaño de la subred del firewall a medida que se escala el servicio?
+
+No. Azure Firewall no necesita una subred mayor que /26.

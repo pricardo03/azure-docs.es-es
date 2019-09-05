@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781144"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035920"
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
 Azure Service Fabric facilita la creación de aplicaciones escalables, al administrar los servicios, particiones y réplicas en los nodos de un clúster. La ejecución de muchas cargas de trabajo en el mismo hardware permite el uso máximo de recursos, pero también proporciona flexibilidad en cuanto a cómo elegir escalar las cargas de trabajo. Este vídeo de Channel 9 describe cómo puede crear aplicaciones de microservicios escalables:
@@ -121,6 +121,10 @@ Las [métricas](service-fabric-cluster-resource-manager-metrics.md) son cómo lo
 Otra opción para el escalado con Service Fabric es cambiar el tamaño del clúster. Cambiar el tamaño del clúster significa agregar o quitar nodos en uno o varios de los tipos de nodos del clúster. Por ejemplo, considere un caso en el que todos los nodos del clúster estén activos. Esto significa que se han consumido casi todos los recursos del clúster. En este caso, agregar más nodos al clúster es la mejor forma de escalar. Una vez que los nuevos nodos se unan al clúster, Cluster Resource Manager de Service Fabric mueve servicios a ellos, lo que genera una carga total inferior en los nodos existentes. Para servicios sin estado con un recuento de instancias = -1, se crean automáticamente más instancias de servicio. Esto permite que algunas llamadas se muevan de los nodos existentes a los nuevos. 
 
 Para más información, consulte el artículo sobre el [escalado de clústeres](service-fabric-cluster-scaling.md).
+
+## <a name="choosing-a-platform"></a>Elección de una plataforma
+
+Debido a las diferencias de implementación entre los sistemas operativos, elegir si usar Service Fabric con Windows o Linux puede ser una parte fundamental del escalado de la aplicación. Una posible barrera es cómo se realiza el registro de almacenamiento provisional. Service Fabric en Windows usa un controlador de kernel para un registro individual por máquina, compartido entre réplicas de servicio con estado. Este registro tiene un tamaño de unos 8 GB. Por su parte, Linux usa un registro de almacenamiento provisional de 256 MB para cada réplica, lo que lo hace menos idóneo para aplicaciones que desean maximizar el número de réplicas de servicio ligero que se ejecutan en un nodo determinado. Estas diferencias en los requisitos de almacenamiento temporal podrían ayudar a decidir cuál es la plataforma deseada para la implementación de un clúster de Service Fabric.
 
 ## <a name="putting-it-all-together"></a>Resumen
 Tomemos todas las ideas que analizamos aquí y hablemos sobre un ejemplo. Considere el servicio siguiente: intenta crear un servicio que actúe como libreta de direcciones con nombres e información de contacto. 

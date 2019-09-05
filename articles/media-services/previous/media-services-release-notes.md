@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991910"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019305"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -30,7 +30,7 @@ Estas notas de la versión de Azure Media Services resumen los cambios realizado
 Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solución de los problemas que les afectan. Para informar de un problema o formular una pregunta, envíe su consulta al [foro de MSDN de Azure Media Services]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas actualmente conocidos
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas generales de Media Services
+### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas generales de Media Services
 
 | Problema | DESCRIPCIÓN |
 | --- | --- |
@@ -42,8 +42,16 @@ Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solu
 | Algunos clientes pueden experimentar un problema de etiqueta de repetición en el manifiesto de streaming con velocidad de transmisión adaptable. |Para más información, consulte [esta sección](media-services-deliver-content-overview.md#known-issues). |
 | Los objetos del SDK de Media Services para .NET no se pueden serializar y, como resultado, no funcionan con Azure Cache for Redis. |Si intenta serializar el objeto AssetCollection del SDK para agregarlo a Azure Cache for Redis, se produce una excepción. |
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historial de versiones de la API de REST
+## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
+
+Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME), que se van a retirar el 30 de noviembre de 2019.
+
+Para más información, consulte [Migración de WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) y [Migración de AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## <a name="march-2019"></a>Marzo de 2019
 
@@ -136,7 +144,7 @@ Para más información acerca de estas propiedades, consulte [Punto de conexión
 
  Ahora puede usar Media Services para acceder a los datos de telemetría y métricas de sus servicios. Puede usar la versión actual de Media Services para recopilar datos de telemetría de un canal en vivo, de un punto de conexión de streaming y de entidades de archivo. Para más información, consulte [Telemetría en Media Services](media-services-telemetry-overview.md).
 
-## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versión de julio de 2016
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>Versión de julio de 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Actualizaciones al archivo de manifiesto (*.ism) generado por las tareas de codificación
 Cuando se envía una tarea de codificación a Media Encoder Standard o Media Encoder Premium, la tarea de codificación genera un [archivo de manifiesto de streaming](media-services-deliver-content-overview.md) (*.ism) en el recurso de salida. Con la última versión del servicio se ha actualizado la sintaxis de este archivo de manifiesto de streaming.
 

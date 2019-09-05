@@ -10,25 +10,24 @@ ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130711"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069958"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde App Service Environment
 ## <a name="overview"></a>Información general
-Dado que siempre se crea un entorno de App Service **en** una red virtual de Azure Resource Manager **o** en [una][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
+Dado que una instancia de App Service Environment siempre se crea **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
 
 Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de máquinas virtuales con el puerto 1433 bloqueado.  En el extremo puede incluirse una lista de control de acceso para permitir únicamente el acceso de otros recursos de la misma red virtual.  
 
-Otro ejemplo: los puntos de conexión con información confidencial pueden ejecutarse localmente y conectarse a Azure mediante conexiones [De sitio a sitio][SiteToSite] o [Azure ExpressRoute][ExpressRoute].  Como resultado, solo los recursos de las redes virtuales conectadas a túneles ExpressRoute o De sitio a sitio podrán tener acceso a los extremos locales.
+Otro ejemplo: los puntos de conexión con información confidencial pueden ejecutarse localmente y conectarse a Azure mediante conexiones [Sitio a sitio][SiteToSite] o [Azure ExpressRoute][ExpressRoute].  Como resultado, solo los recursos de las redes virtuales conectadas a túneles ExpressRoute o De sitio a sitio podrán tener acceso a los extremos locales.
 
 En todos estos escenarios, las aplicaciones que se ejecutan en un entorno de App Service podrán conectarse de forma segura a los distintos servidores y recursos.  El tráfico saliente de las aplicaciones que se ejecutan en un entorno de App Service hacia extremos privados de la misma red virtual (o conectadas a la misma red virtual) solamente fluirá a través de la red virtual.  El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
 
@@ -86,9 +85,9 @@ El resultado final es un conjunto de reglas de seguridad que bloquean el acceso 
 ![Reglas de seguridad de red predeterminadas][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Introducción
-Para empezar a trabajar con los entornos de App Service, consulte [Introducción al entorno de App Service][IntroToAppServiceEnvironment].
+Para empezar a trabajar con los entornos de App Service, consulte [Introducción al entorno de App Service][IntroToAppServiceEnvironment]
 
-Para obtener más detalles sobre cómo controlar el tráfico entrante en el entorno de App Service, vea el artículo sobre el [control del tráfico entrante en un entorno de App Service][ControlInboundASE]
+Para más información sobre cómo controlar el tráfico entrante en App Service Environment, consulte el artículo sobre el [control del tráfico entrante en una instancia de App Service Environment][ControlInboundASE].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

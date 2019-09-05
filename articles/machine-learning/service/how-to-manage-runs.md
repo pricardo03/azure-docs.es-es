@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847932"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019110"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > A medida que quedan fuera del ámbito, las ejecuciones secundarias se marcan automáticamente como completadas.
 
-También puede iniciar las ejecuciones secundarias de una en una, pero, dado que cada creación implica una llamada de red, es menos eficaz que enviar un lote de ejecuciones.
+Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
 
-Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-).
+### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
+
+Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto permite crear jerarquías de ejecuciones principales y secundarias, cada una de las cuales se ejecuta en distintos destinos de proceso, conectadas por un identificador de ejecución principal común.
+
+Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método 'submit_child' de la instancia de contexto.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+Desde la ejecución secundaria, puede ver el identificador de la ejecución principal:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Consulta de ejecuciones secundarias
+
+Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). El argumento 'recursive = True' permite consultar un árbol anidado de elementos secundarios y descendientes.
 
 ```python
 print(parent_run.get_children())

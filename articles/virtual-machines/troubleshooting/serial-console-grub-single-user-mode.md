@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bd850fe2cac7194d78005f4c0a57523bc8323c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846594"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124482"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader, que es probablemente lo primero que verá al arrancar una máquina virtual. Al mostrarse antes de que se haya iniciado el sistema operativo, no se puede acceder a él mediante SSH. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -59,9 +58,24 @@ Una vez en el modo de usuario único, siga estos pasos para agregar un usuario n
 RHEL le pondrá en modo de usuario único automáticamente si no puede arrancar con normalidad. Sin embargo, si no ha configurado el acceso a la raíz para el modo de usuario único, no tendrá una contraseña raíz y no podrá iniciar sesión. Hay una solución alternativa (consulte "Especificación manual del modo de usuario único" a continuación), aunque es recomendable configurar el acceso a la raíz inicialmente.
 
 ### <a name="grub-access-in-rhel"></a>Acceso a GRUB en RHEL
-RHEL viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione cualquier tecla. Aparecerá la pantalla de GRUB.
+RHEL viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione cualquier tecla. Aparecerá la pantalla de GRUB. Si no aparece, asegúrese de que las siguientes líneas están presentes en el archivo de GRUB (`/etc/default/grub`):
 
-> Nota: Red Hat también proporciona documentación para arrancar en modo de rescate, modo de emergencia, modo de depuración y restablecer la contraseña raíz. [Haga clic aquí para acceder a él](https://aka.ms/rhel7grubterminal).
+#### <a name="rhel-8"></a>RHEL 8:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+```
+
+#### <a name="rhel-7"></a>RHEL 7:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL_OUTPUT="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 net.ifnames=0"
+```
+
+> [!NOTE]
+> Red Hat también proporciona documentación para arrancar en modo de rescate, modo de emergencia, modo de depuración y restablecer la contraseña raíz. [Haga clic aquí para acceder a él](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configuración del acceso a la raíz para el modo de usuario único en RHEL
 El modo de usuario único en RHEL requiere que el usuario raíz esté habilitado (está deshabilitado de manera predeterminada). Si tiene que habilitar el modo de usuario único, siga estas instrucciones:
@@ -194,7 +208,7 @@ Se le pondrá automáticamente en el shell de emergencia si SLES no puede arranc
 De forma similar a Red Hat Enterprise Linux, el modo de usuario único en Oracle Linux requiere que GRUB y el usuario raíz estén habilitados.
 
 ### <a name="grub-access-in-oracle-linux"></a>Acceso a GRUB en Oracle Linux
-Oracle Linux viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione "Esc". Aparecerá la pantalla de GRUB. Si no ve GRUB, asegúrese de que el valor de la línea `GRUB_TERMINAL` contiene "serial console", como: `GRUB_TERMINAL="serial console"`.
+Oracle Linux viene con GRUB habilitado listo para su uso. Para especificar GRUB, reinicie la máquina virtual con `sudo reboot` y presione "Esc". Aparecerá la pantalla de GRUB. Si no ve GRUB, asegúrese de que el valor de la línea `GRUB_TERMINAL` contiene "serial console", como: `GRUB_TERMINAL="serial console"`. Vuelva a generar GRUB con `grub2-mkconfig -o /boot/grub/grub.cfg`.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Modo de usuario único en Oracle Linux
 Siga las instrucciones anteriores para RHEL para habilitar el modo de usuario único en Oracle Linux.

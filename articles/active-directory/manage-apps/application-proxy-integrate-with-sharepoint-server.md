@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1265341ecfdb7f418ea89bb0ec848a20c6b430cd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807801"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127680"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
@@ -36,6 +36,9 @@ En este artículo se da por supuesto que ya tiene SharePoint 2013 o una versión
 * SharePoint incluye compatibilidad nativa con Kerberos. Por tanto, los usuarios que tengan acceso a sitios internos de forma remota a través del proxy de aplicación de Azure AD pueden suponer que tienen a su disposición una experiencia de inicio de sesión único (SSO) sin interrupciones.
 * Este escenario incluye cambios de configuración en el servidor de SharePoint. Se recomienda usar un entorno de ensayo. Así, podrá realizar actualizaciones en el servidor de ensayo en primer lugar y, después, facilitar un ciclo de pruebas antes de pasar a producción.
 * Se necesita SSL en la dirección URL publicada. También se requiere SSL en la dirección URL interna para asegurarse de que los vínculos se envían o asignan correctamente.
+
+> [!NOTE]
+> Como procedimiento recomendado, use dominios personalizados siempre que sea posible. Con un dominio personalizado, puede configurar la misma dirección URL para la dirección URL tanto interna como externa. Después, se puede usar el mismo vínculo para acceder a la aplicación desde dentro o fuera de la red. Esta configuración optimiza la experiencia de los usuarios y otras aplicaciones que necesitan acceder a la aplicación. Más información acerca del [Uso de dominios personalizados en Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Paso 1: Configuración de la delegación restringida de Kerberos (KCD)
 

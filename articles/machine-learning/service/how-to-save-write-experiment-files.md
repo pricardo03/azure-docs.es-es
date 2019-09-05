@@ -1,6 +1,7 @@
 ---
-title: Evitar las limitaciones de almacenamiento y la latencia de los experimentos con los directorios de entrada y salida
-description: En este artículo, obtendrá información sobre dónde guardar los archivos de entrada de los experimentos y dónde escribir los archivos de salida para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
+title: Dónde se guardan y escriben los archivos de experimentos
+titleSuffix: Azure Machine Learning service
+description: Aprenda dónde se guardan los archivos de entrada de los experimentos y dónde se escriben los archivos de salida para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856047"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114512"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 

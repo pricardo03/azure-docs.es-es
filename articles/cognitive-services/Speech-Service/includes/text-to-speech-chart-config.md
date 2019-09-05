@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: e6c7dcd3015b0b8ab5b3c719ebd2397bc814b81a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c87132c3ae41dec82e3493f9a0ee2397455ff881
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717218"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971341"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Text-to-Speech (gráfico secundario: charts/textToSpeech)
 
-Para reemplazar al gráfico de nivel superior, agregue el prefijo `textToSpeech.` a todos los parámetros para que sean más específicos. Se reemplazará el parámetro correspondiente; por ejemplo, `textToSpeech.numberOfConcurrentRequest` reemplaza a `numberOfConcurrentRequest`.
+Para reemplazar al gráfico de nivel superior, agregue el prefijo `textToSpeech.` a todos los parámetros para que sean más específicos. Se reemplazará el parámetro correspondiente, por ejemplo `textToSpeech.numberOfConcurrentRequest` reemplaza a `numberOfConcurrentRequest`.
 
 |Parámetro|DESCRIPCIÓN|Valor predeterminado|
 | -- | -- | -- |
@@ -37,5 +37,6 @@ Para reemplazar al gráfico de nivel superior, agregue el prefijo `textToSpeech.
 | `image.args.apikey` (obligatorio) | Se usa para realizar un seguimiento de la información de facturación. ||
 | `service.type` | Tipo de servicio de Kubernetes del servicio **text-to-speech**. Consulte las [instrucciones de los tipos de servicio de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) para obtener más información y comprobar la compatibilidad con los proveedores de nube. | `LoadBalancer` |
 | `service.port`|  El puerto del servicio **text-to-speech**. | `80` |
+| `service.annotations` | Las anotaciones de **text-to-speech** para los metadatos del servicio. Las anotaciones son pares clave-valor. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Si [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) está habilitado. Si `true`, `text-to-speech-autoscaler` se implementará en el clúster de Kubernetes. | `true` |
 | `service.podDisruption.enabled` | Si [Pod Disruption Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está habilitado. Si `true`, `text-to-speech-poddisruptionbudget` se implementará en el clúster de Kubernetes. | `true` |

@@ -10,17 +10,16 @@ ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 017c79ec1341c85f3bd08393dd5553f90a2f6cef
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128887"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069741"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1 
 
@@ -29,12 +28,12 @@ ms.locfileid: "62128887"
 > 
 
 ### <a name="overview"></a>Información general
-App Service Environment (ASE) es una opción del servicio Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas multiinquilino. La característica de ASE esencialmente implementa Azure App Service en la red virtual de un cliente. Para comprender mejor las funciones que ofrecen los entornos de App Service, lea el artículo donde[que explica en qué consiste un entorno de App Service][WhatisASE].
+App Service Environment (ASE) es una opción del servicio Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas multiinquilino. La característica de ASE esencialmente implementa Azure App Service en la red virtual de un cliente. Para comprender mejor las funcionalidades que ofrece App Service Environment, lea el documento [Qué es App Service Environment][WhatisASE].
 
 ### <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 Es importante ser consciente de las cosas que no se pueden cambiar. Los aspectos que no se pueden cambiar sobre ASE una vez creado son:
 
-* Ubicación
+* Location
 * Subscription
 * Grupo de recursos
 * Red virtual usada
@@ -53,10 +52,10 @@ Para crear una instancia de App Service Environment v1, puede buscar ***App Serv
 3. Seleccione o especifique un nuevo grupo de recursos. El grupo de recursos que se usa para su ASE debe ser el mismo que se utiliza para la red virtual. Si selecciona una red virtual existente, la selección del grupo de recursos para su instancia de ASE se actualizará para reflejar la red virtual.
    
     ![][2]
-4. Realice las selecciones de red virtual y ubicación. Puede crear una red virtual nueva o seleccionar una red virtual existente. Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. La red virtual nueva tendrá el intervalo de dirección 192.168.250.0/23 y una subred denominada **predeterminada** que se define como 192.168.250.0/24. Puede seleccionar también simplemente una red virtual de Resource Manager o clásica creadas previamente. La selección del tipo de VIP determina si es posible obtener acceso directo a su ASE desde Internet (externo) o si usa un equilibrador de carga interno (ILB). Para obtener más información sobre ellos, consulte [Uso de un equilibrador de carga interno con un entorno de App Service][ILBASE]. Si selecciona un tipo de VIP externo, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de IPSSL. Si selecciona Interno, debe especificar el subdominio que utilizará el ASE. Se pueden implementar los ASE en redes virtuales que usen *o bien* intervalos de direcciones públicas *o bien* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la red virtual por adelantado. Cuando seleccione una red virtual creada previamente, debe crear una nueva subred durante la creación de ASE. **No se puede usar una subred creada previamente en el portal. Puede crear un ASE con una subred creada previamente si crea su ASE con una plantilla de Resource Manager.** Para crear un ASE a partir de una plantilla, use la información de estos artículos: [Creación de un entorno de App Service a partir de una plantilla][ILBAseTemplate] y [Creación de un entorno de App Service de ILB a partir una plantilla][ASEfromTemplate].
+4. Realice las selecciones de red virtual y ubicación. Puede crear una red virtual nueva o seleccionar una red virtual existente. Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. La red virtual nueva tendrá el intervalo de dirección 192.168.250.0/23 y una subred denominada **predeterminada** que se define como 192.168.250.0/24. Puede seleccionar también simplemente una red virtual de Resource Manager o clásica creadas previamente. La selección del tipo de VIP determina si es posible obtener acceso directo a su ASE desde Internet (externo) o si usa un equilibrador de carga interno (ILB). Para más información al respecto, consulte [Uso de un equilibrador de carga interno con una instancia de App Service Environment][ILBASE]. Si selecciona un tipo de VIP externo, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de IPSSL. Si selecciona Interno, debe especificar el subdominio que utilizará el ASE. Se pueden implementar los ASE en redes virtuales que usen *o bien* intervalos de direcciones públicas *o bien* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la red virtual por adelantado. Cuando seleccione una red virtual creada previamente, debe crear una nueva subred durante la creación de ASE. **No se puede usar una subred creada previamente en el portal. Puede crear un ASE con una subred creada previamente si crea su ASE con una plantilla de Resource Manager.** Para crear una instancia de ASE a partir de una plantilla, use la información de los artículos [Creación de una instancia de App Service Environment a partir de una plantilla][ILBAseTemplate] y [Creación de una instancia de App Service Environment de ILB a partir una plantilla][ASEfromTemplate].
 
 ### <a name="details"></a>Detalles
-Se crea un ASE con 2 servidores front-end y 2 trabajos. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos que son los roles que hospedan sus aplicaciones. Puede ajustar la cantidad después de la creación de ASE y puede incluso configurar reglas de escalado automático en estos grupos de recursos. Para más información sobre el escalado manual, la administración y la supervisión de una instancia de App Service Environment, vaya aquí: [Cómo configurar App Service Environment][ASEConfig] 
+Se crea un ASE con 2 servidores front-end y 2 trabajos. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos que son los roles que hospedan sus aplicaciones. Puede ajustar la cantidad después de la creación de ASE y puede incluso configurar reglas de escalado automático en estos grupos de recursos. Para más información sobre el escalado manual, la administración y la supervisión de una instancia de App Service Environment, vaya aquí: [Configuración de una instancia de App Service Environment][ASEConfig] 
 
 Solo un ASE puede existir en la subred usada por ASE. La subred no se puede usar para cualquier elemento que no sea el ASE
 
@@ -68,14 +67,14 @@ Después de la creación de ASE puede ajustar:
 * Cantidad de direcciones IP disponibles para SSL de IP
 * Los tamaños de recursos de proceso usados por los servidores front-end o los trabajos (el tamaño mínimo de front-end es P2)
 
-Hay más información sobre el escalado manual, la administración y la supervisión de los entornos de App Service Environment aquí: [Cómo configurar App Service Environment][ASEConfig] 
+Hay más información sobre el escalado manual, la administración y la supervisión de los entornos de App Service Environment aquí: [Configuración de una instancia de App Service Environment][ASEConfig] 
 
-Para obtener información sobre el escalado automático, consulte aquí la siguiente guía: [Configuración la escalabilidad automática para una instancia de App Service Environment][ASEAutoscale]
+Para obtener información sobre el escalado automático, consulte aquí la siguiente guía: [Configuración de la escalabilidad automática para una instancia de App Service Environment][ASEAutoscale]
 
 Existen dependencias adicionales que no están disponibles para personalización, como la base de datos y el almacenamiento. Estas son controlados por Azure y se incluyen con el sistema. El almacenamiento del sistema admite hasta 500 GB para todo el entorno de App Service Environment, y la base de datos se ajusta con Azure según sea necesario por medio de la escala del sistema.
 
 ## <a name="getting-started"></a>Introducción
-Para empezar a trabajar con App Service Environment v1, consulte [Introducción a App Service Environment v1][WhatisASE]
+Para empezar a trabajar con App Service Environment v1, consulte [Introducción a App Service Environment v1][WhatisASE].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

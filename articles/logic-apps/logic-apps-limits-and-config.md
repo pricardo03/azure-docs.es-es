@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900205"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099428"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -105,6 +105,8 @@ Estos son los límites de una definición de aplicación lógica:
 
 ### <a name="integration-service-environment-ise"></a>Entorno del servicio de integración (ISE)
 
+Estos son los límites de rendimiento para la SKU Premium:
+
 | NOMBRE | Límite | Notas |
 |------|-------|-------|
 | Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente | |
@@ -113,6 +115,9 @@ Estos son los límites de una definición de aplicación lógica:
 ||||
 
 Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus solicitudes.
+
+> [!NOTE]
+> La [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) no tiene ningún límite publicado ya que esta SKU no tiene ningún contrato de nivel de servicio (SLA) ni funcionalidades de escalado vertical. Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
 
 <a name="request-limits"></a>
 
@@ -181,10 +186,10 @@ Cada suscripción de Azure tiene estos límites de cuenta de integración:
 
 * Cada ISE, ya sea de [desarrollador o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), tiene un límite de 5 cuentas de integración totales:
 
-  | SKU de ISE | Límite |
-  |---------|-------|
-  | **Premium** | 5 en total: solo [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), no Gratis ni Básico |
-  | **Developer** | 5 en total: Gratis (limitado a 1), Estándar, o ambos, pero no Básico. |
+  | SKU de ISE | Límites de cuenta de integración |
+  |---------|----------------------------|
+  | **Premium** | 5 en total: solo cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), incluida una gratuita. No se permiten cuentas Gratis ni Básicas. |
+  | **Developer** | 5 en total: combinación de cuentas [Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) (solo 1 cuenta) y [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), o solo cuentas Estándar. No se permiten cuentas Básicas. Use la [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción. |
   |||
 
 Los costos adicionales se aplican a las cuentas de integración que se agregan más allá de las cuentas de integración que se incluyen con un ISE. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).

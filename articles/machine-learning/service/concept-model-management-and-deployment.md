@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11a4a17d7816d2302b6549cffb9517e10ad1258d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 270ebb6247e812d42ac84698d0073b41c639cb9a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442345"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011587"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
@@ -139,9 +139,9 @@ Para más información, consulte [cómo habilitar la recopilación de datos de u
 
 Azure Machine Learning le ofrece la capacidad de realizar un seguimiento del registro de auditoría completo de todos los recursos de aprendizaje automático. Concretamente:
 
-- Azure Machine Learning se integra con Git para realizar un seguimiento de la información sobre el repositorio, rama o commit del que procede el código.
-- Los conjuntos de datos de Azure Machine Learning le ayudan a supervisar y realizar versiones de sus datos.
-- El historial de ejecución de Azure Machine Learning administra el código, los datos y los procesos utilizados para entrenar un modelo.
+- Azure Machine Learning [se integra con Git](how-to-set-up-training-targets.md#gitintegration) para realizar un seguimiento de la información sobre el repositorio, rama o commit del que procede el código.
+- Los [conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md) le ayudan a supervisar y realizar versiones de sus datos.
+- El historial de ejecución de Azure Machine Learning almacena una instantánea del código, los datos y los procesos utilizados para entrenar un modelo.
 - El registro de modelos de Azure Machine Learning captura todos los metadatos asociados al modelo (el experimento que lo entrenó, dónde se está implementando, si las implementaciones son correctas).
 
 ## <a name="automate-the-end-to-end-ml-lifecycle"></a>Automatización del ciclo de vida completo de Machine Learning 

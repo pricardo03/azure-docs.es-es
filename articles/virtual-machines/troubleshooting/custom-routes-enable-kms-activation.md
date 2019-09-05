@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 2877fae66584ec24fb6e62b20d66ded36157b824
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8c0c8f5543af425091c821f28d08fcab01118fd4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990352"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090443"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Error de activación de Windows en el escenario de tunelización forzada
 
@@ -27,7 +26,7 @@ En este artículo se describe cómo resolver el problema de activación de KMS q
 
 ## <a name="symptom"></a>Síntoma
 
-La [tunelización forzada](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) se habilita en las subredes de red virtual de Azure para dirigir todo el tráfico vinculado a Internet de vuelta a la red local. En este escenario, las máquinas virtuales (VM) de Azure que ejecutan Windows Server 2012 R2 (o versiones posteriores de Windows) pueden activar Windows correctamente. Pero las máquinas virtuales que ejecutan una versión anterior de Windows no pueden activar Windows.
+La [tunelización forzada](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) se habilita en las subredes de red virtual de Azure para dirigir todo el tráfico vinculado a Internet de vuelta a la red local. En este escenario, las máquinas virtuales de Azure que ejecutan Windows no podrán activar este.
 
 ## <a name="cause"></a>Causa
 

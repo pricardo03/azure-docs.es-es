@@ -1,27 +1,27 @@
 ---
-title: Ejemplos de transformación de notificaciones generales para el esquema del marco de experiencia de identidad de Azure Active Directory B2C | Microsoft Docs
-description: Ejemplos de transformación de notificaciones generales para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
+title: Ejemplos de transformación de notificaciones generales para el esquema de Identity Experience Framework de Azure Active Directory B2C
+description: Ejemplos de transformación de notificaciones generales para el esquema de Identity Experience Framework de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5f8068ea7e97343749c719d2d0800e20701079c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cea33cb61f8f8d0fe305a757f11c80bc5da24ca
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510999"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032897"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones generales del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para obtener más información, vea [ClaimsTransformations](claimstransformations.md).
+En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones generales del esquema de Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
@@ -29,7 +29,7 @@ Comprueba si el elemento **inputClaim** existe o no y establece **outputClaim** 
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Cualquiera | La notificación de entrada cuya existencia debe comprobarse. |
+| InputClaim | inputClaim |Any | La notificación de entrada cuya existencia debe comprobarse. |
 | OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
 Use esta transformación de notificaciones para comprobar si una notificación existe o contiene algún valor. El valor devuelto es un valor booleano que indica si existe la notificación. En el ejemplo siguiente se comprueba si existe la dirección de correo electrónico.
@@ -38,7 +38,7 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isEmailPresent" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -49,18 +49,18 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 
 - Notificaciones de entrada:
   - **inputClaim**: someone@contoso.com
-- Notificaciones de salida: 
-    - **outputClaim**: true
+- Notificaciones de salida:
+  - **outputClaim**: true
 
 ## <a name="hash"></a>Hash
 
-Hash del texto sin formato proporcionado con el valor salt y un secreto.
+Hash del texto sin formato proporcionado con el valor salt y un secreto. El algoritmo hash utilizado es SHA-256.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | La notificación de entrada que se va a cifrar. |
 | InputClaim | salt | string | El parámetro salt. Puede crear un valor aleatorio, utilizando la transformación de notificaciones `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Apunta a un **claves de directiva** de Azure AD B2C existentes. Para crear una nueva: En su inquilino de Azure AD B2C, seleccione **B2C Settings (Configuración de B2C) > Marco de experiencia de identidad**. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino. Seleccione **Agregar**. En **Opciones**, seleccione **Manual**. Proporcione un nombre (es posible que se agregue automáticamente el prefijo B2C_1A_). En el cuadro de secreto, escriba el secreto que quiere usar, por ejemplo, 1234567890. Para usar una clave, seleccione **Secreto**. Seleccione **Crear**. |
+| InputParameter | randomizerSecret | string | Apunta a una **clave de directiva** de Azure AD B2C existente. Para crear una nueva clave de directiva: En su inquilino de Azure AD B2C, en **Administrar**, seleccione **Identity Experience Framework**. Seleccione **Claves de directiva** para ver las claves disponibles en el inquilino. Seleccione **Agregar**. En **Opciones**, seleccione **Manual**. Proporcione un nombre (es posible que se agregue automáticamente el prefijo *B2C_1A_* ). En el cuadro de texto **Secreto**, escriba el secreto que quiere usar, por ejemplo, 1234567890. En **Uso de claves**, seleccione **Firma**. Seleccione **Crear**. |
 | OutputClaim | hash | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. La notificación configurada en el elemento inputClaim `plaintext`. |
 
 ```XML
@@ -81,11 +81,8 @@ Hash del texto sin formato proporcionado con el valor salt y un secreto.
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **plaintext**: MyPass@word1
-    - **salt**: 487624568
-    - **randomizerSecret**: B2C_1A_AccountTransformSecret
-- Notificaciones de salida: 
-    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
-
-
-
+  - **plaintext**: MyPass@word1
+  - **salt**: 487624568
+  - **randomizerSecret**: B2C_1A_AccountTransformSecret
+- Notificaciones de salida:
+  - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=

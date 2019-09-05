@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: efa8a92ca9861c0280237ba07f4304b5c7dbbb88
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: bd83d915b51ab44d4287987e3da7113722910262
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609997"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020236"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -32,7 +32,7 @@ Análisis de tráfico es una solución basada en la nube, que proporciona visibi
 
 ### <a name="data-aggregation"></a>Agregación de datos
 
-1. Todos los registros de flujo en un NSG entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" se capturan en intervalos de un minuto en la cuenta de almacenamiento como blobs antes de que el Análisis de tráfico los procese. 
+1. Todos los registros de flujo en un NSG entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" se capturan en intervalos de un minuto en la cuenta de almacenamiento como blobs antes de que el Análisis de tráfico los procese.
 2. El intervalo de procesamiento predeterminado de Análisis de tráfico es 60 minutos. Esto significa que cada 60 minutos, Análisis de tráfico elige blobs del almacenamiento para la agregación. Si el intervalo de procesamiento elegido es de 10 minutos, Análisis de tráfico seleccionará los blobs de la cuenta de almacenamiento después de cada 10 minutos.
 3. El Análisis de tráfico agrupa en un único flujo los flujos que tengan la misma IP de origen, IP de destino, puerto de destino, nombre NSG, regla NSG, dirección de flujo y protocolo de capa de transporte (TCP o UDP) (Nota: el puerto de origen se excluye para la agregación).
 4. El Análisis de tráfico rellena este registro único (más detalles en la sección siguiente) y lo ingesta en Log Analytics. Este proceso puede tardar hasta una hora.
@@ -85,6 +85,12 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### <a name="fields-used-in-traffic-analytics-schema"></a>Campos que se usan en el esquema de Análisis de tráfico
+  > [!IMPORTANT]
+  > El esquema de Análisis de tráfico se ha actualizado el 22 de agosto de 2019. El nuevo esquema proporciona direcciones IP de origen y de destino por separado, lo que elimina la necesidad de analizar el campo FlowDirection y simplifica las consultas. </br>
+  > FASchemaVersion_s actualizado de 1 a 2. </br>
+  > Campos en desuso: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
+  > Nuevos campos: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
+  > Los campos en desuso estarán disponibles hasta el 22 de noviembre de 2019.
 
 El Análisis de tráfico se basa en Log Analytics, por lo que puede ejecutar consultas personalizadas en los datos que Análisis de tráfico rellena y establecer alertas en ellas.
 
@@ -94,7 +100,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabla para los datos de Análisis de tráfico.
 | SubType_s | FlowLog | Subtipo para los registros de flujo. Usar solo "FlowLog"; otros valores de SubType_s son para el funcionamiento interno del producto. |
-| FASchemaVersion_s |   1   | Versión de esquema. No refleja la versión del registro de flujo de NSG. |
+| FASchemaVersion_s |   2   | Versión de esquema. No refleja la versión del registro de flujo de NSG. |
 | TimeProcessed_t   | Fecha y hora en UTC  | Hora a la que el Análisis de tráfico procesó los registros de flujo sin formato desde la cuenta de almacenamiento. |
 | FlowIntervalStartTime_t | Fecha y hora en UTC |  Hora de inicio del intervalo de procesamiento de registros de flujo. Se trata de la hora desde la que se mide el intervalo de flujos. |
 | FlowIntervalEndTime_t | Fecha y hora en UTC | Hora de finalización del intervalo de procesamiento de registros de flujo. |
@@ -111,7 +117,8 @@ A continuación se proporcionan los campos en el esquema y su significado
 | FlowDirection_s | * I = Entrante<br> * O = Saliente | Dirección del flujo entrante o saliente de NSG según el registro de flujos |
 | FlowStatus_s  | * A = Permitido por la regla de NSG <br> * D = Denegado por la regla de NSG  | Estado del flujo permitido o bloqueado por NSG según el registro de flujos. |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Grupo de seguridad de red (NSG) asociado con el flujo. |
-| NSGRules_s | \<Index value 0)><NSG_RULENAME>\<Flow Direction>\<Flow Status>\<FlowCount ProcessedByRule> |  Regla de NSG que permitió o denegó este flujo. |
+| NSGRules_s | \<Index value 0)>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> |  Regla de NSG que permitió o denegó este flujo. |
+| NSGRule_s | NSG_RULENAME |  Regla de NSG que permitió o denegó este flujo. |
 | NSGRuleType_s | * Definido por el usuario * predeterminado |   El tipo de regla de NSG que el flujo usa. |
 | MACAddress_s | Dirección MAC | Dirección MAC de la NIC en la que se capturó el flujo. |
 | Subscription_s | En este campo se indica la suscripción de la red virtual, interfaz de red o máquina virtual de Azure. | Solo se aplica para los tipos de flujo FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow y UnknownPrivate (tipos de flujo donde solo un lado es Azure). |
@@ -151,6 +158,8 @@ A continuación se proporcionan los campos en el esquema y su significado
 | OutboundBytes_d | Bytes enviados según se capturaron en la interfaz de red donde se aplicó la regla de NSG. | Esto se rellena solo para la versión 2 del esquema de registro de flujos de NSG. |
 | CompletedFlows_d  |  | Esto se rellenará con un valor distinto de cero solo para la versión 2 del esquema de registro de flujos de NSG. |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
+| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
+| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separadas por barras |
 
 ### <a name="notes"></a>Notas
 
@@ -165,7 +174,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 1. MaliciousFlow: una de las direcciones IP pertenece a la red virtual de Azure, mientras que la otra dirección IP es una dirección IP pública que no está en Azure, se notifica como malintencionada en las fuentes ASC que Análisis de tráfico consume para el intervalo de procesamiento entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t".
 1. UnknownPrivate: una de las direcciones IP pertenecen a la red virtual de Azure, mientras que la otra dirección IP pertenece al intervalo IP privadas según se define en RFC 1918 y Análisis de tráfico no la puede asignar a un sitio o red virtual de Azure propiedad del cliente.
 1. Unknown: no se puede asignar ninguna de las direcciones IP en los flujos con la topología de cliente en Azure ni de forma local (sitio).
-1. Algunos nombres de campo se anexan con _s o _d. Estos sufijos NO significan origen y destino.
+1. Algunos nombres de campo se anexan con \_s o \_d. NO significan el origen y el destino, sino que indican los tipos de datos de cadena y decimales respectivamente.
 
 ### <a name="next-steps"></a>Pasos siguientes
 Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Análisis de tráfico](traffic-analytics-faq.md). Para ver detalles sobre la funcionalidad, consulte la [documentación de Análisis de tráfico](traffic-analytics.md)

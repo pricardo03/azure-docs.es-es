@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735539"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060715"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Hacer una copia de seguridad de una base de datos de SAP HANA en Azure
 
 [Azure Backup](backup-overview.md) admite la realización de copias de seguridad de bases de datos de SAP HANA en Azure.
 
 > [!NOTE]
-> Esta característica actualmente está en su versión preliminar pública. Actualmente no está lista para producción y no tiene un contrato de nivel de servicio garantizado. 
+> Esta característica actualmente está en su versión preliminar pública. Actualmente no está lista para producción y no tiene un contrato de nivel de servicio garantizado.
 
 ## <a name="scenario-support"></a>Compatibilidad con los escenarios
 
@@ -32,8 +32,11 @@ ms.locfileid: "68735539"
 ### <a name="current-limitations"></a>Limitaciones actuales
 
 - Solo puede hacer copias de seguridad de bases de datos de SAP HANA que se ejecuten en máquinas virtuales de Azure.
-- Solo puede configurar las copias de seguridad de SAP HANA en Azure Portal. Esta característica no se puede configurar con PowerShell, CLI ni la API de REST.
-- Solo puede hacer copias de seguridad de bases de datos en modo de escalado vertical.
+- Solo puede realizar copias de seguridad de instancias de SAP HANA que se ejecuten en una sola máquina virtual de Azure. Actualmente no se admiten varias instancias de HANA en la misma máquina virtual de Azure.
+- Solo puede hacer copias de seguridad de bases de datos en modo de escalado vertical. El escalado horizontal, es decir, una instancia de HANA en varias máquinas virtuales de Azure, no es compatible actualmente con la copia de seguridad.
+- No se puede realizar una copia de seguridad de la instancia de SAP HANA con capas dinámicas en un servidor extendido, es decir, en un nivel dinámico presente en otro nodo. Esta es básicamente la escalabilidad horizontal, que no se admite.
+- No se puede realizar una copia de seguridad de la instancia de SAP HANA con capas dinámicas habilitadas en el mismo servidor. La organización en niveles dinámicos no se admite actualmente.
+- Solo puede configurar las copias de seguridad de SAP HANA en Azure Portal. Esta característica no se puede configurar con la CLI de PowerShell.
 - Puede hacer una copia de seguridad de los registros de la base de datos cada 15 minutos. Las copias de seguridad de los registros comienzan el flujo solo después de que se haya realizado correctamente una copia de seguridad completa de la base de datos.
 - Puede hacer copias de seguridad completas y diferenciales. Las copias de seguridad incrementales no se admiten en la actualidad.
 - No puede modificar la directiva de copia de seguridad una vez que la ha aplicado para las copias de seguridad de SAP HANA. Si desea hacer copias de seguridad con una configuración diferente, cree una nueva directiva o asigne una directiva diferente.
@@ -44,23 +47,16 @@ ms.locfileid: "68735539"
 
 Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
-1. En la máquina virtual que ejecuta la base de datos de SAP HANA, instale el paquete oficial de Microsoft [.NET Core Runtime 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current). Observe lo siguiente:
-    - Solo necesita el paquete **dotnet-runtime-2.1**. No necesita **aspnetcore-runtime-2.1**.
-    - Si la máquina virtual no tiene acceso a Internet, refleje o proporcione una caché sin conexión para dotnet-runtime-2.1 (y todos los RPM dependientes) desde la fuente del paquete de Microsoft especificado en la página.
-    - Durante la instalación del paquete, puede que se le pida que especifique una opción. Si es así, especifique **Solución 2**.
-
-        ![Opción de instalación del paquete](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. En la máquina virtual, instale y habilite paquetes de controlador ODBC desde el paquete/soporte físico SLES oficial mediante Zypper, como sigue:
+1. En la máquina virtual que ejecuta la base de datos de SAP HANA, instale y habilite los paquetes de controlador ODBC desde el paquete o soporte físico SLES oficial mediante Zypper, de la manera siguiente:
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el procedimiento [siguiente](#set-up-network-connectivity).
+2. Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el procedimiento [siguiente](#set-up-network-connectivity).
 
-4. Ejecute el script de registro previo en la máquina virtual donde está instalado HANA como usuario raíz. El script se proporciona [en el portal](#discover-the-databases) del flujo y es necesario para configurar los [permisos correctos](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
+3. Ejecute el script de registro previo en la máquina virtual donde está instalado HANA como usuario raíz. El script se proporciona [en el portal](#discover-the-databases) del flujo y es necesario para configurar los [permisos correctos](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
 
@@ -68,6 +64,7 @@ Para todas las operaciones, la máquina virtual SAP HANA necesita conectividad a
 
 - Puede descargar los [intervalos de direcciones IP](https://www.microsoft.com/download/details.aspx?id=41653) para los centros de datos de Azure y, a continuación, permitir el acceso a estas direcciones IP.
 - Si usa grupos de seguridad de red (NSG), puede usar la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud para permitir todas las direcciones IP públicas de Azure. Para modificar las reglas de NSG, puede usar el [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
+- El puerto 443 debe estar en la lista de permitidos, ya que el transporte es a través de HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Incorporación a la versión preliminar pública
 
@@ -79,8 +76,6 @@ Incorpórese a la versión preliminar pública de la siguiente manera:
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -106,9 +101,9 @@ Ahora habilite la copia de seguridad.
 
 1. En el paso 2, haga clic en **Configurar copia de seguridad**.
 2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione todas las bases de datos que desee proteger y haga clic en **Aceptar**.
-3. En  **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una nueva directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
+3. En **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
 4. Tras crear la directiva, en el menú **Copia de seguridad**, haga clic en **Habilitar la copia de seguridad**.
-5. Realice el seguimiento del progreso de la configuración de copias de seguridad en el área de  **notificaciones** del portal.
+5. Realice el seguimiento del progreso de la configuración de copia de seguridad en el área **Notificaciones** del portal.
 
 ### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
 
@@ -182,6 +177,15 @@ Si desea hacer una copia de seguridad local (mediante HANA Studio) de una base d
     - Establezca **log_backup_using_backint** en **True**.
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>Actualización de bases de datos protegidas de la versión 1.0 a la versión 2.0
+
+Si va a proteger bases de datos SAP HANA 1.0 y quiere actualizarlas a la versión 2.0, siga los pasos que se describen a continuación.
+
+- Detenga la protección con Retain data (Conservar datos) de la base de datos de SDC anterior.
+- Vuelva a ejecutar el script anterior al registro con los detalles correctos de (sid y mdc). 
+- Vuelva a registrar la extensión (Backup [Copia de seguridad] -> View details [Ver detalles] -> Select the relevant Azure VM [Seleccionar la máquina virtual de Azure pertinente] -> Re-register [Volver a registrar]). 
+- Haga clic en Re-discover DBs (Volver a detectar bases de datos) para la misma máquina virtual. Se deberían mostrar las nuevas bases de datos en el paso 2 con los detalles correctos (SYSTEMDB y base de datos de inquilino, no SDC). 
+- Proteja estas nuevas bases de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

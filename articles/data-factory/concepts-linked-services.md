@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c339604624d0d9a033b54ad1c661b0ce10eaf1bd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870138"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127747"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -64,7 +64,7 @@ La tabla siguiente describe las propiedades del JSON anterior:
 
 Propiedad | DESCRIPCIÓN | Obligatorio |
 -------- | ----------- | -------- |
-Nombre | Nombre del servicio vinculado. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
+name | Nombre del servicio vinculado. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
 Tipo | Tipo de servicio vinculado. Por ejemplo:  AzureStorage (almacén de datos) o AzureBatch (proceso). Vea la descripción de typeProperties. | Sí |
 typeProperties | Las propiedades de tipo son diferentes para cada almacén de datos o proceso. <br/><br/> Para los tipos de almacenes de datos compatibles y sus propiedades de tipo, consulte la tabla [Tipo de conjunto de datos](concepts-datasets-linked-services.md#dataset-type) en este artículo. Vaya al artículo del conector del almacén de datos para obtener información acerca de las propiedades de tipo específicas de un almacén de datos. <br/><br/> Para los tipos de procesos compatibles y sus propiedades de tipo, vea [Servicios de proceso vinculados](compute-linked-services.md). | Sí |
 connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | Sin
@@ -92,10 +92,11 @@ El siguiente servicio vinculado no es un servicio vinculado de Azure Storage. Te
 ```
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
+
 Puede crear servicios vinculados mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal.
 
 ## <a name="data-store-linked-services"></a>Servicios vinculados con almacenes de datos
-Puede encontrar información sobre la conexión con almacenes de datos en nuestra lista de [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats). Consulte la lista para conocer propiedades de conexión específicas necesarias para los diferentes almacenes.
+Puede encontrar la lista de datos almacenados admitidos por Data Factory del artículo [Información general del conector](copy-activity-overview.md#supported-data-stores-and-formats). Haga clic en un almacén de datos para obtener información sobre las propiedades de conexión admitidas.
 
 ## <a name="compute-linked-services"></a>Servicios vinculados de proceso
 Consulte [Entornos de proceso compatibles](compute-linked-services.md) para obtener detalles sobre los diferentes entornos de proceso a los que puede conectarse desde la factoría de datos, así como las diferentes configuraciones.

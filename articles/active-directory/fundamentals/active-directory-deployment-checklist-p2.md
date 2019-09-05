@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767e3caf577bc1b7a49bd56570b8aeedbe307edc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7b5678fb0edcecae9ffa6a3c27f3dc6334ecf505
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693887"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125340"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -55,7 +55,7 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Habilitación del bloqueo inteligente de la extranet para AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | El bloqueo de la extranet de AD FS protege contra los ataques de adivinación de contraseñas por fuerza bruta al tiempo que permite a los usuarios de AD FS válidos continuar usando sus cuentas. | |
 | [Implementación de Azure AD Multi-Factor Authentication mediante directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) | Haga que los usuarios realicen la verificación en dos pasos al acceder a aplicaciones confidenciales mediante directivas de acceso condicional. | Azure AD Premium P1 |
 | [Habilitación de Azure Active Directory Identity Protection](../identity-protection/enable.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
-| [Uso de los eventos de riesgo para desencadenar la autenticación multifactor y el cambio de contraseña](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite la automatización que desencadene eventos como la autenticación multifactor, el restablecimiento de contraseña y el bloqueo del inicio de sesión en caso de riesgo. | Azure AD Premium P2 |
+| [Uso de detecciones de riesgos para desencadenar Multi-Factor Authentication y cambios de contraseñas](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite la automatización que desencadene eventos como la autenticación multifactor, el restablecimiento de contraseña y el bloqueo del inicio de sesión en caso de riesgo. | Azure AD Premium P2 |
 | [Habilitación del registro convergente para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication (versión preliminar)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importación de usuarios, habilitación de la sincronización y administración de dispositivos

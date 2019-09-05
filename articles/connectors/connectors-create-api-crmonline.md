@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
+manager: carmonm
 ms.reviewer: estfan, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60313809"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051011"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
 
@@ -26,7 +27,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de Dynamics 365](https://dynamics.microsoft.com)
 
@@ -133,11 +134,11 @@ Para ampliar estos tipos de campos, a continuación se indican campos de ejemplo
 | Campo | DESCRIPCIÓN |
 |-------|-------------|
 | **Propietario** | Debe ser un identificador de usuario válido o un identificador de registro de equipo. |
-| **Tipo de propietario** | Debe ser **usuarios del sistema** o **equipos**. |
+| **Tipo de propietario** | Debe ser `systemusers` o `teams`. |
 | **Referente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. |
-| **Tipo de referente** | Debe ser un tipo de búsqueda, como **cuentas** o **contactos**. |
+| **Tipo de referente** | Debe ser un tipo de búsqueda, como `accounts` o `contacts`. |
 | **Cliente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. |
-| **Tipo de cliente** | Debe ser el tipo de búsqueda, como **cuentas** o **contactos**. |
+| **Tipo de cliente** | Debe ser el tipo de búsqueda, como `accounts` o `contacts`. |
 |||
 
 En este ejemplo, la acción denominada **Crear un nuevo registro** crea un registro de tareas:
@@ -188,11 +189,6 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/dynamicscrmonline/).
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

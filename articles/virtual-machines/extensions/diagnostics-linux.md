@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871923"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092680"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -135,9 +135,7 @@ storageAccountSasToken | Es un [token de SAS de cuenta](https://azure.microsoft.
 mdsdHttpProxy | (Opcional) es información del proxy HTTP necesaria para habilitar la extensión para conectarse a la cuenta de almacenamiento y el punto de conexión especificados.
 sinksConfig | (Opcional) es información sobre destinos alternativos a los que pueden enviarse métricas y eventos. La información específica de cada receptor de datos admitido por la extensión se trata en las siguientes secciones.
 
-
-> [!NOTE]
-> Cuando implemente la extensión con una plantilla de implementación de Azure, la cuenta de almacenamiento y el token de SAS se debe crear por anticipado y, luego, pasarlo a la plantilla. No puede implementar una máquina virtual, una cuenta de almacenamiento ni configurar la extensión en una sola plantilla. Actualmente no es posible crear un token de SAS dentro de una plantilla.
+Para obtener un token de SAS en una plantilla de Resource Manager, utilice la función **listAccountSas**. Para ver una plantilla de ejemplo, consulte un [ejemplo de función de lista](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 Es posible construir el token de SAS necesario de forma muy sencilla mediante Azure Portal.
 

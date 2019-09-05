@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305635"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128213"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -30,15 +30,15 @@ En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.
 Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cual se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
 
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
-
+ 
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
-- El tamaño de carga con la opción de dirección URL se limita a 30 GB
-- La longitud de la dirección URL de solicitud se limita a 2048 caracteres
-- El tamaño de carga con la opción de matriz de bytes se limita a 2 GB
-- La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
+- El tamaño de carga con la opción de dirección URL se limita a 30 GB.
+- La longitud de la dirección URL de la solicitud está limitada a 6144 caracteres en los que la longitud de la dirección URL de la cadena de consulta está limitada a 4096 caracteres.
+- El tamaño de carga con la opción de matriz de bytes se limita a 2 GB.
+- La opción de matriz de bytes agota el tiempo de espera a los 30 minutos.
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
-- La indexación de los recursos de Media Services tiene la misma limitación que la indexación desde la dirección URL
-- Video Indexer tiene una duración máxima de 4 horas por archivo
+- La indexación de los recursos de Media Services tiene la misma limitación que la indexación desde la dirección URL.
+- Video Indexer tiene una duración máxima de 4 horas por archivo.
 
 > [!Tip]
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
@@ -159,9 +159,9 @@ public async Task Sample()
     // as an alternative to specifying video URL, you can upload a file.
     // remove the videoUrl parameter from the query params below and add the following lines:
     //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =newbyte[video.Length];
+    //byte[] buffer =new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(newByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer));
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()

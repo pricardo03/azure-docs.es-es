@@ -1,5 +1,5 @@
 ---
-title: 'Información general sobre los tokens: Azure Active Directory B2C | Microsoft Docs'
+title: 'Información general sobre los tokens: Azure Active Directory B2C'
 description: Obtenga información sobre los tokens que se utilizan en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509090"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032077"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Los tokens siguientes se utilizan en la comunicación con Azure AD B2C:
 
 - *Token de identificador*: JWT que contiene las notificaciones que puede usar para identificar usuarios en la aplicación. Este token se envía de forma segura en las solicitudes HTTP para la comunicación entre dos componentes de la misma aplicación o el mismo servicio. Puede usar las notificaciones en un token de identificador como considere oportuno. Se suelen usar para mostrar información sobre la cuenta o para tomar decisiones sobre el control de acceso en una aplicación. Los tokens de identificador están firmados, pero no cifrados. Cuando una aplicación o API recibe un token de identificador, debe validar la firma para demostrar que es auténtico. La aplicación o la API también deben validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
 - *Token de acceso*: JWT que contiene notificaciones que puede usar para identificar los permisos concedidos a las API. Los tokens de acceso están firmados, pero no cifrados. Los tokens de acceso se utilizan para proporcionar acceso a las API y los servidores de recursos.  Cuando una API recibe un token de acceso, debe validar la firma para demostrar que es auténtico. La API también debe validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
-- *Token de actualización*: los tokens de actualización se utilizan para adquirir nuevos tokens de identificador y tokens de acceso en un flujo de OAuth 2.0. Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con los usuarios. Los tokens de actualización son totalmente opacos para su aplicación. Los emite Azure AD B2C y solo Azure AD B2C los puede inspeccionar e interpretar. Son de larga duración, pero la aplicación no se debe escribir esperando que un token de actualización dure un período de tiempo especificado. Los tokens de actualización pueden invalidarse en cualquier momento por varios motivos. La única forma de que su aplicación sepa si un token de actualización es válido es intentar canjearlo mediante una solicitud de token a Azure AD B2C. Al canjear un token de actualización por un nuevo token de acceso, recibe un nuevo token de actualización en la respuesta del token. Guarde el nuevo token de actualización. Reemplaza al token de actualización que usó anteriormente en la solicitud. Esta acción ayuda a garantizar que los tokens de actualización sigan siendo válidos mientras sea posible. 
+- *Token de actualización*: los tokens de actualización se utilizan para adquirir nuevos tokens de identificador y tokens de acceso en un flujo de OAuth 2.0. Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con los usuarios. Los tokens de actualización son totalmente opacos para su aplicación. Los emite Azure AD B2C y solo Azure AD B2C los puede inspeccionar e interpretar. Son de larga duración, pero la aplicación no se debe escribir esperando que un token de actualización dure un período de tiempo especificado. Los tokens de actualización pueden invalidarse en cualquier momento por varios motivos. La única forma de que su aplicación sepa si un token de actualización es válido es intentar canjearlo mediante una solicitud de token a Azure AD B2C. Al canjear un token de actualización por un nuevo token de acceso, recibe un nuevo token de actualización en la respuesta del token. Guarde el nuevo token de actualización. Reemplaza al token de actualización que usó anteriormente en la solicitud. Esta acción ayuda a garantizar que los tokens de actualización sigan siendo válidos mientras sea posible.
 
 ## <a name="endpoints"></a>Puntos de conexión
 
@@ -40,11 +40,11 @@ Una [aplicación registrada](tutorial-register-applications.md) recibe los token
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Los tokens de seguridad que la aplicación recibe de Azure AD B2C pueden proceder de los puntos de conexión `/authorize` o `/token`. Cuando los tokens de identificador se adquieren del punto de conexión `/authorize`, el procedimiento se realiza con el [flujo implícito](active-directory-b2c-reference-spa.md), que se usa a menudo para los usuarios que inician sesión en aplicaciones web basadas en JavaScript. Cuando se adquieren los tokens de identificador del punto de conexión `/token`, el procedimiento se realizan utilizando el [flujo de código confidencial](active-directory-b2c-reference-oidc.md), que mantiene el token oculto al explorador.
+Los tokens de seguridad que la aplicación recibe de Azure AD B2C pueden proceder de los puntos de conexión `/authorize` o `/token`. Cuando los tokens de identificador se adquieren en el punto de conexión `/authorize`, el procedimiento se realiza con el [flujo implícito](active-directory-b2c-reference-spa.md), que se usa a menudo para los usuarios que inician sesión en aplicaciones web basadas en JavaScript. Cuando se adquieren los tokens de identificador en el punto de conexión `/token`, el procedimiento se realiza utilizando el [flujo de código de autorización](active-directory-b2c-reference-oidc.md#get-a-token), que mantiene el token oculto al explorador.
 
 ## <a name="claims"></a>Notificaciones
 
-Con Azure AD B2C, tendrá un control preciso sobre el contenido de los tokens. Se pueden configurar [flujos de usuario](active-directory-b2c-reference-policies.md) y [directivas personalizadas](active-directory-b2c-overview-custom.md) para enviar determinados conjuntos de datos de usuario en las notificaciones que son necesarios para la aplicación. Dichas notificaciones pueden incluir propiedades estándar, tales como **displayName** y **emailAddress**. Las aplicaciones pueden usar estas notificaciones para autenticar usuarios y solicitudes de manera segura. 
+Con Azure AD B2C, tendrá un control preciso sobre el contenido de los tokens. Se pueden configurar [flujos de usuario](active-directory-b2c-reference-policies.md) y [directivas personalizadas](active-directory-b2c-overview-custom.md) para enviar determinados conjuntos de datos de usuario en las notificaciones que son necesarios para la aplicación. Dichas notificaciones pueden incluir propiedades estándar, tales como **displayName** y **emailAddress**. Las aplicaciones pueden usar estas notificaciones para autenticar usuarios y solicitudes de manera segura.
 
 Las notificaciones de tokens de identificador no se devuelven en ningún orden concreto. Se pueden agregar nuevas notificaciones en tokens de identificador en cualquier momento. No se debe interrumpir la aplicación cuando se agreguen nuevas notificaciones. También puede incluir [atributos de usuario personalizados](active-directory-b2c-reference-custom-attr.md) en sus notificaciones.
 
@@ -64,7 +64,7 @@ En la tabla siguiente se enumeran las notificaciones que puede esperar de los to
 | Asunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso. De manera predeterminada, la notificación del asunto se rellena con el identificador de objeto del usuario del directorio. |
 | Referencia de clase de contexto de autenticación | `acr` | No aplicable | Solo se utiliza con las directivas antiguas. |
 | Directiva de marco de confianza | `tfp` | `b2c_1_signupsignin1` | Nombre de la directiva que se usó para adquirir el token de identificador. |
-| Hora de autenticación | `auth_time` | `1438535543` | Hora a la que un usuario especificó sus credenciales por última vez, representada en hora de época. |
+| Hora de autenticación | `auth_time` | `1438535543` | Hora a la que un usuario especificó sus credenciales por última vez, representada en hora de época. No existe distinción entre una autenticación que sea un inicio de sesión nuevo, una sesión de inicio de sesión único (SSO) u otro tipo de inicio de sesión. `auth_time` muestra la última vez que la aplicación (o el usuario) inició un intento de autenticación en Azure AD B2C. No se indica el método usado para la autenticación. |
 | Ámbito | `scp` | `Read`| Permisos concedidos al recurso para un token de acceso. Si se trata de varios permisos concedidos, se separan con un espacio. |
 | Entidad autorizada | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | El **id. de la aplicación** cliente que inició la solicitud. |
 
@@ -83,7 +83,7 @@ Los siguientes casos de uso se habilitan mediante estas propiedades:
 - Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Establezca **Duración de la ventana deslizante del token de actualización (días)** en **Unbounded** (Sin enlazar) en el flujo de usuario de inicio de sesión.
 - Cumpla los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la vigencia adecuada del token de acceso.
 
-Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña. 
+Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña.
 
 ## <a name="compatibility"></a>Compatibilidad
 
@@ -99,7 +99,7 @@ Las siguientes propiedades se utilizan para [administrar la compatibilidad de lo
 
 Cuando se inicia un recorrido del usuario, Azure AD B2C recibe un token de acceso de un proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. [Habilite una notificación en el flujo de usuario](idp-pass-through-user-flow.md) o [defina una notificación en la directiva personalizada](idp-pass-through-custom.md) para pasar el token a través de las aplicaciones que registre en Azure AD B2C. La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md) para aprovechar las ventajas de pasar el token como una notificación.
 
-Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de OAuth 2.0, incluidos Facebook y Google. Para todos los demás proveedores de identidades, la notificación se devuelve en blanco. 
+Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de OAuth 2.0, incluidos Facebook y Google. Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
 ## <a name="validation"></a>Validación
 
@@ -107,7 +107,7 @@ Para validar un token, la aplicación debe comprobar tanto la firma como las not
 
 ### <a name="validate-signature"></a>Validar la firma
 
-Un JWT contiene tres segmentos, un *encabezado*, un *cuerpo* y un *firma*. El segmento de firma se puede utilizar para validar la autenticidad del token con el fin de que la aplicación pueda confiar en él. Los tokens de Azure AD B2C se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. 
+Un JWT contiene tres segmentos, un *encabezado*, un *cuerpo* y un *firma*. El segmento de firma se puede utilizar para validar la autenticidad del token con el fin de que la aplicación pueda confiar en él. Los tokens de Azure AD B2C se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256.
 
 El encabezado del token contiene información acerca del método de cifrado y la clave utilizados para firmar el token:
 
@@ -147,7 +147,7 @@ Cuando una aplicación o una API reciben un token de identificador, también es 
 - **issuer**: comprueba que Azure AD B2C emitió el token para la aplicación.
 - **nonce**: una estrategia para mitigar los ataques de reproducción de tokens.
 
-Para ver una lista completa de las validaciones que la aplicación debe llevar a cabo, consulte la [especificación de OpenID Connect](https://openid.net).  
+Para ver una lista completa de las validaciones que la aplicación debe llevar a cabo, consulte la [especificación de OpenID Connect](https://openid.net).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

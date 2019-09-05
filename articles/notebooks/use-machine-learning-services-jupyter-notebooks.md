@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c99f815bd58b03dbc43ba742577259be5638fef9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240503"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035730"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Uso de Azure Machine Learning Service en un cuaderno
 
@@ -27,7 +27,7 @@ Azure Notebooks viene preconfigurado con el entorno necesario para que funcione 
 ## <a name="clone-the-sample-into-your-account"></a>Clonación del ejemplo en su cuenta
 
 1. Inicie sesión en [Azure Notebooks](https://notebooks.azure.com/).
-1. Seleccione **Mis proyectos** para navegar hasta el panel de proyectos.
+1. Seleccione **Mis proyectos** para ir al panel de proyectos.
 1. Seleccione el botón **Cargar repositorio de GitHub** (la flecha arriba) para abrir la ventana emergente **Upload GitHub Repository** (Cargar repositorio de GitHub).
 1. En la ventana emergente, escriba `Azure/MachineLearningNotebooks` en **Repositorio de GitHub**, proporcione un nombre para el proyecto en **Nombre del proyecto**, como "Azure Machine Learning Service", proporcione un identificador en **Id. de proyecto**, desactive **Público** si lo desea y seleccione **Importar**.
 
@@ -41,7 +41,7 @@ Azure Notebooks viene preconfigurado con el entorno necesario para que funcione 
 
     - Dado que Azure Notebooks ya contiene los paquetes de Python necesarios, puede ejecutar simplemente el fragmento de código del paso 2 de los requisitos previos para verificar la versión del SDK de Azure ML.
 
-1. Una vez completada la configuración, seleccione **01.getting-started** para navegar a la carpeta que contiene trece cuadernos de ejemplo diferentes, cada uno de ellos se explica por sí solo.
+1. Una vez completada la configuración, seleccione **01.getting-started** para abrir la carpeta que contiene trece cuadernos de ejemplo diferentes, cada uno de ellos se explica por sí solo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c2aad97cea39221da56666dbeff72ce56fcb2a22
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442027"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113692"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -83,7 +83,7 @@ Los nombres de clúster de HDInsight tienen las siguientes restricciones:
 - Caracteres permitidos: a-z, 0-9, A-Z 
 - Longitud máxima: 59
 - Nombres reservados: aplicaciones
-- Debe ser único
+- El ámbito de nombres del clúster es común para todo Azure, para todas las suscripciones. Por lo tanto, el nombre del clúster debe ser único en todo el mundo.
 - Los seis primeros caracteres deben ser únicos en una red virtual
 
 ## <a name="cluster-login-and-ssh-username"></a>Inicio de sesión de clúster y nombre de usuario de SSH
@@ -256,6 +256,7 @@ Para ver un ejemplo de cómo usar dos tipos de clúster en una red virtual de Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Solución de errores de creación de clústeres con Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [¿Qué son HDInsight, el ecosistema Apache Hadoop y los clústeres de Hadoop?](hadoop/apache-hadoop-introduction.md)
 - [Introducción al uso de Apache Hadoop en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Trabajo en Apache Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)

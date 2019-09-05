@@ -9,18 +9,17 @@ editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 105b3805e1297f796e0353f9328044896248aaa0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876352"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081766"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
@@ -47,10 +46,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Para habilitar Terraform para aprovisionar recursos en Azure, cree una [entidad de servicio de Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). La entidad de servicio concede sus scripts de Terraform para aprovisionar recursos en su suscripción de Azure.
 
-Si tiene varias suscripciones a Azure, primero consulte su cuenta con [az account show](/cli/azure/account#az-account-show) para obtener una lista de valores de identificadores de suscripción e identificadores de inquilino:
+Si tiene varias suscripciones a Azure, primero consulte su cuenta con [az account list](/cli/azure/account#az-account-list) para obtener una lista de valores de identificadores de suscripción e identificadores de inquilino:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Para utilizar una suscripción seleccionada, defina la suscripción para esta sesión con [az account set](/cli/azure/account#az-account-set). Establezca la variable de entorno `SUBSCRIPTION_ID` para almacenar el valor devuelto del campo `id` de la suscripción que quiere usar:

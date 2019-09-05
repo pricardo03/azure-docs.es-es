@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935070"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092810"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
@@ -106,6 +106,10 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 ## <a name="preparing-secondary-database-for-failover"></a>Preparación de la base de datos secundaria para la conmutación por error
 
 Para asegurarse de que la aplicación pueda acceder de inmediato a la nueva base de datos principal después de la conmutación por error, compruebe que los requisitos de autenticación de la base de datos y el servidor secundarios estén configurados correctamente. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md). Para garantizar el cumplimiento después de la conmutación por error, asegúrese de que la directiva de retención de copias de seguridad de la base de datos secundaria coincide con la de la principal. Esta configuración no forma parte de la base de datos y no se replica. De forma predeterminada, la base de datos secundaria se configurará con un período de retención PITR predeterminado de siete días. Para más información, consulte [Copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> Si la base de datos es miembro de un grupo de conmutación por error, no puede iniciar su conmutación por error mediante el comando de conmutación por error de la replicación geográfica. Considere la posibilidad de usar el comando de conmutación por error para el grupo. Si necesita realizar la conmutación por error de una base de datos individual, primero debe quitarla del grupo de conmutación por error. Consulte [grupos de conmutación por error](sql-database-auto-failover-group.md) para más información. 
+
 
 ## <a name="configuring-secondary-database"></a>Configuración de una base de datos secundaria
 

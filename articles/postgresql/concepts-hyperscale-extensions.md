@@ -1,28 +1,28 @@
 ---
-title: Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hyperscale (Citus) (versión preliminar)
-description: Describe la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones en Azure Database for PostgreSQL.
+title: Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
+description: Describe la capacidad de ampliar la funcionalidad de la base de datos mediante extensiones de Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4022c95bfda8cbdaed75876793bfbba4254a5c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aabcb0b0d01d821c529803927dacec448c923745
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410245"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998011"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hyperscale (Citus) (versión preliminar)
+# <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
-PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL ofrece la capacidad de ampliar la funcionalidad de la base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar como características integradas. Para más información sobre las extensiones de PostgreSQL, consulte  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html) (Empaquetado de objetos relacionados en una extensión).
 
-## <a name="how-to-use-postgresql-extensions"></a>¿Cómo se utilizan las extensiones de PostgreSQL?
+## <a name="use-postgresql-extensions"></a>Uso de extensiones de PostgreSQL
 
 Para poder usar las extensiones de PostgreSQL, es preciso que estén instaladas en su base de datos. Para instalar una extensión específica, ejecute el comando  [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html)  desde la herramienta psql para cargar los objetos empaquetados en la base de datos.
 
-Azure Database for PostgreSQL actualmente admite un subconjunto de extensiones de claves, como se enumeran a continuación. Aparte de las que se indican, no se admiten otras extensiones. No puede crear su propia extensión con el servicio Azure Database for PostgreSQL.
+Azure Database for PostgreSQL - Hiperescala (Citus) (versión preliminar) admite actualmente un subconjunto de extensiones clave, que se enumeran a continuación. No se admiten extensiones distintas de las que se incluyen. No puede crear su propia extensión con Azure Database for PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensiones admitidas por Azure Database for PostgreSQL
 
@@ -35,12 +35,21 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Proporciona un tipo de cadena de caracteres que no distingue entre mayúsculas y minúsculas. |
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Proporciona un tipo de datos para los cubos multidimensionales. |
-> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave/valor. |
+> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave-valor. |
 > | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Proporciona tipos de datos para los estándares internacionales de numeración de productos. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grandes. |
 > | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Proporciona un tipo de datos para las estructuras de árbol jerárquicas. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Tipo de datos para representar los segmentos de línea o intervalos de punto flotante. |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo para JSONB de n principales. |
+
+### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo
+
+> [!div class="mx-tableFixed"]
+> | **Extensión** | **Descripción** |
+> |---|---|
+> | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Proporciona una plantilla de diccionario de búsqueda de texto para números enteros. |
+> | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Plantilla de diccionario de búsqueda de texto para el procesamiento de sinónimos extendido. |
+> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Un diccionario de búsqueda de texto que quita los acentos (signos diacríticos) de lexemas. |
 
 ### <a name="functions-extensions"></a>Extensiones de funciones
 
@@ -64,14 +73,13 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funciones para implementar el viaje en el tiempo. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificadores únicos universales (UUID). |
 
-### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo
+### <a name="hyperscale-extensions"></a>Extensiones de hiperescala
 
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** |
 > |---|---|
-> | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Proporciona una plantilla de diccionario de búsqueda de texto para números enteros. |
-> | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Plantilla de diccionario de búsqueda de texto para el procesamiento de sinónimos extendido. |
-> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Un diccionario de búsqueda de texto que quita los acentos (signos diacríticos) de lexemas. |
+> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. |
+> | shard\_rebalancer | Volver a equilibrar los datos con seguridad en un grupo de servidores en el caso de adición o eliminación del nodo. |
 
 ### <a name="index-types-extensions"></a>Extensiones de tipos de índices
 
@@ -89,14 +97,6 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | Lenguaje de procedimientos que puede cargar PL/pgSQL. |
 
-### <a name="hyperscale-extensions"></a>Extensiones de hiperescala
-
-> [!div class="mx-tableFixed"]
-> | **Extensión** | **Descripción** |
-> |---|---|
-> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. |
-> | shard\_rebalancer | Volver a equilibrar los datos con seguridad en un grupo de servidores en el caso de adición o eliminación del nodo. |
-
 ### <a name="miscellaneous-extensions"></a>Extensiones variadas
 
 > [!div class="mx-tableFixed"]
@@ -110,16 +110,16 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | Programador de trabajos para PostgreSQL. |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine la asignación de espacio libre (FSM). |
 > | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Proporciona una manera de cargar datos de relación en la caché del búfer. |
-> | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Proporciona un medio para realizar el seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas por un servidor. (Vea a continuación una nota sobre esta extensión). |
-> | [pg\_visibility](https://www.postgresql.org/docs/current/pgvisibility.html) | Examine el mapa de visibilidad (VM) y la información de visibilidad de nivel de página. |
+> | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Proporciona un medio para realizar el seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas por un servidor. Consulte la sección "pg_stat_statements" para información sobre esta extensión. |
+> | [pg\_visibility](https://www.postgresql.org/docs/current/pgvisibility.html) | Permite examinar el mapa de visibilidad y la información de visibilidad de nivel de página. |
 > | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Proporciona un medio para mostrar información de bloqueo a nivel de fila. |
 > | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Proporciona un medio para mostrar estadísticas de nivel de tupla. |
-> | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. (Vea a continuación una nota sobre esta extensión).|
+> | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. Consulte la sección "dblink y postgres_fdw" para información sobre esta extensión.|
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información sobre los certificados SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Método TABLESAMPLE que acepta el número de filas como un límite. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Proporciona un medio de creación de índices hipotéticos que no consume CPU ni disco. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. (Vea a continuación una nota sobre esta extensión). |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. Consulte la sección "dblink y postgres_fdw" para información sobre esta extensión. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Consulta de XPath y XSLT. |
 
 
@@ -135,13 +135,14 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | postgis\_topology | Funciones y tipos espaciales de topología PostGIS. |
 
 
-## <a name="pgstatstatements"></a>pg_stat_statements
-La extensión [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) está cargada previamente en cada servidor de Azure Database for PostgreSQL para proporcionarle un medio de seguimiento de las estadísticas de ejecución de las instrucciones SQL.
-La configuración `pg_stat_statements.track`, que controla las instrucciones que la extensión cuenta, se establece de manera predeterminada en `top`, lo que significa que se realiza el seguimiento de todas las instrucciones que los clientes emiten directamente. Los otros dos niveles de seguimiento son `none` y `all`. Esta configuración es configurable como un parámetro de servidor a través de [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+## <a name="pg_stat_statements"></a>pg_stat_statements
+La [extensión pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) está precargada en cada servidor de Azure Database for PostgreSQL para proporcionarle un medio de seguimiento de las estadísticas de ejecución de las instrucciones SQL.
 
-Hay un equilibrio entre la información de ejecución de consulta que pg_stat_statements proporciona y el impacto en el rendimiento del servidor al registrar cada instrucción SQL. Si no está usando activamente la extensión pg_stat_statements, le recomendamos que establezca `pg_stat_statements.track` en `none`. Tenga en cuenta que algunos servicios de supervisión de terceros pueden basarse en pg_stat_statements para entregar información de rendimiento de consultas, por lo que debe confirmar si este es el caso para usted o no.
+El valor `pg_stat_statements.track` controla qué instrucciones cuenta la extensión. El valor predeterminado es `top`, lo que significa que se realiza el seguimiento de todas las instrucciones emitidas directamente por los clientes. Los otros dos niveles de seguimiento son `none` y `all`. Esta configuración es configurable como un parámetro de servidor a través de [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-## <a name="dblink-and-postgresfdw"></a>dblink and postgres_fdw
-dblink y postgres_fdw le permiten conectarse de un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de recepción debe permitir conexiones del servidor de envío a través de su firewall. Cuando se usan estas extensiones para conectarse entre servidores de Azure Database for PostgreSQL, esto se puede realizar mediante el establecimiento de "Permitir acceso a servicios de Azure" en Activado. Esto también es necesario si desea utilizar las extensiones para volver al mismo servidor. La opción "Permitir el acceso a servicios de Azure" puede encontrarse en la página de Azure Portal para el servidor de Postgres, en Seguridad de la conexión. Si se activa "Permitir el acceso a servicios de Azure", se permitirá en todas las direcciones IP de Azure.
+Hay un equilibrio entre la información de ejecución de consulta que proporciona pg_stat_statements y el efecto en el rendimiento del servidor al registrar cada instrucción SQL. Si no está usando activamente la extensión pg_stat_statements, le recomendamos que establezca `pg_stat_statements.track` en `none`. Tenga en cuenta que algunos servicios de supervisión de terceros pueden basarse en pg_stat_statements para entregar información de rendimiento de consultas, por lo que debe confirmar si este es su caso o no.
 
-Actualmente no se admiten las conexiones salientes desde Azure Database for PostgreSQL, excepto para las conexiones a otros servidores de Azure Database for PostgreSQL.
+## <a name="dblink-and-postgres_fdw"></a>dblink y postgres_fdw
+Puede usar dblink y postgres_fdw para conectarse desde un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de recepción debe permitir conexiones del servidor de envío a través de su firewall. Si quiere usar estas extensiones para conectarse entre servidores de Azure Database for PostgreSQL, establezca **Permitir el acceso a servicios de Azure** en Activado. También debe activar este valor si desea usar las extensiones para volver en bucle al mismo servidor. La opción **Permitir el acceso a servicios de Azure** puede encontrarse en la página de Azure Portal para el servidor de Postgres, en **Seguridad de la conexión**. Si se activa **Permitir el acceso a servicios de Azure**, se incluyen en la lista blanca todas las direcciones IP de Azure.
+
+Actualmente no se admiten más conexiones salientes desde Azure Database for PostgreSQL que las conexiones a otros servidores de Azure Database for PostgreSQL.

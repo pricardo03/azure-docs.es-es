@@ -5,14 +5,14 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e05ba421a4535e6e424e65a1f2271d19f9d9abf4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399579"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048702"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Uso de Cloud Explorer para Visual Studio para la administración de dispositivos de Azure IoT Hub
 
@@ -31,64 +31,81 @@ ms.locfileid: "60399579"
 
 Para obtener una explicación más detallada acerca de las diferencias y orientación sobre el uso de estas opciones, consulte la [Guía de comunicación de dispositivo a nube](iot-hub-devguide-d2c-guidance.md) y la [Guía de comunicación de nube a dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
+Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él. Para más información acerca de los dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
-Aprenderá a usar Cloud Explorer para Visual Studio con distintas opciones de administración en su máquina de desarrollo.
+En este artículo, aprenderá a usar Cloud Explorer para Visual Studio con distintas opciones de administración en su equipo de desarrollo.
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
-Ejecute Cloud Explorer para Visual Studio con distintas opciones de administración.
+En este artículo, ejecutará Cloud Explorer para Visual Studio con distintas opciones de administración.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
+Los siguientes requisitos previos son necesarios:
+
 - Una suscripción de Azure activa.
-- Una instancia de Azure IoT Hub en su suscripción
-- Microsoft Visual Studio 2017 Update 8 o posterior
-- El componente Cloud Explorer desde el Instalador de Visual Studio (se selecciona de forma predeterminada con la carga de trabajo de Azure)
+
+- Una instancia de Azure IoT Hub en su suscripción.
+
+- Microsoft Visual Studio 2017 Update 9 o posterior. En este artículo se utiliza [Visual Studio 2017 o Visual Studio 2019](https://www.visualstudio.com/vs/).
+
+- El componente Cloud Explorer desde el Instalador de Visual Studio (se selecciona de forma predeterminada con la carga de trabajo de Azure).
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>Actualización de Cloud Explorer a la versión más reciente
 
-El componente Cloud Explorer desde el Instalador de Visual Studio solo admite la supervisión de mensajes del dispositivo a la nube y de la nube al dispositivo. Deberá descargar e instalar la versión más reciente de [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) para tener acceso a las opciones de administración.
+El componente Cloud Explorer desde el Instalador de Visual Studio para Visual Studio 2017 solo admite la supervisión de mensajes del dispositivo a la nube y de la nube al dispositivo. Para usar Visual Studio 2017, descargue e instale la versión más reciente de [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Inicio de sesión para acceder a IoT Hub
+## <a name="sign-in-to-access-your-hub"></a>Inicio de sesión para acceder al centro
 
-1. En la ventana de Visual Studio **Cloud Explorer**, haga clic en el icono de administración de cuentas. Puede abrir la ventana de Cloud Explorer desde el menú **Ver** > **Cloud Explorer**.
+1. En Visual Studio, seleccione **Ver** > **Cloud Explorer** para abrir Cloud Explorer.
 
-    ![Hacer clic en Administración de cuentas](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
+1. Seleccione el icono de administración de cuentas para mostrar las suscripciones.
 
-1. Haga clic en **Manage Accounts** (Administrar cuentas) en Cloud Explorer.
-1. Haga clic en **Add an account...** (Agregar una cuenta...) en la nueva ventana para iniciar sesión en Azure por primera vez.
-1. Después de iniciar sesión, se muestra la lista de suscripciones de Azure. Seleccione las suscripciones de Azure que quiere ver y haga clic en **Apply** (Aplicar).
-1. Expanda **su suscripción** > **IoT Hubs** > **su instancia de IoT Hub**; la lista de dispositivos se mostrará en su nodo de IoT Hub. Haga clic en un dispositivo para tener acceso a las opciones de administración.
+    ![Icono de administración de cuentas](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-    ![Opciones de administración](media/iot-hub-device-management-visual-studio/management-options.png)
+1. Si ha iniciado sesión en Azure, aparecerán las cuentas. Para iniciar sesión en Azure por primera vez, elija **Agregar una cuenta**.
+
+1. Seleccione las suscripciones de Azure que quiere usar y seleccione **Aplicar**.
+
+1. Expanda la suscripción y luego **IoT Hubs**.  En cada centro, puede ver sus dispositivos. Haga clic en un dispositivo para tener acceso a las opciones de administración.
+
+    ![Opciones de administración](media/iot-hub-device-management-visual-studio/management-options-vs2019.png)
 
 ## <a name="direct-methods"></a>Métodos directos
 
+Para usar métodos directos, realice los pasos siguientes:
+
 1. Haga clic con el botón derecho en el dispositivo y seleccione **Invoke Device Direct Method** (Invocar método directo de dispositivo).
-1. Escriba el nombre del método y la carga en el cuadro de entrada.
-1. Los resultados se mostrarán en el panel de salida de **IoT Hub**.
 
-## <a name="read-device-twin"></a>Leer dispositivo gemelo
+1. Escriba el nombre del método y la carga en**Invocar un método directo** y, a continuación, seleccione **Aceptar**.
 
-1. Haga clic con el botón derecho en el dispositivo y seleccione **Editar dispositivo gemelo**.
-1. Se abrirá un archivo **azure-iot-device-twin.json** con el contenido del dispositivo gemelo.
+    Los resultados aparecerán en **Resultado**.
 
 ## <a name="update-device-twin"></a>Actualizar dispositivo gemelo
 
-1. Realice algunas modificaciones en el campo **tags** o **properties.desired** del archivo **azure-iot-dispositivo-twin.json**.
+Para editar un dispositivo gemelo, realice los pasos siguientes:
+
+1. Haga clic con el botón derecho en el dispositivo y seleccione **Editar dispositivo gemelo**.
+
+   Se abrirá un archivo **azure-iot-device-twin.json** con el contenido del dispositivo gemelo.
+
+1. Realice algunas modificaciones en los campos **tags** o **properties.desired** del archivo **azure-iot-dispositivo-twin.json**.
+
 1. Presione **CTRL+S** para actualizar el dispositivo gemelo.
-1. Los resultados se mostrarán en el panel de salida de **IoT Hub**.
+
+   Los resultados aparecerán en **Resultado**.
 
 ## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
 
 Para enviar un mensaje desde IoT Hub al dispositivo, siga estos pasos:
 
 1. Haga clic con el botón derecho en el dispositivo y seleccione **Send C2D Message** (Enviar mensaje de C2D).
-1. Escriba el mensaje en el cuadro de entrada.
-1. Los resultados se mostrarán en el panel de salida de **IoT Hub**.
+
+1. Escriba el mensaje en **Enviar mensaje C2D** y seleccione **Aceptar**.
+
+   Los resultados aparecerán en **Resultado**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931784"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125413"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -41,7 +41,24 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
-Agosto de 2019: Se aplicará la semántica de POST de acuerdo con las reglas de análisis de direcciones URL: los parámetros duplicados desencadenarán un error, las comillas entre los parámetros ya no se omitirán y se omitirá la marca [BOM](https://www.w3.org/International/questions/qa-byte-order-mark).
+Septiembre de 2019: Aplicación adicional de la semántica de POST de acuerdo con las reglas de análisis de direcciones URL: los parámetros duplicados desencadenarán un error y se omitirá la marca [BOM](https://www.w3.org/International/questions/qa-byte-order-mark).
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>La semántica del formulario POST se aplicará más estrictamente y se omitirán los espacios y comillas.
+
+**Fecha efectiva**: 2 de septiembre de 2019
+
+**Puntos de conexión afectados**: v1.0 y v2.0
+
+**Protocolo afectado**: Se usa POST en cualquier lugar([credenciales de cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [canje de código de autorización](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) y [canje de token de actualización](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)).
+
+A partir de la semana 9/2, las solicitudes de autenticación que usan el método POST se validarán con estándares HTTP más estrictos.  Concretamente, los espacios y las comillas dobles (") ya no se quitarán de los valores del formulario de solicitud. No se espera que estos cambios interrumpan ningún cliente existente y se asegurará de que las solicitudes enviadas a Azure AD se controlan de forma confiable cada vez. En el futuro (consulte más arriba), tenemos previsto rechazar además los parámetros duplicados y omitir la marca BOM dentro de las solicitudes. 
+
+Ejemplo:
+
+En la actualidad, `?e=    "f"&g=h` se analiza exactamente igual que `?e=f&g=h`, por tanto `e` == `f`.  Con este cambio, ahora se analizaría para que `e` == `    "f"`; esto es improbable que sea un argumento válido y la solicitud no se realizará correctamente. 
+
 
 ## <a name="july-2019"></a>Julio de 2019
 

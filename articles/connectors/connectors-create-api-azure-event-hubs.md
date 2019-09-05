@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720049"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051082"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Supervisión, recepción y envío de eventos con Azure Event Hubs y Azure Logic Apps
 
@@ -34,7 +35,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="check-permissions-and-get-connection-string"></a>Comprobación de los permisos y obtención de la cadena de conexión
 
-Para que la aplicación lógica acceda a su instancia de Event Hubs, debe tener permisos de administrador y la cadena de conexión para el espacio de nombres de Event Hubs.
+Para asegurarse de que la aplicación lógica accede a la instancia de Event Hubs, debe tener permisos de administrador y la cadena de conexión para el espacio de nombres de Event Hubs.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -102,7 +103,7 @@ En este ejemplo se muestra cómo puede iniciar un flujo de trabajo de aplicacion
 
 1. Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador. 
 
-   Por ejemplo, para filtrar eventos basándose en un valor específico, (como una categoría), puede agregar una condición para que la acción **Send event - Event Hubs** (Enviar evento - Event Hubs) envíe solo los eventos que cumplan la condición. 
+   Por ejemplo, para filtrar eventos basándose en un valor específico, (como una categoría), puede agregar una condición para que la acción **Send event** (Enviar evento) envíe solo los eventos que cumplan la condición. 
 
 > [!NOTE]
 > Todos los desencadenadores de Event Hub son de *sondeo largo*, lo que significa que, cuando se activa cualquiera de ellos, procesa todos los eventos y espera 30 segundos a que aparezcan más eventos en la instancia de Event Hubs.
@@ -165,7 +166,7 @@ En la lista de acciones, seleccione esta acción: **Send event - Event Hubs** (E
 
    ![Creación de una conexión de Event Hubs](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-   Para escribir de forma manual la cadena de conexión, elija **Especificar la información de conexión manualmente**. 
+   Para escribir de forma manual la cadena de conexión, seleccione **Especificar la información de conexión manualmente**. 
    Obtenga información acerca de [cómo buscar la cadena de conexión](#permissions-connection-string).
 
 2. Seleccione la directiva de Event Hubs que desea usar, si no está seleccionada. Seleccione **Create**.

@@ -10,17 +10,16 @@ ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324026"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095729"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -115,7 +114,7 @@ En el modo de suscripción de usuario, se requiere una instancia de Azure Key Va
 
 Al crear la cuenta de Batch en modo de suscripción de usuario, use el grupo de recursos del almacén de claves. Especifique **Suscripción de usuario** como el modo de asignación del grupo, seleccione el almacén de claves y active la casilla para conceder acceso a Azure Batch al almacén de claves. 
 
-Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén y seleccione **Microsoft Azure Batch**. Configure los **Permisos de secretos** en el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**.
+Si prefiere conceder acceso al almacén de claves manualmente, vaya a la sección **Directivas de acceso** de dicho almacén, seleccione **Agregar directivas de acceso** y busque **Microsoft Azure Batch**. Una vez seleccionado, deberá configurar los **Permisos de secretos** en el menú desplegable. A Azure Batch se le deben conceder los permisos mínimos **Get**, **List**, **Set** y **Delete**.
 
 ![Permisos de secretos de Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 

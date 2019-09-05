@@ -9,17 +9,16 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740893"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066664"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -84,8 +83,9 @@ Esta característica está en versión preliminar, pero se admite en cargas de t
 * La aplicación y la red virtual deben estar en la misma región
 * No puede eliminar una red virtual con una aplicación integrada. Para ello, antes debe quitar la integración. 
 * Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual. 
+* No se puede cambiar la suscripción de una aplicación o un plan de App Service mientras haya una aplicación que use la integración de red virtual regional.
 
-Se usa una dirección para cada instancia del plan de App Service. Si ha escalado la aplicación a cinco instancias, se usan cinco direcciones. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, debe usar una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. El tamaño /27 con 32 direcciones es el recomendado, ya que podría dar cabida a un plan de App Service Premium escalado a 20 instancias.
+Se usa una dirección para cada instancia del plan de App Service. Si ha escalado la aplicación a cinco instancias, se usan cinco direcciones. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, debe usar una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Un tamaño de /26 con 64 direcciones es el recomendado. Un tamaño de /27 con 32 direcciones tendría cabida para 20 instancias de un plan Premium de App Service si no cambió el tamaño de dicho plan. Al escalar o reducir verticalmente un plan de App Service, necesitará el doble de direcciones durante un breve período de tiempo. 
 
 Si desea que las aplicaciones de otro plan de App Service lleguen a una red virtual a la que están conectadas las aplicaciones en otro plan de App Service, debe seleccionar una subred diferente de la usada por la integración de red virtual existente.  
 
@@ -102,6 +102,8 @@ La característica se encuentra también en versión preliminar para Linux. Para
    ![Selección de la red virtual y la subred][7]
 
 Una vez que la aplicación esté integrada con la red virtual, usará el mismo servidor DNS que el configurado para la red virtual. 
+
+La integración de la red virtual regional requiere que la subred de integración se delegue en Microsoft.Web.  La interfaz de usuario de integración de la red virtual delegará la subred en Microsoft.Web automáticamente. Si su cuenta no tiene suficientes permisos de red para establecer la delegación, necesitará que alguien que pueda establecer atributos en la subred de integración delegue la subred. Para delegar manualmente la subred de integración, vaya a la interfaz de usuario de la subred de Azure Virtual Network y establezca delegación para Microsoft.Web.
 
 Para desconectar la aplicación de la red virtual, seleccione **Desconectar**. Esta acción reiniciará la aplicación web. 
 
@@ -249,7 +251,7 @@ Hay tres cargos relacionados con el uso de la característica Integración con r
 
 
 ## <a name="troubleshooting"></a>solución de problemas
-El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. Esto equivale a ir a [nombreDeSitio].scm.azurewebsites.net. Cuando se abra, vaya a la pestaña de consola Depurar. Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola. 
+El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Una vez que se cargue el sitio web, vaya a la pestaña Consola de depuración. Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola. 
 
 #### <a name="tools"></a>Herramientas
 Las herramientas **ping**, **nslookup** y **tracert** no funcionarán a través de la consola por restricciones de seguridad. Para suplir esta falta, se han agregado dos herramientas independientes. Para probar la funcionalidad de DNS, hemos agregado una herramienta denominada nameresolver.exe. La sintaxis es:

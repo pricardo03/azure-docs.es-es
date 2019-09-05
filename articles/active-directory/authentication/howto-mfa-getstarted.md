@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125030"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
 
@@ -76,7 +76,7 @@ Las directivas de acceso condicional fomentan el registro, ya que los usuarios n
 * Inicios de sesión desde dispositivos infectados
 * Inicios de sesión desde direcciones IP con actividad sospechosa
 
-Algunos de los eventos de riesgo detectados por Azure Active Directory Identity Protection se producen en tiempo real y algunos requieren un procesamiento sin conexión. Los administradores pueden bloquear a los usuarios que exhiben comportamientos de riesgo y corregir la situación manualmente, o pueden solicitar una autenticación multifactor como parte de sus directivas de acceso condicional.
+Algunas de las detecciones de riesgos observadas por Azure Active Directory Identity Protection se producen en tiempo real y algunas requieren un procesamiento sin conexión. Los administradores pueden bloquear a los usuarios que exhiben comportamientos de riesgo y corregir la situación manualmente, o pueden solicitar una autenticación multifactor como parte de sus directivas de acceso condicional.
 
 ## <a name="define-network-locations"></a>Definición de las ubicaciones de red
 

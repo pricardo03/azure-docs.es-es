@@ -9,16 +9,15 @@ editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098590"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticación y autorización en Azure App Service para aplicaciones móviles
 
@@ -58,11 +57,11 @@ Para más información sobre el flujo de autenticación, consulte [Flujo de aute
 Los siguientes tutoriales muestran cómo incorporar la autenticación a los clientes móviles con el [flujo dirigido al servidor](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [Incorporación de la autenticación a la aplicación iOS][iOS]
-* [Adición de autenticación a una aplicación Android][Android]
-* [Adición de autenticación a una aplicación Windows][Windows]
-* [Adición de autenticación a una aplicación Xamarin.iOS][Xamarin.iOS]
-* [Adición de autenticación a una aplicación Xamarin.Android][Xamarin.Android]
-* [Add authentication to your Xamarin.Forms app][Xamarin.Forms] (Adición de autenticación a una aplicación Xamarin.Forms)
+* [Adición de la autenticación a la aplicación de Android][Android]
+* [Adición de la autenticación a la aplicación de Windows][Windows]
+* [Adición de la autenticación a la aplicación Xamarin.iOS][Xamarin.iOS]
+* [Adición de la autenticación a la aplicación Xamarin.Android][Xamarin.Android]
+* [Adición de la autenticación a la aplicación de Xamarin.Forms][Xamarin.Forms]
 * [Adición de la autenticación a la aplicación de Cordova][Cordova]
 
 Si desea usar el [flujo dirigido al cliente](../app-service/overview-authentication-authorization.md#authentication-flow) para Azure Active Directory, use los siguientes recursos:

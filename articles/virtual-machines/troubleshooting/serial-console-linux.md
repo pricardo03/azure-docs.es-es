@@ -4,22 +4,21 @@ description: Consola serie bidireccional para máquinas virtuales de Azure y con
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: gwallace
+manager: borisb
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0eda9fe0e16a945dcb9f9a1b686afcd2aebe6306
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854383"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124461"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
@@ -50,34 +49,6 @@ Para la documentación sobre la consola serie para Windows, consulte [Consola se
 - La máquina virtual o el conjunto de escalado de máquinas virtuales debe configurarse para la salida de serie en `ttys0`. Este es el valor predeterminado para las imágenes de Azure, pero querrá volver a comprobar esto en imágenes personalizadas. Más detalles [a continuación](#custom-linux-images).
 
 
-## <a name="get-started-with-the-serial-console"></a>Introducción al uso de la consola serie
-La consola serie para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales solo es accesible mediante Azure Portal:
-
-### <a name="serial-console-for-virtual-machines"></a>Consola serie para máquinas virtuales
-Usar la consola serie para máquinas virtuales es tan sencillo como hacer clic en **Consola serie** en la sección **Soporte técnico y solución de problemas** de Azure Portal.
-  1. Abra [Azure Portal](https://portal.azure.com).
-
-  1. Vaya a **Todos los recursos** y seleccione una máquina virtual. Se abrirá la página de información general de la máquina virtual.
-
-  1. Desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas** y seleccione la opción **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
-
-     ![Ventana de la consola serie de Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Consola serie para los conjuntos de escalado de máquinas virtuales
-La consola serie está disponible por instancia para los conjuntos de escalado de máquinas virtuales. Tendrá que ir a la instancia individual de un conjunto de escalado de máquinas virtuales para ver el botón **Consola serie**. Si su conjunto de escalado de máquinas virtuales no tiene habilitado el diagnóstico de arranque, asegúrese de actualizar el modelo para habilitarlo y actualice todas las instancias en el nuevo modelo para acceder a la consola serie.
-  1. Abra [Azure Portal](https://portal.azure.com).
-
-  1. Vaya a **Todos los recursos** y seleccione un conjunto de escalado de máquinas virtuales. Se abrirá la página de información general del conjunto de escalado de máquinas virtuales.
-
-  1. Vaya a **Instancias**.
-
-  1. Seleccione un conjunto de escalado de máquinas virtuales.
-
-  1. En la sección **Soporte técnico y solución de problemas**, seleccione **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
-
-     ![Consola serie para conjuntos de escalado de máquinas virtuales Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-
 > [!NOTE]
 > La consola serie requiere un usuario local con una contraseña configurada. Las máquinas virtuales o los conjuntos de escalado de máquinas virtuales configurados solo con una clave pública SSH no podrán iniciar sesión en la consola serie. Para crear un usuario local con contraseña, utilice la [extensión VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (también está disponible en el portal al seleccionar **Restablecer contraseña**) y cree un usuario local con una contraseña.
 > También puede restablecer la contraseña de administrador en su cuenta si [usa GRUB para iniciar el modo de usuario único](./serial-console-grub-single-user-mode.md).
@@ -98,7 +69,7 @@ SUSE        | Las imágenes de SLES más nuevas disponibles en Azure tienen habi
 Oracle Linux        | El acceso a la consola serie está habilitado de forma predeterminada.
 
 ### <a name="custom-linux-images"></a>Imágenes personalizadas de Linux
-Para habilitar la consola serie para la imagen de VM de Linux personalizada, habilite el acceso de la consola en el archivo */etc/inittab* a fin de ejecutar un terminal en `ttyS0`. Por ejemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+Para habilitar la consola serie para la imagen de VM de Linux personalizada, habilite el acceso de la consola en el archivo */etc/inittab* a fin de ejecutar un terminal en `ttyS0`. Por ejemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. También puede ser necesario generar un getty en ttyS0. Esto se puede hacer con `systemctl start serial-getty@ttyS0.service`.
 
 También deberá agregar ttys0 como destino para la salida de serie. Para más información sobre cómo configurar una imagen personalizada para trabajar con la consola serie, consulte los requisitos generales del sistema en el artículo de [Creación y carga de un disco duro virtual Linux en Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -115,47 +86,8 @@ Problemas de configuración de SSH | Acceda a la consola serie y cambie la confi
 Interacción con el cargador de arranque | Reinicie la máquina virtual desde dentro de la hoja de la consola serie para acceder a GRUB en la máquina virtual Linux. Para más detalles e información específica de la distribución, consulte [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md) (Uso de la consola serie para acceder a GRUB y al modo de usuario único).
 
 ## <a name="disable-the-serial-console"></a>Deshabilitación de la consola serie
-De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado. Puede deshabilitar la consola serie a nivel de la suscripción o de la máquina virtual o del conjunto de escalado de máquinas virtuales. Tenga en cuenta que el diagnóstico de arranque debe estar habilitado en una máquina virtual para que la consola serie funcione.
 
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>Nivel de la máquina virtual o del conjunto de escalado de máquinas virtuales deshabilitados
-La consola serie puede deshabilitarse para una máquina virtual o un conjunto de escalado de máquinas virtuales específicos al deshabilitar la configuración de diagnóstico de arranque. Desactive el diagnóstico de arranque desde Azure Portal para deshabilitar la consola serie para la máquina virtual o el conjunto de escalado de máquinas virtuales. Si utiliza la consola serie en un conjunto de escalado de máquinas virtuales, asegúrese de actualizar las instancias al modelo más reciente.
-
-> [!NOTE]
-> Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Estos permisos incluyen roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
-
-### <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
-La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Esta acción requiere acceso de nivel de colaborador o superior en la suscripción. Puede usar la función **Probarlo** disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba el identificador de suscripción para **subscriptionId**, escriba **predeterminado** para el valor **predeterminado** y, a continuación, seleccione **Ejecutar**. Los comandos de la CLI de Azure aún no están disponibles.
-
-Para volver a habilitar la consola serie para una suscripción, utilice la [llamada de API REST Enable Console](/rest/api/serialconsole/console/enableconsole).
-
-![Probarlo en API REST](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-Como alternativa, puede usar el conjunto de comandos Bash siguiente en Cloud Shell para deshabilitar, habilitar y ver el estado deshabilitado de la consola serie para una suscripción.
-
-* Para obtener el estado deshabilitado de la consola serie para una suscripción:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Para deshabilitar la consola serie para una suscripción:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Para habilitar la consola serie para una suscripción:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
+De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado. Puede deshabilitar la consola serie a nivel de la suscripción o de la máquina virtual o del conjunto de escalado de máquinas virtuales. Para obtener instrucciones detalladas, visite [Habilitación y deshabilitación de la consola serie de Azure](./serial-console-enable-disable.md).
 
 ## <a name="serial-console-security"></a>Seguridad de la consola serie
 
@@ -185,18 +117,6 @@ Use la tecla **Tabulador** del teclado para navegar por la interfaz de la consol
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Uso de la consola serie con un lector de pantalla
 La consola serie tiene integrada la compatibilidad con el lector de pantalla. Si navega con el lector de pantalla activado, el lector de pantalla podrá leer en voz alta el texto alternativo del botón seleccionado actualmente.
-
-## <a name="errors"></a>Errors
-Dado que la mayoría de los errores son transitorios, es posible que se solucionen si vuelve a intentar la conexión. En la tabla siguiente se muestra una lista de errores y mitigaciones. Estos errores y mitigaciones se aplican tanto a las máquinas virtuales como a los conjuntos de escalado de máquinas virtuales.
-
-Error                            |   Mitigación
-:---------------------------------|:--------------------------------------------|
-No se puede recuperar la configuración de diagnóstico de arranque para *&lt;VMNAME&gt;* . Para usar la consola serie, asegúrese de que el diagnóstico de arranque está habilitado para esta máquina virtual. | Asegúrese de que la máquina virtual tiene los [diagnósticos de arranque](boot-diagnostics.md) habilitados.
-La máquina virtual se encuentra en un estado desasignado detenido. Inicie la máquina virtual y vuelva a intentar la conexión de la consola serie. | La máquina virtual tiene que tener el estado iniciado para tener acceso a la consola serie.
-No tiene los permisos necesarios para usar esta máquina virtual como consola serie. Asegúrese de tener los permisos del rol de Colaborador de la máquina virtual como mínimo.| El acceso a la consola serie requiere determinados permisos. Para obtener más información, consulte la sección [Requisitos previos](#prerequisites).
-No se puede determinar el grupo de recursos para la cuenta de almacenamiento de diagnósticos de arranque *&lt;STORAGEACCOUNTNAME&gt;* . Compruebe que los diagnósticos de arranque están habilitados para esta máquina virtual y acceda a esta cuenta de almacenamiento. | El acceso a la consola serie requiere determinados permisos. Para obtener más información, consulte la sección [Requisitos previos](#prerequisites).
-Socket web está cerrado o no se pudo abrir. | Puede que necesite incluir `*.console.azure.com` en la lista blanca. Un enfoque más detallado, pero más largo, es incluir en la lista blanca los [rangos de IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que cambian con bastante frecuencia.
-Se encontró una respuesta "Prohibido" al obtener acceso a la cuenta de almacenamiento de diagnósticos de arranque de la VM. | Asegúrese de que los diagnósticos de arranque no tengan ningún firewall de cuentas. Se necesita una cuenta de almacenamiento de diagnósticos de arranque accesible para que la consola serie funcione.
 
 ## <a name="known-issues"></a>Problemas conocidos
 Somos conscientes de que la consola serie presenta algunos problemas. A continuación, tiene una lista de dichos problemas y los pasos que puede realizar para mitigarlos. Estos problemas y mitigaciones se aplican tanto a las máquinas virtuales como a las instancias de conjunto de escalado de máquinas virtuales.
@@ -242,7 +162,7 @@ A. Es probable que la imagen esté mal configurada para el acceso a la consola s
 
 **P. ¿Está disponible la consola serie en los conjuntos de escalado de máquinas virtuales?**
 
-A. Sí. Consulte [Serial Console for Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets) (Consola serie para los conjuntos de escalado de máquinas virtuales).
+A. Sí. Consulte [Serial Console for Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets) (Consola serie para los conjuntos de escalado de máquinas virtuales).
 
 **P. Si configuro mi máquina virtual o conjunto de escalado de máquinas virtuales usando solo la autenticación de clave SSH, ¿puedo seguir usando la consola serie para conectarme a mi máquina virtual o conjunto de escalado de máquinas virtuales?**
 

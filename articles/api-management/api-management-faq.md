@@ -10,16 +10,15 @@ ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666031"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073668"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -38,7 +37,6 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [¿Cómo se configuran varios entornos en una sola API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [¿Se puede usar SOAP con API Management?](#can-i-use-soap-with-api-management)
-* [¿Es constante la dirección IP de la puerta de enlace de API Management? ¿Puedo usarla en las reglas de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 * [¿Se puede configurar un servidor de autorización de OAuth 2.0 con seguridad AD FS?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [¿Qué método de enrutamiento utiliza API Management en implementaciones en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
@@ -65,7 +63,7 @@ Tiene varias opciones para proteger la conexión entre la puerta de enlace de AP
 
 * Use la autenticación básica HTTP. Para más información, consulte [Importación y publicación de la primera API](import-and-publish.md).
 * Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
-* Utilice la lista blanca IP en su servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas [salvedades](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Puede establecer una lista blanca para permitir esta dirección IP. Puede obtener la dirección IP de la instancia de API Management en el Panel de Azure Portal.
+* Utilice la lista blanca IP en su servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas salvedades que se describen en [el artículo sobre la documentación de IP](api-management-howto-ip-addresses.md).
 * Conecte la instancia de API Management a Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?
@@ -108,19 +106,6 @@ Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno 
 ### <a name="can-i-use-soap-with-api-management"></a>¿Se puede usar SOAP con API Management?
 Ahora se admite el [paso a través de SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Los administradores pueden importar el WSDL de su servicio SOAP, y Azure API Management creará un front-end SOAP. Ahora hay documentación del portal para desarrolladores, la consola de prueba, las directivas y el análisis disponible para los servicios SOAP.
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>¿Es constante la dirección IP de la puerta de enlace de API Management? ¿Puedo usarla en las reglas de firewall?
-En todos los niveles de API Management, la dirección IP pública (VIP) del inquilino de API Management es estática para la vigencia del inquilino, con algunas excepciones. La dirección IP cambia en estas circunstancias:
-
-* El servicio se elimina y se vuelve a crear.
-* La suscripción al servicio se [suspende](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o se [advierte](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por ejemplo, por falta de pago) y luego se reinstaura.
-* Se agrega o se quita Azure Virtual Network (solo se puede usar Virtual Network en los niveles Desarrollador y Premium).
-
-Para las implementaciones de varias regiones, la dirección regional cambia si se vacía la información de la región y, a continuación, se reinstaura (solo se puede usar puede utilizar la implementación en varias regiones en el nivel Premium).
-
-A los inquilinos de nivel Premium configurados para la implementación en varias regiones se les asigna una dirección IP pública por región.
-
-Puede obtener su dirección IP (o direcciones IP, en una implementación de varias regiones) en la página de inquilino en Azure Portal.
-
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad AD FS?
 Para más información sobre cómo configurar un servidor de autorización de OAuth 2.0 con la seguridad de Servicios de federación de Active Directory (AD FS), consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en API Management).
 
@@ -128,7 +113,7 @@ Para más información sobre cómo configurar un servidor de autorización de OA
 API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
-Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management Service](https://aka.ms/apimtemplate).
+Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management](https://aka.ms/apimtemplate).
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>¿Se puede usar un certificado SSL autofirmado para un back-end?
 Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.

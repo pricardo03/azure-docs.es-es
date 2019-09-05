@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 1c6a0ce3e4e8d098d2bc048a331b0ae0cb5c6b13
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881387"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124115"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -258,6 +258,7 @@ Es posible que, en ocasiones, quiera personalizar el modo en que los nombres de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Escriba una [telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
+- En el caso de escenarios avanzados de correlación en ASP.NET Core y ASP.NET, consulte el artículo sobre [seguimiento de operaciones personalizadas](custom-operations-tracking.md).
 - Obtenga más información sobre la [opción cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) en otros SDK.
 - Incorpore todos los componentes de un microservicio en Application Insights. Consulte las [plataformas compatibles](../../azure-monitor/app/platforms.md).
 - Consulte en el [modelo de datos](../../azure-monitor/app/data-model.md) los tipos de Application Insights.

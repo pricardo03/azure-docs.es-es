@@ -10,17 +10,16 @@ ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069894"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -28,7 +27,7 @@ ms.locfileid: "62130609"
 > Este artículo trata sobre App Service Environment v1. Hay una versión más reciente que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, empiece por consultar la [Introducción a App Service Environment](intro.md).
 >
 
-La característica App Service Environment (ASE) es una opción del nivel Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos. Básicamente, la característica de ASE implementa Azure App Service en la instancia de Azure Virtual Network. Para comprender mejor las funciones que ofrecen los entornos de App Service, lea el artículo donde[que explica en qué consiste un entorno de App Service][WhatisASE]. Si no conoce las ventajas de utilizar una red virtual, consulte las [preguntas más frecuentes sobre Azure Virtual Network][virtualnetwork]. 
+La característica App Service Environment (ASE) es una opción del nivel Premium de Azure App Service que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos. Básicamente, la característica de ASE implementa Azure App Service en la instancia de Azure Virtual Network. Para comprender mejor las funcionalidades que ofrece App Service Environment, lea el documento [Qué es App Service Environment][WhatisASE]. Si no conoce las ventajas de usar una red virtual, consulte [Preguntas más frecuentes sobre Azure Virtual Network][virtualnetwork]. 
 
 ## <a name="overview"></a>Información general
 Un ASE puede implementarse con un punto de conexión accesible por Internet o con una dirección IP en la red virtual. Para establecer la dirección IP en una dirección de red virtual, tiene que implementar el ASE con un equilibrador de carga interno (ILB). Cuando la instancia de ASE se configura con un ILB, tiene que proporcionar lo siguiente:
@@ -51,7 +50,7 @@ Sin embargo, cuando utilice un ASE con un ILB, no podrá realizar algunas operac
 * Comprar y usar un certificado con una aplicación a través del Portal. Puede seguir obteniendo los certificados directamente de una entidad de certificación y utilizarlos con sus aplicaciones, pero no mediante Azure Portal.
 
 ## <a name="creating-an-ilb-ase"></a>Creación de un ASE con un ILB
-Apenas hay diferencias entre crear un ASE con un ILB y del modo habitual. Para una explicación exhaustiva sobre cómo crear un ASE, consulte [Creación de una instancia de App Service Environment][HowtoCreateASE]. Con independencia de que se genere una red virtual durante la creación del ASE con un ILB o de que se seleccione una que ya exista, el proceso será el mismo. Pasos para crear un ASE con un ILB: 
+Apenas hay diferencias entre crear un ASE con un ILB y del modo habitual. Para una explicación exhaustiva sobre cómo crear una instancia de ASE, consulte [Creación de una instancia de App Service Environment][HowtoCreateASE]. Con independencia de que se genere una red virtual durante la creación del ASE con un ILB o de que se seleccione una que ya exista, el proceso será el mismo. Pasos para crear un ASE con un ILB: 
 
 1. En Azure Portal, elija **Crear un recurso -> Web y móvil -> App Service Environment**.
 2. Seleccione su suscripción.
@@ -112,14 +111,14 @@ La dirección IP del ILB aparece en las Propiedades como la dirección IP virtua
 #### <a name="network-security-groups"></a>Grupos de seguridad de red
 Un ASE con ILB habilita el aislamiento de red para las aplicaciones. Las aplicaciones no son accesibles ni conocidas desde Internet. Este enfoque es perfecto para hospedar sitios de intranet como aplicaciones de línea de negocio. Cuando tenga que restringir más aún el acceso, puede utilizar los grupos de seguridad de red (NSG) para controlar el acceso en el nivel de red. 
 
-Si quiere usar los NSG con este fin, debe asegurarse de no interrumpir la comunicación que necesita el ASE para poder funcionar. Aunque el acceso HTTP y HTTPS solo se realiza a través del ILB que utiliza el ASE, este sigue dependiendo de recursos externos a la red virtual. Para consultar qué acceso de red sigue siendo necesario, consulte [Control del tráfico de entrada a un App Service Environment][ControlInbound] y [Detalles de configuración de red para App Service Environment con ExpressRoute][ExpressRoute]. 
+Si quiere usar los NSG con este fin, debe asegurarse de no interrumpir la comunicación que necesita el ASE para poder funcionar. Aunque el acceso HTTP y HTTPS solo se realiza a través del ILB que utiliza el ASE, este sigue dependiendo de recursos externos a la red virtual. Para ver qué acceso de red sigue siendo necesario, consulte [Control del tráfico de entrada a una instancia de App Service Environment][ControlInbound] y [Detalles de configuración de red para App Service Environment con ExpressRoute][ExpressRoute]. 
 
 Para configurar los NSG, debe conocer la dirección IP que usa Azure para administrar el ASE. Esa dirección IP también es la dirección IP saliente del ASE en caso de que realice solicitudes de Internet. La dirección IP saliente del ASE permanecerá estática durante la vida del ASE. Si elimina y vuelve a crear el ASE, recibirá una nueva dirección IP. Para encontrar la dirección IP, vaya a **Configuración -> Propiedades** y busque **Dirección IP saliente**. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>Administración general de ASE con un ILB
-Apenas hay diferencias entre administrar un ASE con un ILB y del modo habitual. Debe escalar verticalmente los grupos de trabajo para hospedar más instancias de ASP y escalar verticalmente los servidores de front-end para administrar una mayor cantidad de tráfico HTTP y HTTPS. Para obtener información general sobre la administración de la configuración de un ASE, consulte [Configuración de un App Service Environment][ASEConfig]. 
+Apenas hay diferencias entre administrar un ASE con un ILB y del modo habitual. Debe escalar verticalmente los grupos de trabajo para hospedar más instancias de ASP y escalar verticalmente los servidores de front-end para administrar una mayor cantidad de tráfico HTTP y HTTPS. Para información general sobre la administración de la configuración de una instancia de ASE, consulte [Configuración de una instancia de App Service Environment][ASEConfig]. 
 
 Los certificados y los DNS son los otros recursos de ASE con un ILB que se administran. Debe obtener y cargar el certificado utilizado para las conexiones HTTPS después de crear el ASE con un ILB y, luego, reemplazarlo antes de que expire. Dado que Azure posee el dominio base, podemos proporcionar certificados para los ASE que tengan una dirección VIP externa. Como el subdominio que utiliza un ASE con un ILB no es fijo, debe proporcionar su propio certificado para las conexiones HTTPS. 
 
@@ -131,7 +130,7 @@ Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el
 
 
 ## <a name="getting-started"></a>Introducción
-Para empezar a trabajar con entornos de App Service, consulte [Introducción al entorno de App Service][WhatisASE].
+Para empezar a trabajar con App Service Environment, consulte [Introducción a App Service Environment][WhatisASE].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: cc022f91d4b4fec42929769df8c979320548a1f9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304829"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114394"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidad
 
@@ -61,11 +61,15 @@ Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monito
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alertas sobre las consultas de análisis personalizadas
 
-Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), puede generar alertas sobre las [consultas de registro personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Además, esta opción puede aplicarse de forma concreta si está enviando resultados personalizados de disponibilidad mediante el SDK de TrackAvailability. 
+Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), puede generar alertas sobre las [consultas de registro personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Esta opción también la puede usar si envía resultados personalizados de disponibilidad mediante el SDK de TrackAvailability.
 
 > [!Tip]
 > Las métricas sobre datos de disponibilidad incluyen los resultados personalizados de disponibilidad que puede enviar mediante una llamada a nuestro SDK de TrackAvailability. Puede usar la compatibilidad con las alertas sobre métricas para generar alertas sobre resultados personalizados de disponibilidad.
 >
+
+## <a name="automate-alerts"></a>Automatización de alertas
+
+Para automatizar este proceso con plantillas de Azure Resource Manager, consulte la documentación relativa a la [creación de una alerta de métrica con una plantilla de Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -75,4 +79,3 @@ Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monito
 
 * [Pruebas web de varios pasos](availability-multistep.md)
 * [Pruebas web de ping de URL](monitor-web-app-availability.md)
-

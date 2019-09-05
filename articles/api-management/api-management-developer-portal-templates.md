@@ -10,16 +10,15 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837238"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073767"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas
 
@@ -27,7 +26,7 @@ Existen tres maneras fundamentales de personalizar el portal para desarrolladore
 
 * [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout]
 * [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
-* [Modificar las plantillas que se usan para las páginas generadas por el portal de][portal-templates] (que se explica en esta guía)
+* [Modificar las plantillas que se usan para las páginas generadas por el portal de][portal-templates] (se explica en esta guía)
 
 Las plantillas se usan para personalizar el contenido de las páginas del portal para desarrolladores generadas por el sistema (por ejemplo, documentos de API, productos, autenticación de usuario, etc.). Mediante la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y un conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de una gran flexibilidad para configurar el contenido de las páginas según le convenga.
 

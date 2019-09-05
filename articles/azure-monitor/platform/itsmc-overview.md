@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479814"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051836"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -40,6 +40,7 @@ Con ITSMC, puede:
 -  Crear elementos de trabajo en la herramienta de ITSM, en función de las alertas de Azure (alertas de métricas, de Activity Log y de Log Analytics).
 -  Sincronizar de forma opcional los datos de incidentes y solicitudes de cambio de la herramienta ITSM con un área de trabajo de Azure Log Analytics.
 
+Más información sobre los [términos legales y la directiva de privacidad](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 Puede empezar a usar el conector de ITSM siguiendo estos pasos:
 
@@ -103,7 +104,7 @@ Una vez que haya preparado sus herramientas ITSM, siga estos pasos para crear un
 4. Especifique la configuración de conexión tal como se describe en el artículo [Configuring the ITSMC connection with your ITSM products/services](../../azure-monitor/platform/itsmc-connections.md) (Configurar la conexión ITSMC con los productos o servicios de ITSM).
 
    > [!NOTE]
-   > 
+   >
    > De forma predeterminada, ITSMC actualiza los datos de configuración de la conexión una vez cada 24 horas. Para actualizar los datos de la conexión al instante para cualquier modificación o actualizaciones de plantilla que se realicen, haga clic en el botón **Actualizar** que se muestra en la hoja de la conexión.
 
    ![Actualizar la conexión](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -141,7 +142,7 @@ Utilice el siguiente procedimiento:
 Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que tiene una acción de ITSM. Cuando se desencadena la alerta, se crea o actualiza un elemento de trabajo en la herramienta ITSM.
 
 > [!NOTE]
-> 
+>
 > Para obtener información sobre los precios de las acciones de ITSM, consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) de los grupos de acciones.
 
 
@@ -174,7 +175,7 @@ Los incidentes y las solicitudes de cambio se sincronizan desde el producto ITSM
 En la siguiente información se muestran ejemplos de datos recopilados por ITSMC:
 
 > [!NOTE]
-> 
+>
 > En función del tipo de elemento de trabajo que se importa a Log Analytics, **ServiceDesk_CL** contiene los campos siguientes:
 
 **Elemento de trabajo:** **Incidentes**  
@@ -184,15 +185,15 @@ ServiceDeskWorkItemType_s="Incidente"
 
 - ServiceDeskConnectionName
 - Service Desk ID
-- Estado
+- State
 - Urgencia
 - Impacto
-- Prioridad
+- Priority
 - Escalado
 - Creado por
 - Resuelto por
 - Cerrado por
-- Origen
+- Source
 - Asignado a
 - Categoría
 - Título
@@ -213,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Service Desk ID
 - Creado por
 - Cerrado por
-- Origen
+- Source
 - Asignado a
 - Título
 - type
@@ -222,7 +223,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Escalado
 - Estado del conflicto
 - Urgencia
-- Prioridad
+- Priority
 - Riesgo
 - Impacto
 - Asignado a
@@ -242,10 +243,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Campo de Log Analytics | Campo de ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | Estado |
+| IncidentState_s | State |
 | Urgency_s |Urgencia |
 | Impact_s |Impacto|
-| Priority_s | Prioridad |
+| Priority_s | Priority |
 | CreatedBy_s | Abierto por |
 | ResolvedBy_s | Resuelto por|
 | ClosedBy_s  | Cerrado por |
@@ -270,9 +271,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  Descripción breve |
 | Type_s|  type |
 | Category_s|  Categoría |
-| CRState_s|  Estado|
+| CRState_s|  State|
 | Urgency_s|  Urgencia |
-| Priority_s| Prioridad|
+| Priority_s| Priority|
 | Risk_s| Riesgo|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por fecha |

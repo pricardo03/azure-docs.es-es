@@ -16,19 +16,19 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244589"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032688"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
 Después de ejecutar Azure AD Connect para configurar la organización para la combinación de Azure AD híbrido, hay algunos pasos adicionales que debe completar para finalizar la instalación.  Lleve a cabo solo los pasos correspondientes a sus dispositivos.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. Configuración del lanzamiento controlado (opcional)
-Todos los dispositivos unidos a un dominio que ejecuten Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD una vez que se han completado todos los pasos de configuración. Si prefiere realizar un lanzamiento controlada en lugar de este registro automático, puede usar la directiva de grupo para habilitar o deshabilitar el lanzamiento automático de forma selectiva.  Esta directiva de grupo debe establecerse antes de iniciar otros pasos de configuración: Azure AD.
+Todos los dispositivos unidos a un dominio que ejecuten Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD una vez que se han completado todos los pasos de configuración. Si prefiere realizar un lanzamiento controlada en lugar de este registro automático, puede usar la directiva de grupo para habilitar o deshabilitar el lanzamiento automático de forma selectiva.  Esta directiva de grupo debe establecerse antes de iniciar otros pasos de configuración:
 * Cree un objeto de directiva de grupo en Active Directory.
 * Póngale nombre (por ejemplo, combinación de Azure AD híbrido).
 * Edite y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.

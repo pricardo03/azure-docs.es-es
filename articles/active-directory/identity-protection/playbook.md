@@ -11,33 +11,33 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7fcf24256634ef11b575348d9da7d6bbbab8b67c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333931"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127763"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 
 Esta guía le ayudará a:
 
-* Rellenar los datos en el entorno de Identity Protection mediante la simulación de vulnerabilidades y eventos de riesgo
+* Rellenar los datos en el entorno de Identity Protection mediante la simulación de puntos vulnerables y detecciones de riesgos
 * Configurar directivas de acceso condicional en función del riesgo y probar el impacto de estas directivas
 
-## <a name="simulating-risk-events"></a>Simulación de eventos de riesgo
+## <a name="simulating-risk-detections"></a>Simulación de las detecciones de riesgos
 
-En esta sección se indican los pasos para simular los siguientes tipos de eventos de riesgo:
+En esta sección se indican los pasos para simular los siguientes tipos de detecciones de riesgos:
 
 * Inicios de sesión desde direcciones IP anónimas (fácil)
 * Inicios de sesión desde ubicaciones desconocidas (moderada)
 * Viaje imposible a ubicaciones inusuales (difícil)
 
-Otros eventos de riesgo no se pueden simular de forma segura.
+Otras detecciones de riesgos no se pueden simular de forma segura.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
-Para obtener más información acerca de este evento de riesgo, vea [Inicios de sesión desde direcciones IP anónimas](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+Para más información sobre esta detección de riesgos, consulte [Inicios de sesión desde direcciones IP anónimas](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
 Para completar el procedimiento siguiente, necesitará:
 
@@ -53,7 +53,7 @@ El inicio de sesión se mostrará en el panel de Identity Protection en un plazo
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Inicios de sesión desde ubicaciones desconocidas
 
-Para obtener más información acerca de este evento de riesgo, vea [Inicios de sesión desde ubicaciones desconocidas](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
+Para más información acerca de esta detección de riesgos, consulte [Inicios de sesión desde ubicaciones desconocidas](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
 
 Para simular ubicaciones desconocidas, debe iniciar sesión desde una ubicación y un dispositivo desde los que no se haya iniciado sesión en esa cuenta de prueba antes.
 
@@ -76,14 +76,14 @@ El inicio de sesión se mostrará en el panel de Identity Protection en un plazo
 
 ### <a name="impossible-travel-to-atypical-location"></a>Viaje imposible a una ubicación inusual
 
-Para obtener más información acerca de este evento de riesgo, vea [Viaje imposible a una ubicación inusual](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
+Para más información sobre esta detección de riesgos, consulte [Viaje imposible a una ubicación inusual](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
-Simular la condición de viaje imposible es complicado porque el algoritmo utiliza el aprendizaje automático para descartar falsos positivos, como un viaje imposible desde dispositivos conocidos o inicios de sesión de VPN usadas por otros usuarios del directorio. Además, el algoritmo requiere un historial de inicios de sesión de 14 días y 10 inicios de sesión del usuario antes de empezar a generar eventos de riesgo. Debido a los complejos modelos de aprendizaje automático y a las reglas anteriores, es probable que los pasos siguientes no den lugar a un evento de riesgo. Puede replicar estos pasos para varias cuentas de Azure AD para publicar este evento de riesgo.
+Simular la condición de viaje imposible es complicado porque el algoritmo utiliza el aprendizaje automático para descartar falsos positivos, como un viaje imposible desde dispositivos conocidos o inicios de sesión de VPN usadas por otros usuarios del directorio. Además, el algoritmo requiere un historial de inicios de sesión de 14 días y 10 inicios de sesión del usuario antes de empezar a generar detecciones de riesgos. Debido a los complejos modelos de aprendizaje automático y a las reglas anteriores, es probable que los pasos siguientes no den lugar a una detección de riesgos. Puede replicar estos pasos para varias cuentas de Azure AD para publicar esta detección de riesgos.
 
 **Para simular un viaje imposible a una ubicación inusual, realice los pasos siguientes**:
 
 1. Use su explorador habitual para ir a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Escriba las credenciales de la cuenta para la que desea generar un evento de riesgo de viaje imposible.
+2. Escriba las credenciales de la cuenta para la que desea generar una detección de riesgos de viaje imposible.
 3. Cambie el agente de usuario. Puede cambiar el agente de usuario en Internet Explorer desde Herramientas de desarrollo, o bien en Firefox o Chrome con un complemento modificador del agente de usuario.
 4. Cambie la dirección IP. Puede cambiar la dirección IP mediante una VPN, un complemento de Tor, o iniciando una máquina nueva en Azure en otro centro de datos.
 5. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com) con las mismas credenciales que antes y pocos minutos después del inicio de sesión anterior.
@@ -118,8 +118,8 @@ Para más información, consulte [Procedimiento de configuración de la directiv
 
 5. En la sección Controles, seleccione el control de acceso deseado (por ejemplo, Requerir cambio de contraseña).
 5. En **Aplicar directiva**, seleccione **Desactivar**.
-6. Eleve el riesgo del usuario de una cuenta de prueba simulando, por ejemplo, uno de los eventos de riesgo varias veces.
-7. Espere unos minutos y, después, compruebe que el nivel de usuario para el usuario sea Medio. De lo contrario, simule más eventos de riesgo para el usuario.
+6. Eleve el riesgo del usuario de una cuenta de prueba simulando, por ejemplo, una de las detecciones de riesgos varias veces.
+7. Espere unos minutos y, después, compruebe que el nivel de usuario para el usuario sea Medio. De lo contrario, simule más detecciones de riesgos para el usuario.
 8. En **Aplicar directiva**, seleccione **Activar**.
 9. Ahora puede probar el acceso condicional basado en riesgos del usuario mediante un inicio de sesión con un usuario con un nivel de riesgo elevado.
 

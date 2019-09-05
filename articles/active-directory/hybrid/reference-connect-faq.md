@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014193"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084875"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -270,3 +270,7 @@ Si necesita ayuda para actualizar a una versión más reciente de Azure AD Conne
 * Busque preguntas y respuestas técnicas o formule sus propias preguntas en [la comunidad de Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Obtener soporte técnico para Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**P: ¿Por qué veo los eventos 6311 y 6401 después de los errores de paso de sincronización?**
+
+Los eventos 6311: **El servidor encontró un error inesperado al realizar una operación de devolución de llamada** y 6401: **El controlador del agente de administración encontró un error inesperado**, se registran siempre después de un error de paso de sincronización. Para resolver estos errores, debe limpiar los errores de los pasos de sincronización.  Para más información, consulte [Solución de errores durante la sincronización](tshoot-connect-sync-errors.md) y [Solución de problemas de sincronización de objetos con Azure AD Connect Sync](tshoot-connect-objectsync.md).

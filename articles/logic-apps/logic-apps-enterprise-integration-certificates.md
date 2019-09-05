@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167173"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997833"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Protección de mensajes B2B con certificados
 
@@ -90,7 +90,7 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
    |----------|-------|-------------|
    | **Nombre** | <*nombre-certificado*> | El nombre del certificado, que es "publicCert" en este ejemplo | 
    | **Tipo de certificado** | Privada | Su tipo de certificado |
-   | **Certificate** | <*nombre-archivo-del-certificado*> | Para buscar y seleccionar el archivo de certificado que desea cargar, elija el icono de carpeta junto al cuadro **Certificado**. | 
+   | **Certificate** | <*nombre-archivo-del-certificado*> | Para buscar y seleccionar el archivo de certificado que desea cargar, elija el icono de carpeta junto al cuadro **Certificado**. Cuando se usa un almacén de claves para la clave privada, el archivo cargado será el certificado público. | 
    | **Grupo de recursos** | <*grupo-recursos-de-cuenta-integración*> | Grupo de recursos de su cuenta de integración, que es "MyResourceGroup" en este ejemplo | 
    | **Key Vault** | <*nombre-almacén-claves*> | Nombre de su almacén de claves de Azure |
    | **Key name** | <*key-name*> | Nombre de la clave |

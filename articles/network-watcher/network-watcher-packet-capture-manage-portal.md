@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102862"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Administración de capturas de paquetes con Azure Network Watcher mediante Azure Portal
 
@@ -34,7 +34,7 @@ La captura de paquetes requiere la siguiente conectividad:
 * Conectividad entrante y saliente a 169.254.169.254
 * Conectividad entrante y saliente a 168.63.129.16
 
-Si un grupo de seguridad de red está asociado a la interfaz de red o a una subred en la que se encuentra la interfaz de red, asegúrese de que existen reglas que permiten los puertos anteriores. 
+Si un grupo de seguridad de red está asociado a la interfaz de red o a una subred en la que se encuentra la interfaz de red, asegúrese de que existen reglas que permiten los puertos anteriores. Del mismo modo, agregar rutas de tráfico definidas por el usuario a la red puede impedir la conectividad a los puertos y direcciones IP mencionados anteriormente. Asegúrese de que son accesibles. 
 
 ## <a name="start-a-packet-capture"></a>Inicio de una captura de paquetes
 

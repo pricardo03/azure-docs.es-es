@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311872"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114800"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -56,7 +56,7 @@ Aprenda a usar tareas rápidas en el primer tutorial de ACR Tasks: [Compilación
 
 ## <a name="automatic-build-on-source-code-commit"></a>Compilación automática al confirmar el código fuente
 
-Use ACR Tasks para desencadenar automáticamente una compilación de imágenes de contenedor cuando el código se confirme en un repositorio de Git. Las tareas de compilación, configurables con el comando [az acr-task][az-acr-task] de la CLI de Azure, le permiten especificar un repositorio de Git y, opcionalmente, una rama y un archivo Dockerfile. Cuando el equipo confirma el código en el repositorio, un webhook creado por ACR Tasks desencadena una compilación de la imagen de contenedor definida en el repositorio.
+Use ACR Tasks para desencadenar automáticamente una compilación de imágenes de contenedor cuando el código se confirme en un repositorio de Git en GitHub o Azure DevOps. Las tareas de compilación, configurables con el comando [az acr-task][az-acr-task] de la CLI de Azure, le permiten especificar un repositorio de Git y, opcionalmente, una rama y un archivo Dockerfile. Cuando el equipo confirma el código en el repositorio, un webhook creado por ACR Tasks desencadena una compilación de la imagen de contenedor definida en el repositorio.
 
 > [!IMPORTANT]
 > Si ha creado anteriormente tareas durante la versión preliminar con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
@@ -73,10 +73,14 @@ Cuando el mantenedor ascendente actualiza una imagen de sistema operativo o marc
 
 Como ACR Tasks detecta dinámicamente las dependencias de la imagen base cuando compila una imagen de contenedor, puede detectar cuándo la imagen base de una aplicación está actualizada. ACR Tasks se sirve de una [tarea de compilación](container-registry-tutorial-base-image-update.md#create-a-task) preconfigurada para **recompilar automáticamente cada imagen de aplicación**. Gracias a esta detección y recompilación automáticas, ACR Tasks le ahorra tiempo y esfuerzo que normalmente son necesarios para actualizar y realizar el seguimiento de forma manual de cada una de las imágenes de aplicación que hacen referencia a la imagen base actualizada.
 
-Aprenda sobre la aplicación de revisiones de sistema operativo y plataforma en el tercer tutorial de ACR Tasks, [Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Una instancia de ACR Tasks realiza un seguimiento de una actualización de la imagen base cuando esta se encuentra en una de las siguientes ubicaciones:
 
-> [!NOTE]
-> Actualmente, la imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen en el mismo registro de contenedor de Azure o en repositorios de Docker Hub públicos o Microsoft Container Registry.
+* La misma instancia de Azure Container Registry en la que se ejecuta la tarea
+* Otro registro de Azure Container Registry de la misma región 
+* Un repositorio público de Docker Hub
+* Un repositorio público de Microsoft Container Registry
+
+Aprenda más sobre la aplicación de revisiones de sistema operativo y plataforma en el tercer tutorial de ACR Tasks, [Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 ## <a name="multi-step-tasks"></a>Tareas de varios pasos
 

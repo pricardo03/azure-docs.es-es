@@ -9,17 +9,16 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496518"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073205"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -31,7 +30,7 @@ Azure App Service Environment es una implementación de Azure App Service en una
 - **Almacenamiento**: El almacenamiento se usa para hospedar las aplicaciones publicadas del cliente.
 
 > [!NOTE]
-> Hay dos versiones de App Service Environment: ASEv1 y ASEv2. En ASEv1, debe administrar los recursos antes de que pueda usarlos. Para información sobre cómo configurar y administrar ASEv1, consulte [Configuración de App Service Environment v1][ConfigureASEv1]. El resto de este artículo se centra en ASEv2.
+> Hay dos versiones de App Service Environment: ASEv1 y ASEv2. En ASEv1, debe administrar los recursos antes de que pueda usarlos. Para aprender a configurar y administrar ASEv1, consulte [Configuración de App Service Environment v1][ConfigureASEv1]. El resto de este artículo se centra en ASEv2.
 >
 >
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848197"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128339"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -187,16 +187,21 @@ Cuando use un equipo local (que también podría ser una máquina virtual remota
 
     Este comando instala el SDK básico de Azure Machine Learning con elementos adicionales de cuadernos y automl. El elemento adicional `automl` es una instalación de gran tamaño y puede quitarse de los corchetes si no se van a ejecutar experimentos automatizados de aprendizaje automático. El elemento adicional `automl` también incluye de forma predeterminada el SDK de preparación de datos de Azure Machine Learning como una dependencia.
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
-   > Si recibe un mensaje que indica que PyYAML no se puede desinstalar, use el comando siguiente en su lugar:
+   > * Si recibe un mensaje que indica que PyYAML no se puede desinstalar, use el comando siguiente en su lugar:
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
+   > * A partir de macOS Catalina, zsh (Z shell) es el shell de inicio de sesión predeterminado y el shell interactivo. En zsh, use el siguiente comando que escapa los corchetes con el carácter "\\" (barra diagonal inversa):
+   >
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   El SDK tardará varios minutos en instalarse. Vea la [guía de instalación](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obtener más información sobre las opciones de instalación.
+
+   El SDK tardará varios minutos en instalarse. Consulte la [guía de instalación](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para más información sobre las opciones de instalación.
 
 1. Instale otros paquetes para experimentar con el aprendizaje automático.
 
@@ -329,10 +334,10 @@ Una vez que se esté ejecutando el clúster, [cree una biblioteca](https://docs.
    1. En la ficha **Bibliotecas**, seleccione **Reiniciar**.
 
    También debe tener en cuenta lo siguiente:
-   + En la configuración de Automl, al usar Azure Databricks, agregue los siguientes parámetros:
+   + En la configuración de AutoML, al usar Azure Databricks, agregue los siguientes parámetros:
        1. ```max_concurrent_iterations``` se basa en el número de nodos de trabajo del clúster.
         2. ```spark_context=sc``` se basa en el contexto de Spark predeterminado.
-   + Si tiene una versión anterior del SDK, anule la selección del mismo desde las bibliotecas instaladas del clúster y muévalo a la Papelera. Instale la nueva versión del SDK y reinicie el clúster. Si hay un problema una vez hecho esto, desasocie y asocie nuevamente el clúster.
+   + Si tiene una versión anterior del SDK, anule la selección del mismo desde las bibliotecas instaladas del clúster y muévalo a la Papelera. Instale la nueva versión del SDK y reinicie el clúster. Si hay un problema después del reinicio, desasocie y asocie nuevamente el clúster.
 
 Si la instalación fue correcta, la biblioteca importada debería tener un aspecto similar a uno de los ejemplos siguientes:
 

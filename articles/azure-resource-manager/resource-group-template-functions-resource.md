@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650429"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095747"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -188,7 +188,7 @@ Especifique el recursos con el nombre del recurso o la [función resourceId](#re
 
 Si usa una función **list** con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado. Se genera un error si la función **list** hace referencia a un recurso que no existe. Use la función **if** para asegurarse de que la función se evalúa solo cuando se implementa el recurso. Consulte la función [if function](resource-group-template-functions-logical.md#if) para una plantilla de ejemplo que use if y list con un recurso implementado de forma condicional.
 
-### <a name="example"></a>Ejemplo
+### <a name="list-example"></a>Ejemplo de lista
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) siguiente se muestra cómo se devuelven las claves principal y secundaria de una cuenta de almacenamiento en la sección de salidas. También devuelve un token de SAS para la cuenta de almacenamiento. 
 
@@ -284,7 +284,7 @@ Se devuelve cada tipo admitido en el formato siguiente:
 
 No se garantiza el orden de matriz de los valores devueltos.
 
-### <a name="example"></a>Ejemplo
+### <a name="providers-example"></a>Ejemplo de proveedores
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) siguiente se muestra cómo utilizar la función de proveedor:
 
@@ -433,7 +433,7 @@ Por ejemplo:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` es correcto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` no es correcto
 
-### <a name="example"></a>Ejemplo
+### <a name="reference-example"></a>Ejemplo de referencia
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) siguiente se implementa un recurso y se hace referencia a ese recurso.
 
@@ -600,7 +600,7 @@ Un uso común de la función resourceGroup es crear recursos en la misma ubicaci
 
 También puede usar la función resourceGroup para aplicar etiquetas del grupo de recursos a un recurso. Para más información, consulte [Aplicación de etiquetas de un grupo de recursos](resource-group-using-tags.md#apply-tags-from-resource-group).
 
-### <a name="example"></a>Ejemplo
+### <a name="resource-group-example"></a>Ejemplo de grupo de recursos
 
 La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) siguiente devuelve las propiedades del grupo de recursos.
 
@@ -737,7 +737,7 @@ A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacen
 }
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="resource-id-example"></a>Ejemplo de identificador de recursos
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) siguiente se devuelve el identificador de recursos de la cuenta de almacenamiento en el grupo de recursos:
 
@@ -795,7 +795,7 @@ La función devuelve el siguiente formato:
 }
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="subscription-example"></a>Ejemplo de suscripción
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) siguiente se muestra la función de suscripción a la que se llama en la sección de salidas. 
 

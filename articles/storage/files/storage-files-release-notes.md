@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036256"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019126"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -71,6 +71,12 @@ Las notas siguientes corresponden a la versión 7.0.0.0 del agente de Azure File
 
 - Compatibilidad con tamaños de recurso compartido de archivos más grandes
     - Con la versión preliminar de recursos compartidos de archivos de Azure más grandes, aumentamos también nuestros límites de compatibilidad en File Sync. Ahora, en este primer paso Azure File Sync admite hasta 25 TB y 50 millones de archivos en un mismo espacio de nombres de sincronización. Para solicitar la versión preliminar de recurso compartido de archivos de gran tamaño, rellene este formulario: https://aka.ms/azurefilesatscalesurvey. 
+- Compatibilidad con la configuración del firewall y la red virtual en cuentas de almacenamiento
+    - Ahora Azure File Sync admite la configuración del firewall y la red virtual en las cuentas de almacenamiento. Para configurar la implementación de modo que funcione con la configuración del firewall y la red virtual, consulte [Configuración de los ajustes de red virtual y del firewall](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- Cmdlet de PowerShell para sincronizar inmediatamente los archivos modificados en el recurso compartido de archivos de Azure
+    - Para sincronizar inmediatamente los archivos que se modifican en el recurso compartido de archivos de Azure, se puede usar el cmdlet Invoke-AzStorageSyncChangeDetection de PowerShell para iniciar de forma manual la detección de cambios en el recurso compartido. Este cmdlet está pensado para escenarios en los que algún tipo de proceso automatizado está realizando cambios en el recurso compartido de archivos de Azure o en los que es el administrador el que efectúa los cambios (por ejemplo, al mover archivos y directorios al recurso compartido). En el caso de los cambios del usuario final, se recomienda instalar el agente de Azure File Sync en una máquina virtual de IaaS y hacer que los usuarios finales accedan al recurso compartido de archivos a través de ella. De este modo, todos los cambios se sincronizarán rápidamente con otros agentes sin necesidad de usar el cmdlet Invoke-AzStorageSyncChangeDetection. Para más información, consulte la documentación sobre [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection).
+- Mejor experiencia del portal si detecta que hay archivos que no se están sincronizando
+    - Si tiene archivos que no se pueden sincronizar, ahora puede distinguir los errores transitorios y persistentes en el portal. Los errores transitorios suelen resolverse por sí mismos sin necesidad de una acción del administrador. Por ejemplo, un archivo que está actualmente en uso no se sincronizará hasta que se cierre el identificador de archivos. En el caso de los errores persistentes, ahora se muestra el número de archivos afectados por cada error. El recuento de errores persistentes también se muestra en la columna de archivos no sincronizados de todos los puntos de conexión de servidor de un grupo de sincronización.
 - Mejor restauración en el nivel de archivo de Azure Backup
     - Ahora, los archivos individuales restaurados con Azure Backup se detectan y se sincronizan más rápidamente con el punto de conexión de servidor.
 - Mejor confiabilidad del cmdlet de recuperación de nube por niveles 

@@ -10,16 +10,15 @@ ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: af550d3cdf359fc79b3cc2c799e531e5ec491c4e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1a1196da62b9d28280150dd1ddf1582db64a93d4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613625"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073788"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 
@@ -39,6 +38,7 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 -   Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.
 -   **Recursión**: API Management no es compatible con definiciones establecidas de forma recursiva (por ejemplo, esquemas que hacen referencia a sí mismos).
 -   La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
+-   Se omiten las definiciones de seguridad.
 
 ### <a name="open-api-v2"> </a>OpenAPI versión 2
 

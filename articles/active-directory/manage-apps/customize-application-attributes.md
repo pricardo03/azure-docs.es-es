@@ -94,7 +94,7 @@ Los atributos suministrados como parte de los objetos de grupo se pueden persona
 
 Los atributos de usuario admitidos en una determinada aplicación están preconfigurados. La mayoría de las API de administración de usuarios de la aplicación de la mayoría no son compatibles con la detección de esquemas. Por lo tanto, el servicio de aprovisionamiento de Azure AD no puede generar dinámicamente la lista de atributos admitidos mediante llamadas a la aplicación.
 
-Sin embargo, algunas aplicaciones admiten atributos personalizados, y el servicio de aprovisionamiento de Azure AD puede leer y escribir en los atributos personalizados. Para especificar sus definiciones en Azure Portal, seleccione la casilla **Mostrar opciones avanzadas** de la parte inferior de la pantalla **Asignación de atributos** y, a continuación, seleccione **	Asignación de atributos** en la aplicación.
+Sin embargo, algunas aplicaciones admiten atributos personalizados, y el servicio de aprovisionamiento de Azure AD puede leer y escribir en los atributos personalizados. Para especificar sus definiciones en Azure Portal, seleccione la casilla **Mostrar opciones avanzadas** de la parte inferior de la pantalla **Asignación de atributos** y, a continuación, seleccione **Asignación de atributos** en la aplicación.
 
 Las aplicaciones y sistemas que admiten la personalización de la lista de atributos son:
 

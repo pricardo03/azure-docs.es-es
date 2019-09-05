@@ -1,6 +1,6 @@
 ---
-title: Eventos de riesgo de Azure Active Directory | Microsoft Docs
-description: En artículo se explica detalladamente qué son los eventos de riesgo.
+title: Detecciones de riesgos de Azure Active Directory | Microsoft Docs
+description: En este artículo se explica detalladamente qué son las detecciones de riesgos.
 services: active-directory
 keywords: azure active directory identity protection, seguridad, riesgo, nivel de riesgo, vulnerabilidad, directiva de seguridad
 author: cawrites
@@ -16,26 +16,26 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5711d900653ae7786899ce1c53f22cf181f5b8bf
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988268"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127316"
 ---
-# <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
+# <a name="azure-active-directory-risk-detections"></a>Detecciones de riesgos de Azure Active Directory
 
-La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **evento de riesgo**.
+La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **detección de riesgos**.
 
-Hay dos lugares donde puede revisar los eventos de riesgo informados:
+Hay dos lugares donde puede revisar las detecciones de riesgos informadas:
 
- - **Informes de Azure AD**: los eventos de riesgo forman parte de los informes de seguridad de Azure AD. Para más información, consulte el [informe de seguridad de usuarios en riesgo](concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión riesgosos](concept-risky-sign-ins.md).
+ - **Informes de Azure AD**: las detecciones de riesgos forman parte de los informes de seguridad de Azure AD. Para más información, consulte el [informe de seguridad de usuarios en riesgo](concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión riesgosos](concept-risky-sign-ins.md).
 
- - **Azure AD Identity Protection**: los eventos de riesgo también forman parte de las funcionalidades de informes de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+ - **Azure AD Identity Protection**: las detecciones de riesgos también forman parte de las funcionalidades de informes de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-Además, puede utilizar la [API de eventos de riesgo Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/graph-get-started.md). 
+Además, puede utilizar la [API de detecciones de riesgos Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/graph-get-started.md). 
 
-En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo:
+En la actualidad, Azure Active Directory detecta seis tipos de detecciones de riesgos:
 
 - [Usuarios con credenciales perdidas](#leaked-credentials) 
 - [Inicios de sesión desde direcciones IP anónimas](#sign-ins-from-anonymous-ip-addresses) 
@@ -44,26 +44,26 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 - [Inicios de sesión desde direcciones IP con actividad sospechosa](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) 
 
-![Evento de riesgo](./media/concept-risk-events/91.png)
+![Detección de riesgos](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
-> En ocasiones, es posible que encuentre un evento de riesgo sin una entrada de inicio de sesión correspondiente en el [informe de inicios de sesión](concept-sign-ins.md). Esto se debe a que Identity Protection evalúa el riesgo para inicios de sesión tanto **interactivos** como **no interactivos**, mientras que el informe de inicios de sesión muestra solo los inicios de sesión interactivos.
+> En ocasiones, es posible que encuentre una detección de riesgos sin una entrada de inicio de sesión correspondiente en el [informe de inicios de sesión](concept-sign-ins.md). Esto se debe a que Identity Protection evalúa el riesgo para inicios de sesión tanto **interactivos** como **no interactivos**, mientras que el informe de inicios de sesión muestra solo los inicios de sesión interactivos.
 
-La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. 
+La perspectiva que se obtiene de una detección de riesgos identificada está asociada a su suscripción de Azure AD. 
 
 * Con la **edición de Azure AD Premium P2**, obtiene la información más detallada acerca de todas las detecciones subyacentes. 
 * Con la **edición Azure AD Premium P1**, las detecciones avanzadas (como las propiedades de inicio de sesión desconocidas) no están cubiertas por la licencia y aparecerán bajo el nombre **Inicio de sesión con riesgo adicional detectado**. Además, se ocultan los campos de detalle de riesgo y de nivel de riesgo.
 
-Si bien la detección de eventos de riesgo ya representa un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o implementar respuestas automatizadas si configura directivas de acceso condicional. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Si bien las detecciones de riesgos ya representan un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o implementar respuestas automatizadas si configura directivas de acceso condicional. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-## <a name="risk-event-types"></a>Tipo de evento de riesgo
+## <a name="risk-detection-types"></a>Tipos de detección de riesgos
 
-La propiedad **tipo de evento de riesgo** es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgo.
+La propiedad **tipo de detección de riesgos** es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgos.
 
 Las continuas inversiones de Microsoft en procesos de detección conducirán a:
 
-- Mejoras en la precisión de la detección de los eventos de riesgo ya existentes 
-- Nuevos tipos de eventos de riesgo que se agregarán en el futuro
+- Mejoras en la precisión de las detecciones de riesgos ya existentes 
+- Nuevos tipos de detecciones de riesgos que se agregarán en el futuro
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 
@@ -74,34 +74,34 @@ Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas d
 - Equipos de seguridad de Microsoft
 - Otros orígenes de confianza 
 
-Cuando el servicio adquiere pares de nombre de usuario y contraseña, se comprueban con respecto a las credenciales actuales válidas de los usuarios de AAD. Cuando se encuentra una coincidencia, significa que la contraseña de un usuario está en peligro y se crea un **evento de riesgo de credenciales filtradas**.
+Cuando el servicio adquiere pares de nombre de usuario y contraseña, se comprueban con respecto a las credenciales actuales válidas de los usuarios de AAD. Cuando se encuentra una coincidencia, significa que la contraseña de un usuario está en peligro y se crea una **detección de riesgos de credenciales filtradas**.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
-Este tipo de evento de riesgo identifica los usuarios que han iniciado sesión correctamente desde una dirección IP que se ha identificado como una dirección IP de proxy anónima. A menudo, estos servidores proxy los usan los usuarios que desean ocultar la dirección IP del dispositivo y es posible que se usen con fines malintencionados.
+Este tipo de detección de riesgos identifica los usuarios que han iniciado sesión correctamente desde una dirección IP que se ha identificado como una dirección IP de proxy anónima. A menudo, estos servidores proxy los usan los usuarios que desean ocultar la dirección IP del dispositivo y es posible que se usen con fines malintencionados.
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Viaje imposible a ubicaciones inusuales
 
-Este tipo de evento de riesgo identifica dos inicios de sesión procedentes de ubicaciones geográficamente distantes, donde al menos una de las ubicaciones puede también ser inusual para el usuario, según su comportamiento anterior. Entre otros factores, este algoritmo de aprendizaje automático tiene en cuenta el tiempo entre los dos inicios de sesión y el tiempo que habría necesitado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario utiliza las mismas credenciales.
+Este tipo de detección de riesgos identifica dos inicios de sesión procedentes de ubicaciones geográficamente distantes, donde al menos una de las ubicaciones puede también ser inusual para el usuario, según su comportamiento anterior. Entre otros factores, este algoritmo de aprendizaje automático tiene en cuenta el tiempo entre los dos inicios de sesión y el tiempo que habría necesitado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario utiliza las mismas credenciales.
 
 Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición de viaje imposible, como las VPN y las ubicaciones que usan con regularidad otros usuarios de la organización. El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual aprende el comportamiento de inicios de sesión del nuevo usuario. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Inicio de sesión desde ubicaciones desconocidas
 
-Este tipo de evento de riesgo tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
+Este tipo de detección de riesgos tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 
-Identity Protection detecta inicios de sesión desde ubicaciones desconocidas también para protocolos heredados/de autenticación básica. Dado que estos protocolos no tienen las modernas características conocidas, como el identificador del cliente, no hay suficiente telemetría para reducir los falsos positivos. Para reducir el número de eventos de riesgo detectados, debe pasarse a la autenticación moderna.   
+Identity Protection detecta inicios de sesión desde ubicaciones desconocidas también para protocolos heredados/de autenticación básica. Dado que estos protocolos no tienen las modernas características conocidas, como el identificador del cliente, no hay suficiente telemetría para reducir los falsos positivos. Para reducir el número de detecciones de riesgos observadas, debe pasarse a la autenticación moderna.   
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
-Este tipo de evento de riesgo identifica los inicios de sesión desde dispositivos infectados con malware, que se sabe que se comunican activamente con un servidor bot. Esto se determina mediante la correlación de direcciones IP de dispositivos de usuarios con direcciones IP que estuvieron en contacto con un servidor bot. 
+Este tipo de detección de riesgos identifica los inicios de sesión desde dispositivos infectados con malware, que se sabe que se comunican activamente con un servidor bot. Esto se determina mediante la correlación de direcciones IP de dispositivos de usuarios con direcciones IP que estuvieron en contacto con un servidor bot. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inicios de sesión desde direcciones IP con actividad sospechosa
-Este tipo de evento de riesgo identifica las direcciones IP desde las que se ha producido un gran número de intentos fallidos de inicio de sesión, en varias cuentas de usuario, durante un corto período de tiempo. Esto compara los patrones de tráfico de direcciones IP usadas por atacantes y es un claro indicador de que las cuentas están ya o van a estar en peligro. Se trata de un algoritmo de aprendizaje automático que omite falsos positivos obvios, como las direcciones IP que utilizan con regularidad otros usuarios de la organización.  El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual aprende el comportamiento de inicio de sesión de un nuevo usuario y un nuevo inquilino.
+Este tipo de detección de riesgos identifica las direcciones IP desde las que se ha producido un gran número de intentos fallidos de inicio de sesión, en varias cuentas de usuario, durante un corto período de tiempo. Esto compara los patrones de tráfico de direcciones IP usadas por atacantes y es un claro indicador de que las cuentas están ya o van a estar en peligro. Se trata de un algoritmo de aprendizaje automático que omite falsos positivos obvios, como las direcciones IP que utilizan con regularidad otros usuarios de la organización.  El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual aprende el comportamiento de inicio de sesión de un nuevo usuario y un nuevo inquilino.
 
 ## <a name="detection-type"></a>Tipo de detección
 
-La propiedad de tipo de detección es un indicador (**en tiempo real** o **sin conexión**) del período de tiempo de detección de un evento de riesgo. Actualmente, la mayoría de los eventos de riesgo se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido el evento de riesgo.
+La propiedad de tipo de detección es un indicador (**en tiempo real** o **sin conexión**) del período de tiempo de detección de una detección de riesgos. Actualmente, la mayoría de las detecciones de riesgos se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido la detección de riesgos.
 
 En la tabla siguiente se muestra la cantidad de tiempo que tarda un tipo de detección en aparecer en un informe relacionado:
 
@@ -111,9 +111,9 @@ En la tabla siguiente se muestra la cantidad de tiempo que tarda un tipo de dete
 | Sin conexión | 2 a 4 horas |
 
 
-Para los tipos de evento de riesgo que detecta Azure Active Directory, los tipos de detección son los siguientes:
+Para los tipos de detección de riesgos que detecta Azure Active Directory, los tipos de detección son los siguientes:
 
-| Tipo de evento de riesgo | Tipo de detección |
+| Tipo de detección de riesgos | Tipo de detección |
 | :-- | --- | 
 | [Usuarios con credenciales perdidas](#leaked-credentials) | Sin conexión |
 | [Inicios de sesión desde direcciones IP anónimas](#sign-ins-from-anonymous-ip-addresses) | Tiempo real |
@@ -125,35 +125,35 @@ Para los tipos de evento de riesgo que detecta Azure Active Directory, los tipos
 
 ## <a name="risk-level"></a>Nivel de riesgo
 
-La propiedad de nivel de riesgo de un evento de riesgo es un indicador (**alto**, **medio** o **bajo**) de la gravedad y la confianza de un evento de riesgo. Esta propiedad le ayuda a clasificar por orden de prioridad las acciones que debe realizar. 
+La propiedad de nivel de riesgo de una detección de riesgos es un indicador (**alto**, **medio** o **bajo**) de la gravedad y la confianza de una detección de riesgos. Esta propiedad le ayuda a clasificar por orden de prioridad las acciones que debe realizar. 
 
-La gravedad del evento de riesgo representa la fuerza de la señal como predicción del riesgo de la identidad. La confianza es indicador de la posibilidad de que existan falsos positivos. 
+La gravedad de la detección de riesgos representa la fuerza de la señal como predicción del riesgo de la identidad. La confianza es indicador de la posibilidad de que existan falsos positivos. 
 
 Por ejemplo, 
 
-* **Alta**: evento de riesgo de gravedad alta y de alta confianza. Estos eventos son buenos indicadores de que se ha puesto en peligro la identidad del usuario; las cuentas de usuario afectadas deben corregirse inmediatamente.
+* **Alta**: detección de riesgos de gravedad alta y de alta confianza. Estos eventos son buenos indicadores de que se ha puesto en peligro la identidad del usuario; las cuentas de usuario afectadas deben corregirse inmediatamente.
 
-* **Media**: evento de riesgo de gravedad alta, pero confianza inferior, o viceversa. Estos eventos son potencialmente peligrosos y las cuentas de usuario afectadas deben corregirse.
+* **Media**: detección de riesgos de gravedad alta, pero confianza inferior, o viceversa. Estos eventos son potencialmente peligrosos y las cuentas de usuario afectadas deben corregirse.
 
-* **Baja**: evento de riesgo de baja confianza y gravedad baja. Este evento puede no requerir una acción inmediata, pero cuando se combina con otros eventos de riesgo, puede proporcionar una indicación clara de que la identidad está en peligro.
+* **Baja**: detección de riesgos de baja confianza y gravedad baja. Este evento puede no requerir una acción inmediata, pero cuando se combina con otras detecciones de riesgos, puede proporcionar una indicación clara de que la identidad está en peligro.
 
 ![Nivel de riesgo](./media/concept-risk-events/01.png)
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 
-Los eventos de riesgo de credenciales con fugas se clasifican con gravedad **Alta**, ya que proporcionan una indicación clara de que el nombre de usuario y la contraseña están a disposición de un atacante.
+Las detecciones de riesgos de credenciales filtradas se clasifican con gravedad **Alta**, ya que proporcionan una indicación clara de que el nombre de usuario y la contraseña están a disposición de un atacante.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
-El nivel de riesgo de este tipo de evento es **Medio** porque una dirección IP anónima no es una indicación clara de una cuenta en riesgo. Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar si utilizaba direcciones IP anónimas.
+El nivel de riesgo de este tipo de detección es **Medio** porque una dirección IP anónima no es una indicación clara de una cuenta en riesgo. Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar si utilizaba direcciones IP anónimas.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Viaje imposible a ubicaciones inusuales
 
-Un viaje imposible suele ser un buen indicador de que un hacker logró iniciar sesión correctamente. Sin embargo, pueden producirse falsos positivos cuando un usuario viaja con un nuevo dispositivo o usa una VPN que normalmente no utilizan otros usuarios de la organización. Otra fuente de falsos positivos son las aplicaciones que pasan incorrectamente direcciones IP del servidor como IP de cliente, lo que puede dar la impresión de que los inicios de sesión tienen lugar desde el centro de datos en el que está hospedado el back-end de esa aplicación (a menudo son centros de datos de Microsoft, por lo que parece que los inicios de sesión tienen lugar en direcciones IP propiedad de Microsoft). Como resultado de estos falsos positivos, el nivel de riesgo de estos eventos de riesgo es **Medio**.
+Un viaje imposible suele ser un buen indicador de que un hacker logró iniciar sesión correctamente. Sin embargo, pueden producirse falsos positivos cuando un usuario viaja con un nuevo dispositivo o usa una VPN que normalmente no utilizan otros usuarios de la organización. Otra fuente de falsos positivos son las aplicaciones que pasan incorrectamente direcciones IP del servidor como IP de cliente, lo que puede dar la impresión de que los inicios de sesión tienen lugar desde el centro de datos en el que está hospedado el back-end de esa aplicación (a menudo son centros de datos de Microsoft, por lo que parece que los inicios de sesión tienen lugar en direcciones IP propiedad de Microsoft). Como resultado de estos falsos positivos, el nivel de riesgo de esta detección de riesgos es **Medio**.
 
 > [!TIP]
-> Puede reducir la cantidad de falsos positivos notificados para este tipo de evento de riesgo si configura [ubicaciones con nombre](../active-directory-named-locations.md). 
+> Puede reducir la cantidad de falsos positivos notificados para este tipo de detección de riesgos si configura [ubicaciones con nombre](../active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Inicio de sesión desde ubicaciones desconocidas
 
@@ -161,7 +161,7 @@ Las ubicaciones desconocidas pueden proporcionar una indicación clara de que un
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
-Este evento de riesgo identifica las direcciones IP, no los dispositivos de usuarios. Si hay varios dispositivos detrás de una única dirección IP, y solo algunos son controlados por una red de bot, los inicios de sesión desde otros dispositivos pueden desencadenar este evento innecesariamente, por lo que este evento de riesgo se clasifica como **Bajo**.  
+Esta detección de riesgos identifica las direcciones IP, no los dispositivos de usuarios. Si hay varios dispositivos detrás de una única dirección IP, y solo algunos son controlados por una red de bot, los inicios de sesión desde otros dispositivos pueden desencadenar este evento innecesariamente, por lo que esta detección de riesgos se clasifica como **Bajo**.  
 
 Se recomienda ponerse en contacto con el usuario y examinar todos sus dispositivos. También es posible que el dispositivo personal de un usuario esté infectado o que otra persona usara un dispositivo infectado desde la misma dirección IP que el usuario. A menudo, los dispositivos infectados son infectados por malware que todavía no ha sido identificado por el software antivirus, y también pueden indicar cualquier hábito incorrecto del usuario que, posiblemente, hizo que el dispositivo se infectara.
 

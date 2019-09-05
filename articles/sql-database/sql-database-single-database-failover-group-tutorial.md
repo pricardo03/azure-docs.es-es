@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a80dc8ccaa72a57986ed6c64f7ab7050ab4c7de5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935019"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098976"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: Adición de una base de datos única de Azure SQL Database a un grupo de conmutación por error
 
@@ -61,16 +61,15 @@ En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-
 Cree el grupo de conmutación por error y agregue la base de datos única mediante Azure Portal. 
 
 
-1. Seleccione **Todos los servicios** en la esquina superior izquierda de [Azure Portal](https://portal.azure.com). 
-1. Escriba `sql servers` en el cuadro de búsqueda. 
-1. (Opcional) Seleccione el icono de estrella junto a Servidores SQL Server para marcar como favorito **Servidor de SQL Server** y agréguelo al panel de navegación izquierdo. 
-    
-    ![Localización de servidores SQL Server](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione la base de datos única creada en la sección 2, `mySampleDatbase`. 
+1. Seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
 
-1. Seleccione **Servidores SQL Server** y elija el servidor que ha creado en la sección 1, como `mysqlserver`.
+   ![Abrir servidor para una base de datos única](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Seleccione **Grupos de conmutación por error** en el panel **Configuración** y, después, seleccione **Agregar grupo** para crear un nuevo grupo de conmutación por error. 
 
-    ![Adición de un grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Adición de un grupo de conmutación por error](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. En la página **Grupo de conmutación por error**, escriba o seleccione los valores siguientes y, después, seleccione **Crear**:
     - **Nombre del grupo de conmutación por error** Escriba un nombre del grupo de conmutación por error único, como `failovergrouptutorial`. 
@@ -78,16 +77,16 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
         - **Nombre del servidor**: Escriba un nombre único para el servidor secundario, como `mysqlsecondary`. 
         - **Inicio de sesión del administrador del servidor**: Escriba `azureuser`
         - **Contraseña**: Escriba una contraseña compleja que cumpla los requisitos de contraseña.
-        - **Ubicación**: Elija una ubicación en la lista desplegable, como Este de EE. UU. 2. Esta ubicación no puede ser la misma que la del servidor principal.
+        - **Ubicación**: Elija una ubicación en la lista desplegable, como `East US`. Esta ubicación no puede ser la misma que la del servidor principal.
 
     > [!NOTE]
     > La configuración del firewall y de inicio de sesión del servidor debe coincidir con la del servidor principal. 
     
-      ![Creación de un servidor secundario para el grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Creación de un servidor secundario para el grupo de conmutación por error](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Bases de datos en el grupo** Cuando se selecciona un servidor secundario, esta opción se desbloquea. Selecciónelo para **seleccionar las bases de datos que quiera agregar.** y después elija la base de datos que ha creado en la sección 1. Al agregar la base de datos al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica. 
         
-    ![Adición de la base de datos SQL a un grupo de conmutación por error](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Adición de la base de datos SQL a un grupo de conmutación por error](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -99,12 +98,12 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -194,16 +193,21 @@ En este paso, se producirá un error en el grupo de conmutación por error en el
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Pruebe la conmutación por error mediante Azure Portal. 
 
-1. Vaya a **Servidores de SQL Server** en [Azure Portal](https://portal.azure.com). 
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione la base de datos única creada en la sección 2, `mySampleDatbase`. 
+1. Seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
+
+   ![Abrir servidor para una base de datos única](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Seleccione **Grupos de conmutación por error** en el panel **Configuración** y, a continuación, elija el grupo de conmutación por error que ha creado en la sección 2. 
   
-   ![Seleccione el grupo de conmutación por error en el portal.](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![Seleccione el grupo de conmutación por error en el portal.](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Revise cuál es el servidor principal y cuál el secundario. 
 1. Seleccione **Conmutación por error** en el panel de tareas para conmutar por error el grupo correspondiente que contiene la base de datos de ejemplo 
 1. Seleccione **Sí** en la advertencia que le notifica que las sesiones de TDS se desconectarán. 
 
-   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos SQL](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos SQL](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. Revise qué servidor es ahora el principal y cuál el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados. 
 1. Vuelva a seleccionar **Conmutación por error** para devolver los servidores a sus roles originales. 

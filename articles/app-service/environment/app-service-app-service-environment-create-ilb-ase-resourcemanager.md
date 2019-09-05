@@ -10,17 +10,16 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 862887e1e530bfdca4359e914b9a81c9360ac4dd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130762"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070427"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 
@@ -40,7 +39,7 @@ Hay tres pasos implicados en la automatización de la creación de un ASE de ILB
 3. El certificado SSL cargado se asigna explícitamente al ASE de ILB como su certificado SSL "predeterminado".  Este certificado SSL se usará para el tráfico SSL a las aplicaciones del ASE de ILB cuando las aplicaciones se direccionan mediante el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootcomain.com) ).
 
 ## <a name="creating-the-base-ilb-ase"></a>Creación del ASE de ILB base
-Hay un ejemplo de plantilla de Azure Resource Manager y su archivo de parámetros asociado en GitHub, [aquí][quickstartilbasecreate].
+Puede encontrar un ejemplo de plantilla de Azure Resource Manager y su archivo de parámetros asociado en GitHub, [aquí][quickstartilbasecreate].
 
 La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los dos ASE de ILB, así como de los ASE enlazados a una VIP pública.  La lista siguiente llama a los parámetros especiales o únicos al crear un ASE de ILB:
 
@@ -69,7 +68,7 @@ Con un certificado SSL válido, se necesitan dos pasos preparatorios adicionales
 
 A continuación, el archivo .pfx resultante debe convertirse en una cadena base64, ya que el certificado SSL se cargará mediante una plantilla de Azure Resource Manager.  Dado que las plantillas de Azure Resource Manager son archivos de texto, el archivo .pfx debe convertirse en una cadena base64 para que puede incluirse como parámetro de la plantilla.
 
-El siguiente fragmento de código de Powershell muestra un ejemplo de cómo generar un certificado autofirmado, exportar el certificado como un archivo .pfx, convertir el archivo .pfx en una cadena base64 codificada y, a continuación, guardar dicha cadena en otro archivo.  El código de Powershell para la codificación Base64 se adaptó del [blog Powershell Scripts][examplebase64encoding].
+El siguiente fragmento de código de Powershell muestra un ejemplo de cómo generar un certificado autofirmado, exportar el certificado como un archivo .pfx, convertir el archivo .pfx en una cadena base64 codificada y, a continuación, guardar dicha cadena en otro archivo.  El código de Powershell para la codificación en base64 se adaptó del [blog Powershell Scripts][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -83,7 +82,7 @@ El siguiente fragmento de código de Powershell muestra un ejemplo de cómo gene
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Una vez que el certificado SSL se ha generado y convertido correctamente en una cadena con codificación Base64, se puede usar la plantilla de Azure Resource Manager de ejemplo en GitHub para [configurar el certificado SSL predeterminado][configuringDefaultSSLCertificate].
+Una vez que el certificado SSL se ha generado y convertido correctamente en una cadena con codificación en base64, se puede usar la plantilla de Azure Resource Manager de ejemplo en GitHub para [configurar el certificado SSL predeterminado][configuringDefaultSSLCertificate].
 
 Los parámetros del archivo *azuredeploy.parameters.json* se enumeran a continuación:
 

@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5f5e023d8014a780fa21e2c3ba18050c4e1a5771
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323624"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095245"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -48,6 +47,7 @@ Para ver todas las métricas de la cuenta de Batch, siga estos pasos:
 1. En el portal, haga clic en **Todos los servicios** > **Cuentas de Batch** y, luego, haga clic en el nombre de la cuenta de Batch.
 2. En **Supervisión**, haga clic en **Métricas**.
 3. Seleccione una o varias de las métricas. Si lo desea, seleccione métricas de recursos adicionales mediante las listas desplegables **Suscripciones**, **Grupo de recursos**, **Tipo de recurso** y **Recurso**.
+    * En el caso de métricas basadas en recuentos (como "Recuento de núcleos dedicados" o "Recuento de nodos de baja prioridad"), use la agregación "promedio". En el caso de métricas basadas en eventos (como "Eventos de finalización de cambio de tamaño de grupo"), use la agregación "recuento".
 
     ![Métricas de Batch](media/batch-diagnostics/metrics-portal.png)
 
@@ -119,7 +119,7 @@ Si archiva registros de diagnóstico de Batch en una cuenta de almacenamiento, s
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -130,12 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada archivo de blob PT1H.json contiene eventos con formato JSON que se producen dentro de la hora especificada en la dirección URL del blob (por ejemplo, h=12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m=00) siempre es 00, ya que los eventos de los registros de diagnóstico se dividen en blobs individuales por hora. (Todas las horas se muestran en UTC).
+Cada archivo de blob `PT1H.json` contiene eventos con formato JSON que se producen dentro de la hora especificada en la dirección URL del blob (por ejemplo, `h=12`). Durante la hora en cuestión, los eventos se anexan al archivo `PT1H.json` a medida que se producen. El valor de los minutos (`m=00`) siempre es `00`, ya que los eventos de los registros de diagnóstico se dividen en blobs individuales por hora. (Todas las horas se muestran en UTC).
 
+A continuación se muestra un ejemplo de una entrada `PoolResizeCompleteEvent` en un archivo de registro `PT1H.json`. Incluye información sobre el número actual y el número que se desea conseguir de nodos dedicados y de baja prioridad, así como la hora de inicio y de finalización de la operación:
 
-Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivo de registros de diagnóstico de Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage. 
+Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivo de registros de diagnóstico de Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage. 
 
 ### <a name="service-log-events"></a>Eventos del registro del servicio
 Los registros del servicio Azure Batch, cuando se recopilan, contienen los eventos que emite el servicio Azure Batch durante la vigencia de un recurso de Batch individual, como un grupo o una tarea. Cada evento que emite Batch se registra en formato JSON. Por ejemplo, este es el cuerpo de un **evento de creación de grupos** de ejemplo:

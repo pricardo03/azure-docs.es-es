@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555335"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124123"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
+
 El origen de datos de registros personalizados de Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
 
 ![Recopilación de registros personalizados](media/data-sources-custom-logs/overview.png)
@@ -43,8 +44,11 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 > 
 > * Solo se pueden crear 500 registros personalizados.
 > * Una tabla solo admite hasta 500 columnas. 
-> * El número máximo de caracteres del nombre de la columna es 500. 
+> * El número máximo de caracteres para el nombre de columna es 500. 
 >
+
+>[!IMPORTANT]
+>La recopilación de registros personalizados requiere que la aplicación que escribe el archivo de registro vacíe el contenido del registro en el disco de forma periódica. Esto se debe a que la colección de registros personalizados depende de las notificaciones de cambios en el sistema de archivos para el archivo de registro del que se realiza el seguimiento.
 
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
@@ -64,7 +68,6 @@ Para empezar, cargue una muestra del registro personalizado.  El Asistente anali
 
 Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenado en Azure Monitor se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Azure Monitor ha recopilado la entrada.
 
-
 1. Haga clic en **Browse** (Examinar) y vaya a un archivo de ejemplo.  Tenga en cuenta que este botón puede llamarse **Choose File** (Elegir archivo) en algunos exploradores.
 2. Haga clic en **Next**.
 3. El Asistente para registros personalizados cargará el archivo y mostrará los registros que identifique.
@@ -75,7 +78,6 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre. Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado. También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
-
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
@@ -105,7 +107,6 @@ Una vez que Azure Monitor empieza a recopilar del registro personalizado, sus re
 > [!NOTE]
 > Si falta la propiedad RawData en la búsqueda, es posible que tenga que cerrar y volver a abrir el explorador.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
 La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente le interesará separar los diferentes fragmentos de información de cada entrada en propiedades individuales para cada registro. Consulte [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener opciones de análisis de **RawData** en varias propiedades.
 
@@ -114,7 +115,6 @@ Use el proceso siguiente en Azure Portal para eliminar un registro personalizado
 
 1. En el menú **Datos** en **Configuración avanzada** del área de trabajo, seleccione **Registros personalizados** para enumerar todos los registros personalizados.
 2. Haga clic en la opción **Quitar** situada junto al registro personalizado que desea quitar.
-
 
 ## <a name="data-collection"></a>Colección de datos
 Azure Monitor recopilará nuevas entradas de cada registro personalizado aproximadamente cada cinco minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente se desconecta durante un período de tiempo, Azure Monitor recopilará entradas a partir de donde lo haya dejado, incluso si se crearon mientras el agente estaba sin conexión.
@@ -135,11 +135,11 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Ejemplo de tutorial de agregar un registro personalizado
 La siguiente sección le guiará por un ejemplo de creación de un registro personalizado.  El registro de ejemplo que se recopila tiene una sola entrada en cada línea que empieza con una fecha y hora, después, campos delimitados por comas para el código, el estado y el mensaje.  A continuación se muestran varias entradas de ejemplo.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Carga y análisis de un registro de ejemplo
 Se proporciona uno de los archivos de registro, y puede ver los eventos que se recopilarán.  En este caso, una nueva línea es un delimitador suficiente.  Sin embargo, si una sola entrada en el registro puede abarcar varias líneas, es necesario usar un delimitador de marca de tiempo.
@@ -157,14 +157,10 @@ Use el nombre *MyApp_CL* y escriba una descripción en el campo **Descripción**
 ![Nombre de registro](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Comprobación de que se recopilan los registros personalizados
-Utilice una consulta *Type=MyApp_CL* para devolver todas las entradas de registro del registro recopilado.
+Utilice una consulta simple de *Type=MyApp_CL* para devolver todos los registros desde el registro recopilado.
 
 ![Consulta del registro sin campos personalizados](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>Análisis de las entradas del registro personalizado
-Los campos personalizados se usan para definir los campos *EventTime* (Hora del evento), *Code* (Código), *Status* (Estado) y *Message* (Mensaje) y poder ver la diferencia en los registros devueltos por la consulta.
-
-![Consulta del registro con campos personalizados](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativas a los registros personalizados
 Aunque los registros personalizados son útiles si los datos cumplen los criterios que se muestran, hay casos como los siguientes donde necesita otra estrategia:

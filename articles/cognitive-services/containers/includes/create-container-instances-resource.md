@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/3/2019
+ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07e2067571c7bc7403ee8a1d1a0600c451e1581f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229239"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051180"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Crear un recurso de instancia de contenedor de Azure
 
@@ -28,8 +28,8 @@ ms.locfileid: "68229239"
     |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
     |Nombre del contenedor|Escriba un nombre como `cognitive-container-instance`. Este nombre debe estar en minúsculas.|
     |Location|Seleccione una región para la implementación.|
-    |Tipo de imagen|`Public`|
-    |Nombre de la imagen|Escriba la ubicación del contenedor de Cognitive Services. La ubicación puede ser la misma que se usa en el comando `docker pull`; consulte las [imágenes y los repositorios de contenedor](../../cognitive-services-container-support.md#container-repositories-and-images) para ver los nombres de imagen disponibles y su repositorio correspondiente.|
+    |Tipo de imagen|Si la imagen de contenedor está almacenada en un registro de contenedor que no requiere credenciales, elija `Public`. Si el acceso a la imagen de contenedor requiere credenciales, elija `Private`. Consulte los [repositorios de contenedores y las imágenes](../../cognitive-services-container-support.md#container-repositories-and-images) para información sobre si la imagen de contenedor es `Public` o `Private` ("versión preliminar pública"). |
+    |Nombre de la imagen|Escriba la ubicación del contenedor de Cognitive Services. La ubicación es lo que se usa como argumento para el comando `docker pull`. Consulte las [imágenes y los repositorios de contenedor](../../cognitive-services-container-support.md#container-repositories-and-images) para ver los nombres de imagen disponibles y su repositorio correspondiente.<br><br>El nombre de la imagen debe estar completo y especificar tres partes. La primera, el registro de contenedor, después el repositorio y, por último, el nombre de la imagen: `<container-registry>/<repository>/<image-name>`.<br><br>Este es un ejemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` representaría la imagen de extracción de frases clave en el registro de contenedor de Microsoft del repositorio de Azure Cognitive Services. Otro ejemplo, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` representaría la imagen de conversión de voz en texto en el repositorio de Microsoft del registro de contenedor de la versión preliminar del contenedor. |
     |Tipo de SO|`Linux`|
     |Size|Seleccione el tamaño de las recomendaciones sugeridas para su contenedor específico de Cognitive Services:<br>2 núcleos de CPU<br>4 GB
 
@@ -39,7 +39,7 @@ ms.locfileid: "68229239"
     |--|--|
     |Puertos|Establezca el puerto TCP en `5000`. Expone el contenedor en el puerto 5000.|
 
-4. En la pestaña **Opciones avanzadas**, escriba las **Variables de entorno** necesarias para la configuración de la facturación del contenedor del recurso de ACI:
+4. En la pestaña **Avanzado**, escriba las **Variables de entorno** necesarias para la configuración de la facturación del recurso de la instancia de contenedor de Azure:
 
     | Clave | Valor |
     |--|--|

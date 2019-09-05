@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120133"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997857"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Seguimiento de mensajes B2B con los registros de Azure Monitor
 
@@ -216,7 +216,7 @@ Estas son las descripciones de propiedades de cada mensaje EDIFACT.
 | Receptor | Asociado del host especificado en **Configuración de recepción** o asociado invitado especificado en **Configuración de envío** para un acuerdo de EDIFACT |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones EDIFACT |
 | Status | Estado del mensaje EDIFACT <br>Correcto = recibido o enviado un mensaje EDIFACT válido. No se configura ninguna confirmación funcional. <br>Correcto = recibido o enviado un mensaje EDIFACT válido. Se configura y se recibe una confirmación funcional, o se envía una confirmación funcional. <br>Error = recibido o enviado un mensaje EDIFACT no válido <br>Pendiente = recibido o enviado un mensaje EDIFACT válido. Se configura una confirmación funcional y se espera una confirmación funcional. |
-| Ack | Estado de confirmación funcional (997) <br>Aceptado = recibida o enviada una confirmación funcional positiva. <br>Rechazado = recibida o enviada una confirmación funcional negativa. <br>Pendiente = se espera una confirmación funcional, pero no se ha recibido. <br>Pendiente = generada una confirmación funcional, pero no se puede enviar al asociado. <br>No necesario = confirmación funcional no configurada. |
+| Ack | Estado de confirmación funcional (CONTRL) <br>Aceptado = recibida o enviada una confirmación funcional positiva. <br>Rechazado = recibida o enviada una confirmación funcional negativa. <br>Pendiente = se espera una confirmación funcional, pero no se ha recibido. <br>Pendiente = generada una confirmación funcional, pero no se puede enviar al asociado. <br>No necesario = confirmación funcional no configurada. |
 | Dirección | Dirección del mensaje EDIFACT |
 | Id. de correlación | Identificador que correlaciona todos los desencadenadores y las acciones de una aplicación lógica |
 | Tipo de mensaje | Tipo del mensaje EDIFACT |

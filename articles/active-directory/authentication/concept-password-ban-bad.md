@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853050"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032877"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -121,7 +121,7 @@ La coincidencia aproximada se usa en la contraseña normalizada para identificar
 
 Ejemplo: Suponga que está prohibida la contraseña "abcdef" y que un usuario intenta cambiar su contraseña a una de las siguientes:
 
-"abcdeg"     *(el último carácter se ha cambiado de "f" a "g")* "abcdefg"   *' ("g"anexada al final)* "abcde"      *(se eliminó la "f" final)*
+"abcdeg"    *(el último carácter se ha cambiado de "f" a "g")* "abcdefg"     *("g" anexada al final)* "abcde"     *(se ha eliminado la "f" final)*
 
 Ninguna de las contraseñas anteriores coincide específicamente con la contraseña prohibida "abcdef". Sin embargo, dado que cada ejemplo se encuentra dentro de una distancia de 1 edición del término prohibido "abcdef", se considera que todas coinciden con "abcdef".
 

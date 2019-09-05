@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514077"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128647"
 ---
 # <a name="algorithm--module-reference-overview"></a>Información general sobre la referencia de módulos y algoritmos
 
@@ -36,7 +36,7 @@ Los módulos se organizan por funcionalidad:
 | Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la selección de características y la reducción de la dimensionalidad.| [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Limpiar datos que faltan](clean-missing-data.md) <br/> [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [Combinación de datos](join-data.md) <br/> [División de datos](split-data.md) <br/> [Normalización de datos](normalize-data.md) <br/> [Partición y ejemplo](partition-and-sample.md) |
 | Módulos de R y Python | Escriba código e insértelo en un módulo para integrar Python y R en el experimento. | [Ejecución de script de Python](execute-python-script.md)   <br/> [Creación de modelo Python](create-python-model.md) <br/> [Ejecución script de R](execute-r-script.md)
 |  | **Algoritmos de aprendizaje automático**: | |
-| clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md)  <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md)  <br/>[Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/> [Árbol de&nbsp;decisión&nbsp;ampliado de&nbsp;dos clases](two-class-boosted-decision-tree.md)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md)  <br/> [Red neuronal de dos clases](two-class-neural-network.md)  <br/> [Máquina de&nbsp;soporte de&nbsp;vectores de&nbsp;dos clases](two-class-support-vector-machine.md) 
+| clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md)  <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md)  <br/>[Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/> [Árbol de&nbsp;decisión&nbsp;ampliado de&nbsp;dos clases](two-class-boosted-decision-tree.md)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md)  <br/> [Red neuronal de dos clases](two-class-neural-network.md)  <br/> [Máquina de&nbsp;soporte de&nbsp;vectores de&nbsp;dos clases](two-class-support-vector-machine.md) 
 | Agrupación en clústeres | Agrupe datos.| [Agrupación en clústeres K-Means](k-means-clustering.md)
 | Regresión | Prediga un valor. | [Regresión lineal](linear-regression.md)  <br/> [Regresión de red neuronal](neural-network-regression.md)  <br/> [Regresión de bosque de decisión](decision-forest-regression.md)  <br/> [Regresión de&nbsp;árbol de&nbsp;decisión&nbsp;incrementado](boosted-decision-tree-regression.md)
 |  | **Compilar y evaluar modelos**: | |
