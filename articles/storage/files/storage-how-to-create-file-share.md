@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e56be394bc7667dfca9a0b417593e8e587073712
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699641"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013557"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante  [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell de Azure Storage, las bibliotecas de cliente de Azure Storage o la API de REST de Azure Storage. En este tutorial, aprenderá a:
@@ -41,24 +41,25 @@ Para crear un recurso compartido de Azure Files, puede usar una cuenta de almace
 
 
 ## <a name="create-file-share-through-powershell"></a>Creación de un recurso compartido de archivos mediante PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte  [Instalación y configuración de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)  para obtener instrucciones sobre el punto de instalación y la instalación.
+Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte  [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)  para obtener instrucciones sobre el punto de instalación y la instalación.
 
 > [!Note]  
 > Es recomendable descargar e instalar el módulo más reciente de Azure PowerShell o actualizar a dicho módulo.
 
-1. **Creación de un contexto para la cuenta de almacenamiento y la clave** El contexto encapsula la clave de cuenta y el nombre de la cuenta de almacenamiento. Para obtener instrucciones acerca de la copia de la clave de cuenta desde  [Azure Portal](https://portal.azure.com/), consulte la sección  [Claves de acceso de almacenamiento](../common/storage-account-manage.md#access-keys).
+1. **Creación de una cuenta de almacenamiento nueva:** Una cuenta de almacenamiento es un grupo compartido de almacenamiento en el que puede implementar recursos compartidos de archivos de Azure u otros recursos de almacenamiento, como blobs o colas.
 
-    ```powershell
-    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
+    ```PowerShell
+    $resourceGroup = "myresourcegroup"
+    $storAcctName = "myuniquestorageaccount"
+    $region = "westus2"
+    $storAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storAcctName -SkuName Standard_LRS -Location $region -Kind StorageV2
     ```
-    
+
 2. **Creación de un nuevo recurso compartido de archivos**:    
     
     ```powershell
-    $share = New-AzStorageShare logs -Context $storageContext
+    $shareName = "myshare"
+    $share = New-AzStorageShare -Context $storAcct.Context -Name $shareName
     ```
 
 > [!Note]  
