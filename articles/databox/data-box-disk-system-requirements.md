@@ -6,21 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 10ddf4c42ac5aa2d1cffd7cbca6930896103d2c5
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.localizationpriority: high
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147775"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307698"
 ---
+::: zone target="docs"
+
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos del sistema de Azure Data Box Disk
 
 En este artículo se describen los requisitos del sistema importantes de la solución Microsoft Azure Data Box Disk y de los clientes de que se conectan a Data Box Disk. Es recomendable que revise cuidadosamente la siguiente información antes de implementar Data Box Disk y que luego la consulte según sea necesario durante la implementación y el funcionamiento posterior.
 
 Los requisitos del sistema incluyen las plataformas admitidas para los clientes que se conectan a discos, cuentas de almacenamiento admitidas y tipos de almacenamiento.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="review-prerequisites"></a>Revisar los requisitos previos
+
+1. Tiene que haber realizado el pedido de Data Box Disk mediante el [Tutorial: Pedido de Azure Data Box Disk](data-box-disk-deploy-ordered.md). Ha recibido los discos y un cable de conexión por disco.
+2. Tiene un equipo cliente disponible desde el que puede copiar los datos. El equipo cliente debe:
+
+    - Ejecutar un sistema operativo admitido.
+    - Tener instalado otro software necesario.
+
+::: zone-end
 
 ## <a name="supported-operating-systems-for-clients"></a>Sistemas operativos compatibles para clientes
 
@@ -79,8 +95,11 @@ A continuación se muestra una lista de los tipos de almacenamiento admitidos pa
 | Archivos de Azure  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Paso siguiente
 
 * [Implementación de Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 
