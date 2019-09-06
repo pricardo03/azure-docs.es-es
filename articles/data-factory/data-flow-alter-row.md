@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd69d5977b8ad1d9be2a71a006579fe3abfd23
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520157"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971247"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformación Alterar fila de Azure Data Factory
 
-Use la transformación Alterar fila para establecer directivas de inserción, eliminación, actualización y upsert en las filas. Puede agregar las condiciones de uno a varios como expresiones. Cada una de esas condiciones puede dar lugar a la inserción, actualización, eliminación o upsert de una fila (o filas). La transformación Alterar fila puede generar tanto acciones DDL como DML en la base de datos.
+Use la transformación Alterar fila para establecer directivas de inserción, eliminación, actualización y upsert en las filas. Puede agregar las condiciones de uno a varios como expresiones. Estas condiciones se deben especificar en orden de prioridad, ya que cada fila se marcará con la directiva correspondiente a la primera expresión coincidente. Cada una de esas condiciones puede dar lugar a la inserción, actualización, eliminación o upsert de una fila (o filas). La transformación Alterar fila puede generar tanto acciones DDL como DML en la base de datos.
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,9 +24,18 @@ Use la transformación Alterar fila para establecer directivas de inserción, el
 > [!NOTE]
 > Las transformaciones Alterar fila solo funcionarán en los receptores de base de datos del flujo de datos. Las acciones que asigne a las filas (inserción, actualización, eliminación, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de alteración de fila en las tablas de base de datos.
 
+## <a name="indicate-a-default-row-policy"></a>Indicación de una directiva de fila predeterminada
+
+Cree una transformación Alterar fila y especifique una directiva de fila con una condición de `true()`. Cada fila que no cumpla alguna de las expresiones definidas previamente se marcará para la directiva de fila especificada. De forma predeterminada, cada fila que no cumple ninguna expresión condicional se marcará para `Insert`.
+
+![Directiva Alterar fila 1](media/data-flow/alter-row4.png "Alter row one policy")
+
+> [!NOTE]
+> Para marcar todas las filas con una directiva, puede crear una condición para dicha directiva y especificar la condición como `true()`.
+
 ## <a name="view-policies"></a>Visualización de directivas
 
-Cambie el modo de depuración de flujo de datos para activarlo y, a continuación, vea los resultados de las directivas de alteración de fila en el panel Vista previa de los datos. La ejecución de la transformación Alterar fila en el modo de depuración de flujo de datos no producirá acciones DDL ni DML con respecto a su destino. Para que esas acciones tengan lugar, ejecute el flujo de datos dentro de una actividad de ejecución de flujo de datos dentro de una canalización.
+Active el modo de depuración de flujo de datos para ver los resultados de las directivas de alteración de fila en el panel Vista previa de los datos. La ejecución de la transformación Alterar fila en el modo de depuración de flujo de datos no producirá acciones DDL ni DML con respecto a su destino. Para que esas acciones tengan lugar, ejecute el flujo de datos dentro de una actividad de ejecución de flujo de datos en una canalización.
 
 ![Directivas de alteración de fila](media/data-flow/alter-row3.png "Alter Row Policies")
 
@@ -34,7 +43,7 @@ Le permitirá comprobar y ver el estado de cada fila en función de sus condicio
 
 ## <a name="sink-settings"></a>Configuración del receptor
 
-Debe tener un tipo de receptor de base de datos para que Alterar fila funcione. En la configuración del receptor, debe establecer cada acción para que se permita.
+Debe tener un tipo de receptor de base de datos para que Alterar fila funcione. En la configuración del receptor, debe establecer cada acción correspondiente a las condiciones de Alterar fila que se van a permitir.
 
 ![Receptor Alterar fila](media/data-flow/alter-row2.png "Alter Row Sink")
 

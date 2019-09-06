@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477922"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061438"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 
-Un *webhook* le permite iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Esto permite que servicios externos, como Azure DevOps Services, GitHub, registros de Azure Monitor o aplicaciones personalizadas, inicien runbooks sin necesidad de implementar una solución completa mediante la API de Azure Automation.  
+Un *webhook* le permite iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Esto permite que servicios externos, como Azure DevOps Services, GitHub, registros de Azure Monitor o aplicaciones personalizadas, inicien runbooks sin necesidad de implementar una solución completa mediante la API de Azure Automation.
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Puede comparar webhooks con otros métodos para iniciar un runbook [a partir un runbook de Azure Automation.](automation-starting-a-runbook.md)
@@ -54,6 +54,9 @@ El objeto **$WebhookData** tiene las siguientes propiedades:
 | RequestBody |El cuerpo de la solicitud POST entrante. Esto conserva todo el formato como cadena de JSON, XML o datos codificados de formulario. El runbook debe escribirse para que trabaje con el formato de datos que se espera. |
 
 No hay ninguna configuración del webhook obligatoria para admitir el parámetro **$WebhookData** y el runbook no tiene que aceptarlo. Si el runbook no define el parámetro, se ignoran los detalles de la solicitud enviados desde el cliente.
+
+> [!NOTE]
+> Al llamar a un webhook, siempre debe almacenar los valores de los parámetros en caso de que se produzca un error en la llamada. Si se produce un problema de conexión o de interrupción de la red, no podrá recuperar las llamadas de webhook con errores.
 
 Si especifica un valor para $WebhookData al crear el webhook, el valor se reemplaza cuando el webhook inicia el runbook con los datos de la solicitud POST del cliente, incluso si el cliente no incluye ningún dato en el cuerpo de la solicitud. Si inicia un runbook con $WebhookData mediante un método que no sea un webhook, puede proporcionar un valor para $Webhookdata que el runbook reconocerá. Este valor debe ser un objeto con las mismas [propiedades](#details-of-a-webhook) que $Webhookdata para que el runbook pueda funcionar correctamente con él con si trabajara con WebhookData pasado por un webhook.
 
@@ -171,7 +174,7 @@ if ($WebhookData) {
             {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-            Write-Output "Authenticating to Azure with service principal." 
+            Write-Output "Authenticating to Azure with service principal."
             Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
 
         # Start each virtual machine

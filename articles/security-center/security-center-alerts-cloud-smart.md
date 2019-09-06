@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7ba2cf14d9fac100f44a1ef23997b27ba062bee0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 5afba1ddf2d25e079d9f742f4e403dab6c0c0c4b
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295857"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013391"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlación de alertas inteligentes en la nube en Azure Security Center (incidentes)
 
-Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada.
+Azure Security Center analiza continuamente las cargas de trabajo de la nube híbrida mediante el análisis avanzado e información sobre amenazas para alertarle de cualquier actividad malintencionada.
 
-A medida que crece la cobertura contra amenazas y aumenta la necesidad de detectar incluso el más leve indicio de riesgo, para los analistas de seguridad puede suponer un reto evaluar las diferentes alertas e identificar un ataque real. Security Center permite a los analistas gestionar más fácilmente las alertas y diagnosticar los ataques cuando se producen, al poner en correlación diferentes alertas y señales de baja fidelidad para convertirlas en incidentes de seguridad.
+La magnitud de la cobertura de las amenazas está creciendo. La necesidad de detectar incluso el peligro más ligero es importante y puede ser difícil para los analistas de seguridad evaluar las distintas alertas e identificar un ataque real. Security Center ayuda a los analistas a afrontar este exceso de alertas. Ayuda a diagnosticar los ataques a medida que se producen, al correlacionar las distintas alertas y señales de baja fidelidad en incidentes de seguridad.
 
-La fusión es la tecnología y el back-end analítico que permite generar los incidentes de Security Center, al poner en correlación diferentes alertas y señales contextuales entre sí. La fusión analiza las distintas señales notificadas en una suscripción entre los recursos y busca patrones dominantes que muestran indicios o una progresión de ataque con información contextual compartida que indica el procedimiento de respuesta unificado que debería adoptarse para cada caso.
+El análisis de fusión es la tecnología y el back-end analítico que permite generar los incidentes de Security Center, al poner en correlación diferentes alertas y señales contextuales entre sí. La fusión examina las distintas señales informadas en una suscripción en todos los recursos. La fusión encuentra patrones que revelan la progresión de los ataques o las señales con información contextual compartida, lo que indica que debe utilizar un procedimiento de respuesta unificado para ellos.
 
 El análisis de fusión combina el conocimiento de dominios de seguridad con inteligencia artificial para analizar las alertas y detectar nuevos patrones de ataque cuando se producen. 
 
-Security Center utiliza la matriz de ataque MITRE para asociar alertas con su intención percibida, lo que ayuda a formalizar el conocimiento de dominios de seguridad. Además, mediante el uso de la información recopilada para cada paso de un ataque, Security Center puede descartar actividades que parecen ser pasos de un ataque, pero no lo son.  
+Security Center utiliza la matriz de ataque MITRE para asociar alertas con su intención percibida, lo que ayuda a formalizar el conocimiento de dominios de seguridad. Además, mediante el uso de la información recopilada para cada paso de un ataque, Security Center puede descartar actividades que parecen ser pasos de un ataque, pero en realidad no lo son.  
 
-Dado que a menudo se producen ataques entre varios inquilinos, Security Center puede combinar algoritmos de inteligencia artificial para analizar las secuencias de ataque que se notifican en cada suscripción para identificarlas como patrones de alerta dominantes en lugar de considerar que se trata de una asociación casual.
+Dado que los ataques se producen a menudo a través de distintos inquilinos, Security Center puede combinar algoritmos de inteligencia artificial para analizar las secuencias de ataque que se notifican en cada suscripción. Esta técnica identifica las secuencias de ataque como patrones de alerta más frecuentes, en lugar de asociarse simplemente entre sí.
 
 Durante la investigación de un incidente, los analistas a menudo necesitan más contexto para llegar a un veredicto sobre la naturaleza de la amenaza y cómo mitigarla. Por ejemplo, incluso cuando se detecta una anomalía de red, sin saber qué más sucede en la red o con respecto al recurso objetivo, es difícil determinar las medidas que se deben tomar a continuación. En estos casos, pueden ser de utilidad los artefactos, los eventos relacionados y la información que un incidente de seguridad puede incluir. La información adicional disponible de los incidentes de seguridad variará según el tipo de amenaza detectada y la configuración de su entorno. 
 
-![Detalles de incidentes de seguridad](./media/security-center-alerts-cloud-smart/security-incident.png)
+![Captura de pantalla del informe de incidentes de seguridad detectados](./media/security-center-alerts-cloud-smart/security-incident.png)
 
 Para comprender mejor qué son los incidentes de seguridad, consulte [Control de incidentes de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
 

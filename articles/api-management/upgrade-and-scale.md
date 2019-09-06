@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774938"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018232"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
@@ -53,8 +53,11 @@ El nivel **Premium** permite distribuir una instancia de Azure API Management in
 
 Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cambia a un nivel superior o inferior, es posible que algunas características dejen de estar disponibles, como ocurre con las VNET o las implementaciones en varias regiones cuando se pasa del nivel Premium al nivel Estándar o Básico.
 
->[!NOTE]
->El proceso de actualización o escalado puede tardar entre 15 y 45 minutos en aplicarse. Recibirá una notificación cuando se haya completado.
+> [!NOTE]
+> El proceso de actualización o escalado puede tardar entre 15 y 45 minutos en aplicarse. Recibirá una notificación cuando se haya completado.
+
+> [!NOTE]
+> El servicio API Management en el nivel **Consumo** se escala automáticamente en función del tráfico.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Uso de Azure Portal para actualizar y escalar
 

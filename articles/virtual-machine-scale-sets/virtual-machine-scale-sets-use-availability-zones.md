@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803265"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907977"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -34,11 +34,11 @@ Al implementar un conjunto de escalado en una o más zonas desde la versión *20
 
 Con la propagación máxima, solo verá un dominio de error en la vista de la instancia de la máquina virtual del conjunto de escalado y en los metadatos de la instancia, independientemente de cuántos dominios de error están propagando las máquinas virtuales. La propagación dentro de cada zona es implícita.
 
-Para la propagación máxima, establezca *platformFaultDomainCount* en *1*. Para usar la propagación en cinco dominios de error estática, establezca *platformFaultDomainCount* en *5*. En versión *2017-12-01* de la API, el valor predeterminado de *platformFaultDomainCount* es *1* para los conjuntos de escalado de una zona y de varias. Actualmente, solo se admite la propagación en cinco dominios de error para los conjuntos de escalado regionales.
+Para la propagación máxima, establezca *platformFaultDomainCount* en *1*. Para usar la propagación en cinco dominios de error estática, establezca *platformFaultDomainCount* en *5*. En versión *2017-12-01* de la API, el valor predeterminado de *platformFaultDomainCount* es *1* para los conjuntos de escalado de una zona y de varias. Actualmente, solo se admite la propagación en cinco dominios de error para los conjuntos de escalado regionales (no zonales).
 
 ### <a name="placement-groups"></a>Grupos de selección de ubicación
 
-Al implementar un conjunto de escalado, también tiene la opción de realizar la implementación con un único [grupo de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md) por zona de disponibilidad o con varios por zona. Para los conjuntos de escalado regional, la opción es tener un único grupo de selección de ubicación en la región o tener varios. Para la mayoría de las cargas de trabajo, se recomiendan varios grupos de selección de ubicación, lo que permite mayor escala. En la versión *2017-12-01* de la API, los conjuntos de escalado de una o varias zonas tienen varios grupos de selección de ubicación de manera predeterminada, pero se cambia de manera predeterminada a un único grupo para los conjuntos de escalado regionales.
+Al implementar un conjunto de escalado, también tiene la opción de realizar la implementación con un único [grupo de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md) por zona de disponibilidad o con varios por zona. Para los conjuntos de escalado regionales (no zonales), la opción es tener un único grupo de selección de ubicación en la región o tener varios. Para la mayoría de las cargas de trabajo, se recomiendan varios grupos de selección de ubicación, lo que permite mayor escala. En la versión *2017-12-01* de la API, los conjuntos de escalado de una o varias zonas tienen varios grupos de selección de ubicación de manera predeterminada, pero se cambia de manera predeterminada a un único grupo para los conjuntos de escalado regionales (no zonales).
 
 > [!NOTE]
 > Si usa la propagación máxima, debe usar varios grupos de selección de ubicación.
@@ -65,7 +65,7 @@ Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se e
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#services-support-by-region). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
 - [Azure Portal](#use-the-azure-portal)
-- Azure CLI
+- CLI de Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 

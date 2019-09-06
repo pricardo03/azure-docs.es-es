@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560436"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034815"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -77,7 +77,7 @@ Puede establecer el estado de una alerta para especificar dónde se encuentra en
 
 Se admiten los siguientes estados de alerta.
 
-| Estado | DESCRIPCIÓN |
+| State | DESCRIPCIÓN |
 |:---|:---|
 | Nuevo | Se acaba de detectar el problema y todavía no se ha revisado. |
 | Confirmado | Un administrador revisó la alerta y empezó a trabajar en ella. |
@@ -96,6 +96,9 @@ La página Alertas predeterminada brinda un resumen de las alertas que se crean 
 
 Como alternativa, puede [enumerar mediante programación las instancias de alertas generadas en las suscripciones mediante las API de REST](#manage-your-alert-instances-programmatically).
 
+> [!NOTE]
+   >  Solo se puede acceder a las alertas generadas en los últimos 30 días en la experiencia de usuario o a través de las API REST.
+
 No muestra las [alertas clásicas](#classic-alerts) antiguas ni realiza ningún seguimiento de ellas. Puede cambiar las suscripciones o los parámetros de filtro para actualizar la página. 
 
 ![Página de alertas](media/alerts-overview/alerts-page.png)
@@ -105,7 +108,7 @@ Para filtrar esta vista, seleccione valores en los menús desplegables que apare
 | Columna | DESCRIPCIÓN |
 |:---|:---|
 | Subscription | Seleccione las suscripciones a Azure de las que quiere ver las alertas. Si lo desea, puede seleccionar todas las suscripciones. Solo las alertas a las que tiene acceso de las suscripciones seleccionadas se incluyen en la vista. |
-| Grupos de recursos | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
+| Resource group | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
 | Intervalo de tiempo | Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
 
 Seleccione los valores siguientes en la parte superior de la página Alertas para abrir otra página.
@@ -148,7 +151,7 @@ Para filtrar la vista, seleccione los valores siguientes en los menús desplegab
 | Columna | DESCRIPCIÓN |
 |:---|:---|
 | Subscription | Seleccione las suscripciones a Azure de las que quiere ver las alertas. Si lo desea, puede seleccionar todas las suscripciones. Solo las alertas a las que tiene acceso de las suscripciones seleccionadas se incluyen en la vista. |
-| Grupos de recursos | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
+| Resource group | Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
 | Tipo de recurso | Seleccione uno o varios tipos de recurso. Solo las alertas con destinos del tipo seleccionado se incluyen en la vista. Esta columna solo está disponible tras especificar un grupo de recursos. |
 | Recurso | Seleccione un recurso. Solo las alertas con ese recurso como destino se incluyen en la vista. Esta columna solo está disponible tras especificar un tipo de recurso. |
 | severity | Seleccione un nivel de gravedad de alerta o seleccione *Todo* para incluir alertas de todos los niveles de gravedad. |

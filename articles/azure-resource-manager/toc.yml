@@ -60,9 +60,6 @@
   items:
     - name: Implementaciones de plantilla
       href: template-deployment-overview.md
-    - name: Estructura de archivos de plantilla
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: Procedimientos recomendados para plantillas
       href: template-best-practices.md
     - name: Plantillas para mantener la coherencia en la nube
@@ -85,26 +82,38 @@
   items:
     - name: Crear plantillas
       items:
-        - name: 'Herramienta de desarrollo: VS Code'
+        - name: Uso de VS Code
           href: resource-manager-tools-vs-code.md
-        - name: Creación de una plantilla
-          href: how-to-create-template.md
-        - name: Nombre y tipo del recurso secundario
-          href: child-resource-name-type.md
-        - name: Creación de grupos de recursos y otros recursos en la suscripción
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: Definición de las dependencias de recursos
-          href: resource-group-define-dependencies.md
+        - name: Escritura de expresiones de plantilla
+          href: template-expressions.md
+        - name: Parámetros
+          href: template-parameters.md
+        - name: variables
+          href: template-variables.md
+        - name: Funciones definidas por el usuario
+          href: template-user-defined-functions.md
+        - name: Recursos
+          items:
+            - name: Nombre y tipo del recurso secundario
+              href: child-resource-name-type.md
+            - name: Implementación condicional
+              href: conditional-resource-deployment.md
+            - name: Establecimiento de dependencias de recursos
+              href: resource-group-define-dependencies.md
+            - name: Establecimiento de la ubicación del recurso
+              href: resource-location.md
+            - name: Uso de extensiones de plantilla
+              href: resource-manager-use-extensions.md
+        - name: Salidas
+          href: template-outputs.md
         - name: Modularización de plantillas
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: Creación de varias instancias
           href: resource-group-create-multiple.md
-        - name: Uso de extensiones de plantilla
-          href: resource-manager-use-extensions.md
-        - name: Actualización de recursos
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: Creación de grupos de recursos y otros recursos en la suscripción
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: Implementación de plantillas
       items:
         - name: 'Implementación: Portal'
@@ -244,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: Referencia
   items:
+    - name: Estructura de archivos de plantilla
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: Referencia de plantilla
       href: /azure/templates/
     - name: Funciones de plantillas

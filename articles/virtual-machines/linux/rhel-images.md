@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091383"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309224"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.
@@ -133,12 +133,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6.7 for SAP HANA
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 for SAP HANA
 RHEL-SAP-APPS | 6,8      | RAW    | Agente Linux | RHEL 6.8 for SAP Business Applications
 |             | 7.3      | LVM    | Agente Linux | RHEL 7.3 for SAP Business Applications
-RHEL-HA       | 7.4      | RAW    | Agente Linux | RHEL 7.4 con el complemento de alta disponibilidad
-|             | 7.5      | RAW    | Agente Linux | RHEL 7.5 con el complemento de alta disponibilidad
-|             | 7.6      | RAW    | Agente Linux | RHEL 7.6 con el complemento de alta disponibilidad
-RHEL-SAP-HA   | 7.4      | RAW    | Agente Linux | RHEL 7.4 for SAP con el complemento de alta disponibilidad
-|             | 7.5      | RAW    | Agente Linux | RHEL 7.5 for SAP con el complemento de alta disponibilidad
-|             | 7.6      | RAW    | Agente Linux | RHEL 7.6 for SAP con el complemento de alta disponibilidad
+RHEL-HA       | 7.4      | LVM    | Agente Linux | RHEL 7.4 con el complemento de alta disponibilidad
+|             | 7.5      | LVM    | Agente Linux | RHEL 7.5 con el complemento de alta disponibilidad
+|             | 7.6      | LVM    | Agente Linux | RHEL 7.6 con el complemento de alta disponibilidad
+RHEL-SAP-HA   | 7.4      | LVM    | Agente Linux | RHEL 7.4 for SAP con el complemento de alta disponibilidad
+|             | 7.5      | LVM    | Agente Linux | RHEL 7.5 for SAP con el complemento de alta disponibilidad
+|             | 7.6      | LVM    | Agente Linux | RHEL 7.6 for SAP con el complemento de alta disponibilidad
 
 ### <a name="old-naming-convention"></a>Convención de nomenclatura anterior
 La familia de imágenes de RHEL 7 y la familia de imágenes de RHEL 6 usan versiones específicas en sus SKU hasta el cambio de convención de nomenclatura explicado anteriormente.

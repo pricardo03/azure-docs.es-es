@@ -197,6 +197,8 @@
           href: connector-amazon-redshift.md
         - name: Amazon S3
           href: connector-amazon-simple-storage-service.md
+        - name: Formato Avro
+          href: format-avro.md
         - name: Azure Blob Storage
           href: connector-azure-blob-storage.md
         - name: API de SQL de Azure Cosmos DB
@@ -606,6 +608,8 @@
           href: data-migration-guidance-s3-azure-storage.md
         - name: Migración de datos desde un clúster de Hadoop local a Azure
           href: data-migration-guidance-hdfs-azure-storage.md
+        - name: Migración de datos desde un servidor de Netezza local a Azure
+          href: data-migration-guidance-netezza-azure-sqldw.md
 - name: Referencia
   items:
     - name: .NET

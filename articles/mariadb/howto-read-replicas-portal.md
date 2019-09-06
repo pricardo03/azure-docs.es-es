@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.date: 08/21/2019
+ms.openlocfilehash: 939097ccca844e505819f5aad405d6322941b526
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876306"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309176"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Procedimientos para crear y administrar réplicas de lectura en Azure Database for MariaDB mediante Azure Portal
 
 En este artículo, obtendrá información sobre cómo crear y administrar réplicas de lectura en el servicio Azure Database for MariaDB mediante Azure Portal.
-
-> [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. Las réplicas de lectura (en la misma región y entre regiones) se encuentran actualmente en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,9 +42,12 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 
     ![Azure Database for MariaDB: nombre de réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Seleccione la ubicación del servidor de réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es la misma que la del servidor maestro.
+6. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor maestro.
 
     ![Azure Database for MariaDB: ubicación de la réplica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
 7. Seleccione **Aceptar** para confirmar la creación de la réplica.
 

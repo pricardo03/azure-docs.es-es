@@ -1,20 +1,20 @@
 ---
-title: Herramientas para trabajar con Azure Storage | Microsoft Docs
-description: Lista de herramientas que le permiten ver datos de Azure Storage o interactuar con ellos.
+title: Herramientas para trabajar con Azure Storage
+description: Lista de herramientas que le permiten ver datos de Azure Storage e interactuar con ellos.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 08/26/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665749"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035261"
 ---
 # <a name="azure-storage-client-tools"></a>Herramientas de cliente de Azure Storage
 Los usuarios de Azure Storage con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Azure Storage. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una "X" en cada bloque si permite enumerar la abstracción de los datos o tener acceso a ella. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
@@ -116,20 +116,6 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguie
     <td>X</td>
     <td>X</td>
     <td>Versión de prueba</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Y</td>
     <td></td>
     <td>X</td>
     <td></td>

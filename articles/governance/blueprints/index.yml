@@ -1,49 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentación del servicio Azure Blueprints
+### YamlMime:Landing
+title: Documentación de Azure Blueprint
+summary: Simplifique las implementaciones empaquetando los artefactos como, por ejemplo, plantillas de Resource Manager, controles de acceso basado en rol y directivas, en una única definición de plano técnico.
 metadata:
-  title: 'Documentación de Azure Blueprint: tutoriales y referencia de API'
-  description: 'Azure Blueprint es un servicio de Azure que se usa para crear, definir e implementar artefactos en el entorno de Azure.'
-  author: DCtheGeek
-  manager: carmonm
+  title: Documentación de Azure Blueprint
+  description: Simplifique las implementaciones empaquetando los artefactos como, por ejemplo, plantillas de Resource Manager, controles de acceso basado en rol y directivas, en una única definición de plano técnico.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 06/14/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'Azure Blueprint le ayuda a implementar y actualizar entornos en la nube de forma repetitiva mediante artefactos que admiten composición, como directivas, control de acceso basado en rol y plantillas de Azure Resource Manager para aprovisionar recursos.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear, asignar y administrar definiciones de planos técnicos en Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Portal
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: create-blueprint-portal.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: create-blueprint-powershell.md
-          - image:
-              alt: REST
-              src: ./media/rest.svg
-            text: REST
-            href: create-blueprint-rest-api.md
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">SDK de Azure para .NET</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/blueprints/">Referencia de API</a></p>
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239199"
+landingContent:
+- title: Acerca de Azure Blueprints
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Blueprint?
+      url: ./overview.md
+    - text: Etapas de la implementación
+      url: ./concepts/deployment-stages.md
+    - text: Ciclo de vida de un plano técnico
+      url: ./concepts/lifecycle.md
+  - linkListType: video
+    links:
+    - text: 'Azure Friday: Introducción a Azure Blueprints'
+      url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un nuevo plano técnico (portal)
+      url: ./create-blueprint-portal.md
+    - text: Creación de un nuevo plano técnico (PowerShell)
+      url: ./create-blueprint-powershell.md
+    - text: Creación de un nuevo plano técnico (API REST)
+      url: ./create-blueprint-rest-api.md
+  - linkListType: tutorial
+    links:
+    - text: Uso de un ejemplo de plano técnico
+      url: ./tutorials/create-from-sample.md
+  - linkListType: deploy
+    links:
+    - text: Índice de ejemplos de planos técnicos
+      url: ./samples/index.md
+- title: Personalización de planos técnicos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Parámetros dinámicos
+      url: ./concepts/parameters.md
+    - text: Artefactos de secuencia
+      url: ./concepts/sequencing-order.md
+    - text: Bloqueo de recursos implementados
+      url: ./concepts/resource-locking.md
+  - linkListType: tutorial
+    links:
+    - text: Protección de nuevos recursos con bloqueos
+      url: ./tutorials/protect-new-resources.md
+- title: Evolución al modelo "a escala"
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Actualización de los planos técnicos existentes
+      url: ./how-to/update-existing-assignments.md
+    - text: Administración de asignaciones con PowerShell
+      url: ./how-to/manage-assignments-ps.md
+    - text: Importación y exportación con PowerShell
+      url: ./how-to/import-export-ps.md
+    - text: Implementación de operadores de plano técnico
+      url: ./how-to/configure-for-blueprint-operator.md
+    - text: Administración de planos técnicos como código
+      url: https://github.com/Azure/azure-blueprints/blob/master/README.md
+- title: Participación
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Canal de YouTube de gobernanza de Azure
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Solicitud de característica del producto
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Tech Community para gobernanza de Azure
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Funciones específicas de un plano técnico
+      url: ./reference/blueprint-functions.md
+    - text: Módulo de PowerShell (PSGallery)
+      url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Azure PowerShell
+      url: /powershell/module/az.blueprint/#blueprint
+    - text: API DE REST
+      url: /rest/api/blueprints/
+    - text: .NET
+      url: /dotnet/api/overview/azure/blueprints/management

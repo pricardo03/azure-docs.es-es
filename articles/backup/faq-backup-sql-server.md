@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737075"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982435"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -30,16 +30,17 @@ En algunas circunstancias, el servicio de Azure Backup desencadena copias de seg
   - Si la copia de seguridad diferencial o de registro produce un error debido a un error de validación de LSN, la siguiente copia de seguridad diferencial o de registro se convierte en su lugar en una copia de seguridad completa.
   - Si no se produjo ninguna copia de seguridad completa antes de la copia de seguridad diferencial o de registro, esa copia de seguridad diferencial o de registro se convierte en su lugar en una copia de seguridad completa.
   - Si el momento específico de la copia de seguridad completa más reciente es anterior a 15 días, la siguiente copia de seguridad diferencial o de registro se convierte en su lugar en una copia de seguridad completa.
-  - Todos los trabajos de copia de seguridad se cancelen debido a una actualización de la extensión vuelven a desencadenarse una vez completada la actualización e iniciada la extensión.
+  - Todos los trabajos de copia de seguridad que se cancelen debido a una actualización de la extensión se vuelven a desencadenar una vez completada la actualización e iniciada la extensión.
   - Si decide sobrescribir la base de datos durante la restauración, se produce un error en la siguiente copia de seguridad diferencial o de registro y en su lugar se desencadena una copia de seguridad completa.
   - En los casos en los que se requiera una copia de seguridad completa para restablecer las cadenas de registro debido a un cambio en el modelo de recuperación de la base de datos, se desencadena una completa automáticamente en la siguiente programación.
 
 La reparación automática como funcionalidad está habilitada para todos los usuarios de forma predeterminada. Sin embargo, si elige deshabilitarla realice los las siguientes acciones:
 
   * En la instancia de SQL Server, en la carpeta *C:\Archivos de programa\Azure Workload Backup\bin*, cree o edite el archivo **ExtensionSettingsOverrides.json**.
-  * En el archivo  **ExtensionSettingsOverrides.json**, establezca *{"EnableAutoHealer": false}* .
+  * En **ExtensionSettingsOverrides.json**, establezca *{"EnableAutoHealer": false}* .
   * Guarde los cambios y cierre el archivo.
-  * En la instancia de SQL Server, abra el **Administrador de tareas** y, a continuación, reinicie el servicio **AzureWLBackupCoordinatorSvc**.  
+  * En la instancia de SQL Server, abra el **Administrador de tareas** y, a continuación, reinicie el servicio **AzureWLBackupCoordinatorSvc**.
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>¿Puedo controlar cuántas copias de seguridad simultáneas se ejecutan en el servidor de SQL Server?
 
@@ -71,12 +72,12 @@ No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas
 El menú de **Trabajo de copia de seguridad** solo muestra los trabajos de copia de seguridad ad hoc. Para el trabajo programado, utilice la [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
-Sí, puede obtener esta funcionalidad con la  [protección automática](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+Sí, puede obtener esta funcionalidad con la [protección automática](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Si elimino una base de datos de una instancia protegida automática, ¿qué ocurrirá con las copias de seguridad?
 Si se quita una base de datos de una instancia protegida automáticamente, se siguen intentando las copias de seguridad de la base de datos. Esto implica que la base de datos eliminada comienza a aparecer como incorrecta en **Elementos de copia de seguridad** y todavía está protegida.
 
-La manera correcta de detener la protección de esta base de datos es realizar una acción  **Detener copia de seguridad** con **eliminación de datos** en esta base de datos.  
+La manera correcta de detener la protección de esta base de datos es realizar una acción **Detener copia de seguridad** con **eliminación de datos** en esta base de datos.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Si se detiene la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?
 Si realiza una acción **Detener copia de seguridad con retención de datos**, no se realizarán copias de seguridad futuras y los puntos de recuperación existentes permanecerán intactos. La base de datos se seguirá considerando como protegido y se mostrará en los **Elementos de copia de seguridad**.

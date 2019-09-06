@@ -153,6 +153,9 @@
     - name: Administración de asignaciones con PowerShell
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: Importación y exportación con PowerShell
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: Actualización de las asignaciones existentes desde el portal
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

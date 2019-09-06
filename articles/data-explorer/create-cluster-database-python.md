@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3f58e596db26c04a8f3be4f87eb129fadf5e328
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494576"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141746"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante Python
 
@@ -71,7 +71,7 @@ pip install azure-mgmt-kusto
 
     Hay varios parámetros opcionales que puede usar, como la capacidad del clúster, etcétera.
     
-1. Establecimiento de [*las credenciales*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Establecimiento de [*las credenciales*](/azure/python/python-sdk-azure-authenticate)
 
 1. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
 

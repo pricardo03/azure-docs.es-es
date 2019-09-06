@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575891"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098951"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Creación y administración de entornos de entrenamiento e implementación
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>Creación automática de entornos
 
-Cree automáticamente un entorno mediante el envío de una ejecución de entrenamiento con el método [submit()](). Cuando se envía una ejecución de entrenamiento, la creación de un entorno puede tardar varios minutos, según el tamaño de las dependencias necesarias. 
+Cree un entorno automáticamente mediante el envío de una ejecución de entrenamiento con el método submit(). Cuando se envía una ejecución de entrenamiento, la creación de un entorno puede tardar varios minutos, según el tamaño de las dependencias necesarias. 
 
 Si no especifica un entorno en la configuración de ejecución antes de enviar la ejecución, se crea un entorno predeterminado.
 

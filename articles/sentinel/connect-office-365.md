@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679262"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018994"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar datos de registros de Office 365
 
@@ -37,6 +37,9 @@ Se pueden transmitir registros de auditoría desde [Office 365](https://docs.mic
 
 - Debe ser administrador global o administrador de seguridad en el inquilino.
 - En el equipo en el que se ha iniciado sesión en Azure Sentinel para crear la conexión, asegúrese de que el puerto 4433 está abierto al tráfico web.
+- Si el inquilino no tiene una licencia de Office 365 E3 u Office 365 E5, debe habilitar la auditoría unificada en el inquilino mediante uno de estos procesos:
+    - [Usar el cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) y habilitar el parámetro “UnifiedAuditLogIngestionEnabled”.
+    - [O usar la interfaz de usuario del Centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Conectarse a Office 365
 

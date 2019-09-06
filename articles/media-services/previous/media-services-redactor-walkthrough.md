@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014943"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997674"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -40,7 +40,7 @@ La manera más fácil de empezar a trabajar con Redactor es usar la herramienta 
 
 ### <a name="download-and-setup"></a>Descarga e instalación
 
-1. Descargue la herramienta AMSE [aquí](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Descargue la herramienta AMSE para AMS v2 desde [aquí](https://aka.ms/amseforv2).
 1. Inicie sesión en su cuenta de Media Services mediante la clave del servicio.
 
     Para obtener el nombre de la cuenta y la información de la clave, vaya a [Azure Portal](https://portal.azure.com/) y seleccione la cuenta de Azure Media Services. A continuación, seleccione Configuración > Claves. Aparece la ventana Administrar claves que muestra el nombre de la cuenta y la clave principal y la secundaria. Copie los valores del nombre de la cuenta y la clave principal.

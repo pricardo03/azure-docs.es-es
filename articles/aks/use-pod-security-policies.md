@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033982"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061849"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
@@ -71,7 +71,7 @@ En los clústeres de Kubernetes se usa un controlador de admisión para intercep
 
 *PodSecurityPolicy* es un controlador de admisión que valida si una especificación de pod cumple los requisitos definidos. Estos pueden incluir el límite del uso de contenedores con privilegios, del acceso a ciertos tipos de almacenamiento, o del usuario o grupo que puede ejecutar el contenedor. Al intentar implementar un recurso donde las especificaciones de pod no cumplan los requisitos descritos en la directiva de seguridad de pod, la solicitud se deniega. Esta capacidad para controlar qué pods se pueden programar en el clúster de AKS evita algunos puntos vulnerables de seguridad o elevaciones de privilegios.
 
-Al habilitar la directiva de seguridad de pod en el clúster de AKS, se aplican algunas directivas predeterminadas. Estas directivas predeterminadas proporcionan una experiencia de fábrica para definir qué pods que se puede programar. Sin embargo, los usuarios del clúster pueden encontrarse con problemas al implementar los pods hasta que defina sus propias directivas. El enfoque recomendado es:
+Al habilitar la directiva de seguridad de pod en el clúster de AKS, se aplican algunas directivas predeterminadas. Estas directivas predeterminadas proporcionan una experiencia de fábrica para definir qué pods que se puede programar. Sin embargo, los usuarios del clúster pueden encontrarse con problemas al implementar los pods hasta que defina sus propias directivas. El método recomendado es el siguiente:
 
 * Creación de un clúster de AKS
 * Definición de directivas de seguridad de pod propias
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> En el primer paso de este artículo se ha habilitado la característica de directiva de seguridad de pod en el clúster de AKS. El método recomendado era habilitar solo la característica de directiva de seguridad de pod una vez definidas las directivas propias. Esta es la fase en la que habilitaría la característica de directiva de seguridad de pod. Se han definido una o varias directivas personalizadas y las cuentas de usuario se han asociado a esas directivas. Ahora puede usar la característica de directiva de seguridad de pod con seguridad y reducir los problemas causados por las directivas predeterminadas.
+> En el primer paso de este artículo se ha habilitado la característica de directiva de seguridad de pod en el clúster de AKS. El método recomendado era habilitar solo la característica de directiva de seguridad de pod una vez definidas las directivas propias. Esta es la fase en la que habilitaría la característica de directiva de seguridad de pod. Se han definido una o varias directivas personalizadas y las cuentas de usuario se han asociado a esas directivas. Ahora puede habilitar la característica de directiva de seguridad de pod sin problemas y reducir los problemas causados por las directivas predeterminadas.
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Segunda prueba de creación de un pod sin privilegios
 

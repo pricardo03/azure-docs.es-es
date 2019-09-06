@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934688"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195076"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 En este artículo, se trata un conjunto de procedimientos recomendados para la seguridad del control de acceso y la administración de identidades en Azure. Estos procedimientos recomendados proceden de nuestra experiencia con [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) y las experiencias de clientes como usted.
@@ -93,7 +93,7 @@ Las organizaciones que no integren la identidad del entorno local con la identid
 > Debe elegir en qué directorios van a residir las cuentas críticas y si la estación de trabajo de administración empleada se administra mediante servicios en la nube nuevos o mediante procesos ya existentes. Usar los procesos de aprovisionamiento de identidades y administración existentes puede reducir algunos riesgos, pero también puede crear el riesgo de que un atacante ponga en peligro una cuenta local y pase a la nube. Es posible que desee usar una estrategia diferente para distintos roles (por ejemplo, administradores de TI frente a administradores de unidades de negocio). Tiene dos opciones: La primera es crear cuentas de Azure AD que no estén sincronizadas con la instancia local de Active Directory. Una su estación de trabajo de administración a Azure AD, que se puede administrar y donde se pueden aplicar revisiones mediante Microsoft Intune. La segunda consiste en usar cuentas de administrador existentes mediante la sincronización de la instancia de Active Directory local. Use estaciones de trabajo existentes en el dominio de Active Directory para la administración y seguridad.
 
 ## <a name="manage-connected-tenants"></a>Administrar inquilinos conectados
-Su organización de seguridad necesita visibilidad para evaluar los riesgos y determinar si se siguen las directivas de la organización, así como cualquier requisito normativo. Debe asegurarse de que su organización de seguridad tiene visibilidad en todas las suscripciones conectadas al entorno de producción y a la red (a través de [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [administrador global o un administrador de empresa](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) en Azure AD puede elevar su acceso al rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) y ver todas las suscripciones y los grupos administrados conectados al entorno.
+Su organización de seguridad necesita visibilidad para evaluar los riesgos y determinar si se siguen las directivas de la organización, así como cualquier requisito normativo. Debe asegurarse de que su organización de seguridad tiene visibilidad en todas las suscripciones conectadas al entorno de producción y a la red (a través de [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [administrador global o un administrador de empresa](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) en Azure AD puede elevar su acceso al rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) y ver todas las suscripciones y los grupos administrados conectados al entorno.
 
 Vea [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../../role-based-access-control/elevate-access-global-admin.md) para asegurarse de que usted y su grupo de seguridad pueden ver todas las suscripciones o grupos de administración conectados al entorno. Deberá quitar este acceso con privilegios elevados después de haber evaluado los riesgos.
 

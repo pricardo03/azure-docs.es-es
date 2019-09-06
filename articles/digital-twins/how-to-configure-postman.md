@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873642"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904295"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -35,9 +35,9 @@ A través del cliente Postman, los programadores de soluciones pueden especifica
 
 Configure la aplicación Azure Active Directory para usar el flujo de concesión implícita de OAuth 2.0.
 
-1. Siga los pasos de [este inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para crear una aplicación de Azure AD de tipo nativo. O bien, puede volver a usar un registro de aplicación nativa existente.
+1. Siga los pasos de [nuestro inicio rápido](./quickstart-view-occupancy-dotnet.md) para crear una aplicación de Azure AD. O bien, cree una [aplicación nativa con la hoja AAD heredada](./how-to-use-legacy-aad.md).
 
-1. En **Permisos necesarios**, seleccione **Agregar** y escriba **Azure Digital Twins** en **Agregar acceso de API**. Si la búsqueda no encuentra la API, busque en su lugar **Azure Smart Spaces**. A continuación, seleccione **Conceder permisos > Permisos delegados** y **Listo**.
+1. En **Permisos de API**, seleccione **Agregar un permiso**. Después, **Azure Digital Twins** en **API usadas en mi organización**. Si la búsqueda no encuentra la API, busque en su lugar **Azure Smart Spaces**. A continuación, seleccione **Permisos delegados**, **Read** > **Read.Write** (Lectura > Lectura.Escritura) y **Agregar permiso**.
 
     [![Registros de aplicaciones de Azure Active Directory: agregar API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -75,7 +75,7 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
     | Tipo de concesión | `Implicit` |
     | Dirección URL de devolución de llamadas | `https://www.getpostman.com/oauth2/callback` |
     | Dirección URL de autenticación | Use la **Dirección URL de autorización** del paso 2 |
-    | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior |
+    | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior. |
     | Ámbito | Déjelo en blanco |
     | State | Déjelo en blanco |
     | Autenticación de clientes | `Send as Basic Auth header` |

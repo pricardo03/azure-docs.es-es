@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b0c9d55846a0240dde92de16ea17e9403a112c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699215"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997784"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migración masiva de datos a Azure File Sync
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -22,9 +22,10 @@ Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
 
 En este artículo se explica cómo migrar archivos sin conexión de una forma que es compatible con Azure File Sync. Siga estas instrucciones para evitar conflictos de archivos y conservar sus listas de control de acceso (ACL) a archivos y carpetas, y las marcas de tiempo después de habilitar la sincronización.
 
-## <a name="online-migration-tools"></a>Herramientas de migración en línea
-El proceso que se describe en este artículo funciona no solo con Data Box sino también con otras herramientas de migración sin conexión. También funciona con herramientas en línea como AzCopy, Robocopy o herramientas y servicios de asociados. Independientemente de cómo solucione la dificultad inicial, siga los pasos de este artículo para usar estas herramientas de una forma que sea compatible con Azure File Sync.
+## <a name="migration-tools"></a>Herramientas de migración
+El proceso que se describe en este artículo funciona no solo con Data Box sino también con otras herramientas de migración sin conexión. También sirve para herramientas como AzCopy, Robocopy o herramientas y servicios de asociados que funcionan directamente a través de Internet. Independientemente de cómo se solucione la dificultad inicial, siga los pasos de este artículo para usar estas herramientas de una forma que sea compatible con Azure File Sync.
 
+En algunos casos, necesitará pasar de un servidor de Windows a otro antes de adoptar Azure File Sync. El [Servicio de migración de almacenamiento](https://aka.ms/storagemigrationservice) (SMS) puede ayudar en eso. Si necesita migrar a una versión de sistema operativo del servidor compatible con Azure File Sync (Windows Server 2012R2 y versiones posteriores) o simplemente tiene que migrar porque está comprando un nuevo sistema para Azure File Sync, SMS tiene numerosas características y ventajas que lo ayudarán a tener realizar su migración sin ningún problema.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Ventajas de usar una herramienta de transferencia de datos sin conexión
 Estas son las principales ventajas de usar una herramienta de transferencia como Data Box para la migración sin conexión:

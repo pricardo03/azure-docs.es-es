@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467541"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276790"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -66,7 +66,7 @@ En el siguiente vídeo se explica cómo se usa una clave de Cognitive Services.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticación con una clave de suscripción a varios servicios
 
 >[!WARNING]
-> En este momento, estos servicios **no** admiten las claves de varios servicios: QnA Maker, servicios de voz y Custom Vision.
+> En este momento, estos servicios **no** admiten las claves de varios servicios: QnA Maker, servicios de Voz, Custom Vision y Anomaly Detector.
 
 Esta opción también utiliza una clave de suscripción para autenticar las solicitudes. La principal diferencia es que una clave de suscripción no está asociada a un servicio específico, sino que se puede utilizar una única clave para autenticar solicitudes de varios servicios de Cognitive Services. Consulte los [precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) para más información sobre la disponibilidad regional, características admitidas y precios.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 2c5eb25ae536a6cdb0eb12f1233307215fe2d7d1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4da699237a0c56a27fb27908b483c5d0c90b0d2a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080008"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136542"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>El servidor de licencias de Escritorio remoto no está disponible cuando se conecta a una máquina virtual de Azure.
 
@@ -122,7 +122,7 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Si no hay ningún servidor de licencias de Escritorio remoto en el entorno y quiere uno, puede [instalar un servicio de rol de administración de licencias de Escritorio remoto ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). A continuación, [configure la administración de licencias de RDS](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. Si no hay ningún servidor de licencias de Escritorio remoto en el entorno y quiere uno, puede [instalar un servicio de rol de administración de licencias de Escritorio remoto ](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). A continuación, [configure la administración de licencias de RDS](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. Si un servidor de licencias de Escritorio remoto está configurado y en buen estado, debe asegurarse de activar el servidor de licencias de escritorio remoto con CAL.
 

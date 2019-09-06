@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa7117fd7b5c8fa92f9d9cff1d7b1cbc18555840
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879432"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972613"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -28,7 +28,7 @@ La extensión basada en L2VPN de redes de Capa 2 puede funcionar con o sin redes
 
 Para extender la red local mediante L2VPN, debe configurar un servidor de L2VPN (enrutador de nivel 0 de NSX-T de destino) y un cliente L2VPN (cliente independiente de origen).  
 
-En este escenario de implementación, la nube privada se conecta al entorno local a través de un túnel VPN de sitio a sitio que permite a las subredes de vMotion y de administración locales comunicarse con las subredes de vMotion y de administración de la nube privada. Esta disposición es necesaria para Cross vCenter vMotion (xVC-vMotion). Un enrutador de nivel 0 de NSX-T se implementa como un servidor de L2VPN en la nube privada.
+En este escenario de implementación, la nube privada se conecta al entorno local mediante un túnel VPN de sitio a sitio que permite a las subredes de vMotion y de administración locales comunicarse con las subredes de vMotion y de administración de la nube privada. Esta disposición es necesaria para Cross vCenter vMotion (xVC-vMotion). Un enrutador de nivel 0 de NSX-T se implementa como un servidor de L2VPN en la nube privada.
 
 NSX Edge independiente se implementa en el entorno local como un cliente L2VPN y, posteriormente, se empareja con el servidor de L2VPN. Se crea un punto de conexión de túnel GRE en cada lado y se configura para "extender" la red de Capa 2 local a la nube privada. Esta configuración se describe en la siguiente ilustración.
 
@@ -276,7 +276,7 @@ POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
 "trust_crl_ids": []
 }
 ```
- 
+
 ### <a name="create-a-peer-endpoint"></a>Creación de un punto de conexión del mismo nivel
 
 ```

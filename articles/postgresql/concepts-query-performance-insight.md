@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067555"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907466"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
 
@@ -41,6 +41,9 @@ La tabla debajo del gráfico proporciona más información sobre las consultas d
 Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
 
 ![Estadísticas de espera de Información de rendimiento de consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## <a name="considerations"></a>Consideraciones
+* Información de rendimiento de consultas no está disponible para las [réplicas de lectura](concepts-read-replicas.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.

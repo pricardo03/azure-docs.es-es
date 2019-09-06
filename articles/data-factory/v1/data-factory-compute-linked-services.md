@@ -3,22 +3,20 @@ title: Entornos de proceso compatibles con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565725"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140249"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -120,7 +118,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 >
 > 
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
 | Tipo                         | Establezca la propiedad type en **HDInsightOnDemand**. | Sí      |
@@ -256,13 +254,13 @@ Puede crear un servicio vinculado de HDInsight para registrar su propio clúster
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | Establezca la propiedad type en **HDInsight**. | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.        | Sí      |
-| nombre de usuario          | El nombre de la cuenta de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
-| contraseña          | Contraseña para la cuenta de usuario.   | Sí      |
+| username          | El nombre de la cuenta de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
+| password          | Contraseña para la cuenta de usuario.   | Sí      |
 | linkedServiceName | El nombre del servicio vinculado de almacenamiento que hace referencia al almacenamiento de blobs que el clúster de HDInsight usa. <p>Actualmente, no puede especificar un servicio vinculado de Data Lake Store para esta propiedad. Si el clúster de HDInsight tiene acceso a Data Lake Store, puede acceder a los datos de Data Lake Store desde scripts de Hive o de Pig. </p> | Sí      |
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
@@ -304,7 +302,7 @@ Otra opción es proporcionar el punto de conexión **batchUri**. Por ejemplo:
 "batchUri": "https://eastus.batch.azure.com",
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
 | Tipo              | Establezca la propiedad type en **AzureBatch**. | Sí      |
@@ -331,10 +329,10 @@ Puede crear un servicio vinculado de Machine Learning para registrar un punto de
 }
 ```
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 | Propiedad   | DESCRIPCIÓN                              | Obligatorio |
 | ---------- | ---------------------------------------- | -------- |
-| Type       | Establezca la propiedad type en **AzureML**. | Sí      |
+| type       | Establezca la propiedad type en **AzureML**. | Sí      |
 | mlEndpoint | La dirección URL de puntuación por lotes.                   | Sí      |
 | apiKey     | La API del modelo de área de trabajo publicado.     | Sí      |
 

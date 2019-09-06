@@ -1,35 +1,35 @@
 ---
-title: 'Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell'
-description: En este tutorial, aprenderá a implementar y configurar Azure Firewall mediante Azure PowerShell.
+title: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
+description: En este artículo, aprenderá a implementar y configurar Azure Firewall mediante Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
+ms.topic: article
 ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144914"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073075"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
 Cuando conecta la red local a una red virtual de Azure para crear una red híbrida, la capacidad de controlar el acceso a los recursos de la red de Azure es parte importante de un plan de seguridad global.
 
 Puede usar Azure Firewall para controlar el acceso de red en una red híbrida con reglas que definen el tráfico de red que se permite o que se rechaza.
 
-En este tutorial se crearán tres redes virtuales:
+En este artículo se crearán tres redes virtuales:
 
 - **VNet-Hub**: el firewall está en esta red virtual.
 - **VNet-Spoke**: la red virtual Spoke representa la carga de trabajo ubicada en Azure.
-- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, se puede conectar mediante una conexión VPN o ExpressRoute. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
+- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, se puede conectar mediante una conexión VPN o ExpressRoute. Para simplificar, este artículo usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
 
 ![Firewall en una red híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Declaración de las variables
@@ -43,12 +43,13 @@ En este tutorial, aprenderá a:
 > * Creación de las máquinas virtuales
 > * Probar el firewall
 
+Si desea usar Azure Portal en lugar de completar este tutorial, consulte [Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial es necesario ejecutar PowerShell de forma local. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
+En este artículo es necesario ejecutar PowerShell en local. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 Hay tres requisitos clave para que este escenario funcione correctamente:
 
@@ -58,7 +59,7 @@ Hay tres requisitos clave para que este escenario funcione correctamente:
    No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 - Asegúrese de establecer **AllowGatewayTransit** al emparejar VNet-Hub con VNet-Spoke y **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub.
 
-Consulte la sección [Creación de rutas](#create-the-routes) en este tutorial para ver cómo se crean estas rutas.
+Consulte la sección [Creación de rutas](#create-the-routes) en este artículo para ver cómo se crean estas rutas.
 
 >[!NOTE]
 >Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet. De forma predeterminada, Azure Firewall no admite la tunelización forzada a una red local.
@@ -74,7 +75,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="declare-the-variables"></a>Declaración de las variables
 
-En el ejemplo siguiente se declaran las variables con los valores para este tutorial. En algunos casos, puede que tenga que reemplazar algunos valores por los suyos propios para trabajar en su suscripción. Si es necesario, modifique las variables y después cópielas y péguelas en la consola de PowerShell.
+En el ejemplo siguiente se declaran las variables con los valores para este artículo. En algunos casos, puede que tenga que reemplazar algunos valores por los suyos propios para trabajar en su suscripción. Si es necesario, modifique las variables y después cópielas y péguelas en la consola de PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -118,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Crear la red virtual del centro de firewall
 
-En primer lugar, cree el grupo de recursos en el que se incluirán los recursos de este tutorial:
+En primer lugar, cree el grupo de recursos en el que se incluirán los recursos de este artículo:
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -496,5 +497,4 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 
 A continuación, puede supervisar los registros de Azure Firewall.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)
+[Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)

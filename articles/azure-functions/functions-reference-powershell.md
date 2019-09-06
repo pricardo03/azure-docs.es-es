@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706397"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012711"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -84,7 +84,7 @@ $TriggerMetadata.sys
 
 | Propiedad   | DESCRIPCIÓN                                     | type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Cuándo se desencadenó la función (en formato UTC)        | Datetime |
+| UtcNow     | Cuándo se desencadenó la función (en formato UTC)        | DateTime |
 | MethodName | Nombre de la función desencadenada     | string   |
 | RandGuid   | GUID único para esta ejecución de la función | string   |
 
@@ -517,7 +517,7 @@ El [plan Consumo](functions-scale.md#consumption-plan) se ejecuta con un solo n�
 
 Azure PowerShell usa algunos procesos y estados de _nivel de proceso_ para que no tenga que escribir tanto. Sin embargo, si activa la simultaneidad en la aplicación de funciones e invoca acciones que cambien el estado, puede acabar con las condiciones de carrera. Estas condiciones de carrera son difíciles de depurar, ya que una invocación se basa en un estado determinado y la otra ha cambiado el estado.
 
-La simultaneidad es muy valiosa con Azure PowerShell, ya que algunas operaciones pueden tardar un tiempo considerable. Sin embargo, debe proceder con precaución. Si sospecha que tiene una condición de carrera, establecer la simultaneidad de nuevo en `1` e intente de nuevo la solicitud.
+La simultaneidad es muy valiosa con Azure PowerShell, ya que algunas operaciones pueden tardar un tiempo considerable. Sin embargo, debe proceder con precaución. Si sospecha que está experimentando una condición de carrera, establezca la configuración de la aplicación PSWorkerInProcConcurrencyUpperBound en `1` y, en su lugar, use el [aislamiento de nivel de proceso de trabajo de lenguaje](functions-app-settings.md#functions_worker_process_count) para la simultaneidad.
 
 ## <a name="configure-function-scriptfile"></a>Configuración de la función `scriptFile`
 

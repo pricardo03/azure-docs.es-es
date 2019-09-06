@@ -3,18 +3,18 @@ title: Funciones de la plantilla de Resource Manager | Microsoft Docs
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205422"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258880"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
-En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](resource-group-authoring-templates.md#syntax).
+En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](template-expressions.md).
 
 Para crear sus propias funciones, consulte [Funciones definidas por el usuario](resource-group-authoring-templates.md#functions).
 
@@ -39,7 +39,7 @@ Para crear sus propias funciones, consulte [Funciones definidas por el usuario](
 ## <a name="array-and-object-functions"></a>Funciones de matriz y objeto
 Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
-* [matriz](resource-group-template-functions-array.md#array)
+* [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
 * [contains](resource-group-template-functions-array.md#contains)

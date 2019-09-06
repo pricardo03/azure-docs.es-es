@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 7ab42fdb03209173c61b70fdf498aa77b39a1c23
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703917"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036381"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>¿Qué es un informe de inteligencia frente a amenazas?
-La detección de amenazas de Security supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Este proceso forma parte de las [funcionalidades de detección](security-center-detection-capabilities.md) de Security Center.
+La detección de amenazas de Security supervisa la información de seguridad de sus recursos de Azure, la red y las soluciones de asociados relacionadas. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas. Para más información, consulte [Cómo detecta y responde Azure Security Center a las amenazas](security-center-alerts-overview.md#detect-threats).
 
 Cuando Security Center identifica una amenaza, desencadena una [alerta de seguridad](security-center-managing-and-responding-alerts.md), que contiene información detallada sobre un evento determinado, junto con sugerencias para remediarlo. Para ayudar a los equipos de respuesta a incidentes a investigar y solucionar las amenazas, Security Center incluye un informe de inteligencia frente a amenazas que contiene información sobre la amenaza detectada, y además:
 
@@ -48,7 +48,7 @@ Security Center tiene tres tipos de informes de amenazas, que pueden variar seg�
 * **Informe de campaña**: se centra en los detalles de campañas de ataque específicas.
 * **Informe de resumen de amenazas**: cubre todos los elementos de los dos informes anteriores.
 
-Este tipo de información es resulta útil durante los procesos de [respuesta a incidentes](security-center-incident-response.md), donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante.
+Este tipo de información es resulta útil durante los procesos de respuesta a incidentes, donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>¿Cómo acceder al informe de inteligencia frente a amenazas?
 Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra Azure Portal y siga los pasos siguientes para ver más detalles sobre cada alerta:
@@ -70,8 +70,6 @@ Desde aquí puede descargar el PDF de este informe y leer más sobre el problema
 En este documento, ha aprendido cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudar durante una investigación sobre alertas de seguridad. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
-* [Cómo aprovechar Azure Security Center para dar respuesta a incidentes](security-center-incident-response.md)
-* [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md). Aprenda a planificar y entender las consideraciones de diseño para adoptar Azure Security Center.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md). Aprenda a administrar y responder a las alertas de seguridad.
 * [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)

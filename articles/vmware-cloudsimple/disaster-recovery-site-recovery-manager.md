@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa208d8d9525ef1ec518c9a03d8d39ce0ca64254
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901304"
+ms.locfileid: "69972788"
 ---
-# <a name="configure-cloudsimple-private-cloud-as-a-disaster-recovery-target-using-vmware-site-recovery-manager"></a>Configuración de una nube privada de CloudSimple como destino de recuperación ante desastres con VMware Site Recovery Manager
+# <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configuración de una nube privada como destino de recuperación ante desastres con VMware Site Recovery Manager
 
 Puede usar la nube privada de CloudSimple como un sitio de recuperación ante desastres (DR) para las cargas de trabajo locales de VMware.
 
@@ -109,9 +109,7 @@ Para instalar vSphere Replication Appliance (vRA) en el entorno local, siga la d
 
 2. Implemente vRA en su entorno local mediante el uso de OVF en el archivo ISO de VR desde vmware.com. En el caso de vRA 6.5, puede encontrar información pertinente en [este blog de VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices).
 
-3. Registre su vRA local con el inicio de sesión único de vCenter en el sitio local.
-   
-Para obtener instrucciones detalladas sobre la replicación de vSphere 6.5, consulte el documento [Instalación y configuración de VMware vSphere Replication 6.5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf) de VMware.
+3. Registre su vRA local con el inicio de sesión único de vCenter en el sitio local. Para obtener instrucciones detalladas sobre la replicación de vSphere 6.5, consulte el documento [Instalación y configuración de VMware vSphere Replication 6.5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf) de VMware.
 
 ## <a name="install-vsphere-replication-appliance-in-your-private-cloud-environment"></a>Instalar vSphere Replication Appliance en el entorno de la nube privada
 
@@ -149,7 +147,7 @@ Inicie sesión en vCenter con las credenciales del usuario cloudowner después d
 Cree un nuevo usuario, `srm-soln-admin`, en vCenter y agréguelo al grupo de administradores de vCenter.
 Cierre sesión de vCenter con el usuario cloudowner e iníciela con el usuario *srm-soln-admin*.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>Portal de CloudSimple: configurar las reglas de firewall para vRA
+#### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>Portal de CloudSimple: Configuración de las reglas de firewall para vRA
 
 Configure reglas de firewall tal y como se describe en [Configuración de tablas y reglas de firewall](firewall.md) para abrir puertos para habilitar la comunicación entre:
 

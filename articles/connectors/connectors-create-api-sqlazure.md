@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696415"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050756"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conexión con el servidor SQL Server o Azure SQL Database desde Azure Logic Apps
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo puede acceder a los datos de la base de datos
 
 Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan eventos en la base de datos SQL o en otros sistemas,como Dynamics CRM Online. Asimismo, las aplicaciones lógicas también pueden obtener, insertar o eliminar datos y, además, pueden ejecutar consultas SQL o procedimientos almacenados. Por ejemplo, puede compilar una aplicación lógica que comprueba automáticamente si hay registros nuevos en Dynamics CRM Online, agrega elementos a la base de datos SQL para cualquier registro nuevo y envía alertas de correo electrónico.
 
-Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referencia sobre el conector de SQL Server</a>.
+Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, consulte la [referencia sobre el conector de SQL Server](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -73,7 +73,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
    Por ejemplo, para ver el elemento nuevo en la tabla, podría agregar otras acciones, como crear un archivo que tenga campos de la tabla y, luego, enviar alertas de correo electrónico. 
    Para información sobre otras acciones de este conector o de otros conectores, consulte los [conectores de Logic Apps](../connectors/apis-list.md).
 
-5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador. 
+5. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador. 
 
    Este paso habilita y publica de manera automática la aplicación lógica en vivo en Azure. 
 
@@ -85,12 +85,12 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. En Azure Portal o Visual Studio, abra la aplicación lógica el Diseñador de Logic Apps. En este ejemplo se usa Azure Portal.
 
-2. En el Diseñador de Logic Apps, en el desencadenador o la acción, elija **Nuevo paso** > **Agregar una acción**.
+2. En el Diseñador de Logic Apps, en el desencadenador o la acción, seleccione **Nuevo paso** > **Agregar una acción**.
 
-   ![Elegir "Nuevo paso", "Agregar una acción"](./media/connectors-create-api-sqlazure/add-action.png)
+   ![Selección de "Nuevo paso" y "Agregar una acción"](./media/connectors-create-api-sqlazure/add-action.png)
    
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
-   Elija el signo más ( **+** ) que aparece y, luego, elija **Agregar una acción**.
+   Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
 2. En el cuadro de búsqueda, escriba "sql server" como filtro. En la lista de acciones, seleccione la acción SQL que quiera. 
 
@@ -106,7 +106,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    En este ejemplo solo se devuelve una fila de la tabla seleccionada, ningún otro elemento. 
    Para ver los datos de esta fila, puede agregar otras acciones que crean un archivo con campos de la fila para una revisión posterior y almacene ese archivo en una cuenta de almacenamiento en la nube. Para información sobre otras acciones de este conector o de otros conectores, consulte los [conectores de Logic Apps](../connectors/apis-list.md).
 
-4. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador. 
+4. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador. 
 
 <a name="create-connection"></a>
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 043623869163a27cdbbdd7115fca43486577ca7d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a5ccf527850e1c05c5d7e273ada905d65d64cee4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599444"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073955"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedimientos para: Depurar contenedores de Windows en Azure Service Fabric mediante Visual Studio 2019
 
@@ -81,4 +81,4 @@ A continuación, se muestra una lista de limitaciones conocidas al depurar conte
     Visual Studio admite la consola y los tipos de proyecto ASP.NET para .NET y .NET Core.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre las funcionalidades de Service Fabric y los contenedores, consulte la [Introducción a los contenedores de Service Fabric](service-fabric-containers-overview.md).
+Para más información sobre las funcionalidades de Service Fabric y los contenedores, consulte [Introducción a los contenedores Service Fabric](service-fabric-containers-overview.md).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 30eb922e17810ddd53166a702b5fc513684f2140
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 6877595f191c326ed73b347d46cb1aeb404702b5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742374"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232220"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?
 
@@ -35,8 +35,7 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 | Apache Hadoop y YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
 | Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
 | Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive y HCatalog | - | 1.2.1 | 1.2.1 | 1.2.1 | 1.2.1 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0 | - | - | - | - |
+| Apache Hive | 3.1.0 | 2.1.0, 1.2.1 | - | - | - | - |
 | Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
 | Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
 | HBase Apache | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
@@ -177,60 +176,7 @@ En la sección se proporcionan vínculos a las notas de la versión para las dis
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres
 
-En las tablas siguientes se indican los tamaños de máquina virtual predeterminados para clústeres de HDInsight.  Este gráfico es necesario para entender qué tamaños de VM se deben usar al crear scripts de PowerShell o la CLI de Azure para implementar clústeres de HDInsight.
-
-> [!IMPORTANT]  
-> Si necesita más de 32 nodos de trabajo en un clúster, tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
-
-* Todas las regiones, excepto Sur de Brasil y Japón Occidental:
-
-|Tipo de clúster|Hadoop|HBase|Interactive Query|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|Principal: tamaño de máquina virtual predeterminado|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|Principal: tamaños de máquina virtual recomendados|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|Trabajo: tamaño de máquina virtual predeterminado|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 con 2 discos S30 por agente|
-|Trabajo: tamaños de máquina virtual recomendados|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|Zookeeper: tamaño de máquina virtual predeterminado||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|Zookeeper: tamaños de máquina virtual recomendados||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|Servicio Machine Learning: tamaño de máquina virtual predeterminado||||||D4 v2||
-|Servicio Machine Learning: tamaño de máquina virtual recomendado||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-
-* Solo Sur de Brasil y Japón Occidental (ningún tamaño v2):
-
-  | Tipo de clúster | Hadoop | HBase | Interactive Query |Storm | Spark | Machine Learning Services |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Principal: tamaño de máquina virtual predeterminado |D12 |D12  | D13 |A3 |D12 |D12 |
-  | Principal: tamaños de máquina virtual recomendados |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Trabajo: tamaño de máquina virtual predeterminado |D4 |D4  |  D14 |D3 |D13 |D4 |
-  | Trabajo: tamaños de máquina virtual recomendados |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | Zookeeper: tamaño de máquina virtual predeterminado | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | Zookeeper: tamaños de máquina virtual recomendados | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | Servicio Machine Learning: tamaños de máquina virtual predeterminados | | | | | |D4 |
-  | Servicio Machine Learning: tamaños de máquina virtual recomendados | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
-
-> [!NOTE]
-> - Nota: Principal se conoce como *Nimbus* para el tipo de clúster de Storm.
-> - El trabajo se conoce como *Supervisor* para el tipo de clúster de Storm.
-> - El trabajo se conoce como *Región* para el tipo de clúster de HBase.
+Para obtener más información sobre qué SKU de máquina virtual se deben seleccionar para su clúster, consulte [Detalles de configuración de clúster de Azure HDInsight](hdinsight-supported-node-configuration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de clúster para Apache Hadoop, Spark, etc. en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

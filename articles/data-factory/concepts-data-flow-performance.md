@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404611"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992350"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -117,6 +117,10 @@ Al hacer clic en ese icono se mostrará el plan de ejecución y el perfil de ren
 * Puede controlar cuántas particiones va a usar esa instancia de ADF. En cada transformación de origen y receptor, así como en cada transformación individual, puede establecer un esquema de creación de particiones. Para los archivos más pequeños, comprobará que seleccionar "Partición única" en ocasiones funciona mejor y más rápido que solicitar a Spark que cree particiones de los archivos pequeños.
 * Si no tiene información suficiente sobre los datos de origen, puede elegir la creación de particiones "Round Robin" y establecer el número de particiones.
 * Si examina los datos y descubre que tiene columnas que pueden ser claves hash correctas, use la opción de creación de particiones por hash.
+* Al depurar en la vista previa de datos y la depuración de la canalización, tenga en cuenta que el límite y los tamaños de muestreo de los conjuntos de datos de origen basados en archivos solo se aplican al número de filas devueltas, no al número de filas leídas. Es importante tener esto en cuenta, ya que puede afectar al rendimiento de sus ejecuciones de depuración y hacer, posiblemente, hacer que se produzca un error en el flujo.
+* Recuerde que los clústeres de depuración son pequeños clústeres de un solo nodo de forma predeterminada, de modo que use archivos pequeños temporales para la depuración. Vaya a Configuración de depuración y seleccione un pequeño subconjunto de sus datos mediante un archivo temporal.
+
+![Configuración de depuración](media/data-flow/debugsettings3.png "Debug Settings")
 
 ### <a name="file-naming-options"></a>Opciones de nombre de archivo
 

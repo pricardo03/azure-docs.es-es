@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d1b3e2f36256164420ae6b2e699f0ef48e2e78
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125445"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo
 
-Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen eventos de riesgo de Azure AD Identity Protection. Hay tres directivas predeterminadas que se pueden habilitar inmediatamente. 
+Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen detecciones de riesgo de Azure AD Identity Protection. Hay tres directivas predeterminadas que se pueden habilitar inmediatamente. 
 
 * Require all users to register for Azure Multi-Factor Authentication (Exigir que todos los usuarios se registren para la autenticación multifactor [MFA])
 * Require a password change for users that are high risk (Exigir un cambio de contraseña para los usuarios que son de alto riesgo)

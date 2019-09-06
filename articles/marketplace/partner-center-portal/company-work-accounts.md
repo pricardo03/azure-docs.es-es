@@ -1,18 +1,18 @@
 ---
 title: Cuentas profesionales y el Centro de partners
 description: Cómo comprobar si su empresa tiene una cuenta profesional configurada con Microsoft, crear una nueva cuenta profesional o configurar varias cuentas profesionales para usar con el Centro de partners.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: d9326cab6cb5ed4ca76c9a84654697f9f90bcfcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619547"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194280"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 

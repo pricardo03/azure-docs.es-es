@@ -11,18 +11,21 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123474"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018279"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
 
 Una instancia de servicio de Azure API Management puede escalarse de manera automática en función de un conjunto de reglas. Este comportamiento se puede habilitar y configurar a través de Azure Monitor y solo se admite en los niveles **Estándar** y **Premium** del servicio Azure API Management.
 
 En este artículo se le guía por el proceso de configuración de escalado automático y sugiere una configuración óptima de las reglas de escalado automático.
+
+> [!NOTE]
+> El servicio API Management en el nivel **Consumo** se escala automáticamente en función del tráfico, sin necesidad de realizar ninguna configuración adicional.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +36,7 @@ Para seguir los pasos de este artículo, debe:
 + Comprender el concepto de [Capacidad de una instancia de Azure API Management](api-management-capacity.md).
 + Comprender el [proceso de escalado manual de una instancia de Azure API Management](upgrade-and-scale.md), incluidas las consecuencias de costos.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Limitaciones de escalado automático de Azure API Management
 
@@ -78,7 +81,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
     | Agregación de tiempo      | Media           |                                                                                                                                                                                                                                                                                 |
     | Nombre de métrica           | Capacity          | La métrica de capacidad es una métrica de Azure API Management que refleja el uso de recursos de una instancia de Azure API Management.                                                                                                                                                            |
     | Estadísticas de intervalo de agregación  | Media           |                                                                                                                                                                                                                                                                                 |
-    | Operador              | Mayor que      |                                                                                                                                                                                                                                                                                 |
+    | Operator              | Mayor que      |                                                                                                                                                                                                                                                                                 |
     | Umbral             | 80 %               | El umbral de la métrica de capacidad promedio.                                                                                                                                                                                                                                 |
     | Duración (en minutos) | 30                | El intervalo de tiempo para promediar la métrica de capacidad es específica a los patrones de uso. Cuanto mayor sea el período de tiempo, más suave será la reacción: los picos intermitentes tendrán un efecto menor sobre la decisión de escalado horizontal. Sin embargo, también se demorará el desencadenador de escalado horizontal. |
     | *Acción*              |                   |                                                                                                                                                                                                                                                                                 |
@@ -105,7 +108,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
     | Agregación de tiempo      | Media           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Nombre de métrica           | Capacity          | La misma métrica que la utilizada para la regla de escalado horizontal.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Estadísticas de intervalo de agregación  | Media           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Operador              | Menor que         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Operator              | Menor que         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Umbral             | 35 %               | De forma similar a la regla para escalado horizontal, este valor depende en gran medida los patrones de uso de Azure API Management. |
     | Duración (en minutos) | 30                | El mismo valor que el utilizado para la regla de escalado horizontal.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Acción*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

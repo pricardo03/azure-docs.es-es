@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122963"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991641"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -88,3 +88,79 @@ Sí. Puede usar OSBA con Red Hat OpenShift en Azure. Vea [Open Service Broker pa
 ## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estoy intentando mirar una red virtual en otra suscripción pero recibo el error `Failed to get vnet CIDR`.
 
 En la suscripción que tiene la red virtual, asegúrese de registrar el proveedor `Microsoft.ContainerService` con `az provider register -n Microsoft.ContainerService --wait`. 
+
+## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>¿Cuál es el proceso de mantenimiento de Red Hat OpenShift en Azure (ARO)?
+
+Hay tres tipos de mantenimiento para ARO: actualizaciones, copia de seguridad y restauración de datos de etcd y mantenimiento Iniciado por el proveedor de nube.
+
++ Las actualizaciones incluyen actualizaciones de software y CVE. La corrección de CVE se produce al inicio mediante la ejecución de `yum update` y proporciona una mitigación inmediata.  En paralelo, se crea una nueva compilación de las imágenes para la futura creación de clústeres.
+
++ La copia de seguridad y administración de los datos de etcd es un proceso automatizado que puede requerir tiempo de inactividad del clúster en función de la acción. Si la base de datos de etcd se va a restaurar a partir de una copia de seguridad, habrá tiempo de inactividad. La copia de seguridad se realizará cada hora y se conservarán las últimas 6 horas de copias de seguridad.
+
++ El mantenimiento iniciado por el proveedor de nube incluye la red, el almacenamiento y las interrupciones regionales. El mantenimiento depende del proveedor de nube y se basa en las actualizaciones proporcionadas por el proveedor.
+
+## <a name="what-is-the-general-upgrade-process"></a>¿Cuál es el proceso de actualización general?
+
+La ejecución de una actualización debe ser un proceso seguro y no debe interrumpir los servicios de clúster. El SRE puede desencadenar el proceso de actualización cuando hay nuevas versiones disponibles o los CVE están pendientes.
+
+Las actualizaciones disponibles se prueban en un entorno provisional y, luego, se aplican a los clústeres de producción. Cuando se aplican, se agrega un nuevo nodo temporalmente y los nodos se actualizan de forma rotativa para que los pods mantengan los recuentos de réplica. Los procedimientos recomendados siguientes ayudan a garantizar un tiempo de inactividad mínimo.
+
+Según la gravedad de la actualización pendiente, el proceso puede ser diferente; por ejemplo, las actualizaciones se podrían aplicar rápidamente para mitigar la exposición del servicio a un CVE. Una nueva imagen se creará de forma asincrónica, se probará y se implementará como una actualización del clúster. Aparte de eso, no hay ninguna diferencia entre emergencia y mantenimiento planeado. El mantenimiento planeado no está programado de antemano con el cliente.
+
+Las notificaciones se pueden enviar por medio del ICM y del correo electrónico si se requiere la comunicación con el cliente.
+
+## <a name="what-about-emergency-vs-planned-maintenance-windows"></a>¿Qué ocurre con las ventanas de mantenimiento planeado y emergencia?
+
+No se distingue entre los dos tipos de mantenimiento. Nuestros equipos están disponibles de manera ininterrumpida y no usan las ventanas de mantenimiento "fuera de horas" programadas tradicionales.
+
+## <a name="how-will-host-operating-system-and-openshift-software-be-updated"></a>¿Cómo se actualizará el sistema operativo y el software OpenShift?
+
+El sistema operativo host y el software OpenShift se actualizan a través de nuestro proceso general de compilación de imágenes y actualización.
+
+## <a name="whats-the-process-to-reboot-the-updated-node"></a>¿Cuál es el proceso de reinicio del nodo actualizado?
+
+Este proceso debe administrarse como parte de una actualización.
+
+## <a name="is-data-stored-in-etcd-encrypted-on-aro"></a>¿Los datos almacenados en etcd están cifrados en ARO?
+
+No se cifran en el nivel de etcd. Actualmente no se admite la opción para activarla. OpenShift es compatible con esta característica, pero se requieren labores de ingeniería para crearla en la hoja de ruta. Los datos se cifran en el nivel de disco. Consulte [Encrypting Data at Datastore Layer](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) (Cifrado de datos en la capa de almacén de datos) para más información.
+
+## <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>¿Se pueden transmitir los registros de máquinas virtuales subyacentes a un sistema de análisis de registros de cliente?
+
+Syslog, los registros de Docker, journal y dmesg se administran mediante el servicio administrado y no se exponen a los clientes.
+
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>¿Cómo puede un cliente obtener acceso a métricas como CPU y memoria en el nivel de nodo para tomar medidas para escalar, depurar problemas, etc.? No puedo ejecutar `kubectl top` en un clúster de ARO.
+
+`kubectl top` no está disponible en Red Hat OpenShift. Hace falta un origen de métricas de respaldo, ya sea Heapster (en desuso) o un servidor de métricas (incubating o alpha), ninguno de los cuales está incluido en la pila de supervisión de OpenShift.
+
+## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>¿Cuál es la configuración predeterminada del programador de pods para ARO?
+
+ARO usa el programador predeterminado que se incluye en OpenShift. Hay un par de mecanismos adicionales que no se admiten en ARO. Consulte la [documentación del programador predeterminado](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) y la [documentación del programador principal](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) para más información.
+
+La programación avanzada y personalizada no se admite actualmente. Consulte la [documentación de programación](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) para más información.
+
+## <a name="if-we-scale-up-the-deployment-how-do-azure-fault-domains-map-into-pod-placement-to-ensure-all-pods-for-a-service-do-not-get-knocked-out-by-a-failure-in-a-single-fault-domain"></a>Si escalamos verticalmente la implementación, ¿cómo se asignan los dominios de error de Azure en la colocación de los pods para tener la seguridad de que todos los pods de un servicio no se han visto afectados por un error en un único dominio de error?
+
+De forma predeterminada, hay cinco dominios de error cuando se usan conjuntos de escalado de máquinas virtuales en Azure. Cada instancia de máquina virtual de un conjunto de escalado se colocará en uno de estos dominios de error. Esto garantiza que las aplicaciones implementadas en los nodos de proceso de un clúster se colocarán en distintos dominios de error.
+
+Para más información, consulte [Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains).
+
+## <a name="is-there-a-way-to-manage-pod-placement"></a>¿Hay alguna manera de administrar la colocación de los pods?
+
+Con la inminente actualización de la administración del cliente, los clientes tendrán la posibilidad de obtener nodos y ver etiquetas.  De esta forma, podrán dirigirse a cualquier máquina virtual del conjunto de escalado.
+
+Es necesario tener cuidado al usar etiquetas específicas:
+
+- No se debe usar el nombre de host. El nombre de host se rota con frecuencia con las actualizaciones y es seguro que cambiará.
+
+- Si el cliente tiene una solicitud de etiquetas específicas o una estrategia de implementación, se podría hacer, pero harían falta labores de ingeniería, y esto no se admite actualmente.
+
+## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>¿Cuál es el número máximo de pods en un clúster de ARO?  ¿Cuál es el número máximo de pods por nodo en ARO?
+
+Consulte los [documentos de OpenShift de subida](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) para más información. Red Hat OpenShift 3.11 tiene un límite de 250 pods/nodo, mientras que [ARO tiene un límite de 20 nodos de proceso](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), por lo que el número máximo de pods admitidos en un clúster de ARO es de 250*20 = 5000.
+
+## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>¿Se pueden especificar intervalos IP para la implementación en la red virtual privada y evitar los conflictos con otras redes virtuales corporativas una vez emparejadas?
+
+Red Hat OpenShift de Azure admite el emparejamiento de VNET y permite al cliente proporcionar una red virtual con la que emparejar y un CIDR de red virtual en el que funcionará la red OpenShift.
+
+La red virtual creada por ARO se protegerá y no aceptará cambios de configuración. La red virtual que está emparejada está controlada por el cliente y reside en su suscripción.

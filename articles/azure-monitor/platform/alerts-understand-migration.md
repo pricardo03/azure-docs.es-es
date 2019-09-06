@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302247"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061558"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Descripción del funcionamiento de la herramienta de migración
 
@@ -36,7 +36,7 @@ Aunque la herramienta puede migrar casi todas las [reglas de alertas clásicas](
 - Reglas de alertas clásicas en algunas métricas de Cosmos DB. Consulte los [detalles](#cosmos-db-metrics) más adelante en este artículo.
 - Reglas de alertas clásicas en todas las métricas clásicas de máquinas virtuales y Cloud Services (Microsoft.ClassicCompute/virtualMachines y Microsoft.ClassicCompute/domainNames/slots/roles). Consulte los [detalles](#classic-compute-metrics) más adelante en este artículo.
 
-Si su suscripción tiene este tipo de regla clásica, deberá migrarlas manualmente. Dado que no podemos proporcionar una migración automática, las alertas de métricas clásicas existentes de estos tipos seguirán funcionando hasta junio de 2020. Esta extensión le dará tiempo para migrar a nuevas alertas. Sin embargo, no se crearán nuevas alertas clásicas después de agosto de 2019.
+Si su suscripción tiene este tipo de regla clásica, deberá migrarlas manualmente. Dado que no podemos proporcionar una migración automática, las alertas de métricas clásicas existentes de estos tipos seguirán funcionando hasta junio de 2020. Esta extensión le dará tiempo para migrar a nuevas alertas. También puede continuar creando nuevas alertas clásicas en las excepciones indicadas anteriormente hasta junio de 2020. Sin embargo, en el resto de casos, no se crearán nuevas alertas clásicas después de agosto de 2019.
 
 > [!NOTE]
 > Además de las excepciones que se indican anteriormente, si las reglas de alertas clásicas no son válidas, es decir, se encuentran en [métricas en desuso](#classic-alert-rules-on-deprecated-metrics) o recursos eliminados, no se migrarán durante la migración voluntaria. Este tipo de reglas de alertas clásicas no válidas se eliminarán cuando se realice la migración automática.
@@ -260,9 +260,16 @@ Después de [desencadenar la migración](alerts-using-migration-tool.md), recibi
 
 Debido a algunos cambios recientes en las reglas de alertas clásicas de la suscripción, no se puede migrar la suscripción. Este problema es temporal. Puede reiniciar la migración una vez que el estado de migración vuelva a **Ready for migration** (Listo para la migración) en unos días.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Directiva o bloqueo de ámbito que nos impide migrar las reglas
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Ámbito que nos impide migrar las reglas
 
-Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, hay una directiva o bloqueo de ámbito que nos impide crear recursos. Según la directiva o el bloqueo de ámbito, no se pudieron migrar algunas reglas o ninguna de ellas. Para resolver este problema, quite el bloqueo de ámbito o la directiva temporalmente y desencadene la migración de nuevo.
+Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, un bloqueo de ámbito puede impedir la creación o eliminación de recursos. Según el bloqueo de ámbito, no se pudieron migrar algunas reglas o ninguna de ellas. Puede resolver este problema si quita el bloqueo de ámbito de la suscripción, el grupo de recursos o el recurso que aparece en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel) y vuelve a desencadenar la migración. No se puede deshabilitar el bloqueo del ámbito y se debe quitar mientras dure el proceso de migración. [Más información sobre cómo administrar los bloqueos de ámbito](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Directiva con efecto de denegación que nos impide migrar las reglas
+
+Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, una directiva puede evitar la creación de recursos. Según la directiva, no se pudieron migrar algunas reglas o ninguna de ellas. Las directivas que bloquean el proceso se enumeran en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Para resolver este problema:
+
+- Excluya las suscripciones o los grupos de recursos mientras dure el proceso de migración de la asignación de directiva. [Más información sobre la administración del ámbito de exclusión de las directivas](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Quite o cambie el efecto a auditoría o anexión (lo que, por ejemplo, puede solucionar problemas relativos a la ausencia de etiquetas). [Obtenga más información sobre la administración del efecto de las directivas](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

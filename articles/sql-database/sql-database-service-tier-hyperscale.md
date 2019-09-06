@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566715"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981160"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Nivel de servicio Hiperescala para un máximo de 100 TB
 
@@ -110,7 +110,7 @@ Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución ad
 
 Puede crearse una base de datos de Hiperescala mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles con el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
-El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) para obtener una lista de los objetivos de servicio válidos.
+El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) para obtener una lista de los objetivos de servicio válidos.
 
 ```sql
 -- Create a HyperScale Database
@@ -232,7 +232,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En este momento, la única forma de migrar una base de datos de hiperescala a otro nivel de servicio es con la exportación e importación mediante un archivo BACPAC.|
 | Migración de bases de datos con objetos en memoria persistentes | Hiperescala solo admite objetos en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
-| Cambiar el seguimiento de datos | No podrá usar la opción para cambiar el seguimiento de datos con las bases de datos Hiperescala. |
+| Seguimiento de cambios | No podrá usar Change Tracking con bases de datos de Hiperescala. |
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala.  Puede realizar restauraciones geográficas (restaurar la base de datos en una ubicación geográfica diferente, para recuperación ante desastres u otros fines). |
 | Integración de TDE/AKV | Cifrado de base de datos transparente con Azure Key Vault (conocido comúnmente como Bring-Your-Own-Key o BYOK) todavía no es compatible con Hiperescalado de Azure SQL Database, pero es totalmente compatible con Claves administradas de servicio. |
 |Características de bases de datos inteligentes | 1. Los modelos asesores Crear índice y Colocar índice no están entrenados para las bases de datos Hiperescala. <br/>2. Los asesores recientemente agregados Incidencia de esquema y Parametrización de base de datos no son compatibles con la base de datos Hiperescala.|

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900132"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013084"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -79,25 +79,29 @@ Para enumerar las ofertas de software como servicio (SaaS) con Marketplace comer
 - La oferta debe usar las [API de suministro de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrarse en Azure Marketplace.
 - Para más información acerca de los requisitos, consulte la [Guía de publicación de ofertas de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-on-azure-billing-infrastructure-costs"></a>SaaS en los costos de infraestructura de facturación de Azure
-Si la oferta de SaaS se hospeda en Azure, el anunciante debe considerar los precios de uso de la infraestructura de Azure y los precios de las licencias de software como un elemento de costo individual. Este costo se representa como un precio mensual plano para el cliente. El uso de la infraestructura de Azure se administra y se factura directamente al asociado. El cliente no ve los honorarios de uso de infraestructura reales. En general, los publicadores optan por agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software. 
+#### <a name="saas-pricing-and-billing-options"></a>Precios de SaaS y opciones de facturación
+Con las soluciones de SaaS que se ejecutan en la suscripción de Azure del editor, los honorarios de licencias que pagan los clientes incluyen el costo de la infraestructura en la que se implementa el software. El uso de la infraestructura de Azure se administra y se factura directamente al asociado. El cliente no ve los honorarios de uso de infraestructura reales. Los publicadores deben agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software. 
 
-Los precios de las licencias de software se presentan como una tarifa plana mensual de suscripción basada en sitio recurrente, no se realizan mediciones ni se basan en el consumo.
+Las ofertas de SaaS admiten la facturación mensual o anual en función de una cuota fija, por usuario, o cargos por consumo mediante el servicio de facturación medido. Marketplace comercial de Microsoft opera según un modelo de agencia, en el que los editores establecen los precios, Microsoft factura a los clientes y Microsoft paga los ingresos al editor, a la vez que retiene una cuota correspondiente a la agencia.
+
+En la tabla siguiente se muestra un ejemplo de la división de costos y pagos para demostrar el modelo de agencia.
 
 |**Costo de su licencia**|**100 USD al mes**|
 |:---|:---|
 |Costo de uso de Azure (D1/1 núcleo)|Facturado directamente al publicador, no al cliente|
 |Microsoft factura al cliente|100,00 USD al mes (el anunciante debe contar con los costos de paso a través o en que se incurran en el precio de la licencia)|
 
-- En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 80,00 USD al publicador.
+|**Microsoft factura**|**100 USD al mes**|
+|:---|:---|
+|Microsoft le paga el 80 % del costo de licencia <br>**En el caso de las aplicaciones SaaS aptas, Microsoft paga el 90 % del costo de la licencia*|80,00 USD al mes <br>*$* 90,00 al mes*|
+
+- En este ejemplo, Microsoft factura USD 100 al cliente por su licencia de software y paga USD 80 al editor.
 - Los asociados que se sean aptos para el **precio reducido del servicio Marketplace** verán un precio de transacción reducido en las ofertas de SaaS desde mayo de 2019 hasta junio de 2020. En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 90,00 USD al anunciante.
 
 > [!NOTE]
 > **Precio reducido del servicio Marketplace:** Para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado que al menos una de sus ofertas esté lista para realizar una venta conjunta por IP o esté clasificada orden de prioridad para realizar una venta conjunta por IP.  Para recibir este precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural.  El precio reducido del servicio Marketplace no se aplica a las máquinas virtuales, las aplicaciones administradas ni cualquier otro producto que esté disponible a través de nuestro Marketplace comercial.  El precio reducido del servicio Marketplace solo estará disponible para las ofertas aptas para los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Transcurrido este tiempo, la tarifa del servicio Marketplace volverá a su importe normal. 
 
-|**Microsoft factura**|**100 USD al mes**|
-|:---|:---|
-|Microsoft le paga el 80 % del costo de licencia <br>**En el caso de las aplicaciones SaaS aptas, Microsoft paga el 90 % del costo de la licencia*|80,00 USD al mes <br>*$* 90,00 al mes*|
+
 
 
 #### <a name="csp-program-opt-in"></a>Participación en el programa CSP
@@ -153,9 +157,23 @@ Al habilitar una versión de prueba, se le pedirá que configure un entorno de d
 
 ## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+Conecte directamente con los clientes mediante el anuncio de la oferta en los catálogos de soluciones y el enlace de su sistema de Administración de relaciones con los clientes (CRM) para que pueda recibir información de contacto de cualquier cliente en cuanto este exprese interés por su producto o lo implemente.
 
-Consulte [Introducción a la administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md) para obtener más información.
+- **Elija un destino de clientes potenciales** (menú desplegable): Proporcione detalles de la conexión al sistema CRM al que desea que le enviemos clientes potenciales. 
+
+El Centro de partners admite los siguientes sistemas CRM para la administración de clientes potenciales. Seleccione el vínculo de las instrucciones de configuración.
+
+- Azure Blob: especifique el correo electrónico del contacto, el nombre del contenedor y la cadena de conexión de la cuenta de almacenamiento. 
+- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table): especifique el correo electrónico del contacto y la cadena de conexión de la cuenta de almacenamiento. 
+- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics): especifique el correo electrónico de contacto, la dirección URL y el modo de autenticación (Office 365 o Azure Active Directory).
+- [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https): especifique el correo electrónico de contacto y la dirección URL del punto de conexión HTTPS. 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo): especifique el correo electrónico de contacto, el identificador del formulario, el identificador de la cuenta de Munchkin y el identificador del servidor.
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce): especifique el correo electrónico de contacto y el identificador de la organización. 
+
+#### <a name="additional-lead-management-resources"></a>Recursos adicionales de la administración de clientes potenciales
+- [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Póster Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 No olvide **guardar** antes de pasar a la siguiente sección.
 

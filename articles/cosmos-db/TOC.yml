@@ -712,6 +712,8 @@
       items:
         - name: Usar Power BI
           href: powerbi-visualize.md
+        - name: Creación de un panel con información meteorológica en directo
+          href: create-real-time-weather-dashboard-powerbi.md
         - name: Uso de Qlik Sense
           href: visualize-qlik-sense.md
     - name: Integración con otros servicios de Azure

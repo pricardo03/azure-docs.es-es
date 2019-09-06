@@ -124,13 +124,13 @@
     - name: Planeamiento de la aplicación
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: Aplicación de creador
+    - name: Creación y claves en tiempo de ejecución
+      displayName: 'shared, transfer, ownership, author, access, import'
+      href: luis-concept-keys.md
+    - name: Modelo de aplicación del autor
       items:
         - name: Ciclo de creación
           href: luis-concept-app-iteration.md
-        - name: Colaboración
-          displayName: 'shared, transfer, ownership, author, access, import'
-          href: luis-concept-collaborator.md
         - name: Control de versiones
           href: luis-concept-version.md
           displayName: import
@@ -141,10 +141,10 @@
         - name: Entidades
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
+        - name: Roles de entidad
+          href: luis-concept-roles.md
         - name: Grabaciones de voz
           href: luis-concept-utterance.md
-        - name: Roles
-          href: luis-concept-roles.md
         - name: Modelos creados previamente
           href: luis-concept-prebuilt-model.md
     - name: Mejorar el rendimiento de las aplicaciones
@@ -180,13 +180,6 @@
         - name: Estrategias de diseño
           href: luis-concept-enterprise.md
           displayName: import
-    - name: Seguridad
-      items:
-        - name: Acceso a las aplicaciones
-          displayName: 'public, public app, AAD, compliance, ISO, certification, trust center, import'
-          href: luis-concept-security.md
-        - name: Claves de creación y puntos de conexión
-          href: luis-concept-keys.md
 - name: Guías de procedimientos
   items:
     - name: Inicio de una nueva aplicación
@@ -248,18 +241,22 @@
       href: luis-how-to-publish-app.md
     - name: Administración de aplicaciones
       items:
-        - name: Uso de claves de suscripción con la aplicación de LUIS
-          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
+        - name: Creación y claves en tiempo de ejecución
+          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
-        - name: Administración de versiones
-          href: luis-how-to-manage-versions.md
-          diplayName: 'import, export, container'
-        - name: Administración de creadores y colaboradores
+        - name: Migración a clave de creación
+          items:
+            - name: Información general
+              href: luis-migration-authoring.md
+            - name: Migración
+              href: luis-migration-authoring-steps.md
+        - name: Creadores y colaboradores
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
-        - name: Administración de la clave de creación
-          href: luis-how-to-account-settings.md
-        - name: Propagar la cuota de puntos de conexión por claves con Traffic Manager
+        - name: Con versiones
+          href: luis-how-to-manage-versions.md
+          diplayName: 'import, export, container'
+        - name: Con Traffic Manager
           href: luis-traffic-manager.md
     - name: Migración de API
       items:

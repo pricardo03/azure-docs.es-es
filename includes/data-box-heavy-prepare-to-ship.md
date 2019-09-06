@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: alkohli
 ms.openlocfilehash: f5b60d862be0d71f71f770c47d88ad39f2fc6ac7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "66419963"
 ---
 El paso final consiste en preparar el dispositivo para el envío. En este paso, se desconectan todos los recursos compartidos de dispositivo. Una vez que empieza este proceso, no se puede acceder a los recursos compartidos.

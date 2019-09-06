@@ -1,6 +1,6 @@
 ---
 title: Administración de áreas de trabajo de Log Analytics en Azure Monitor | Microsoft Docs
-description: Puede administrar las áreas de trabajo de Log Analytics en Azure Monitor con diferentes tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure.
+description: Puede administrar el acceso a los datos almacenados en las áreas de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se detalla cómo hacerlo.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: magoedte
-ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624334"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034713"
 ---
-# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administración de los datos de registro y las áreas de trabajo en Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
 Azure Monitor almacena los datos de [registro](data-platform-logs.md) en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a los datos de registro, realice varias tareas administrativas relacionadas con su área de trabajo.
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo administrar el acceso a los registros y las �
 
 * Cómo conceder acceso a los usuarios que necesitan acceder a los datos de registro de una tabla específica en el área de trabajo mediante Azure RBAC.
 
-## <a name="define-access-control-mode"></a>Definición del modo de control de acceso
+## <a name="configure-access-control-mode"></a>Configuración del modo de control de acceso
 
 Puede ver el modo de control de acceso configurado en un área de trabajo desde Azure Portal o con Azure PowerShell.  Puede cambiar esta configuración con uno de estos métodos compatibles:
 
@@ -42,7 +42,7 @@ Puede ver el modo de control de acceso configurado en un área de trabajo desde 
 
 * Plantilla del Administrador de recursos de Azure
 
-### <a name="configure-from-the-azure-portal"></a>Configuración desde Azure Portal
+### <a name="from-the-azure-portal"></a>Desde Azure Portal
 
 Puede ver el modo de control de acceso del área de trabajo actual en la página **Introducción** del área de trabajo en el menú **Área de trabajo de Log Analytics**.
 
@@ -55,7 +55,7 @@ Este valor se puede cambiar en la página **Propiedades** del área de trabajo. 
 
 ![Cambio del modo de acceso del área de trabajo](media/manage-access/change-access-control-mode.png)
 
-### <a name="configure-using-powershell"></a>Configuración mediante PowerShell
+### <a name="using-powershell"></a>Con PowerShell
 
 Use el comando siguiente para examinar el modo de control de acceso para todas las áreas de trabajo en la suscripción:
 
@@ -99,18 +99,14 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-### <a name="configure-using-a-resource-manager-template"></a>Configuración con una plantilla de Resource Manager
+### <a name="using-a-resource-manager-template"></a>Uso de una plantilla de Resource Manager
 
 Para configurar el modo de acceso en una plantilla de Azure Resource Manager, establezca la marca de característica **enableLogAccessUsingOnlyResourcePermissions** en el área de trabajo en uno de los siguientes valores.
 
 * **false**: establece el área de trabajo en los permisos de contexto del área de trabajo. Se trata de la configuración predeterminada si no se establece la marca.
 * **true**: establece el área de trabajo en los permisos de contexto del recurso.
 
-## <a name="manage-accounts-and-users"></a>Administración de cuentas y usuarios
-
-Los permisos que se aplican al área de trabajo de un usuario determinado se definen mediante su [modo de acceso](design-logs-deployment.md#access-mode) y el [ modo de control de acceso](design-logs-deployment.md#access-control-mode) del área de trabajo. Con **Contexto del área de trabajo**, puede ver todos los registros del área de trabajo en los que tiene permiso, ya que las consultas en este modo se limitan a todos los datos de todas las tablas del área de trabajo. Con **Contexto del área de trabajo**, ve los datos de registro en el área de trabajo de un recurso, grupo de recursos o suscripción concretos al realizar una búsqueda directamente desde el recurso de Azure Portal al que tiene acceso. Las consultas de este modo se limitan solo a los datos asociados a ese recurso.
-
-### <a name="workspace-permissions"></a>Permisos de área de trabajo
+## <a name="manage-access-using-workspace-permissions"></a>Administración del acceso mediante los permisos del área de trabajo
 
 Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta puede tener acceso a varias áreas de trabajo. El acceso se administra mediante el [acceso basado en rol de Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -130,7 +126,7 @@ Las siguientes actividades también requieren permisos de Azure:
 
 ## <a name="manage-access-using-azure-permissions"></a>Administración del acceso mediante los permisos de Azure
 
-Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
+Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md). Para ver roles personalizados de ejemplo, consulte [Roles personalizados de ejemplo](#custom-role-examples).
 
 Azure tiene dos roles de usuario integrados para áreas de trabajo de Log Analytics:
 
@@ -180,7 +176,7 @@ El rol Colaborador de Log Analytics incluye las siguientes acciones de Azure:
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Ver la clave de la cuenta de almacenamiento. Necesaria para configurar Log Analytics para leer los registros de cuentas de Azure Storage |
 | `Microsoft.Insights/alertRules/*` | Agregar, actualizar y eliminar reglas de alertas |
 | `Microsoft.Insights/diagnosticSettings/*` | Agregar, actualizar y eliminar la configuración de diagnósticos en los recursos de Azure |
-| `Microsoft.OperationalInsights/*` | Agregar, actualizar y eliminar la configuración de áreas de trabajo de Log Analytics |
+| `Microsoft.OperationalInsights/*` | Agregar, actualizar y eliminar la configuración de áreas de trabajo de Log Analytics. Para editar la configuración avanzada del área de trabajo, el usuario necesita `Microsoft.OperationalInsights/workspaces/write`. |
 | `Microsoft.OperationsManagement/*` | Agregar y eliminar soluciones de administración |
 | `Microsoft.Resources/deployments/*` | Crear y eliminar implementaciones. Necesario para agregar y eliminar soluciones, áreas de trabajo y cuentas de Automation |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Crear y eliminar implementaciones. Necesario para agregar y eliminar soluciones, áreas de trabajo y cuentas de Automation |
@@ -207,6 +203,39 @@ Cuando los usuarios consulten los registros desde un área de trabajo mediante e
 El permiso `/read`se suele conceder desde un rol que incluye los permisos _/read o\*_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Tenga en cuenta que los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 
 Consulte [Definición del control de acceso por tabla](#table-level-rbac) a continuación, si desea crear un control de acceso diferente para las distintas tablas.
+
+## <a name="custom-role-examples"></a>Roles personalizados de ejemplo
+
+1. Para conceder a un usuario acceso a los datos de registro desde sus recursos, realice lo siguiente:
+
+    * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
+
+    * Conceda a los usuarios los permisos `*/read` o `Microsoft.Insights/logs/*/read` a sus recursos. Si ya se les ha asignado el rol de [lector de Log Analytics](../../role-based-access-control/built-in-roles.md#reader) en el área de trabajo, es suficiente.
+
+2. Para conceder a los usuarios acceso a los datos de registro desde sus recursos y configurar estos para que envíen registros al área de trabajo, realice lo siguiente:
+
+    * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
+
+    * Conceda a los usuarios los permisos siguientes en el área de trabajo: `Microsoft.OperationalInsights/workspaces/read` y `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Con estos permisos, los usuarios no pueden realizar consultas en el nivel de área de trabajo.
+
+    * Conceda a los usuarios los permisos siguientes a sus recursos: `Microsoft.Insights/logs/*/read` y `Microsoft.Insights/diagnosticSettings/write`. Si ya se les ha asignado el rol de [colaborador de Log Analytics](../../role-based-access-control/built-in-roles.md#contributor) en este recurso, es suficiente.
+
+3. Para conceder a un usuario acceso a los datos de registro desde sus recursos y la posibilidad de leer de todos los datos del registro de inicio de sesión de Azure AD y del registro de la solución Update Management, haga lo siguiente:
+
+    * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
+
+    * Conceda a los usuarios los permisos siguientes en el área de trabajo: 
+
+        * `Microsoft.OperationalInsights/workspaces/read`: necesario para que el usuario pueda enumerar el área de trabajo y abrir la hoja del área de trabajo en Azure Portal
+        * `Microsoft.OperationalInsights/workspaces/query/read`: necesario para todos los usuarios que pueden ejecutar consultas
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`: para poder leer los registros de inicio de sesión de Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read`: para poder leer los registros de la solución Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`: para poder leer los registros de la solución Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`: para poder leer los registros de Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`: necesario para poder usar la solución Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: necesario para poder usar la solución Update Management
+
+    * Conceda a los usuarios los permisos siguientes a sus recursos: `*/read` o `Microsoft.Insights/logs/*/read`. Si ya se les ha asignado el rol de [lector de Log Analytics](../../role-based-access-control/built-in-roles.md#reader) en el área de trabajo, es suficiente.
 
 ## <a name="table-level-rbac"></a>RBAC de nivel de tabla
 

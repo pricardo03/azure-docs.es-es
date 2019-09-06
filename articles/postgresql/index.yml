@@ -1,85 +1,139 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentación sobre Base de datos de Azure para PostgreSQL
+### YamlMime:Landing
+title: Documentación de Azure Database for PostgreSQL
+summary: Azure Database for PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL. Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica. Está disponible en dos opciones de implementación, como servidor único y como clúster de Hiperescala (Citus) (versión preliminar). La opción de hiperescala (Citus) escala horizontalmente consultas entre varias máquinas mediante particionamiento y sirve a las aplicaciones que requieren un mayor escalado y rendimiento. Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.
 metadata:
-  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: 'Documentación sobre Base de datos de Azure para PostgreSQL: tutoriales y referencia de API'
   description: Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de PostgreSQL.
   author: rachel-msft
   ms.author: raagyema
+  ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 04/26/2019
-abstract:
-  description: 'Azure Database for PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica. Está disponible en dos opciones de implementación, servidor único e hiperescala (Citus) (versión preliminar). La opción de hiperescala (Citus) escala horizontalmente consultas entre varias máquinas mediante particionamiento y sirve a las aplicaciones que requieren un mayor escalado y rendimiento. Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear una base de datos PostgreSQL mediante:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: 'Servidor único: Azure Portal'
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: 'Servidor único: CLI de Azure'
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: 'Hiperescala (Citus): Azure Portal'
-            href: /azure/postgresql/quickstart-create-hyperscale-portal
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Para servidor único:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Diseño de una base de datos&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">CLI de Azure</a>'
-          - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilación de una aplicación web con Python y la CLI</a>
-          - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Supervisión y ajuste del servicio</a>
-      - type: paragraph
-        text: 'Para hiperescala (Citus) (versión preliminar):'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Diseño de una base de datos multiinquilino</a>
-          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Diseño de una base de datos en tiempo real</a>
-  - title: Desarrollo de aptitudes con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Creación de un servidor de Azure Database for PostgreSQL
-            href: /learn/modules/create-azure-db-for-postgresql-server/
-            image:
-              src: /learn/achievements/create-azure-db-for-postgresql-server.svg
-              href: /learn/modules/create-azure-db-for-postgresql-server/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure">Más aprendizaje interactivo...</a>
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Busque scripts para administrar las tareas más habituales.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">CLI de Azure</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/postgres">CLI de Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">API DE REST</a></p>
-          - title: Azure Resource Manager
-            html: <p><a href="/azure/templates/microsoft.dbforpostgresql/allversions">Plantillas de Resource Manager</a></p>
+  ms.openlocfilehash: 6d35798d5e87945656acb298ec6fa06518487f3e
+  ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70259175"
+landingContent:
+- title: Acerca de Azure Database for PostgreSQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Database for PostgreSQL?
+      url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Consultar nuestro blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+- title: Creación de un único servidor
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un servidor mediante Azure Portal
+      url: quickstart-create-server-database-portal.md
+    - text: Creación de un servidor mediante la CLI de Azure
+      url: quickstart-create-server-database-azure-cli.md
+  - linkListType: learn
+    links:
+    - text: 'Módulo de aprendizaje: Creación de un servidor de Azure Database for PostgreSQL'
+      url: /learn/modules/create-azure-db-for-postgresql-server/
+  - linkListType: concept
+    links:
+    - text: Planes de tarifa
+      url: concepts-pricing-tiers.md
+    - text: límites
+      url: concepts-limits.md
+    - text: Versiones de PostgreSQL
+      url: concepts-supported-versions.md
+    - text: 'Extensiones de PostgreSQL: servidor único'
+      url: concepts-extensions.md
+  - linkListType: tutorial
+    links:
+    - text: Diseño de una base de datos mediante Azure Portal
+      url: tutorial-design-database-using-azure-portal.md
+    - text: Diseño de una base de datos mediante la CLI de Azure
+      url: tutorial-design-database-using-azure-cli.md
+    - text: Compilación de una aplicación web con Python y la CLI
+      url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
+    - text: Supervisión y ajuste del servicio
+      url: tutorial-monitor-and-tune.md
+- title: Creación de un clúster de Hiperescala (Citus) (versión preliminar)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un clúster de Hiperescala (Citus) (versión preliminar) en Azure Portal
+      url: quickstart-create-hyperscale-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Diseño de una base de datos multiinquilino
+      url: tutorial-design-database-hyperscale-multi-tenant.md
+    - text: Diseño de una base de datos en tiempo real
+      url: tutorial-design-database-hyperscale-realtime.md
+  - linkListType: concept
+    links:
+    - text: 'Extensiones de PostgreSQL: Hiperescala'
+      url: concepts-hyperscale-extensions.md
+    - text: Descripción de nodos
+      url: concepts-hyperscale-nodes.md
+    - text: Descripción de datos distribuidos
+      url: concepts-hyperscale-distributed-data.md
+    - text: Configuración de opciones de rendimiento
+      url: concepts-hyperscale-configuration-options.md
+- title: Conexión a un servidor único
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción del firewall
+      url: concepts-firewall-rules.md
+    - text: Creación de reglas de firewall
+      url: howto-manage-firewall-using-portal.md
+    - text: Configuración de SSL
+      url: concepts-ssl-connection-security.md
+  - linkListType: get-started
+    links:
+    - text: Conexión mediante Python
+      url: connect-python.md
+    - text: Conexión mediante Node.js
+      url: connect-nodejs.md
+    - text: Conexión mediante Java
+      url: connect-java.md
+    - text: Conexión mediante Ruby
+      url: connect-ruby.md
+    - text: Conexión mediante PHP
+      url: connect-php.md
+    - text: Conexión mediante .Net
+      url: connect-csharp.md
+    - text: Conexión mediante Go
+      url: connect-go.md
+- title: Código con API de programación
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Scripts de la CLI de Azure para tareas comunes
+      url: /azure/postgresql/sample-scripts-azure-cli
+  - linkListType: reference
+    links:
+    - text: Referencia para desarrolladores de la CLI de Azure
+      url: /rest/api/postgresql/
+    - text: Referencia para desarrolladores de API REST
+      url: /cli/azure/postgres
+    - text: Plantillas del Administrador de recursos de Azure
+      url: /azure/templates/microsoft.dbforpostgresql/allversions
+- title: Copia de seguridad y migración de datos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Copia de seguridad y restauración en un servidor único
+      url: concepts-backup.md
+  - linkListType: how-to-guide
+    links:
+    - text: Restauración de un servidor mediante Azure Portal
+      url: howto-restore-server-portal.md
+    - text: Restauración de un servidor mediante la CLI de Azure
+      url: howto-restore-server-cli.md
+    - text: Migración de una base de datos mediante volcado y restauración
+      url: howto-migrate-using-dump-and-restore.md
+    - text: Migración de una base de datos mediante exportación e importación
+      url: howto-migrate-using-export-and-import.md
+    - text: Migraciones con tiempo de inactividad mínimo
+      url: howto-migrate-online.md

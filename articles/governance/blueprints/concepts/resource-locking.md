@@ -7,13 +7,12 @@ ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719766"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232934"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -26,10 +25,10 @@ Sin embargo, los modos de bloqueo no se pueden cambiar fuera de los planos técn
 
 Los recursos creados por los artefactos en una asignación de plano técnico tienen cuatro estados: **Sin bloquear**, **Solo lectura**, **No se puede editar o eliminar** o **No se puede eliminar**. Cada tipo de artefacto pueden tener el estado **Sin bloquear**. La tabla siguiente puede usarse para determinar el estado de un recurso:
 
-|Mode|Tipo de recurso de artefacto|Estado|DESCRIPCIÓN|
+|Mode|Tipo de recurso de artefacto|State|DESCRIPCIÓN|
 |-|-|-|-|
 |No bloquear|*|Sin bloquear|Los recursos no están protegidos por planos técnicos. Este estado también se usa para los recursos que se agregan a un artefacto del grupo de recursos de **Solo lectura** o **No eliminar** a partir de fuera de una asignación de plano técnico.|
-|Solo lectura|Grupos de recursos|No se puede editar o eliminar|El grupo de recursos es de solo lectura, y no se pueden modificar las etiquetas en el grupo de recursos. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
+|Solo lectura|Resource group|No se puede editar o eliminar|El grupo de recursos es de solo lectura, y no se pueden modificar las etiquetas en el grupo de recursos. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
 |Solo lectura|Grupo que no son de recursos|Solo lectura|El recurso no se puede modificar de ninguna manera, no se puede cambiar ni eliminar.|
 |No eliminar|*|No se puede eliminar|Los recursos se pueden modificar, pero no se pueden eliminar. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
 
@@ -112,7 +111,7 @@ Este es un ejemplo de un cuerpo de la solicitud que incluye **excludedPrincipals
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Siga el tutorial sobre la [protección de los nuevos recursos](../tutorials/protect-new-resources.md).
-- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).

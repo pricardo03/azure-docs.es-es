@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0e8cb18b3ea4b01db6b373ebbcb55c1e17614319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399146"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034784"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 
@@ -44,7 +44,7 @@ A continuación, se compilan los impactos del cambio de preferencia a la API sch
 
 - Todas las interacciones para administrar las alertas de registro a través de interfaces programáticas ahora deben hacerse con [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en su lugar. Para más información, consulte el [ejemplo de uso mediante la plantilla de Azure Resource](alerts-log.md#managing-log-alerts-using-azure-resource-template) y el [ejemplo de uso mediante PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 - Toda nueva regla de alerta de registro creada en Azure Portal se creará usando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) únicamente y permitirá, además, que los usuarios usen la [funcionalidad adicional de la nueva API](#benefits-of-switching-to-new-azure-api) a través de Azure Portal.
-- La gravedad de las reglas de alertas de registro pasará de: *Crítico, Advertencia e Informativo*a *Valores de gravedad de 0, 1 y 2*. Junto con la opción para crear o actualizar las reglas de alertas con gravedad 4.
+- La gravedad de las reglas de alertas de registro pasará de: *Crítico, Advertencia e Informativo*a *Valores de gravedad de 0, 1 y 2*. Junto con la opción para crear o actualizar las reglas de alertas con gravedad 3 y 4.
 
 El proceso de trasladar las reglas de alertas de la [API heredada de alertas de Log Analytics](api-alerts.md) no implica cambiar de ningún modo la configuración, la consulta ni la definición de las alertas. Las reglas de alertas y la supervisión no se ven afectadas, y las alertas no se detendrán durante o después del cambio. El único cambio es un cambio en la preferencia de la API y el acceso a las reglas a través de una nueva API.
 

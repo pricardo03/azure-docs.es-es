@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50b8fc6b6a350d0a5982cc84f94067979d018cce
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538914"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050675"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integración de aplicaciones controladas por pantallas 3270 en sistemas centrales de IBM con Azure mediante Azure Logic Apps y el conector de IBM 3270
 
@@ -42,7 +42,7 @@ Una vez que genere el archivo de metadatos a partir de la herramienta de diseño
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -169,7 +169,7 @@ En este modo, define el flujo o los pasos para navegar por las pantallas de su a
 
 * Sus pantallas capturadas podrían incluir muchas pantallas repetidas, de modo que seleccione y use solo una instancia de cualquier pantalla repetida de su plan. Estos son algunos ejemplos de pantallas repetidas:
 
-  * La pantalla de inicio de sesión, por ejemplo, la pantalla **MSG-10**
+  * La pantalla de inicio de sesión, por ejemplo, la pantalla **MSG-10**.
   * La pantalla principal para CICS
   * La pantalla "Borrar" o **Vacía**
 
@@ -410,13 +410,7 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/si3270/).
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
+Para obtener información técnica acerca de los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia de los conectores](/connectors/si3270/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

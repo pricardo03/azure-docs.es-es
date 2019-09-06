@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849742"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018840"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -28,13 +28,13 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 - Si el mantenimiento no requiere un reinicio, Azure usa la migración en contexto para pausar la máquina virtual mientras se actualiza el host. Las operaciones de mantenimiento que no requieren un reinicio se aplican por dominio de error. El progreso se detiene si no se reciben señales de estado de advertencia.
 
-- Si el mantenimiento requiere un reinicio, recibirá una notificación que muestra cuándo está programado el mantenimiento. En estos casos, se le asigna también una ventana de tiempo en la que puede iniciar el mantenimiento por su cuenta a la hora que le sea más conveniente.
+- Si el mantenimiento requiere un reinicio, el usuario recibe un aviso de cuándo está programado el mantenimiento. En estos casos, se le asigna también un período de tiempo (normalmente treinta y cinco días) donde puede iniciar el mantenimiento a la hora que le resulte más cómodo.
 
 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones):
 
 - Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../azure-monitor/platform/activity-logs-overview.md) de Azure puede agregar a las notificaciones destinatarios y opciones de mensajería, como correo electrónico, SMS y webhooks.  
-- Con la notificación, aparece una *ventana de autoservicio*. Durante este período, puede encontrar cuál de las máquinas virtuales se incluye en la ola. Puede iniciar el mantenimiento de forma anticipada según sus propias necesidades de programación.
+- Con la notificación, aparece una *ventana de autoservicio*. Durante este período, que suele ser de treinta y cinco días, puede encontrar cuál de las máquinas virtuales se incluye en la ola. Puede iniciar el mantenimiento de forma anticipada según sus propias necesidades de programación.
 - Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa, Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
 El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pueda iniciar el mantenimiento y reiniciar la máquina virtual sabiendo cuándo iniciará Azure el mantenimiento automáticamente.

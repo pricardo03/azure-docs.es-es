@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 109cad9988645b4033d7d3da10c6da09540fa811
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879404"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972422"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimización de la nube privada de CloudSimple para la instalación de Oracle RAC
 
@@ -203,7 +203,7 @@ Para crear una VM para Oracle, clone una VM existente o cree una nueva.  En esta
 
 Una vez instalado el sistema operativo, puede clonar una segunda VM. Haga clic con el botón derecho en la entrada de la VM y seleccione la opción Clonar.
 
-### <a name="create-shared-disks-for-vms"></a>Creación de discos compartidos para VM
+### <a name="create-shared-disks-for-vms"></a>Creación de discos compartidos para máquinas virtuales
 
 Oracle utiliza discos compartidos para almacenar los datos, registros y archivos de registro de fase de puesta al día.  Puede crear un disco compartido en vCenter y montarlo en ambas VM.  Para obtener un mayor rendimiento, coloque los discos de datos en diferentes controladoras SCSI. Los pasos que aparecen a continuación le muestran cómo crear un disco compartido en vCenter y luego adjuntarlo a una máquina virtual. El cliente flash de vCenter se usa para modificar las propiedades de la VM.
 

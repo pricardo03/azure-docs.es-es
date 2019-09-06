@@ -219,10 +219,16 @@
       items:
         - name: Documentación de instancia administrada
           href: sql-database-managed-instance-index.yml
-        - name: Funcionalidades de instancia administrada
+        - name: Introducción a Instancia administrada
           href: sql-database-managed-instance.md
         - name: Preguntas frecuentes sobre instancia administrada
           href: sql-database-managed-instance-faq.md
+        - name: Grupos de instancias
+          items:
+            - name: Introducción a los grupos de instancias
+              href: sql-database-instance-pools.md
+            - name: Guía paso a paso sobre los grupos de instancias
+              href: sql-database-instance-pools-how-to.md
         - name: Referencia de Management API
           href: sql-database-managed-instance-create-manage.md
         - name: Límites de recursos

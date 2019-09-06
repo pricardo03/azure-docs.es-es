@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411544"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208169"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
@@ -88,7 +87,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 10. Ejecute el experimento.  
   
-### <a name="results"></a>Results
+## <a name="results"></a>Results
 
 Una vez completado el entrenamiento:
 

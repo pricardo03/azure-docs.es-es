@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067200"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907413"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -109,7 +109,7 @@ Vea y administre el Almacén de consultas mediante las siguientes vistas y funci
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 
-### <a name="querystoreqsview"></a>query_store.qs_view
+### <a name="query_storeqs_view"></a>query_store.qs_view
 Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por cada identificador de base de datos, de usuario y de consulta diferentes. 
 
 |**Nombre**   |**Tipo** | **Referencias**  | **Descripción**|
@@ -142,7 +142,7 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 |blk_read_time  |double precision    || Tiempo total que la instrucción dedica a leer los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
 |blk_write_time |double precision    || Tiempo total que la instrucción dedica a escribir los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
     
-### <a name="querystorequerytextsview"></a>query_store.query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Esta vista devuelve datos de texto de consulta en el Almacén de consultas. Hay una fila para cada argumento de consulta diferente.
 
 |**Nombre**|  **Tipo**|   **Descripción**|
@@ -150,7 +150,7 @@ Esta vista devuelve datos de texto de consulta en el Almacén de consultas. Hay 
 |query_text_id  |bigint     |Identificador de la tabla query_texts.|
 |query_sql_text |Varchar(10000)     |Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
 
-### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
+### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento únicos.
 
 |**Nombre**|  **Tipo**|   **Referencias**| **Descripción**|
@@ -175,6 +175,7 @@ Query_store.staging_data_reset() devuelve void.
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 - Si un servidor de PostgreSQL tiene el parámetro default_transaction_read_only activado, el Almacén de consultas no puede capturar datos.
 - Se puede interrumpir la funcionalidad de Almacén de consultas si encuentra consultas largas de Unicode (>= 6000 bytes).
+- [Las réplicas de lectura](concepts-read-replicas.md) replican los datos del Almacén de consultas del servidor maestro. Esto significa que el Almacén de consultas de una réplica de lectura no proporciona estadísticas sobre las consultas que se ejecutan en la réplica de lectura.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 64cf633d50fc81ae8d53f2b4ee2a9975a756f0c7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935372"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972493"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -38,7 +38,7 @@ Si se suscribió antes del 15 de noviembre de 2017 en las ofertas de suscripció
 
 Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra un caso de soporte técnico mediante el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
 
-Después de que una suscripción de pago por uso o de Microsoft Partner Network esté exenta y las VM hayan sido "detenidas" e "iniciadas" desde Azure Portal, todas las VM dentro de esa suscripción quedarán exentas en el futuro. La exención solo es aplicable a la suscripción solicitada.
+Después de que una suscripción de pago por uso o de Microsoft Partner Network esté exenta y las VM hayan sido "detenidas" e "iniciadas" desde Azure Portal, todas las VM dentro de esa suscripción quedarán exentas en el futuro. La exención solo es aplicable a la suscripción solicitada y solo se aplica al tráfico de la máquina virtual que se enruta directamente a Internet. No se admite el tráfico del puerto 25 de enrutamiento mediante servicios de PaaS de Azure, como [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
 
 > [!NOTE]
 > Microsoft se reserva el derecho a revocar este exención si se determina que se produjo una infracción en los términos del servicio.

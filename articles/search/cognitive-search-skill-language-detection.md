@@ -2,7 +2,7 @@
 title: 'Aptitud de Cognitive Search para la detección de idiomas: Azure Search'
 description: Evalúa el texto no estructurado y, en cada registro, devuelve un identificador de idioma con una puntuación que indica la solidez del análisis en una canalización de enriquecimiento de Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 14163b959a6e91406133ca2f5a125c7e2df967ad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8375d41e3ece3bdd97b218925a8b1b6d45fc327d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635806"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186365"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Aptitud cognitiva para la detección de idiomas
 

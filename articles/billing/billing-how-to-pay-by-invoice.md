@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/23/2019
 ms.author: banders
-ms.openlocfilehash: 90c7014e3c22ac7186854d5c01b911aa630d20dd
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 9e4e05acd88e9b0f0c17d4dd4caf5eb5a883d63d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774673"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012592"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
@@ -24,7 +24,8 @@ Si cambia al pago con factura, significa que pagará el importe en un plazo de 3
 
 > [!IMPORTANT]
 > * El pago con factura (cheque o transferencia bancaria) solo está disponible para las cuentas empresariales.
-> * Debe pagar todos los cargos pendientes antes de cambiar al pago con factura.
+> * Pague todos los cargos pendientes antes de cambiar al pago con factura.
+> * Actualmente, el pago de facturas no es compatible con Azure global en China.
 
 ## <a name="request-to-pay-by-invoice"></a>Solicitud de pago con factura
 
@@ -64,7 +65,7 @@ Si cambia al pago con factura, significa que pagará el importe en un plazo de 3
          Specific region & series of Subscription:
 
     - El **nombre de la empresa** y la **dirección de la empresa** deben coincidir con la información que haya proporcionado para la cuenta de Azure. Para ver o actualizar la información, consulte [Cambio de la información de perfil de la cuenta de Azure](billing-how-to-change-azure-account-profile.md).
-    - Debe agregar la información de contacto de facturación en Azure Portal antes de que se pueda aprobar el límite de crédito. La información de contacto debe ser la del departamento de Contabilidad o Finanzas. Para actualizar la información de contacto de facturación, vaya al [Centro de cuentas de Azure](https://account.azure.com/Profile).
+    - Agregue la información de contacto de facturación en Azure Portal antes de que se pueda aprobar el límite de crédito. La información de contacto debe ser la del departamento de Contabilidad o Finanzas. Para actualizar la información de contacto de facturación, vaya al [Centro de cuentas de Azure](https://account.azure.com/Profile).
 
 6. Compruebe la información de contacto y el método de contacto preferido, y haga clic en **Crear**.
 
@@ -74,11 +75,11 @@ Si es necesario realizar una comprobación de crédito debido a la cantidad de c
 
 Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en Azure Portal.
 
-Si tiene una cuenta del programa de Microsoft Online Services, puede cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. Si tiene un contrato de cliente de Microsoft, puede cambiar el perfil de facturación para pagar mediante cheque o transferencia bancaria. [Aprenda a comprobar el tipo de cuenta](#check-access-to-a-microsoft-customer-agreement).
+Si tiene una cuenta del programa de Microsoft Online Services, puede cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. Con un contrato de cliente de Microsoft, puede cambiar el perfil de facturación para pagar mediante cheque o transferencia bancaria. [Aprenda a comprobar el tipo de cuenta](#check-access-to-a-microsoft-customer-agreement).
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Cambio de la suscripción de Azure para pagar mediante cheque o transferencia bancaria
 
-Siga los pasos siguientes para cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. **Una vez que cambia al pago con factura (cheque o transferencia bancaria), no puede cambiar de vuelta al pago con tarjeta de crédito**.
+Siga los pasos siguientes para cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. **Una vez que cambie al pago por factura (cheque o transferencia bancaria), no podrá volver al pago con tarjeta de crédito**.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 1. Busque **Administración de costos + facturación**.
@@ -93,7 +94,7 @@ Siga los pasos siguientes para cambiar su suscripción de Azure para pagar media
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>Cambio del perfil de facturación para pagar mediante cheque o transferencia bancaria
 
-Siga los pasos siguientes para cambiar un perfil de facturación para pagar mediante cheque o transferencia bancaria. Tenga en cuenta que solo la persona que se registró en Azure puede cambiar el método de pago predeterminado de un perfil de facturación.
+Siga los pasos siguientes para cambiar un perfil de facturación para pagar mediante cheque o transferencia bancaria. Solo la persona que se registró en Azure puede cambiar el método de pago predeterminado de un perfil de facturación.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Busque en **Administración de costos + facturación**.
@@ -106,7 +107,7 @@ Siga los pasos siguientes para cambiar un perfil de facturación para pagar medi
 
    ![Captura de pantalla que muestra los métodos de pago del menú](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
 
-1. Haga clic en el banner azul que le informa de que es apto para pagar mediante cheque o transferencia bancaria.
+1. Haga clic en el banner azul que le informa que es apto para pagar mediante cheque o transferencia bancaria.
 
     ![Captura de pantalla que muestra el banner azul para cambiar al pago mediante cheque o transferencia bancaria](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
 

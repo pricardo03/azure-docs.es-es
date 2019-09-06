@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: de5febaeecd176a8718364720132d3fa4433c57f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443627"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062019"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -34,7 +34,7 @@ La salida de Azure Cosmos DB de Stream Analytics permite escribir los resultados
 A continuación se detallan algunas de las opciones del contenedor de Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Ajustar la coherencia, la disponibilidad y la latencia
-Para satisfacer las necesidades de su aplicación, Azure Cosmos DB permite optimizar la base de datos y los contenedores, y buscar el equilibrio entre coherencia, disponibilidad, latencia y rendimiento. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. El rendimiento se puede mejorar si se escalan las unidades de solicitud en el contenedor. También de forma predeterminada, Azure Cosmos DB permite la indexación sincrónica en cada operación CRUD del contenedor. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en Azure Cosmos DB. Para obtener más información, revise el artículo [Niveles de coherencia de datos optimizables en Azure Cosmos DB](../cosmos-db/consistency-levels.md).
+Para satisfacer las necesidades de su aplicación, Azure Cosmos DB permite optimizar la base de datos y los contenedores y buscar el equilibrio entre coherencia, disponibilidad, latencia y rendimiento. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. El rendimiento se puede mejorar si se escalan las unidades de solicitud en el contenedor. También de forma predeterminada, Azure Cosmos DB permite la indexación sincrónica en cada operación CRUD del contenedor. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en Azure Cosmos DB. Para obtener más información, revise el artículo [Niveles de coherencia de datos optimizables en Azure Cosmos DB](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts de Stream Analytics
 La integración de Stream Analytics en Azure Cosmos DB permite insertar o actualizar registros en su contenedor en función de una columna de identificador de documento determinada. Esto se conoce también como *Upsert*.
@@ -66,7 +66,7 @@ Para los contenedores de Azure Cosmos DB fijos, Stream Analytics no permite ning
 La capacidad de escribir en varios contenedores fijos está en desuso y no se recomienda para escalar horizontalmente el trabajo de Stream Analytics.
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>Rendimiento mejorado con el nivel de compatibilidad 1.2
-En el nivel de compatibilidad 1.2, Stream Analytics admite la integración nativa para una escritura masiva en Cosmos DB. Esto permite que la escritura en Cosmos DB sea eficaz y se maximice el rendimiento, y consigue también un control eficaz de las solicitudes de limitación. El mecanismo de escritura mejorado está disponible en un nuevo nivel de compatibilidad, debido a una diferencia en el comportamiento de upsert.  En los niveles anteriores a 1.2, upsert inserta o combina el documento. En el nivel 1.2, el comportamiento de upsert se modifica para insertar o reemplazar el documento. 
+En el nivel de compatibilidad 1.2, Stream Analytics admite la integración nativa para una escritura masiva en Cosmos DB. Esto permite que la escritura en Cosmos DB sea eficaz y se maximice el rendimiento, y consigue también un control eficaz de las solicitudes de limitación. El mecanismo de escritura mejorado está disponible en un nuevo nivel de compatibilidad, debido a una diferencia en el comportamiento de upsert.  En los niveles anteriores a 1.2, upsert inserta o combina el documento. En el nivel 1.2, el comportamiento de upsert se modifica para insertar o reemplazar el documento.
 
 En los niveles anteriores a 1.2, se utiliza un procedimiento almacenado para realizar el upsert masivo de los documentos por clave de partición en Cosmos DB, donde se escribe un lote como una transacción. Incluso si se produce un error transitorio (limitación) en un único registro, se debe reintentar todo el lote. Esto provocó que incluso escenarios con una limitación razonable fueran relativamente más lentos. En la siguiente comparación se muestra cómo se comportarían estos trabajos con el nivel 1.2.
 
@@ -79,7 +79,7 @@ La tasa de eventos entrantes en el centro de eventos es dos veces mayor de lo qu
 ![Comparación de las métricas de Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
 Con el nivel 1.2, Stream Analytics es más inteligentes al utilizar el 100 % del rendimiento disponible en Cosmos DB, con muy pocos reenvíos por limitación. Esto proporciona una mejor experiencia para otras cargas de trabajo, como los contenedores que se ejecutan en la colección al mismo tiempo. Si necesita probar cómo ASA se escala horizontalmente con Cosmos DB como un receptor de 1 a 10 000 mensajes/segundo, dispone de un [proyecto de ejemplos de Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) que se lo permite.
-Tenga en cuenta que el rendimiento de salida de Cosmos DB es idéntico con los niveles 1.0 y 1.1. Dado que el nivel 1.2 no es actualmente el nivel predeterminado, puede [establecer el nivel de compatibilidad](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) de un trabajo de Stream Analytics desde el portal o con la [llamada de API REST para crear un trabajo](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Se *recomienda encarecidamente* usar el nivel de compatibilidad 1.2 en ASA con Cosmos DB. 
+Tenga en cuenta que el rendimiento de salida de Cosmos DB es idéntico con los niveles 1.0 y 1.1. Dado que el nivel 1.2 no es actualmente el nivel predeterminado, puede [establecer el nivel de compatibilidad](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) de un trabajo de Stream Analytics desde el portal o con la [llamada de API REST para crear un trabajo](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Se *recomienda encarecidamente* usar el nivel de compatibilidad 1.2 en ASA con Cosmos DB.
 
 
 
@@ -98,3 +98,12 @@ La creación de Cosmos DB como una salida en Stream Analytics genera una solicit
 |Base de datos        | El nombre de la base de datos de Azure Cosmos DB.|
 |Nombre del contenedor | El nombre del contenedor que va a usarse. `MyContainer` es una entrada válida de ejemplo; debe existir un contenedor denominado `MyContainer`.  |
 |Id. de documento     | Opcional. El nombre de la columna en los eventos de salida que se usa como clave única en la que deben basarse las operaciones de inserción o actualización. Si se deja vacío, se insertarán todos los eventos, sin opción de actualización.|
+
+## <a name="error-handling-and-retries"></a>Control de errores y reintentos
+
+En caso de un error transitorio, no disponibilidad del servicio o limitación al enviar eventos a Cosmos DB, Stream Analytics reintenta indefinidamente completar correctamente la operación. Sin embargo, hay algunos errores en los que no se produce ningún reintento y son los siguientes:
+
+- Unauthorized (código de error HTTP 401)
+- NotFound (código de error HTTP 404)
+- Forbidden (código de error HTTP 403)
+- BadRequest (código de error HTTP 400)

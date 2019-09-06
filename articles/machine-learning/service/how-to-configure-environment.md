@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128339"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278822"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -76,7 +76,7 @@ La máquina virtual de cuadernos se distingue por ser un elemento:
 
 + **Personalizable**. Aunque es una oferta de máquina virtual administrada y segura, usted conservará el acceso completo a las capacidades de hardware y podrá personalizarlo todo lo que quiera. Por ejemplo, puede crear rápidamente una máquina virtual con la tecnología NVidia V100 más reciente para llevar a cabo la depuración paso a paso de la novedosa arquitectura de red neuronal.
 
-[Detenga la máquina virtual de cuadernos](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm) para dejar de incurrir en cargos por su uso. 
+[Detenga la máquina virtual de cuadernos](tutorial-1st-experiment-sdk-train.md#clean-up-resources) para dejar de incurrir en cargos por su uso. 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -411,5 +411,4 @@ Hay tres formas de crear el archivo de configuración:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenar un modelo](tutorial-train-models-with-aml.md) en Azure Machine Learning con el conjunto de datos de MNIST
-- Consultar las referencias del [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk)
-- Obtener información sobre el [paquete de preparación de datos de Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- Consultar las referencias del [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

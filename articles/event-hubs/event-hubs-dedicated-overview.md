@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730234"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991852"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -40,7 +40,7 @@ Event Hubs dedicado brinda tres atractivas ventajas para los clientes que necesi
 Los clústeres dedicados garantizan la capacidad con el máximo nivel de escalado y pueden admitir hasta gigabytes de datos de streaming de entrada con un almacenamiento de máxima duración y una latencia inferior a un segundo para acomodar ráfagas de tráfico de todo tipo. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Acceso incluido y exclusivo a características 
-La oferta Dedicado incluye algunas características como Capture sin ningún costo adicional y proporciona acceso exclusivo a otras características que se publicarán próximamente, como BYOK. El servicio también administra el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones para el cliente, por lo que puede dedicar menos tiempo al mantenimiento de la infraestructura y más tiempo a la creación de características en el lado cliente.  
+La oferta Dedicado incluye algunas características como Capture sin ningún costo adicional y proporciona acceso exclusivo a otras características que se publicarán próximamente, como Bring Your Own Key (BYOK). El servicio también administra el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones para el cliente, por lo que puede dedicar menos tiempo al mantenimiento de la infraestructura y más tiempo a la creación de características en el lado cliente.  
 
 #### <a name="cost-savings"></a>Ahorro de costos
 Cuando los volúmenes de entrada son altos (> 100 TU), el costo por hora de un clúster es significativamente inferior a la cantidad equivalente de unidades de procesamiento de la oferta Estándar.

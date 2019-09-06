@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977186"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142852"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -88,7 +88,7 @@ El control de acceso basado en rol para las operaciones de administración se es
 - Crear, actualizar o eliminar un contenedor de blobs
 - Eliminar un grupo de recursos y todos sus recursos
 
-El acceso a la administración no se hereda con los datos. Esta separación impide que los roles con caracteres comodín (`*`) tengan acceso no restringido a los datos. Por ejemplo, si un usuario tiene el rol [Lector](built-in-roles.md#reader) en una suscripción, podrá ver la cuenta de almacenamiento, pero, de forma predeterminada, no podrá ver los datos subyacentes.
+El acceso de administración no se hereda a los datos, dado que el método de autenticación de contenedor se establece en "Cuenta de usuario de Azure AD". Esta separación impide que los roles con caracteres comodín (`*`) tengan acceso no restringido a los datos. Por ejemplo, si un usuario tiene el rol [Lector](built-in-roles.md#reader) en una suscripción, podrá ver la cuenta de almacenamiento, pero, de forma predeterminada, no podrá ver los datos subyacentes.
 
 Anteriormente, el control de acceso basado en rol no se usaba para operaciones de datos. La autorización para las operaciones de datos variaba entre proveedores de recursos. El mismo modelo de autorización de control de acceso basado en rol que se usa para las operaciones de administración se ha ampliado a las operaciones de datos.
 
@@ -165,7 +165,7 @@ Para visualizar y trabajar con operaciones de datos, debe tener las versiones co
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-versión preliminar o posterior |
 | [Azure SDK para Go](/azure/go/azure-sdk-go-install) | 15.0.0 o posterior |
 | [Azure para Java](/java/azure/) | 1.9.0 o posterior |
-| [Azure para Python](/python/azure) | 0.40.0 o posterior |
+| [Azure para Python](/azure/python/) | 0.40.0 o posterior |
 | [SDK de Azure para Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 o posterior |
 
 Para ver y usar las operaciones de datos en la API REST, el valor del parámetro **api-version** debe ser la siguiente versión o las versiones posteriores:

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835267"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099983"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -367,7 +366,7 @@ Las unidades de red o los recursos compartidos remotos, como los servicios de ar
 
 Si se usan discos basados en Azure Page BLOB Storage o Managed Disks, las declaraciones realizadas en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones con Oracle Database.
 
-Existen cuotas en el rendimiento de IOPS para los discos de Azure. Este concepto se explica en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). Las cuotas exactas varían según el tipo de máquina virtual que se usa. Encontrará una lista de los tipos de VM con sus cuotas en [Tamaños de las máquinas virtuales Windows en Azure][virtual-machines-sizes-windows].
+Existen cuotas en el rendimiento de IOPS para los discos de Azure. Este concepto se explica en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). Las cuotas exactas varían según el tipo de máquina virtual que se usa. Encontrará una lista de los tipos de máquina virtual con sus cuotas en [Tamaños de las máquinas virtuales Windows en Azure][virtual-machines-sizes-windows].
 
 Para identificar los tipos de máquina virtual de Azure compatibles, consulte la nota de SAP [1928533].
 

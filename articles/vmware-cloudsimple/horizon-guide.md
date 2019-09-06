@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b4c1c60bcab770c5345645ffda3ac3558aa32cc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901292"
+ms.locfileid: "69972762"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Uso del sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon
 
@@ -74,6 +74,7 @@ En las secciones siguientes se detallan las instrucciones para configurar una im
 * AD/DHCP/DNS instalados para la nube privada.
 
 #### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portal de CloudSimple: crear una VLAN o subred dedicada para grupos de escritorios
+
 Cree una VLAN para los grupos de escritorios de Horizon y asígnele un valor de CIDR de subred. Para obtener instrucciones, consulte el artículo [Creación y administración de subredes y VLAN.](create-vlan-subnet.md) Esta es la red en la que se ejecutarán todas las máquinas virtuales de escritorio.
 
 Siga los procedimientos recomendados de seguridad estándar para proteger la implementación de Horizon:

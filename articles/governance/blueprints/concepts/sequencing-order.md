@@ -1,19 +1,18 @@
 ---
 title: Orden de la secuencia de implementación
-description: Información acerca del ciclo de vida de la definición de un plano técnico y detalles sobre cada fase.
+description: Aprenda sobre el ciclo de vida de la definición de un plano técnico y detalles sobre cada fase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/25/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721288"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231925"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -51,6 +50,10 @@ Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesari
 
 La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición de plano técnico (para grupos de recursos) y los objetos de artefacto admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 
+> [!NOTE]
+> Al crear objetos de plano técnico, cada recurso de artefacto obtiene su nombre del nombre de archivo, si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), o del punto de conexión de la dirección URL, si usa la [API REST](/rest/api/blueprints/artifacts/createorupdate).
+> Las referencias _resourceGroup_ de los artefactos deben coincidir con los definidos en la definición de plano técnico.
+
 ### <a name="example---ordered-resource-group"></a>Ejemplo: grupo de recursos ordenado
 
 Esta definición de plano técnico de ejemplo tiene un grupo de recursos que ha definido un orden personalizado de secuenciación declarando un valor para `dependsOn`, junto con un grupo de recursos estándar. En este caso, el artefacto denominado **assignPolicyTags** se procesará antes que el grupo de recursos **ordered-rg**.
@@ -77,9 +80,7 @@ Esta definición de plano técnico de ejemplo tiene un grupo de recursos que ha 
         },
         "targetScope": "subscription"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint",
-    "type": "Microsoft.Blueprint/blueprints",
-    "name": "mySequencedBlueprint"
+    "type": "Microsoft.Blueprint/blueprints"
 }
 ```
 
@@ -98,9 +99,7 @@ Este ejemplo es un artefacto de directiva que depende de una plantilla de Azure 
         ]
     },
     "kind": "policyAssignment",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
-    "type": "Microsoft.Blueprint/artifacts",
-    "name": "assignPolicyTags"
+    "type": "Microsoft.Blueprint/artifacts"
 }
 ```
 
@@ -134,9 +133,7 @@ El artefacto de plantilla de nivel de suscripción que depende del grupo de recu
         "description": ""
     },
     "kind": "template",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
-    "type": "Microsoft.Blueprint/blueprints/artifacts",
-    "name": "subtemplateWaitForRG"
+    "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
 ```
 
@@ -148,7 +145,7 @@ Si se declara una dependencia de artefacto que no alteraría el orden predetermi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).

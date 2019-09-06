@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558846"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068857"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -63,13 +63,7 @@ Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejem
 
 ## <a name="customization"></a>Personalización
 
-Además del modelo universal que usa Servicios de voz, se pueden crear modelos acústicos, de idiomas y de pronunciación personalizados específicos para su experiencia. Esta es una lista de las opciones de personalización:
-
-| Modelo | DESCRIPCIÓN |
-|-------|-------------|
-| [Modelo acústico](how-to-customize-acoustic-models.md) | La creación de un modelo acústico personalizado resulta útil si las aplicaciones, herramientas o dispositivos se emplean en un entorno concreto como en un automóvil o en una planta de producción, cada uno con unas condiciones de grabación específicas. Los ejemplos incluyen el habla con acento, ruidos de fondo específicos o el uso de un micrófono específico para la grabación. |
-| [Modelo de lenguaje](how-to-customize-language-model.md) | Cree un modelo de lenguaje personalizado para mejorar la transcripción de gramática y vocabulario específicos del sector, como terminología médica o jerga de TI. |
-| [Modelo de pronunciación](how-to-customize-pronunciation.md) | Con un modelo de pronunciación personalizado, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple). |
+Además del modelo de línea de base estándar usado por Servicios de voz, puede personalizar modelos para sus necesidades con los datos disponibles para superar barreras de reconocimiento de voz tales como el estilo de habla, el vocabulario y el ruido de fondo. Puede consultar todo esto en [Custom Speech](how-to-custom-speech.md).
 
 > [!NOTE]
 > Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).

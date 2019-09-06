@@ -69,6 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: '(Versión preliminar) <a href="/azure/sql-database/sql-database-instance-pools"> Grupos de instancias</a>: proporcionan una manera útil y rentable de migrar pequeñas instancias de SQL a la nube.'
           - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 núcleos virtuales en la generación de hardware Gen5</a>'
           - html: "Compatibilidad con las suscripciones con <a href=\"https://aka.ms/sql-mi-visual-studio-subscribers\" > crédito mensual de Azure para suscriptores de Visual\_Studio</a>"
           - html: "Compatibilidad con <a href=\"https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019\"> SharePoint\_2016 y SharePoint\_2019 </a> y <a href=\"https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance\"> Dynamics\_365 Business Central </a>"

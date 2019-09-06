@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f46757b97fb2dd38be36459e5aafb70f5b5a3bf6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932709"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307431"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -38,6 +38,7 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Francés (Francia) |`fr-FR` |-| ✔ |✔ |✔|
 | Francés (Canadá) |`fr-CA` |-|   -   |-|✔|
 | Alemán |`de-DE` |-| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
 | Italiano |`it-IT` |-| ✔ |✔|✔|
 | *[Japonés](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase clave|
 | Coreano |`ko-KR` |-|   -   |-|Solo la frase clave|
@@ -88,6 +89,7 @@ Para realizar el aprendizaje automático, LUIS divide una expresión en [tokens]
 |Francés (fr-FR)|✔||||
 |Francés (fr-CA)|✔||||
 |Alemán|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italiano|✔||||
 |Japonés||||✔|
 |Coreano||✔||✔|

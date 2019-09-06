@@ -3,17 +3,17 @@ title: Conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Cen
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 04/24/2019
+ms.date: 08/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: ce0c5abe6e89094623c07afa2d1c85903e0e7ee7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3d804b1e14d1b79266a74340e8682f1bf03d8f30
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877448"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050533"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central
 
@@ -34,7 +34,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo **SensorTile.box** y anote los detalles de conexión del dispositivo: **Id. de ámbito**, **Id. de dispositivo** y **clave principal**:
 
-1. Agregue un dispositivo desde el Explorador de dispositivos. Seleccione **+ Nuevo > Real** para agregar un dispositivo real.
+1. Agregue un dispositivo desde Dispositivos. Seleccione **+ Nuevo > Real** para agregar un dispositivo real.
 
     * Escriba un **Id. de dispositivo** en minúsculas o use el **Id. de dispositivo** sugerido.
     * Especifique un **nombre de dispositivo** o use el nombre sugerido.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261428"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904411"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -214,12 +214,11 @@ Para descargarlos mediante Linux, escriba lo siguiente:
 
 ### <a name="apply-custom-configuration-changes"></a>Aplicación de cambios en la configuración personalizada
 
-Para aplicar cambios de configuración personalizados, siga estos pasos:
-
+Para aplicar cambios de configuración personalizados, siga estos pasos como un usuario raíz:
 
 1. Ejecute el siguiente comando para descomprimir el archivo binario.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Captura de pantalla del comando que se va a ejecutar](./media/vmware-azure-install-linux-master-target/image16.png)
 

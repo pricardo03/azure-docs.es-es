@@ -6,19 +6,18 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7501982f90cd145e0fc918bf976a840323a31127
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036780"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972571"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
 
-Ahora hay disponible una nueva versión mejorada de [Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure](site-recovery-hyper-v-deployment-planner.md). Reemplaza a la antigua herramienta. Use la herramienta nueva para el planeamiento de la implementación.
-La herramienta proporciona las directrices siguientes:
+[Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) para la implementación de Hyper-V en Azure proporciona lo siguiente:
 
 * Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
 * Necesidad de ancho de banda de red frente a evaluación de RPO.
@@ -48,7 +47,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 2. En **Select a planner type** (Seleccione un tipo de planeador), seleccione **Quick Planner** (Planificador rápido) en el cuadro de lista.
 
-   ![Introducción](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Primeros pasos](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. En la hoja de cálculo **Capacity Planner**, escriba la información que necesite. Rellene todos los campos rodeados por un círculo rojo de la captura de pantalla siguiente:
 
@@ -78,7 +77,7 @@ Puede ejecutar la herramienta de dos modos distintos:
    * **Number of additional Process Servers required** (Número de servidores de proceso adicionales necesarios): Muestra si se requieren servidores de procesos adicionales, además del servidor de proceso que se ejecuta en el servidor de configuración de forma predeterminada.
    * **100% additional storage on the Source** (100 % de almacenamiento adicional en el origen): Muestra si se necesita almacenamiento adicional en la ubicación de origen.
 
-      ![Salida](./media/site-recovery-capacity-planner/output.png)
+      ![Output](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Ejecución de Detailed Planner
 

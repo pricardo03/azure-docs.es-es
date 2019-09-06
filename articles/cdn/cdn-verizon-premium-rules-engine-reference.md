@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593161"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996767"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referencia del motor de reglas de Azure CDN de Verizon Premium
 
@@ -70,6 +70,8 @@ Carácter especial | DESCRIPCIÓN
 \* | Un asterisco permite que el carácter anterior coincida con cero o más veces.
 Espacio | Normalmente, un carácter de espacio se trata como un carácter literal.
 'valor' | Las comillas simples se tratan como caracteres literales. Un conjunto de comillas simples no tiene un significado especial.
+
+Coincidencias de coincidencia y características que admiten expresiones regulares, excepto los patrones definidos por las expresiones compatibles con Perl.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

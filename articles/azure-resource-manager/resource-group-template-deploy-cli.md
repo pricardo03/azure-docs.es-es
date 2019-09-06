@@ -4,14 +4,14 @@ description: Use Azure Resource Manager y la CLI de Azure para implementar recur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853828"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971031"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -37,7 +37,7 @@ Para implementar en una **suscripción**, use [az deployment create](/cli/azure/
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Actualmente, solo se admiten las implementaciones del grupo de administración a través de la API de REST. Vea [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](resource-group-template-deploy-rest.md).
+Actualmente, solo se admiten las implementaciones del grupo de administración a través de la API de REST. Consulte [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](resource-group-template-deploy-rest.md).
 
 Los ejemplos de este artículo usan las implementaciones del grupo de recursos. Para obtener más información sobre la implementación de suscripciones, vea [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
@@ -98,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Esta característica también es conocida como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice el parámetro `--rollback-on-error` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de la infraestructura y quiere volver a ese estado. Hay una serie de advertencias y restricciones:
+Esta característica también es conocida como *Reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice el parámetro `--rollback-on-error` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de la infraestructura y quiere volver a ese estado. Hay una serie de advertencias y restricciones:
 
-- La reimplementación se ejecuta exactamente como se ejecutó previamente y con los mismos parámetros. Los parámetros no se pueden cambiar.
-- La implementación anterior se ejecuta con el [modo completo](./deployment-modes.md#complete-mode). Los recursos no incluidos en la implementación anterior se eliminan, y se establecen las configuraciones del recurso al estado anterior. Asegúrese de que comprende perfectamente los [modos de implementación](./deployment-modes.md).
-- La reimplementación solo afecta a los recursos, los cambios de datos no se ven afectados.
-- Esta característica solo se admite en implementaciones del grupo de recursos, no en implementaciones en el nivel de suscripción. Para obtener más información sobre las implementaciones en el nivel de suscripción, vea [Creación de grupos de recursos y otros recursos en el nivel de suscripción](./deploy-to-subscription.md).
+- La reimplementación se ejecuta exactamente como se ejecutó antes y con los mismos parámetros. Los parámetros no se pueden cambiar.
+- La implementación anterior se ejecuta con el [modo completo](./deployment-modes.md#complete-mode). Los recursos no incluidos en la implementación anterior se eliminan y las configuraciones del recurso se establecen en su estado anterior. Asegúrese de que comprende perfectamente los [modos de implementación](./deployment-modes.md).
+- La reimplementación solo afecta a los recursos; los cambios en los datos no se ven afectados.
+- Esta característica solo se admite en implementaciones del grupo de recursos, no en implementaciones en el nivel de suscripción. Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
 
@@ -133,7 +133,7 @@ La implementación especificada debe haberse realizado correctamente.
 
 ## <a name="parameters"></a>Parámetros
 
-Para pasar valores de parámetros, puede usar parámetros en línea o un archivo de parámetros. Los ejemplos anteriores de este artículo muestran parámetros en línea.
+Para pasar valores de parámetros, puede usar parámetros en línea o un archivo de parámetros.
 
 ### <a name="inline-parameters"></a>Parámetros en línea
 
@@ -172,23 +172,7 @@ El formato de arrayContent.json es:
 
 En lugar de pasar parámetros como valores en línea en el script, quizá le resulte más fácil usar un archivo JSON que contiene los valores de parámetro. El archivo de parámetros debe ser un archivo local. No se admiten los archivos de parámetros externos con la CLI de Azure.
 
-El archivo de parámetros debe estar en el siguiente formato:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Tenga en cuenta que la sección de parámetros incluye un nombre de parámetro que coincide con el parámetro definido en la plantilla (storageAccountType). El archivo de parámetros contiene un valor para el parámetro. Este valor se pasa automáticamente a la plantilla durante la implementación. Puede crear varios archivos de parámetros y, después, pasar el archivo de parámetros adecuado para el escenario. 
-
-Copie el ejemplo anterior y guárdelo como un archivo denominado `storage.parameters.json`.
+Para más información sobre el archivo de parámetro, consulte [Creación de un archivo de parámetros de Resource Manager](resource-manager-parameter-files.md).
 
 Para pasar un archivo de parámetros local, use `@` para especificar un archivo local denominado storage.parameters.json.
 
@@ -198,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>Prioridad de parámetros
-
-Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>Prueba de una implementación de plantilla

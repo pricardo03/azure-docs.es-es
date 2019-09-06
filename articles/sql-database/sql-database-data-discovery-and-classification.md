@@ -7,20 +7,21 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/22/2019
+ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569046"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072990"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse
 
-La clasificación y detección de datos (actualmente en versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
+La clasificación y detección de datos proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
+
 Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
 
 - Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos.
@@ -76,7 +77,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de su base de datos de Azure SQL. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)** .
+2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de su base de datos de Azure SQL. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos**.
 
    ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png)
 

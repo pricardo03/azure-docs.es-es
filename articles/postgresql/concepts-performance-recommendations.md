@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: e1e9e998c2ac4695d955a546d0f02fbc2b517d5e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068841"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907490"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL con un único servidor
 
@@ -29,7 +29,7 @@ Abra **Recomendaciones de rendimiento** desde la sección **Rendimiento intelige
 
 ![Página de inicio de Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Seleccione **Analizar** y elija una base de datos, lo que iniciará el análisis. Según la carga de trabajo, el análisis puede tardar varios minutos. Una vez que se realice el análisis, habrá una notificación en el portal. Análisis realiza un examen en profundidad de la base de datos. Se recomienda que realizar los análisis durante los períodos de poca actividad. 
+Seleccione **Analizar** y elija una base de datos, lo que iniciará el análisis. Según la carga de trabajo, el análisis puede tardar varios minutos. Una vez que se realice el análisis, habrá una notificación en el portal. El análisis realiza un examen en profundidad de la base de datos. Se recomienda que realizar los análisis durante los períodos de poca actividad. 
 
 La ventana **Recomendaciones** mostrará una lista de recomendaciones, si se ha detectado alguna.
 
@@ -47,7 +47,8 @@ Las recomendaciones de *Crear índice* sugieren nuevos índices para acelerar la
 ### <a name="drop-index-recommendations"></a>Recomendaciones para quitar índice
 Además de detectar índices que faltan, Azure Database for PostgreSQL analiza el rendimiento de los índices existentes. Si un índice se usa muy poco o es redundante, el analizador recomienda quitarlo.
 
-
+## <a name="considerations"></a>Consideraciones
+* Las recomendaciones de rendimiento no están disponibles para las [réplicas de lectura](concepts-read-replicas.md).
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.
 

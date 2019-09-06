@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9073e00f5c3702e43665541bd8ff9e66c2bc505b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968399"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035139"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitación del acceso remoto a Power BI Mobile con Azure AD Application Proxy
 
@@ -103,25 +103,27 @@ Ahora ya está a punto para configurar Azure AD Application Proxy.
 
 Para finalizar la configuración de la aplicación, vaya a la sección **Usuarios y grupos**  y asigne usuarios para que accedan a esta aplicación.
 
-## <a name="step-3-register-the-native-app-and-grant-access-to-the-api"></a>Paso 3: Registrar la aplicación nativa y conceder acceso a la API
+## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Paso 3: Modificación del URI de respuesta para la aplicación
 
-Las aplicaciones nativas son programas desarrollados para usarlos en un dispositivo o una plataforma. Para que la aplicación Power BI Mobile pueda conectarse y acceder a una API, debe registrarla en Azure AD.  
+Para que la aplicación móvil de Power BI pueda conectarse y acceder a los servicios de informes, debe configurar el registro de aplicación que se creó automáticamente en el paso 2. 
 
-1. Registre la aplicación en Azure AD siguiendo el [paso 2 de Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de aplicaciones](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
+1. En la página **Introducción** de Azure Active Directory, haga clic en **Registros de aplicaciones**.
+2. En la pestaña **Todas las aplicaciones**, busque la aplicación que creó en el paso 2.
+3. Seleccione la aplicación y luego **Autenticación**.
+4. Agregue los siguientes URI de redirección en función de la plataforma que use.
 
-   Al registrar la aplicación para la versión de Power BI Mobile para **iOS**, agregue los siguientes URI de redireccionamiento:
+   Al configurar la aplicación para Power BI Mobile **iOS**, agregue los siguientes URI de redireccionamiento de tipo cliente público (móvil y escritorio):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   Al registrar la aplicación para la versión de Power BI Mobile para **Android**, agregue los siguientes URI de redireccionamiento:
+   Al configurar la aplicación para Power BI Mobile **Android**, agregue los siguientes URI de redireccionamiento de tipo cliente público (móvil y escritorio):
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > Se deben agregar los URI de redirección para que la aplicación funcione correctamente.
-
-Ahora que ha registrado su aplicación nativa, puede dar acceso a otras de su directorio, en este caso, para tener acceso a los servicios de informes publicados a través de Application Proxy. Siga los pasos descritos en el [paso 3, relativo a la concesión de acceso a la aplicación de proxy](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application).
+   > Se deben agregar los URI de redirección para que la aplicación funcione correctamente. Si va a configurar la aplicación para Power BI Mobile iOS y Android, agregue el siguiente URI de redireccionamiento de tipo cliente público (móvil y escritorio) a la lista de URI de redireccionamiento configurados para iOS: `urn:ietf:wg:oauth:2.0:oob`.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>Paso 4: Conexión desde la aplicación Power BI Mobile
 
