@@ -1,0 +1,183 @@
+---
+title: Configuración de su propia clave para cifrar datos en reposo de Azure Event Hubs
+description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
+services: event-hubs
+ms.service: event-hubs
+documentationcenter: ''
+author: spelluru
+ms.topic: conceptual
+ms.date: 08/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035908"
+---
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
+Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
+
+## <a name="overview"></a>Información general
+Azure Event Hubs ahora admite la opción de cifrado de datos en reposo con claves administradas por Microsoft o claves administradas por el cliente (Bring Your Own Key – BYOK). Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar datos en reposo de Azure Event Hubs.
+
+La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
+
+> [!NOTE]
+> La funcionalidad BYOK es compatible con los clústeres [dedicados de un solo inquilino de Event Hubs](event-hubs-dedicated-overview.md). No se puede habilitar para espacios de nombres de Event Hubs estándar.
+
+Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md)
+
+En este artículo se muestra cómo configurar un almacén de claves con claves administradas del cliente mediante Azure Portal. Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte[Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../key-vault/quick-create-portal.md).
+
+> [!IMPORTANT]
+> El uso de claves administradas por el cliente con Azure Event Hubs requiere que el almacén de claves tenga configuradas dos propiedades obligatorias. Son las siguientes:  **Eliminación temporal** y **No purgar**. Estas propiedades están habilitadas de manera predeterminada cuando crea un nuevo almacén de claves en Azure Portal. Sin embargo, si tiene que habilitar estas propiedades en un almacén de claves existente, deberá usar PowerShell o la CLI de Azure.
+
+## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
+Para habilitar claves administradas del cliente en Azure Portal, siga estos pasos:
+
+1. Vaya al clúster de Event Hubs dedicado.
+1. Seleccione el espacio de nombres en el que desea habilitar BYOK.
+1. En la página **Configuración** del espacio de nombres de Event Hubs, seleccione **Cifrado (vista previa)** . 
+1. Seleccione **Cifrado de claves en reposo que administra el cliente** como se muestra en la siguiente imagen. 
+
+    ![Habilitación de clave administrada por el cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+
+## <a name="set-up-a-key-vault-with-keys"></a>Configuración de un almacén de claves con claves
+Después de habilitar las claves administradas por el cliente, debe asociar la clave administrada por el cliente con su espacio de nombres de Azure Event Hubs. Event Hubs solo admite Azure Key Vault. Si habilita la opción **Encryption with customer-managed key** (Cifrado con clave administrada por el cliente) en la sección anterior, debe importar la clave en Azure Key Vault. Recuerde que las claves deben tener habilitadas las opciones **Eliminación temporal** y **No purgar**. Estas opciones se pueden configurar mediante [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) o la [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
+
+1. Para crear un nuevo almacén de claves, siga el [inicio rápido](../key-vault/key-vault-overview.md) de Azure Key Vault. Para más información sobre cómo importar claves existentes, consulte [Información acerca de claves, secretos y certificados](../key-vault/about-keys-secrets-and-certificates.md).
+1. Para activar la eliminación temporal y la protección de purgas al crear un almacén, use el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
+
+    ```azurecli-interactive
+    az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+    ```    
+1. Para agregar la protección de purgas a un almacén existente (que ya tenga habilitada la eliminación temporal), use el comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update).
+
+    ```azurecli-interactive
+    az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+    ```
+1. Siga estos pasos para crear claves:
+    1. Para crear una nueva clave, seleccione **Generar/Importar** en el menú **Claves** en **Configuración**.
+        
+        ![Seleccione el botón Generate/Import (Generar/importar).](./media/configure-customer-managed-key/select-generate-import.png)
+    1. Establezca **Opciones** en **Generar** y asigne un nombre a la clave.
+
+        ![Crear una clave](./media/configure-customer-managed-key/create-key.png) 
+    1. Ahora puede seleccionar esta clave para asociarla con el espacio de nombres de Event Hubs para el cifrado en la lista desplegable. 
+
+        ![Selección de clave del almacén de claves](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+    1. Rellene los detalles de la clave y haga clic en **Seleccionar**. Esto habilitará el cifrado de datos en reposo en el espacio de nombres con una clave administrada por el cliente. 
+
+        > [!NOTE]
+        > En la vista previa, solo puede seleccionar una clave única. 
+
+## <a name="rotate-your-encryption-keys"></a>Rotación de las claves de cifrado
+Puede rotar la clave en el almacén de claves mediante el mecanismo de rotación de los Azure Key Vault. Para más información, consulte [Configuración de la auditoría y la rotación de claves](../key-vault/key-vault-key-rotation-log-monitoring.md). También es posible establecer fechas de activación y expiración para automatizar la rotación de claves. El servicio Event Hubs detectará nuevas versiones de clave y comenzará a usarlas automáticamente.
+
+## <a name="revoke-access-to-keys"></a>Revocación del acceso a las claves
+Al revocar el acceso a las claves de cifrado, no se purgan los datos de Event Hubs. Sin embargo, no se podrá acceder a los datos desde el espacio de nombres de Event Hubs. Puede revocar la clave de cifrado mediante la directiva de acceso o eliminando la clave. Obtenga más información sobre las directivas de acceso y la protección del almacén de claves en [Protección del acceso a un almacén de claves](../key-vault/key-vault-secure-your-key-vault.md).
+
+Una vez revocada la clave de cifrado, el servicio Event Hubs en el espacio de nombres cifrado dejará de ser operativo. Si el acceso a la clave está habilitado o si se ha restaurado la clave eliminada, el servicio Event Hubs seleccionará la clave para que pueda acceder a los datos desde el espacio de nombres de Event Hubs cifrado.
+
+> [!NOTE]
+> Si elimina una clave de cifrado existente del almacén de claves y la reemplaza por una nueva clave en el espacio de nombres de Event Hubs, dado que la clave eliminada sigue siendo válida hasta una hora (ya que está almacenada en caché), es posible que los datos antiguos (que se cifraron con la clave antigua) sigan siendo accesibles junto con los nuevos datos, a los que ahora solo se puede acceder con la nueva clave. Este comportamiento es así por diseño en la versión preliminar de la característica. 
+
+## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos 
+La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones cuando se cifra un espacio de nombres con claves administradas por el cliente. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+## <a name="enable-user-logs"></a>Habilitación de registros de usuario
+Siga estos pasos para habilitar registros para las claves administradas por el cliente.
+
+1. En Azure Portal, desplácese hasta el espacio de nombres que tiene habilitado BYOK.
+1. Seleccione **Configuración de diagnóstico** en **Supervisión**.
+
+    ![Selección de Configuración de diagnóstico](./media/configure-customer-managed-key/select-diagnostic-settings.png)
+1. Seleccione **+Agregar configuración de diagnóstico**. 
+
+    ![Selección de Agregar configuración de diagnóstico](./media/configure-customer-managed-key/select-add-diagnostic-setting.png)
+1. Proporcione un **nombre** y seleccione dónde desea transmitir los registros.
+1. Seleccione **CustomerManagedKeyUserLogs** y **Guardar**. Esta acción habilita los registros de BYOK en el espacio de nombres.
+
+    ![Selección de la opción de registros de usuario de clave administrada por el cliente](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
+
+## <a name="log-schema"></a>Esquema de registro 
+Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que usan el formato descrito en la siguiente tabla. 
+
+| NOMBRE | Descripción |
+| ---- | ----------- | 
+| TaskName | La descripción de la tarea que generó el error. |
+| ActivityId | El identificador interno, usado con fines de seguimiento. |
+| category | Define la clasificación de la tarea. Por ejemplo, si la clave del almacén de claves se va a deshabilitar, sería una categoría de información, o si no se puede desencapsular una clave, podría tratarse de un error. |
+| resourceId | El identificador de recursos de Azure Resource Manager |
+| keyVault | Nombre completo del almacén de claves. |
+| key | Nombre de clave que se usa para cifrar el espacio de nombres de Event Hubs. |
+| version | Versión de la clave que se va a usar. |
+| operation | La operación que se realiza en la clave en el almacén de claves. Por ejemplo, deshabilitar o habilitar la clave, encapsular o desencapsular. |
+| código | Código asociado a la operación. Ejemplo: Código de error; 404 indica que no se ha encontrado la clave. |
+| message | Cualquier mensaje de error asociado con la operación. |
+
+El siguiente es un ejemplo del registro de una clave administrada por el cliente:
+
+```json
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111-1111-1111-1111-111111111111",
+   "category": "error"
+   "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "1111111111111111111111111111111",
+   "operation": "wrapKey",
+   "code": "404",
+   "message": "Key not found: ehbyok0/111111111111111111111111111111",
+}
+
+
+
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111111111-1111-1111-1111111111111",
+   "category": "info"
+   "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "111111111111111111111111111111",
+   "operation": "disable" | "restore",
+   "code": "",
+   "message": "",
+}
+```
+
+## <a name="troubleshoot"></a>Solución de problemas
+Como procedimiento recomendado, habilite siempre los registros como se muestra en la sección anterior. Esto ayuda a realizar el seguimiento de las actividades cuando está habilitado el cifrado de BYOK. También ayuda a limitar los problemas.
+
+A continuación se muestran los códigos de error comunes que buscar cuando está habilitado el cifrado de BYOK.
+
+| . | Código de error | Estado resultante de los datos |
+| ------ | ---------- | ----------------------- | 
+| Quitar el permiso de encapsular/desencapsular de un almacén de claves | 403 |    Inaccesible |
+| Quitar la pertenencia al rol de AAD de una entidad de seguridad de AAD que concedió el permiso de encapsular/desencapsular | 403 |  Inaccesible |
+| Eliminar una clave de cifrado del almacén de claves | 404 | Inaccesible |
+| Eliminar el almacén de claves | 404 | Inaccesible (se da por supuesto que la eliminación temporal está habilitada, al ser una opción obligatoria) |
+| Cambiar el período de expiración de la clave de cifrado para que ya haya expirado | 403 |   Inaccesible  |
+| Cambiar el valor NBF (no antes), de modo que la clave de cifrado de clave no esté activa | 403 | Inaccesible  |
+| Seleccionar la opción **Allow MSFT Services** (Permitir servicios MSFT) para el firewall del almacén de claves o bloquear el acceso de red al almacén de claves que tiene la clave de cifrado | 403 | Inaccesible |
+| Mover el almacén de claves a un inquilino diferente | 404 | Inaccesible |  
+| Problema de red intermitente o interrupción de DNS/AAD/MSI |  | Accesible mediante clave de cifrado de datos en caché |
+
+> [!IMPORTANT]
+> Para habilitar la recuperación ante desastres con localización geográfica en un espacio de nombres que use el cifrado de BYOK, el espacio de nombres secundario para el emparejamiento debe estar en un clúster dedicado y debe tener habilitada en este una identidad administrada asignada por el sistema. Para más información, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+> [!NOTE]
+> Si hay puntos de conexión de servicio de red virtual configurados en Azure Key Vault para el espacio de nombres de Event Hubs, no se admitirá BYOK. 
+
+
+## <a name="next-steps"></a>Pasos siguientes
+Consulte los artículos siguientes:
+- [Información general de Event Hubs](event-hubs-about.md)
+- [Introducción a Azure Key Vault](../key-vault/key-vault-overview.md)
+
+
+
+

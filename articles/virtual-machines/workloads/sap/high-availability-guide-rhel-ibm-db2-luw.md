@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036652"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099675"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,11 +516,15 @@ Si realizó la instalación antes de haber creado la configuración de HADR de D
 Use la herramienta de configuración de J2EE para comprobar o actualizar la dirección URL de JDBC. Dado que la herramienta de configuración de J2EE es una herramienta gráfica, deberá tener X server instalado:
  
 1. Inicie sesión en el servidor de aplicaciones principal de la instancia de J2EE y ejecute lo siguiente:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
 1. En el marco de la izquierda, seleccione **security store**.
-1. En el marco de la derecha, elija la clave jdbc/pool/\<SAPSID>/url.
-1. Cambie el nombre de host en la dirección URL de JDBC al nombre de host virtual.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+1. En el marco de la derecha, elija la clave `jdbc/pool/\<SAPSID>/url`.
+1. Cambie el nombre de host de la dirección URL de JDBC al nombre de host virtual.
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
 1. Seleccione **Agregar**.
 1. Para guardar los cambios, seleccione el icono de disco de la parte superior izquierda.
 1. Cierre la herramienta de configuración.
