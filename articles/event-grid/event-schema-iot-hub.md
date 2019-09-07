@@ -155,7 +155,7 @@ Todos los eventos contienen los mismos datos de nivel superior:
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| data | objeto | Datos del evento de IoT Hub.  |
+| data | object | Datos del evento de IoT Hub.  |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
