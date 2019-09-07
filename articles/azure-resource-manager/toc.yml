@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Resource Manager?
       href: resource-group-overview.md
+    - name: Introducción a las plantillas
+      href: template-deployment-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -58,8 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Conceptos
   items:
-    - name: Implementaciones de plantilla
-      href: template-deployment-overview.md
     - name: Procedimientos recomendados para plantillas
       href: template-best-practices.md
     - name: Plantillas para mantener la coherencia en la nube
