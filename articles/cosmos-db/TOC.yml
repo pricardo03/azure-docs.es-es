@@ -455,6 +455,10 @@
           items:
             - name: 1 - Consulta de datos
               href: tutorial-query-graph.md
+        - name: Referencia
+          items:
+            - name: Encabezados de respuesta
+              href: gremlin-headers.md
         - name: Guías de procedimientos
           items:
             - name: Modelado de datos de Graph
