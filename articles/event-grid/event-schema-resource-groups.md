@@ -249,10 +249,10 @@ El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| authorization | objeto | Autorización solicitada para la operación. |
-| claims | objeto | Propiedades de las notificaciones. Para más información, consulte la [especificación de JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | object | Autorización solicitada para la operación. |
+| claims | object | Propiedades de las notificaciones. Para más información, consulte la [especificación de JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Identificador de operación para solucionar el problema. |
-| httpRequest | objeto | Detalles de la operación. Este objeto solo se incluye al actualizar un recurso existente o eliminar un recurso. |
+| httpRequest | object | Detalles de la operación. Este objeto solo se incluye al actualizar un recurso existente o eliminar un recurso. |
 | resourceProvider | string | Proveedor de recursos para la operación. |
 | resourceUri | string | URI del recurso en la operación. |
 | operationName | string | Operación que se realizó. |

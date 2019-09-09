@@ -173,7 +173,7 @@ Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo descone
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | moduleId | string | Identificador único del módulo. Este campo solo es la salida de los dispositivos del módulo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| deviceConnectionStateEventInfo | objeto | Información de evento del estado de conexión del dispositivo
+| deviceConnectionStateEventInfo | object | Información de evento del estado de conexión del dispositivo
 | sequenceNumber | string | Un número que indica el orden de los eventos de dispositivo conectado o dispositivo desconectado. El evento más reciente tendrá un número de secuencia mayor que el del evento anterior. Este número puede variar en más de 1, pero el orden es siempre ascendente. Consulte [cómo usar el número de secuencia](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 En el caso del evento de Azure IoT Hub **Telemetría de dispositivo**, el objeto de datos contiene el mensaje del dispositivo a nube en [formato de mensaje de IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) y tiene las siguientes propiedades:
@@ -188,7 +188,7 @@ Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado*
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| twin | objeto | Información acerca del dispositivo gemelo, que es la representación en la nube de los metadatos del dispositivo de la aplicación. | 
+| twin | object | Información acerca del dispositivo gemelo, que es la representación en la nube de los metadatos del dispositivo de la aplicación. | 
 | deviceID | string | Identificador único del dispositivo gemelo. | 
 | ETag | string | Un validador para garantizar la coherencia de las actualizaciones de un dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. |  
 | deviceEtag| string | Un validador para garantizar la coherencia de las actualizaciones de un registro de dispositivo. Se garantiza que cada deviceEtag sea exclusiva de cada registro de dispositivo. |
@@ -202,8 +202,8 @@ Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado*
 | primaryThumbprint | string | Huella digital principal del certificado x509. |
 | secondaryThumbprint | string | Huella digital secundaria del certificado x509. | 
 | version | integer | Un entero que se incrementa en uno cada vez que se actualiza el dispositivo gemelo. |
-| desired | objeto | Una parte de las propiedades que solo el back-end de la aplicación puede escribir y que el dispositivo puede leer. | 
-| reported | objeto | Una parte de las propiedades que solo el dispositivo puede escribir y que el back-end de la aplicación puede leer. |
+| desired | object | Una parte de las propiedades que solo el back-end de la aplicación puede escribir y que el dispositivo puede leer. | 
+| reported | object | Una parte de las propiedades que solo el dispositivo puede escribir y que el back-end de la aplicación puede leer. |
 | lastUpdated | string | La marca de tiempo ISO8601 de la última actualización de propiedades del dispositivo gemelo. | 
 
 ## <a name="next-steps"></a>Pasos siguientes
