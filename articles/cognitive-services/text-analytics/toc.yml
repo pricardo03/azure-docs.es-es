@@ -12,7 +12,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Cliente
+    - name: Biblioteca de cliente
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -54,13 +54,13 @@
   items:
     - name: Llamada a la API de Text Analytics
       href: How-tos/text-analytics-how-to-call-api.md
-    - name: Detectar idioma
+    - name: Detección de idiomas
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Análisis de opinión
+    - name: análisis de opiniones
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
-    - name: Extracción de frases clave
+    - name: Extracción de la frase clave
       href: How-tos/text-analytics-how-to-keyword-extraction.md
-    - name: Llamada de reconocimiento de entidades con nombre
+    - name: Reconocimiento de entidades con nombre
       href: How-tos/text-analytics-how-to-entity-linking.md
     - name: Uso de contenedores
       items:

@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentación sobre la versión preliminar de Azure HPC Cache
+summary: Uso de Azure HPC Cache para agilizar el acceso a archivos para cargas de trabajo de informática de alto rendimiento (HPC) de lectura intensiva
+metadata:
+  title: Microsoft Azure HPC Cache
+  description: Aprenda a crear y usar Azure HPC Cache para solucionar el problema de latencia entre los recursos de proceso y el almacenamiento. Azure HPC Cache es para cargas de trabajo de lectura intensiva basadas en archivos y puede crear un sistema de archivos virtual agregado que incorpore el almacenamiento de blobs de Azure y los archivos de hardware locales.
+  ms.service: hpc-cache
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 08/30/2019
+  ms.openlocfilehash: 4d5935646c3266624395b3b29a34d9cf8d446de7
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70774562"
+landingContent:
+- title: Acerca de Azure HPC Cache
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure HPC Cache?
+      url: hpc-cache-overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de requisitos previos para Azure HPC Cache
+      url: hpc-cache-prereqs.md
+    - text: Creación de la caché
+      url: hpc-cache-create.md
+    - text: Agregue almacenamiento
+      url: hpc-cache-add-storage.md
+    - text: Agregar clientes
+      url: hpc-cache-mount.md
+  - linkListType: concept
+    links:
+    - text: Configuración de un espacio de nombres agregado
+      url: hpc-cache-namespace.md
+    - text: Rellenado del nuevo almacenamiento de blobs
+      url: hpc-cache-ingest.md
+- title: Solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Abrir una incidencia de soporte técnico
+      url: hpc-cache-support-ticket.md
