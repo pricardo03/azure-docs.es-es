@@ -87,7 +87,7 @@ Un evento tiene los siguientes datos de nivel superior:
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | string | Identificador único para el evento |
-| data | objeto | Datos de eventos de Blob Storage. |
+| data | object | Datos de eventos de Blob Storage. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
