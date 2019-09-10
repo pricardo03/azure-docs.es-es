@@ -1,22 +1,19 @@
 ---
 title: Creación de funciones de Azure en Linux mediante una imagen personalizada
 description: Aprenda a crear funciones de Azure que se ejecutan en una imagen de Linux personalizada.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562921"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210179"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creación de una función en Linux con una imagen personalizada
 
@@ -56,7 +53,7 @@ También puede usar [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="create-the-local-function-app-project"></a>Creación del proyecto de aplicación de función local
 
-Ejecute el comando siguiente desde la línea de comandos para crear un proyecto de aplicación de función en la carpeta `MyFunctionProj` del directorio local actual.
+Ejecute el comando siguiente desde la línea de comandos para crear un proyecto de aplicación de función en la carpeta `MyFunctionProj` del directorio local actual. Para un proyecto de Python, [la ejecución se debe realizar en un entorno virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ Cuando se le solicite, elija un runtime de trabajo en los siguientes lenguajes:
 
 * `dotnet`: crea un proyecto de biblioteca de clases .NET (.csproj).
 * `node`: crea un proyecto JavaScript.
-* `python`: crea un proyecto de Python.
+* `python`: crea un proyecto de Python.  
 
 Cuando se ejecute el comando, verá una salida similar a la siguiente:
 

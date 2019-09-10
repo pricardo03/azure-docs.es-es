@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639106"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171081"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
@@ -194,7 +194,7 @@ Puede [examinar el mensaje de la cola de almacenamiento](#query-the-storage-queu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha actualizado la función desencadenada por HTTP para escribir datos en una cola de almacenamiento. Para más información sobre el desarrollo de Azure Functions con Python, consulte la [Guía de Azure Functions para desarrolladores de Python](functions-reference-python.md) y [Desencadenadores y enlaces en Azure Functions](functions-triggers-bindings.md).
+Ha actualizado la función desencadenada por HTTP para escribir datos en una cola de almacenamiento. Para más información sobre el desarrollo de Azure Functions con Python, consulte la [Guía de Azure Functions para desarrolladores de Python](functions-reference-python.md) y [Desencadenadores y enlaces en Azure Functions](functions-triggers-bindings.md). Para obtener ejemplos de proyectos de función completos en Python, consulte los ejemplos de [funciones de Python](/samples/browse/?products=azure-functions&languages=python). 
 
 A continuación, debe habilitar la supervisión de Application Insights para su aplicación de función:
 
