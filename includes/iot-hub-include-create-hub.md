@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048565"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161954"
 ---
 En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
     - **Configuración avanzada** > **Particiones del dispositivo a la nube**: esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros solo necesitan cuatro particiones.
 
-1. Para este tutorial, acepte las opciones predeterminadas y, después, seleccione **Revisar y crear** para revisar las opciones. Verá algo parecido a esta pantalla.
+1. Para este artículo, acepte las opciones predeterminadas y, después, seleccione **Revisar y crear** para revisar las opciones. Verá algo parecido a esta pantalla.
 
    ![Revisión de la información para crear el centro de IoT](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

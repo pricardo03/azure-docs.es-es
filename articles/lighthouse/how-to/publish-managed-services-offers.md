@@ -4,15 +4,15 @@ description: Aprenda a publicar una oferta de servicio administrada que incorpor
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011860"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165264"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicación de una oferta de servicios administrados en Azure Marketplace
 
@@ -127,6 +127,65 @@ Una vez agregada esta información, seleccione **Guardar.**
 ## <a name="publish-your-offer"></a>Publicación de la oferta
 
 Cuando esté satisfecho con toda la información que ha proporcionado, el siguiente paso es publicar la oferta en Azure Marketplace. Seleccione el botón **Publicar** para iniciar el proceso de publicación de la oferta. Para más información acerca de este proceso, consulte [Publicación de ofertas de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+## <a name="the-customer-onboarding-process"></a>Proceso de incorporación del cliente
+
+Cuando un cliente agregue su oferta, podrá [delegar uno o varios grupos de recursos o suscripciones específicos](view-manage-service-providers.md#delegate-resources) que se incorporarán para la administración de recursos delegada de Azure. Si un cliente ha aceptado una oferta pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas de proveedor** de la página [**Service providers**](view-manage-service-providers.md) (Proveedores de servicio) en Azure Portal.
+
+Para que se pueda incorporar una suscripción (o grupos de recursos dentro de una suscripción), la suscripción debe autorizarse para la incorporación; para ello, el proveedor de recursos **Microsoft.ManagedServices** se debe registrar manualmente. Un usuario del inquilino del cliente con el rol de colaborador o de propietario puede hacer esto si sigue los pasos descritos en [Proveedores y tipos de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+
+El cliente puede entonces confirmar que la suscripción está preparada para la incorporación de una de las siguientes maneras.
+
+### <a name="azure-portal"></a>Portal de Azure
+
+1. En Azure Portal, seleccione la suscripción.
+1. Seleccione **Proveedores de recursos**.
+1. Confirme que **Microsoft.ManagedServices** aparece **Registrado**.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
+```
+
+Esto debería devolver resultados similares a estos:
+
+```output
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationDefinitions}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationAssignments}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {operations}
+Locations         : {}
+```
+
+### <a name="azure-cli"></a>CLI de Azure
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+az account set –subscription <subscriptionId>
+az provider show --namespace "Microsoft.ManagedServices" --output table
+```
+
+Esto debería devolver resultados similares a estos:
+
+```output
+Namespace                  RegistrationState
+-------------------------  -------------------
+Microsoft.ManagedServices  Registered
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

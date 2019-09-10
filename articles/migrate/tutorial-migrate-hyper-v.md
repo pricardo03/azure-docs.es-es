@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854196"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309443"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -64,7 +64,7 @@ Si siguió el segundo tutorial y ya tiene un proyecto de Azure Migrate configura
 
     ![Seleccionar una herramienta](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
 
-4. En la lista de herramientas, seleccione **Azure Migrate: Server Migration** > **Agregar herramienta**
+4. En la lista de herramientas, seleccione **Azure Migrate: Server Migration** > **Agregar herramienta**.
 
     ![Herramienta Server Migration](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
@@ -133,6 +133,9 @@ Instale el archivo de instalación descargado (AzureSiteRecoveryProvider.exe) en
 
 Una vez finalizada la detección, puede comenzar la replicación de máquinas virtuales de Hyper-V en Azure.
 
+> [!NOTE]
+> Puede replicar hasta 10 máquinas juntas. Si necesita replicar más, replíquelas simultáneamente en lotes de 10.
+
 1. En el proyecto de Azure Migrate > **Servidores**, **Azure Migrate: Server Migration**, haga clic en **Replicar**.
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Sí, con Hyper-V**. A continuación, haga clic en **Siguiente: Máquinas virtuales**.
 3. En **Máquinas virtuales**, seleccione las máquinas que desea replicar.
@@ -162,18 +165,18 @@ Una vez finalizada la detección, puede comenzar la replicación de máquinas vi
     - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo. 
     - **Conjunto de disponibilidad**: si la máquina virtual debe estar incluida en un conjunto de disponibilidad de Azure después de la migración, especifique el conjunto. El conjunto debe estar en el grupo de recursos de destino que especifique para la migración.
 
-    ![Configuración del proceso de la máquina virtual](./media/tutorial-migrate-hyper-v/compute-settings.png)
+    ![Configuración de los recursos de proceso de la máquina virtual](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-11. En **Discos**, especifique si los discos de la máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar, o bien discos administrados Premium) en Azure. A continuación, haga clic en **Siguiente**.
+11. En **Discos**, especifique si los discos de la máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar, o bien discos administrados prémium) en Azure. A continuación, haga clic en **Siguiente**.
     - Puede excluir discos de la replicación.
     - Si excluye discos, no estarán presentes en la máquina virtual de Azure después de la migración. 
 
     ![Discos](./media/tutorial-migrate-hyper-v/disks.png)
 
-10. En **Review and start replication** (Revisar e iniciar la replicación), revise la configuración y haga clic en **Replicate** (Replicar) para iniciar la replicación inicial de los servidores.
+10. En **Revisar e iniciar la replicación**, revise la configuración y haga clic en **Replicar** para iniciar la replicación inicial de los servidores.
 
 > [!NOTE]
-> La configuración de replicación se puede actualizar en cualquier momento antes de que esta comience; para ello, vaya a **Administrar** > **Replicación de máquinas**. Una vez iniciada la replicación, su configuración no se puede cambiar.
+> Puede actualizar la configuración de replicación en cualquier momento antes de que esta comience; para ello, vaya a **Administrar** > **Replicación de máquinas**. Una vez iniciada la replicación, su configuración no se puede cambiar.
 
 ### <a name="provisioning-for-the-first-time"></a>Primer aprovisionamiento
 
@@ -181,8 +184,8 @@ Si se trata de la primera máquina virtual que va a replicar en el proyecto de A
 
 - **Service Bus**: Azure Migrate Server Migration usa Service Bus para enviar mensajes de orquestación de replicación al dispositivo.
 - **Cuenta de almacenamiento de puerta de enlace**: Server Migration usa la cuenta de almacenamiento de puerta de enlace para almacenar información del estado de las máquinas virtuales que se replican.
-- **Cuenta de almacenamiento de registros**: El dispositivo con Azure Migrate carga los registros de replicación de las máquinas virtuales en una cuenta de almacenamiento de registros. Azure Migrate aplica la información de replicación a los discos administrados de réplica.
-- **Almacén de claves**: El dispositivo con Azure Migrate usa el almacén de claves para administrar las cadenas de conexión de Service Bus y las claves de acceso de las cuentas de almacenamiento utilizadas en la replicación. Debe haber configurado los permisos que necesita el almacén de claves para acceder a la cuenta de almacenamiento cuando esté preparado. [Revise dichos permisos](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Cuenta de almacenamiento de registros**: el dispositivo con Azure Migrate carga los registros de replicación de las máquinas virtuales en una cuenta de almacenamiento de registros. Azure Migrate aplica la información de replicación a los discos administrados de réplica.
+- **Almacén de claves**: el dispositivo con Azure Migrate usa el almacén de claves para administrar las cadenas de conexión de Service Bus y las claves de acceso de las cuentas de almacenamiento utilizadas en la replicación. Debe haber configurado los permisos que necesita el almacén de claves para acceder a la cuenta de almacenamiento cuando esté preparado. [Revise dichos permisos](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
 
 
 ## <a name="track-and-monitor"></a>Seguimiento y supervisión
@@ -205,7 +208,7 @@ Para supervisar el estado de la replicación, haga clic en **Replicando servidor
 Cuando comienza la replicación diferencial, puede ejecutar una migración de prueba para las máquinas virtuales antes de ejecutar una migración completa a Azure. Le recomendamos encarecidamente que lo haga al menos una vez en cada máquina, antes de migrarla.
 
 - La ejecución de una migración de prueba comprueba que la migración funcionará según lo previsto, sin afectar a las máquinas locales, que seguirán estando operativas y continuarán realizando la replicación. 
-- La migración de prueba simula la migración mediante la creación de una máquina virtual de Azure mediante datos replicados (normalmente, con una migración a una red virtual que no es de producción en la suscripción a Azure).
+- Para simular la migración, la migración de prueba crea una máquina virtual de Azure usando datos replicados (normalmente, con una migración a una red virtual que no es de producción en la suscripción a Azure).
 - Puede usar la máquina virtual de Azure de prueba replicada para validar la migración, realizar pruebas de aplicaciones y resolver los problemas antes de la migración completa.
 
 Realice una migración de prueba como se indica a continuación:

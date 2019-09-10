@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004030"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141285"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -33,7 +33,7 @@ Explore una aplicación Windows básica que utiliza Computer Vision para realiza
 Antes de explorar la aplicación de ejemplo, asegúrese de haber cumplido los requisitos previos siguientes:
 
 * Debe tener [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o posterior.
-* Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
+* Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave. Tome nota también de la dirección URL del punto de conexión del servicio.
 
 ## <a name="get-the-sample-app"></a>Obtención de la aplicación de ejemplo
 
@@ -79,8 +79,9 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
 1. Cuando se muestre la aplicación de ejemplo, elija **Subscription Key Management** (Administración de claves de suscripción) en el panel de navegación para mostrar la página Subscription Key Management (Administración de claves de suscripción).
    ![Página Subscription Key Management](../Images/Vision_UI_Subscription.PNG) (Administración de claves de suscripción)  
 1. Escriba la clave de suscripción en **Clave de suscripción**.
-1. Escriba la dirección URL del punto de conexión (omita `/vision/v1.0`) del recurso de Computer Vision para la clave de suscripción en el campo **Punto de conexión**.  
-   Por ejemplo, si usa la clave de suscripción de la evaluación gratuita de Computer Vision, escriba la siguiente dirección URL del punto de conexión para la región de Azure de Centro-oeste de EE. UU.: `https://westcentralus.api.cognitive.microsoft.com`
+1. Escriba la dirección URL del punto de conexión en **Punto de conexión**.  
+   Por ejemplo, si usa la clave de suscripción de la evaluación gratuita de Computer Vision, escriba la siguiente dirección URL del punto de conexión: `https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)].
 1. Si no quiere escribir la clave de suscripción y la URL del punto de conexión la próxima vez que ejecute la aplicación de ejemplo, elija **Guardar configuración** para guardar la clave de suscripción y la URL del punto de conexión en el equipo. Si quiere eliminar la dirección URL del punto de conexión y la clave de suscripción que guardó previamente, elija **Eliminar configuración**.
 
    > [!NOTE]

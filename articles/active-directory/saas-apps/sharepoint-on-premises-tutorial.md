@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143919"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integración de Azure Active Directory con SharePoint local
 
@@ -273,7 +273,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     > [!NOTE]
     > Tenga en cuenta que AzureCP no es un producto de Microsoft ni soporte técnico de Microsoft lo admite. Descarga, instalación y configuración de AzureCP en la granja de SharePoint local por https://yvand.github.io/AzureCP/ 
 
-11. **Concesión de acceso al grupo de seguridad de Azure Active Directory en SharePoint local**: se debe conceder acceso a los grupos a la aplicación en SharePoint local.  Use los siguientes pasos para establecer los permisos a fin de obtener acceso a la aplicación web.
+11. **Concesión de acceso al grupo de seguridad de Azure Active Directory en SharePoint local**: debe concederse acceso a los grupos a la aplicación en SharePoint en el entorno local.  Use los siguientes pasos para establecer los permisos a fin de obtener acceso a la aplicación web.
 
 12. En Administración central, haga clic en Administración de aplicaciones y en Administrar aplicaciones web y, a continuación, seleccione la aplicación web para activar la cinta y haga clic en Directiva de usuario.
 

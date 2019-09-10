@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Zoom | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zoom.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e36d1bb91e70e21ee1940e189bfedaebafa4412
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975944"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171400"
 ---
-# <a name="tutorial-integrate-zoom-with-azure-active-directory"></a>Tutorial: Integración de Zoom con Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom
 
 En este tutorial, obtendrá información sobre cómo integrar Zoom con Azure Active Directory (Azure AD). Al integrar Zoom con Azure AD, puede hacer lo siguiente:
 
@@ -89,50 +89,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Contacte con el [equipo de soporte al cliente de Zoom](https://support.zoom.us/hc/en-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación Zoom espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
-
-    ![imagen](common/edit-attribute.png)
-
-6. Además de lo anterior, la aplicación Zoom espera que se usen algunos atributos más en la respuesta de SAML. En la sección  **Notificaciones del usuario**  del cuadro de diálogo  **Atributos de usuario** , realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
-
-    | NOMBRE | Espacio de nombres  |  Atributo de origen|
-    | ---------------| --------------- | --------- |
-    | Dirección de correo electrónico  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
-    | Nombre  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-    | Apellidos  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | Número de teléfono  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
-
-    > [!NOTE]
-    > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber cómo configurar el valor Role en Azure AD.
-
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
-
-    ![imagen](common/new-save-attribute.png)
-
-    ![imagen](common/new-attribute-details.png)
-
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-
-    c. Seleccione **Atributo** como origen.
-
-    d. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
-
-    e. Haga clic en **Aceptar**.
-
-    f. Haga clic en **Save**(Guardar).
-
-    > [!NOTE]
-    > Zoom puede esperar una reclamación de grupo en la carga útil de SAML, por lo que si ha creado algún grupo, póngase en contacto con el [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) con la información del grupo para que también puedan configurar esta información de grupo al final. También debe proporcionar el identificador de objeto al [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) para que puedan configurarlo al final. Siga el [documento](https://support.zoom.us/hc/en-us/articles/115005887566) para obtener el identificador de objeto.
-
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Configurar Zoom**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Zoom**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Para aprender a configurar el rol en Azure AD, consulte [Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+
+> [!NOTE]
+> El zoom puede esperar una notificación de grupo en la carga de SAML. Si ha creado algún grupo, póngase en contacto con el [equipo de soporte técnico al cliente de Zoom](https://support.zoom.us/hc/en-us) con la información del grupo para que pueda configurarla en su extremo. También debe proporcionar el identificador de objeto al [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) para que puedan configurar el identificador de objeto en su extremo. Para obtener el identificador de objeto, consulte [Configuración de Zoom con Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -242,3 +211,4 @@ Al hacer clic en el icono de Zoom en el panel de acceso y debería iniciar sesi�
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prueba de Zoom con Azure AD](https://aad.portal.azure.com/)

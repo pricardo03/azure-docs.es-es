@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125214"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172050"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services
 
@@ -202,7 +202,7 @@ Para cambiar la contraseña de un usuario solo de nube, el usuario debe completa
 1. En la página **Cambiar contraseña**, escriba la contraseña existente (anterior) y luego escriba y confirme una nueva contraseña.
 1. Seleccione **Submit** (Enviar).
 
-Tras el cambio, la nueva contraseña tarda unos minutos en poder usarse en Azure AD DS. Después de unos veinte minutos, podrá usar la nueva contraseña para iniciar sesión en los equipos unidos al dominio administrado.
+Tras el cambio, la nueva contraseña tarda unos minutos en poder usarse en Azure AD DS y en iniciar sesión en los equipos unidos al dominio administrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

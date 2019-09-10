@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 55fa5ffbfe8cdb266340df1a407968d542b36c1a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605986"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141433"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Inicio rápido: Generación de una miniatura mediante la API REST Computer Vision y cURL
 
@@ -54,7 +54,8 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 1. Realice los siguientes cambios en el comando donde sea necesario:
     1. Reemplace el valor de `<subscriptionKey>` por la clave de suscripción.
     1. Reemplace el valor de `<thumbnailFile>` con la ruta de acceso y el nombre del archivo donde se va a guardar la miniatura.
-    1. Reemplace la dirección URL de la solicitud (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail`) por la dirección URL del punto de conexión para el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) desde la región de Azure donde obtuvo las claves de suscripción, si es necesario.
+    1. Reemplace la primera parte de la dirección URL de la solicitud (`westcentralus`) por el texto de la dirección URL de su punto de conexión.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Si lo desea, cambie la dirección URL de la imagen del cuerpo de la solicitud (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) por la dirección URL de una imagen diferente de la que desea generar una miniatura.
 1. Abra una ventana de símbolo del sistema.
 1. Pegue el comando del editor de texto en la ventana del símbolo del sistema y después ejecute el comando.

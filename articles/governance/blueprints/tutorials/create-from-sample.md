@@ -7,12 +7,12 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798310"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232611"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -104,11 +104,11 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
      |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Valor|DESCRIPCIÓN|
      |-|-|-|-|-|
-     |Grupo de recursos ProdRG|Grupos de recursos|NOMBRE|ProductionRG|Define el nombre del primer grupo de recursos.|
-     |Grupo de recursos ProdRG|Grupos de recursos|Ubicación|Oeste de EE. UU. 2|Define la ubicación del primer grupo de recursos.|
+     |Grupo de recursos ProdRG|Resource group|NOMBRE|ProductionRG|Define el nombre del primer grupo de recursos.|
+     |Grupo de recursos ProdRG|Resource group|Location|Oeste de EE. UU. 2|Define la ubicación del primer grupo de recursos.|
      |Colaborador|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Colaborador_ dentro del primer grupo de recursos.|
-     |Grupo de recursos PreProdRG|Grupos de recursos|NOMBRE|PreProductionRG|Define el nombre del segundo grupo de recursos.|
-     |Grupo de recursos PreProdRG|Grupos de recursos|Ubicación|Oeste de EE. UU.|Define la ubicación del segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Resource group|NOMBRE|PreProductionRG|Define el nombre del segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Resource group|Location|Oeste de EE. UU.|Define la ubicación del segundo grupo de recursos.|
      |Propietario|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Propietario_ dentro del segundo grupo de recursos.|
      |Lectores|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Lectores_ dentro del segundo grupo de recursos.|
 
@@ -150,7 +150,7 @@ La asignación del plano técnico crea los artefactos definidos en la definició
 
    La asignación de denegación evita todas las operaciones con la configuración de **\*** y **acción**, pero permite el acceso de lectura excluyendo **\*/read** mediante **NotActions**.
 
-1. En la ruta de navegación de Azure Portal, seleccione **PreProductionRG - Control de acceso (IAM)**. A continuación, seleccione la página **Información general** de la izquierda y, después, el botón **Eliminación de un grupo de recursos**. Escriba el nombre _PreProductionRG_ para confirmar la eliminación y seleccione **Eliminar** en la parte inferior del panel.
+1. En la ruta de navegación de Azure Portal, seleccione **PreProductionRG - Control de acceso (IAM)** . A continuación, seleccione la página **Información general** de la izquierda y, después, el botón **Eliminación de un grupo de recursos**. Escriba el nombre _PreProductionRG_ para confirmar la eliminación y seleccione **Eliminar** en la parte inferior del panel.
 
    Se muestra la notificación del portal **Delete resource group PreProductionRG failed** (Error al eliminar el grupo de recursos PreProductionRG). El error indica que, aunque su cuenta tiene permiso para eliminar el grupo de recursos, la asignación de plano técnico deniega el acceso. Recuerde que seleccionamos el modo de bloqueo de plano técnico _Solo lectura_ durante la asignación de plano técnico. El bloqueo de plano técnico impide que una cuenta con permiso, incluso el _propietario_, elimine el recurso. Para más información, consulte [Bloqueo de recursos en planos técnicos](../concepts/resource-locking.md).
 
@@ -187,8 +187,8 @@ Cuando termine con este tutorial, elimine los siguientes recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md)
+- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md)
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
 - Más información sobre la [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).

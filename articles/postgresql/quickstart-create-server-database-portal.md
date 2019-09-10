@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: 152e93fefecaeaab3502ad5d974ba923727f919b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9a729376baeb03656b7b54fcb8e10a865d1f364
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443108"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195147"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -28,7 +28,7 @@ Abra el explorador web y vaya al [portal](https://portal.azure.com/). Introduzca
 Un servidor de Azure Database for PostgreSQL se crea con un conjunto configurado de [recursos de proceso y almacenamiento](./concepts-pricing-tiers.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
 
 Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguientes:
-1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
+1. En la esquina superior izquierda del portal, seleccione **Crear un recurso** (+).
 
 2. Seleccione **Bases de datos** > **Azure Database for PostgreSQL**.
 
@@ -45,7 +45,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
-    Grupos de recursos|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
+    Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
     Nombre de servidor |*mydemoserver*|Un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre de dominio *postgres.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.
     Origen de datos | *None* | Seleccione *None* para crear un servidor desde cero. (Seleccione *Copia de seguridad* si va a crear un servidor a partir de una copia de seguridad con redundancia geográfica de un servidor existente de Azure Database for PostgreSQL).
     Nombre de usuario administrador |*myadmin*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión del administrador no puede ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** ni **public**. No puede empezar por **pg_** .
@@ -72,7 +72,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
 
 Azure Database for PostgreSQL crea un firewall en el nivel de servidor. Evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que cree una regla para abrir el firewall para direcciones IP concretas. 
 
-1. Cuando finalice la implementación, busque el servidor. Si es necesario, puede buscarlo. Por ejemplo, en el menú de la izquierda, seleccione **Todos los recursos**. Escriba el nombre del servidor, por ejemplo, **mypgserver**, para buscar el servidor recién creado. Seleccione el nombre del servidor en la lista de resultados de la búsqueda. Se abrirá la página **Introducción** del servidor, que proporciona opciones para continuar la configuración.
+1. Cuando finalice la implementación, busque el servidor. Si es necesario, puede buscarlo. Por ejemplo, en el menú de la izquierda, seleccione **Todos los recursos**. Escriba el nombre del servidor, en nuestro ejemplo, **mydemoserver**, para buscar el servidor recién creado. Seleccione el nombre del servidor en la lista de resultados de la búsqueda. Se abrirá la página **Introducción** del servidor, que proporciona opciones para continuar la configuración.
  
     ![Búsqueda del nombre del servidor](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -182,15 +182,15 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
     
 5. Seleccione **Guardar**.
 
-6. En el panel izquierdo del **explorador**, expanda el nodo **Servidores**. Seleccione el servidor, por ejemplo, **mydemoserver**. Haga clic para conectarse a él.
+6. En el panel izquierdo del **explorador**, expanda el nodo **Servidores**. Seleccione el servidor, en nuestro ejemplo **mydemoserver**, para conectarse a él.
 
 7. Expanda el nodo de servidor y **Bases de datos**. La lista debe incluir las bases de datos *postgres* existentes y otras bases de datos que haya creado. Con Azure Database for PostgreSQL puede crear varias bases de datos por servidor.
 
-8. Haga clic con el botón derecho en **Bases de datos**, elija el menú **Crear** y, a continuación, seleccione **Base de datos**.
+8. Haga clic con el botón derecho en **Bases de datos**, seleccione el menú **Crear** y, luego, seleccione **Base de datos**.
 
 9. Escriba el nombre de base de datos que quiera en el campo **Base de datos**, por ejemplo, **mypgsqldb2**.
 
-10. Seleccione el **propietario** de la base de datos en el cuadro de lista. Elija el nombre de inicio de sesión del administrador del servidor, como en el ejemplo, **my admin**.
+10. Seleccione el **propietario** de la base de datos en el cuadro de lista. Seleccione el nombre de inicio de sesión del administrador del servidor, en nuestro ejemplo, **my admin**.
 
     ![Creación de una base de datos en pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
@@ -208,7 +208,7 @@ Hay dos formas de eliminar los recursos que ha creado en la guía de inicio ráp
 Para eliminar todo el grupo de recursos, incluido el servidor recién creado:
 1. Elimine el grupo de recursos en el portal. En el menú de la izquierda, seleccione **Grupos de recursos**. A continuación, seleccione el nombre de su grupo de recursos (en el ejemplo, **myresourcegroup**).
 
-2. En la página del grupo de recursos, seleccione **Eliminar**. Escriba el nombre del grupo de recursos (en el ejemplo, **myresourcegroup**) en el cuadro de texto para confirmar la eliminación. Seleccione **Eliminar**.
+2. En la página del grupo de recursos, seleccione **Eliminar**. Escriba el nombre del grupo de recursos, en nuestro ejemplo **myresourcegroup**, en el cuadro de texto para confirmar la eliminación. Seleccione **Eliminar**.
 
 Para eliminar solo el servidor recién creado:
 1. Busque el servidor en el portal si no lo tiene abierto. En el menú de la izquierda, seleccione **Todos los recursos**. Luego busque el servidor que ha creado.
@@ -217,7 +217,7 @@ Para eliminar solo el servidor recién creado:
 
     ![Botón "Eliminar"](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos que incluye y que resultan afectadas. Escriba el nombre del servidor en el cuadro de texto; en el ejemplo, **mydemoserver**. Seleccione **Eliminar**.
+3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos que incluye y que resultan afectadas. Escriba el nombre del servidor en el cuadro de texto, como el del ejemplo, **mydemoserver**. Seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

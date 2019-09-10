@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707353"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306515"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Face para Python
 
@@ -109,6 +109,14 @@ El siguiente código detecta una cara en una imagen remota. Imprime el identific
 
 Consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) para más escenarios de detección.
 
+### <a name="display-and-frame-faces"></a>Visualización de caras y marcos
+
+En el código siguiente se genera la imagen especificada en la pantalla y se dibujan rectángulos alrededor de las caras mediante la propiedad DetectedFace.faceRectangle.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![Mujer joven con un rectángulo rojo alrededor de la cara](../images/face-rectangle-result.png)
+
 ## <a name="find-similar-faces"></a>Búsqueda de caras similares
 
 El siguiente código toma una sola cara detectada y busca coincidencias en un conjunto de otras caras. Cuando la encuentra, imprime las coordenadas del rectángulo de la cara coincidente en la consola. 
@@ -161,7 +169,7 @@ Una vez asignadas las caras, debe entrenar el objeto **PersonGroup** para que id
 
 ## <a name="identify-a-face"></a>Identificar una cara
 
-El siguiente código toma una imagen con varias caras y busca la identidad de cada persona de esta imagen. Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** con distintas caras asociadas. 
+El siguiente código toma una imagen con varias caras y busca la identidad de cada persona de esta imagen. Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen.
 
 > [!IMPORTANT]
 > Para ejecutar este ejemplo, primero debe ejecutar el código de [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group).
@@ -188,7 +196,7 @@ En este ejemplo migrará el objeto **PersonGroup** que ha creado en [Creación y
 
 En primer lugar, debe tener una segunda suscripción de Azure con un recurso de Face; puede crearlo si sigue los pasos descritos en la sección [Instalación](#setting-up). 
 
-A continuación, cree las siguientes variables cerca de la parte superior del script. También necesitará crear nuevas variables de entorno para el identificador de suscripción de la cuenta de Azure, así como la clave y el identificador de suscripción de la cuenta nueva (de destino). 
+A continuación, cree las siguientes variables cerca de la parte superior del script. También necesitará crear nuevas variables de entorno para el identificador de suscripción de la cuenta de Azure, así como la clave, punto de conexión y el identificador de suscripción de la cuenta nueva (de destino). 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

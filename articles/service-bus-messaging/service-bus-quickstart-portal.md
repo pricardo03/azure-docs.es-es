@@ -3,18 +3,17 @@ title: 'Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus |
 description: En este inicio rápido, aprenderá a crear una cola de Service Bus con Azure Portal. Después, usará una aplicación cliente de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513626"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242381"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes en una cola de Service Bus, cómo usar [Azure Portal][Azure portal] para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización en ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -34,6 +33,18 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Envío y recepción de mensajes
+
+> [!NOTE]
+> El ejemplo que se usa en esta sección para enviar y recibir mensajes es un ejemplo de .NET. Para ver ejemplos de envío y recepción de mensajes con otros lenguajes de programación, consulte los [ejemplos de Service Bus](service-bus-samples.md). 
+> 
+> Para obtener instrucciones paso a paso para enviar y recibir mensajes mediante varios lenguajes de programación, consulte los siguientes inicio rápido:
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node.js con un paquete de Azure o Service Bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node. js con el paquete azure-sb](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 Una vez que haya aprovisionado el espacio de nombres y la cola, y disponga de las credenciales necesarias, estará listo para enviar y recibir mensajes. Puede examinar el código en [esta carpeta de ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 

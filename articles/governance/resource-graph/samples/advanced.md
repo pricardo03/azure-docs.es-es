@@ -1,19 +1,18 @@
 ---
 title: Ejemplos de consultas avanzadas
-description: Use Azure Resource Graph para ejecutar consultas avanzadas, como la capacidad de VMSS, la enumeración de todas las etiquetas usadas, y la coincidencia de las máquinas virtuales con expresiones regulares.
+description: Use Azure Resource Graph para ejecutar consultas avanzadas, lo entre las que se incluyen la capacidad del conjunto de escalado de máquinas virtuales, la enumeración de todas las etiquetas usadas y la coincidencia de las máquinas virtuales con expresiones regulares.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691975"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239011"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avanzadas de Resource Graph
 
@@ -25,10 +24,9 @@ Le guiaremos por las siguientes consultas avanzadas:
 > - [Obtener la capacidad y el tamaño del conjunto de escalado de máquinas virtuales](#vmss-capacity)
 > - [Enumeración de todos los nombres de etiquetas](#list-all-tags)
 > - [Máquinas virtuales que coinciden con regex](#vm-regex)
+> - [Inclusión de nombres de inquilinos y suscripciones en DisplayNames](#displaynames)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -72,8 +70,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Máquinas virtuales que coinciden con regex
 
-Esta consulta busca las máquinas virtuales que coincidan con una [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conocida como _regex_).
-**matches regex \@** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`. Esa definición de regex se explica como:
+Esta consulta busca las máquinas virtuales que coincidan con una [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conocida como _regex_). **matches regex \@** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`.
+Esa definición de regex se explica como:
 
 - `^` - La coincidencia debe empezar al principio de la cadena.
 - `Contoso`: la cadena distingue mayúsculas de minúsculas.
@@ -99,6 +97,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>Inclusión de nombres de inquilinos y suscripciones en DisplayNames
+
+Esta consulta usa el nuevo parámetro**Include**con la opción _DisplayNames_ para agregar **subscriptionDisplayName** y **tenantDisplayName**a los resultados. Este parámetro solo está disponible para la CLI de Azure y Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> Si la consulta no usa **project** para especificar las propiedades devueltas, **subscriptionDisplayName** y **tenantDisplayName** se incluyen automáticamente en los resultados.
+> Si la consulta usa **project**, cada uno de los campos de _DisplayName_ se debe incluir explícitamente en **project**, o no se devolverán en los resultados, ni siquiera cuando se use el parámetro **Include**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

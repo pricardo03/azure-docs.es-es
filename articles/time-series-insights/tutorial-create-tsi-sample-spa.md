@@ -4,16 +4,16 @@ description: Aprenda a crear una aplicación web de página única que consulta 
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 031e8074585426584d7ef63a103c9c2b4d90e6c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720861"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194235"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
@@ -127,6 +127,10 @@ En este tutorial también se usan datos del entorno de Time Series Insights de
 
       [![Visual Studio: el panel Perfil de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. Elija publicar una nueva instancia de Azure App Service o usar una existente.
+
+      [![Selección de una instancia de Azure App Service](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. Seleccione la suscripción que quiere usar para publicar la aplicación. Seleccione el proyecto **TsiSpaApp**. Después, seleccione **Aceptar**.
 
       [![Visual Studio: el panel App Service del Perfil de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -137,12 +141,16 @@ En este tutorial también se usan datos del entorno de Time Series Insights de
 
    1. Aparece un registro de publicación satisfactorio en el panel **Salida** de Visual Studio. Una vez finalizada la implementación, Visual Studio abre la aplicación web en una pestaña del explorador y pide iniciar sesión. Al iniciar sesión correctamente, los controles de Time Series Insights se rellenan con datos.
 
+   1. Vaya a la aplicación web e inicie sesión para ver los datos visuales de Time Series Insights representados.
+
+      [![Revisión de la aplicación web hospedada](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>Solución de problemas  
 
 Código o condición de error | DESCRIPCIÓN
 ---------------------| -----------
-*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad **Dirección URL de respuesta**. Vaya a **Configuración** > **Direcciones URL** para el registro de aplicación de Azure AD. Compruebe que exista el **URI de redirección** que tuvo la opción de especificar en el **paso 2** o el **paso 4** cuando [registró la aplicación para usar Azure AD](#register-with-azure-ad).
-*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el **paso 6.b** de [Creación y publicación de la aplicación web](#build-and-publish) debe coincidir con el valor especificado en **Configuración** > **Direcciones de respuesta** en el registro de aplicación de Azure AD. |
+*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | El registro de Azure AD no tiene una propiedad **URI de redirección**. Vaya a **Autenticación** > **URI de redirección** del registro de la aplicación de Azure AD. Compruebe que exista el **URI de redirección** que tuvo la opción de especificar en el **paso 2** o el **paso 4** cuando [registró la aplicación para usar Azure AD](#register-with-azure-ad).
+*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor de `postLogoutRedirectUri` especificado en el **paso 6.b** de [Creación y publicación de la aplicación web](#build-and-publish) debe coincidir con el valor especificado en **Autenticación** > **URI de redirección** en el registro de aplicación de Azure AD. |
 Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el **paso 6** de [Creación y publicación de la aplicación web](#build-and-publish) son correctas. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

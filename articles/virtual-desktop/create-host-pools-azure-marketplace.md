@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204731"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208387"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -26,7 +26,11 @@ En este tutorial se describe cómo crear un grupo de hosts dentro de un inquilin
 > * Unir las máquinas virtuales al dominio de Active Directory.
 > * Registrar las máquinas virtuales con Windows Virtual Desktop.
 
-Antes de empezar, y si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+Antes de empezar, y si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -40,7 +44,7 @@ Para ejecutar la oferta de Azure Marketplace para aprovisionar un nuevo grupo de
 2. Escriba **Windows Virtual Desktop** en la ventana de búsqueda de Marketplace.
 3. Seleccione **Windows Virtual Desktop - Provision a host pool** (Windows Virtual Desktop: aprovisionar un grupo de hosts) y seleccione **Crear**.
 
-Siga las instrucciones para escribir la información en las hojas correspondientes.
+Después, siga las instrucciones de la sección siguiente para escribir la información de las hojas adecuadas.
 
 ### <a name="basics"></a>Aspectos básicos
 
@@ -52,6 +56,9 @@ En la hoja **Aspectos básicos**, haga lo siguiente:
 4. Seleccione **Crear nuevo** y escriba un nombre para el nuevo grupo de recursos.
 5. En **Ubicación**, seleccione la misma ubicación que la red virtual que tenga conectividad con el servidor de Active Directory.
 6. Seleccione **Aceptar**.
+
+>[!IMPORTANT]
+>Si va a usar una solución pura de Azure Active Directory Domain Services y Azure Active Directory, asegúrese de implementar el grupo host en la misma región que Azure Active Directory Domain Services para evitar los errores de unión al dominio y de credenciales.
 
 ### <a name="configure-virtual-machines"></a>Configuración de máquinas virtuales
 
@@ -66,7 +73,7 @@ En la hoja **Configuración de las máquinas virtuales**:
 En la hoja **Configuración de la máquina virtual**:
 
 >[!NOTE]
-> Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+> Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 1. En **Origen de la imagen**, seleccione el origen y escriba la información adecuada para encontrarla y almacenarla. Si decide no usar discos administrados, seleccione la cuenta de almacenamiento que contiene el archivo .vhd.
 2. Escriba el nombre principal de usuario y la contraseña de la cuenta de dominio que unirá las máquinas virtuales al dominio de Active Directory. Este mismo nombre de usuario y contraseña se creará en las máquinas virtuales como una cuenta local. Puede restablecer estas cuentas locales más adelante.

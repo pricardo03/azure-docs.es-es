@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073884"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172039"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
@@ -214,7 +214,7 @@ Después de probar cada uno de estos pasos de solución de problemas, intente un
 * Asegúrese de que la cuenta de usuario que especifique pertenece al grupo *Administradores de DC de AAD*.
 * Pruebe a usar el formato UPN para especificar las credenciales, por ejemplo `contosoadmin@contoso.onmicrosoft.com`. El atributo *SAMAccountName* de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. En estos casos, el formato *SAMAccountName* de su cuenta puede que no sea el mismo que espera o que usa en su dominio en el entorno local.
 * Compruebe que [habilitó la sincronización de contraseñas][password-sync] en el dominio administrado. Sin este paso de configuración, los hashes de contraseña necesarios no estarán presentes en el dominio administrado de Azure AD DS para autenticar correctamente el intento de inicio de sesión.
-* Espere a que se complete la sincronización de contraseñas. Cuando se cambia la contraseña de una cuenta de usuario, la contraseña puede tardar entre 15 y 20 minutos en estar disponible para usarse en la unión a un dominio.
+* Espere a que se complete la sincronización de contraseñas. Cuando se cambia la contraseña de una cuenta de usuario, una sincronización automática en segundo plano de Azure AD actualiza la contraseña en Azure AD DS. La contraseña tarda un tiempo en estar disponible para usarla en la unión al dominio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

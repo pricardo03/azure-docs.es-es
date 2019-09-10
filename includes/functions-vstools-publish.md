@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593819"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197190"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68593819"
     | ------------ |  -------------------------------------------------- |
     | **Azure Functions Consumption plan** (Plan de consumo de Azure Functions) |   Si publica el proyecto en una aplicación de funciones que se ejecuta en un [plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo paga por las ejecuciones de la aplicación. Otros planes de hospedaje suponen costos más elevados. Para más información, consulte [Escalado y hospedaje de Azure Functions](../articles/azure-functions/functions-scale.md). | 
     | **Cree uno nuevo** | En Azure se crea una nueva aplicación de funciones, con recursos relacionados. Al elegir **Seleccionar existente**, todos los archivos de la aplicación de función existente en Azure se sobrescriben con los archivos del proyecto local. Use esta opción solo al volver a publicar actualizaciones en una aplicación de función existente. |
-    | **Ejecución desde el archivo de paquete** | La aplicación de funciones se implementa con la [implementación de un archivo zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) y con el modo de [ejecución desde el paquete](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Esta es la forma recomendada de ejecutar las funciones, ya que supone una mejora del rendimiento. |
+    | **Ejecución desde el archivo de paquete** | La aplicación de funciones se implementa con la [implementación de un archivo zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) y con el modo de [ejecución desde el paquete](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Esta es la forma recomendada de ejecutar las funciones, ya que supone una mejora del rendimiento. Cuando no se use esta opción, asegúrese de impedir que el proyecto de aplicación de función se ejecute localmente antes de publicar en Azure. |
 
 
 3. Seleccione **Publicar**. Si aún no ha iniciado sesión en la cuenta de Azure desde Visual Studio, seleccione **Iniciar sesión**. También puede crear una cuenta de Azure gratis.

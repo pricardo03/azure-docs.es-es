@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
+ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1104c017541b8124366a6121763318f199f3aad5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126085"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240207"
 ---
 ::: zone target="chromeless"
 
@@ -49,18 +50,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
     - Es aconsejable usar un envoltorio de burbujas bien protegido para empaquetar los discos.
     - Asegúrese de que todo encaja perfectamente para reducir los movimientos dentro de la caja.
 
-Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Australia o países de Asia.
-
-- [Si devuelve el dispositivo en Estados Unidos o Canadá, programe una recogida con UPS](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [En Europa, programe una recogida con DHL](data-box-disk-deploy-picked-up.md#pick-up-in-europe); para ello, visite su sitio web y especifique el número de factura de porte aéreo.
-- [Programe una recogida en Australia](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up#pick-up-in-australia).
-- [Programe una recogida de países de Asia](data-box-disk-deploy-picked-up.md#pick-up-in-asia), como Japón, Corea y Singapur.
-
-::: zone target="chromeless"
-
-Después de que el transportista recoge los discos, el estado del pedido en el portal se actualiza y se muestra un identificador de seguimiento.
-
-::: zone-end
+Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o países de Asia.
 
 ### <a name="pick-up-in-us-canada"></a>Recogida en EE. UU. y Canadá
 
@@ -151,9 +141,6 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 1. Imprima la etiqueta de envío y póngala en la caja. Si la etiqueta se daña o se pierde:
     - Vaya a **Información general > Descargar la etiqueta de envío** y obtenga una etiqueta de envío de devolución.
-
-        ![Descarga de la etiqueta de envío](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Pegue la etiqueta en el dispositivo. Asegúrese de que la etiqueta está visible.
 
 2. Para solicitar la recogida:

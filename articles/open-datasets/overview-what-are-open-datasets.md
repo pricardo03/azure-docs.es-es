@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598977"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213582"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets (versión preliminar) y cómo puede usarse?
 
@@ -49,7 +49,7 @@ Con una cuenta de Azure, puede acceder a conjuntos de datos abiertos mediante un
 
 Open Data proporciona cuadernos de Azure Notebooks y Azure Databricks que puede usar para conectar los datos a Azure Machine Learning Service y Azure Databricks. También es posible acceder a los conjuntos de datos a través de un SDK de Python. 
 
-Sin embargo, no necesita una cuenta de Azure para acceder a Open Datasets; puede acceder desde cualquier entorno de Python, con o sin Spark.
+Sin embargo, no necesita una cuenta de Azure para acceder a Open Datasets, ya que puede hacerlo desde cualquier entorno de Python, con o sin Spark.
 
 ## <a name="request-or-contribute-datasets"></a>Solicitar o contribuir con conjuntos de datos
 

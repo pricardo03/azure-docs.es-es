@@ -9,31 +9,29 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 08/28/2019
+ms.openlocfilehash: f1003324e9f4b3762b5d8eca703af4a1fbd4613a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051664"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308817"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Tutorial: Comience a crear su primer experimento de Machine Learning
+# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 
 En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter. Este tutorial es la **parte uno de una serie de tutoriales de dos partes**, y abarca la instalación y la configuración del entorno de Python, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático. En la [**segunda parte**](tutorial-1st-experiment-sdk-train.md) se usa este área de trabajo para entrenar varios modelos de aprendizaje automático e introducir el proceso de administración de modelos mediante Azure Portal y el SDK.
 
 En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Creará un área de trabajo de aprendizaje automático para usarla en el siguiente tutorial
+> * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en el siguiente tutorial.
 > * Cree una VM de Jupyter Notebook basada en la nube que tenga instalado y preconfigurado el SDK de Python de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Requisitos previos
-
-El único requisito previo de este tutorial es una suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Un área de trabajo es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del SDK. Si ya tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#azure). En caso contrario, créela ahora.
+Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del SDK. Si ya tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#azure). En caso contrario, créela ahora.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -51,58 +49,21 @@ En el área de trabajo puede crear un recurso en la nube para empezar a trabajar
 
      ![Seleccionar nueva máquina virtual](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
-1. Proporcione un nombre para la máquina virtual. Seleccione **Crear**.
+1. Proporcione un nombre para la máquina virtual. 
+   + El nombre de la máquina virtual del cuaderno debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el carácter -.  
+   + El nombre también debe ser único en la suscripción de Azure.
 
-    > [!NOTE]
-    > El nombre de la máquina virtual del cuaderno debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el carácter -.  El nombre también debe ser único en la suscripción de Azure.
+1. Seleccione **Crear**. La configuración de la máquina virtual puede tardar un momento.
 
 1. Espere hasta que el estado cambie a **En ejecución**.
-
-### <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
-
-Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas virtuales de Notebook** para iniciar la interfaz web de Jupyter.
+   Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas virtuales de Notebook** para iniciar la interfaz web de Jupyter.
 
 1. Seleccione **Jupyter** en la columna **URI** de la máquina virtual.
 
     ![Iniciar el servidor de Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-    El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
+   El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
 
-1. En la página web de Jupyter Notebook, el nombre de la carpeta principal es su nombre de usuario.  Seleccione esta carpeta.
-
-    > [!TIP]
-    > Esta carpeta se encuentra en el [contenedor de almacenamiento](concept-workspace.md#resources) del área de trabajo en lugar de en la propia máquina virtual del cuaderno.  Puede eliminar la máquina virtual del cuaderno y conservar todo el trabajo.  Cuando cree una máquina virtual de cuaderno más adelante, se cargará esta misma carpeta. Si comparte el área de trabajo con otras personas, estas verán su carpeta y usted las suyas.
-
-1. Abra el subdirectorio `samples-*` y, después, abra `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-> [!Warning]
-> Asegúrese de que abre el archivo `tutorial-1st-experiment-sdk-train.ipynb` y **no** el archivo `.yml` del > mismo nombre. 
-
-En la **segunda parte** del tutorial, se ejecuta el código en `tutorial-1st-experiment-sdk-train.ipynb` para entrenar un modelo de Machine Learning.
-
-## <a name="end"></a> Limpieza de recursos
-
-No complete esta sección si tiene pensado continuar con la **parte 2** del tutorial.
-
-### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
-
-Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando no la esté usando a fin de reducir el costo.
-
-1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
-
-   ![Detener el servidor de máquina virtual](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. En la lista, seleccione la máquina virtual.
-
-1. Seleccione **Detener**.
-
-1. Cuando esté listo para volver a usar el servidor, seleccione **Iniciar**.
-
-### <a name="delete-everything"></a>Eliminar todo el contenido
-
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-También puede mantener el grupo de recursos pero eliminar una sola área de trabajo. Muestre las propiedades del área de trabajo y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -111,7 +72,10 @@ En este tutorial ha completado estas tareas:
 * Ha creado un área de trabajo de Azure Machine Learning Service.
 * Ha creado y configurado un servidor de cuadernos en la nube en el área de trabajo.
 
-Continúe con la **parte 2** de este tutorial para entrenar un modelo de aprendizaje automático sencillo.
+En la **segunda parte** del tutorial, se ejecuta el código en `tutorial-1st-experiment-sdk-train.ipynb` para entrenar un modelo de Machine Learning. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Entrenamiento del primer modelo](tutorial-1st-experiment-sdk-train.md)
+
+> [!IMPORTANT]
+> Si no está pensando en la segunda parte de este tutorial o en otros tutoriales, debe [detener la máquina virtual del servidor de cuadernos en la nube](tutorial-1st-experiment-sdk-train.md#clean-up-resources) cuando no se use para reducir el costo.

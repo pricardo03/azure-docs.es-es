@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001992"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138338"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 
@@ -44,7 +44,7 @@ Cree tres nuevos archivos en un directorio vacío con los nombres siguientes:
 
 - ```variables.tf```: este archivo contiene los valores de las variables utilizadas en la plantilla.
 - ```output.tf```: este archivo describe la configuración que se muestra después de la implementación.
-- ```vmss.tf```: este archivo contiene el código de la infraestructura que va implementar.
+- ```vmss.tf```: este archivo contiene el código de la infraestructura que va a implementar.
 
 ##  <a name="create-the-variables"></a>Creación de las variables 
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,10 +175,10 @@ Siga el tutorial para crear una imagen de Ubuntu desaprovisionada con NGINX inst
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Edición de la infraestructura para agregar el conjunto de escalado de máquinas virtuales
 
 En este paso, creará los siguientes recursos en la red que se implementó anteriormente:
-- Un equilibrador de carga de Azure para dar servicio a la aplicación y asociarla a la dirección IP pública que se implementó en el paso 4
+- Un equilibrador de carga de Azure para dar servicio a la aplicación y asociarla a la dirección IP pública que se implementó antes.
 - Un equilibrador de carga de Azure y reglas para dar servicio a la aplicación y asociarla a la dirección IP pública configurada anteriormente.
-- Un grupo de direcciones de back-end de Azure, que se asignará al equilibrador de carga. 
-- Un puerto de sondeo de mantenimiento que usa la aplicación y que se configura en el equilibrador de carga. 
+- Un grupo de direcciones de back-end de Azure, que se asignará al equilibrador de carga.
+- Un puerto de sondeo de mantenimiento que usa la aplicación y que se configura en el equilibrador de carga.
 - Un conjunto de escalado de máquinas virtuales situado detrás del equilibrador de carga, que se ejecuta en la red virtual implementada anteriormente.
 - Se debe tener instalado [Nginx](https://nginx.org/) en los nodos del conjunto de escalado de máquinas virtuales a partir de la imagen personalizada.
 
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347407"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213608"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Tutorial: Integración de The Cloud Security Fabric con Azure Active Directory
 
@@ -104,7 +104,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-5. Para modificar las opciones de **Firma** según sus propios requisitos, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**. 
+5. Para modificar las opciones de **Firma** para ajustarlas a sus requisitos, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
 
     ![Respuesta SAML](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ En esta sección, va a conceder acceso a B.Simon a The Cloud Security Fabric par
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Creación de un usuario de prueba de The Cloud Security Fabric
 
-En esta sección, creará el usuario B.Simon en The Cloud Security Fabric. Póngase en contacto con el [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com) para agregar usuarios a la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario B.Simon en The Cloud Security Fabric. Póngase en contacto con el [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com) para agregar usuario a la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO 
 

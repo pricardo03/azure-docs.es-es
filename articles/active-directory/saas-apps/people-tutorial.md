@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con People | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con People | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y People.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334241683f95496ce9ea0629247bb8fd53364ee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826058"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164214"
 ---
-# <a name="tutorial-integrate-people-with-azure-active-directory"></a>Tutorial: Integración de People con Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con People
 
 En este tutorial, aprenderá a integrar People con Azure Active Directory (Azure AD). Al integrar People con Azure AD, puede hacer lo siguiente:
 
@@ -47,6 +47,9 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * People admite el inicio de sesión único iniciado por **SP**
 * Ahora se puede configurar la aplicación People Mobile con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
+>[!NOTE]
+>El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
 ## <a name="adding-people-from-the-gallery"></a>Adición de People desde la galería
 
 Para configurar la integración de People en Azure AD, deberá agregar People desde la galería a la lista de aplicaciones SaaS administradas.
@@ -58,21 +61,20 @@ Para configurar la integración de People en Azure AD, deberá agregar People de
 1. En la sección **Agregar desde la galería**, escriba **People** en el cuadro de búsqueda.
 1. Seleccione **People** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-people"></a>Configuración y prueba del inicio de sesión único de Azure AD para People
 
 Configure y pruebe el inicio de sesión único de Azure AD con People mediante un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de People.
 
 Para configurar y probar el inicio de sesión único de Azure AD con People, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único en People](#configure-people-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de People](#create-people-test-user)** : el objetivo es tener un homólogo de B. Simon en People que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de People](#create-people-test-user)** : el objetivo es tener un homólogo de B. Simon en People que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -100,22 +102,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 6. En la sección **Configurar People**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
-### <a name="configure-people-sso"></a>Configuración del inicio de sesión único de People
-
-1. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de People como administrador.
-   
-2. En el menú de la izquierda, haga clic en **Configuración**.
-
-    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_001.png)
-
-3. Haga clic en **Compañía**.
-
-    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_002.png)
-
-4. En **Upload “Single Sign On” SAML meta-data file** (Cargar archivo de metadatos SAML de "Inicio de sesión único"), haga clic en **Browse** (Examinar) para cargar el archivo de metadatos descargado.
-
-    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_003.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -147,11 +133,35 @@ En esta sección, va a permitir que B. Simon acceda a People mediante el inicio
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+## <a name="configure-people-sso"></a>Configuración del inicio de sesión único de People
+
+1. Para automatizar la configuración en People, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar People** para ir a la aplicación People. En ella, escriba las credenciales de administrador para iniciar sesión en People. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar People manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de People como administrador y haga lo siguiente:
+   
+4. En el menú de la izquierda, haga clic en **Configuración**.
+
+    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_001.png)
+
+5. Haga clic en **Compañía**.
+
+    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_002.png)
+
+6. En **Upload “Single Sign On” SAML meta-data file** (Cargar archivo de metadatos SAML de "Inicio de sesión único"), haga clic en **Browse** (Examinar) para cargar el archivo de metadatos descargado.
+
+    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_003.png)
+
 ### <a name="create-people-test-user"></a>Creación de un usuario de prueba de People
 
 En esta sección, creará un usuario llamado B. Simon en People. Colabore con el [equipo de atención al cliente de People](mailto:customerservices@peoplehr.com) para agregar los usuarios a la plataforma People. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -179,3 +189,4 @@ Al hacer clic en el icono de People en el panel de acceso y debería iniciar ses
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prueba de People con Azure AD](https://aad.portal.azure.com)

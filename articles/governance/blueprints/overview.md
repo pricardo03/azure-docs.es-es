@@ -3,16 +3,16 @@ title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848433"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146100"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -106,14 +106,23 @@ Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita 
 > [!NOTE]
 > Como las asignaciones de planos técnicos se crean en una suscripción, los permisos de asignación y de cancelación de la asignación deben concederse o heredarse en el ámbito de una suscripción.
 
-Todos los permisos anteriores se incluyen en el rol **Propietario**. El rol **Colaborador** ha creado permisos para crear y eliminar planos técnicos, pero no tiene permisos de asignación de planos técnicos. Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
+Están disponibles los siguientes roles integrados:
+
+|Rol de RBAC | DESCRIPCIÓN |
+|-|-|
+|[Propietario](../../role-based-access-control/built-in-roles.md#owner) | Además de otros permisos, incluye todos los permisos relacionados con Azure Blueprints. |
+|[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Además de otros permisos, puede crear y eliminar definiciones de planos técnicos, pero no tiene permisos para asignarlos. |
+|[Colaborador de plano técnico](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Puede administrar las definiciones del plano técnico, pero no asignarlas. |
+|[Operador del plano técnico](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Las asignaciones solo funcionan si se realizan con una identidad administrada asignada por el usuario. |
+
+Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Si usa una identidad administrada asignada por el sistema, la entidad de servicio para Azure Blueprints requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación. Si usa una identidad administrada asignada por el usuario, solo el usuario que crea la asignación de plano técnico necesita permisos de **propietario**.
 
 ## <a name="naming-limits"></a>Límites de nomenclatura
 
-Esta es una lista de las limitaciones que existen para determinados campos:
+Existen las siguientes limitaciones para determinados campos:
 
 |Object|Campo|Caracteres permitidos|Máx. Length|
 |-|-|-|-|

@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo incorporar un cliente a la adminis
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012058"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165045"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -61,63 +61,8 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-
-## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>Comprobar que la suscripción del cliente está registrada para la incorporación
-
-Cada suscripción se debe autorizar para la incorporación registrando manualmente el proveedor de recursos **Microsoft.ManagedServices**. Para registrar una suscripción, el cliente puede seguir los pasos que se describen en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
-
-El cliente puede confirmar que la suscripción está lista para la incorporación de una de las siguientes maneras.
-
-### <a name="azure-portal"></a>Portal de Azure
-
-1. En Azure Portal, seleccione la suscripción.
-1. Seleccione **Proveedores de recursos**.
-1. Confirme que **Microsoft.ManagedServices** aparece **Registrado**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Esto debería devolver resultados similares a estos:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>CLI de Azure
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Esto debería devolver resultados similares a estos:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> Al incorporar una suscripción (o uno o varios grupos de recursos dentro de una suscripción) mediante el proceso que se describe aquí, el proveedor de recursos **Microsoft.ManagedServices** se registrará para esa suscripción.
 
 ## <a name="define-roles-and-permissions"></a>Definir roles y permisos
 
@@ -129,8 +74,6 @@ Para facilitar la administración, se recomienda usar grupos de usuarios de Azur
 > Las asignaciones de roles deben usar [roles integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de control de acceso basado en rol (RBAC). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario y los roles integrados con el permiso [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). El rol integrado de administrador de acceso de usuarios se admite con un uso limitado, tal y como se describe a continuación. Tampoco se admiten los roles personalizados y [los roles de administrador de la suscripción clásica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
 
 Para definir las autorizaciones, debe conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos de una de las siguientes maneras.
-
-
 
 ### <a name="powershell"></a>PowerShell
 

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7c1c616ec6ce36ee58f32dbcada8ead6fc339f2e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559407"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306968"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, aprenderá a crear un sitio web mediante el enlace de JavaScript del SDK de Voz de Cognitive Services para transcribir voz a texto.
-La aplicación se basa en Speech SDK para JavaScript ([descargar la versión 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
+La aplicación se basa en el SDK de voz para JavaScript ([descargar la versión 1.6.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

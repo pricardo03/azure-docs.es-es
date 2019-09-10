@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e22b616e50929d4ac099c3412e89db426b09307
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 95c898dd36387d4474f5129943c6bd76f754ffe2
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489488"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213536"
 ---
 # <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Tutorial: Integración de ProNovos Ops Manager con Azure Active Directory
 
@@ -81,7 +81,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección  **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por  **IDP**  y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón  **Guardar** .
+1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -131,7 +131,7 @@ En esta sección, va a permitir que B.Simon acceda a ProNovos Ops Manager median
 
 ### <a name="create-pronovos-ops-manager-test-user"></a>Creación de un usuario de prueba de ProNovos Ops Manager
 
-En esta sección, va a crear un usuario llamado B.Simon en ProNovos Ops Manager. Trabaje con  [el equipo de soporte técnico de ProNovos Ops Manager](mailto:support@pronovos.com) para agregar los usuarios a la plataforma ProNovos OPS Manager. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, va a crear un usuario llamado B.Simon en ProNovos Ops Manager. Trabaje con [el equipo de soporte técnico de ProNovos Ops Manager](mailto:support@pronovos.com) para agregar los usuarios a la plataforma ProNovos Ops Manager. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO 
 

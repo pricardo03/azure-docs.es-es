@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594693"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195209"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>¿Qué es Bing Visual Search API?
 
-Bing Visual Search API devuelve información de una imagen. Puede cargar una imagen o especificar la dirección URL a una imagen. Entre la información devuelta puede haber imágenes visualmente similares, orígenes de compra, páginas web que incluyen la imagen y mucho más. La información devuelta por Bing Visual Search API es similar a la que se muestra en Bing.com/images.
+Bing Visual Search API devuelve información de una imagen. Puede cargar una imagen o especificar la dirección URL a una imagen. Entre la información devuelta puede haber imágenes visualmente similares, orígenes de compra, páginas web que incluyen la imagen y mucho más. La información devuelta por Bing Visual Search API es similar a la que se muestra en Bing.com/images. 
 
 Si usa [Bing Image Search API](../bing-image-search/overview.md), puede utilizar tokens de información detallada de los resultados de búsqueda de la API para Bing Visual Search en lugar de cargar una imagen.
 
@@ -38,6 +38,7 @@ Mediante el uso de Bing Visual Search puede obtener la información siguiente:
 | Búsquedas relacionadas                     | Búsquedas relacionadas realizadas por otros usuarios o que se basan en el contenido de la imagen.            |
 | Páginas web que incluyen la imagen     | Páginas web que incluyen la imagen de entrada.            |
 | Recetas                              | Páginas web que incluyen recetas para hacer el plato que se muestra en la imagen de entrada.            |
+| Entidades                             | Cosas, personas y lugares conocidos. |
 
 Además de esta información, Bing Visual Search devuelve diversos términos (es decir, etiquetas) derivados de la imagen de entrada. Estas etiquetas permiten a los usuarios explorar los conceptos que se encuentran en la imagen. Por ejemplo, si la imagen de entrada es un deportista famoso, una de las etiquetas podría ser el nombre del deportista y otra, Deportes. O bien, si la imagen de entrada es un pastel de manzana, las etiquetas podrían ser Pastel de manzana, Pasteles y Postres.
 

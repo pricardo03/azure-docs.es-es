@@ -6,22 +6,25 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325880"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258464"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Registro de instancias de contenedor con registros de Azure Monitor
 
-Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de datos a los registros de Azure Monitor.
+Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de registros y datos de evento a los registros de Azure Monitor.
 
-Para enviar datos de instancias de contenedores a los registros de Azure Monitor, debe especificar una clave y un identificador de área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
+Para enviar un registro de grupo de contenedores y datos de eventos a los registros de Azure Monitor, debe especificar una clave y un identificador del área de trabajo de Log Analytics al crear un grupo de contenedores. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> Actualmente, solo puede enviar datos de eventos desde instancias de contenedor de Linux a Log Analytics.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Debería recibir una respuesta de Azure con detalles de implementación poco después de emitir el comando.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Visualización de registros de Azure Monitor
+## <a name="view-logs"></a>Ver registros
 
-Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores:
+Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores en la tabla `ContainerInstanceLog_CL`:
 
 1. Vaya al área de trabajo de Log Analytics en Azure Portal
 1. En **General**, seleccione **Registros**.  
-1. Escriba la consulta siguiente: `search *`
+1. Escriba la consulta siguiente: `ContainerInstanceLog_CL | limit 50`
 1. Seleccione **Ejecutar**.
 
-Debería ver que la consulta `search *` muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **Ejecutar** para volver a ejecutar la consulta. De forma predeterminada, las entradas del registro aparecen en formato de **tabla**. Luego puede expandir una fila para ver el contenido de una entrada de registro individual.
+Debería ver que la consulta muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **Ejecutar** para volver a ejecutar la consulta. De forma predeterminada, las entradas del registro aparecen en formato de **tabla**. Luego puede expandir una fila para ver el contenido de una entrada de registro individual.
 
 ![Resultados de Búsqueda de registros en Azure Portal][log-search-01]
+
+## <a name="view-events"></a>Ver eventos
+
+También puede ver los eventos de las instancias de contenedor en Azure Portal. Los eventos incluyen la hora a la que se crea la instancia y el momento en que se inicia. Para ver los datos de evento en la tabla `ContainerEvent_CL`:
+
+1. Vaya al área de trabajo de Log Analytics en Azure Portal
+1. En **General**, seleccione **Registros**.  
+1. Escriba la consulta siguiente: `ContainerEvent_CL | limit 50`
+1. Seleccione **Ejecutar**.
+
+Debería ver que la consulta muestra varios resultados. Si no ve ninguno, espere unos minutos y seleccione el botón **Ejecutar** para volver a ejecutar la consulta. De forma predeterminada, las entradas aparecen en formato de **tabla**. Luego puede expandir una fila para ver el contenido de una entrada individual.
+
+![Resultados de la búsqueda de registros en Azure Portal][log-search-02]
 
 ## <a name="query-container-logs"></a>Consulta de registros de contenedores
 
 Los registros de Azure Monitor incluyen un amplio [lenguaje de consulta][query_lang] para poder extraer información de miles de líneas de la salida del registro.
 
-El agente de registro de Azure Container Instances envía las entradas a la tabla `ContainerInstanceLog_CL` de su área de trabajo de Log Analytics. La estructura básica de una consulta consiste en la tabla de origen (`ContainerInstanceLog_CL`) seguida de una serie de operadores separados por el carácter de barra vertical (`|`). Puede encadenar varios operadores para refinar los resultados y realizar funciones avanzadas.
+La estructura básica de una consulta consiste en la tabla de origen (en este artículo, `ContainerInstanceLog_CL` o `ContainerEvent_CL`) seguida de una serie de operadores separados por el carácter de barra vertical (`|`). Puede encadenar varios operadores para refinar los resultados y realizar funciones avanzadas.
 
-Para ver los resultados de una consulta de ejemplo, pegue la siguiente consulta en el cuadro de texto de consulta (en "Mostrar convertidor de lenguaje heredado") y seleccione el botón **EJECUTAR** para ejecutar la consulta. Esta consulta muestra todas las entradas de registro cuyo campo "Message" contiene la palabra "warn":
+Para ver los resultados de una consulta de ejemplo, pegue la siguiente consulta en el cuadro de texto de consulta y seleccione el botón **Ejecutar** para ejecutar la consulta. Esta consulta muestra todas las entradas de registro cuyo campo "Message" contiene la palabra "warn":
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 También se admiten consultas más complejas. Por ejemplo, esta consulta muestra solo las entradas de registro del grupo de contenedores "mycontainergroup001" generadas en la última hora:
@@ -151,6 +167,7 @@ Para obtener información acerca de la supervisión de los recursos de CPU y de 
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

@@ -2,18 +2,18 @@
 title: 'Tutorial de C#: Indexación de varios orígenes de datos: Azure Search'
 description: Aprenda a importar datos desde varios orígenes en un único índice de Azure Search.
 author: RobDixon22
-manager: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
-ms.openlocfilehash: 2776bcd095c570be500fa6ddb2675820b2259716
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840677"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241831"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>Tutorial de C#: Combinación de datos de varios orígenes en un índice de Azure Search
 
@@ -70,7 +70,7 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com) y vaya a la página Introducción de la cuenta de Azure Cosmos DB.
 
-1. En la barra de menús, haga clic en Agregar contenedor. Especifique "Crear nueva base de datos" y use el nombre **hotel-rooms-db**. Escriba **hotel-rooms** como nombre de la colección y **/HotelId** como clave de partición. Haga clic en **Aceptar** para crear la base de datos y el contenedor.
+1. En la barra de menús, haga clic en Agregar contenedor. Especifique "Crear nueva base de datos" y use el nombre **hotel-rooms-db**. Escriba **hotels** como nombre de la colección y **/HotelId** como clave de partición. Haga clic en **Aceptar** para crear la base de datos y el contenedor.
 
    ![Incorporación de un contenedor de Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-add-container.png "Add an Azure Cosmos DB container")
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966733"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258781"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de creación de Language Understanding (LUIS) para .NET
 
@@ -37,9 +37,9 @@ La biblioteca cliente de creación de Language Understanding (LUIS) para .NET pu
 
 ## <a name="setting-up"></a>Instalación
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Obtención de la clave de creación de Language Understanding (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Obtención de la clave de inicio de Language Understanding (LUIS)
 
-Obtenga la [clave de creación](luis-how-to-account-settings.md) y [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para ella, denominada `COGNITIVESERVICE_AUTHORING_KEY`.
+Obtenga la [clave de inicio](luis-how-to-azure-subscription.md#starter-key) y [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para ella, denominada `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
@@ -190,7 +190,7 @@ La aplicación de LUIS se publica con el método [PublishAsync](https://docs.mic
 
 Ejecute la aplicación con el comando `run` dotnet desde el directorio de aplicaciones.
 
-```dotnet
+```console
 dotnet run
 ```
 

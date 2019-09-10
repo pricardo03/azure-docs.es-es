@@ -6,18 +6,18 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899684"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274048"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 
-Azure Search es una solución en la nube de búsqueda como servicio que proporciona a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. El código personalizado invoca la ingesta de datos (indexación) para crear y cargar un índice. Por otra parte, el código de aplicación genera solicitudes de consulta y controla las respuestas. La experiencia de búsqueda se define en el cliente mediante el uso de funciones de Azure Search, con la ejecución de consultas en un índice persistente que crea, es de su propiedad y almacena en Azure Search.
+Azure Search es una solución en la nube de búsqueda como servicio que proporciona a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. El código personalizado invoca la ingesta de datos (indexación) para crear y cargar un índice. Por otra parte, el código de aplicación genera solicitudes de consulta y controla las respuestas. La experiencia de búsqueda se define en el cliente mediante el uso de funciones de Azure Search, con la ejecución de consultas en un índice persistente que crea, es de su propiedad y almacena en el servicio.
 
 ![Arquitectura de Azure Search](media/search-what-is-azure-search/azure-search-diagram.svg "Arquitectura de Azure Search")
 

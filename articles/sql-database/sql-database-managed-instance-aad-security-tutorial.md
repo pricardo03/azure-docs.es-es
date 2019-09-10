@@ -9,12 +9,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567676"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231002"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 
@@ -55,10 +55,12 @@ Para completar el tutorial, asegúrese de que cuenta con estos requisitos previo
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Límite del acceso a la instancia administrada
 
-Solo se puede acceder a las instancias administradas mediante una dirección IP privada. No hay puntos de conexión de servicio disponibles para conectarse a una instancia administrada desde fuera de la red de instancia administrada. Al igual que en un entorno aislado de SQL Server local, las aplicaciones o los usuarios necesitan acceso a la red de instancia administrada (VNet) antes de que se pueda establecer una conexión. Para más información, consulte el artículo [Conexión de la aplicación a una instancia administrada](sql-database-managed-instance-connect-app.md).
+A las instancias administradas solo se puede acceder mediante una dirección IP privada. Al igual que en un entorno aislado de SQL Server local, las aplicaciones o los usuarios necesitan acceso a la red de instancia administrada (VNet) antes de que se pueda establecer una conexión. Para más información, consulte el artículo [Conexión de la aplicación a una instancia administrada](sql-database-managed-instance-connect-app.md).
+
+También se puede configurar un punto de conexión de servicio en la instancia administrada, lo que permite las conexiones públicas, del mismo modo que Azure SQL Database. Para más información, consulte el artículo [Configuración de un punto de conexión público en Instancia administrada de Azure SQL Database](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Dado que solo se puede acceder a las instancias administradas dentro de su red virtual, no se aplican [las reglas de firewall de SQL Database](sql-database-firewall-configure.md). Las instancias administradas tienen su propio [firewall integrado](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Aunque los puntos de conexión de servicio estén habilitados, las [reglas de firewall de SQL Database](sql-database-firewall-configure.md) no tienen validez. Instancia administrada tiene su propio [firewall integrado](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) para administrar la conectividad.
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Creación de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD para una instancia administrada mediante SSMS
 

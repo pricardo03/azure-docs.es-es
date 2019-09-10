@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051635"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241287"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -35,14 +35,33 @@ El único requisito previo es ejecutar la parte primera de este tutorial, [Confi
 
 En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experiment-sdk-train.ipynb` en el cuaderno de Jupyter Notebook de ejemplo que se abrió al final de la parte uno. Este artículo le guía a través del mismo código que se encuentra en el cuaderno.
 
+## <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
+
+1. En la página del área de trabajo en Azure Portal, seleccione **Máquinas virtuales de Notebook** a la izquierda.
+
+1. Seleccione **Jupyter** en la columna**URI** de la máquina virtual que creó en la primera parte de este tutorial.
+
+    ![Iniciar el servidor de Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
+
+1. En la página web de Jupyter Notebook, seleccione el nombre de la carpeta principal, que tiene su nombre de usuario.  
+
+   Esta carpeta existe en la [cuenta de almacenamiento](concept-workspace.md#resources) del área de trabajo, en lugar de en la propia máquina virtual del cuaderno.  Si elimina la máquina virtual del cuaderno, conservará todo el trabajo.  Cuando cree una máquina virtual de cuaderno más adelante, se cargará esta misma carpeta. Si comparte el área de trabajo con otras personas, estas verán su carpeta y usted las suyas.
+
+1. Abra el subdirectorio `samples-*` y abra el cuaderno de Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **no** el `.yml`archivo con el mismo nombre. 
+
 ## <a name="connect-workspace-and-create-experiment"></a>Conexión con el área de trabajo y creación de un experimento
+
+> [!Important]
+> El resto de este artículo contiene el mismo contenido que se ve en el cuaderno.  
+>
+> Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código. 
+> Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Celda > Ejecutar todo** en el menú superior.
 
 Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. En un servidor de cuadernos en la nube, el archivo se encuentra automáticamente en el directorio raíz.
 
 Si el código siguiente solicita autenticación adicional, simplemente pegue el vínculo en un explorador y escriba el token de autenticación.
-
-> [!TIP]
-> Si no está familiarizado con los cuadernos de Jupyter Notebook, ejecute el código haciendo clic en una celda de código y presionando **Mayús + Entrar** para ejecutar las celdas de una en una. También puede ejecutar todo el cuaderno a la vez, para ello haga clic en **Celda** en la barra de menús superior y, a continuación, haga clic en **Ejecutar todo**.
 
 ```python
 from azureml.core import Workspace

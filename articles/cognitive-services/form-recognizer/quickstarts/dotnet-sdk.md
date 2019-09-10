@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: f6cb364c231c2415bf49a24e6e9406a14640b892
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600120"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142817"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Form Recognizer para .NET
 
@@ -173,6 +173,10 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI de Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+Además, si ha entrenado un modelo personalizado que desea eliminar de su cuenta, utilice el método siguiente:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

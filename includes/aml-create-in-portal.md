@@ -9,16 +9,18 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 11287ee5ca0df3e51bca20b39c35eb5ce33b88bd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534404"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231075"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. 
 
 1. En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso**.
+
+      ![Crear un nuevo recurso](media/aml-create-in-portal/portal-create-resource.png)
 
 1. Use la barra de búsqueda para encontrar el **área de trabajo de Machine Learning Service**.
 
@@ -26,7 +28,7 @@ ms.locfileid: "69534404"
 
 1. En el panel **Área de trabajo del servicio Machine Learning**, seleccione **Crear** para comenzar.
 
-1. Configure el área de trabajo nueva proporcionando el nombre del área de trabajo, la suscripción, el grupo de recursos y la ubicación.
+1. Especifique la siguiente información para configurar la nueva área de trabajo:
 
    Campo|DESCRIPCIÓN 
    ---|---
@@ -37,7 +39,10 @@ ms.locfileid: "69534404"
 
 1. Cuando haya terminado de configurarla, seleccione **Crear**. 
 
-   El área de trabajo puede tardar unos momentos en crearse.
+   > [!Warning] 
+   > La creación del área de trabajo en la nube puede tardar varios minutos.
 
-   Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
+   Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. 
+ 
+ 1. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 

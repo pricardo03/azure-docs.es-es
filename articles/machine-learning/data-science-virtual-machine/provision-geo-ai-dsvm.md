@@ -1,98 +1,93 @@
 ---
-title: Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure - Azure | Microsoft Docs
+title: 'Inicio rápido: Configuración de una instancia de Geo Artificial Intelligence'
+titleSuffix: Azure Data Science Virtual Machine
 description: Obtenga información acerca de cómo crear y configurar la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine. Geo AI Data Science Virtual Machine proporciona las herramientas necesarias para crear soluciones de inteligencia artificial y aprendizaje automático con datos geográficos.
 keywords: aprendizaje profundo, IA, herramientas de ciencia de datos, máquina virtual de ciencia de datos, análisis geoespacial
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 4772bf8341196485a91b3df30801b9714a4a64a8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591875"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208067"
 ---
-# <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure 
+# <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Inicio rápido: Configuración de una instancia de Geo Artificial Intelligence Virtual Machine en Azure 
 
-La máquina virtual Geo Artificial Intelligence Data Science Virtual Machine (Geo-DSVM) es una extensión de la conocida [Azure Data Science Virtual Machine](https://aka.ms/dsvm) que se ha configurado especialmente para combinar la inteligencia artificial con el análisis geoespacial. Los análisis geoespaciales en la máquina virtual se realizan con tecnología de [ArcGIS Pro](https://www.arcgis.com/features/index.html). La máquina virtual de ciencia de datos permite la formación rápida de modelos de aprendizaje automático e incluso de modelos de aprendizaje profundo con datos enriquecidos con información geográfica. Solo es compatible en DSVM con Windows 2016. 
+Geo AI Data Science Virtual Machine (Geo-DSVM) es una extensión de la conocida máquina virtual [Azure Data Science Virtual Machine](https://aka.ms/dsvm) que se ha configurado especialmente para combinar la inteligencia artificial con el análisis geoespacial. Los análisis geoespaciales en la máquina virtual se realizan con tecnología de [ArcGIS Pro](https://www.arcgis.com/features/index.html). Data Science Virtual Machine (DSVM) permite el entrenamiento rápido de modelos de aprendizaje automático e incluso de aprendizaje profundo. Para desarrollar estos modelos, se usan datos que se enriquecen con información geográfica. Geo-DSVM solo se admite en DSVM de Windows 2016. 
 
-La máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial contiene varias herramientas para inteligencia artificial, entre las que se incluyen las siguientes:
+Las herramientas de inteligencia artificial que se incluyen en Geo-DSVM son las siguientes:
 
-- ediciones de GPU de plataformas de aprendizaje profundo populares, como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; 
-- herramientas para adquirir y procesar previamente imágenes y datos de texto; 
-- herramientas de actividades de desarrollo como Microsoft R Server Developer Edition, Anaconda Python, Jupyter Notebook para Python y R, IDE para Python y R y bases de datos SQL;
-- software de escritorio ArcGIS Pro de ESRI junto con interfaces de Python y R que pueden trabajar con datos geoespaciales de sus aplicaciones de inteligencia artificial. 
+- Ediciones de GPU de plataformas de aprendizaje profundo conocidas, como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 y Chainer.
+- Herramientas para adquirir y preprocesar imágenes y datos de texto.
+- Herramientas para actividades de desarrollo, como Microsoft Machine Learning Server Developer Edition, Anaconda Python, cuadernos de Jupyter para Python y R, IDE para Python y R, y bases de datos SQL.
+- Software de escritorio ArcGIS Pro de ESRI junto con interfaces de Python y R que pueden trabajar con los datos geoespaciales de sus aplicaciones de inteligencia artificial.
  
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Creación de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
 
-A continuación, se describe el procedimiento para crear una instancia de la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial: 
+Para crear una instancia de Geo AI Data Science VM, siga estos pasos:
 
+1. Vaya al listado de máquinas virtuales en [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
+1. Seleccione **Crear** en la parte inferior para generar un asistente:
 
-1. Navegue a la lista de máquinas virtuales en [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
-2. Seleccione el botón **Crear**, en la parte inferior, para acceder a un asistente.
-![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
-3. El asistente usado para crear la instancia de Geo-DSVM necesita **datos de entrada** para cada uno de los **cuatro pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+   ![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 
+1. El asistente requiere una entrada para cada uno de los cuatro pasos. Para más información sobre esta entrada, consulte la sección siguiente.
 
+### <a name="wizard-details"></a>Detalles del asistente ###
 
-   - **Aspectos básicos**
+**Aspectos básicos**:
 
-      1. **Nombre**: nombre del servidor de ciencia de datos que está creando.
-
-      2. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
-
-      3. **Contraseña**: contraseña de la cuenta de administrador.
-
-      4. **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
-
-      5. **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
-
-      6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red. Si necesita realizar aprendizaje profundo en GPU, debe seleccionar una de las ubicaciones de Azure que tiene las instancias de máquina virtual de GPU de la serie NC. Actualmente, las ubicaciones que tienen máquinas virtuales de GPU son: **Este de EE. UU., Centro y norte de EE. UU., Centro y sur de EE. UU., Oeste de EE. UU. 2, Europa del Norte, Europa Occidental**. Para obtener la lista más reciente, compruebe la página de [productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
-
-
-   - **Configuración**: seleccione un tamaño de máquina virtual de GPU de la serie NC si tiene previsto ejecutar aprendizaje profundo en GPU en su instancia de Geo-DSVM. En caso contrario, puede elegir una de las instancias basadas en CPU.  Cree una cuenta de almacenamiento para su máquina virtual. 
-   
-   - **Resumen**: Compruebe que toda la información que ha especificado es correcta.
-
-   - **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos del servicio. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+- **Nombre**: El nombre del servidor de ciencia de datos que está creando.
+    
+- **Nombre de usuario**: identificador de inicio de sesión de la cuenta de administración.
+    
+- **Contraseña**: contraseña de la cuenta de administrador.
+    
+- **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
+    
+- **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
+    
+- **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el que tiene la mayor parte de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red. Si planea ejecutar aprendizaje profundo en una GPU, debe elegir una de las ubicaciones de Azure que tenga instancias de máquina virtual de GPU de la serie NC. Actualmente esas ubicaciones son: **Este de EE. UU., Centro y norte de EE. UU., Centro y sur de EE. UU., Oeste de EE. UU. 2, Europa del Norte, Europa Occidental**. Para obtener la lista más reciente, compruebe la página [Productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
+    
+    
+**Configuración**: si tiene previsto ejecutar aprendizaje profundo en una GPU en su instancia de Geo-DSVM, seleccione un tamaño de máquina virtual de GPU de la serie NC. En caso contrario, puede elegir una de las instancias basadas en CPU. Cree una cuenta de almacenamiento para su máquina virtual. 
+       
+**Resumen**: Compruebe que toda la información que ha especificado es correcta.
+    
+**Comprar**: Para iniciar el proceso de aprovisionamiento, haga clic en **Comprar**. Se proporciona un vínculo a los términos del servicio. No se generan cargos adicionales por el uso de la máquina virtual a excepción de los relativos al proceso por el tamaño de servidor elegido en el paso **Tamaño**. 
  
->[!NOTE]
-> El aprovisionamiento tardará entre 20 y 30 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+ >[!NOTE]
+ > El aprovisionamiento tardará entre 20 y 30 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
 
  
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Acceso a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
 
- Una vez creada la máquina virtual, podrá empezar a usar las herramientas que tiene instaladas y preconfiguradas. Hay iconos del menú de inicio e iconos del escritorio para muchas de las herramientas. Puede usar el escritorio remoto con las credenciales de la cuenta del administrador que configuró en la sección **Aspectos básicos** anterior. 
+ Después de crear la máquina virtual, está listo para empezar a usar las herramientas que tiene instaladas y preconfiguradas. En el menú Inicio y en el escritorio hay iconos de muchas de las herramientas. Puede acceder a la máquina virtual mediante Escritorio remoto con las credenciales de la cuenta del administrador que configuró en la sección **Aspectos básicos**.
 
  
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Uso de ArcGIS Pro instalado en la máquina virtual
 
-La instancia de Geo-DSVM ya tiene el software de escritorio ArcGIS Pro preinstalado y el entorno preconfigurado para funcionar con todas las herramientas de DSVM. Al iniciar ArcGIS, se solicitan los datos de inicio de sesión a su cuenta de ArcGIS. Si ya tiene una cuenta de ArcGIS y tiene licencias para el software, puede usar sus credenciales existentes.  
+En Geo-DSVM, el software de escritorio ArcGIS Pro ya está instalado y el entorno está preconfigurado para funcionar con todas las herramientas de DSVM. Al iniciar ArcGIS, se le pedirán las credenciales de su cuenta de ArcGIS. Si ya tiene una cuenta de ArcGIS y tiene licencias para el software, puede usar sus credenciales existentes.  
 
 ![Inicio de sesión-Arc-GIS](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
-En caso contrario, puede registrar una nueva cuenta y licencia de ArcGIS u obtener una [evaluación gratuita](https://www.arcgis.com/features/free-trial.html). 
+En caso contrario, puede registrarse para obtener una nueva cuenta y licencia de ArcGIS o para una [evaluación gratuita](https://www.arcgis.com/features/free-trial.html). 
 
 ![Evaluación-gratuita-ArcGIS](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Después de registrar su cuenta de evaluación gratuita o de pago de ArcGIS, puede autorizar a ArcGIS Pro para su cuenta mediante las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf) (Introducción a ArcGIS Pro). 
+Después de registrarse para obtener una cuenta estándar o de evaluación gratuita ArcGIS, puede conceder autorización a ArcGIS Pro sobre su cuenta mediante las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf) (Introducción a ArcGIS Pro).
 
-Después de iniciar sesión en el software de escritorio ArcGIS Pro con su cuenta de ArcGIS, podrá empezar a usar las herramientas de ciencia de datos instaladas y configuradas en la máquina virtual para sus proyectos de análisis geoespacial y de aprendizaje automático.
+Después de iniciar sesión en el escritorio ArcGIS Pro con su cuenta de ArcGIS, está listo para empezar a usar las herramientas de ciencia de datos instaladas y configuradas en la máquina virtual para sus proyectos de análisis geoespacial y aprendizaje automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Empiece a usar la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial con la guía de los temas siguientes:
+Empiece a usar Geo AI Data Science VM con ayuda del siguiente recurso:
 
 * [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md) (Uso de la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial)

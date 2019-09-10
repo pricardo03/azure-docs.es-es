@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de REST: Creación de una canalización de enriquecimiento de inteligencia artificial mediante la búsqueda cognitiva: Azure Search'
 description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural sobre el contenido de blobs JSON mediante Postman y las API REST de Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: e647d3c66d339a60278fa7d0f078497157b3fff1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102808"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274127"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Tutorial: Adición de una estructura a "contenido no estructurado" con la búsqueda cognitiva
 
@@ -22,10 +22,10 @@ Si tiene contenido de imagen o texto no estructurado, la característica de [ b�
 
 > [!div class="checklist"]
 > * Comience con documentos completos (texto no estructurado) como PDF, MD, DOCX y PPTX en Azure Blob Storage.
-> * Cree una canalización que extraiga texto, detecte el idioma, reconozca entidades y detecte frases clave.
+> * Defina una canalización que extraiga texto, detecte el idioma, reconozca entidades y detecte frases clave.
 > * Defina un índice para almacenar la salida (contenido sin procesar, además de pares nombre-valor generados por canalización).
-> * Ejecute la canalización para crear y cargar el índice.
-> * Explore el contenido mediante la búsqueda de texto completo y una sintaxis de consulta enriquecida.
+> * Ejecute la canalización para iniciar transformaciones y análisis, así como para crear y cargar el índice.
+> * Explore los resultados mediante la búsqueda de texto completo y una sintaxis de consulta enriquecida.
 
 Para completar este tutorial necesitará varios servicios, además de la [aplicación de escritorio Postman](https://www.getpostman.com/) u otra herramienta de pruebas web para realizar llamadas a la API REST. 
 

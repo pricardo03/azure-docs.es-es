@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592369"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241411"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Tutorial: Cableado y conexión a Azure Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Introducción a Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 En este tutorial se describe cómo cablear, conectar y encender un dispositivo Azure Data Box Heavy.
 
@@ -25,6 +37,14 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Cablear Data Box Heavy
 > * Conectarse a un dispositivo Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+En esta guía se proporcionan instrucciones para revisar los requisitos previos, conectar el dispositivo, copiar datos, realizar la carga en Azure y, después, comprobar los datos cargados.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,6 +62,8 @@ Antes de comenzar, asegúrese de que:
     - Elija cables que sean compatibles con la interfaz de red [MCX314A-BCCT de Mellanox](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html).
     - Para el cable de 40 Gbps, el extremo del cable del dispositivo debe ser QSFP+.
     - Para el cable de 10 Gbps, se necesita un cable SFP+ que se conecte a un conmutador de 10 Gbps en un extremo, con un adaptador de QSFP+ a SFP+ (o el adaptador QSA) en el extremo que se conecta al dispositivo.
+
+::: zone target = "docs"
 
 ## <a name="cable-your-device-for-power"></a>Cableado del dispositivo para tener alimentación
 
@@ -138,3 +160,5 @@ Pase al siguiente tutorial, donde aprenderá a copiar datos en Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Copia de datos a un dispositivo Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

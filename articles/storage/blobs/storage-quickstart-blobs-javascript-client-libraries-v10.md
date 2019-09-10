@@ -1,22 +1,20 @@
 ---
 title: 'Inicio rápido de Azure: Creación de un blob en Azure Storage mediante JavaScript y HTML en el explorador'
-description: Aprenda a usar una instancia de BlobService para cargar, enumerar y eliminar blobs con JavaScript en una página HTML.
+description: Aprenda a cargar, enumerar y eliminar blobs con JavaScript en una página HTML.
 services: storage
-keywords: storage, javascript, html
 author: KarlErickson
 ms.custom: mvc
 ms.service: storage
 ms.author: karler
-ms.reviewer: seguler
-ms.date: 05/20/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986875"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172835"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,7 +36,7 @@ Para que la aplicación web pueda acceder a un almacenamiento de blobs desde el 
 
 Vuelva a Azure Portal y seleccione la cuenta de almacenamiento. Para definir una nueva regla de CORS, vaya a la sección **Configuración** y haga clic en el vínculo **CORS**. A continuación, haga clic en el botón **Agregar** para abrir la ventana **Agregar regla de CORS**. En esta guía de inicio rápido, se crea una regla de CORS abierta:
 
-![Configuración de CORS de la cuenta de Azure Blob Storage](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![Configuración de CORS de la cuenta de Azure Blob Storage](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 En la tabla siguiente se describe cada opción de configuración de CORS y se explican los valores que se utilizan para definir la regla.
 

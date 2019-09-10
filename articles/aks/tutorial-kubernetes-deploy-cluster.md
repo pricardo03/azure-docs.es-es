@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898846"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147239"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -83,13 +83,16 @@ Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se c
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 Al cabo de varios minutos, la implementación se completa y devuelve información en formato JSON sobre la implementación de AKS.
+
+> [!NOTE]
+> Para asegurarse de que el clúster funciona de forma confiable, debe ejecutar al menos 2 (dos) nodos.
 
 ## <a name="install-the-kubernetes-cli"></a>Instalación de la CLI de Kubernetes
 

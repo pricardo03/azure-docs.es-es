@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126012"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70232910"
 ---
 ::: zone target="docs"
 
@@ -40,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ::: zone target="chromeless"
 
-En esta guía se describe cómo implementar Azure Data Box Disk mediante Azure Portal. Los pasos incluyen revisar los requisitos previos, desbloquear los discos, conectar y copiar datos a los discos para que se carguen en Azure.
+En esta guía se explican los pasos que deben darse para usar Azure Data Box Disk en Azure Portal. En esta guía le ayuda a responder las siguientes preguntas.
 
 ::: zone-end
 
@@ -60,17 +61,16 @@ Inicie sesión en Azure Portal en [https://aka.ms/azuredataboxfromdiskdocs](http
 
 ::: zone target="chromeless"
 
-### <a name="prerequisites"></a>Requisitos previos
-
-- Ha realizado su pedido de Data Box Disk mediante el [Tutorial: Pedido de Azure Data Box](data-box-disk-deploy-ordered.md).
-- Ha recibido los discos y el estado del trabajo en el portal se actualiza a **Delivered** (Entregado).
-- Ha comprobado el número de discos que ha recibido y que tiene un cable de conexión por disco.
-- Tiene un equipo cliente disponible desde el que puede copiar los datos. El equipo cliente debe:
-
-    - Ejecutar un [sistema operativo admitido](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Disponer de otro [software necesario](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado si es un cliente de Windows.
+> [!div class="checklist"]
+>
+> - **Revisión de los requisitos previos**: compruebe el número de discos y cables, el sistema operativo y otros programas de software.
+> - **Conexión y desbloqueo**: conecte el dispositivo y desbloquee el disco para copiar los datos.
+> - **Copia de los datos en el disco y validación**: copie los datos en los discos en las carpetas creadas.
+> - **Devolución de los discos**: devuelva los discos al centro de datos de Azure en el se cargan los datos en la cuenta de almacenamiento.
+> - **Comprobación de los datos en Azure**: compruebe que los datos se han cargado en la cuenta de almacenamiento antes de eliminarlos del servidor de datos de origen.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

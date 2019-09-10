@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013850"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305936"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Harness
 
@@ -131,17 +131,25 @@ En esta sección, va a permitir que B. Simon acceda a Harness mediante el inici
 
 ## <a name="configure-harness-sso"></a>Configuración del inicio de sesión único de Harness
 
-1. Abra una ventana del explorador web e inicie sesión en el sitio de la compañía Harness como administrador.
+1. Para automatizar la configuración en Harness, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
-1. En la parte superior derecha de la página, haga clic en  **Continuous Security** (Seguridad continua)  > **Access Management** (Administración de acceso)  > **Authentication Settings** (Configuración de autenticación).
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Harness** para ir a la aplicación Harness. En ella, escriba las credenciales de administrador para iniciar sesión en Harness. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar Harness manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Harness como administrador y haga lo siguiente:
+
+4. En la parte superior derecha de la página, haga clic en  **Continuous Security** (Seguridad continua)  > **Access Management** (Administración de acceso)  > **Authentication Settings** (Configuración de autenticación).
 
     ![Configuración de Harness](./media/harness-tutorial/configure01.png)
 
-1. En la sección **SSO Providers** (Proveedores de inicio de sesión único), haga clic en  **+ Add SSO Providers** (+ Agregar proveedores de inicio de sesión único) > **SAML**.
+5. En la sección **SSO Providers** (Proveedores de inicio de sesión único), haga clic en  **+ Add SSO Providers** (+ Agregar proveedores de inicio de sesión único) > **SAML**.
 
     ![Configuración de Harness](./media/harness-tutorial/configure03.png)
 
-1. En el menú desplegable **SAML Provider** (Proveedor de SAML), lleve a cabo estos pasos:
+6. En el menú desplegable **SAML Provider** (Proveedor de SAML), lleve a cabo estos pasos:
 
     ![Configuración de Harness](./media/harness-tutorial/configure02.png)
 

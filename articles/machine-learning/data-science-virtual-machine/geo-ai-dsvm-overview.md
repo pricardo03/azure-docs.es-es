@@ -1,55 +1,48 @@
 ---
-title: Información general de Geo Artificial Intelligence Data Science Virtual Machine
-titleSuffix: Azure
-description: Geo Artificial Intelligence Data Science Virtual Machine proporciona ArcGIS Pro para trabajar con datos geográficos. También proporciona kits de herramientas de ciencia de datos, R y Python para trabajar con aprendizaje automático e inteligencia artificial.
+title: ¿Qué es Geo Artificial Intelligence?
+titleSuffix: Azure Data Science Virtual Machine
+description: Geo Artificial Intelligence Data Science Virtual Machine es la máquina virtual de ciencia de datos para inteligencia artificial geográfica que proporciona ArcGIS Pro para trabajar con datos geográficos y los kits de datos de Python, R y de ciencia de datos para trabajar con aprendizaje automático e inteligencia artificial.
 keywords: aprendizaje profundo, IA, herramientas de ciencia de datos, máquina virtual de ciencia de datos, análisis geoespacial
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 2f9572e58ec53d53025a02e42818488a838732d0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591960"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195586"
 ---
-# <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introducción a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
+# <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>¿Qué es Geo Artificial Intelligence Data Science Virtual Machine?
 
-La **máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial** (Geo-DSVM) de Azure ofrece funcionalidades de análisis geoespacial de la máquina virtual de ciencia de datos de Microsoft. En concreto, esta máquina virtual extiende los kits de herramientas de ciencia de datos y de inteligencia artificial de la [máquina virtual de ciencia de datos](overview.md) al agregar el sistema de información geográfica líder del mercado [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) de ESRI.
+Geo Artificial Intelligence Data Science Virtual Machine (también conocido como Geo AI Data Science VM o Geo-DSVM) ofrece funcionalidades de análisis geoespacial de Azure Data Science Virtual Machine (DSVM). En concreto, esta máquina virtual amplía los kits de herramientas de ciencia de datos e inteligencia artificial de [DSVM](overview.md) gracias a la incorporación del sistema de información geográfica líder del mercado, [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview), de ESRI.
 
-La máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial es una oferta de producto que surge de la colaboración entre ESRI y Microsoft. El resultado es un entorno eficaz que proporciona la capacidad de:
+ Geo AI Data Science VM es una oferta de producto que nace de la colaboración entre ESRI y Microsoft. El resultado es un entorno eficaz que proporciona la capacidad de:
 
-- explorar datos con las herramientas de ciencia de datos y de inteligencia artificial más populares
-- aplicar análisis estadísticos a datos con aspectos geográficos o espaciales
-- entrenar modelos para análisis predictivos con algoritmos de aprendizaje automático y de aprendizaje profundo
-- crear visualizaciones avanzadas
+- Explorar datos con las herramientas de ciencia de datos e inteligencia artificial más conocidas
+- Aplicar análisis estadísticos a los datos con aspectos geográficos o espaciales
+- Entrenar modelos para análisis predictivos con algoritmos de aprendizaje automático y aprendizaje profundo
+- Crear visualizaciones avanzadas
 
-Está admitida en Data Science Virtual Machine de Windows 2016. Las interfaces de Python y R para ArcGIS también están preconfiguradas en Geo-DSVM, lo que permite el acceso mediante programación al análisis geoespacial dentro de las aplicaciones de inteligencia artificial. Se proporcionan igualmente ejemplos de Jupyter Notebook que sirven de ayuda para la creación de aplicaciones de inteligencia artificial con inteligencia geoespacial incorporada.
+Geo AI Data Science VM se admite en DSVM de Windows 2016. Las interfaces de Python y R para ArcGIS también están preconfiguradas en Geo-DSVM, lo que permite el acceso mediante programación al análisis geoespacial dentro de las aplicaciones de inteligencia artificial. Además, se proporcionan ejemplos de Jupyter Notebook para introducirle en la creación de aplicaciones de inteligencia artificial con inteligencia geoespacial incorporada.
 
 
 ## <a name="why-geo-ai-data-science-vm"></a>¿Por qué una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial? 
 
-La integración de información geográfica y de ubicación con datos abre una nueva y eficaz dimensión para entender un mundo cada vez más instrumentado con dispositivos IoT. Existe una amplia gama de aplicaciones en prácticamente todos los segmentos de la sociedad civil, ya sean actividades comerciales, académicas, gubernamentales o sin ánimo de lucro. El análisis geoespacial proporciona herramientas sólidas para recopilar, administrar y analizar datos geográficos y basados en la ubicación, y una visualización eficaz que puede proporcionar una perspectiva extraordinaria sobre la importancia de estos datos. 
+La integración de información geográfica y de ubicación con datos abre una nueva y eficaz dimensión para entender un mundo cada vez más instrumentado con dispositivos IoT. Existe ahora una amplia variedad de aplicaciones en prácticamente todos los segmentos de la sociedad civil, ya sean actividades comerciales, académicas, gubernamentales o sin ánimo de lucro. El análisis geoespacial proporciona sólidas herramientas para recopilar, administrar y analizar datos geográficos y basados en la ubicación. Estas herramientas ofrecen también una visualización eficaz que permite extraer conclusiones únicas sobre la importancia de dichos datos.
 
-[Data Science Virtual Machine (DSVM)](overview.md) de Microsoft es un popular entorno de experimentación y modelado de Azure, que proporciona una gran cantidad de herramientas de inteligencia artificial, aprendizaje automático y ciencia de datos. Estas plataformas y herramientas están todas cómodamente preconfiguradas para que le ayuden a ser productivo de inmediato. 
+[Data Science Virtual Machine (DSVM)](overview.md) de Microsoft es un conocido entorno de experimentación y modelado de Azure, que proporciona una gran cantidad de herramientas de inteligencia artificial, aprendizaje automático y ciencia de datos. Estas plataformas y herramientas están todas preconfiguradas de forma conveniente para ayudarle a ser productivo de inmediato.
 
-Mediante la combinación de las funcionalidades predictivas de la máquina virtual de ciencia de datos con la escalabilidad de Azure Cloud y del software de análisis geoespacial de [ESRI](https://www.esri.com), los científicos de datos y analistas geoespaciales cuentan ahora con una plataforma más productiva desde la que pueden obtener nueva inteligencia a partir de los datos e identificar nuevas oportunidades. 
+Geo AI Data Science VM combina las funcionalidades predictivas de DSVM con la escalabilidad de la nube de Azure y el software de análisis geoespacial de [ESRI](https://www.esri.com). Esta integración innovadora ofrece a los científicos de datos y a los analistas geoespaciales una plataforma productiva de la que obtener nueva inteligencias de sus datos e identificar nuevas oportunidades.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprovisione una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial, y empiece a usarla con la ayuda de los temas siguientes:
+Aprovisione una instancia de Geo AI Data Science VM y comience a usarla con la ayuda de los siguientes recursos:
 
 * [Provision a Geo AI Data Science VM](provision-geo-ai-dsvm.md) (Aprovisionamiento de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial)
 * [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md) (Uso de la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial)

@@ -1,31 +1,31 @@
 ---
-title: Creación de una instancia de Azure Blockchain Service mediante Azure Portal
-description: Uso de Azure Blockchain Service para crear a un miembro del consorcio.
+title: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante Azure Portal
+description: Use Azure Blockchain Service para crear a un miembro de cadena de bloques.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417500"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241038"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Blockchain Service mediante Azure Portal
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante Azure Portal
 
-Azure Blockchain Service es una plataforma de cadena de bloques que puede ejecutar su lógica de negocios dentro de un contrato inteligente. Para comenzar, en este inicio rápido se muestra cómo crear un libro de contabilidad administrado con Azure Portal.
+Azure Blockchain Service es una plataforma de cadena de bloques que puede ejecutar su lógica de negocios dentro de un contrato inteligente. En este inicio rápido se muestra cómo empezar a crear un miembro de la cadena de bloques mediante Azure Portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-managed-ledger"></a>Creación de un libro de contabilidad administrado
+## <a name="create-a-blockchain-member"></a>Creación de un miembro de cadena de bloques
 
-Azure Blockchain Service se crea con un conjunto definido de recursos de proceso y almacenamiento.
+Cree un miembro de cadena de bloques que ejecute el protocolo de libro de contabilidad de Quorum en un nuevo consorcio o existente.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
@@ -36,9 +36,9 @@ Azure Blockchain Service se crea con un conjunto definido de recursos de proceso
 
     Configuración | DESCRIPCIÓN
     --------|------------
-    Blockchain Member (Miembro de cadena de bloques) | Elija un nombre único que identifique al miembro de Azure Blockchain Service. El nombre del miembro de la cadena de bloques solo puede contener letras minúsculas y números. El primer carácter debe ser una letra. El valor debe tener entre 2 y 20 caracteres.
+    Blockchain Member (Miembro de cadena de bloques) | Elija un nombre único que identifique al miembro de cadena de bloques de Azure Blockchain Service. El nombre del miembro de la cadena de bloques solo puede contener letras minúsculas y números. El primer carácter debe ser una letra. El valor debe tener entre 2 y 20 caracteres.
     Subscription | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
-    Grupos de recursos | Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
+    Resource group | Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
     Region | La ubicación debe ser la misma para todos los miembros del consorcio.
     Member account password (Contraseña de la cuenta del miembro) | cifrar la clave privada de la cuenta de Ethereum que se crea para el miembro. Usará la cuenta del miembro y la contraseña de la cuenta del miembro para la administración del consorcio.
     Nombre del consorcio | Si es un nuevo consorcio, escriba un nombre único. Si se va a unir a un consorcio por medio de una invitación, el valor es el consorcio al que se une.

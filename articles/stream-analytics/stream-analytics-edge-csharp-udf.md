@@ -1,5 +1,5 @@
 ---
-title: Escritura de una función de C# definida por el usuario para un trabajo de Azure Stream Analytics en IoT Edge en Visual Studio (versión preliminar)
+title: Escriba funciones definidas por el usuario en C# para trabajos de Azure Stream Analytics Edge en Visual Studio (Versión preliminar)
 description: Aprenda a escribir funciones definidas por el usuario en c# para trabajos de Stream Analytics en dispositivos perimetrales en Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086917"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173310"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Tutorial: Escritura de una función de C# definida por el usuario para un trabajo de Azure Stream Analytics en IoT Edge (versión preliminar)
 
