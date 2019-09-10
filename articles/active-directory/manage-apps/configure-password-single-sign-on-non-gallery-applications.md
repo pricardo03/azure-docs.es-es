@@ -68,7 +68,7 @@ Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incor
 
 Si se produce un error en el intento de análisis de Azure AD, puede configurar el inicio de sesión manualmente.
 
-1. En **Configuración de \<nombreDeAplicación>** , seleccione **Establecer configuración de inicio de sesión único con contraseña de \<nombreDeAplicación> para mostrar la página** Configurar inicio de sesión** . 
+1. En **Configuración de \<nombreDeAplicación>** , seleccione **Establecer configuración de inicio de sesión único con contraseña de \<nombreDeAplicación> para mostrar la página**  **Configurar inicio de sesión**. 
 
 2. Seleccione **Detectar campos de inicio de sesión manualmente**. Aparecen instrucciones adicionales que describen la detección manual de los campos de inicio de sesión.
 
