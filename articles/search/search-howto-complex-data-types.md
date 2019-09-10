@@ -2,7 +2,7 @@
 title: 'Modelado de tipos de datos complejos: Azure Search'
 description: Las estructuras de datos jerárquicas o anidadas se pueden modelar en un índice de Azure Search mediante los tipos de datos ComplexType y Collections.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 services: search
@@ -10,16 +10,16 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: e7e6ddefd13d669c949389bc4fad85fb6cff4d3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b9c9b35adc0dde032723c3c60adedf5b2e7b4cb6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621376"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183198"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
 
-Los conjuntos de datos externos usados para rellenar un índice de Azure Search pueden tener muchas formas. A veces, incluyen subestructuras jerárquicas o anidadas. Algunos ejemplos son varias direcciones de un solo cliente, varios tamaños y colores de una única SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea que se hace referencia a estas estructuras como tipos de datos *complejos*, *compuestos* o *agregados*. El término que Azure Search usa para este concepto es **tipo complejo**. En Azure Search, los tipos complejos se modelan mediante **campos complejos**. Un campo complejo es un campo que contiene a elementos secundarios (campos secundarios) que pueden ser de cualquier tipo de datos, incluidos otros tipos complejos. Esto funciona de forma similar a los tipos de datos estructurados de un lenguaje de programación.
+Los conjuntos de datos externos usados para rellenar un índice de Azure Search pueden tener muchas formas. A veces, incluyen subestructuras jerárquicas o anidadas. Algunos ejemplos son varias direcciones de un solo cliente, varios tamaños y colores de una única SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea que se hace referencia a estas estructuras como tipos de datos *complejos*, *compuestos* o *agregados* *.* El término que Azure Search usa para este concepto es **tipo complejo**. En Azure Search, los tipos complejos se modelan mediante **campos complejos**. Un campo complejo es un campo que contiene a elementos secundarios (campos secundarios) que pueden ser de cualquier tipo de datos, incluidos otros tipos complejos. Esto funciona de forma similar a los tipos de datos estructurados de un lenguaje de programación.
 
 Los campos complejos representan un único objeto en el documento, o bien una matriz de objetos, en función del tipo de datos. Los campos de tipo `Edm.ComplexType` representan objetos individuales, mientras que los campos de tipo `Collection(Edm.ComplexType)` representan matrices de objetos.
 

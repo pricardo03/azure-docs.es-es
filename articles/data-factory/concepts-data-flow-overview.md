@@ -39,7 +39,7 @@ Empiece por configurar la transformación de origen y, a continuación, agregue 
 
 ## <a name="configure-transformation-logic"></a>Configuración de la lógica de transformación
 
-![Ocultar grafo]Hide Graph(media/data-flow/hideg.png "")
+![Ocultar grafo](media/data-flow/hideg.png "Hide Graph")
 
 Si oculta el grafo, podrá navegar por los nodos de transformación lateralmente.
 
