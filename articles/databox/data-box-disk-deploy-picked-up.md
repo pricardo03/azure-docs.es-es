@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240207"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390405"
 ---
 ::: zone target="chromeless"
 
@@ -85,12 +85,9 @@ Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes para la recogida en Australia.
 
-1. Envíe un correo electrónico a `adbops@microsoft.com` para solicitar una etiqueta de envío con el identificador entrante único o el código TAU. Para tener la etiqueta a tiempo, realice la solicitud al menos 3 días de antelación a la fecha de envío planeada.
-2. El asunto del correo electrónico debe ser: *Request for reverse shipping label with TAU code* (Solicitud de etiqueta de envío inverso con código TAU). Asegúrese de incluir los siguientes detalles en el mensaje de correo electrónico: 
-
-    - Nombre del pedido
-    - Dirección
-    - Nombre de contacto
+1. Use la etiqueta de devolución que se proporciona y asegúrese de en ella aparece el código TAU (número de referencia). Si falta la etiqueta de envío o tiene cualquier otro problema, envíe un correo electrónico al departamento de [operaciones en Asia de Data Box](mailto:adbo@microsoft.com). Especifique el nombre del pedido en el encabezado del asunto y los detalles del problema que haya aparecido.
+3. Pegue la etiqueta en la caja. 
+4. Utilice el vínculo https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference para reservar en línea una recogida. 
 
 ### <a name="pick-up-in-asia"></a>Recogida en Asia
 
