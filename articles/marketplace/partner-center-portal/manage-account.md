@@ -1,18 +1,18 @@
 ---
 title: Administración de una cuenta de Marketplace comercial en el Centro de partners
 description: Aprenda a administrar una cuenta de Marketplace comercial en el Centro de partners.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: e0c9f1fcf2d9d7e806645f1bdf9e8a6c74245a60
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 08/30/2019
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619332"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259189"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de Marketplace comercial en el Centro de partners 
 
@@ -26,8 +26,8 @@ En este artículo, se analizará en profundidad cómo administrar su cuenta del 
 - [Administrar detalles financieros (cuenta de pago, perfil fiscal, estado de retención de pagos)](#financial-details)
 - [Configurar GUID de seguimiento para supervisar el uso del cliente](#tracking-guids)
 - [Administrar usuarios](#manage-users)
-- [Administrar grupos](#manage-groups)
-- [Administrar aplicaciones de Azure AD](#manage-azure-ad-applications)
+- [Administración de grupos](#manage-groups)
+- [Administración de aplicaciones de Azure AD](#manage-azure-ad-applications)
 - [Definir roles y permisos de usuario](#define-user-roles-and-permissions)
 - [Administrar inquilinos de Azure AD (cuentas profesionales)](#manage-tenants)
 - [Administrar acuerdos del Centro de partners](#agreements)
@@ -151,7 +151,7 @@ El Centro de partners utiliza [Azure Active Directory](https://docs.microsoft.co
 
 ## <a name="manage-users"></a>Administrar usuarios
 
-La sección **Usuarios** del Centro de partners (en **Configuración de la cuenta**) le permite usar Azure AD para administrar los usuarios, grupos y aplicaciones de Azure AD que tienen acceso a esa cuenta. Tenga en cuenta que para poder administrar usuarios, debe iniciar sesión con su [cuenta profesional](./company-work-accounts.md) (el inquilino asociado de Azure AD). Para administrar los usuarios de una cuenta o inquilino profesional diferente, necesitará cerrar sesión y volver a iniciarla como un usuario con permisos de **administrador** sobre esa cuenta profesional o de inquilino. 
+La sección **Usuarios** del Centro de partners (en **Configuración de la cuenta**) le permite usar Azure AD para administrar los usuarios, grupos y aplicaciones de Azure AD que tienen acceso a esa cuenta. Para poder administrar usuarios, debe iniciar sesión con su [cuenta profesional](./company-work-accounts.md) (el inquilino asociado de Azure AD). Para administrar los usuarios de una cuenta o inquilino profesional diferente, necesitará cerrar sesión y volver a iniciarla como un usuario con permisos de **administrador** sobre esa cuenta profesional o de inquilino. 
 
 Una vez haya iniciado sesión con su cuenta profesional (inquilino de Azure AD), puede:
 - [Agregar o eliminar usuarios](#add-or-remove-users)
@@ -223,7 +223,7 @@ Si uno de los usuarios tiene que cambiar su contraseña, podrá hacerlo él mism
 3.  Aparecerá una página de confirmación que muestra la información de inicio de sesión del usuario, incluida una contraseña temporal. No olvide imprimir o copiar esta información y proporcionársela al usuario, ya que no podrá acceder a la contraseña temporal después de salir de esta página.
 
 
-## <a name="manage-groups"></a>Administración de grupos
+## <a name="manage-groups"></a>Administrar grupos
 
 Los grupos le permiten controlar varios roles y permisos de usuario a la vez.
 
@@ -300,31 +300,21 @@ Si la aplicación de Azure AD lee y escribe datos en Microsoft Azure AD, necesit
 4.  Si desea crear más claves, seleccione **Add another key** (Agregar otra clave).
 
 
-### <a name="define-user-roles-and-permissions"></a>Definición de roles y permisos de usuario
+## <a name="define-user-roles-and-permissions"></a>Definición de roles y permisos de usuario
 
-Se pueden asignar a los usuarios de la empresa los siguientes roles y permisos en el programa de Marketplace comercial del Centro de partners. 
+Se pueden asignar a los usuarios de la empresa los siguientes roles y permisos en el programa Marketplace comercial del Centro de partners:
 
-Tenga en cuenta que los roles de inquilino de Azure Active Directory (AAD) incluyen administrador global, administrador de usuarios y roles CSP. Los roles que no son de AAD son aquellos roles que no se emplean para administrar el inquilino e incluyen administrador de MPN, administrador del perfil de negocio, administrador de referencias, administrador de incentivos y usuario de incentivo.
+- **Administrador**
+  - Puede acceder a todas las características de la cuenta Microsoft, excepto a la configuración fiscal y de pagos.
+  - Puede administrar usuarios, roles y cuentas profesionales (inquilinos).
+- **Developer**
+  - Puede administrar y publicar ofertas.
+  - Puede ver algunos informes del publicador.
 
+> [!NOTE]
+> En el caso del programa Marketplace comercial, no se utilizan los roles Administrador global, Colaborador empresarial, Colaborador financiero y Vendedor. Asignar estos roles a los usuarios no tiene ningún efecto. Solo los roles Administrador y Desarrollador conceden permisos a los usuarios.
 
-|**Rol**|**Permisos**|
-|----------------------------------|:---------------------------------|
-|Administrador global|• Puede acceder a todas las cuentas y servicios de Microsoft con privilegios completos
-|      |• Crea incidencias de soporte técnico para el Centro de partners
-||• Ve acuerdos, listas de precios y ofertas
-||• Ve, crea y administra los usuarios del asociado|
-|Manager|• Puede acceder a todas las características de la cuenta Microsoft, excepto a la configuración fiscal y de pagos
-|      |• Puede administrar usuarios, roles y cuentas profesionales (inquilinos)|
-|Developer|• Puede cargar paquetes, enviar aplicaciones y complementos, y ver el informe de uso para obtener más información sobre los datos de telemetría
-|      |• No puede acceder a la información financiera ni a la configuración de cuenta|
-|Colaborador empresarial|• Puede acceder a la información financiera y establecer los detalles de precios
-|      |• No puede crear ni enviar nuevas aplicaciones y complementos|
-|Colaborador financiero|• Puede ver los informes de pago
-|      |• No puede realizar cambios en las aplicaciones o la configuración|
-|Vendedor|• Puede responder a las revisiones de cliente y los informes no financieros
-|      |• No puede realizar cambios en las aplicaciones o la configuración|
-
-Para más información sobre la administración de roles y permisos en otras áreas del Centro de partners, como Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), usuarios invitados o Microsoft Partner Network (MPN), consulte [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview) (Asignar roles y permisos de usuario en el Centro de partners).
+Para más información sobre la administración de roles y permisos en otras áreas del Centro de partners, como Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), usuarios invitados o Microsoft Partner Network (MPN), consulte [Asignación de roles y permisos de usuario en el Centro de partners](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
 ## <a name="manage-tenants"></a>Administración de inquilinos
@@ -373,7 +363,6 @@ La sección **Contratos** del Centro de partners (en **Configuración de la cuen
 
 La sección **Se requieren acciones** puede aparecer en la parte superior de esta página si hay actualizaciones del contrato que requieren su atención. Para aceptar un contrato actualizado, lea primero la versión del contrato vinculado y seleccione **Aceptar el contrato**. 
 
-Para más información sobre los contratos de Cloud Solution Provider (CSP) en el Centro de partners, visite [Contratos de Microsoft Cloud por región e idioma](https://docs.microsoft.com/partner-center/agreements).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

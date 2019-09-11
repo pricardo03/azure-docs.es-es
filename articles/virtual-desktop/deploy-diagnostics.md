@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899703"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233256"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -154,7 +154,7 @@ Para poder ver el estado de las máquinas virtuales, debe habilitar la conexión
 
 Para implementar la plantilla de Azure Resource Manager, siga las instrucciones:
 
-1.  Vaya a la página RDS-Templates de Azure en GitHub.
+1.  Vaya a la página  [RDS-Templates de Azure en GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Implemente la plantilla en Azure y siga las instrucciones de la plantilla. Asegúrese de que tiene la siguiente información disponible:
 
     -   Client-Id

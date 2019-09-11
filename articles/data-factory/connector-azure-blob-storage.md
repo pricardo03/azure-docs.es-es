@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d332ca00cbd47448b7e3fb8d3ab2d141380b70
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c845c4bcc8dc57371304b5917ee09191b5256c51
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061529"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276350"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -315,12 +315,12 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
-- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para **Parquet, texto delimitado, Avro y formato binario**, consulte [Parquet, texto delimitado y sección de conjunto de datos en formato binario ](#format-based-dataset).
+- Para otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos en formato binario, de texto delimitado, Parquet o Avro
 
-Para copiar datos con el almacenamiento de blobs como origen y destino en formato binario, de texto delimitado o Parquet, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos con el almacenamiento de blobs como origen y destino en formato binario, de texto delimitado, Avro o Parquet, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -362,7 +362,7 @@ Para copiar datos con el almacenamiento de blobs como origen y destino en format
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos con el almacenamiento de blobs como origen y destino en formato ORC, Avro o JSON, establezca la propiedad type del conjunto de datos en **AzureBlob**. Se admiten las siguientes propiedades.
+Para copiar datos con el almacenamiento de blobs como origen y destino en formato ORC o JSON, establezca la propiedad type del conjunto de datos en **AzureBlob**. Se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -413,12 +413,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage como un tipo de origen
 
-- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
-- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, Avro o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
+- Para copiar desde otros formatos como **ORC o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-source"> </a> Parquet, texto delimitado, Avro y origen en formato binario
 
-Para copiar datos con el almacenamiento de blobs como origen y destino en **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos con el almacenamiento de blobs como origen y destino en **formato binario, de texto delimitado, Avro o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -476,7 +476,7 @@ Para copiar datos con el almacenamiento de blobs como origen y destino en **form
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos del almacenamiento de blobs en **formato ORC, Avro o JSON**, establezca el tipo de origen de la actividad de copia en **BlobSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
+Para copiar datos del almacenamiento de blobs en **formato ORC o JSON**, establezca el tipo de origen de la actividad de copia en **BlobSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -518,12 +518,12 @@ Para copiar datos del almacenamiento de blobs en **formato ORC, Avro o JSON**, e
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage como un tipo de receptor
 
-- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
-- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, Avro o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
+- Para copiar desde otros formatos como **ORC o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-source"> </a> Parquet, texto delimitado, Avro y origen en formato binario
 
-Para copiar datos del almacenamiento de blobs en **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del receptor de copia basado en formato:
+Para copiar datos del almacenamiento de blobs en **formato binario, de texto delimitado, Avro o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del receptor de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -571,7 +571,7 @@ Para copiar datos del almacenamiento de blobs en **formato binario, de texto del
 
 #### <a name="other-format-sink"></a>Otro receptor de formato
 
-Para copiar datos en el almacenamiento de blobs en **ORC, Avro o JSON**, establezca el tipo de receptor de la actividad de copia en **BlobSink**. En la sección **sink** se admiten las propiedades a continuación.
+Para copiar datos en el almacenamiento de blobs en **ORC o JSON**, establezca el tipo de receptor de la actividad de copia en **BlobSink**. En la sección **sink** se admiten las propiedades a continuación.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

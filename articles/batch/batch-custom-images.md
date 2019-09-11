@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036695"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141818"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Uso de Shared Image Gallery para crear un grupo
 
@@ -23,7 +23,7 @@ Al crear un grupo en Azure Batch con Configuración de máquina virtual, se espe
 
 Al usar Shared Image Gallery para la imagen personalizada, tiene el control sobre la configuración y el tipo del sistema operativo, así como el tipo de discos de datos. La imagen de Shared Image puede incluir los datos de referencia y las aplicaciones que están disponibles en los nodo de grupo de Batch en cuanto se aprovisionan.
 
-También puede tener varias versiones de una imagen según sea necesario para su entorno. Cuando se usa una versión de la imagen para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM. 
+También puede tener varias versiones de una imagen según sea necesario para su entorno. Cuando se usa una versión de la imagen para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM.
 
 El uso de una imagen de Shared Image le ahorra tiempo a la hora de preparar los nodos de ejecución del grupo para ejecutar la carga de trabajo de Batch. Se puede usar una imagen de Azure Marketplace e instalar el software en cada nodo de ejecución una vez que se haya aprovisionado, pero el uso de una imagen de Shared Image podría ser más eficiente. Además, puede especificar varias réplicas para la imagen de Shared Image, por lo que al crear grupos con muchas VM (más de 600), ahorrará tiempo en la creación del grupo.
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Creación de una imagen compartida mediante Azure Portal
+
+Use los pasos siguientes para crear un grupo a partir de una imagen compartida en Azure Portal.
+
+1. Abra [Azure Portal](https://portal.azure.com).
+1. Vaya a **Cuentas de Batch** y seleccione su cuenta.
+1. Seleccione **Grupos** y, luego, **Agregar** para crear un grupo.
+1. En la sección **Tipo de imagen**, seleccione **Shared Image Gallery**.
+1. Complete el resto de secciones con información sobre la imagen administrada.
+1. Seleccione **Aceptar**.
+
+![Cree un grupo a partir de una imagen compartida con el portal.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>Consideraciones para los grupos grandes
 

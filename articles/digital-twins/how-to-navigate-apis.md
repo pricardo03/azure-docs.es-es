@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719856"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172814"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Cómo usar las API de administración de Azure Digital Twins
 
@@ -88,6 +88,7 @@ En la lista siguiente se muestran algunos ejemplos de desplazamiento por las API
 
 
 ## <a name="odata-support"></a>Compatibilidad con OData
+
 La mayoría de las API que devuelven colecciones, como una llamada GET en /spaces, admiten el subconjunto siguiente de las opciones de consulta genéricas del sistema de [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData):  
 
 * **$filter**
@@ -95,11 +96,12 @@ La mayoría de las API que devuelven colecciones, como una llamada GET en /space
 * **$top**
 * **$skip**: si quiere mostrar toda la colección, debe solicitarla como un conjunto completo en una sola llamada y, luego, realizar la paginación en la aplicación. 
 
-Tenga en cuenta que no se admiten otras opciones de consulta, como $count, $expand y $search.
+> [!NOTE]
+> Algunas opciones de OData (como las opciones de consulta **$count**, **$expand** y **$search**) no se admiten actualmente.
 
 ### <a name="examples"></a>Ejemplos
 
-En la lista siguiente se muestran algunos ejemplos de consultas que usan las opciones de consulta del sistema de OData:
+En la lista siguiente se muestran varias consultas con sintaxis válida de OData:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -108,9 +110,10 @@ En la lista siguiente se muestran algunos ejemplos de consultas que usan las opc
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para conocer algunos patrones comunes de consulta de API, lea [How to query Azure Digital Twins APIs for common tasks](how-to-query-common-apis.md) (Consulta de las API de Azure Digital Twins para tareas comunes).
+Para conocer algunos patrones comunes de consulta de API, lea [How to query Azure Digital Twins APIs for common tasks](./how-to-query-common-apis.md) (Consulta de las API de Azure Digital Twins para tareas comunes).
 
 Para más información sobre los puntos de conexión de API, lea [Uso de Digital Twins Swagger](./how-to-use-swagger.md).
+
+Para revisar la sintaxis de OData y los operadores de comparación disponibles, lea [Operadores de comparación de OData en Azure Search](../search/search-query-odata-comparison-operators.md).

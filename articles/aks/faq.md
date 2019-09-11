@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381966"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241792"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -55,7 +55,7 @@ Para obtener más información sobre el uso de Kured, consulte [Apply security a
 
 ### <a name="windows-server-nodes"></a>Nodos de Windows Server
 
-Para los nodos de Windows Server (actualmente en versión preliminar en AKS), Windows Update no ejecuta ni aplica las actualizaciones más recientes de manera automática. En una programación normal del ciclo de versiones de Windows Update y su proceso de validación propio, debe realizar una actualización de los grupos de nodos de Windows Server en el clúster de AKS. Este proceso de actualización crea nodos que ejecutan la imagen y las revisiones más recientes de Windows Server y elimina los nodos anteriores. Para obtener más información sobre este proceso, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+Para los nodos de Windows Server (actualmente en versión preliminar en AKS), Windows Update no ejecuta ni aplica las actualizaciones más recientes de manera automática. En una programación normal del ciclo de versiones de Windows Update y su proceso de validación propio, debe realizar una actualización en el clúster y los grupos de nodos de Windows Server en el clúster de AKS. Este proceso de actualización crea nodos que ejecutan la imagen y las revisiones más recientes de Windows Server y elimina los nodos anteriores. Para obtener más información sobre este proceso, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>¿Por qué se crean dos grupos de recursos con AKS?
 
@@ -66,7 +66,7 @@ Cada implementación de AKS abarca dos grupos de recursos:
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>¿Puedo proporcionar mi propio nombre para el grupo de recursos del nodo de AKS?
 
-Sí. De forma predeterminada, AKS asignará el nombre *MC_clustername_resourcegroupname_location* al grupo de recursos del nodo, pero también puede proporcionar su propio nombre.
+Sí. De forma predeterminada, AKS asignará el nombre *MC_resourcegroupname_clustername_location* al grupo de recursos del nodo, pero también puede proporcionar su propio nombre.
 
 Para especificar un nombre de su elección para el grupo de recursos, instale la versión de la extensión de la CLI de Azure [aks-preview][aks-preview-cli] *0.3.2* o una posterior. Cuando cree un clúster de AKS mediante el comando [az aks create][az-aks-create], use el parámetro *--node-resource-group* y especifique un nombre para el grupo de recursos. Si [usa una plantilla de Azure Resource Manager][aks-rm-template] para implementar un clúster de AKS, puede definir el nombre del grupo de recursos mediante la propiedad *nodeResourceGroup*.
 
@@ -115,6 +115,8 @@ La compatibilidad de Windows Server con el grupo de nodos incluye algunas limit
 ## <a name="does-aks-offer-a-service-level-agreement"></a>¿AKS ofrece un Acuerdo de Nivel de Servicio?
 
 En un Acuerdo de Nivel de Servicio (SLA), el proveedor acuerda reembolsar al cliente el costo del servicio si no se pudo cumplir el nivel de servicio publicado. Dado que AKS es gratuito, no hay que reembolsar ningún costo, por lo que AKS no tiene ningún SLA formal. Sin embargo, AKS busca mantener una disponibilidad del 99,5 % como mínimo para el servidor de API de Kubernetes.
+
+Es importante reconocer la diferencia entre la disponibilidad del servicio AKS, que hace referencia al tiempo de actividad del plano de control de Kubernetes, y la disponibilidad de la carga de trabajo específica que se ejecuta en Azure Virtual Machines. Aunque es posible que el plano de control no esté disponible si no está listo, las cargas de trabajo de clúster que se ejecutan en máquinas virtuales de Azure pueden seguir funcionando. Dado que las máquinas virtuales de Azure son recursos de pago, están respaldadas por un contrato de nivel de servicio financiero. Lea [aquí para obtener más detalles](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sobre el contrato de nivel de servicio de máquina virtual de Azure y cómo aumentar esa disponibilidad con características como [Availability Zones][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>¿Por qué no puedo establecer el argumento maxPods por debajo de 30?
 
@@ -204,6 +206,7 @@ No, AKS es un servicio administrado y no se admite la manipulación de los recur
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

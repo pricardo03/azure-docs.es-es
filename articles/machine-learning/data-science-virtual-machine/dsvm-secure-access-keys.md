@@ -1,29 +1,23 @@
 ---
-title: 'Almacenamiento de las credenciales de acceso en Data Science Virtual Machine de forma segura: Azure | Microsoft Docs'
+title: Almacenamiento seguro de credenciales de acceso
+titleSuffix: Azure Data Science Virtual Machine
 description: Obtenga información acerca de cómo almacenar las credenciales de acceso en Data Science Virtual Machine de forma segura. Aprenderá a usar las identidades de servicio administradas y Azure Key Vault para almacenar las credenciales de acceso.
 keywords: aprendizaje profundo, AI, herramientas de ciencia de datos, data science virtual machine, análisis geoespacial, proceso de ciencia de datos en equipo
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051609"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195600"
 ---
-# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>Almacenamiento seguro de las credenciales de acceso en Data Science Virtual Machine
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Almacenamiento seguro de las credenciales de acceso en Azure Data Science Virtual Machine
 
 Es habitual que el código de las aplicaciones en la nube contenga las credenciales de autenticación en los servicios en la nube. La administración y la protección de estas credenciales es un reto conocido para la compilación de aplicaciones en la nube. Lo ideal sería que las credenciales nunca aparecieran en las estaciones de trabajo de los desarrolladores o que se controlaran en el código fuente.
 

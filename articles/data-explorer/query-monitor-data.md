@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: f363e59e6faa6b115eb40a2a5d35432f02299d52
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8e61f52282bcbc62a3eb069272cd7c1f3e329d3b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810035"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172703"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor con Azure Data Explorer (versión preliminar)
 
@@ -56,7 +56,9 @@ Puede usar Kusto Explorer, explorador web de ADX, Jupyter Kqlmagic o la API REST
 
 > [!TIP]
 > * El nombre de la base de datos debe tener el mismo nombre que el recurso especificado en el clúster de proxy. Los nombres distinguen mayúsculas de minúsculas.
-> * En las consultas entre clústeres, asegúrese de que la [nomenclatura de las aplicaciones y áreas de trabajo](#application-insights-app-and-log-analytics-workspace-names) sea correcta.
+> * En consultas entre clústeres, asegúrese de que la nomenclatura de las aplicaciones de Application Insights y las áreas de trabajo de Log Analytics sea correcta.
+>     * Si los nombres contienen caracteres especiales, se sustituyen por codificación URL en el nombre del clúster del proxy. 
+>     * Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](/azure/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guion **-** .
 
 ### <a name="query-against-the-native-azure-data-explorer-cluster"></a>Consultas en el clúster de Azure Data Explorer nativo 
 
@@ -117,11 +119,6 @@ Las opciones de sintaxis siguientes están disponibles cuando se llama a los cl�
 | Clúster que contiene todas las aplicaciones o áreas de trabajo en esta suscripción    |     clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
 |Clúster que contiene todas las aplicaciones o áreas de trabajo de la suscripción y que son miembros de este grupo de recursos    |   clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |Clúster que contiene solo el recurso definido en esta suscripción      |    clúster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  clúster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
-
-### <a name="application-insights-app-and-log-analytics-workspace-names"></a>Aplicación de Application Insights y área de trabajo de Log Analytics
-
-* Si los nombres contienen caracteres especiales, se sustituyen por codificación URL en el nombre del clúster del proxy. 
-* Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](/azure/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guión **-** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: f303e6ba30b8b68f1bed4c5bcacd746932cbe156
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873828"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279931"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Elección de la opción de implementación adecuada en Azure SQL
 
@@ -33,7 +33,7 @@ Una de las primeras cosas que hay que comprender al comparar Azure con bases de 
 
 Como se ve en el diagrama, cada oferta puede caracterizarse por el nivel de administración que se tiene sobre la infraestructura y el grado de relación coste-eficacia.
 
-En Azure, puede hacer que las cargas de trabajo de SQL Server se ejecuten en un servicio hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) o en una infraestructura hospedada ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). En PaaS, tiene varias opciones de implementación y niveles de servicio dentro de cada opción de implementación. La pregunta clave que debe hacerse al decidir entre PaaS o IaaS es si quiere administrar su base de datos, aplicar parches o realizar copias de seguridad usted mismo; o si quiere delegar estas operaciones a Azure.
+En Azure, puede hacer que las cargas de trabajo de SQL Server se ejecuten en un servicio hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) o en una infraestructura hospedada ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). En PaaS, tiene varias opciones de implementación y niveles de servicio dentro de cada opción de implementación. La pregunta clave que debe hacerse al decidir entre PaaS o IaaS es si quiere administrar su base de datos, aplicar revisiones y realizar copias de seguridad, o bien si quiere delegar estas operaciones a Azure.
 
 Dependiendo de la respuesta, tiene las siguientes opciones:
 

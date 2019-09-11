@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992112"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259288"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creación y acceso a conjuntos de datos (versión preliminar) en Azure Machine Learning
 
@@ -45,9 +45,11 @@ Para crear y trabajar con conjuntos de datos, necesita:
 
 ## <a name="dataset-types"></a>Tipos de conjuntos de datos
 
-Los conjuntos de valores se clasifican en varios tipos en función de cómo los usuarios los consumen en el entrenamiento. Actualmente se admite la clase [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), que representa los datos en formato tabular mediante el análisis del archivo o la lista de los archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas. Se puede crear un objeto `TabularDataset` a partir de archivos csv, tsv o parquet, resultados de consultas SQL, etc. Para obtener una lista completa, visite nuestra documentación.
+Los conjuntos de valores se clasifican en varios tipos en función de cómo los usuarios los consumen en el entrenamiento. Lista de tipos de conjuntos de datos:
+* [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Esto le proporciona la capacidad de materializar los datos en un DataFrame de Pandas. Se puede crear un objeto `TabularDataset` a partir de archivos csv, tsv o parquet, resultados de consultas SQL, etc. Para obtener una lista completa, consulte nuestra [documentación](https://aka.ms/tabulardataset-api-reference).
+* [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) hace referencia a uno o varios archivos de sus almacenes de archivos o direcciones URL públicas. Este proporciona la capacidad de descargar o montar los archivos en el proceso. Los archivos pueden tener cualquier formato, lo que le ofrece una amplia gama de escenarios de aprendizaje automático, incluido el aprendizaje profundo.
 
-Para más información sobre los próximos cambios en la API, consulte [¿Qué es Azure Machine Learning Service?](https://aka.ms/tabular-dataset) 
+Para obtener más información sobre los próximos cambios en la API, consulte [esto](https://aka.ms/tabular-dataset).
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos 
 
@@ -101,6 +103,25 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|mujer|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|mujer|26,0|0|0|STON/O2. 3101282|7,9250||S
 
+### <a name="create-filedatasets"></a>Crear FileDatasets
+Use el método `from_files()` en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un elemento FileDataset sin registrar.
+
+```Python
+# create a FileDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'animals/dog/1.jpg'),
+                  (datastore, 'animals/dog/2.jpg'),
+                  (datastore, 'animals/dog/*.jpg')
+                 ]
+animal_ds = Dataset.File.from_files(path=datastore_paths)
+
+# create a FileDataset from image and label files behind public web urls
+web_paths = [
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
+            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
+           ]          
+mnist_ds = Dataset.File.from_files(path=web_paths)
+```
 ## <a name="register-datasets"></a>Registro de conjuntos de datos
 
 Para completar el proceso de creación, registre los conjuntos de datos con el área de trabajo:

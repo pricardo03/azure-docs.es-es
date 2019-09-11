@@ -6,14 +6,14 @@ author: tfitzmac
 keywords: error de implementación, implementación de Azure, implementar en Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 07/28/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638536"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275741"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -32,7 +32,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación en Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemas de aprovisionamiento y asignación en Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) y [Solución de problemas de asignación](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Espere a que la operación simultánea finalice. | |
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación.<br><br>Puede recibir este error cuando un proveedor de recursos necesario no está registrado. | [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolución de registros](resource-manager-register-provider-errors.md) |
-| BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-location.md) |
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
@@ -41,7 +41,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso y la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenga el token de acceso para el inquilino adecuado. Solo puede obtener el token del inquilino al que pertenece su cuenta. | |
-| InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe pasar un token de SAS. | [Plantillas vinculadas](resource-group-linked-templates.md) |
+| InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe pasar un token de SAS. Actualmente, no se puede agregar un vínculo a una plantilla que se encuentre en una cuenta de almacenamiento detrás de un [firewall de Azure Storage](../storage/common/storage-network-security.md). De todos modos, tiene la posibilidad de mover la plantilla a otro repositorio, como GitHub. | [Plantillas vinculadas](resource-group-linked-templates.md) |
 | InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. El mensaje de error debe indicar qué valor debe corregirse. | |
 | InvalidRequestContent | Los valores de implementación incluyen valores que no se reconocen o valores requeridos que faltan. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
 | InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y compruebe el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
@@ -53,7 +53,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | InvalidTemplateCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Compruebe si la cuenta pertenece al mismo inquilino que el grupo de recursos en que está realizando la implementación. | |
 | LinkedInvalidPropertyId | El identificador de un recurso no se resuelve correctamente. Compruebe que ha proporcionado todos los valores necesarios para el identificador del recurso, entre otros, el identificador de la suscripción, el nombre del grupo de recursos, el tipo de recurso, el nombre del recurso principal (si procede) y el nombre del recurso. | |
-| LocationRequired | Proporcione una ubicación para el recurso. | [Establecimiento de la ubicación](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Proporcione una ubicación para el recurso. | [Establecimiento de la ubicación](resource-location.md) |
 | MismatchingResourceSegments | Asegúrese de que el recurso anidado tiene el número correcto de segmentos de nombre y tipo. | [Resolver los segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Compruebe el estado de registro del proveedor de recursos y las ubicaciones admitidas. | [Resolución de registros](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre la suscripción con el proveedor de recursos. | [Resolución de registros](resource-manager-register-provider-errors.md) |

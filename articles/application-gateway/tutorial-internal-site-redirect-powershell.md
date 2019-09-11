@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 157f7fa0979da21584550e7669a20f670aca5219
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 9efda8d81c4e6cb3bf478b05c261a99dc8e1aec0
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785718"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232091"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
-Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, definirá un grupo de back-end mediante un conjunto de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega al grupo adecuado. En este tutorial se da por supuesto que posee varios dominios y se usan ejemplos de *www\.contoso.com* y *www\.contoso.org*.
+Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, definirá un grupo de back-end mediante un conjunto de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega al grupo adecuado. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www\.contoso.org*.
 
 En este artículo, aprenderá a:
 
@@ -114,7 +114,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Creación del primer agente de escucha y regla
 
-Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo se crean clientes de escucha para los dominios de *www\.contoso.com* y *www\.contoso.org*.
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www\.contoso.org*.
 
 Cree el primer cliente de escucha denominado *contosoComListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración y el puerto de front-end creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica denominada *contosoComRule* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -298,11 +298,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http\://www.contoso.com.
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, [http://www.contoso.com](http://www.contoso.com).
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Cambie la dirección al otro dominio, por ejemplo http://www.contoso.org , para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de www\. contoso.com.
+Cambie la dirección para su otro dominio, por ejemplo http://www.contoso.org y verá que se ha redirigido el tráfico hacia el agente de escucha para www.contoso.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

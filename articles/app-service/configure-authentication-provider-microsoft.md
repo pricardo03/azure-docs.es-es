@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de la autenticación de cuenta de Microsoft: Azure App Service'
-description: Obtenga información acerca de cómo configurar la autenticación mediante la cuenta Microsoft para la aplicación de Servicios de aplicaciones.
+description: Obtenga información acerca de cómo configurar la autenticación mediante la cuenta Microsoft para la aplicación App Service.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cb2da26fcc00d1daf4b2dd0faf8bde8b743b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098519"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233085"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de la cuenta Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,7 +61,7 @@ En este tema se muestra cómo configurar Azure App Service para usar la cuenta M
 
 4. (Opcional) Para restringir el acceso de los usuarios a la cuenta de Microsoft, configure la **acción necesaria cuando la solicitud no esté autenticada** en **Log in with Microsoft Account** (Iniciar sesión con la cuenta Microsoft). Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a la cuenta Microsoft para la autenticación.
 
-> [!CAUTION]
+> [!NOTE]
 > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página. Para tales aplicaciones, puede ser preferible **permitir las solicitudes anónimas (sin acción)** y que la aplicación inicie manualmente el inicio de sesión, tal como se describe [aquí](overview-authentication-authorization.md#authentication-flow).
 
 5. Haga clic en **Save**(Guardar).
