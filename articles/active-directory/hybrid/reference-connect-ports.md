@@ -16,12 +16,12 @@ ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9277e35fceb382fbccd009e5bbfe63ce57b8361
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387321"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305170"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
@@ -40,6 +40,8 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | SMB | 445 (TCP/UDP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
 | LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando SSL. |
 | RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP/UDP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
+|WinRM  | 5985 (TCP/UDP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect.|
+|Servicios web de AD DS | 9389 (TCP/UDP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect. |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabla 2: Azure AD Connect y Azure AD
 En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y Azure AD.
@@ -102,8 +104,10 @@ En esta tabla se describen los siguientes puertos y protocolos de salida que son
 
 | Protocolo | Puertos | DESCRIPCIÓN |
 | --- | --- | --- |
-| HTTPS |443 (TCP/UDP) |Salida |
-| Azure Service Bus |5671 (TCP/UDP) |Salida |
+| HTTPS |443 (TCP) |Salida |
+| Azure Service Bus |5671 (TCP) |Salida |
+
+El puerto 5671 de Azure Service Bus ya no es necesario para la versión más reciente del agente. La última versión del agente de Azure AD Connect Health solo requería el puerto 443.
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](how-to-connect-health-agent-install.md#requirements).

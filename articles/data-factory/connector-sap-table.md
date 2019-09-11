@@ -10,18 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1d64a25fc60a1a1cbe1ed04f87a57556b7de0b88
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967403"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259015"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con desde una tabla de SAP. Para obtener más información, consulte la [información general sobre la actividad de copia](copy-activity-overview.md).
+
+>[!TIP]
+>Para obtener información sobre la compatibilidad general de ADF con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) para ver una introducción, comparación y guía detalladas.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -32,9 +35,9 @@ En concreto, este conector para tablas de SAP admite las siguientes funcionalida
 - Copiar datos de una tabla de SAP en:
 
   - Componente central de SAP ERP (SAP ECC) versión 7.01 o posterior (en una pila reciente de paquetes de soporte técnico de SAP lanzados después de 2015).
-  - SAP Business Warehouse (SAP BW), versión 7.01 o posterior.
+  - SAP Business Warehouse (SAP BW), versión 7.01 o posterior, (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015).
   - SAP S/4HANA.
-  - Otros productos en SAP Business Suite, versión 7.01 o posterior.
+  - Otros productos en SAP Business Suite, versión 7.01 o posterior, (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015).
 
 - Copiar datos de una tabla transparente de SAP, una tabla agrupada, una tabla en clúster y una vista.
 - Copiar datos mediante la autenticación básica o las comunicaciones de red segura (SNC), si es que tiene SNC configuradas.
@@ -223,7 +226,7 @@ Para copiar datos de una tabla de SAP, se admiten las siguientes propiedades:
 <br/>
 >Tomando `partitionOption` como `partitionOnInt` a modo de ejemplo, el número de filas de cada partición se calcula con esta fórmula: (filas totales entre `partitionUpperBound` y `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Para cargar particiones de datos en paralelo para acelerar la copia, el grado paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la tabla de SAP. Se recomienda encarecidamente hacer que `maxPartitionsNumber` sea un múltiplo del valor de la propiedad `parallelCopies`.
+>Para cargar particiones de datos en paralelo para acelerar la copia, el grado paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la tabla de SAP. Se recomienda encarecidamente hacer que `maxPartitionsNumber` sea un múltiplo del valor de la propiedad `parallelCopies`. Cuando se copian datos en un almacén de datos basado en archivos, también se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 En `rfcTableOptions`, puede usar los siguientes operadores de consulta SAP comunes para filtrar las filas:
 

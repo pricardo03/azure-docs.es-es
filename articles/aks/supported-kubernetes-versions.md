@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898875"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147231"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,6 @@ Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Cada número en la versión indica compatibilidad general con la versión anterior:
@@ -39,7 +38,7 @@ Cada número en la versión indica compatibilidad general con la versión anteri
 * Las versiones secundarias cambian cuando se hacen cambios de funcionalidad que son compatibles con otras versiones anteriores secundarias.
 * Las versiones de revisión cambian cuando se hacen correcciones de errores compatibles con versiones anteriores.
 
-En general, los usuarios deben procurar ejecutar la última versión de revisión de la versión secundaria que están ejecutando, por ejemplo, si su clúster de producción usa la versión *1.13.6* y *1.13.7* es la última versión de revisión disponible para la serie *1.13*, debe actualizar a *1.13.7* tan pronto como pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
+En general, los usuarios deben procurar ejecutar la última versión de revisión de la versión secundaria que están ejecutando; por ejemplo, si su clúster de producción usa la versión *1.12.14* y *1.12.15* es la última versión de revisión disponible para la serie *1.12*, debe actualizar a *1.12.15* tan pronto como pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
 
 ## <a name="kubernetes-version-support-policy"></a>Directiva de soporte técnico de versión de Kubernetes
 
@@ -50,13 +49,13 @@ AKS es compatible con cuatro versiones secundarias de Kubernetes:
 
 Esto se conoce como "N-3"-(N [versión más reciente] - 3 [versiones secundarias]).
 
-Por ejemplo, si AKS presenta *1.13.x* hoy, también se proporciona compatibilidad para las versiones siguientes:
+Por ejemplo, si AKS presenta *1.13.a* hoy, también se proporciona compatibilidad para las versiones siguientes:
 
 Nueva versión secundaria    |    Lista de versiones admitidas
 -----------------    |    ----------------------
-1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+1.13.a               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
-Donde "x" y ".a" y ".b" son las versiones de revisión representativas.
+Donde ".a" y ".b" son versiones de revisión representativas. "a" de 1.13.a puede ser diferente de 1.12.a. Por ejemplo, 1.13.9 y 1.12.8.
 
 Para obtener más información sobre las comunicaciones con respecto a los cambios de versión y las expectativas, consulte "Comunicaciones" a continuación.
 
@@ -73,7 +72,7 @@ Cuando se introduce una nueva versión secundaria, la versión secundaria y la v
 1.9.b
 ```
 
-Y AKS publica 1.13.x, esto significa que se quitarán las versiones 1.9. x (todas las versiones 1.9) y se quedarán sin soporte.
+Y la versión 1.13. *de AKS; esto significa que las versiones 1.9.* (todas las versiones 1.9) se quitarán y dejarán de ser compatibles.
 
 > [!NOTE]
 > Tenga en cuenta que si los clientes ejecutan una versión incompatible de Kubernetes, se les pedirá que actualicen al solicitar soporte técnico para el clúster. Los clústeres que ejecutan versiones de Kubernetes no admitidas no están cubiertos por el [las directivas de soporte técnico de AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -127,7 +126,7 @@ Las versiones de revisión específicas se pueden omitir, o su implantación pue
 
 ### <a name="azure-portal-and-cli-default-versions"></a>Versiones predeterminadas de Azure Portal y la CLI de Azure
 
-Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS es compatible con *1.13.x*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*, la versión predeterminada para los nuevos clústeres es *1.12.b*.
+Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS es compatible con *1.13.a*, *1.12.a* + *1.12.b*, *1.11.a* + *1.11.b*, *1.10.a* + *1.10b*, la versión predeterminada para los nuevos clústeres es *1.12.b*.
 
 El valor predeterminado de AKS es N-1 (secundaria.últimaRevisión, por ejemplo, 1.12.b) para proporcionar a los clientes una versión conocida, estable y revisada de forma predeterminada.
 
@@ -162,8 +161,8 @@ KubernetesVersion    Upgrades
 
 Si la suya es la versión *n-4*, se encuentra fuera de soporte técnico y se le pedirá que actualice. Si su actualización de la versión n-4 a n-3 se completa correctamente, estará dentro de nuestras directivas de soporte técnico. Por ejemplo:
 
-- Si las versiones compatibles de AKS son *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d* y *1.10.e* + *1.10f* y la suya es *1.9.g* o *1.9.h*, está fuera del soporte técnico.
-- Si la actualización de *1.9.g* o *1.9.h* a *1.10.e* o *1.10.f* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
+- Si las versiones de AKS compatibles son *1.13.a*, *1.12.b* + *1.12.c*, *1.11.d* + *1.11.e* y *1.10.f* + *1.10.g* y está en *1.9.h* o *1.9.i*, dejará de tener soporte técnico.
+- Si la actualización de *1.9.h* o *1.9.i* a *1.10.f* o *1.10.g* se realiza correctamente, estará de nuevo dentro de nuestras directivas de soporte técnico.
 
 Las actualizaciones a las versiones anteriores a *n-4* no se admiten. En esos casos, se recomienda a los clientes que creen nuevos clústeres de AKS y vuelvan a implementar sus cargas de trabajo.
 

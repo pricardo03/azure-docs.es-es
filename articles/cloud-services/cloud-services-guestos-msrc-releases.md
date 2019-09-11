@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/19/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: c27438dbbeffc0837c3d71d9bb532803655538b8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637547"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275504"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
@@ -25,33 +25,30 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="august-2019-guest-os"></a>SO invitado de agosto de 2019
 
->[!NOTE]
->El sistema operativo invitado de agosto se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de agosto. Esta lista está sujeta a cambios.
-
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-08   |  [4512482]  |  Seguridad de Windows   |  3.76  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4494175]  |  Actualización de microcódigo   |  5.34  |  18 de junio de 2019  |
-|  Versión 19-08   |  [4512517]  |  Actualización acumulativa más reciente   |  5.34  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4494174]  |  Actualización de microcódigo   |  6.1  |  18 de junio de 2019  |
-|  Versión 19-08   |  [4511553]  |  Actualización acumulativa más reciente   |  6.1  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4512486]  |  Seguridad de Windows   |  2,89  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4512489]  |  Seguridad de Windows   |  4.69  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4511872]  |  Internet Explorer    |  2.89, 3.76, 4.69  |  15 de agosto de 2019  |
-|  Versión 19-08   |  [4507449]  |  No relacionada con la seguridad   |  2,89  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4507000]  |  .NET 4.5.2, no relacionada con la seguridad   |  3.76  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507002]  |  .NET 3.5, no relacionada con la seguridad   |  3.76  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507462]  |  No relacionada con la seguridad   |  3.76  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4506999]  |  .NET 4.5.2, no relacionada con la seguridad    |  4.69  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507005]  |  .NET 3.5, no relacionada con la seguridad    |  4.69  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507448]  |  No relacionada con la seguridad   |  4.69  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4509091]  |  Actualización de la pila de servicio   |  5.34  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4509095]  |  Actualización de la pila de servicio   |  6.1  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4512937]  |  Actualización de la pila de servicio   |  6.1  |  29 de julio de 2019  |
-|  Versión 19-08   |  [4507004]  |  .NET 3.5.1, no relacionada con la seguridad    |  2,89  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4504418]  |  Actualización de la pila de servicio   |  3.76, 4.69  |  11 de julio de 2019  |
-|  Versión 19-08   |  [4507001]  |  .NET 4.5.2, no relacionada con la seguridad   |  2,89  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507704]  |  Configuración de DST de Windows para Brasil y Marruecos   |  2.89, 3.76, 4.69, 5.34  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512482]  |  Seguridad de Windows   |  [3.76]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4494175]  |  Actualización de microcódigo   |  [5.34]  |  18 de junio de 2019  |
+|  Versión 19-08   |  [4512517]  |  Actualización acumulativa más reciente   |  [5.34]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4494174]  |  Actualización de microcódigo   |  [6.1]  |  18 de junio de 2019  |
+|  Versión 19-08   |  [4511553]  |  Actualización acumulativa más reciente   |  [6.1]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512486]  |  Seguridad de Windows   |  [2.89]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512489]  |  Seguridad de Windows   |  [4.69]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  15 de agosto de 2019  |
+|  Versión 19-08   |  [4507449]  |  No relacionada con la seguridad   |  [2.89]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4507000]  |  .NET 4.5.2, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507002]  |  .NET 3.5, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507462]  |  No relacionada con la seguridad   |  [3.76]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4506999]  |  .NET 4.5.2, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507005]  |  .NET 3.5, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507448]  |  No relacionada con la seguridad   |  [4.69]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4509091]  |  Actualización de la pila de servicio   |  [5.34]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4509095]  |  Actualización de la pila de servicio   |  [6.1]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4512937]  |  Actualización de la pila de servicio   |  [6.1]  |  29 de julio de 2019  |
+|  Versión 19-08   |  [4507004]  |  .NET 3.5.1, no relacionada con la seguridad    |  [2.89]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4504418]  |  Actualización de la pila de servicio   |  [3.76], [4.69]  |  11 de julio de 2019  |
+|  Versión 19-08   |  [4507001]  |  .NET 4.5.2, no relacionada con la seguridad   |  [2.89]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507704]  |  Configuración de DST de Windows para Brasil y Marruecos   |  [2.89], [3.76], [4.69], [5.34]  |  13 de agosto de 2019  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -75,6 +72,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4504418]: https://support.microsoft.com/kb/4504418
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
+
+[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>SO invitado de julio de 2019

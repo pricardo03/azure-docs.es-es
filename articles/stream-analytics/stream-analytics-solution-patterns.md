@@ -1,18 +1,18 @@
 ---
 title: Patrones de soluciones de Azure Stream Analytics
-description: Obtenga información sobre los patrones de solución de Azure Stream Analytics.
+description: Obtenga información sobre los diferentes patrones de solución comunes de Azure Stream Analytics.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329570"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173034"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -159,9 +159,9 @@ Lo más importante es prever el cambio de velocidad de procesamiento, probar est
 
 En el escenario extremo en el que se retrasan los eventos de entrada, [es posible que se eliminen todos los eventos retrasados](stream-analytics-time-handling.md) si ha aplicado al trabajo una ventana de llegada retrasada. La eliminación de los eventos puede parecer un comportamiento misterioso al principio. Sin embargo, si se tiene en cuenta que Stream Analytics es un motor de procesamiento en tiempo real, espera que los eventos entrantes estén cerca de la hora de reloj. Tiene que eliminar los eventos que infringen estas restricciones.
 
-### <a name="backfilling-process"></a>Proceso de reposición
+### <a name="lambda-architectures-or-backfill-process"></a>Proceso de reposición o arquitecturas lambda
 
-Afortunadamente, se puede usar el patrón de archivado de datos anterior para procesar estos eventos retrasados correctamente. La idea es que el trabajo de archivado procese los eventos de entrada en la hora de llegada y archive los eventos en el cubo temporal oportuno en Azure Blob o Azure Data Lake Store con la hora del evento. No importa lo tarde que llegue un evento, nunca se eliminará. Siempre llegará al cubo temporal oportuno. Durante la recuperación, es posible volver a procesar los eventos archivados y reponer los resultados en el almacén deseado.
+Afortunadamente, se puede usar el patrón de archivado de datos anterior para procesar estos eventos retrasados correctamente. La idea es que el trabajo de archivado procese los eventos de entrada en la hora de llegada y archive los eventos en el cubo temporal oportuno en Azure Blob o Azure Data Lake Store con la hora del evento. No importa lo tarde que llegue un evento, nunca se eliminará. Siempre llegará al cubo temporal oportuno. Durante la recuperación, es posible volver a procesar los eventos archivados y reponer los resultados en el almacén deseado. Esto es similar al modo en que se implementan los patrones lambda.
 
 ![Reposición ASA](media/stream-analytics-solution-patterns/backfill.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 322a1d25ed434d8be674288b1b13d6ecf961590b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967712"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193565"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Inicio rápido: Creación de una base de conocimiento mediante el portal de servicios de QnA Maker API
 
@@ -45,14 +45,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Establecimiento de los orígenes de datos](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Asigne un **nombre** al servicio. Se admiten nombres duplicados y caracteres especiales.
-    - Agregue las direcciones URL de los datos que quiere extraer. Vea más información sobre los tipos de orígenes admitidos [aquí](../Concepts/data-sources-supported.md).
-    - Cargue los archivos de los datos que quiere extraer. Consulte la [información sobre precios](https://aka.ms/qnamaker-pricing) para ver cuántos documentos puede agregar.
-    - Si quiere agregar manualmente preguntas y respuestas, puede omitir el **paso 4** que se muestra en la imagen anterior.
+1. Asigne un **nombre** como `my first kb` al servicio. Se admiten nombres duplicados y caracteres especiales.
 
-1. Agregue **charlas** a la base de conocimiento. Opte por agregar compatibilidad con charla a su bot mediante la elección de una de las personalidades. 
+1. Agregue la página de solución de problemas de QnA Maker como dirección URL: `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting` y, luego, seleccione `+ Add URL`. Vea más información sobre los tipos de orígenes admitidos [aquí](../Concepts/data-sources-supported.md). Para este inicio rápido, **no cargue archivos** para los datos que desea extraer. Consulte la [información sobre precios](https://aka.ms/qnamaker-pricing) para ver cuántos documentos puede agregar.
 
-    ![Adición de preguntas y respuestas de charla a la base de conocimiento](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. Agregue **_charla profesional_** a su base de conocimiento. 
 
 1. Seleccione **Create your KB** (Crear la base de conocimiento).
 
@@ -70,7 +67,7 @@ Cuando haya terminado con la base de conocimiento, elimínela en el portal de Qn
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como medidas de ahorro de los costos, puede [compartir](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) algunos pero no todos los recursos de Azure creados para QnA Maker.
+Como medidas de ahorro de los costos, puede [compartir](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) algunos pero no todos los recursos de Azure creados para QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Agregar charlas personales](./chit-chat-knowledge-base.md)
+> [Adición de preguntas con metadatos](../quickstarts/add-question-metadata-portal.md)

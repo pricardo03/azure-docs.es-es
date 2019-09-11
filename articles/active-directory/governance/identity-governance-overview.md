@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499657"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241448"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es Azure AD Identity Governance?
 
@@ -70,6 +70,18 @@ Históricamente, otros proveedores concebían el acceso con privilegios como una
 
 Azure AD Privileged Identity Management (PIM) dispone de controles adicionales que están adaptados para proteger los derechos de acceso de los recursos en Azure AD, Azure y otros servicios en línea de Microsoft.  El acceso Just-In-Time y las funcionalidades para enviar alertas cuando cambia un rol que están disponibles en Azure AD PIM, junto con la autenticación multifactor y el acceso condicional, ofrecen un completo conjunto de controles de gobernanza que le ayudan a proteger los recursos de la compañía (roles de recursos de directorio, de Azure y de Office 365). Al igual que con otras formas de acceso, las organizaciones pueden usar las revisiones de acceso para configurar nuevas certificaciones de acceso periódicas para todos los usuarios con roles de administrador.
 
+## <a name="least-privileged-roles"></a>Roles con privilegios mínimos
+
+Se recomienda usar el rol con menos privilegios para realizar tareas administrativas en la gobernanza de identidades. Igualmente, para realizar estas tareas, se recomienda usar Azure AD PIM para activar un rol según sea necesario. A continuación se muestran los roles de directorio con menos privilegios para configurar las características de gobernanza de identidades: 
+
+| Característica | Rol con privilegios mínimos |
+| ------- | --------------------- |
+| Administración de derechos | Administrador de usuarios (a excepción de la adición de sitios de SharePoint Online a catálogos, que requiere un administrador global) |
+| Términos de uso | Administrador de seguridad o Administrador de acceso condicional |
+| Revisiones de acceso | Administrador de usuarios (con la excepción de las revisiones de acceso de Azure o los roles de Azure AD, que requiere el administrador de roles con privilegios) |
+|Privileged Identity Management | Administrador de roles con privilegios |
+
+
 ## <a name="getting-started"></a>Introducción
 
 Aunque no existe ninguna solución o recomendación perfecta para cada cliente, las configuraciones siguientes constituyen una guía de las directivas de referencia que Microsoft recomienda seguir para garantizar unos recursos más seguros y productivos.
@@ -80,6 +92,8 @@ Aunque no existe ninguna solución o recomendación perfecta para cada cliente, 
 También puede consultar la pestaña Introducción de la **Gobernanza de identidades** en Azure Portal para comenzar a usar la administración de derechos, acceder a las revisiones, Privileged Identity Management y los términos de uso.
 
 ![Introducción al gobierno de identidades](./media/identity-governance-overview/getting-started.png)
+
+Si tiene algún comentario sobre las características de Gobierno de identidades, haga clic en **¿Tiene algún comentario?** en Azure Portal para enviar sus comentarios. El equipo revisa periódicamente los comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

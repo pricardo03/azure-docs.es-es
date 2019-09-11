@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981472"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306150"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -67,15 +67,15 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Centro de Australia 2   | 20.36.113.0 |
 | Este de Australia       | 13.75.149.87, 40.79.161.1 |
 | Sudeste de Australia | 191.239.192.109, 13.73.109.251 |
-| Sur de Brasil         | 104.41.11.5,191.233.200.14 |
+| Sur de Brasil         | 104.41.11.5, 191.233.200.14 |
 | Centro de Canadá       | 40.85.224.249      |
 | Este de Canadá          | 40.86.226.166      |
-| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15 , 23.99.160.139, 104.208.16.96 | 
+| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
 | Este de China           | 139.219.130.35     |
 | Este de China 2         | 40.73.82.1         |
 | Norte de China          | 139.219.15.17      |
 | Norte de China 2        | 40.73.50.0         |
-| Asia oriental            | 191.234.2.139, 52.175.33.150,13.75.32.4 |
+| Asia oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Este de EE. UU. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 | 
 | Centro de Francia       | 40.79.137.0, 40.79.129.1 |
@@ -84,16 +84,16 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | India central        | 104.211.96.159     |
 | Sur de India          | 104.211.224.146    |
 | India occidental           | 104.211.160.80     |
-| Este de Japón           | 13.78.61.196, 40.79.184.8, 13.78.106.224 , 191.237.240.43, 40.79.192.5 | 
-| Oeste de Japón           | 104.214.148.156, 40.74.100.192 | 191.238.68.11,40.74.97.10 | 
+| Este de Japón           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Oeste de Japón           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Corea Central        | 52.231.32.42       |
 | Corea del Sur          | 52.231.200.86      |
 | Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa del Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norte de Sudáfrica   | 102.133.152.0      |
 | Oeste de Sudáfrica    | 102.133.24.0       |
-| Centro-Sur de EE. UU     | 13.66.62.124 , 23.98.162.75, 104.214.16.32   | 
-| Sudeste de Asia      | 104.43.15.0 , 23.100.117.95, 40.78.232.3   | 
+| Centro-Sur de EE. UU     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Sudeste de Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
 | Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
 | Sur de Reino Unido 2             | 51.140.184.11      |

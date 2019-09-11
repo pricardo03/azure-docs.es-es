@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996581"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232501"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -197,9 +197,9 @@ Para copiar datos desde Teradata, en la sección **source** de la actividad de c
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en `TeradataSource`. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para obtener algunos ejemplos. | No (si se especifica la tabla en el conjunto de datos) |
-| partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Si una opción de partición está habilitada (es decir, una diferente a `None`), configure también el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Esto determina el grado en paralelo para cargar los datos simultáneamente desde una base de datos Teradata. Por ejemplo, podría establecer este valor en 4. | Sin |
+| partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos de una base de datos de Teradata se controla mediante la configuración [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia. | Sin |
 | partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica cuando la opción de partición no es `None`. | Sin |
-| partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | Sin |
+| partitionColumnName | Especifique el nombre de la columna de origen que usará la partición por rangos o la partición de hash para la copia en paralelo. Si no se especifica, se detectará automáticamente el índice principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | Sin |
 | partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
 | partitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
 
@@ -247,7 +247,7 @@ El conector de Teradata de Data Factory proporciona la creación de particiones 
 
 Al habilitar la copia con particiones, Data Factory ejecuta consultas en paralelo en el origen de Teradata para cargar los datos mediante particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la base de datos de Teradata.
 
-Es recomendable habilitar la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de la base de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
+Es recomendable que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de la base de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -299,7 +299,7 @@ Al copiar datos desde Teradata, se aplican las siguientes asignaciones. Para má
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |No compatible. Se aplica la conversión explícita en la consulta de origen. |
-| Entero |Int32 |
+| Integer |Int32 |
 | Interval Day |No compatible. Se aplica la conversión explícita en la consulta de origen. |
 | Interval Day To Hour |No compatible. Se aplica la conversión explícita en la consulta de origen. |
 | Interval Day To Minute |No compatible. Se aplica la conversión explícita en la consulta de origen. |

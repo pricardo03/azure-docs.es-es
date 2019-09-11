@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066664"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210118"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -110,7 +110,7 @@ Para desconectar la aplicación de la red virtual, seleccione **Desconectar**. E
 
 #### <a name="web-app-for-containers"></a>Web App for Containers
 
-Si usa App Service en Linux con las imágenes integradas, la característica Integración con red virtual regional funciona sin más cambios. Si usa Web App for Containers, deberá modificar la imagen de Docker para poder usar Integración de red virtual. En la imagen de Docker, use la variable de entorno PORT como puerto de escucha del servidor web principal en lugar de un número de puerto codificado de forma rígida. La variable de entorno PORT la establece automáticamente la plataforma de App Service en el momento de inicio del contenedor.
+Si usa App Service en Linux con las imágenes integradas, la característica Integración con red virtual regional funciona sin más cambios. Si usa Web App for Containers, deberá modificar la imagen de Docker para poder usar Integración de red virtual. En la imagen de Docker, use la variable de entorno PORT como puerto de escucha del servidor web principal en lugar de un número de puerto codificado de forma rígida. La variable de entorno PORT la establece automáticamente la plataforma de App Service en el momento de inicio del contenedor. Si usa SSH, el demonio de SSH debe estar configurado para escuchar en el número de puerto que especificó la variable de entorno SSH_PORT al usar la integración de red virtual regional.
 
 ### <a name="service-endpoints"></a>Puntos de conexión de servicio
 

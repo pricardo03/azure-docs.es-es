@@ -1,31 +1,25 @@
 ---
-title: 'Grupos de Data Science Virtual Machine: Azure | Microsoft Docs'
+title: Grupos compartidos
+titleSuffix: Azure Data Science Virtual Machine
 description: Implementación de grupos de instancias de DSVM como recursos compartidos para un equipo
 keywords: aprendizaje profundo, AI, herramientas de ciencia de datos, data science virtual machine, análisis geoespacial, proceso de ciencia de datos en equipo
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 76a715838fa5eb4f806fccc98675ea5acdbe1822
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: conceptual
+ms.date: 12/10/2018
+ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992029"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195618"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 
-En este artículo se describe cómo crear un grupo compartido de instancias de Data Science Virtual Machine (DSVM) para un equipo. Las ventajas de usar un grupo compartido son mejor uso de los recursos, colaboración y el uso compartido más fáciles y administración más eficaz de los recursos de DSVM.
+En este artículo, aprenderá a crear un grupo compartido de instancias de Data Science Virtual Machine (DSVM) para un equipo. Las ventajas de usar un grupo compartido son mejor uso de los recursos, colaboración y el uso compartido más fáciles y administración más eficaz de los recursos de DSVM.
 
 Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este artículo se centra en los grupos de máquinas virtuales (VM) interactivas. Una infraestructura de proceso administrado alternativa es Proceso de Azure Machine Learning. Para más información, consulte [Configuración de los destinos de proceso](../service/how-to-set-up-training-targets.md#amlcompute).
 

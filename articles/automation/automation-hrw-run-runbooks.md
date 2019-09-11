@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087575"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186757"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -61,7 +61,7 @@ También puede usar [InlineScript](automation-powershell-workflow.md#inlinescrip
 
 ### <a name="runas-account"></a>Cuenta RunAs
 
-De forma predeterminada, Hybrid Runbook Worker usa la cuenta del sistema local en Windows y una cuenta de usuario especial, `nxautomation`, en Linux para ejecutar los runbooks. En lugar de hacer que los runbooks proporcionen su propia autenticación a los recursos locales, puede especificar una cuenta **RunAs** para un grupo de Hybrid Worker. Especifique un [recurso de credencial](automation-credentials.md) que tenga acceso a los recursos locales. Todos los runbooks se ejecutan con estas credenciales si se ejecutan en una instancia de Hybrid Runbook Worker del grupo.
+De forma predeterminada, Hybrid Runbook Worker usa la cuenta del sistema local en Windows y una cuenta de usuario especial, `nxautomation`, en Linux para ejecutar los runbooks. En lugar de hacer que los runbooks proporcionen su propia autenticación a los recursos locales, puede especificar una cuenta **RunAs** para un grupo de Hybrid Worker. Especifique un [recurso de credencial](automation-credentials.md) que tenga acceso a los recursos locales, incluidos los almacenes de certificados. Todos los runbooks se ejecutan con estas credenciales si se ejecutan en una instancia de Hybrid Runbook Worker del grupo.
 
 El nombre de usuario de la credencial debe tener uno de los siguientes formatos:
 

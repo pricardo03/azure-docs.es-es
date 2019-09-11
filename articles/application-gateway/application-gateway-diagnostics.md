@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850993"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306188"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
 Con Azure Application Gateway, puede supervisar los recursos de las siguientes maneras:
 
@@ -22,7 +22,7 @@ Con Azure Application Gateway, puede supervisar los recursos de las siguientes m
 
 * [Registros](#diagnostic-logging): los registros permiten que un recurso guarde o consuma datos de rendimiento, acceso o de otro tipo con fines de supervisión.
 
-* [Métricas](#metrics): Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
+* [Métricas](application-gateway-metrics.md): Application Gateway tiene varias métricas que le ayudan a comprobar que el sistema funciona según lo previsto.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -105,7 +105,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 Tiene tres opciones para almacenar los archivos de registro:
 
 * **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Centros de eventos**: es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
+* **Centros de eventos**: Centro de eventos es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
 * **Registros de Azure Monitor**: se usan para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
 
 ### <a name="enable-logging-through-powershell"></a>Habilitación del registro con PowerShell
@@ -359,67 +359,6 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analizar los registros de acceso mediante GoAccess
 
 Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
-
-## <a name="metrics"></a>Métricas
-
-Las métricas son una característica de determinados recursos de Azure en los que puede ver contadores de rendimiento en el portal. Para Application Gateway, están disponibles las métricas siguientes:
-
-- **Conexiones actuales**
-- **Solicitudes con error**
-- **Recuento de hosts con estado correcto**
-
-   También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
-
-
-- **Estado de respuesta**
-
-   La distribución del código de estado de respuesta se puede categorizar aún más para mostrar las respuestas en categorías 2xx, 3xx, 4xx y 5xx.
-
-- **Rendimiento**
-- **Total de solicitudes**
-- **Recuento de hosts con estado incorrecto**
-
-   También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
-
-Navegue a una instancia de Application Gateway y, en **Supervisión**, seleccione **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
-
-En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
-
-[![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
-
-### <a name="alert-rules"></a>Reglas de alertas
-
-Puede iniciar las reglas de alerta en función de las métricas de un recurso. Por ejemplo, una alerta puede llamar a un webhook o enviar un correo electrónico a un administrador si el rendimiento de la puerta de enlace de aplicaciones es superior, igual o inferior a un umbral durante un período especificado.
-
-En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta que envía un correo electrónico a un administrador cuando el rendimiento supera un umbral:
-
-1. Seleccione **Agregar alerta de métrica** para abrir la hoja **Agregar regla**. También puede acceder a esta página desde la página de métricas.
-
-   ![Botón “Agregar alerta de métrica”][6]
-
-2. En la página **Agregar regla**, rellene las secciones de nombre, condición y notificación, y seleccione **Aceptar**.
-
-   * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
-
-   * En el selector **Período**, seleccione un período de cinco minutos a seis horas.
-
-   * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
-
-   ![Página Agregar regla][7]
-
-Si se supera el umbral, llegará un correo electrónico similar al que se muestra en la siguiente imagen:
-
-![Correo electrónico para el umbral infringido][8]
-
-Después de crear una alerta de métrica, aparece una lista de alertas. Proporciona una visión general de todas las reglas de alerta.
-
-![Lista de alertas y reglas][9]
-
-Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

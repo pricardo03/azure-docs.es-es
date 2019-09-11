@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614126"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275874"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
@@ -234,7 +234,9 @@ Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL 
 | Propiedad  | DESCRIPCIÓN                                                  | Obligatorio                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | Sí                         |
-| tableName | El nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
+| schema | Nombre del esquema. |No para el origen, sí para el receptor  |
+| table | Nombre de la tabla o vista. |No para el origen, sí para el receptor  |
+| tableName | Nombre de la tabla o vista con el esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Para la nueva carga de trabajo use `schema` y `table`. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
 
@@ -250,7 +252,8 @@ Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL 
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -379,6 +382,7 @@ Para copiar datos en Azure SQL Data Warehouse, establezca el tipo de receptor de
 | writeBatchSize    | Número de filas que se va a insertar en la tabla SQL **por lote**. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor que se permite es un **entero** (número de filas). De forma predeterminada, Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | Sin                                            |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin                                            |
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin                                            |
+| disableMetricsCollection | Data Factory recopila métricas, como las DWU de SQL Data Warehouse, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Ejemplo de receptor de SQL Data Warehouse
 
@@ -431,12 +435,14 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 2. El **formato de datos de origen** es de **Parquet**, **ORC**, o **texto delimitado**, con las siguientes configuraciones:
 
    1. La ruta de acceso de la carpeta no contiene el filtro de comodín.
-   2. Nombre de archivo señala a un único archivo o es `*` o `*.*`.
-   3. `rowDelimiter` debe ser **\n**.
-   4. `nullValue` se establece en **cadena vacía** ("") o se deja como valor predeterminado, y `treatEmptyAsNull` se deja como valor predeterminado o se establece en true.
-   5. `encodingName` se establece en **utf-8**, que es el valor predeterminado.
+   2. El nombre de archivo está vacío o apunta a un solo archivo. Si especifica un nombre de archivo de comodín en la actividad de copia, solo puede ser `*` o `*.*`.
+   3. `rowDelimiter` es **valor predeterminado**, **\n**, **\r\n** o **\r**.
+   4. `nullValue` se deja con el valor predeterminado o se establece en **empty string** ("") y `treatEmptyAsNull` se deja con el valor predeterminado o se establece en True.
+   5. `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
    6. `quoteChar`, `escapeChar` y `skipLineCount` no están especificados. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
    7. `compression` puede ser **no compression**, **GZip** o **Deflate**.
+
+3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True.
 
 ```json
 "activities":[
@@ -445,7 +451,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +463,11 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",
@@ -530,6 +540,10 @@ Cuando los datos de origen tienen filas mayores de 1 MB, es aconsejable dividir 
 
 Como alternativa, para los datos con estas columnas anchas, puede usar no PolyBase para cargar los datos de uso de ADF, para ello desactive el valor "Permitir PolyBase".
 
+### <a name="sql-data-warehouse-resource-class"></a>Clase de recursos de SQL Data Warehouse
+
+Para obtener el mejor rendimiento posible, asigne una clase de recurso mayor al usuario que carga datos en SQL Data Warehouse a través de PolyBase.
+
 ### <a name="polybase-troubleshooting"></a>Solución de problemas de PolyBase
 
 **Carga en una columna decimal**
@@ -543,13 +557,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 La solución consiste en anular la selección de la opción "**Use type default**" (Usar tipo predeterminado) (como falsa) en el receptor de la actividad de copia -> configuración de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" es una configuración nativa PolyBase que especifica cómo administrar los valores que faltan en archivos de texto delimitados cuando PolyBase recupera datos del archivo de texto. 
 
-**Otros**
-
-### <a name="sql-data-warehouse-resource-class"></a>Clase de recursos de SQL Data Warehouse
-
-Para obtener el mejor rendimiento posible, asigne una clase de recurso mayor al usuario que carga datos en SQL Data Warehouse a través de PolyBase.
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>**tableName** en Azure SQL Data Warehouse
+**`tableName` en Azure SQL Data Warehouse**
 
 En la siguiente tabla se proporcionan ejemplos de cómo especificar la propiedad **tableName** en el conjunto de datos JSON. Se muestran varias combinaciones de esquema y nombres de tabla.
 
@@ -566,7 +574,7 @@ Si ve el siguiente error, el problema podría ser el valor especificado para la 
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>Columnas con valores predeterminados
+**Columnas con valores predeterminados**
 
 Actualmente, la característica PolyBase en Data Factory solo acepta el mismo número de columnas que la tabla de destino. Un ejemplo sería una tabla con cuatro columnas y que una de ellas esté definida con un valor predeterminado. Los datos de entrada siguen necesitando cuatro columnas. Un conjunto de datos de entrada de tres columnas producirá un error parecido al siguiente mensaje:
 

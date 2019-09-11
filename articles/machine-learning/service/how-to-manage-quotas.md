@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851120"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278062"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Administración y solicitud de cuotas para recursos de Azure
 
@@ -74,6 +74,14 @@ Recursos disponibles:
 
 <sup>1</sup> La duración máxima se refiere al tiempo en que empieza una ejecución y el momento en que finaliza. Las ejecuciones completadas se mantienen de forma indefinida; los datos de las ejecuciones no completadas dentro de la duración máxima no son accesibles.
 <sup>2</sup> Los trabajos en un nodo de prioridad baja pueden anularse en el momento que exista una restricción de capacidad. Se recomienda implementar los puntos de comprobación en el trabajo.
+
+### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
+En el caso de las canalizaciones Azure Machine Learning, existe un límite de cuota sobre el número de pasos en una canalización y sobre el número de ejecuciones basadas en programación de canalizaciones publicadas por región en una suscripción.
+- El número máximo de pasos permitidos en una canalización es de 30 000.
+- El número máximo de la suma de ejecuciones basadas en programación y de extracción de blobs para las programaciones desencadenadas por el blog de canalizaciones publicadas por suscripción al mes es 100.000
+
+> [!NOTE]
+> Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 ### <a name="container-instances"></a>Instancias de contenedor
 

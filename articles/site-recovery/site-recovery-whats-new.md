@@ -5,25 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717670"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146895"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) se actualiza y mejora de manera continua. Para ayudarlo a mantenerse actualizado, en este artículo encontrará información sobre las versiones más recientes, las características nuevas y el nuevo contenido. Esta página se actualiza de manera periódica.
 
-Si tiene sugerencias sobre las características de Site Recovery, nos encantaría [conocer sus comentarios](https://feedback.azure.com/forums/256299-site-recovery).
+Puede seguirla y suscribirse a las notificaciones de actualizaciones de Site Recovery en el canal de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## <a name="supported-updates"></a>Actualizaciones admitidas
+
+En el caso de los componentes de Site Recovery, se admiten las versiones N-4, donde N es la versión de lanzamiento más reciente. Estos se resumen en la siguiente tabla.
+
+**Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services** 
+--- | --- | --- | --- | ---
+[Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Paquete acumulativo 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[Paquete acumulativo 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[Paquete acumulativo 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[Paquete acumulativo 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
+        
+
+[Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
 
-## <a name="installing-updates"></a>Instalación de actualizaciones
+## <a name="updates-august-2019"></a>Actualizaciones (agosto de 2019)
 
-[Revise este artículo](service-updates-how-to.md) para instrucciones y soporte técnico para las actualizaciones de Site Recovery.
+### <a name="update-rollup-39"></a>Paquete acumulativo de actualizaciones 39
+
+El [Paquete acumulativo de actualizaciones 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones)
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
+En la tabla se resumen las nuevas características de recuperación ante desastres de las máquinas virtuales de Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**Cifrado sin Azure AD** | Ahora se admite el cifrado sin una aplicación Azure AD para la replicación de máquinas virtuales de Azure en discos administrados que ejecutan Windows.
+**Recursos de red para conmutación por error** | Cuando se conmuta por error a otra región, ahora puede adjuntar la configuración de recursos de red (NSG, equilibrio de carga, dirección IP pública) a una máquina virtual. 
 
 ## <a name="updates-july-2019"></a>Actualizaciones (julio de 2019)
 

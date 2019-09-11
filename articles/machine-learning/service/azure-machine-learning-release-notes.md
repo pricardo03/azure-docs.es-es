@@ -10,19 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971503"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278302"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
-En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://aka.ms/aml-sdk) de Azure Machine Learning. 
+En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning. 
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
+## <a name="2019-09-03"></a>2019-09-03
+### <a name="azure-machine-learning-sdk-for-python-v1060"></a>SDK de Azure Machine Learning para Python v1.0.60
+
++ **Nuevas características:**
+  + Incorporó FileDataset, que hace referencia a uno o varios archivos de sus almacenes de archivos o direcciones URL públicas. Los archivos pueden tener cualquier formato. FileDataset proporciona la capacidad de descargar o montar los archivos en el proceso. Para obtener información sobre FileDataset, visite https://aka.ms/file-dataset.
+  + Se agregó compatibilidad de canalización con YAML para PythonScript Step, Adla Step, Databrick Step, DataTransferStep y AzureBatch Step
+
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + AutoArima es ahora una canalización sugerida solo para la vista previa.
+    + Informe de errores mejorado para pronósticos.
+    + Se mejoró el registro mediante el uso de excepciones personalizadas en lugar de genéricas en las tareas de previsión.
+    + Se quito la comprobación de max_concurrent_iterations para que sea menor que el número total de iteraciones.
+    + Los modelos AutoML ahora devuelven las excepciones AutoMLE
+    + Esta versión mejora el rendimiento de ejecución de las ejecuciones locales automatizadas de aprendizaje automático.
+  + **azureml-core**
+    + Introduzca `Dataset.get_all()` que devuelve un diccionario de `TabularDataset` y `FileDataset` objetos con clave por su nombre de registro. 
+    
+    ```py 
+    workspace = Workspace.from_config() 
+    all_datasets = Dataset.get_all(workspace) 
+    mydata = all_datasets['my-data'] 
+    ```
+    
+    + Introduzca `parition_format` como argumento para `Dataset.Tabular.from_delimited_files` y `Dataset.Tabular.from_parquet.files`. La información de partición de cada ruta de acceso de datos se extraerá en columnas según el formato especificado. “{column_name}” crea una columna de cadena y “{column_name:yyyy/MM/dd/HH/mm/ss}” crea una columna DateTime, donde “YYYY”, “MM”, “dd”, “HH”, “mm” y “SS” se usan para extraer año, mes, día, hora, minuto y segundo para el tipo datetime. El partition_format debe empezar por la posición de la primera clave de partición hasta el final de la ruta de acceso del archivo. Por ejemplo, dada la ruta de acceso “ .. /USA/2019/01/01/data.csv” donde la partición es por país y hora, partition_format = “ /{Country}/{PartitionDate: YYYY/MM/DD}/Data. csv ” crea la columna de cadena “Country” con el valor “EE. UU. ” y la columna de fecha y hora “PartitionDate ” con el valor “2019-01-01 ”.
+    + `to_csv_files` y los `to_parquet_files` métodos y se han agregado a `TabularDataset`. Estos métodos permiten la conversión entre un `TabularDataset` y un `FileDataset` al convertir los datos a archivos del formato especificado.
+    + Inicie sesión automáticamente en el registro de imágenes base al guardar un Dockerfile generado por Model.package ().
+    + “gpu_support” ya no es necesario; AzureML ahora detecta y usa automáticamente la extensión de Docker de Nvidia cuando está disponible. Se eliminará en una próxima versión.
+    + Se agregó compatibilidad para crear, actualizar y usar PipelineDrafts.
+    + Esta versión mejora el rendimiento de ejecución de las ejecuciones locales automatizadas de aprendizaje automático.
+    + Los usuarios pueden consultar las métricas del historial de ejecución por nombre.
+    + Se mejoró el registro mediante el uso de excepciones personalizadas en lugar de genéricas en las tareas de previsión.
+  + **azureml-explain-model**
+    + Se agregó el parámetro feature_maps al nuevo MimicWrapper, lo que permite a los usuarios obtener explicaciones de características sin procesar.
+    + Las cargas de conjunto de los conjuntos de datos ahora están desactivadas de forma predeterminada para la carga explicativa y se pueden volver a habilitar con upload_datasets = True
+    + Se agregaron parámetros de filtrado "is_law" a la lista de explicaciones y funciones de descarga.
+    + Agrega el método `get_raw_explanation(feature_maps)` a los objetos de explicación global y local.
+    + Comprobación de versión agregada a lightgbm con advertencia impresa si está por debajo de la versión compatible
+    + Uso optimizado de memoria al explicar el procesamiento por lotes
+    + Los modelos AutoML ahora devuelven las excepciones AutoMLE
+  + **azureml-pipeline-core**
+    + Se agregó compatibilidad para crear, actualizar y usar PipelineDrafts-se puede usar para mantener las definiciones de canalización mutable y usarlas de forma interactiva para ejecutar
+  + **azureml-train-automl**
+    + Se creó la característica para instalar versiones específicas de pytorch v1.1.0 con compatible con gpu, cuda toolkit 9.0, pytorch-transformers que se requiere para habilitar BERT o XLNet en el entorno remoto de tiempo de ejecución de python.
+  + **azureml-train-core**
+    + Error temprano de algunos errores de definición de espacio de hiperparámetros directamente en el SDK en lugar del lado del servidor.
+
+  
 ## <a name="2019-08-19"></a>2019-08-19
 
 ### <a name="azure-machine-learning-sdk-for-python-v1057"></a>SDK de Azure Machine Learning para Python v1.0.57
@@ -84,6 +132,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Se permite a los usuarios de AutoML quitar series de entrenamiento que no son lo suficientemente largas al realizar la previsión.
     + Se permite a los usuarios de AutoML quitar granos del conjunto de pruebas que no existen en el conjunto de entrenamiento al realizar la previsión.
     + Ahora, AutoMLStep pasa a través de la configuración de automl al back-end para evitar problemas en los cambios o las adiciones de nuevos parámetros de configuración.
+    + AutoML Data Guardrail está ahora en versión preliminar pública. El usuario verá un informe de Data Guardrail (para tareas de clasificación o regresión) después del entrenamiento y también podrá acceder a él a través del API de SDK.
   + **azureml-train-core**
     + Se ha agregado compatibilidad con Torch 1.2 en el estimador de PyTorch.
   + **azureml-widgets**
