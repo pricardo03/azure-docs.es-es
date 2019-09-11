@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2b4d636737dbd75829c9555e340f79c3c867910d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c9192a6d6b8cf122092963f2352af8bb6e5a6c21
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967559"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275917"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos hacia y desde Azure SQL Database mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que está usando:"]
@@ -234,7 +234,9 @@ Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | Sí |
-| tableName | Nombre de la tabla o vista de la base de datos de Azure SQL a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
+| schema | Nombre del esquema. |No para el origen, sí para el receptor  |
+| table | Nombre de la tabla o vista. |No para el origen, sí para el receptor  |
+| tableName | Nombre de la tabla o vista con el esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Para la nueva carga de trabajo use `schema` y `table`. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
 
@@ -250,7 +252,8 @@ Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL 
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -380,6 +383,7 @@ Para copiar datos en Azure SQL Database, se admiten las siguientes propiedades e
 | storedProcedureTableTypeParameterName |Nombre del parámetro del tipo de tabla especificado en el procedimiento almacenado.  |Sin |
 | sqlWriterTableType |Nombre del tipo de tabla que se usará en el procedimiento almacenado. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Sin |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre y valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin |
+| disableMetricsCollection | Data Factory recopila métricas, como las DTU de Azure SQL Database, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 
 **Ejemplo 1: Anexión de datos**
 

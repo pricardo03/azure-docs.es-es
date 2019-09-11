@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c7db2b4d49e3b9297c32d2e11ffe7c7702c17544
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697908"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274671"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
-Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante Azure Portal. Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones. 
+Use este inicio rápido para crear un recurso de Azure Cognitive Services con Azure Portal. Después de crear correctamente un recurso de Cognitive Services, obtendrá un punto de conexión y una clave que puede usar para autenticar las aplicaciones.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure válida: [cree una de forma gratuita](https://azure.microsoft.com/free/).
+* Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -34,35 +34,68 @@ Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos
 
     ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. Puede encontrar los Cognitive Services disponibles con los métodos siguientes:
-    * Use la barra de búsqueda y escriba el nombre del servicio al que quiere suscribirse.
-        * Para crear un recurso para varios servicios, escriba **Cognitive Services** en la barra de búsqueda y seleccione el recurso **Cognitive Services**.
+2. Como se explicó anteriormente, puede crear un recurso de Cognitive Services de dos maneras: mediante un recurso de varios servicios o un recurso de servicio único.
 
-        ![Búsqueda de Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+    #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
 
-    * Para ver todos los Cognitive Services disponibles, seleccione **IA y Machine Learning** en **Azure Marketplace**. Si no ve el servicio que le interesa, haga clic en **Ver todo** y desplácese hasta **Cognitive Services**. Haga clic en **Más** para ver el catálogo completo de Cognitive Services APIs.
+    Para crear un recurso de varios servicios, escriba **Cognitive Services** en la barra de búsqueda.
+
+    ![Búsqueda de Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+
+    En la página Cognitive Services, seleccione **Crear**.
+
+    ![Creación de una cuenta de Cognitive Services](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
+
+    #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de servicio único](#tab/singleservice)
+
+    Para ver todos los Cognitive Services disponibles, seleccione **IA y Machine Learning** en **Azure Marketplace**. Si no ve el servicio que le interesa, haga clic en **Ver todo** y desplácese hasta **Cognitive Services**. Haga clic en **Ver más** para ver el catálogo completo de Cognitive Services.
+
+    Una vez que esté en el servicio que le interesa, haga clic en **Crear**.
     
-        ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azureMarketplace.png)
+    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
+    ***
 3. En la página **Crear**, proporcione la siguiente información:
 
-    > [!IMPORTANT]
-    > No olvide su ubicación de Azure, ya que puede necesitarla cuando llame a Azure Cognitive Services.
+    #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *MyCognitiveServicesAccount*. |
+    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *MyCognitiveServicesResource*. |
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
-    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
+    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. No olvide su ubicación de Azure, ya que puede necesitarla cuando llame a Azure Cognitive Services. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
+    | **Grupos de recursos** | El grupo de recursos de Azure que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
+
+    ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+
+    Haga clic en **Create**(Crear).
+
+    #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de servicio único](#tab/singleservice)
+
+    |    |    |
+    |--|--|
+    | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *TextAnalyticsResource*. |
+    | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
+    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. No olvide su ubicación de Azure, ya que puede necesitarla cuando llame a Azure Cognitive Services. |
+    | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Grupos de recursos** | El grupo de recursos de Azure que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
+    Haga clic en **Create**(Crear).
+
+    ***
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtención de las claves del recurso
 
-Después de crear el recurso, puede obtener acceso al mismo desde el panel de Azure si lo ancló allí. De lo contrario, puede encontrarlo en la opción **Grupos de recursos**. Después de seleccionar el recurso, puede obtener las claves si selecciona **Claves** en **Administración de recursos**.
+Una vez que el recurso se haya creado correctamente, aparecerá una notificación emergente en la parte superior derecha de la pantalla. En la notificación, haga clic en **Ir al recurso** para ver el recurso de Cognitive Services que creó. 
+
+![Ir al recurso de Cognitive Services](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+
+En el panel de inicio rápido que se abre, puede acceder al punto de conexión y a la clave.
+
+![Obtención de una clave y un punto de conexión](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 

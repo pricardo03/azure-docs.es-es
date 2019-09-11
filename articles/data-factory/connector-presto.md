@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19c450a1832e725fa5fbf171b991a6b617291cfe
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60508956"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276704"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar datos de Presto con Azure Data Factory (versión preliminar)
 
@@ -91,8 +91,10 @@ Para copiar datos de Presto, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **PrestoObject** | Sí |
-| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
+| type | La propiedad type del conjunto de datos debe establecerse en: **PrestoObject** | Sí |
+| schema | Nombre del esquema. |No (si se especifica "query" en el origen de la actividad)  |
+| table | Nombre de la tabla. |No (si se especifica "query" en el origen de la actividad)  |
+| tableName | Nombre de la tabla con el esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Use `schema` y`table` para la nueva carga de trabajo. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -101,11 +103,12 @@ Para copiar datos de Presto, establezca la propiedad type del conjunto de datos 
     "name": "PrestoDataset",
     "properties": {
         "type": "PrestoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -120,7 +123,7 @@ Para copiar datos de Presto, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PrestoSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **PrestoSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

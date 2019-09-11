@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903979"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242767"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -51,7 +51,7 @@ ms.locfileid: "69903979"
 | --- | --- | --- |
 | Direcciones IP públicas - dinámicas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
-| Direcciones IP públicas - estáticas | 200 para Estándar.|Póngase en contacto con el servicio de soporte técnico. |
+| Direcciones IP públicas - estáticas | 1000 para Standard.|Póngase en contacto con el servicio de soporte técnico. |
 | Longitud del prefijo de IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
 
 #### <a name="load-balancer"></a>Límites del equilibrador de carga

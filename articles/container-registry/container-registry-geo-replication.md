@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: gwallace
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574391"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208002"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -64,7 +64,7 @@ Al usar la característica de replicación geográfica de Azure Container Regist
 
 ## <a name="configure-geo-replication"></a>Configuración de la replicación geográfica
 
-Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure.
+Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 La replicación geográfica es una característica que solo está disponible para [registros Premium](container-registry-skus.md). Si el registro no es Premium, puede cambiarlo de Básico y Estándar a Premium en [Azure Portal](https://portal.azure.com):
 
@@ -97,8 +97,19 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 * Cada región de un registro con replicación geográfica es independiente una vez configurada. Los Acuerdos de Nivel de Servicio de Azure Container Registry se aplican a cada región con replicación geográfica.
 * Al insertar o extraer imágenes de un registro con replicación geográfica, Azure Traffic Manager en segundo plano envía la solicitud al registro ubicado en la región más cercana a usted.
 * Después de insertar una imagen o una actualización de etiqueta en la región más cercana, Azure Container Registry tarda un rato en replicar los manifiestos y las capas en el resto de regiones que participan. Las imágenes más grandes tardan más en replicarse que las más pequeñas. Las imágenes y etiquetas se sincronizan entre las regiones de replicación con un modelo de coherencia final.
-* Para administrar flujos de trabajo que dependen de actualizaciones de inserción para un registro con replicación geográfica, se recomienda configurar [webhooks](container-registry-webhook.md) para responder a los eventos de inserción. Puede configurar webhooks regionales dentro de un registro con replicación geográfica para realizar un seguimiento de los eventos de inserción a medida que se completan en las regiones con replicación geográfica.
+* Para administrar flujos de trabajo que dependen de actualizaciones de inserción a la replicación geográfica, se recomienda configurar [webhooks](container-registry-webhook.md) para responder a los eventos de inserción. Puede configurar webhooks regionales dentro de un registro con replicación geográfica para realizar un seguimiento de los eventos de inserción a medida que se completan en las regiones con replicación geográfica.
 
+## <a name="delete-a-replica"></a>Eliminación de una réplica
+
+Después de configurar una réplica para el registro, puede eliminarla en cualquier momento cuando ya no sea necesaria. Elimine una réplica mediante Azure Portal u otras herramientas, como el comando [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) de la CLI de Azure.
+
+Para eliminar una réplica en Azure Portal:
+
+1. Vaya a Azure Container Registry y seleccione **Replicaciones**.
+1. Seleccione el nombre de una réplica y, luego, **Eliminar**. Confirme que quiere eliminar la réplica.
+
+> [!NOTE]
+> No se puede eliminar la réplica del registro de la *región principal* del registro, es decir, la ubicación donde se creó este. Solo se puede eliminar la réplica principal si se elimina el propio registro.
 
 ## <a name="geo-replication-pricing"></a>Precios de la replicación geográfica
 

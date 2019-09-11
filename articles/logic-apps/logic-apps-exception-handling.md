@@ -1,21 +1,20 @@
 ---
-title: 'Control de errores y excepciones: Azure Logic Apps | Microsoft Docs'
+title: 'Control de errores y excepciones: Azure Logic Apps'
 description: Obtenga información acerca de los patrones para el control de errores y excepciones en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996611"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208181"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -75,7 +74,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 |-------|------|-------------|
 | <*retry-policy-type*> | Cadena | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
 | <*retry-interval*> | Cadena | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
-| <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
+| <*retry-attempts*> | Integer | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
 ||||
 
 *Opcional*
@@ -219,13 +218,15 @@ Para detectar las excepciones en un ámbito **Failed** y ejecutar acciones que c
 
 Para conocer los límites en los ámbitos, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>Obtención del contexto y resultados de errores
 
-Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto. La expresión `@result()` proporciona contexto sobre el resultado de todas las acciones de un ámbito.
+Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto.
 
-La expresión `@result()` acepta un único parámetro (el nombre del ámbito) y devuelve una matriz de todos los resultados de acción desde dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto **\@actions()** , como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una función **\@result()** con una propiedad **runAfter**.
+La función [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) proporciona contexto sobre los resultados de todas las acciones de un ámbito. La función `result()` acepta un único parámetro, que es el nombre del ámbito, y devuelve una matriz que contiene todos los resultados de acción de dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto `@actions()`, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una expresión `@result()` con la propiedad `runAfter`.
 
-Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado **Failed** y para filtrar la matriz de resultados por las acciones que produjeron un error, puede emparejar **\@result()** con una acción **[Filtrar matriz](../connectors/connectors-native-query.md)** y un bucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **For each**. 
+Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado de **Error**, y para filtrar la matriz de resultados por las acciones con error, puede emparejar una expresión `@result()`[**con una acción**](../connectors/connectors-native-query.md)Filtrar matriz[**y un bucle**For each](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **For each**.
 
 En este ejemplo, seguido de una explicación detallada, se envía una solicitud HTTP POST con el cuerpo de respuesta de todas las acciones que produjeron un error dentro del ámbito "My_Scope":
 

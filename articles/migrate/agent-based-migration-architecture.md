@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 21c779587842c976ba93d7fa592a91ee714bc55c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810023"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232586"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitectura de migración basada en agente
 
@@ -113,24 +113,18 @@ Si necesita implementar un servidor de procesos de escalado horizontal, esta tab
 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | De 251 GB a 1 TB    | 86-150 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | 1 - 2 TB | 151-225 máquinas.
 
-## <a name="control-upload-throughput"></a>Controlar el rendimiento de carga
-
-Puede limitar la cantidad de ancho de banda que se usa para cargar datos a Azure en cada host de Hyper-V. Pero tenga cuidado. Si establece valores demasiado bajos, afectará negativamente a la replicación y retrasará la migración.
+## <a name="control-upload-throughput"></a>Control del rendimiento de carga
 
 
-1. Inicie sesión en el nodo de clúster o en el host de Hyper-V.
-2. Ejecute **C:\Archivos de programa\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** para abrir el complemento Windows Azure Backup MMC.
-3. En el complemento, seleccione **Cambiar propiedades**.
-4. En **Limitación**, seleccione **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**. Establezca los límites para las horas laborables y no laborables. Los intervalos válidos van de 512 Kbps a 1023 Mbps.
-I
+ el tráfico de VMware que se replica en Azure pasa por un servidor de procesos específico. Puede limitar el rendimiento de la carga limitando el ancho de banda en las máquinas que se ejecutan como servidores de procesos. Puede influir en el ancho de banda con esta clave del Registro:
 
-### <a name="influence-upload-efficiency"></a>Influir en la eficiencia de carga
+- El valor del Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM especifica el número de subprocesos que se utilizan para la transferencia de datos (replicación inicial o diferencial) de un disco. Un valor mayor aumenta el ancho de banda de red utilizado para la replicación. El valor predeterminado es cuatro. El valor máximo es 32. Supervise el tráfico para optimizar el valor.
+- Además, puede limitar el ancho de banda en la máquina del servidor de procesos de la siguiente manera:
 
-Si tiene ancho de banda de reserva para la replicación y quiere aumentar las cargas, puede aumentar el número de subprocesos asignados a la tarea de carga, como se indica a continuación:
+    1. En la máquina del servidor de procesos, abra el complemento MMC de Azure Backup. Hay un acceso directo en el escritorio o en la carpeta C:\Archivos de Programa\Microsoft Azure Recovery Services Agent\bin. 
+    2. En el complemento, seleccione **Cambiar propiedades**.
+    3. En **Limitación**, seleccione **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad**. Establezca los límites para las horas laborables y no laborables. Los intervalos válidos van de 512 Kbps a 1023 Mbps.
 
-1. Abra el Registro con regedit.
-2. Vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM.
-3. Aumente el valor del número de subprocesos usados para la carga de datos para cada VM de replicación. El valor predeterminado es de 4 y el valor máximo es de 32. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

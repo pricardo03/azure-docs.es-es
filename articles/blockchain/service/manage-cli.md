@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154454"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307047"
 ---
-# <a name="manage-azure-blockchain-service-with-azure-cli"></a>Administrar Azure Blockchain Service con la CLI de Azure
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Administrar una instancia de Azure Blockchain Service con la CLI de Azure
 
-Además de Azure Portal, puede usar la CLI de Azure para crear y administrar rápidamente los miembros de la cadena de bloques y los nodos de transacción para Azure Blockchain Service.
+Además de Azure Portal, puede usar la CLI de Azure para administrar los miembros de la cadena de bloques y los nodos de transacción para Azure Blockchain Service.
 
 Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y que ha iniciado sesión en una cuenta de Azure con `az login`.
 
@@ -59,7 +59,6 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. |
 | **name** | Nombre que identifica al miembro de Azure Blockchain Service. |
 | **password** | La contraseña de la cuenta del miembro. La contraseña debe cumplir tres de los cuatro requisitos siguientes: debe tener una longitud de entre 12 y 72 caracteres, un carácter en minúscula, un carácter en mayúscula, un número y un carácter especial que no sea el signo de número (#), porcentaje (%), coma (,), asterisco (*), comilla inversa (\`), comilla doble ("), comilla simple ('), guion (-) y punto y coma (;). |
-
 
 ## <a name="create-transaction-node"></a>Creación del nodo de transacción
 
@@ -187,7 +186,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee** | Identificador de usuario de Azure AD. Por ejemplo: `user@contoso.com` |
-| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques del nodo de transacción. |
+| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques o de nodo de transacción. |
 
 **Ejemplo:**
 
@@ -220,7 +219,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee-object-id** | Identificador de la aplicación o del grupo de Azure AD. |
-| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques del nodo de transacción. |
+| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques o de nodo de transacción. |
 
 **Ejemplo:**
 
@@ -243,7 +242,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee** | Identificador de usuario de Azure AD. Por ejemplo: `user@contoso.com` |
-| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques del nodo de transacción. |
+| **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques o de nodo de transacción. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

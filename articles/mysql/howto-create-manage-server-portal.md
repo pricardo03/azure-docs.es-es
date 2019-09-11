@@ -1,17 +1,17 @@
 ---
 title: Creación y administración de un servidor de Azure Database for MySQL con Azure Portal
-description: Este artículo describe cómo crear rápidamente un nuevo servidor de Azure Database for MySQL y administrarlo mediante Azure Portal.
+description: En este artículo se describe cómo crear rápidamente un servidor de Azure Database for MySQL y administrarlo mediante Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcb302d3a14b02ea86fb92c8dbf822ef3f42177
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459561"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142291"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Creación y administración de un servidor de Azure Database for MySQL con Azure Portal
 En este tema se describe cómo puede crear rápidamente un servidor de Azure Database for MySQL. También incluye información sobre cómo administrar el servidor mediante Azure Portal. La administración del servidor incluye ver detalles del mismo y bases de datos, restablecer la contraseña, escalar recursos y eliminar el servidor.
@@ -44,6 +44,8 @@ Siga estos pasos para crear un servidor de Azure Database for MySQL llamado “m
     | *Ubicación* | Sudeste Asiático (seleccione Europa del Norte u Oeste de EE. UU.) |
     | *Versión* | 5.7 (elija la versión del servidor de Azure Database for MySQL) |
 
+   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
+
 4. Haga clic en **Plan de tarifa** para especificar el nivel de rendimiento y el nivel de servicio del nuevo servidor. Seleccione la pestaña **Uso general**. *Gen 5*, *2 núcleos virtuales*, *5 GB* y *7 días* son los valores predeterminados de **Generación de procesos**, **Núcleos virtuales**, **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar los controles deslizantes tal y como están. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
@@ -53,7 +55,7 @@ Siga estos pasos para crear un servidor de Azure Database for MySQL llamado “m
     > Seleccione la opción **Anclar al panel** para realizar el seguimiento de las implementaciones fácilmente.
 
 ## <a name="update-an-azure-database-for-mysql-server"></a>Actualización de un servidor de Azure Database for MySQL
-Una vez que se haya aprovisionado el nuevo servidor, el usuario tiene varias opciones para configurar el servidor existente. Entre estas opciones cabe incluir el restablecimiento de la contraseña de administrador y el escalado o reducción vertical cambiando los núcleos virtuales o el almacenamiento.
+Cuando se haya aprovisionado el nuevo servidor, el usuario tiene varias opciones para configurar el servidor existente: restablecer la contraseña de administrador, cambiar el plan de tarifa y cambiar los núcleos virtuales o el almacenamiento para escalar o reducir verticalmente el servidor.
 
 ### <a name="change-the-administrator-user-password"></a>Cambio de la contraseña del usuario administrador
 1. En **Información general** del servidor, haga clic en **Restablecer contraseña** para mostrar la ventana de restablecimiento de contraseñas.
@@ -65,6 +67,17 @@ Una vez que se haya aprovisionado el nuevo servidor, el usuario tiene varias opc
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Haga clic en **Aceptar** para guardar la nueva contraseña.
+
+### <a name="change-the-pricing-tier"></a>Cambio del plan de tarifa
+> [!NOTE]
+> El escalado solo se admite de los niveles de servicio De uso general a Optimizada para memoria y viceversa. Tenga en cuenta que, una vez creado el servidor, no se permite el cambio a y desde un plan de tarifa Básico en Azure Database for MySQL.
+> 
+1. Haga clic en **Plan de tarifa**, que se encuentra en **Configuración**.
+2. Seleccione el **plan de tarifa** al que quiera cambiar.
+
+    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+
+4. Haga clic en **Aceptar** para guardar los cambios. 
 
 ### <a name="scale-vcores-updown"></a>Escalado y reducción vertical de los núcleos virtuales
 

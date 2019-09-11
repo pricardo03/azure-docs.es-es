@@ -2,7 +2,7 @@
 title: Procesamiento y extracción de texto de imágenes en Cognitve Search | Microsoft Docs
 description: Procese y extraiga el texto y otra información de imágenes en canalizaciones de búsqueda cognitiva en Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 216be226f3ce6d1a288462d1a1b79f2bb0d3efe5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639925"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259153"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -34,16 +34,15 @@ No puede desactivar la normalización de imágenes. Las habilidades que iteran l
 | Parámetro de configuración | DESCRIPCIÓN |
 |--------------------|-------------|
 | imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". <br/>Se extraerá un máximo de 1000 imágenes de un documento determinado. Si hay más de 1000 imágenes en un documento, se extraerán las 1000 primeras y se generará una advertencia. |
-|  normalizedImageMaxWidth | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
-|  normalizedImageMaxHeight | La altura máxima (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
+|  normalizedImageMaxWidth | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000. El valor máximo permitido es 10 000. | 
+|  normalizedImageMaxHeight | La altura máxima (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000. El valor máximo permitido es 10 000.|
 
 > [!NOTE]
 > Si establece la propiedad *imageAction* en algo distinto de "none", no podrá establecer la propiedad *parsingMode* en algo distinto de "default".  Solo puede establecer una de estas dos propiedades en un valor no predeterminado en la configuración del indexador.
 
 Establezca el parámetro **parsingMode** en `json` (para indexar cada blob como un documento individual) o en `jsonArray` (si los blobs contienen matrices JSON y necesita que cada elemento de una matriz se trate como un documento independiente).
 
-El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). Si aumenta los límites máximos, podría producirse un error de procesamiento en las imágenes más grandes.
-
+El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). La [aptitud de OCR](cognitive-search-skill-ocr.md) admite un ancho y un alto máximos de 4200 para los idiomas distintos del inglés y 10 000 para el inglés.  Si aumenta los límites máximos, el procesamiento podría generar un error en imágenes de mayor tamaño en función de la definición del conjunto de aptitudes y del idioma de los documentos. 
 
 Especifique imageAction en su [definición de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) como se indica a continuación:
 

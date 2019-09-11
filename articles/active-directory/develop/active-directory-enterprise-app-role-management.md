@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091fb7cb9e74166b1e01c00834c2346dd2f0fd8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835543"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207194"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -59,7 +59,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
     ![Página de propiedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra el [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
+6. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
 
     a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 
@@ -186,7 +186,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 Para actualizar un rol existente, siga estos pasos:
 
-1. Abra el [Explorador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
+1. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 
@@ -224,7 +224,7 @@ Para actualizar un rol existente, siga estos pasos:
 
 Para eliminar un rol existente, siga estos pasos:
 
-1. Abra el sitio del [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+1. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
 2. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 

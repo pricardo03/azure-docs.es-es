@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61c10055a7f85f849fc366211eb41382c4c3039b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808892"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275195"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copia de datos de Google BigQuery con Azure Data Factory
 
@@ -32,7 +32,7 @@ Data Factory proporciona un controlador integrado para permitir la conectividad.
 >[!NOTE]
 >Este conector de Google BigQuery se basa en las API de BigQuery. Tenga en cuenta que BigQuery limita la velocidad máxima de las solicitudes entrantes e impone cuotas adecuadas según cada proyecto; consulte las [cuotas y límites de las solicitudes de API](https://cloud.google.com/bigquery/quotas#api_requests) para más información. Asegúrese de no desencadenar demasiadas solicitudes simultáneas a la cuenta.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -127,8 +127,10 @@ Para copiar datos de Google BigQuery, establezca la propiedad type del conjunto 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **GoogleBigQueryObject** | Sí |
-| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
+| type | La propiedad type del conjunto de datos debe establecerse en: **GoogleBigQueryObject** | Sí |
+| dataset | Nombre del conjunto de datos de Google BigQuery. |No (si se especifica "query" en el origen de la actividad)  |
+| table | Nombre de la tabla. |No (si se especifica "query" en el origen de la actividad)  |
+| tableName | Nombre de la tabla. Esta propiedad permite la compatibilidad con versiones anteriores. Para la carga de trabajo nueva, use `dataset` y `table`. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -137,11 +139,12 @@ Para copiar datos de Google BigQuery, establezca la propiedad type del conjunto 
     "name": "GoogleBigQueryDataset",
     "properties": {
         "type": "GoogleBigQueryObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

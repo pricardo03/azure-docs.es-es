@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706313"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193192"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -281,12 +281,19 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 
 ## <a name="azure-ad-register-faq"></a>P+F de registro de Azure AD
 
-### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>P: ¿Cómo se quita un dispositivo registrado en Azure AD localmente en el dispositivo?
+### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>P: ¿Cómo se quita el estado registrado de Azure AD en un dispositivo a nivel local?
 
 **R:** 
 - Para los dispositivos registrados en Azure AD Windows 10 vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y luego **Desconectar**. El registro de dispositivos es por perfil de usuario en Windows 10.
 - Para iOS y Android, puede usar **Configuración** > **Registro de dispositivos** la aplicación Microsoft Authenticator configuración y seleccionar **Anular registro del dispositivo** .
 - Para macOS, puede usar la aplicación Portal de empresa de Microsoft Intune para anular la inscripción del dispositivo desde la administración y quitar cualquier registro. 
+
+---
+### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: ¿Cómo puedo impedir que los usuarios agreguen más cuentas de trabajo (registradas en Azure AD) en mis dispositivos corporativos de Windows 10?
+
+**R:** Habilite el siguiente registro para impedir que los usuarios agreguen cuentas de trabajo adicionales a los dispositivos Windows 10 unidos a un dominio corporativo, a Azure AD o a Azure AD híbrido. Esta directiva también se puede usar para impedir que las máquinas unidas a un dominio reciban involuntariamente la instancia de Azure AD registrada con la misma cuenta de usuario. 
+
+`HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
 ---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>P: ¿Puedo registrar los dispositivos BYOD de Android o iOS?

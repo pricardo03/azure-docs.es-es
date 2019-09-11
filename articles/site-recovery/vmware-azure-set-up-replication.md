@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723516"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231443"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware en Azure
 En este artículo se describe cómo configurar una directiva de replicación cuando se replican máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
@@ -42,11 +42,19 @@ Asocie la directiva de replicación con el servidor de configuración local.
 
 ## <a name="edit-a-policy"></a>Edición de una directiva
 
+Puede modificar una directiva de replicación después de crearla.
+
+- Los cambios en la directiva se aplican a todas las máquinas que la usen.
+- Si desea asociar máquinas replicadas con una directiva de replicación diferente, debe deshabilitar y volver a habilitar la protección de las máquinas correspondientes.
+
+Edite una directiva de la siguiente manera:
 1. Seleccione **Administrar** > **Infraestructura de Site Recovery** > **Directivas de replicación**.
 2. Seleccione la directiva de replicación que desea modificar.
 3. Haga clic en **Editar la configuración** y actualice los campos del umbral de retención de punto de recuperación/horas de retención de punto de recuperación/frecuencia de las instantáneas coherentes con la aplicación según sea necesario.
 4. Si desea desactivar la generación de puntos de coherencia de la aplicación, elija el valor "Desactivado" en la lista desplegable del campo **Frecuencia de las instantáneas coherentes con la aplicación**.
 5. Haga clic en **Save**(Guardar). La directiva debe actualizarse en un plazo entre 30 y 60 segundos.
+
+
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Desasociación o eliminación de una directiva de replicación
 

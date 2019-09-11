@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537018"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162415"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
 
@@ -134,6 +134,8 @@ Un usuario que previamente ha configurado al menos un método navega a [https://
 Un usuario que previamente ha configurado al menos un método que se puede usar para Multi-Factor Authentication navega a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). El usuario cambia el método predeterminado actual a un método predeterminado distinto. Cuando termina, el usuario ve ese método predeterminado nuevo en la página de Información de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[Forzar a los usuarios a que vuelvan a registrar los métodos de autenticación](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
 [Habilitación del registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742029"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306745"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell conserva los archivos a través de los métodos siguientes:
 > [!NOTE]
 > Todos los archivos en el directorio `$Home`, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados correspondientes para conservar la información en el directorio `$Home` y en el recurso compartido de archivos montado.
 
-## <a name="bash-specific-commands"></a>Comandos específicos de Bash
+## <a name="clouddrive-commands"></a>comandos de clouddrive
 
 ### <a name="use-the-clouddrive-command"></a>Uso del comando `clouddrive`
-Con Bash en Cloud Shell, puede ejecutar un comando denominado `clouddrive`, lo que permite actualizar manualmente el recurso compartido de archivos que está montado en Cloud Shell.
+En Cloud Shell, puede ejecutar un comando denominado `clouddrive`, lo que permite actualizar manualmente el recurso compartido de archivos que está montado en Cloud Shell.
 ![Ejecución del comando "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>Enumeración de `clouddrive`
+Para descubrir qué recurso compartido de archivos se monta como `clouddrive` ejecute el comando `df`. 
+
+La ruta de acceso de archivo a clouddrive mostrará el recurso compartido de archivos y el nombre de la cuenta de almacenamiento en la dirección URL. Por ejemplo: `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>Montaje de un nuevo clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Requisitos previos para el montaje manual
 Puede actualizar el recurso compartido de archivos que esté asociada con Cloud Shell mediante el uso del comando `clouddrive mount`.
 
-Si se monta un recurso compartido de archivos existente, las cuentas de almacenamiento han de encontrarse en la región de Cloud Shell seleccionada. Para recuperar la ubicación, ejecute `env` en Bash y compruebe la `ACC_LOCATION`.
+Si se monta un recurso compartido de archivos existente, las cuentas de almacenamiento han de encontrarse en la región de Cloud Shell seleccionada. Para recuperar la ubicación, ejecute `env` y compruebe la `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>El comando `clouddrive mount`
 
@@ -71,23 +88,6 @@ El recurso compartido de archivos seguirá existiendo a menos que se elimine man
 
 > [!WARNING]
 > Aunque la ejecución de este comando no elimina ningún recurso, al eliminar manualmente el grupo de recursos, la cuenta de almacenamiento o el recurso compartido de archivos asignados a Cloud Shell, se borra la imagen de disco del directorio `$Home` y los archivos del recurso compartido de archivos. Esta operación no se puede deshacer.
-
-### <a name="list-clouddrive"></a>Enumeración de `clouddrive`
-Para descubrir qué recurso compartido de archivos se monta como `clouddrive` ejecute el comando `df`. 
-
-La ruta de acceso de archivo a clouddrive mostrará el recurso compartido de archivos y el nombre de la cuenta de almacenamiento en la dirección URL. Por ejemplo: `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
 ## <a name="powershell-specific-commands"></a>Comandos específicos de PowerShell
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Lista de los recursos compartidos de archivos de Azure en `clouddrive`
@@ -105,7 +105,6 @@ El cmdlet `Dismount-CloudDrive` desmonta un recurso compartido de archivos de Az
 Nota: si tiene que definir una función en un archivo y llamarla desde los cmdlets de PowerShell, debe incluir el operador punto. Por ejemplo: . .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
-[Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md) <br>
+[Inicio rápido de Cloud Shell](quickstart.md) <br>
 [Información sobre el almacenamiento de Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

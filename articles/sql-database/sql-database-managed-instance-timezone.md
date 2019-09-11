@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 09/03/2019
+ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035833"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233229"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Zonas horarias en la Instancia administrada de Azure SQL Database
 
@@ -83,37 +83,19 @@ Puede restaurar un archivo de copia de seguridad o importar datos en una instanc
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-<del>Al realizar una restauración a un momento dado, la hora a la que realizar la restauración se interpreta como hora UTC. De esta forma, se evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.<del>
-
- >[!WARNING]
-  > El comportamiento actual no coincide con la instrucción anterior y la hora a la que se va a restaurar se interpreta según la zona horaria de la instancia administrada de origen de la que se toman las copias de seguridad automáticas de la base de datos. Estamos trabajando para corregir este comportamiento con el fin de interpretar el momento dado en el tiempo como hora UTC.
+Al realizar una restauración de un punto determinado, la hora a la que realizar la restauración se interpreta como hora UTC. De esta forma, se evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.
 
 ### <a name="auto-failover-groups"></a>Grupos de conmutación por error automática
 
 No es obligatorio usar la misma zona horaria entre una instancia principal y secundaria de un grupo de conmutación por error, pero se recomienda encarecidamente.
 
   >[!WARNING]
-  > Se recomienda encarecidamente usar la misma zona horaria para la instancia principal y secundaria en un grupo de conmutación por error. Debido a algunos casos poco frecuentes, mantener la misma zona horaria en todas las instancias principales y secundarias no es obligatorio. Es importante comprender que en el caso de una conmutación por error automática o manual, la instancia secundaria conservará su zona horaria original.
+  > Se recomienda encarecidamente usar la misma zona horaria para la instancia principal y secundaria en un grupo de conmutación por error. Debido a algunos casos de uso poco frecuentes, mantener la misma zona horaria en todas las instancias principales y secundarias no es obligatorio. Es importante comprender que en el caso de una conmutación por error automática o manual, la instancia secundaria conservará su zona horaria original.
 
 ## <a name="limitations"></a>Limitaciones
 
 - La zona horaria de una instancia administrada existente no se puede cambiar.
 - Los procesos externos que se inician desde los trabajos del Agente SQL Server no observan la zona horaria de la instancia.
-
-## <a name="known-issues"></a>Problemas conocidos
-
-Cuando se realiza una operación de restauración a un momento dado (PITR), la hora a la que se va a restaurar se interpreta según la zona horaria establecida en la instancia administrada de la que se toman las copias de seguridad automáticas de la base de datos, aunque la página del portal de PITR sugiera que la hora se interpreta como UTC.
-
-Ejemplo:
-
-Imagínese que la instancia de la que se toman las copias de seguridad automáticas tiene establecida la zona horaria Hora estándar del Este (UTC-5).
-La página del portal de la restauración a un momento dado sugiere que la hora a la que elige restaurar es la hora UTC:
-
-![PITR con la hora local mediante el portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
-
-En cambio, la hora a la que se va a restaurar se interpreta realmente como hora estándar del Este y, en este ejemplo específico, la base de datos se restaurará al estado en que estaba a las 9 (hora estándar del Este) y no a la hora UTC.
-
-Si quiere realizar una restauración a un momento dado a un momento específico en la hora UTC, primero calcule la hora equivalente en la zona horaria de la instancia de origen y use esa hora en el portal o en el script de PowerShell o la CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de zonas horarias admitidas
 

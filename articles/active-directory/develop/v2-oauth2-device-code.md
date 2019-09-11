@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274c4e89ff3f996cc71cdacdfb7b5b72e813ae4b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: fdd99899494e9f7b3c0caa4e83f18803b969db1e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297654"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192722"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flujo de código de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
@@ -35,7 +35,7 @@ La Plataforma de identidad de Microsoft admite la [concesión de código de disp
 >
 > Las cuentas personales invitadas a un inquilino de Azure AD podrán usar la concesión de flujo de dispositivo, pero solo en el contexto del inquilino.
 >
-> Como nota adicional, el campo de respuesta `verification_uri_complete` no se incluye ni se admite en este momento.  
+> Como nota adicional, el campo de respuesta `verification_uri_complete` no se incluye ni se admite en este momento.  Lo mencionamos porque, si lee el estándar, verá que `verification_uri_complete` aparece como parte opcional del estándar de flujo de código del dispositivo.
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).

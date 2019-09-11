@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018139"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279592"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -35,8 +35,7 @@ En la tabla se resumen los escenarios admitidos para las máquinas virtuales de 
 **Soporte técnico** | **Detalles**
 --- | ---
 **Permisos de Azure** | Necesita permisos de colaborador o propietario en la suscripción para crear un proyecto de Azure Migrate.
-**Limitaciones de VMware**  | Evalúe hasta 35 000 máquinas virtuales de VMware en un único proyecto. Puede crear varios proyectos en una suscripción a Azure.
-**Límites del proyecto** | Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
+**Limitaciones de VMware**  | Evalúe hasta 35 000 máquinas virtuales de VMware en un único proyecto. Puede crear varios proyectos en una suscripción a Azure. Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
 **Geografía** | Puede crear un proyecto de Azure Migrate en varias zonas geográficas. Aunque solo puede crear proyectos en estas zonas geográficas, puede evaluar o migrar las máquinas para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
@@ -70,14 +69,15 @@ Para la evaluación necesita una cuenta de solo lectura para vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Evaluación: requisitos del dispositivo
 
-El dispositivo de Azure Migrate para VMware se implementa mediante una plantilla OVA importada en vCenter Server.
+Azure Migrate ejecuta un dispositivo ligero que detecta VM de VMware y envía los metadatos de las VM y los datos de rendimiento a Azure Migrate. El dispositivo para VMware se implementa mediante una plantilla OVA importada en vCenter Server. En la tabla siguiente se resumen los requisitos del dispositivo.
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**vCenter Server** | Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.
-**ESXi** | La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior.
-**Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto.
-**vCenter Server** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo puede conectarse a una instancia de vCenter Server.
+**Implementación del dispositivo** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior. 
+**Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Evalúe hasta 35 000 VM en un proyecto.
+**Detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
+**Grupo de evaluación** | Puede agregar hasta 35 000 máquinas en un solo grupo.
+**Valoración** | Puede acceder hasta a 35 000 máquinas virtuales en una única evaluación.
 
 
 ## <a name="assessment-url-access-requirements"></a>Evaluación: requisitos de acceso a las direcciones URL
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en el puerto 443, 5671 y 5672 para enviar metadatos de detección y rendimiento a Azure Migrate.
 Servidor vCenter | Conexiones entrantes en el puerto TCP 443 para permitir que el dispositivo recopile los metadatos de configuración y rendimiento de las evaluaciones. <br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si el servidor vCenter escucha en un puerto diferente, puede modificar el puerto al configurar la detección.
 
+## <a name="migration---limitations"></a>Migración: limitaciones
+Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10. En el caso de la migración sin agente de VMware, puede ejecutar hasta 100 replicaciones simultáneamente.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migración sin agente: requisitos del servidor de VMware
 

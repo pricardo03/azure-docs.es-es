@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383889"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275214"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -60,7 +60,7 @@ No se pueden tener varios servidores de Azure AD Connect Sync conectados al mism
 
 Muchas organizaciones tienen entornos con varios bosques de Active Directory locales. Existen varias razones para tener más de un bosque de Active Directory local. Los ejemplos más habituales son los diseños con bosques de cuenta-recurso o los que resultan de una fusión o adquisición.
 
-Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. No es necesario unir el servidor a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ, zona desmilitarizada y subred filtrada).
+Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. El servidor debe estar unido a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ y subred filtrada).
 
 El asistente para la instalación de Azure AD Connect ofrece varias opciones para consolidar los usuarios representados en varios bosques. El objetivo es que un usuario esté representado solo una vez en Azure AD. Hay algunas topologías habituales que puede configurar en la ruta de acceso de instalación personalizada del Asistente para instalación. En la página **Identificación de forma exclusiva de usuarios**, seleccione la opción correspondiente que representa su topología. La consolidación solo se configura para los usuarios. Los grupos duplicados no se consolidan con la configuración predeterminada.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 065931140894478caee9d4ea49dac49f2415716b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76b70c742289ac98e49338b267660a30abba9557
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128647"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210450"
 ---
 # <a name="algorithm--module-reference-overview"></a>Información general sobre la referencia de módulos y algoritmos
 
@@ -33,7 +33,7 @@ Los módulos se organizan por funcionalidad:
 | --- |--- | ---- |
 | Conversiones de formato de datos | Convierta datos entre diversos formatos de archivo usados en aprendizaje automático. | [Conversión a CSV](convert-to-csv.md) |
 | Entrada y salida de datos | Mueva datos desde orígenes en la nube a su experimento. Escriba los resultados o los datos intermedios en Azure Storage, una base de datos SQL o Hive, mientras ejecuta un experimento, o use el almacenamiento en la nube para intercambiar datos entre experimentos.  | [Import Data](import-data.md)<br/>[Export Data](export-data.md)<br/>[Introducción manual de datos](enter-data-manually.md) |
-| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la selección de características y la reducción de la dimensionalidad.| [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Limpiar datos que faltan](clean-missing-data.md) <br/> [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [Combinación de datos](join-data.md) <br/> [División de datos](split-data.md) <br/> [Normalización de datos](normalize-data.md) <br/> [Partición y ejemplo](partition-and-sample.md) |
+| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la selección de características y la reducción de la dimensionalidad.| [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/>  [Hash de características](feature-hashing.md) <br/>  [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Combinación de datos](join-data.md) <br/> [División de datos](split-data.md) <br/> [Normalización de datos](normalize-data.md) <br/> [Partición y ejemplo](partition-and-sample.md) |
 | Módulos de R y Python | Escriba código e insértelo en un módulo para integrar Python y R en el experimento. | [Ejecución de script de Python](execute-python-script.md)   <br/> [Creación de modelo Python](create-python-model.md) <br/> [Ejecución script de R](execute-r-script.md)
 |  | **Algoritmos de aprendizaje automático**: | |
 | clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md)  <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md)  <br/>[Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/> [Árbol de&nbsp;decisión&nbsp;ampliado de&nbsp;dos clases](two-class-boosted-decision-tree.md)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md)  <br/> [Red neuronal de dos clases](two-class-neural-network.md)  <br/> [Máquina de&nbsp;soporte de&nbsp;vectores de&nbsp;dos clases](two-class-support-vector-machine.md) 

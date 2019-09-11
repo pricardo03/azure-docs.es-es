@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011576"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231089"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 
 Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
@@ -47,33 +47,9 @@ Azure Machine Learning Service tiene distintas modalidades de soporte técnico e
 
 Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script. 
 
-Todo lo que necesita hacer es definir el entorno para cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso.
+Todo lo que debe hacer es definir el entorno de cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso. Para obtener más información sobre cómo especificar un entorno y enlazarlo a la configuración de ejecución, consulte [Creación y administración de entornos para el aprendizaje y la implementación](how-to-use-environments.md).
 
 Obtenga más información sobre cómo [enviar experimentos](#submit) al final de este artículo.
-
-### <a name="manage-environment-and-dependencies"></a>Administración del entorno y de las dependencias
-
-Al crear una configuración de ejecución, debe decidir cómo administrar el entorno y las dependencias del destino de proceso. 
-
-#### <a name="system-managed-environment"></a>Entorno administrado por el sistema
-
-Utilice un entorno administrado por el sistema cuando desee que [Conda](https://conda.io/docs/) administre el entorno de Python y las dependencias de script. Un entorno administrado por el sistema se asume de manera predeterminada y es la opción más común. Es útil en destinos de proceso remotos, especialmente cuando no se puede configurar ese objetivo. 
-
-Todo lo que necesita hacer es especificar cada dependencia de paquetes mediante la clase [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py). Después, Conda crea un archivo llamado **conda_dependencies.yml** en el directorio **aml_config** de su área de trabajo con la lista de dependencias de paquetes y configura el entorno de Python cuando envía el experimento de entrenamiento. 
-
-La configuración inicial de un nuevo entorno puede tardar varios minutos, según el tamaño de las dependencias necesarias. Mientras la lista de paquetes permanezca sin cambios, el tiempo de configuración solo se realiza una vez.
-  
-El siguiente código muestra un ejemplo de un entorno administrado por el sistema que requiere scikit-learn:
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>Entorno administrado por el usuario
-
-Para un entorno administrado por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Si el entorno de entrenamiento ya está configurado (como en la máquina local), puede omitirse el paso de configuración mediante el establecimiento de `user_managed_dependencies` en True. Conda no comprobará el entorno ni instalará nada por usted.
-
-El código siguiente muestra un ejemplo de configuración de ejecuciones de entrenamiento para un entorno administrado por el usuario:
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>¿Qué es un objeto "Estimator"?
 
@@ -390,7 +366,7 @@ Para más información, consulte el artículo sobre la [administración de recur
 
 Puede crear y administrar los destinos de proceso asociados con el área de trabajo, así como acceder a ellos, mediante la [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para el servicio Azure Machine Learning.
 
-## <a id="submit"></a>Envío de una ejecución de entrenamiento
+## <a id="submit"></a>Envío de una ejecución de entrenamiento mediante el SDK de Azure Machine Learning
 
 Después de crear una configuración de ejecución, se utiliza para ejecutar el experimento.  El patrón de código para enviar una ejecución de entrenamiento es el mismo para todos los tipos de destinos de proceso:
 
@@ -430,8 +406,83 @@ Cambie el mismo experimento para que se ejecute en un destino de proceso diferen
 También puede:
 
 * Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
-* Envíe un experimento [mediante la extensión de la CLI](reference-azure-machine-learning-cli.md#experiments).
+* Envíe una ejecución de HyperDrive para el [ajuste de hiperparámetros](how-to-tune-hyperparameters.md).
 * Enviar un experimento mediante la [extensión de VS Code](how-to-vscode-tools.md#train-and-tune-models).
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creación de una configuración de ejecución y envío de la ejecución mediante la CLI de Azure Machine Learning
+
+Puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y la [extensión de la CLI de Machine Learning](reference-azure-machine-learning-cli.md) para crear configuraciones de ejecución y enviar esas ejecuciones a distintos destinos del proceso. En los ejemplos siguientes se supone que ya tiene un área de trabajo de Azure Machine Learning y que ha iniciado sesión en Azure mediante el comando de la CLI `az login`. 
+
+### <a name="create-run-configuration"></a>Creación de una configuración de ejecución
+
+La manera más sencilla de crear la configuración de ejecución es navegar por la carpeta que contiene los scripts de Python de Machine Learning y usar el comando de la CLI.
+
+```azurecli
+az ml folder attach
+```
+
+Este comando crea una subcarpeta `.azureml` que contiene archivos de configuración de ejecución de plantillas para distintos destinos de proceso. Puede copiar y editar estos archivos para personalizar la configuración; por ejemplo, para agregar paquetes de Python o cambiar la configuración de Docker.  
+
+### <a name="structure-of-run-configuration-file"></a>Estructura del archivo de configuración de ejecución
+
+El archivo de configuración de ejecución tiene un formato YAML y las siguientes secciones:
+ * El script que se ejecutará y sus argumentos
+ * El nombre del destino de proceso, ya sea "local" o el nombre de un proceso del área de trabajo.
+ * Los parámetros para realizar la ejecución: el marco de trabajo, el comunicador para ejecuciones distribuidas, una duración máxima y el número de nodos de proceso.
+ * La sección del entorno. Consulte [Creación y administración de entornos para el aprendizaje y la implementación](how-to-use-environments.md) para obtener más información sobre los campos de esta sección.
+   * Para especificar los paquetes de Python que se van a instalar para la ejecución, cree el [archivo de entorno de CONDA](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) y establezca el campo __condaDependenciesFile__.
+ * Detalles del historial de ejecución para especificar la carpeta del archivo de registro y para habilitar o deshabilitar las instantáneas de la colección de salida y del historial de ejecución.
+ * Detalles de configuración específicos del marco seleccionado.
+ * Detalles de la referencia de datos y del almacén de datos.
+ * Detalles de configuración específicos para el Proceso de Machine Learning para crear un nuevo clúster.
+
+### <a name="create-an-experiment"></a>Creación de un experimento
+
+En primer lugar, cree un experimento para las ejecuciones.
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>Ejecución de script
+
+Para enviar una ejecución de script, ejecute un comando
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>Ejecución de HyperDrive
+
+Puede usar HyperDrive con la CLI de Azure para realizar ejecuciones de ajuste de parámetros. En primer lugar, cree un archivo de configuración de HyperDrive con el siguiente formato. Consulte el artículo sobre el [ajuste de hiperparámetros del modelo](how-to-tune-hyperparameters.md) para obtener más información sobre los parámetros de ajuste de hiperparámetros.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Agregue este archivo junto con los archivos de configuración de ejecución. A continuación, envíe una ejecución de HyperDrive mediante:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Observe la sección *arguments* (argumentos) en runconfig y el *espacio de parámetros* en la configuración de HyperDrive. Contienen los argumentos de la línea de comandos que se van a pasar al script de aprendizaje. El valor de runconfig permanece igual para cada iteración, mientras que el intervalo de la configuración de HyperDrive se repite en interación. No especifique el mismo argumento en ambos archivos.
+
+Para obtener más información sobre estos comandos de la CLI ```az ml``` y el conjunto completo de argumentos, consulte la [documentación de referencia](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

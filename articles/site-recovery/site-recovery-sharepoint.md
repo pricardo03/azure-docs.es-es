@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325113"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231478"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configuración de la recuperación ante desastres para una aplicación de SharePoint de niveles múltiples mediante Azure Site Recovery
 
@@ -56,7 +56,7 @@ SharePoint puede implementarse en uno o varios servidores usando topologías por
 
 ## <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 
-Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Windows Server 2012 R2 Enterprise. Se utilizaron SharePoint 2013 Enterprise y SQL server 2014 Enterprise. Como la replicación de la recuperación del sitio no depende de la aplicación, se pretende que estas recomendaciones sirvan también para los escenarios siguientes.
+Site Recovery es independiente de la aplicación y debe funcionar con cualquier versión de SharePoint que se ejecute en un equipo compatible. Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Windows Server 2012 R2 Enterprise. Se utilizaron SharePoint 2013 Enterprise y SQL server 2014 Enterprise.
 
 ### <a name="source-and-target"></a>Origen y destino
 
@@ -67,13 +67,6 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Wi
 **Servidor físico** | Sí | Sí
 **Las tablas de Azure** | N/D | Sí
 
-### <a name="sharepoint-versions"></a>Versiones de SharePoint
-Se admiten las siguientes versiones de servidor de SharePoint.
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>Aspectos que debe tener en cuenta
 

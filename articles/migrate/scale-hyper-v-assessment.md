@@ -7,18 +7,18 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: 95704f2694892b349d0967fca2160dabd990b472
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810143"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279435"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de máquinas virtuales de Hyper-V para la migración a Azure
 
-En este artículo se describe cómo evaluar grandes cantidades (> 1000) de máquinas virtuales de Hyper-V locales para su migración a Azure mediante la herramienta de evaluación del servidor de Azure Migrate.
+En este artículo se describe cómo evaluar grandes cantidades de máquinas virtuales de Hyper-V locales para su migración a Azure mediante la herramienta de evaluación del servidor de Azure Migrate.
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detectar las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
+[Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
 
 
 En este artículo, aprenderá a:
@@ -30,7 +30,7 @@ En este artículo, aprenderá a:
 
 
 > [!NOTE]
-> Si desea probar una prueba de concepto para evaluar un par de máquinas virtuales antes de realizar la evaluación a escala, siga nuestra [serie de tutoriales](tutorial-prepare-hyper-v.md).
+> Si quiere probar una prueba de concepto para evaluar un par de VM antes de realizar la evaluación a escala, siga nuestra [serie de tutoriales](tutorial-prepare-hyper-v.md).
 
 ## <a name="plan-for-assessment"></a>Planeación de la evaluación
 
@@ -42,13 +42,14 @@ Al planear la evaluación de un gran número de máquinas virtuales de Hyper-V, 
 
 ## <a name="planning-limits"></a>Límites de planeación
  
-Utilice los límites resumidos en esta tabla para la planeación.
+Use los límites resumidos en esta tabla para la planeación.
 
 **Planeamiento** | **Límites**
 --- | --- 
-**Proyectos de Azure Migrate** | Evalúe hasta 10 000 máquinas virtuales en un proyecto.
-**Dispositivo con Azure Migrate** | Un dispositivo puede detectar hasta 5000 máquinas virtuales.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.<br/> Un dispositivo solo se puede asociar con un único proyecto de Azure Migrate.<br/><br/> 
-**Evaluación de Azure Migrate** | Puede acceder hasta a 10 000 máquinas virtuales en una única evaluación.
+**Proyectos de Azure Migrate** | Evalúe hasta 35 000 VM en un proyecto.
+**Dispositivo con Azure Migrate** | Un dispositivo puede detectar hasta 5000 máquinas virtuales.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.<br/> Un dispositivo solo se puede asociar con un único proyecto de Azure Migrate.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto de Azure Migrate. <br/><br/> 
+**Grupo** | Puede agregar hasta 35 000 máquinas virtuales en un solo grupo.
+**Evaluación de Azure Migrate** | Puede acceder hasta a 35 000 máquinas virtuales en una única evaluación.
 
 
 

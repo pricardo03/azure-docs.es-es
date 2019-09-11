@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: f7617348a98899251dcd3b8f1645c40bd297ffdb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073552"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193959"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -84,6 +84,9 @@ En esta guía también se expondrá el **portal para desarrolladores** a audienc
 
 > [!WARNING]
 > Si usa Azure AD o un método de autenticación de terceros, habilite la característica de [afinidad de sesión basada en cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) de Application Gateway.
+
+> [!WARNING]
+> Para evitar que WAF de Application Gateway interrumpa la descarga de la especificación de OpenAPI en el portal para desarrolladores, debe deshabilitar la regla de firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para Resource Manager
 

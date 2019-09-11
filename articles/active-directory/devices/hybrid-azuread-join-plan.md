@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ff24acd58d00f737a4342a7f45ddd22261a55be
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562107"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231273"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -35,7 +35,7 @@ Si tiene un entorno local de Active Directory (AD) y quiere unir sus equipos uni
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de identidades de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Los niveles funcionales de dominio y de bosque mínimos requeridos para la unión de dispositivos Windows 10 a Azure AD híbrido es Windows Server 2008 R2.
+> La versión del controlador de dominio mínima necesaria para la unión de dispositivos Windows 10 a Azure AD híbrido es Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
@@ -64,10 +64,10 @@ Para dispositivos que ejecutan el sistema operativo de escritorio Windows, las v
 ### <a name="windows-down-level-devices"></a>Dispositivos de Windows de nivel inferior
 
 - Windows 8.1
-- Windows 7. Para obtener información de soporte técnico sobre Windows 7, consulte el artículo [El soporte técnico para Windows 7 está llegando a su fin](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support)
+- Windows 7. Para obtener información de soporte técnico sobre Windows 7, consulte [El soporte técnico para Windows 7 está llegando a su fin](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. Para obtener información de soporte técnico sobre Windows Server 2008 y 2008 R2, consulte [Preparación para la finalización del soporte técnico de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 Como primer paso del planeamiento, debe revisar el entorno y determinar si necesita admitir dispositivos Windows de nivel inferior.
 
@@ -87,11 +87,13 @@ Si se basa en la herramienta de preparación del sistema (Sysprep) y utiliza par
 
 Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
 
-Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual:
+Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Azure AD](overview.md#getting-devices-in-azure-ad) con su inquilino, podría provocar un doble estado de dispositivos registrados en Azure AD y unidos a Azure AD híbrido. Se recomienda actualizar a Windows 10 1803 (con KB4489894 aplicado) o una versión superior para solucionar automáticamente esta situación. En las versiones anteriores a 1803, deberá quitar manualmente el estado registrado en Azure AD antes de habilitar la unión a Azure AD híbrido. A partir de la versión 1803, se han realizado los siguientes cambios para evitar este doble estado:
 
-- Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido.
+- Cualquier estado registrado en Azure AD existente se eliminará automáticamente <i>después de que el dispositivo se una a Azure AD híbrido</i>.
 - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
-- Actualmente, este cambio está disponible para la versión de Windows 10 1803 con la actualización KB4489894 aplicada. Sin embargo, si tiene configurado Windows Hello para empresas, el usuario tendrá que volver a configurarlo tras la limpieza del estado dual.
+- En Windows 10 1803, si tiene configurado Windows Hello para empresas, el usuario tendrá que volver a configurarlo tras la limpieza del doble estado. Este problema se ha resuelto con KB4512509.
+
+
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisión de la validación controlada de la unión a Azure AD híbrido
 
