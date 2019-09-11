@@ -10,18 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702699"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164813"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
-Al implementar los recursos, con frecuencia necesitará recuperar información sobre los tipos y proveedores de recursos. En este artículo, aprenderá a:
+Al implementar los recursos, con frecuencia necesitará recuperar información sobre los tipos y proveedores de recursos. Por ejemplo, si quiere almacenar claves y secretos, trabajará con el proveedor de recursos Microsoft.KeyVault. Este proveedor de recursos ofrece un tipo de recurso denominado almacenes para crear el almacén de claves.
+
+El nombre de un tipo de recurso tiene el formato: **{proveedor de recursos}/{tipo de recurso}** . El tipo de recurso para un almacén de claves es **Microsoft.KeyVault/vaults**.
+
+En este artículo, aprenderá a:
 
 * Ver todos los proveedores de recursos de Azure
 * Comprobar el estado de registro de un proveedor de recursos
@@ -183,7 +187,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 

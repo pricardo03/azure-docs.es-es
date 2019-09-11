@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8a455fdb8ef81b0e06d1f77f7a9cdd5bec351b2b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897037"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164276"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell (versión preliminar)
 
@@ -164,6 +164,9 @@ No olvide reemplazar los valores del marcador de posición entre corchetes angul
 Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
+
+> [!IMPORTANT]
+> La clave de delegación de usuario y las asignaciones de roles de RBAC se almacenan en caché en Azure Storage, por lo que puede haber un retraso entre el momento en que se inicia el proceso de revocación y el momento en que una SAS de delegación de usuario existente deja de ser válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

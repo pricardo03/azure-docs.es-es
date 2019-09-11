@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637284"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164337"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Elija entre los niveles de servicio de núcleo virtual y migre desde los niveles de servicio DTU
 
 El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación de hardware:
 
-- **Gen4**: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) 2.4-GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo, SSD adjunta
-- **Gen5**: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 v4 (Broadwell) 2.3-GHz, núcleo virtual = 1 LP (hyper-thread), 5,1 GB por núcleo, eNVM SSD rápida
+- **Gen4**: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) a 2,4 GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo virtual, SSD conectado
+- **Gen5**: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 V4 (Broadwell) a 2,3 GHz, núcleo virtual = 1 LP (Hyper-Threading), 5,1 GB por núcleo virtual para proceso aprovisionado y hasta 24 GB por núcleo virtual para proceso sin servidor, SSD de eNVM rápido
 
 El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso.
 
@@ -43,10 +43,10 @@ La tabla siguiente explica las diferencias entre los tres niveles:
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante el uso de varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.|
-|Proceso|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales<br/>**Proceso sin servidor**:<br/>Gen5: 0,5 a 4 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|
-|Memoria|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**:<br/>Gen5: 3 GB por núcleo virtual|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
-|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado con una base de datos única**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor con una base de datos única**:<br/>5 GB - 1 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado con una base de datos única**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|Rendimiento de E/S (aproximado)|**Base de datos única**: 500 IOPS por núcleo virtual con 7000 IOPS como máximo.<br/>**Instancia administrada**: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo con 200 000 IOPS como máximo|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.|
+|Proceso|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales<br/>**Proceso sin servidor**:<br/>Gen5: 0,5 - 16 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|
+|Memoria|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**:<br/>Gen5: Hasta 24 GB por núcleo virtual|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
+|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|Rendimiento de E/S (aproximado)|**Grupo elástico y base de datos única**: 500 IOPS por núcleo virtual, hasta 40000 IOPS como máximo.<br/>**Instancia administrada**: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo, hasta 200 000 IOPS como máximo|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|1 réplica de lectura y escritura, además de 0 a 4 [réplicas de escalado de lectura](sql-database-read-scale-out.md)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas en el almacenamiento remoto de Azure. Los procesos de restauración usan estas instantáneas para conseguir una recuperación rápida. Las copias de seguridad son instantáneas y no afectan al rendimiento de E/S del proceso. Las restauraciones son rápidas y no son operaciones relacionadas con el tamaño de los datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|

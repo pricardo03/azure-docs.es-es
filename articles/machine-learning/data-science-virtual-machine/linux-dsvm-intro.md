@@ -1,29 +1,22 @@
 ---
-title: Creación de una instancia de Data Science Virtual Machine de Linux CentOS
-titleSuffix: Azure
+title: 'Inicio rápido: Creación de una instancia de Linux CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Cree y configure una instancia de Data Science Virtual Machine de Linux en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: c0464253c55aa5e51e8e86686405ea6b107c8382
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 1ab3a527643bc5a567644a937fdd1eb9e31bf567
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047713"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195337"
 ---
-# <a name="provision-a-linux-centos-data-science-virtual-machine-in-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure
+# <a name="quickstart-set-up-a-linux-centos-data-science-virtual-machine-in-azure"></a>Inicio rápido: Configuración de una instancia de Data Science Virtual Machine de Linux CentOS en Azure
 
 Data Science Virtual Machine (DSVM) de Linux es una máquina virtual de Azure basada en CentOS. DSVM de Linux incluye una colección de herramientas preinstaladas que se pueden usar para el análisis de datos y el aprendizaje automático. 
 
@@ -178,7 +171,7 @@ En el caso de Conda, siempre debe especificar el nombre del entorno (py35 o root
 conda install <package> -n py35
 ```
 
-Si se encuentra en una interfaz gráfica o tiene configurado el reenvío de X11, puede escribir **pycharm** para abrir el IDE de PyCharm Python. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que se incluye con las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. El escritorio gráfico tiene un acceso directo a Spyder.
+Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para abrir el IDE de PyCharm Python. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que se incluye con las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. El escritorio gráfico tiene un acceso directo a Spyder.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 
@@ -282,7 +275,7 @@ El paquete de controladores ODBC para SQL Server también incluye dos herramient
 Las bibliotecas de acceso a las bases de datos están disponibles en R y Python:
 
 * En R, puede usar el paquete RODBC o el paquete dplyr para consultar o ejecutar instrucciones SQL en el servidor de bases de datos.
-* En Python, la biblioteca pyodbc proporciona acceso a la base de datos con ODBC como la capa subyacente.
+* En Python, la biblioteca pyodbc proporciona acceso a las bases de datos con ODBC como capa subyacente.
 
 ### <a name="azure-tools"></a>Herramientas de Azure
 

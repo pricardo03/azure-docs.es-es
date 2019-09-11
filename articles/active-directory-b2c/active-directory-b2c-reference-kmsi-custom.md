@@ -1,5 +1,5 @@
 ---
-title: Mantener la sesión iniciada en Azure Active Directory B2C | Microsoft Docs
+title: Mantener la sesión iniciada en Azure Active Directory B2C
 description: Aprenda a configurar Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/29/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835381"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147036"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede habilitar la funcionalidad Mantener la sesión iniciada (KMSI) para la web y las aplicaciones nativas en Azure Active Directory (Azure AD) B2C. Esta característica concede acceso a los usuarios que vuelven a la aplicación sin pedirles que vuelvan a escribir el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
+Puede habilitar la funcionalidad Mantener la sesión iniciada (KMSI) para los usuarios y las aplicaciones nativas que tienen cuentas locales en el directorio de Azure Active Directory B2C (Azure AD B2C). Esta característica concede acceso a los usuarios que vuelven a la aplicación sin pedirles que escriban de nuevo el nombre de usuario y la contraseña. Este acceso se revocará cuando el usuario cierre la sesión.
 
 Los usuarios no deben habilitar esta opción en equipos públicos.
 
@@ -29,7 +29,9 @@ Los usuarios no deben habilitar esta opción en equipos públicos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un inquilino de Azure AD B2C configurado para permitir el registro o inicio de sesión de la cuenta local. Si no dispone de un inquilino, puede crear uno con los pasos de [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
+Un inquilino de Azure AD B2C configurado para permitir el inicio de sesión en la cuenta local. KMSI no es compatible con cuentas de proveedor de identidades externo.
+
+Si no dispone de un inquilino, puede crear uno con los pasos de [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Incorporación de un elemento de la definición de contenido
 
@@ -87,7 +89,7 @@ Agregue los identificadores de aplicación al archivo *TrustFrameworkExtensions.
 
 1. En el archivo *TrustFrameworkExtensions.xml*, busque el elemento **TechnicalProfile** con el identificador de `login-NonInteractive` y el elemento **TechnicalProfile** con un identificador de `login-NonInteractive-PasswordChange` y reemplace todos los valores de `IdentityExperienceFrameworkAppId` por el identificador de aplicación de la aplicación Marco de experiencia de identidad tal y como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -183,11 +185,3 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 5. Para probar la directiva personalizada que ha cargado, vaya a la página de la directiva en Azure Portal y seleccione **Ejecutar ahora**.
 
 Puede encontrar la directiva de ejemplo [aquí](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

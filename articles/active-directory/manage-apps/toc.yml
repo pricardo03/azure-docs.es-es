@@ -346,6 +346,10 @@
       items:
         - name: Escritura de expresiones para la asignación de atributos
           href: functions-for-customizing-application-data.md
+    - name: "Agente de aprovisionamiento de Microsoft\_Azure\_AD\_Connect"
+      items:
+        - name: Historial de versiones del agente de aprovisionamiento
+          href: provisioning-agent-release-version-history.md
     - name: Application Proxy para aplicaciones locales
       items:
         - name: Historial de versiones de Application Proxy

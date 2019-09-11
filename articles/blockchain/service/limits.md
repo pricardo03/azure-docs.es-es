@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeed84f19da3843d043eafef9d7444661901c53e
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028176"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147141"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Límites en Azure Blockchain Service
 
@@ -34,7 +34,7 @@ Después de la creación de un miembro, no se puede cambiar el plan de tarifa de
 
 ## <a name="storage-capacity"></a>Capacidad de almacenamiento
 
-La cantidad máxima de almacenamiento que se puede utilizar por nodo para los datos de libro de contabilidad y registros es de 1 terabyte.
+La cantidad máxima de almacenamiento que se puede usar por nodo para los datos de libro de contabilidad y registros es de 1,8 terabyte.
 
 El tamaño de almacenamiento del libro de contabilidad y del registro no se puede reducir.
 

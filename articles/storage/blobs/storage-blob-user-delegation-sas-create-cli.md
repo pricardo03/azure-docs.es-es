@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896959"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164322"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con la CLI de Azure (versión preliminar)
 
@@ -61,7 +61,7 @@ Al crear una SAS de delegación de usuarios, se requieren `--auth-mode login` y 
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Creación de una SAS de delegación de usuarios para un contenedor
 
-Para crear una SAS de delegación de usuarios para un contenedor con la CLI de Azure, llame al comando [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas).
+Para crear una SAS de delegación de usuario para un contenedor con la CLI de Azure, llame al comando [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas).
 
 Los permisos admitidos para una SAS de delegación de usuarios en un contenedor incluyen Agregar, Crear, Eliminar, Enumerar, Leer y Escribir. Los permisos se pueden especificar individualmente o combinados. Para obtener más información sobre estos permisos, consulte [Crear una SAS de delegación de usuarios](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -85,7 +85,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 ### <a name="create-a-user-delegation-sas-for-a-blob"></a>Creación de una SAS de delegación de usuarios para un blob
 
-Para crear una SAS de delegación de usuarios para un blob con la CLI de Azure, llame al comando [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas).
+Para crear una SAS de delegación de usuario para un blob con la CLI de Azure, llame al comando [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas).
 
 Los permisos admitidos para una SAS de delegación de usuarios en un blob incluyen Agregar, Crear, Eliminar, Leer y Escribir. Los permisos se pueden especificar individualmente o combinados. Para obtener más información sobre estos permisos, consulte [Crear una SAS de delegación de usuarios](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > Una SAS de delegación de usuarios no admite la definición de permisos con una directiva de acceso almacenada.
+
+## <a name="revoke-a-user-delegation-sas"></a>Revocación de una SAS de delegación de usuarios
+
+Para revocar una SAS de delegación de usuario desde la CLI de Azure, llame al comando [az storage account revoke-delegation-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys). Este comando revoca todas las claves de delegación de usuarios asociadas a la cuenta de almacenamiento especificada. Se invalidan todas las firmas de acceso compartido asociadas a esas claves.
+
+No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> La clave de delegación de usuario y las asignaciones de roles de RBAC se almacenan en caché en Azure Storage, por lo que puede haber un retraso entre el momento en que se inicia el proceso de revocación y el momento en que una SAS de delegación de usuario existente deja de ser válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
