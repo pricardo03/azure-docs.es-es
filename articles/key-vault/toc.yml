@@ -62,8 +62,8 @@
       items:
         - name: Introducción a la seguridad
           href: overview-security.md
-        - name: Atributos comunes de seguridad
-          href: key-vault-security-attributes.md
+        - name: Controles de seguridad integrados
+          href: key-vault-security-controls.md
         - name: Espacios de seguridad
           href: key-vault-ovw-security-worlds.md
         - name: Protección de un almacén de claves
@@ -90,8 +90,6 @@
           href: create-certificate.md
         - name: Supervisión y administración de la creación de certificados
           href: create-certificate-scenarios.md
-    - name: Atributos comunes de seguridad de Azure
-      href: key-vault-security-attributes.md
 - name: Guías de procedimientos
   items:
     - name: Registro de Azure Key Vault

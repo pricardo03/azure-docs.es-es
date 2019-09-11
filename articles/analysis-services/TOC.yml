@@ -29,7 +29,7 @@
     - name: Bibliotecas de clientes
       href: analysis-services-data-providers.md
     - name: Nivel de compatibilidad
-      href: analysis-services-compat-level.md
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
     - name: Conexión a orígenes de datos locales
       href: analysis-services-gateway.md
     - name: Conexión a servidores

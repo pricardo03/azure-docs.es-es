@@ -145,8 +145,8 @@
       href: backup-recovery.md
     - name: Directrices de infraestructura
       href: infrastructure-example.md
-    - name: Atributos de seguridad
-      href: virtual-machines-linux-security-attributes.md
+    - name: Controles de seguridad integrados
+      href: virtual-machines-linux-security-controls.md
 - name: Guías de procedimientos
   items:
     - name: Creación de máquinas virtuales

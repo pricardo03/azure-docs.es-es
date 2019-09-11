@@ -321,8 +321,8 @@
   href: best-practices-and-patterns.md
 - name: Recursos
   items:
-    - name: Atributos comunes de seguridad
-      href: common-security-attributes.md
+    - name: Controles de seguridad integrados
+      href: security-controls.md
     - name: Programa MVP de seguridad de Azure
       href: mvp.md
     - name: Consultoría de ciberseguridad

@@ -58,8 +58,8 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Conectividad entre redes
       href: cross-network-connectivity.md
-    - name: Atributos comunes de seguridad de Azure
-      href: expressroute-security-attributes.md
+    - name: Controles de seguridad integrados
+      href: expressroute-security-controls.md
     - name: Diseño para lograr alta disponibilidad
       href: designing-for-high-availability-with-expressroute.md
     - name: Diseño de la recuperación ante desastres

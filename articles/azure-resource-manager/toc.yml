@@ -76,8 +76,8 @@
           href: deployment-manager-health-check.md
     - name: Implementación de Resource Manager y clásica
       href: resource-manager-deployment-model.md
-    - name: Atributos comunes de seguridad de Azure
-      href: azure-resource-manager-security-attributes.md
+    - name: Controles de seguridad integrados
+      href: azure-resource-manager-security-controls.md
 - name: Procedimientos
   items:
     - name: Crear plantillas
