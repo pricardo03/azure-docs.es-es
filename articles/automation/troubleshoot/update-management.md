@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782286"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186213"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -22,6 +22,42 @@ En este artículo se describen soluciones para resolver problemas que pueden sur
 Existe un solucionador de problemas de agente para que el agente de Hybrid Worker determine el problema subyacente. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md). Para todos los demás problemas, consulte la información detallada que aparece a continuación sobre posibles problemas.
 
 ## <a name="general"></a>General
+
+### <a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
+
+#### <a name="issue"></a>Problema
+
+Es posible que reciba el siguiente error al trabajar con soluciones en su cuenta de Automation.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Causa
+
+El proveedor de recursos de Automation no está registrado en la suscripción.
+
+#### <a name="resolution"></a>Resolución
+
+Puede registrar los proveedores de recursos de Automation completando los pasos siguientes en Azure Portal:
+
+1. Haga clic en **Todos los servicios** en la lista de servicios de Azure en la parte inferior y, a continuación, seleccione **Suscripciones** en el grupo de servicios _General_.
+2. Seleccione su suscripción.
+3. Haga clic en **Proveedores de recursos** en _Configuración_.
+4. En la lista de proveedores de recursos, compruebe que el proveedor de recursos **Microsoft.Automation** está registrado.
+5. Si el proveedor no aparece en la lista, registre el proveedor **Microsoft.Automation** con los pasos indicados en [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+### <a name="mw-exceeded"></a>Escenario: Error MaintenanceWindowExceeded en la administración de actualizaciones programada
+
+#### <a name="issue"></a>Problema
+
+La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis (6) horas o 360 minutos.
+
+#### <a name="resolution"></a>Resolución
+
+Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
+
+Para más información sobre las ventanas de mantenimiento, consulte [Instalación de actualizaciones](../automation-update-management.md#install-updates).
 
 ### <a name="components-enabled-not-working"></a>Escenario: Se han habilitado los componentes de la solución "Update Management" y ahora se está configurando esta máquina virtual
 
@@ -77,6 +113,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>Escenario: Instalación de actualizaciones sin una implementación
+
+### <a name="issue"></a>Problema
+
+Al inscribir una máquina Windows en Update Management, puede ver que las actualizaciones se instalan sin una implementación.
+
+### <a name="cause"></a>Causa
+
+En Windows, las actualizaciones se instalan automáticamente en cuanto están disponibles. Esto puede producir confusión si no ha programado una actualización que se va a implementar en la máquina.
+
+### <a name="resolution"></a>Resolución
+
+La clave del registro de Windows, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`, tiene el valor predeterminado en "4": **auto download and install** (descargar e instalar automáticamente).
+
+En el caso de los clientes de Update Management, se recomienda establecer esta clave en "3": **descargar automáticamente, pero no instalar automáticamente**.
+
+Para más información, consulte [Configuración de actualizaciones automáticas](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ### <a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
 
@@ -242,6 +296,7 @@ Haga doble clic en la excepción que se muestra en rojo para ver el mensaje de e
 |`0x8024001E`| No se completó la operación de actualización porque se estaban cerrando el servicio o el sistema.|
 |`0x8024002E`| El servicio de Windows Update está deshabilitado.|
 |`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores de registro de `WUServer` y `WUStatusServer` bajo la clave del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tienen el servidor WSUS correcto.        |
+|`0x80072EE2`|Problema de conectividad de red o problema al comunicarse con un servidor WSUS configurado. Compruebe la configuración de WSUS y asegúrese de que se puede acceder desde el cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
 |Cualquier otra excepción genérica     | Realice una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
 
@@ -298,7 +353,31 @@ Si no puede resolver un problema de aplicación de revisiones, realice una copia
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
+## <a name="patches-are-not-installed"></a>No hay revisiones instaladas
+
+### <a name="machines-do-not-install-updates"></a>Las máquinas no instalan actualizaciones
+
+* Intente ejecutar las actualizaciones directamente en la máquina. Si la máquina no se puede actualizar, consulte la [lista de posibles errores en la guía de solución de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Si las actualizaciones se ejecutan localmente, intente quitar y volver a instalar el agente en la máquina mediante las instrucciones de ["Eliminación de una máquina virtual de Update Management"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Sé que hay actualizaciones disponibles, pero no se muestran como necesarias en mis máquinas
+
+* Esto sucede a menudo si las máquinas están configuradas para obtener actualizaciones de WSUS/SCCM, pero WSUS/SCCM no han aprobado las actualizaciones.
+* Puede comprobar si las máquinas están configuradas para WSUS/SCCM [mediante la referencia cruzada de la clave del Registro "UseWUServer" con las claves del Registro de la sección "Configurar Actualizaciones automáticas modificando el Registro" de este documento](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Las actualizaciones se muestran como instaladas, pero no las encuentro en mi máquina**
+
+* Con frecuencia, unas actualizaciones tienen preferencia sobre otras. Para más información, consulte ["Se reemplazó la actualización" en la guía de solución de problemas de actualización de Windows](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Instalación de actualizaciones mediante clasificación en Linux**
+
+* La implementación de actualizaciones en Linux mediante clasificación ("actualizaciones críticas y de seguridad") tiene advertencias importantes, especialmente para CentOS. Estas [limitaciones se documentan en la página de información general de Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 falta constantemente**
+
+* KB2267602 es la [actualización de la definición de Windows Defender](https://www.microsoft.com/wdsi/definitions). Se actualiza diariamente.
+
+## <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
 
 ### <a name="issue"></a>Problema
 
