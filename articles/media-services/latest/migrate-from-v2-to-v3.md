@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542561"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231180"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -57,10 +57,10 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 
 ## <a name="changes-from-v2"></a>Cambios desde la versión v2
 
-* En el caso de recursos creados con v3, Media Services solo admite el [cifrado de almacenamiento del lado servidor de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* En el caso de los recursos creados con la versión 3, Media Services solo admite el [cifrado de almacenamiento del lado servidor de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * Puede usar las API v3 con recursos creados con las API v2 que tenían [cifrado de almacenamiento](../previous/media-services-rest-storage-encryption.md) (AES 256) proporcionado por Media Services.
     * No se pueden crear recursos con el [cifrado de almacenamiento](../previous/media-services-rest-storage-encryption.md) AES 256 heredado mediante las API v3.
-* Las propiedades del recurso de la versión 3 difieren de las de la versión 2. Consulte [cómo se asignan las propiedades](assets-concept.md#map-v3-asset-properties-to-v2).
+* Las propiedades del [recurso](assets-concept.md) de la versión 3 difieren de las de la versión 2. Consulte [cómo se asignan las propiedades](assets-concept.md#map-v3-asset-properties-to-v2).
 * Los SDK v3 ahora se han desacoplado del SDK de Storage, lo que proporciona mayor control sobre la versión del SDK de Storage que desea usar y evita problemas de control de versiones. 
 * En las API v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto es diferente a los valores preestablecidos de Media Encoder Standard v2. Por ejemplo, la velocidad de bits en v2 se especificaría como 128 (kbps), mientras que en v3 sería 128000 (bits/segundo). 
 * Las entidades AssetFiles, AccessPolicies y IngestManifests no existen en v3.
@@ -74,6 +74,9 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
     * Salida en vivo reemplaza a Programa.
 * Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
 *  Para obtener información sobre un trabajo, debe conocer el nombre de la transformación en la que se ha creado dicho trabajo. 
+
+> [!NOTE]
+> Revise las convenciones de nomenclatura que se aplican a [los recursos de Media Services v3](media-services-apis-overview.md#naming-conventions). Revise también [los blobs de nomenclatura](assets-concept.md#naming-blobs).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Carencias de características con respecto a las API v2
 

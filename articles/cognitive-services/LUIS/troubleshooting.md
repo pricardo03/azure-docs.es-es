@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945835"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258788"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -78,7 +78,7 @@ Obtenga más información sobre los [errores de importación de versión](luis-h
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Colaborar
+## <a name="collaborating-and-contributing"></a>Colaboración y contribución
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>¿Cómo puedo dar acceso a LUIS a los colaboradores mediante Azure Active Directory (Azure AD) o el control de acceso basado en roles (RBAC)?
 
@@ -87,6 +87,31 @@ Consulte los [recursos de Azure Active Directory](luis-how-to-collaborate.md#azu
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>Punto de conexión
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>He recibido un código de estado de error HTTP 403. ¿Cómo puedo corregirlo?
+
+Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa. Aumente el plan de tarifa o use los [contenedores](luis-container-howto.md) de Language Understanding.
+
+Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403. 
+
+Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Las soluciones para este error incluyen:
+
+* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa**, cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
+*  Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>He recibido un código de estado de error HTTP 429. ¿Cómo puedo corregirlo?
+
+Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa. Aumente el plan de tarifa o use los [contenedores](luis-container-howto.md) de Language Understanding.
+
+Este código de estado se devuelve cuando las transacciones por segundo superan su plan de tarifa.  
+
+Entre las soluciones, se incluyen las siguientes:
+
+* También puede [aumentar el plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier), si no está en el nivel más alto.
+* Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
+* También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mi consulta de punto de conexión devuelve resultados inesperados. ¿Cuál debo hacer?
 
@@ -102,7 +127,7 @@ Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para 
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-language-support.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>¿Cómo se crean y asignan las claves de punto de conexión para LUIS?
-[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-azure-subscription.md) en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)** . No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
+[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-azure-subscription.md) en la página de **[recursos de Azure](luis-how-to-azure-subscription.md)** . No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>¿Cómo se interpretan las puntuaciones de LUIS?
 El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de aprendizaje puede ayudar a aumentar la [puntuación](luis-concept-prediction-score.md) de la intención más probable.
@@ -123,10 +148,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo?
-Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
+Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>¿Cómo se protege el punto de conexión de LUIS?
-Consulte [Securing the endpoint](luis-concept-security.md#securing-the-endpoint) (Proteger el punto de conexión).
+Consulte [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint) (Proteger el punto de conexión).
 
 ## <a name="working-within-luis-limits"></a>Trabajo dentro de los límites de LUIS
 
@@ -185,17 +210,15 @@ Si la aplicación ya existía antes de que LUIS estuviera disponible con caráct
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>¿Cómo puedo saber qué clave necesito, dónde obtenerla y qué hacer con ella? 
 
-Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md) para obtener más información sobre las diferencias entre las [claves de creación](luis-how-to-account-settings.md) y la [clave de predicción del punto de conexión](luis-how-to-azure-subscription.md). 
+Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md) para más información sobre las diferencias entre la claves de creación y la clave del runtime de predicción. 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>He recibido un error que me indicaba que había superado la cuota. ¿Cómo puedo corregirlo? 
 
-Consulte [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) (Corrección de los códigos de estado HTTP 403 y 429) para obtener más información.
+Para más información, consulte Corrección de los códigos de estado HTTP [403 and 429](#i-received-an-http-403-error-status-code-how-do-i-fix-it) y [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Necesito administrar más consultas de punto de conexión. ¿Cómo se hace? 
 
-Consulte [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) (Corrección de los códigos de estado HTTP 403 y 429) para obtener más información.
-
-
+Para más información, consulte Corrección de los códigos de estado HTTP [403 and 429](#i-received-an-http-403-error-status-code-how-do-i-fix-it) y [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
 
 ## <a name="app-management"></a>Administración de la aplicación
 

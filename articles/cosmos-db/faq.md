@@ -4,15 +4,15 @@ description: Obtenga respuestas a las preguntas más frecuentes sobre Azure Cosm
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066096"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240798"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -119,7 +119,7 @@ Al establecer una región, debe recordar que Cosmos DB respeta las nubes indepen
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>¿Es posible pasar del aprovisionamiento de rendimiento del nivel de contenedor al aprovisionamiento de rendimiento del nivel de base de datos? O viceversa
 
-El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor son ofertas diferentes y cambiar entre cualquiera de estos requiera migrar datos de origen a destino. Lo que significa que deberá crear una nueva base de datos o una colección nueva y luego migrar datos mediante el uso de [biblioteca de ejecutor masiva](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor son ofertas diferentes y cambiar entre cualquiera de estos requiera migrar datos de origen a destino. Lo que significa que deberá crear una nueva base de datos o un contenedor nuevo y luego migrar los datos mediante el uso de [biblioteca de ejecutor en masa](bulk-executor-overview.md) o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>¿Azure Cosmos DB admite el análisis de series temporales?
 
@@ -149,7 +149,8 @@ Sí, SQL API admite transacciones entre documentos expresadas como procedimiento
 
 Un contenedor es un grupo de documentos y su lógica de aplicación de JavaScript asociada. Un contenedor es una entidad facturable, en la que el [costo](performance-levels.md) se determina en función del rendimiento y del almacenamiento utilizado. Los contenedores pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento.
 
-* Para las API de SQL y de Cosmos DB de las cuentas de MongoDB, un contenedor se asigna a una colección.
+* En el caso de SQL API, un contenedor se asigna a un objeto Container.
+* En el caso de la API de Cosmos DB para las cuentas de MongoDB, un contenedor se asigna a un objeto Collection.
 * Para las cuentas de Cassandra y Table API, se asigna un contenedor a una tabla.
 * Para las cuentas de API de Gremlin, se asigna un contenedor a un gráfico.
 
@@ -157,7 +158,7 @@ Los contenedores también son las entidades de facturación de Azure Cosmos DB. 
 
 ### <a name="how-do-i-create-a-database"></a>¿Cómo se crea una base de datos?
 
-Puede crear bases de datos mediante [Azure Portal](https://portal.azure.com), tal y como se describe en [Agregar una colección](create-sql-api-java.md#add-a-container), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API de REST](/rest/api/cosmos-db/).
+Puede crear bases de datos desde [Azure Portal](https://portal.azure.com), como se describe en [Adición de un contenedor](create-sql-api-java.md#add-a-container), uno de los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) o las [API REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>¿Cómo se configuran los usuarios y los permisos?
 
@@ -179,7 +180,7 @@ Para usar la simultaneidad optimista en .NET, utilice la clase [AccessCondition]
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>¿Cómo se realizan transacciones en SQL API?
 
-SQL API admite transacciones integradas en el lenguaje a través de procedimientos almacenados y desencadenadores JavaScript. Todas las operaciones de base de datos contenidas en scripts se ejecutan con aislamiento de instantánea. Si se trata de una colección de partición única, el ámbito de ejecución es la colección. Si la colección se particiona, el ámbito de la ejecución son documentos con el mismo valor de clave de partición que hay dentro de la colección. Una instantánea de las versiones de documento (etiquetas ETag) se toma al comienzo de la transacción y solo se confirma si el script se ejecuta correctamente. Si el JavaScript produce un error, la transacción se revierte. Para más información, vea [Programación de JavaScript en el lado del servidor de Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+SQL API admite transacciones integradas en el lenguaje a través de procedimientos almacenados y desencadenadores JavaScript. Todas las operaciones de base de datos contenidas en scripts se ejecutan con aislamiento de instantánea. Si se trata de una contenedor con una sola partición, el ámbito de ejecución es el contenedor. Si el contenedor tiene varias particiones, el ámbito de la ejecución son documentos con el mismo valor de clave de partición que hay dentro del contenedor. Una instantánea de las versiones de documento (etiquetas ETag) se toma al comienzo de la transacción y solo se confirma si el script se ejecuta correctamente. Si el JavaScript produce un error, la transacción se revierte. Para más información, vea [Programación de JavaScript en el lado del servidor de Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>¿Cómo se pueden insertar documentos de forma masiva en Cosmos DB?
 
@@ -191,7 +192,7 @@ Hay dos maneras de insertar documentos de forma masiva en Azure Cosmos DB:
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>¿SQL API admite el almacenamiento en caché de vínculos de recursos?
 
-Sí. Como Azure Cosmos DB es un servicio RESTful, los vínculos de recursos son inmutables y se pueden almacenar en caché. Los clientes de SQL API pueden especificar un encabezado "If-None-Match" para lecturas en cualquier documento o colección de tipo recurso y actualizar sus copias locales cuando la versión del servidor cambie.
+Sí. Como Azure Cosmos DB es un servicio RESTful, los vínculos de recursos son inmutables y se pueden almacenar en caché. Los clientes de SQL API pueden especificar un encabezado "If-None-Match" para lecturas en cualquier documento o contenedor de tipo recurso y actualizar sus copias locales cuando la versión del servidor cambie.
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>¿Hay disponible una instancia local de SQL API?
 
@@ -225,7 +226,7 @@ Además de los códigos de error comunes de MongoDB, la API de Azure Cosmos DB p
 
 | Error               | Código  | DESCRIPCIÓN  | Solución  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | El número total de unidades de solicitud consumidas es mayor que la tasa de unidades de solicitud aprovisionadas para la colección y se ha limitado. | Considere la posibilidad de escalar el rendimiento asignado a un contenedor o un conjunto de contenedores desde Azure Portal o reintentarlo de nuevo. |
+| TooManyRequests     | 16500 | El número total de unidades de solicitud consumidas es mayor que la tasa de unidades de solicitud aprovisionadas para el contenedor y se ha limitado. | Considere la posibilidad de escalar el rendimiento asignado a un contenedor o un conjunto de contenedores desde Azure Portal o reintentarlo de nuevo. |
 | ExceededMemoryLimit | 16501 | Como se trata de un servicio de varios inquilinos, la operación ha superado la asignación de memoria del cliente. | Reduzca el ámbito de la operación a través de criterios de consulta más restrictivos o póngase en contacto con soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Ejemplo: <em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>¿Se puede usar el controlador Simba para la API de Azure Cosmos DB para MongoDB?
@@ -523,7 +524,7 @@ El cargo por las RU se basa en el conjunto de datos de trabajo del recorrido, y 
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>¿Cuál es la escala máxima que puede tener una base de datos de grafos de Gremlin API de Azure Cosmos DB?
 
-Azure Cosmos DB usa [particiones horizontales](partition-data.md) para abordar automáticamente el aumento en los requisitos de almacenamiento y capacidad de proceso. La capacidad de proceso y la capacidad de almacenamiento máximas de una carga de trabajo viene determinada por el número de particiones que están asociadas con una colección determinada. Sin embargo, una colección de Gremlin API tiene un conjunto específico de directrices para garantizar una experiencia de rendimiento adecuada a escala. Para más información sobre la creación de particiones y procedimientos recomendados, vea el artículo sobre [creación de particiones en Azure Cosmos DB](partition-data.md).
+Azure Cosmos DB usa [particiones horizontales](partition-data.md) para abordar automáticamente el aumento en los requisitos de almacenamiento y capacidad de proceso. La capacidad de rendimiento y la capacidad de almacenamiento máximas de una carga de trabajo vienen determinadas por el número de particiones que están asociadas con un contenedor determinada. Sin embargo, un contenedor de Gremlin API tiene un conjunto específico de directrices para garantizar una experiencia de rendimiento adecuada a escala. Para más información sobre la creación de particiones y procedimientos recomendados, vea el artículo sobre [creación de particiones en Azure Cosmos DB](partition-data.md).
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>¿Cómo me puedo proteger frente a ataques de inyección de código con los controladores Gremlin?
 

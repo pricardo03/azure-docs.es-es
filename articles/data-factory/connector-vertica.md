@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e956c3d54584adff88f475328678ba26e494a7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84d82c443b291e5374e70ddb8227a8c35a831029
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967341"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277355"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copia de datos de Vertica con Azure Data Factory 
 
@@ -108,7 +108,9 @@ Para copiar datos desde Vertica, establezca la propiedad type del conjunto de da
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **VerticaTable** | Sí |
-| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
+| schema | Nombre del esquema. |No (si se especifica "query" en el origen de la actividad)  |
+| table | Nombre de la tabla. |No (si se especifica "query" en el origen de la actividad)  |
+| tableName | Nombre de la tabla con el esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Use `schema` y `table` para la carga de trabajo nueva. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -117,11 +119,12 @@ Para copiar datos desde Vertica, establezca la propiedad type del conjunto de da
     "name": "VerticaDataset",
     "properties": {
         "type": "VerticaTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Vertica linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3158ebddf6ffe5594c9daf0fd9f3e3fe980c0b24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845671"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230971"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -151,7 +151,7 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
 Sistema operativo invitado | Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-Arquitectura del sistema operativo invitado | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Arquitectura del sistema operativo invitado | 32 bits (Windows Server 2008) y 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Tamaño del disco del sistema operativo | Hasta 2048 GB para máquinas virtuales de generación 1.<br/><br/> Hasta 300 GB para máquinas virtuales de generación 2.  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Número de discos del sistema operativo | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Número de discos de datos | 16 o menos  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
@@ -166,13 +166,13 @@ Tipo de máquina virtual | Generación 1<br/><br/> Generación 2: Windows | Las 
 
 ## <a name="recovery-services-vault-actions"></a>Acciones del almacén de Recovery Services
 
-**Acción** |  **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
+**Acción** |  **Hyper-V con VMM** | **Hyper-V sin VMM**
 --- | --- | ---
 Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | Sin | Sin
 Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | Sin | Sin
 
 > [!NOTE]
-> Al replicar máquinas virtuales de Hyper-V (administradas con o sin SCVMM) desde un entorno local en Azure, solo puede replicar a un inquilino de AD de un sitio Hyper-V específico del entorno o SCVMM según corresponda.
+> Al replicar máquinas virtuales de Hyper-V desde un entorno local en Azure, solo se puede replicar a un inquilino de AD de un entorno concreto (sitio Hyper-V o Hyper-V, lo que corresponda).
 
 
 ## <a name="provider-and-agent"></a>Proveedor y agente

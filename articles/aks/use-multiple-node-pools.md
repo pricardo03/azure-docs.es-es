@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898747"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241066"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -101,12 +101,15 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --enable-vmss \
-    --node-count 1 \
+    --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
 ```
 
 La operación de creación del clúster tarda unos minutos.
+
+> [!NOTE]
+> Para asegurarse de que el clúster funciona de forma confiable, debe ejecutar al menos dos nodos en el grupo de nodos predeterminado, ya que los servicios esenciales del sistema se ejecutan en este grupo de nodos.
 
 Cuando el clúster esté listo, utilice el comando [az aks get-credentials][az-aks-get-credentials] para obtener las credenciales del clúster para su uso con `kubectl`:
 
@@ -133,7 +136,7 @@ Para ver el estado de los grupos de nodos, use el comando [az aks node pool list
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado correctamente con tres nodos en el grupo de nodos. Cuando se creó el clúster de AKS en el paso anterior, se creó un grupo de nodos predeterminado denominado *nodepool1* con *1* nodo.
+En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado correctamente con tres nodos en el grupo de nodos. Cuando se creó el clúster de AKS en el paso anterior, también se creó un grupo de nodos predeterminado denominado *nodepool1* con *2* nodos.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -151,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -166,11 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > Si no se especifica *OrchestratorVersion* o *VmSize* al agregar un grupo de nodos, los nodos se crean según los valores predeterminados del clúster de AKS. En este ejemplo, esos valores eran la versión de Kubernetes *1.13.10* y el tamaño de nodo de *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
-
+ 
 > [!NOTE]
 > Las operaciones de actualización y escalado en un grupo de clústeres o nodos se excluyen mutuamente. No puede actualizar y escalar simultáneamente un grupo de clústeres o nodos. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Obtenga más información al respecto en nuestra [guía de solución de problemas](https://aka.ms/aks-pending-upgrade).
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.10*. De este modo, se establece la versión de Kubernetes para el plano de control y el grupo de nodos inicial. Hay distintos comandos para actualizar la versión de Kubernetes del plano de control y el grupo de nodos. El comando `az aks upgrade` se usa para actualizar el plano de control, mientras que `az aks nodepool upgrade` se usa para actualizar un grupo de nodos individual.
+Cuando se creó el clúster de AKS en el primer paso, se especificó una línea de código `--kubernetes-version` con el valor *1.13.10*. De este modo, se establece la versión de Kubernetes para el plano de control y el grupo de nodos inicial. Hay distintos comandos para actualizar la versión de Kubernetes del plano de control y del grupo de nodos, y se explican [a continuación](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+
+> [!NOTE]
+> La versión de la imagen del sistema operativo del grupo de nodos está vinculada a la versión de Kubernetes del clúster. Solo obtendrá actualizaciones de la imagen del sistema operativo cuando se haya realizado una actualización del clúster.
 
 Vamos a actualizar *mynodepool* a Kubernetes *1.13.10*. Use el comando [az aks node pool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
 
@@ -184,7 +190,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> Para actualizar el plano de control a *1.14.6*, ejecute `az aks upgrade -k 1.14.6`.
+> Para actualizar el plano de control a *1.14.6*, ejecute `az aks upgrade -k 1.14.6`. Para más información sobre las [actualizaciones del plano de control con varios grupos de nodos, haga clic aquí](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.10*:
 
@@ -206,7 +212,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -223,14 +229,32 @@ Tarda unos minutos en actualizar los nodos a la versión especificada.
 
 Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la misma versión de Kubernetes. La posibilidad de actualizar grupos de nodos individuales le permite realizar una actualización gradual y programar pods entre grupos de nodos para mantener el tiempo de actividad de las aplicaciones dentro de las restricciones antes mencionadas.
 
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Actualización del plano de control de un clúster con varios grupos de nodos
+
 > [!NOTE]
 > Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. La versión de Kubernetes del plano de control, así como el grupo de nodos inicial, se establece durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control, pero se aplican las restricciones siguientes:
 > 
 > * La versión del grupo de nodos debe tener la misma versión principal que el plano de control.
 > * La versión del grupo de nodos puede ser una versión secundaria anterior a la versión del plano de control.
 > * La versión del grupo de nodos puede ser cualquier versión de revisión, siempre y cuando se sigan las otras dos restricciones.
-> 
-> Para actualizar la versión Kubernetes del plano de control, use `az aks upgrade`. Si el clúster solo tiene un grupo de nodos, el comando `az aks upgrade` también actualizará la versión de Kubernetes del grupo de nodos.
+
+Un clúster de AKS tiene dos objetos de recurso de clúster. La primera es una versión de Kubernetes del plano de control. El segundo es un grupo de agentes con una versión de Kubernetes. Un plano de control se asigna a uno o varios grupos de nodos, y cada uno de ellos tiene su propia versión de Kubernetes. El comportamiento de una operación de actualización depende del recurso a la que vaya dirigida y de la versión de la API subyacente a la que se llame.
+
+1. La actualización del plano de control requiere el uso de `az aks upgrade`
+   * Si el clúster tiene un único grupo de agentes, el plano de control y el grupo de agentes único se actualizarán conjuntamente
+   * Si el clúster tiene varios grupos de agentes, solo se actualizará el plano de control
+1. Actualización con `az aks nodepool upgrade`
+   * Esto actualizará solo el grupo de nodos de destino con la versión de Kubernetes especificada
+
+La relación entre las versiones de Kubernetes que contienen los grupos de nodos también debe seguir un conjunto de reglas.
+
+1. No se puede cambiar a la versión anterior de Kubernetes ni del plano de control ni del grupo de nodos.
+1. Si no se especifica una versión Kubernetes del plano de control, el valor predeterminado será la versión actual del plano de control existente.
+1. Si no se especifica una versión Kubernetes del grupo de nodos, el valor predeterminado será la versión del plano de control.
+1. Se puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no se pueden enviar ambas operaciones simultáneamente.
+1. La versión de Kubernetes de un grupo de nodos debe tener la misma versión principal que el plano de control.
+1. La versión de Kubernetes de un grupo de nodos puede ser, como máximo, dos (2) versiones secundarias menores que la del plano de control, nunca mayor.
+1. Un grupo de nodos puede ser de cualquier versión de revisión de Kubernetes menor o igual que la del plano de control, nunca mayor.
 
 ## <a name="scale-a-node-pool-manually"></a>Escalado manual de un grupo de nodos
 
@@ -269,7 +293,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -319,7 +343,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -372,7 +396,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -389,7 +413,7 @@ Tarda unos minutos en crear correctamente *gpunodepool*.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Programación de pods con taints y tolerations
 
-Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado que se creó inicialmente y el grupo de nodos basado en GPU. Use el comando [kubectl get nodes][kubectl-get] para ver los nodos del clúster. En la salida del ejemplo siguiente aparece un nodo en cada grupo de nodos:
+Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado que se creó inicialmente y el grupo de nodos basado en GPU. Use el comando [kubectl get nodes][kubectl-get] para ver los nodos del clúster. En la siguiente salida de ejemplo se muestran los nodos:
 
 ```console
 $ kubectl get nodes
@@ -480,68 +504,68 @@ Edite estos valores para actualizar, agregar o eliminar grupos de nodos según s
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "clusterName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of your existing AKS cluster."
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of your existing AKS cluster."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The location of your existing AKS cluster."
+            }
+        },
+        "agentPoolName": {
+            "type": "string",
+            "defaultValue": "myagentpool",
+            "metadata": {
+                "description": "The name of the agent pool to create or update."
+            }
+        },
+        "vnetSubnetId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The Vnet subnet resource ID for your existing AKS cluster."
+            }
+        }
     },
-    "location": {
-      "type": "string",
-      "metadata": {
-        "description": "The location of your existing AKS cluster."
-      }
+    "variables": {
+        "apiVersion": {
+            "aks": "2019-04-01"
+        },
+        "agentPoolProfiles": {
+            "maxPods": 30,
+            "osDiskSizeGB": 0,
+            "agentCount": 3,
+            "agentVmSize": "Standard_DS2_v2",
+            "osType": "Linux",
+            "vnetSubnetId": "[parameters('vnetSubnetId')]"
+        }
     },
-    "agentPoolName": {
-      "type": "string",
-      "defaultValue": "myagentpool",
-      "metadata": {
-        "description": "The name of the agent pool to create or update."
-      }
-    },
-    "vnetSubnetId": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "The Vnet subnet resource ID for your existing AKS cluster."
-      }
-    }
-  },
-  "variables": {
-    "apiVersion": {
-      "aks": "2019-04-01"
-    },
-    "agentPoolProfiles": {
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]"
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2019-04-01",
-      "type": "Microsoft.ContainerService/managedClusters/agentPools",
-      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
-      "location": "[parameters('location')]",
-      "properties": {
-            "maxPods": "[variables('agentPoolProfiles').maxPods]",
-            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
-            "count": "[variables('agentPoolProfiles').agentCount]",
-            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
-            "osType": "[variables('agentPoolProfiles').osType]",
-            "storageProfile": "ManagedDisks",
-      "type": "VirtualMachineScaleSets",
-            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.10"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.ContainerService/managedClusters/agentPools",
+            "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "maxPods": "[variables('agentPoolProfiles').maxPods]",
+                "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+                "count": "[variables('agentPoolProfiles').agentCount]",
+                "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+                "osType": "[variables('agentPoolProfiles').osType]",
+                "storageProfile": "ManagedDisks",
+                "type": "VirtualMachineScaleSets",
+                "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+                "orchestratorVersion": "1.13.10"
+            }
+        }
+    ]
 }
 ```
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1b1e9338f92aaefab8e7754139066ac03e8b8213
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779163"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142634"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -252,6 +252,18 @@ Incluye paridad de características con la última versión del [SDK de .NET par
 Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb) o abra una incidencia en el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
+Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
+
+Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
+
+El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
+
+> [!WARNING]
+> Todas las versiones **1.x** del SDK de .NET Core de la API de SQL API se retirarán el **30 de agosto de 2020**.
+> 
+>
+<br/>
+
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
@@ -268,26 +280,26 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 | [2.1.1](#2.1.1) |27 de septiembre de 2018 |--- |
 | [2.1.0](#2.1.0) |21 de septiembre de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de septiembre de 2018 |--- |
-| [1.9.1](#1.9.1) |9 de marzo de 2018 |--- |
-| [1.8.2](#1.8.2) |21 de febrero de 2018 |--- |
-| [1.8.1](#1.8.1) |5 de febrero de 2018 |--- |
-| [1.7.1](#1.7.1) |16 de noviembre de 2017 |--- |
-| [1.7.0](#1.7.0) |10 de noviembre de 2017 |--- |
-| [1.6.0](#1.6.0) |17 de octubre de 2017 |--- |
-| [1.5.1](#1.5.1) |02 de octubre de 2017 |--- |
-| [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 
-| [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
-| [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
-| [1.3.2](#1.3.2) |12 de junio de 2017 |--- |
-| [1.3.1](#1.3.1) |23 de mayo de 2017 |--- |
-| [1.3.0](#1.3.0) |10 de mayo de 2017 |--- |
-| [1.2.2](#1.2.2) |19 de abril de 2017 |--- |
-| [1.2.1](#1.2.1) |29 de marzo de 2017 |--- |
-| [1.2.0](#1.2.0) |25 de marzo de 2017 |--- |
-| [1.1.2](#1.1.2) |20 de marzo de 2017 |--- |
-| [1.1.1](#1.1.1) |14 de marzo de 2017 |--- |
-| [1.1.0](#1.1.0) |16 de febrero de 2017 |--- |
-| [1.0.0](#1.0.0) |21 de diciembre de 2016 |--- |
+| [1.9.1](#1.9.1) |9 de marzo de 2018 |30 de agosto de 2020 |
+| [1.8.2](#1.8.2) |21 de febrero de 2018 |30 de agosto de 2020 |
+| [1.8.1](#1.8.1) |5 de febrero de 2018 |30 de agosto de 2020 |
+| [1.7.1](#1.7.1) |16 de noviembre de 2017 |30 de agosto de 2020 |
+| [1.7.0](#1.7.0) |10 de noviembre de 2017 |30 de agosto de 2020 |
+| [1.6.0](#1.6.0) |17 de octubre de 2017 |30 de agosto de 2020 |
+| [1.5.1](#1.5.1) |02 de octubre de 2017 |30 de agosto de 2020 |
+| [1.5.0](#1.5.0) |10 de agosto de 2017 |30 de agosto de 2020 | 
+| [1.4.1](#1.4.1) |7 de agosto de 2017 |30 de agosto de 2020 |
+| [1.4.0](#1.4.0) |2 de agosto de 2017 |30 de agosto de 2020 |
+| [1.3.2](#1.3.2) |12 de junio de 2017 |30 de agosto de 2020 |
+| [1.3.1](#1.3.1) |23 de mayo de 2017 |30 de agosto de 2020 |
+| [1.3.0](#1.3.0) |10 de mayo de 2017 |30 de agosto de 2020 |
+| [1.2.2](#1.2.2) |19 de abril de 2017 |30 de agosto de 2020 |
+| [1.2.1](#1.2.1) |29 de marzo de 2017 |30 de agosto de 2020 |
+| [1.2.0](#1.2.0) |25 de marzo de 2017 |30 de agosto de 2020 |
+| [1.1.2](#1.1.2) |20 de marzo de 2017 |30 de agosto de 2020 |
+| [1.1.1](#1.1.1) |14 de marzo de 2017 |30 de agosto de 2020 |
+| [1.1.0](#1.1.0) |16 de febrero de 2017 |30 de agosto de 2020 |
+| [1.0.0](#1.0.0) |21 de diciembre de 2016 |30 de agosto de 2020 |
 | [0.1.0-preview](#0.1.0-preview) |15 de noviembre de 2016 |31 de diciembre de 2016 |
 
 ## <a name="see-also"></a>Otras referencias

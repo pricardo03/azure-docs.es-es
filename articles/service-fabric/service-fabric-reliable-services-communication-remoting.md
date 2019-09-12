@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772982"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258687"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 
@@ -320,6 +320,11 @@ Siga estos pasos:
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Actualización de la comunicación remota V1 a la comunicación remota V2 (compatible con interfaz)
 
 Para actualizar de V1 a V2 (compatible con interfaz, conocido como V2_1), se requieren actualizaciones en dos pasos. Siga los pasos de esta secuencia.
+
+> [!NOTE]
+> Al actualizar de la versión 1 a la versión 2, asegúrese de que el espacio de nombres `Remoting` se actualiza para usar la versión 2. Ejemplo: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
+>
+>
 
 1. Actualice el servicio V1 al servicio V2_1 mediante el atributo siguiente.
 Este cambio garantiza que el servicio escucha en el agente de escucha V1 y V2_1.

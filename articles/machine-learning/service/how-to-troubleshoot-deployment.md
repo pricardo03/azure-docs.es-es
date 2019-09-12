@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358674"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183542"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning Service, Azure Kubernetes Service y Azure Container Instances
 
@@ -203,6 +203,9 @@ print(prediction)
 ### <a name="update-the-service"></a>Actualizar el servicio
 
 Durante las pruebas locales, es posible que deba actualizar el archivo `score.py` para agregar un registro o intentar resolver los problemas que haya descubierto. Para recargar los cambios realizados en el archivo `score.py`, use `reload()`. Por ejemplo, el código siguiente recarga el script para el servicio y luego envía datos. Los datos se puntúan con el archivo `score.py` actualizado:
+
+> [!IMPORTANT]
+> El método `reload` solo está disponible para las implementaciones locales. Para obtener información sobre cómo actualizar una implementación en otro destino de proceso, consulte la sección de actualización de [Implementación de modelos](how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()

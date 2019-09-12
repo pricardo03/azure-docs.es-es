@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891718"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194461"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -277,7 +277,11 @@ Sí, la SKU v2 de Application Gateway admite Key Vault. Para más información, 
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>¿Cómo configuro agentes de escucha HTTPS para sitios .com y .NET? 
 
-Para el enrutamiento (basado en host) basado en varios dominios, puede crear agentes de escucha multisitio, configurar agentes de escucha que usen HTTPS como el protocolo y asociar agentes de escucha a las reglas de enrutamiento. Para más información, consulte [Hosting multiple sites by using Application Gateway ](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)(Hospedaje de varios sitios mediante Application Gateway). 
+Para el enrutamiento (basado en host) basado en varios dominios, puede crear agentes de escucha multisitio, configurar agentes de escucha que usen HTTPS como el protocolo y asociar agentes de escucha a las reglas de enrutamiento. Para más información, consulte [Hosting multiple sites by using Application Gateway ](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)(Hospedaje de varios sitios mediante Application Gateway).
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>¿Se pueden usar caracteres especiales en la contraseña del archivo .pfx?
+
+No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
 
 ## <a name="configuration---web-application-firewall-waf"></a>Configuración: firewall de aplicaciones web (WAF)
 

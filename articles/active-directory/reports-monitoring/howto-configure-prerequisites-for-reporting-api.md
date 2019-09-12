@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 08/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f925a86504d68fd08b83c63e4da8b37b4aa25f85
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989898"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241471"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
-Las [API de generación de informes de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas.
+Las [API de generación de informes de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. A estas API se les puede llamar desde los lenguajes y herramientas de programación.
 
-La API de generación de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar el acceso a las API web.
+La API de generación de informes utiliza [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar el acceso a las API web.
 
 Para preparar el acceso a la API de generación de informes, necesita lo siguiente:
 
@@ -50,7 +50,7 @@ Para acceder a los datos de informes a través de la API, debe tener asignado un
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
-Debe registrar una aplicación, incluso si accede a la API de generación de informes mediante un script. De esta forma se le proporciona un **identificador de la aplicación**, que es necesario para las llamadas de autorización y permite que el código reciba tokens.
+El registro es necesario aunque se acceda a la API de generación de informes mediante un script. El registro le proporciona un **identificador de aplicación**, que es necesario para las llamadas de autorización y permite que el código reciba tokens.
 
 Si quiere configurar el directorio para que acceda a la API de generación de informes de Azure AD, debe iniciar sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de Azure que también sea miembro del rol de directorio **Administrador global** en su inquilino de Azure AD.
 
@@ -68,21 +68,21 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. En el panel **Registros de aplicaciones**, haga clic en **Nuevo registro de aplicaciones**.
+3. En la página **Registros de aplicaciones**, seleccione **Nuevo registro**.
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
-4. En la página **Crear**, realice los pasos siguientes:
+4. La página **Registration an Application** (Registro de una aplicación):
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. En el cuadro de texto **Nombre**, escriba `Reporting API application`.
 
-    b. Seleccione **Aplicación web o API** como **Tipo de aplicación**.
+    b. Para la opción **Supported accounts type (Tipo de cuentas admitidas)** , seleccione **Accounts in this organizational only (Solo cuentas de esta organización)** .
 
-    c. En el cuadro de texto **URL de inicio de sesión**, escriba `https://localhost`.
+    c. En **URL de redireccionamiento** seleccione el cuadro de texto **Web** y escriba `https://localhost`.
 
-    d. Seleccione **Crear**. 
+    d. Seleccione **Registrar**. 
 
 
 ## <a name="grant-permissions"></a>Concesión de permisos 
@@ -101,48 +101,26 @@ En la siguiente sección se enumeran los pasos para ambas API. Si no desea acced
 
 **Para conceder a la aplicación permisos para usar las API:**
 
-1. Seleccione la aplicación en la página **Registros de aplicaciones** y seleccione **Configuración**. 
+
+1. Seleccione **Permisos de API** y, después, **Agregar un permiso**. 
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. En la hoja **Configuración**, seleccione **Permisos necesarios**. 
+2. En la **página Solicitud de permisos de API**, busque **Compatibilidad de API heredadas** **Azure Active Directory Graph**. 
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. En la página **Permisos necesarios**, en la lista **API**, haga clic en **Microsoft Azure Active Directory**. 
+3. En la página  **Permisos necesarios**, seleccione **Permisos de la aplicación** y expanda la casilla **Directory.ReadAll** de **Directorio**.  Seleccione **Agregar permisos**.
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. En la página **Habilitar acceso**, seleccione **Leer datos de directorio** y anule la selección de **Iniciar sesión y leer el perfil del usuario**. 
+4. En la página **Reporting API Application - API Permissions** (Informes de aplicación de API: Permisos de API ), seleccione **Conceder consentimiento del administrador** . 
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. En la barra de herramientas de la parte superior, haga clic en **Guardar**.
+5. Nota: **Microsoft Graph** se agrega de forma predeterminada durante el registro de la API.
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/15.png)
-
-6. En la página **Permisos necesarios**, en la barra de herramientas de la parte superior, haga clic en **Agregar**.
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/32.png)
-
-7. En la página **Agregar acceso de API**, haga clic en **Seleccionar una API**.
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/31.png)
-
-8. En la página **Seleccionar una API**, haga clic en **Microsoft Graph** y, a continuación, haga clic en **Seleccionar**.
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/33.png)
-
-9. En la página **Habilitar acceso**, seleccione **Read all audit log data** (Leer todos los datos del registro de auditoría) y, a continuación, haga clic en **Seleccionar**.  
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/34.png)
-
-10. En la página **Agregar acceso de API**, haga clic en **Listo**.  
-
-11. En la página **Permisos necesarios**, en la barra de herramientas de la parte superior, haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**.
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/17.png)
-
 
 ## <a name="gather-configuration-settings"></a>Recopilación de configuraciones 
 
@@ -185,7 +163,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 
 ### <a name="get-your-applications-client-secret"></a>Obtención del secreto de cliente de la aplicación
-Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave y guardar su valor después, ya que no es posible recuperarla más tarde.
+ Evite errores al intentar obtener acceso a los registros de auditoría o al inicio de sesión mediante la API.
 
 **Para obtener el secreto de cliente de la aplicación:**
 
@@ -195,17 +173,11 @@ Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave
 
 2.  Seleccione la aplicación en la página **Registros de aplicaciones**.
 
-3. En la página de la aplicación, en la barra de herramientas de la parte superior, seleccione **Configuración**. 
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/05.png)
-
-4. En la página **Configuración**, en la sección **Acceso de API**, haga clic en **Claves**. 
+3.  Seleccione **Certificados y Secretos** en la página **API Application**, en la sección **Secretos de cliente**, haga clic en **+ Nuevo secreto de cliente**. 
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. En la página **Claves**, siga estos pasos:
-
-    ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+5. En la página **Add a client secret** (Agregar un secreto de cliente), agregue:
 
     a. En el cuadro de texto **Descripción**, escriba `Reporting API`.
 
@@ -225,7 +197,7 @@ Actualmente no se admite el punto de conexión Microsoft Graph v2; asegúrese de
 
 ### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: No se pudieron obtener los roles de usuario de Graph AD
 
-Es posible que aparezca este mensaje de error al intentar acceder a los inicios de sesión mediante el Probador de Graph. Asegúrese de que ha iniciado sesión en su cuenta con los dos botones de inicio de sesión de la interfaz de usuario del Probador de Graph, tal como se muestra en la imagen siguiente. 
+ Inicie sesión en su cuenta con los dos botones de inicio de sesión de la interfaz de usuario del Probador de Graph para no recibir un error al intentar iniciar sesión con el Probador de Graph. 
 
 ![Explorador de Graph](./media/troubleshoot-graph-api/graph-explorer.png)
 
@@ -236,17 +208,15 @@ Si se encuentra con este mensaje de error al intentar acceder a los inicios de s
 ![Modificación de la interfaz de usuario de permisos](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Error: El inquilino no es B2C o el inquilino no tiene licencia Premium
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Error: El inquilino no es B2C o el inquilino no tiene licencia Premium
 
 El acceso a los informes de inicio de sesión requiere una licencia Premium 1 (P1) de Azure Active Directory. Si ve este mensaje de error al acceder a los inicios de sesión, asegúrese de que su inquilino tiene una licencia P1 de Azure AD.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Error: El usuario no está en los roles permitidos 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Error: los roles permitidos no incluyen Usuario. 
 
-Si ve este mensaje de error mientras intenta acceder a los registros de auditoría o a los inicios de sesión mediante la API, asegúrese de que su cuenta forma parte del rol **Lector de seguridad** o **Lector de informes** en su inquilino de Azure Active Directory. 
+ Evite errores al intentar obtener acceso a los registros de auditoría o al inicio de sesión mediante la API. Asegúrese de que la cuenta forma parte de los roles **Lector de seguridad** o **Lector de informes** en su inquilino de Azure Active Directory.
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: Falta el permiso de AAD de la aplicación "Leer datos de directorio" 
-
-Siga los pasos del artículo [Requisitos previos para acceder a la API de generación de informes de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para asegurarse de que la aplicación se ejecuta con el conjunto correcto de permisos. 
 
 ### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: Falta el permiso de MSGraph API "Leer todos los datos de registro de auditoría"
 

@@ -6,20 +6,42 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 810484060850400a6af8e5be4cf16164eb8f18cc
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688905"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258980"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
+
 Puede solucionar los errores detectados al usar Azure Backup Server con la información que aparece a continuación:
 
 ## <a name="backup"></a>Copia de seguridad
+
 En esta sección se trata el error en la operación de copia de seguridad de la máquina virtual de Azure.
+
+### <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
+
+* Asegúrese de que el agente de máquina virtual (agente de WA) es la [versión más reciente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Asegúrese de que la versión del sistema operativo de la máquina virtual Windows o Linux, consulte [Matriz de compatibilidad para copias de seguridad de máquinas virtuales IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Compruebe que no hay otro servicio de copia de seguridad en ejecución.
+   * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Compruebe que la máquina virtual tiene conectividad a Internet.
+   * Asegúrese de que no hay otro servicio de copia de seguridad en ejecución.
+* En `Services.msc`, asegúrese de que el estado del servicio **Microsoft Azure Guest Agent** es **En ejecución**. Si falta el servicio **Windows Azure Guest Agent**, instálelo desde [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* El **registro de eventos** puede mostrar errores procedentes de otros productos de copia de seguridad, como por ejemplo Copias de seguridad de Windows Server, que no se deben a Azure Backup. Siga estos pasos para determinar si el problema tiene que ver con Azure Backup:
+   * Si hay algún error en una entrada **Backup** (Copia de seguridad) en el origen del evento o en el mensaje, compruebe si las copias de seguridad de la máquina virtual IaaS de Azure se realizaron correctamente y si se creó un punto de restauración con el tipo de instantánea deseado.
+    * Si Azure Backup funciona, es probable que el problema lo produzca otra solución de copia de seguridad.
+    * Este es un ejemplo de un error del visor de eventos en el que Azure Backup funcionaba correctamente, pero se produjo un error en "Copias de seguridad de Windows Server":<br>
+    ![Error de Copias de seguridad de Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * Si Azure Backup no funciona correctamente, busque el código de error correspondiente en la sección Errores comunes de la copia de seguridad de VM de este artículo.
+
+## <a name="common-issues"></a>Problemas comunes
+
+A continuación encontrará problemas habituales que generan errores en las copias de seguridad de las máquinas virtuales de Azure.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime: Se agotó el tiempo de espera para copiar los datos de copia de seguridad del almacén
 
@@ -36,7 +58,7 @@ Mensaje de error: El estado de la máquina virtual no permite realizar copias de
 Se produjo un error en la operación de copia de seguridad porque la VM se encuentra en un estado Incorrecto. Para que la copia de seguridad se realice correctamente, el estado de la máquina virtual debe ser En ejecución, Detenido o Detenido (desasignado).
 
 * Si la máquina está en un estado transitorio entre **En ejecución** y **Apagar**, espere a que cambie el estado. A continuación, desencadenar el trabajo de copia de seguridad.
-*  Si se trata de una VM de Linux y utiliza el módulo de kernel Security-Enhanced Linux, deberá excluir la ruta del agente de Linux de Azure ( **/var/lib/waagent**) de la directiva de seguridad y asegurarse de que la extensión de Backup está instalada.
+* Si se trata de una VM de Linux y utiliza el módulo de kernel Security-Enhanced Linux, deberá excluir la ruta del agente de Linux de Azure ( **/var/lib/waagent**) de la directiva de seguridad y asegurarse de que la extensión de Backup está instalada.
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed: La copia de seguridad no pudo inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente del sistema de archivos
 
@@ -148,7 +170,7 @@ Error de operación de copia de seguridad de la VM debido a un retraso en las ll
 
 En el símbolo del sistema de administrador con permisos elevados, ejecute el comando siguiente:
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -163,16 +185,15 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 
 | Detalles del error | Solución alternativa |
 | ------ | --- |
-| Código de error: 320001<br/> Mensaje de error: No se pudo realizar la operación porque la máquina virtual ya no existe. <br/> <br/> Código de error: 400094 <br/> Mensaje de error: No existe la máquina virtual <br/> <br/>  No se encontró una máquina virtual de Azure.  |Este error sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para corregir este error, siga estos pasos: <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos, **nombre del servicio en la nube**,<br>**or**</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. Para más información, consulte [Detener la protección de máquinas virtuales](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| **Código de error**: 320001<br/> **Mensaje de error**: No se pudo realizar la operación porque la máquina virtual ya no existe. <br/> <br/> **Código de error**: 400094 <br/> **Mensaje de error**: No existe la máquina virtual <br/> <br/>  No se encontró una máquina virtual de Azure.  |Este error sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para corregir este error, siga estos pasos: <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos, **nombre del servicio en la nube**,<br>**or**</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. Para más información, consulte [Detener la protección de máquinas virtuales](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | La máquina virtual está en un estado de aprovisionamiento incorrecto: <br>Reinicie la máquina y asegúrese de que se esté ejecutando o esté apagada. | Este error ocurre cuando uno de los errores de extensión pone a la máquina virtual en un estado de aprovisionamiento erróneo. Vaya a la lista de extensiones y compruebe si hay una extensión errónea, quítela e intente reiniciar la máquina virtual. Si todas las extensiones están en estado de ejecución, compruebe si el servicio del agente de VM está en ejecución. Si no es así, reinicie el servicio del agente de VM. |
-|Código de error: UserErrorBCMPremiumStorageQuotaError<br/> Mensaje de error: No se pudo copiar la instantánea de la máquina virtual debido a que no había espacio suficiente disponible en la cuenta de almacenamiento | En el caso de máquinas virtuales Prémium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, la instantánea se copia a la cuenta de almacenamiento. Este pase sirve para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de IOPS disponibles para la aplicación con discos Prémium. <br><br>Se recomienda asignar solo un 50 por ciento, 17,5 TB, del espacio total de la cuenta de almacenamiento. El servicio de Azure Backup puede copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. |
-| Error al instalar la extensión de servicios de recuperación de Microsoft como máquina virtual no se está ejecutando <br>Se requiere tener el agente de VM para instalar la extensión de Azure Recovery Services. Instale el agente de máquina virtual de Azure y reinicie la operación de registro. |<ol> <li>Compruebe si el agente de máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de la configuración de la máquina virtual se haya establecido correctamente.</ol> Obtenga más información acerca de la instalación del agente de máquina virtual y de cómo validar dicha instalación. |
-| Error en la operación de instantánea con el error de operación del Servicio de instantáneas de volumen **El Cifrado de unidad BitLocker está bloqueando esta unidad. Esta unidad se debe desbloquear en el Panel de control.** |Desactive BitLocker para todas las unidades de la máquina virtual y observe si se resuelve el problema de VSS. |
-| El estado de la máquina virtual no permite realizar copias de seguridad. |<ul><li>Si la máquina está en un estado transitorio entre **En ejecución** y **Apagar**, espere a que cambie el estado. A continuación, desencadenar el trabajo de copia de seguridad. <li> Si se trata de una VM de Linux y utiliza el módulo de kernel Security-Enhanced Linux, deberá excluir la ruta del agente de Linux de Azure ( **/var/lib/waagent**) de la directiva de seguridad y asegurarse de que la extensión de Backup está instalada.  |
+|**Código de error**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensaje de error**: No se pudo copiar la instantánea de la máquina virtual debido a que no había espacio suficiente disponible en la cuenta de almacenamiento | En el caso de máquinas virtuales Prémium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, la instantánea se copia a la cuenta de almacenamiento. Este pase sirve para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de IOPS disponibles para la aplicación con discos Prémium. <br><br>Se recomienda asignar solo un 50 por ciento, 17,5 TB, del espacio total de la cuenta de almacenamiento. El servicio de Azure Backup puede copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. |
+| **Código de error: 380008** <br/> **Mensaje de error**: Error al instalar la extensión de servicios de recuperación de Microsoft como máquina virtual no se está ejecutando | Se requiere tener el agente de VM para instalar la extensión de Azure Recovery Services. Instale el agente de máquina virtual de Azure y reinicie la operación de registro. <br> <ol> <li>Compruebe si el agente de máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de la configuración de la máquina virtual se haya establecido correctamente.</ol> Obtenga más información acerca de la instalación del agente de máquina virtual y de cómo validar dicha instalación. |
+| **Código de error**: ExtensionSnapshotBitlockerError <br/> **Mensaje de error**: Error en la operación de instantánea con el error de operación del Servicio de instantáneas de volumen **El Cifrado de unidad BitLocker está bloqueando esta unidad. Esta unidad se debe desbloquear en el Panel de control.** |Desactive BitLocker para todas las unidades de la máquina virtual y observe si se resuelve el problema de VSS. |
+| **Código de error**: VmNotInDesirableState <br/> **Mensaje de error**:  El estado de la máquina virtual no permite realizar copias de seguridad. |<ul><li>Si la máquina está en un estado transitorio entre **En ejecución** y **Apagar**, espere a que cambie el estado. A continuación, desencadenar el trabajo de copia de seguridad. <li> Si se trata de una VM de Linux y utiliza el módulo de kernel Security-Enhanced Linux, deberá excluir la ruta del agente de Linux de Azure ( **/var/lib/waagent**) de la directiva de seguridad y asegurarse de que la extensión de Backup está instalada.  |
 | El agente de máquina virtual no está en la máquina virtual: <br>Instale los requisitos previos y el agente de máquina virtual. A continuación, reinicie la operación. |Obtenga más información acerca de la [instalación del agente de máquina virtual y de cómo validarla](#vm-agent). |
-| La copia de seguridad no pudo inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente del sistema de archivos. | Lleve a cabo lo siguiente: <ul><li>Compruebe el estado del sistema de archivos de todos los dispositivos montados con el comando **'tune2fs'** . Un ejemplo es **tune2fs-l/dev/sdb1 \\** .\| grep **filesystem State**. <li>Desmonte los dispositivos cuyo estado del sistema de archivos no esté limpio; para ello, use el comando **'umount'** . <li> Ejecute una comprobación de coherencia del sistema de archivos en estos dispositivos mediante el comando **'fsck'** . <li> Vuelva a montar los dispositivos e intente realizar la copia de seguridad.</ol> |
-| Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2012_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
+| **Código de error**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
+| **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
 
 
 ## <a name="jobs"></a>Trabajos
@@ -244,7 +265,7 @@ La copia de seguridad de máquinas virtuales se basa en la emisión de comandos 
 - **Se bloquea el acceso de red a Storage mediante NSG**. Obtenga más información sobre cómo [establecer el acceso de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity) a Storage mediante listas permitidas de direcciones IP o con un servidor proxy.
 - **Las máquinas virtuales con copia de seguridad de SQL Server configurada pueden provocar un retraso de la tarea de instantánea**. De forma predeterminada, la copia de seguridad de VM crea una copia de seguridad completa de VSS en VM Windows. Las máquinas virtuales que ejecutan SQL Server y tienen configurada la copia de seguridad de SQL Server pueden experimentar retrasos en las instantáneas. Si los retrasos en las instantáneas provocan errores de copia de seguridad, establezca la siguiente clave del Registro:
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298922"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194674"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -111,34 +111,19 @@ La siguiente matriz asigna cada _motivo_ posible a la [condición](../concepts/d
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalles de cumplimiento de la configuración de invitado
 
-Para las políticas de _auditoría_ en la categoría _Configuración de invitado_, podría haber varias configuraciones evaluadas dentro de la VM y tendrá que ver los detalles por configuración. Por ejemplo, si está realizando una auditoría para obtener una lista de aplicaciones instaladas y el estado de asignación es _No compatible_, deberá saber qué aplicaciones específicas faltan.
+Para las directivas _auditIfNotExists_ de la categoría _Configuración de invitados_, podría haber varias configuraciones evaluadas dentro de la máquina virtual y tendrá que ver los detalles por configuración. Por ejemplo, si va a realizar una auditoría de una lista de directivas de contraseñas y solo una de ellas tiene el estado _No compatible_, debe saber qué directivas de contraseñas específicas no cumplen los requisitos y por qué.
 
-También es posible que no disponga de acceso para iniciar sesión en la VM directamente, pero tiene que informar sobre el motivo por el que la VM _no es compatible_. Por ejemplo, podría auditar esas VM unidas al dominio correcto e incluir la pertenencia al dominio actual en los detalles del informe.
+También es posible que no disponga de acceso para iniciar sesión en la VM directamente, pero tiene que informar sobre el motivo por el que la VM _no es compatible_.
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+Para empezar, siga los mismos pasos de la sección anterior para ver los detalles de cumplimiento de directivas.
 
-1. En la página **Introducción** o **Cumplimiento** , seleccione una asignación de directiva para las iniciativas que contengan una definición de directiva de configuración de invitado que sea _no compatible_.
+En la vista del panel **Detalles de cumplimiento**, haga clic en el vínculo **Último recurso evaluado**.
 
-1. Seleccione una directiva de _auditoría_ en la iniciativa que _no sea compatible_.
+   ![Ver detalles de la definición de auditIfNotExists](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
 
-   ![Ver detalles de la definición de auditoría](../media/determine-non-compliance/guestconfig-audit-compliance.png)
-
-1. En la pestaña **Compatibilidad de recursos**, se proporciona la siguiente información:
-
-   - **Nombre**: el nombre de las asignaciones de configuración de invitado.
-   - **Recurso principal**: la máquina virtual en un estado _No compatible_ para la asignación de configuración de invitado seleccionada.
-   - **Tipo de recurso**: el nombre completo de _guestConfigurationAssignments_.
-   - **Última evaluación**: la última vez que el servicio de configuración de invitado notificó a Azure Policy sobre el estado de la máquina virtual de destino.
-
-   ![Ver detalles de cumplimiento](../media/determine-non-compliance/guestconfig-assignment-view.png)
-
-1. Seleccione el nombre de asignación de configuración de invitado en la columna **Nombre** para abrir la página **Compatibilidad de recursos**.
-
-1. Seleccione el **Ver recurso** situado en la parte superior de la página para abrir la página **Asignación de invitado**.
-
-La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina virtual. En la columna **Motivo**, se muestra una frase en la que se describe el motivo por el que la Asignación de invitado _no es compatible_. Por ejemplo, si está realizando una auditoría en la que las VM deben estar unidas a un dominio, la columna **Motivo** mostraría el texto incluido en la pertenencia al dominio actual.
+La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase en la que se describe el motivo por el que la Asignación de invitado _no es compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
 ![Ver detalles de cumplimiento](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
@@ -173,7 +158,7 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-También puede generar un historial de cumplimiento de las asignaciones de invitado en el ámbito de la máquina virtual. La salida de este comando incluye los detalles de cada informe para la VM.
+También puede generar un historial de cumplimiento de las asignaciones de invitados en el ámbito de la máquina. La salida de este comando incluye los detalles de cada informe para la VM.
 
 > [!NOTE]
 > La salida puede devolver un gran volumen de datos. Se recomienda almacenar la salida en una variable.

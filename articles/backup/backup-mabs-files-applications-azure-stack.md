@@ -6,16 +6,17 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/5/2018
+ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735470"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210214"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
+
 Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
 
 > [!NOTE]
@@ -23,7 +24,6 @@ Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos
 >
 
 Este artículo no se trata de la instalación de Azure Backup Server en el entorno de Azure Stack. Para instalar Azure Backup Server en Azure Stack, consulte el artículo [Instalación de Azure Backup Server en Azure Stack](backup-mabs-install-azure-stack.md).
-
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Copia de seguridad en Azure de archivos y carpetas de las máquinas virtuales en Azure Stack
 
@@ -41,7 +41,7 @@ Para configurar Azure Backup Server a fin de proteger los archivos de las máqui
 
     ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-    Se abre la pantalla **Seleccionar miembros del grupo**. 
+    Se abre la pantalla **Seleccionar miembros del grupo**.
 
     ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
@@ -63,7 +63,7 @@ Para configurar Azure Backup Server a fin de proteger los archivos de las máqui
     > **No** debería conservar datos de recuperación operativa (copia de seguridad) en discos conectados directamente a Azure Backup Server durante más de cinco días.
     >
 
-    ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+    ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     En lugar de seleccionar un intervalo para las copias de seguridad incrementales, haga clic en **Solo antes de un punto de recuperación** para ejecutar una copia de seguridad completa rápida justo antes de cada punto de recuperación programado. Si va a proteger las cargas de trabajo de la aplicación, Azure Backup Server crea puntos de recuperación según la programación de la frecuencia de sincronización (siempre que la aplicación admita las copias de seguridad incrementales). Si la aplicación no admite las copia de seguridad incrementales, Azure Backup Server ejecuta una copia de seguridad completa rápida.
 
@@ -80,13 +80,13 @@ Para configurar Azure Backup Server a fin de proteger los archivos de las máqui
 
 9. Si eligió realizar una copia de seguridad en Azure, en la página **Especificar datos de protección en línea**, asegúrese de que estén seleccionadas las cargas de trabajo de las que quiere hacer copias de seguridad en Azure.
 
-10. En **Especificar la programación de copia de seguridad en línea**, especifique cuándo se deberían realizar las copias de seguridad incrementales en Azure. 
+10. En **Especificar la programación de copia de seguridad en línea**, especifique cuándo se deberían realizar las copias de seguridad incrementales en Azure.
 
     Puede programar que las copias de seguridad se ejecuten cada día, semana, mes y año y seleccionar la hora y la fecha en la que se deben ejecutar. Pueden realizarse copias de seguridad hasta dos veces al día. Cada vez que se ejecute un trabajo de copia de seguridad, se crea un punto de recuperación en Azure a partir de la copia de los datos de copia de seguridad almacenados en el disco de Azure Backup Server.
 
 11. En **Especificar la directiva de retención en línea**, especifique cómo se retienen en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
 
-12. En **Elegir replicación en línea**, especifique cómo se realiza la replicación inicial total de los datos. 
+12. En **Elegir replicación en línea**, especifique cómo se realiza la replicación inicial total de los datos.
 
 13. En **Resumen**, revise la configuración. Cuando hace clic en **Crear grupo**, se realiza la replicación inicial de los datos. Cuando finalice la replicación de los datos, en la página **Estado**, el estado del grupo de protección se mostrará como **OK** (Correcto). El trabajo de copia de seguridad inicial se realiza según la configuración del grupo de protección.
 
@@ -115,11 +115,10 @@ Use la consola de Azure Backup Server para recuperar los datos en la máquina vi
     * **Notification** (Notificación) Haga clic en **Send an e-mail when the recovery completes** (Enviar un correo electrónico cuando se complete la recuperación) y especifique los destinatarios que recibirán la notificación. Separe las direcciones de correo electrónico con comas.
     * Después de realizar las selecciones, haga clic en **Siguiente**.
 
-7. Revise la configuración de recuperación y haga clic en **Recuperar**. 
+7. Revise la configuración de recuperación y haga clic en **Recuperar**.
 
-    > [!Note] 
-    > Mientras el trabajo de recuperación está en curso, se cancelan todos los trabajo de sincronización correspondientes a los elementos de recuperación seleccionados.
-    >
+    >[!Note]
+    >Mientras el trabajo de recuperación está en curso, se cancelan todos los trabajo de sincronización correspondientes a los elementos de recuperación seleccionados.
 
 Si usa Modern Backup Storage (MBS), no se admite la recuperación del usuario final (EUR) del servidor de archivos. EUR del servidor de archivos depende del Servicio de instantáneas de volumen (VSS) que Modern Backup Storage no usa. Si se habilitó EUR, use estos pasos para recuperar los datos:
 
@@ -128,12 +127,16 @@ Si usa Modern Backup Storage (MBS), no se admite la recuperación del usuario fi
 2. En el menú **Propiedades**, haga clic en **Versiones anteriores** y elija la versión que quiere recuperar.
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Visualización de Azure Backup Server con un almacén
+
 Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir estos pasos:
+
 1. Abrir el almacén de Recovery Services.
 2. Hacer clic en la infraestructura de copia de seguridad.
 3. Ver los servidores de administración de copias de seguridad.
 
 ## <a name="see-also"></a>Otras referencias
+
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
-- [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+
+* [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+* [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

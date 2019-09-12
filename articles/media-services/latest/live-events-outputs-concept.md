@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605649"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231202"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -35,7 +35,7 @@ Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) s
 
 Un [objeto LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través y codificación en directo. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**:-un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. 
+* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. 
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
 * **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una única secuencia de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits. 
 
@@ -155,16 +155,7 @@ Para más información, consulte [Operaciones de larga duración](media-services
 
 Una vez que la secuencia fluye en el objeto LiveEvent, puede comenzar el evento de streaming mediante la creación de un [recurso](https://docs.microsoft.com/rest/api/media/assets), un [objeto LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) y un [objeto StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators). El objeto LiveOutput archivará la secuencia y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
-> [!NOTE]
-> Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto LiveOutput, no se elimina el recurso subyacente ni su contenido. 
-
-La relación entre un objeto **LiveEvent** y sus objetos **LiveOutput** es similar a la difusión de televisión tradicional, en la que un canal (LiveEvent) representa un flujo constante de vídeo y una grabación (LiveOutput) tiene un ámbito que está limitado a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Puede grabar un programa de televisión con una grabadora de vídeo digital (DVR). La característica equivalente de los eventos en directo se administra con la propiedad **archiveWindowLength**. Se trata de una duración de timespan ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
-
-El objeto LiveOutput es como una grabadora que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado persistirá en la cuenta de Azure Storage adjunta a su cuenta, en el contenedor definido por el recurso. El objeto LiveOuput también le permite controlar algunas propiedades del streaming en vivo saliente, como qué parte de la transmisión se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) y si los usuarios pueden empezar a ver el streaming en vivo o no. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad archiveWindowLength de LiveOutput. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. Puede crear varios objetos LiveOutput (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo.  
-
-Si ha publicado el **recurso** del objeto LiveOutput mediante un objeto **StreamingLocator**, el objeto LiveEvent (hasta la longitud de la ventana de DVR) seguirá estando visible hasta la expiración o eliminación del objeto StreamingLocator, lo que ocurra primero.
-
-Para más información, consulte [Uso de una DVR en la nube](live-event-cloud-dvr.md).
+Para obtener información detallada sobre las salidas en directo, consulte [Uso de una DVR en la nube](live-event-cloud-dvr.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

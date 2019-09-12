@@ -3,7 +3,7 @@ title: 'Aplicación de página única (adquirir un token para llamar a una API):
 description: Aprenda a crear una aplicación de página única (adquirir un token para llamar a una API)
 services: active-directory
 documentationcenter: dev-center-name
-author: navyasric
+author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 08/20/2019
+ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c842db8a0874d3619e0dc59b90aa12226cb984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f49a6093194ef76a895f2a54f8a78a55da73e7e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138818"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135707"
 ---
 # <a name="single-page-application---acquire-a-token-to-call-an-api"></a>Aplicación de página única: adquirir un token para llamar a una API
 
-El patrón para la adquisición de tokens de API con MSAL.js consiste en intentar realizar primero una solicitud de token silenciosa utilizando el método `acquireTokenSilent`. Cuando se llama a este método, la biblioteca comprueba primero la caché en el almacenamiento del explorador para ver si existe un token válido y, a continuación, la devuelve. Cuando no hay ningún token válido en la memoria caché, envía una solicitud de token silenciosa a Azure Active Directory (Azure AD) desde un iframe oculto. Este método también permite que la biblioteca renueve los tokens. Para obtener más información sobre los valores de inicio de sesión único y la duración del token en Azure AD, consule la [vigencia de los token](active-directory-configurable-token-lifetimes.md).
+El patrón para la adquisición de tokens de API con MSAL.js consiste en intentar realizar primero una solicitud de token silenciosa utilizando el método `acquireTokenSilent`. Cuando se llama a este método, la biblioteca comprueba primero la caché en el almacenamiento del explorador para ver si existe un token válido y, a continuación, la devuelve. Cuando no hay ningún token válido en la memoria caché, envía una solicitud de token silenciosa a Azure Active Directory (Azure AD) desde un iframe oculto. Este método también permite que la biblioteca renueve los tokens. Para más información sobre los valores de inicio de sesión único y la duración del token en Azure AD, consulte la [vigencia de los tokens](active-directory-configurable-token-lifetimes.md).
 
 Las solicitudes de token silenciosas a Azure AD pueden producir un error por algún motivo, como una sesión de Azure AD que haya expirado o un cambio de contraseña. En ese caso, puede invocar uno de los métodos interactivos (que se le pedirán al usuario) para adquirir tokens.
 
@@ -72,9 +72,9 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 ### <a name="angular"></a>Angular
 
-El contenedor de MSAL Angular le resultará cómodo para agregar el interceptor HTTP `MsalInterceptor`, el cual adquirirá automáticamente los tokens de acceso en silencio y los adjuntará a las solicitudes HTTP de las API.
+El contenedor de MSAL Angular le resultará cómodo para agregar el interceptor HTTP, que adquirirá de forma automática y silenciosa los tokens de acceso y los adjuntará a las solicitudes HTTP de las API.
 
-Puede especificar los ámbitos de las API en la opción de configuración `protectedResourceMap` que MsalInterceptor solicitará cuando adquiera tokens automáticamente.
+Puede especificar los ámbitos de las API en la opción de configuración `protectedResourceMap`, que MsalInterceptor solicitará cuando adquiera tokens automáticamente.
 
 ```javascript
 //In app.module.ts
@@ -116,7 +116,7 @@ Como alternativa, también puede adquirir los tokens de forma explícita mediant
 
 ### <a name="javascript"></a>JavaScript
 
-El patrón es tal como se describió anteriormente, pero se muestra con un método de redireccionamiento para adquirir el token de manera interactiva. Tenga en cuenta que necesitará registrar la devolución de llamada de redirección, tal como se mencionó anteriormente.
+El patrón es tal como se describió anteriormente, pero se muestra con un método de redireccionamiento para adquirir el token de manera interactiva. Tal y como se mencionó anteriormente, tendrá que registrar la devolución de llamada de redireccionamiento.
 
 ```javascript
 function authCallback(error, response) {
@@ -141,6 +141,37 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
     }
 });
 ```
+
+## <a name="request-for-optional-claims"></a>Solicitud de notificaciones opcionales
+Puede solicitar notificaciones opcionales en la aplicación para especificar qué notificaciones adicionales se incluirán en los tokens de la aplicación. Para solicitar notificaciones opcionales en el objeto id_token, puede enviar un objeto de notificaciones con formato de cadena al campo claimsRequest de la clase AuthenticationParameters.ts.
+
+Puede usar notificaciones opcionales para lo siguiente:
+
+- Incluir notificaciones adicionales en los tokens de la aplicación.
+- Cambiar el comportamiento de ciertas notificaciones que Azure AD devuelve en tokens.
+- Agregar notificaciones personalizadas para la aplicación y acceder a ellas.
+
+
+### <a name="javascript"></a>JavaScript
+```javascript
+"optionalClaims":  
+   {
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": true
+             }
+      ],
+
+var request = {
+    scopes: ["user.read"],
+    claimsRequest: JSON.stringify(claims)
+};
+
+myMSALObj.acquireTokenPopup(request);
+```
+Para más información, consulte un artículo sobre las [notificaciones opcionales](active-directory-optional-claims.md).
+
 
 ### <a name="angular"></a>Angular
 

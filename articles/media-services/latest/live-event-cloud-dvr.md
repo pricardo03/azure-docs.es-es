@@ -11,36 +11,48 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: 4dd14587ec7e1473953981c1ef8c32c59eb9a1d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a10c76dd7fb4ef1e9a45666ff3a3ca0d937d2c94
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322342"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231229"
 ---
-# <a name="using-a-cloud-dvr"></a>Uso de una DVR en la nube
+# <a name="using-a-cloud-digital-video-recorder-dvr"></a>Uso de una grabadora de vídeo digital (DVR) en la nube
 
-El objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite controlar las propiedades de la transmisión de salida en directo, como el volumen de la transmisión que se va a grabar (por ejemplo, la capacidad de la DVR en la nube) y si los espectadores pueden empezar o no a ver la transmisión en directo. La relación entre un objeto **LiveEvent** y su objeto **LiveOutput** es similar a la difusión por televisión tradicional, en la que un canal (objeto **LiveEvent**) representa un flujo constante de vídeo y una grabación (objeto **LiveOutput**) tiene un ámbito que está limitado a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Puede grabar un programa de televisión utilizando una grabadora de vídeo digital (DVR). La característica equivalente de los eventos en directo se administra con la propiedad ArchiveWindowLength. Se trata de una duración de timespan ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
+En Azure Media Services, un objeto [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](https://docs.microsoft.com/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida en directo también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) y si los espectadores pueden empezar a ver el streaming en vivo, o no. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de Live Output. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor de archiveWindowLength representa una duración del intervalo de tiempo de ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
 
-## <a name="live-output"></a>Objeto LiveOutput
+La relación entre un evento en directo y sus salidas en directo es similar a la retransmisión de televisión tradicional, en la que un canal (evento en directo) representa una transmisión constante de vídeo y una grabación (salida en directo) tiene un ámbito que está limitado a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Una vez que la transmisión fluye en el evento en directo, puede comenzar el evento de streaming mediante la creación de un recurso, una salida en vivo y un localizador de streaming. La salida en directo archivará la transmisión y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Puede crear varias salidas en directo (hasta un máximo de tres) en un evento en directo con diferentes configuraciones y longitudes de archivo. Para obtener información sobre el flujo de trabajo del streaming en vivo, consulte la sección de [pasos generales](live-streaming-overview.md#general-steps).
 
-El valor **ArchiveWindowLength** determina hasta qué punto puede un usuario buscar hacia atrás en el tiempo desde la posición actual en vivo.  **ArchiveWindowLength** también determina durante cuánto tiempo pueden aumentar los manifiestos de cliente.
+## <a name="using-a-dvr-during-an-event"></a>Uso de una DVR durante un evento 
 
-Suponga que hace streaming de un partido de fútbol que tiene un valor **ArchiveWindowLength** de solo 30 minutos. Un usuario que empieza a ver el evento a los 45 minutos de iniciado el juego puede buscar hacia atrás hasta la marca de 15 minutos como máximo. Los objetos **LiveOutput** del juego continuarán hasta que el objeto **LiveEvent** se detenga, pero el contenido que quede fuera de **ArchiveWindowLength** se descartará ininterrumpidamente desde el almacenamiento y no podrá recuperarse. En este ejemplo, el vídeo entre el inicio del evento y la marca de 15 minutos se habría purgado de la DVR y del contenedor de Blob Storage del [recurso](https://docs.microsoft.com/rest/api/media/assets). El archivo no se puede recuperar y se quita del contenedor en Azure Blob Storage.
+En esta sección se explica cómo usar una DVR durante un evento para controlar qué partes de la transmisión están disponibles para el "rebobinado".
 
-Cada objeto **LiveOutput** está asociada a un **recurso** que dicha salida utiliza para grabar el vídeo en el contenedor de Azure Blob Storage asociado. Si desea publicar el objeto LiveOutput, debe crear un objeto **StreamingLocator** para ese **recurso**. Después de crear un [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puede crear una dirección URL de streaming y proporcionársela a los usuarios.
+El valor archiveWindowLength determina cuánto tiempo hacia atrás puede un espectador buscar desde la posición actual en vivo. El valor de archiveWindowLength también determina durante cuánto tiempo pueden crecer los manifiestos de cliente.
 
-Un objeto **LiveEvent** admite que como mucho se ejecuten tres objetos **LiveOutput** simultáneamente, por lo que puede crear un máximo de tres grabaciones o archivos a partir de una transmisión en directo. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Suponga que tiene que difundir una fuente lineal en vivo e ininterrumpida y crea "grabaciones" de los distintos programas durante todo el día para ofrecerlas a los clientes como contenido a petición que pueden ver para ponerse al día. En este escenario, primero debe crear un objeto LiveOutput principal con un periodo de archivado de una hora o menos (esta es la transmisión en directo principal que los usuarios sintonizarán). Puede crear un objeto **StreamingLocator** para este objeto **LiveOutput** y publicarlo en la aplicación o en el sitio web como la fuente "en directo". Mientras el objeto **LiveEvent** está en ejecución, puede crear mediante programación otro objeto **LiveOutput** simultáneo al comienzo de un programa (o cinco minutos antes para ofrecer algunos manipuladores que permitan recortar la transmisión más adelante). Este segundo objeto **LiveOutput** puede eliminarse cinco minutos después de que finalice el programa. Con este segundo **recurso**, puede crear otro **localizador de streaming** para publicar este programa como un recurso a petición en el catálogo de la aplicación. Puede repetir este proceso varias veces con otros límites o aspectos destacados del programa que desee compartir como vídeos a petición, todo esto mientras la fuente "en directo" del primer objeto **LiveOutput** continúa con la difusión de la fuente lineal. 
+Suponga que hace streaming de un partido de fútbol y que tiene un valor de ArchiveWindowLength de solo 30 minutos. Un usuario que empieza a ver el evento a los 45 minutos de iniciado el juego puede buscar hacia atrás hasta la marca de 15 minutos como máximo. Las salidas en directo del partido continuarán hasta que se detenga el evento en directo, pero el contenido que quede fuera de archiveWindowLength se descarta ininterrumpidamente desde el almacenamiento y no puede recuperarse. En este ejemplo, el vídeo entre el inicio del evento y la marca de 15 minutos se habría purgado de la DVR y del contenedor de Blob Storage del recurso. El archivo no se puede recuperar y se quita del contenedor en Azure Blob Storage.
 
-> [!NOTE]
-> Los objetos **LiveOutput** comienzan cuando se crean y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni su contenido. 
->
-> Si ha publicado el recurso del objeto **LiveOutput** utilizando un objeto **StreamingLocator**, el objeto **LiveEvent** (hasta la longitud de la ventana de DVR) seguirá estando visible hasta la expiración o la eliminación del objeto **StreamingLocator**, lo que ocurra primero.
+Un evento en directo admite que se ejecuten simultáneamente un máximo de tres salidas en directo (puede crear un máximo de tres grabaciones o archivos a partir de una transmisión al mismo tiempo). Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Suponga que tiene que difundir una fuente lineal en vivo e ininterrumpida y crea "grabaciones" de los distintos programas durante todo el día para ofrecerlas a los clientes como contenido a petición que pueden ver para ponerse al día. En este escenario, primero debe crear un objeto LiveOutput principal con un periodo de archivado de una hora o menos (esta es la transmisión en directo principal que los usuarios sintonizarán). Puede crear un localizador de streaming para esta salida en directo y publicarlo en la aplicación o en el sitio web como la fuente "en directo". Mientras se ejecuta el evento en directo, puede crear mediante programación una segunda salida en directo al comienzo de un programa (o cinco minutos antes para ofrecer algunos manipuladores que permitan recortar la transmisión más adelante). Esta segunda salida en directo puede eliminarse cinco minutos después de que finalice el programa. Con este segundo recurso, puede crear un localizador de streaming para publicar este programa como un recurso a petición en el catálogo de la aplicación. Este proceso se puede repetir varias veces en otros límites o aspectos destacados del programa que desee compartir como vídeos a petición, y todo ello mientras la fuente "en directo" de la primera salida en directo continúa con la difusión de la fuente lineal. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="creating-an-archive-for-on-demand-playback"></a>Creación de un archivo para la reproducción a petición
+
+El recurso en el que se está archivando la salida en directo, se convierte automáticamente en un recurso a petición cuando se elimina esa salida en directo. Debe eliminar todas las salidas en directo antes de que un evento en directo pueda detenerse. Puede usar una marca opcional [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para quitar automáticamente las salidas en directo cuando se detenga el proceso. 
+
+Incluso después de detener y eliminar el evento, los usuarios podrán transmitir en secuencias el contenido archivado como un vídeo a petición, siempre que no se elimine el recurso. Los recursos que usan los eventos no se deberían eliminar; primero se deben eliminar los eventos.
+
+Si ha publicado el recurso de la salida en directo mediante un localizador de streaming, el evento en directo (hasta la longitud de la ventana de DVR) seguirá estando visible hasta que el localizador de streaming expire o se elimine, lo que ocurra primero.
+
+Para más información, consulte:
 
 - [Introducción al streaming en vivo](live-streaming-overview.md)
 - [Tutorial de Live Streaming](stream-live-tutorial-with-api.md)
 
+> [!NOTE]
+> Cuando se elimina la salida en directo, no se eliminan el recurso subyacente ni el contenido de dicho recurso. 
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Creación de subclips de los vídeos](subclip-video-rest-howto.md).
+* [Definición de filtros para los recursos](filters-dynamic-manifest-rest-howto.md).

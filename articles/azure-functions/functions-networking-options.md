@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779293"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170655"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -52,8 +52,10 @@ Para obtener más información, consulte [Restricciones de acceso estático de A
 ## <a name="private-site-access"></a>El acceso privado a sitios
 
 El acceso privado a sitios se refiere a que solo se puede acceder a la aplicación desde una red privada (por ejemplo, desde dentro de una red virtual de Azure). 
-* El acceso privado a sitios está disponible en los planes [Premium](./functions-premium-plan.md) y de [App Service](functions-scale.md#app-service-plan) si se han configurado **puntos de conexión de servicio**. Para obtener más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenga en cuenta que, con los puntos de conexión de servicio, la función todavía tiene acceso saliente completo a Internet, incluso cuando está configurada la integración de red virtual.
+* El acceso privado a sitios está disponible en los planes [Premium](./functions-premium-plan.md) y [Consumo](functions-scale.md#consumption-plan) y en el [plan de App Service](functions-scale.md#app-service-plan) si se han configurado **puntos de conexión de servicio**. 
+    * Los puntos de conexión de servicio se pueden configurar por aplicación en Características de la plataforma > Redes > Configurar restricciones de acceso > Agregar regla. Las redes virtuales se pueden seleccionar ahora como el "tipo" de una regla.
+    * Para obtener más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+        * Tenga en cuenta que, con los puntos de conexión de servicio, la función todavía tiene acceso saliente completo a Internet, incluso cuando está configurada la integración de red virtual.
 * El acceso privado a sitios también está disponible con un App Service Environment configurado con un equilibrador de carga interno (ILB). Para obtener más información, consulte [Creación y uso de un equilibrador de carga interno con un App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Integración de la red virtual
@@ -99,6 +101,13 @@ La integración de redes virtuales en Functions usa una infraestructura comparti
 * [Integración con red virtual con requisito de puerta de enlace](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Para obtener más información sobre el uso de la integración de red virtual, consulte [Integración de una aplicación de funciones con una red virtual de Azure](functions-create-vnet.md).
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual
+
+> [!note] 
+> De forma temporal, la cuenta de almacenamiento puede tardar hasta 12 horas en estar disponible para la aplicación de funciones una vez configuradas las restricciones de acceso en esa cuenta de almacenamiento. Durante este tiempo, la aplicación estará completamente sin conexión.
+
+Con el fin de proporcionar un mayor nivel de seguridad, puede restringir la cuenta de almacenamiento de la aplicación a una red virtual. A continuación, debe integrar el sitio con esa red virtual para tener acceso a su cuenta de almacenamiento. Esta configuración es compatible con todos los planes que admiten la integración de redes virtuales.
 
 ## <a name="virtual-network-triggers-non-http"></a>Desencadenadores de red virtual (no HTTP)
 

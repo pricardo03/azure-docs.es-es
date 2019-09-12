@@ -152,18 +152,20 @@
         - name: Configuración de entornos de entrenamiento
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
-        - name: Creación de estimadores de entrenamiento
-          href: how-to-train-ml-models.md
-        - name: Uso de Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: Uso de TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Uso de Keras
-          href: how-to-train-keras.md
-        - name: Uso de PyTorch
-          href: how-to-train-pytorch.md
-        - name: Uso de Chainer
-          href: how-to-train-chainer.md
+        - name: Uso de estimadores para entrenar
+          items:
+            - name: Creación de estimadores de entrenamiento
+              href: how-to-train-ml-models.md
+            - name: Uso de Scikit-learn
+              href: how-to-train-scikit-learn.md
+            - name: Uso de TensorFlow
+              href: how-to-train-tensorflow.md
+            - name: Uso de Keras
+              href: how-to-train-keras.md
+            - name: Uso de PyTorch
+              href: how-to-train-pytorch.md
+            - name: Uso de Chainer
+              href: how-to-train-chainer.md
         - name: Ajuste de hiperparámetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -189,7 +191,7 @@
         - name: Uso de Machine Learning automatizado (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: Uso de Machine Learning automatizado (Azure Portal)
+        - name: Uso de Machine Learning automatizado (página de aterrizaje del área de trabajo)
           href: how-to-create-portal-experiments.md
         - name: Uso de destinos de proceso remoto
           displayName: automl automated auto ml

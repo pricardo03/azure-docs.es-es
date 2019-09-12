@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741861"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241028"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalación y ejecución de contenedores de servicio de Voz
 
@@ -25,8 +25,8 @@ Los dos contenedores de voz son **conversión de voz en texto** y **conversión 
 
 |Función|Características|Más reciente|
 |-|-|--|
-|Voz a texto| <li>Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios.|1.1.3|
-|Text-to-Speech| <li>Convierte el texto a una voz que parece natural. Con la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |1.1.0|
+|Voz a texto| <li>Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios.|1.2.0|
+|Text-to-Speech| <li>Convierte el texto a una voz que parece natural. Con la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |1.2.0|
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -101,10 +101,10 @@ Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<cultu
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-En la tabla siguiente se enumeran las configuraciones regionales admitidas para la **conversión de voz a texto** en la versión 1.1.3 del contenedor:
+En la tabla siguiente se enumeran las configuraciones regionales que se admiten para la **conversión de voz a texto** en la versión 1.2.0 del contenedor:
 
 |Configuración regional de idioma|Etiquetas|
 |--|--|
@@ -129,10 +129,10 @@ Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<cultu
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-En la tabla siguiente se enumeran las configuraciones regionales admitidas para la **conversión de texto a voz** en la versión 1.1.0 del contenedor:
+En la tabla siguiente se enumeran las configuraciones regionales que se admiten para la **conversión de texto a voz** en la versión 1.2.0 del contenedor:
 
 |Configuración regional de idioma|Etiquetas|Voces admitidas|
 |--|--|--|

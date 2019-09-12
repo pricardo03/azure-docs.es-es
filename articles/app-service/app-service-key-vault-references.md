@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088182"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258615"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
 
@@ -184,3 +184,27 @@ Una seudoplantilla de ejemplo para una aplicación de función podría tener est
 
 > [!NOTE] 
 > En este ejemplo, la implementación del control de código fuente depende de la configuración de la aplicación. Este comportamiento es normalmente poco seguro, ya que la actualización de la configuración de la aplicación se comporta de forma asincrónica. Sin embargo, como hemos incluido la configuración de la aplicación `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la actualización es sincrónica. Esto significa que la implementación del control de código fuente solo comenzará una vez que la configuración de la aplicación se haya actualizado completamente.
+
+## <a name="troubleshooting-key-vault-references"></a>Solución de problemas de las referencias de Key Vault
+
+Si alguna referencia no se resuelve correctamente, se usará el valor de la referencia, lo que significa que en la configuración de la aplicación se creará una variable de entorno cuyo valor tiene la sintaxis `@Microsoft.KeyVault(...)`. Esto puede provocar que la aplicación genere errores, ya que esperaba un secreto con una estructura determinada.
+
+Habitualmente, esto se debe a una mala configuración de la [directiva de acceso de Key Vault](#granting-your-app-access-to-key-vault). Sin embargo, también puede deberse a que el secreto ya no existe o a un error de sintaxis de la propia referencia.
+
+Si la sintaxis es correcta, compruebe el estado de resolución actual mediante un detector integrado para ver otras posibles causas del error.
+
+### <a name="using-the-detector-for-app-service"></a>Uso del detector en App Service
+
+1. En el portal, vaya a la aplicación.
+2. Seleccione **Diagnóstico y solución de problemas**.
+3. Elija **Availability and Performance** (Disponibilidad y rendimiento) y seleccione **Web app down** (La aplicación web no funciona).
+4. Busque **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault) y haga clic en **Más información**.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Uso del detector en Azure Functions
+
+1. En el portal, vaya a la aplicación.
+2. Seleccione **Características de la plataforma**.
+3. Seleccione **Diagnóstico y solución de problemas**.
+4. Elija **Disponibilidad y rendimiento** y seleccione **Function app down or reporting errors** (La aplicación de funciones no funciona o presenta errores).
+5. Haga clic en **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault).

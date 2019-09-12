@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759337"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240645"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -113,13 +113,13 @@ Antes de empezar con la ingesta de datos, debe plantearse las siguientes pregunt
 * ¿Cuáles son los requisitos de latencia? 
 * ¿Puede utilizarse una de las canalizaciones de ingesta administrada existentes? 
 
-Para organizaciones con una infraestructura existente basada en un servicio de mensajería, como un centro de eventos, el uso de un conector es probablemente la solución más adecuada. La ingesta en cola es apropiada para grandes volúmenes de datos.
+En el caso de las organizaciones con una infraestructura existente que usen un servicio de mensajería como Event Hub y IoT Hub, el uso de un conector es probablemente la solución más adecuada. La ingesta en cola es apropiada para grandes volúmenes de datos.
 
 ## <a name="supported-data-formats"></a>Formatos de datos compatibles
 
 Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el formato de los datos para que Azure Data Explorer pueda analizarlos. Los formatos de datos compatibles son:
 
-* CSV, TSV, PSV, SCSV, SOH
+* CSV, TSV, TSVE, PSV, SCSV y SOH
 * JSON (separados por línea, multilínea), Avro
 * ZIP y GZIP 
 

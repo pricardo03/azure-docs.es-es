@@ -14,29 +14,29 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525523"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141465"
 ---
 # <a name="use-service-management-from-python"></a>Uso de la administración de servicios de Python
-En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en [Azure Portal][management-portal]. Puede utilizar esta funcionalidad para crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales. Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](https://github.com/Azure/azure-sdk-for-python) permite acceder mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en [Azure Portal][management-portal]. Puede utilizar esta funcionalidad para crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales. Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
 ## <a name="WhatIs"> </a>¿Qué es la administración de servicios?
-Service Management API de Azure proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través de [Azure Portal][management-portal]. Azure SDK para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
+Azure Service Management API proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible en [Azure Portal][management-portal]. Azure SDK para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
 
 Para usar Service Management API, necesita [crear una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"></a>Conceptos
-Azure SDK para Python ajusta [Service Management API][svc-mgmt-rest-api], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure. También se puede acceder directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
+El SDK de Azure para Python cuenta con [Service Management API][svc-mgmt-rest-api], que es una API REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure. También se puede acceder directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
 ## <a name="Installation"></a>Instalación
-Todas las características descritas en este artículo están disponibles en el paquete `azure-servicemanagement-legacy`, que puede instalarse con PIP. Para obtener más información sobre la instalación (por ejemplo, si no está familiarizado con Python), consulte [Instalación de Python y el SDK](../python-how-to-install.md).
+Todas las características descritas en este artículo están disponibles en el paquete `azure-servicemanagement-legacy`, que puede instalarse con PIP. Para obtener más información sobre la instalación (por ejemplo, si no está familiarizado con Python), consulte [Instalación de Python y el SDK](/azure/python/python-sdk-azure-install).
 
 ## <a name="Connect"> </a>Conexión a la administración de servicios
-Para conectarse al punto de conexión de administración de servicios, necesita el identificador de suscripción de Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través de [Azure Portal][management-portal].
+Para conectarse al punto de conexión de administración de servicios, necesita el identificador de suscripción de Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción en [Azure Portal][management-portal].
 
 > [!NOTE]
 > Ahora puede usar certificados creados con OpenSSL cuando use Windows. Se requiere Python 2.7.4 o posterior. Se recomienda usar OpenSSL en lugar de .pfx, ya que la compatibilidad con certificados .pfx probablemente se eliminará en el futuro.
@@ -111,7 +111,7 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
 * Oeste de EE. UU.
-* Este de EE. UU
+* East US
 * Este de Japón
 * Oeste de Japón
 * Sur de Brasil
@@ -119,7 +119,7 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Sudeste de Australia
 
 ## <a name="CreateCloudService"> </a>Creación de un servicio en la nube
-Al crear una aplicación y ejecutarla en Azure, el código y la configuración se denominan conjuntamente un [servicio en la nube][cloud service] de Azure. (En versiones anteriores de Azure, se conocía como *servicio hospedado*). Puede usar el método **create\_hosted\_service** para crear un nuevo servicio hospedado. Para crear el servicio, debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base 64), una descripción y una ubicación.
+Cuando se crea una aplicación y se ejecuta en Azure, el conjunto del código y la configuración se denomina [servicio en la nube][cloud service] de Azure. (En versiones anteriores de Azure, se conocía como *servicio hospedado*). Puede usar el método **create\_hosted\_service** para crear un nuevo servicio hospedado. Para crear el servicio, debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base 64), una descripción y una ubicación.
 
     from azure import *
     from azure.servicemanagement import *

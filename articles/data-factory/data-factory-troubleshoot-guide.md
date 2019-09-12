@@ -5,19 +5,23 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 6/26/2019
+ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f35a3567ae4ae7c3e2d59f776d3a3bc00ec2be3e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950110"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142392"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 
 En este artículo se exploran métodos comunes de solución de problemas para actividades de control externo en Azure Data Factory.
+
+## <a name="connector-and-copy-activity"></a>Conector y actividad de copia
+
+Para más información sobre los problemas con el conector (por ejemplo, errores relacionados con la actividad de copia), consulte [Solución de problemas de conectores en Azure Data Factory](connector-troubleshoot-guide.md).
 
 ## <a name="azure-databricks"></a>Azure Databricks
 

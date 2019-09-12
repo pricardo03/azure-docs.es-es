@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032546"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241708"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
@@ -125,7 +125,7 @@ Para conocer mejor la administración de derechos y su documentación, debe revi
 | paquete de acceso | Una colección de permisos y directivas de recursos que los usuarios pueden solicitar. Un paquete de acceso siempre se encuentra en un catálogo. |
 | solicitud de acceso | Una solicitud para acceder a un paquete de acceso. Normalmente, una solicitud pasa por un flujo de trabajo. |
 | policy | Un conjunto de reglas que define el ciclo de vida del acceso, como por ejemplo, cómo los usuarios obtienen acceso, quién puede aprobarlo y cuánto tiempo tienen acceso. Algunos ejemplos de directivas incluyen el acceso de los empleados y el acceso externo. |
-| catálogo | Un contenedor de recursos relacionados y paquetes de acceso. |
+| catalog | Un contenedor de recursos relacionados y paquetes de acceso. |
 | Catálogo general | Un catálogo integrado que siempre está disponible. Para agregar los recursos al catálogo general, se requieren determinados permisos. |
 | resource | Un recurso o servicio (por ejemplo, un grupo de Office, un grupo de seguridad, una aplicación o un sitio de SharePoint Online) al que se puede conceder permisos a un usuario. |
 | tipo de recurso | El tipo de recurso, que incluye grupos, aplicaciones y sitios de SharePoint Online. |
@@ -139,6 +139,18 @@ Para conocer mejor la administración de derechos y su documentación, debe revi
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Las nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, no están actualmente disponibles para su uso en esta versión preliminar.
+
+### <a name="which-users-must-have-licenses"></a>¿Qué usuarios deben tener licencias?
+
+El inquilino debe tener al menos tantas licencias Azure AD Premium P2 como usuarios miembros activos. Los usuarios miembros activos de la administración de derechos incluyen:
+
+- Un usuario que inicia o aprueba una solicitud de un paquete de acceso.
+- Un usuario al que se le ha asignado un paquete de acceso. 
+- Un usuario que administra los paquetes de acceso.
+
+Como parte de las licencias de los usuarios miembros, también puede permitir que varios usuarios invitados interactúen con la administración de derechos. Para obtener información sobre cómo calcular el número de usuarios invitados que puede incluir, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+
+Para obtener información sobre cómo asignar licencias a los usuarios, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

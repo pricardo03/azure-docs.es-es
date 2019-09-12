@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 30bad3dd519d622d7e224da7bd53e7c6625014f6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966474"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277668"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copia de datos desde un origen OData mediante Azure Data Factory
 
@@ -212,6 +212,7 @@ Para copiar datos desde OData, establezca la propiedad **type** del conjunto de 
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -232,11 +233,11 @@ Para ver una lista completa de las secciones y propiedades que hay disponibles p
 
 ### <a name="odata-as-source"></a>OData como origen
 
-Para copiar datos desde OData, establezca el tipo de **origen** de la actividad de copia como **RelationalSource**. La sección **source** de la actividad de copia admite las siguientes propiedades:
+Para copiar datos desde OData, en la sección **source** de la actividad de copia se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **RelationalSource**. | Sí |
+| Tipo | La propiedad **type** del origen de la actividad de copia se debe establecer en **ODataSource**. | Sí |
 | query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: el conector OData copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin |
 
 **Ejemplo**
@@ -260,7 +261,7 @@ Para copiar datos desde OData, establezca el tipo de **origen** de la actividad 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -270,6 +271,8 @@ Para copiar datos desde OData, establezca el tipo de **origen** de la actividad 
     }
 ]
 ```
+
+Si estaba usando un origen de tipo `RelationalSource`, todavía se admite tal cual, aunque se aconseja usar el nuevo en el futuro.
 
 ## <a name="data-type-mapping-for-odata"></a>Asignación de tipos de datos de OData
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927307"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171915"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -65,17 +65,16 @@ Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
-3. Escriba un **Nombre** único para la cuenta de almacenamiento.
-4. El **Modelo de implementación** puede permanecer como **Resource Manager**.
-5. Cambie **Tipo de cuenta** a **Almacenamiento de blobs**.
-6. El **Rendimiento** puede permanecer como **Estándar**.
-7. La **Replicación** puede permanecer como **RA-GRS**.
-8. El **Nivel de acceso** puede permanecer **Activo**.
-9. El **Cifrado del servicio de almacenamiento** puede permanecer **Deshabilitado**.
-10. Seleccione una **Suscripción** para la cuenta de almacenamiento.
-11. Cree un **Grupo de recursos** o seleccione uno existente.
-12. Seleccione la **Ubicación geográfica** de la cuenta de almacenamiento.
-13. Haga clic en **Crear** para crear la cuenta de almacenamiento.  
+3. Seleccione una **Suscripción** para la cuenta de almacenamiento.
+4. Cree un **Grupo de recursos** o seleccione uno existente.
+5. Escriba un **Nombre** único para la cuenta de almacenamiento.
+6. Seleccione la **Ubicación geográfica** de la cuenta de almacenamiento. 
+7. El **Modelo de implementación** puede permanecer como **Resource Manager**.
+8. El **Rendimiento** puede permanecer como **Estándar**.
+9. Cambie **Tipo de cuenta** a **Almacenamiento de blobs**.
+10. La **Replicación** puede permanecer como **RA-GRS**.
+11. El **Nivel de acceso** puede permanecer **Activo**. 
+12. Haga clic en **Revisar + Crear** para crear la cuenta de almacenamiento.  
     Espere que termine la implementación y la hoja de la **Cuenta de almacenamiento** se abrirá automáticamente.
 
 ## <a name="create-a-container"></a>Crear un contenedor

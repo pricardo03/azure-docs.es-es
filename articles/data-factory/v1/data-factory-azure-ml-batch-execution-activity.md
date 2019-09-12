@@ -3,22 +3,20 @@ title: Creación de canalizaciones de datos predictivas con Azure Data Factory |
 description: Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Azure Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567442"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140483"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 
@@ -54,7 +52,7 @@ El servicio Data Factory permite crear canalizaciones de datos que mueven y tran
 Consulte los artículos [Introducción a Azure Data Factory](data-factory-introduction.md) y [Creación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) para empezar a trabajar rápidamente con el servicio Azure Data Factory.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory y Machine Learning juntos
-Azure Data Factory permite crear fácilmente canalizaciones que utilizan un servicio web de [Azure Machine Learning][azure-machine-learning] publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio para realizar predicciones sobre los datos en el lote. Consulte la sección Invocación de un servicio web de Azure Machine Learning Studio mediante la actividad de ejecución de lotes para obtener detalles.
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning][azure-machine-learning] publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio para realizar predicciones sobre los datos en el lote. Consulte la sección Invocación de un servicio web de Azure Machine Learning Studio mediante la actividad de ejecución de lotes para obtener detalles.
 
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de Azure Machine Learning Studio de una canalización de Data Factory realizando los pasos siguientes:
 
@@ -137,7 +135,7 @@ En este escenario, el servicio web de Azure Machine Learning realiza prediccione
 ### <a name="example"></a>Ejemplo
 Este ejemplo utiliza Azure Storage para almacenar los datos de entrada y salida.
 
-Se recomienda que siga el tutorial [Compilación de la primera canalización con Data Factory][adf-build-1st-pipeline] antes de llevar a cabo este ejemplo. Utilice el editor de Data Factory para crear artefactos de Data Factory (servicios vinculados, conjuntos de datos, canalización) en este ejemplo.
+Es recomendable que siga el tutorial [Compilación de la primera canalización con Data Factory][adf-build-1st-pipeline] antes de pasar a este ejemplo. Utilice el editor de Data Factory para crear artefactos de Data Factory (servicios vinculados, conjuntos de datos, canalización) en este ejemplo.
 
 1. Cree un **servicio vinculado** para su instancia de **Azure Storage**. Si los archivos de entrada y salida están en diferentes cuentas de almacenamiento, necesita dos servicios vinculados. Este es un ejemplo de JSON:
 

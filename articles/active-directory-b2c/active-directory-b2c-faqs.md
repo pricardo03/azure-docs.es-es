@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061379"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183190"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -143,7 +143,7 @@ Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 1. Seleccione **Ver todas las aplicaciones**.
 1. Seleccione la aplicación denominada **b2c-extensions-app**, seleccione **Eliminar** y después **Sí** cuando se le pida.
 1. En **Administrar**, seleccione **Configuración del usuario**.
-1. En **Conexiones de cuenta de LinkedIn**, seleccione **No** y luego **Guardar**.
+1. Si está presente, en **Conexiones de cuenta de LinkedIn**, seleccione **No** y, a continuación, seleccione **Guardar**.
 1. En **Administrar**, seleccione **Propiedades**.
 1. En **Administración del acceso para los recursos de Azure**, seleccione **Sí** y luego **Guardar**.
 1. Cierre la sesión de Azure Portal y vuelva a iniciar sesión para actualizar el acceso.

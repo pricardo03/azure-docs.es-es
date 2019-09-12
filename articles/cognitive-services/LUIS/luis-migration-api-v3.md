@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: 82285b27822b6c93f8efc24579bb99c308649ac0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5b0516f3d610c0a518d6afc461dddebfb68a7c5d
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932666"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213519"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Vista previa: migración a la API versión 3.x para aplicaciones de LUIS
 
@@ -164,7 +164,7 @@ const score = intents[topIntentName];
 Los cambios en el esquema JSON de la respuesta permiten lo siguiente:
 
 * Una clara distinción entre la expresión original, `query`, y la predicción devuelta, `prediction`.
-* Fácil acceso mediante programación a los datos previstos. En lugar de enumerar a través de una matriz en la v2, puede tener acceso a los valores mediante el **nombre** de intenciones y entidades. Para los roles de entidad prevista, se devuelve el nombre del rol porque es único en toda la aplicación.
+* Fácil acceso mediante programación a los datos previstos. En lugar de realizar la enumeración a través de una matriz en la versión 2, puede acceder a los valores por **nombre** en ambas intenciones y entidades. Para los roles de entidad prevista, se devuelve el nombre del rol porque es único en toda la aplicación.
 * Los tipos de datos, si están establecidos, se respetan. Los valores numéricos ya no se devuelven como cadenas.
 * Distinción entre la información de predicciones de máxima prioridad y los metadatos adicionales, que se devuelven en el objeto `$instance`. 
 
@@ -418,7 +418,7 @@ Envíe el siguiente cuerpo JSON para agregar una nuevo sublista con sinónimos a
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

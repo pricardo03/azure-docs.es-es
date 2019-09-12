@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494803"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258895"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
@@ -43,13 +43,13 @@ Cuando se usa con una variable o una propiedad, el objeto copy tiene el formato 
 
 Ambos usos se describen con más detalle en este artículo. Para obtener un tutorial, consulte [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager).
 
-Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](resource-group-authoring-templates.md#condition).
+Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
 
 ## <a name="copy-limits"></a>Límites de copia
 
 Para especificar el número de iteraciones, proporcione un valor para la propiedad count. El valor de count no puede superar 800.
 
-El valor de count no puede ser un número negativo. Si implementa una plantilla con la versión de API REST **2019-05-10**, o cualquier versión posteriores, puede establecer recuento a cero. Las versiones anteriores a la API REST no admiten cero en count. Actualmente, PowerShell o la CLI de Azure no admiten el valor cero en count, pero que se agregará compatibilidad en una versión futura.
+El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o cualquier versión posterior, o bien con la API REST, versión **2019-05-10**, o cualquier versión posterior, puede establecer count en cero. Las versiones anteriores de PowerShell de la API REST no admiten cero en count. Actualmente, la CLI de Azure no admite el valor cero en count, pero se admitirá en una versión futura.
 
 Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md) con copia. Si vuelve a implementar con el modo completo en un grupo de recursos, se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
 

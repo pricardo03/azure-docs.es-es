@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: d33ad5782b78fc7f9ba4803c85f1b17be60e8561
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148002"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194891"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -49,8 +49,9 @@ Puede asociar los siguientes recursos a una dirección IP pública estática des
 |Recurso|Escenario|Pasos|
 |---|---|---|
 |Virtual Machines| La asociación de direcciones IP públicas de un prefijo a las máquinas virtuales de Azure reduce la sobrecarga de administración en cuanto a la inclusión de direcciones IP en la lista de permitidos de un firewall. Puede simplemente incluir en la lista de permitidos un prefijo completo con una única regla de firewall. A medida que escala con máquinas virtuales de Azure, puede asociar direcciones IP del mismo prefijo para ahorrar costos, tiempo y sobrecarga de administración.| Para asociar direcciones IP de un prefijo a la máquina virtual: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. [Asocie la dirección IP a la interfaz de red de la máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| Equilibradores de carga | La asociación de direcciones IP públicas de un prefijo a la configuración IP de front-end o a la regla de salida de un equilibrador de carga garantiza la simplificación del espacio de direcciones IP públicas de Azure. Puede simplificar su escenario haciendo que las conexiones salientes se originen desde un intervalo de direcciones IP contiguas definido por el prefijo de direcciones IP públicas. | Para asociar direcciones IP de un prefijo al equilibrador de carga: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Al crear el equilibrador de carga, seleccione o actualice la dirección IP que creó en el paso 2 anterior como la dirección IP de front-end del equilibrador de carga. |
+| Standard Load Balancer | La asociación de direcciones IP públicas de un prefijo a la configuración IP de front-end o a la regla de salida de un equilibrador de carga garantiza la simplificación del espacio de direcciones IP públicas de Azure. Puede simplificar su escenario haciendo que las conexiones salientes se originen desde un intervalo de direcciones IP contiguas definido por el prefijo de direcciones IP públicas. | Para asociar direcciones IP de un prefijo al equilibrador de carga: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Al crear el equilibrador de carga, seleccione o actualice la dirección IP que creó en el paso 2 anterior como la dirección IP de front-end del equilibrador de carga. |
 | Azure Firewall | Puede usar una dirección IP pública de un prefijo para la conexión SNAT de salida. Esto significa que todo tráfico de red virtual saliente se traduce a la dirección IP pública de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puesto que esta dirección IP procede de un prefijo predeterminado, es muy fácil saber de antemano el aspecto que tendrá la superficie IP pública en Azure. | 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Cuando [implemente Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), no olvide seleccionar la dirección IP asignada previamente desde el prefijo.|
+| Application Gateway v2 | Puede usar una dirección IP pública de un prefijo para el escalado automático y Application Gateway v2 con redundancia de zona. Puesto que esta dirección IP procede de un prefijo predeterminado, es muy fácil saber de antemano el aspecto que tendrá la superficie IP pública en Azure. | 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Cuando [implemente Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), asegúrese de seleccionar la dirección IP asignada previamente desde el prefijo.|
 
 ## <a name="constraints"></a>Restricciones
 

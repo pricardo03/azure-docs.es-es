@@ -4,15 +4,15 @@ description: En este artículo se describe cómo restaurar los datos de Azure Co
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241045"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240759"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restauración de los datos desde una copia de seguridad en Azure Cosmos DB 
 
@@ -39,7 +39,7 @@ Antes de solicitar una restauración, debe tener los siguientes detalles:
   * Si ha eliminado por accidente la base de datos o un contenedor, abra una incidencia de soporte técnico de Azure de nivel Sev B o Sev C. 
   * Si ha eliminado o dañado por accidente algunos documentos dentro del contenedor, abra una incidencia de soporte técnico de nivel Sev A. 
 
-Cuando se producen daños en los datos y si se modifican o eliminan los documentos dentro de un contenedor, **elimine el contenedor lo antes posible**. Al eliminar el contenedor, puede evitar que Azure Cosmos DB sobrescriba las copias de seguridad. Si por algún motivo la eliminación no es posible, debería presentar una incidencia tan pronto como sea posible. Además del nombre de la cuenta de Azure Cosmos, los nombres de las bases de datos, los nombres de las colecciones, debe especificar el momento en el que se pueden restaurar los datos. Es importante ser lo más preciso posible para ayudarnos a determinar las mejores copias de seguridad disponibles en ese momento. También es importante especificar la hora en UTC. 
+Cuando se producen daños en los datos y si se modifican o eliminan los documentos dentro de un contenedor, **elimine el contenedor lo antes posible**. Al eliminar el contenedor, puede evitar que Azure Cosmos DB sobrescriba las copias de seguridad. Si por algún motivo la eliminación no es posible, debería presentar una incidencia tan pronto como sea posible. Además del nombre de la cuenta de Azure Cosmos, los nombres de las bases de datos y los nombres de los contenedores, debe especificar el momento en el que se pueden restaurar los datos. Es importante ser lo más preciso posible para ayudarnos a determinar las mejores copias de seguridad disponibles en ese momento. También es importante especificar la hora en UTC. 
 
 En la captura de pantalla siguiente se muestra cómo crear una solicitud de soporte técnico para un contenedor (colección/grafo/tabla) para restaurar los datos mediante Azure Portal. Proporcione detalles adicionales, como el tipo de datos, el propósito de la restauración, la hora a la que se eliminaron los datos para ayudarnos a dar prioridad a la solicitud.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650222"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194598"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -27,30 +27,32 @@ En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos co
 
 Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita. No se puede agregar o quitar un miembro de un grupo dinámico de forma manual.
 
-* Puede crear un grupo dinámico para dispositivos o usuarios, pero no se puede crear una regla que contenga tanto usuarios como dispositivos.
-* No se puede crear un grupo de dispositivos basado en los atributos de los propietarios de los dispositivos. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atributos de dispositivos.
+- Puede crear un grupo dinámico para dispositivos o usuarios, pero no se puede crear una regla que contenga tanto usuarios como dispositivos.
+- No se puede crear un grupo de dispositivos basado en los atributos de los propietarios de los dispositivos. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atributos de dispositivos.
 
 > [!NOTE]
 > Esta característica requiere una licencia de Azure AD Premium P1 para cada usuario único que sea miembro de uno o varios grupos dinámicos. No es necesario asignar licencias a los usuarios para que sean miembros de los grupos dinámicos, pero es preciso tener en el inquilino el número mínimo de licencias para cubrirlos a todos. Por ejemplo, si tiene un total de 1.000 usuarios únicos en todos los grupos dinámicos del inquilino, necesitaría al menos 1.000 licencias de Azure AD Premium P1 para cumplir el requisito de licencia.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Construcción del cuerpo de una regla de pertenencia
+## <a name="rule-builder-in-the-azure-portal"></a>Generador de reglas en Azure Portal
 
-Una regla de pertenencia que rellena automáticamente un grupo con usuarios o dispositivos es una expresión binaria que genera un resultado true o false. Los tres elementos de una regla simple son:
+Azure AD proporciona un generador de reglas para crear y actualizar las reglas importantes con mayor rapidez. El generador de reglas admite la construcción de hasta cinco expresiones. Facilita la creación de reglas con unas cuantas expresiones sencillas; no obstante, no se puede usar para reproducir todas las reglas. En caso de que no admita la regla que quiere crear, puede usar el cuadro de texto.
 
-* Propiedad
-* Operator
-* Valor
+Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomienda construir mediante el cuadro de texto:
 
-El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
+- Regla con más de cinco expresiones
+- Regla de subordinados directos
+- Configuración de la [precedencia de operadores](groups-dynamic-membership.md#operator-precedence)
+- [Reglas con expresiones complejas](groups-dynamic-membership.md#rules-with-complex-expressions); por ejemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Generador de reglas en Azure Portal
+> [!NOTE]
+> Es posible que el generador de reglas no pueda mostrar algunas reglas construidas en el cuadro de texto. En este caso, podría aparecer un mensaje. El generador de reglas no cambia la sintaxis admitida, la validación ni el procesamiento de reglas de grupos dinámicos de ninguna manera.
 
-Azure AD proporciona un generador de reglas para crear y actualizar las reglas importantes con mayor rapidez. El generador de reglas admite hasta cinco reglas. Para agregar los términos de seis o más reglas, debe usar el cuadro de texto. Para obtener instrucciones paso a paso, consulte [Actualización de un grupo dinámico](groups-update-rule.md).
+Para obtener instrucciones paso a paso, consulte [Actualización de un grupo dinámico](groups-update-rule.md).
 
-   ![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Adición de una regla de pertenencia a un grupo dinámico](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>Reglas con una expresión única
+### <a name="rule-syntax-for-a-single-expression"></a>Sintaxis de regla para una sola expresión
 
 Una expresión única es la forma más sencilla de una regla de pertenencia y solo tiene los tres elementos mencionados anteriormente. Una regla con una expresión única tiene un aspecto similar al siguiente: `Property Operator Value`, donde la sintaxis de la propiedad es el nombre de object.property.
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 Los paréntesis son opcionales para una expresión única. La longitud total del cuerpo de la regla de pertenencia no puede superar los 2048 caracteres.
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>Construcción del cuerpo de una regla de pertenencia
+
+Una regla de pertenencia que rellena automáticamente un grupo con usuarios o dispositivos es una expresión binaria que genera un resultado true o false. Los tres elementos de una regla simple son:
+
+- Propiedad
+- Operator
+- Valor
+
+El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
+
 ## <a name="supported-properties"></a>Propiedades admitidas
 
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
-* Boolean
-* Cadena
-* Colección de cadenas
+- Boolean
+- Cadena
+- Colección de cadenas
 
 Las siguientes son las propiedades de usuario que puede utilizar para crear una expresión única.
 
@@ -119,7 +131,7 @@ Las siguientes son las propiedades de usuario que puede utilizar para crear una 
 
 Para más información sobre las propiedades que se usan para las reglas de dispositivos, consulte [Reglas de dispositivos](#rules-for-devices).
 
-## <a name="supported-operators"></a>Operadores admitidos
+## <a name="supported-expression-operators"></a>Operadores de expresión admitidos
 
 En la tabla siguiente se enumeran todos los operadores admitidos y su sintaxis para una expresión única. Los operadores se pueden utilizar con o sin el prefijo de guion (-).
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 Las siguientes sugerencias pueden ayudarle a usar correctamente la regla.
 
-* El **identificador del administrador** es el identificador de objeto del administrador. Se puede encontrar en el **perfil** del administrador.
-* Para que la regla funcione, asegúrese de que la propiedad de **administrador** esté establecida correctamente en los usuarios del inquilino. Puede comprobar el valor actual en el **perfil** de usuario.
-* Esta regla admite solo subordinados directos del administrador. En otras palabras, no se puede crear un grupo con los subordinados directos del administrador *y* con los subordinados de estos.
-* Esta regla no se puede combinar con ninguna otra regla de pertenencia.
+- El **identificador del administrador** es el identificador de objeto del administrador. Se puede encontrar en el **perfil** del administrador.
+- Para que la regla funcione, asegúrese de que la propiedad de **administrador** esté establecida correctamente en los usuarios del inquilino. Puede comprobar el valor actual en el **perfil** de usuario.
+- Esta regla admite solo subordinados directos del administrador. En otras palabras, no se puede crear un grupo con los subordinados directos del administrador *y* con los subordinados de estos.
+- Esta regla no se puede combinar con ninguna otra regla de pertenencia.
 
 ### <a name="create-an-all-users-rule"></a>Creación de una regla de "todos los usuarios"
 
@@ -373,8 +385,8 @@ Pueden utilizarse los siguientes atributos del dispositivo.
 
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
-* [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Administrar reglas dinámicas de los usuarios de un grupo](groups-create-rule.md)
+- [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Administrar reglas dinámicas de los usuarios de un grupo](groups-create-rule.md)

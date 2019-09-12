@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 668d686f296763f5ed51dc6361691352d22e0738
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 965c1181399b76523b624d53dc47e59de0208ecb
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094710"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258260"
 ---
 # <a name="pool-resize-start-event"></a>Evento de inicio de cambio de tamaño de grupo
 
@@ -26,10 +26,12 @@ ms.locfileid: "70094710"
 
 ```
 {
-    "poolId": "myPool1",
-    "nodeDeallocationOption": "invalid",
-    "currentDedicated": 0,
-    "targetDedicated": 2,
+    "id": "myPool1",
+    "nodeDeallocationOption": "Invalid",
+    "currentDedicatedNodes": 0,
+    "targetDedicatedNodes": 2,
+    "currentLowPriorityNodes": 0,
+    "targetLowPriorityNodes": 2,
     "enableAutoScale": false,
     "isAutoPool": false
 }
@@ -37,9 +39,11 @@ ms.locfileid: "70094710"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|poolId|Cadena|El identificador del grupo.|
-|nodeDeallocationOption|Cadena|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
-|currentDedicated|Int32|El número de nodos de proceso actualmente asignados al grupo.|
-|targetDedicated|Int32|El número de nodos de proceso solicitados para el grupo.|
-|enableAutoScale|Bool|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
-|isAutoPool|Bool|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
+|`id`|Cadena|El identificador del grupo.|
+|`nodeDeallocationOption`|Cadena|Especifica cuándo se pueden quitar los nodos del grupo, si disminuye el tamaño del grupo.<br /><br /> Los valores posibles son:<br /><br /> **requeue**: finalizar las tareas en ejecución y volver a ponerlas en cola. Las tareas volverán a ejecutarse cuando se habilite el trabajo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **terminate**: finalizar las tareas en ejecución. Las tareas no se ejecutarán de nuevo. Elimine los nodos en cuanto finalicen las tareas.<br /><br /> **taskcompletion**: permita que finalicen las tareas actualmente en ejecución. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando se hayan completado todas las tareas.<br /><br /> **Retaineddata**: permite que finalicen las tareas actualmente en ejecución, luego espera que caduquen los períodos de retención de datos de todas las tareas. No programe ninguna tarea nueva mientras espera. Elimine los nodos cuando hayan caducado los períodos de retención de todas las tareas.<br /><br /> El valor predeterminado es requeue.<br /><br /> Si aumenta el tamaño del grupo, entonces el valor se establece en **invalid**.|
+|`currentDedicatedNodes`|Int32|El número de nodos de proceso actualmente asignados al grupo.|
+|`targetDedicatedNodes`|Int32|El número de nodos de proceso solicitados para el grupo.|
+|`currentLowPriorityNodes`|Int32|El número de nodos de proceso actualmente asignados al grupo.|
+|`targetLowPriorityNodes`|Int32|El número de nodos de proceso solicitados para el grupo.|
+|`enableAutoScale`|Bool|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
+|`isAutoPool`|Bool|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|

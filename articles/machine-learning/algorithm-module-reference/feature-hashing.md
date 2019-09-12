@@ -1,0 +1,134 @@
+---
+title: 'Feature Hashing (Hash de características): referencia para los módulos'
+titleSuffix: Azure Machine Learning service
+description: Aprenda a usar el módulo Feature Hashing de Azure Machine Learning Service para caracterizar datos de texto.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+author: xiaoharper
+ms.author: zhanxia
+ms.date: 09/01/2019
+ms.openlocfilehash: 78d01cf071faed312773ebf12c75e7e6e5596e71
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210562"
+---
+# <a name="feature-hashing"></a>Hash de características
+
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+
+Use el módulo **Feature Hashing** para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
+
+La función de hash de características que se proporciona en este módulo se basa en la plataforma nimbusml. Para más información, consulte [Clase NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+
+## <a name="what-is-feature-hashing"></a>¿Qué es Feature Hashing?
+
+Feature Hashing funciona mediante la conversión de tokens únicos en enteros. Funciona exactamente en las cadenas que proporcione como entrada y no realiza ningún análisis lingüístico ni preprocesamiento. 
+
+Por ejemplo, tome un conjunto de oraciones simples como estas, seguido de una puntuación de opinión. Supongamos que desea utilizar este texto para generar un modelo.
+
+|TEXTO DE USUARIO|OPINIÓN|
+|--------------|---------------|
+|Me gustaba este libro|3|
+|No me gustaba este libro|1|
+|Este libro era fantástico|3|
+|Me encantan los libros|2|
+
+Internamente, el módulo **Feature Hashing** crea un diccionario de n-gramas. Por ejemplo, la lista de bigramas de este conjunto de datos debería tener el siguiente aspecto:
+
+|TÉRMINO (bigramas)|FRECUENCIA|
+|------------|---------------|
+|Este libro|3|
+|Me gustaba|1|
+|No me|1|
+|Me encanta|1|
+
+Puede controlar el tamaño de los n-gramas mediante la propiedad **N-grams**. Si elige bigramas, también se calcularán los unigramas. El diccionario también incluiría términos individuales como estos:
+
+|Término (unigramas)|FRECUENCIA|
+|------------|---------------|
+|libro|3|
+|I|3|
+|libros|1|
+|gustaba|1|
+
+Una vez creado el diccionario, el módulo **Feature Hashing** convierte los términos del diccionario en valores hash. Después calcula si se ha procesado una característica en cada caso. Para cada fila de datos de texto, el módulo genera un conjunto de columnas, una columna para cada característica con hash.
+
+Por ejemplo, después de aplicar el algoritmo hash, las columnas de características pueden tener un aspecto similar al siguiente:
+
+|Rating|Característica de hash 1|Característica de hash 2|Característica de hash 3|
+|-----|-----|-----|-----|
+|4|1|1|0|
+|5|0|0|0|
+
+* Si el valor de la columna es 0, la fila no contenía la característica con hash.
+* Si el valor es 1, la fila sí contenía la característica.
+
+Hash de características le permite representar documentos de texto de longitud variable como vectores numéricos de características de igual longitud para lograr la reducción de la dimensionalidad. Si intentó usar la columna de texto para el entrenamiento tal cual estaba, esta se tratará como una columna de características categórica con muchos valores distintos.
+
+Las salidas numéricas también permiten usar métodos de aprendizaje automático comunes como la clasificación, la agrupación en clústeres y la recuperación de información. Dado que las operaciones de búsqueda pueden utilizar hashes de enteros en lugar de comparaciones de cadenas, obtener los pesos de las características también es mucho más rápido.
+
+## <a name="configure-feature-hashing"></a>Configuración de Feature Hashing
+
+1.  Agregue el módulo **Feature Hashing** al experimento en la interfaz visual.
+
+1. Conecte el conjunto de datos que contiene el texto que desea analizar.
+
+    > [!TIP]
+    > Dado que el hash de características no realiza operaciones léxicas como lematización o truncamiento, a veces puede obtener mejores resultados si realiza el preprocesamiento del texto antes de aplicarlo. 
+
+1. Establezca **Target columns** (Columnas de destino) en las columnas de texto que desea convertir en características con hash. 
+
+    * Las columnas deben ser del tipo de datos de cadena.
+    
+    * La elección de varias columnas de texto puede tener un impacto significativo en la dimensionalidad de las características. Por ejemplo, el número de columnas de un hash de 10 bits va desde 1024 para una sola columna hasta 2048 para dos columnas.
+
+1. Utilice **Hashing bitsize** (Tamaño de bits de hash) para especificar el número de bits que se va a utilizar al crear la tabla hash.
+    
+    El tamaño de bits predeterminado es 10. Para muchos problemas, este valor es adecuado. Es posible que necesite más espacio para evitar colisiones en función del tamaño del vocabulario de n-gramas del texto de entrenamiento.
+    
+1. En **N-grams** (N-gramas), escriba un número que defina la longitud máxima de los n-gramas que se van a agregar al diccionario de entrenamiento. Un n-grama es una secuencia de *n* palabras, que se trata como una unidad única.
+
+    Por ejemplo, si escribe 3, se crearán unigramas, bigramas y trigramas.
+
+1. Ejecute el experimento.
+
+## <a name="results"></a>Results
+
+Una vez completado el procesamiento, el módulo genera un conjunto de datos transformado en el que la columna de texto original se ha convertido en varias columnas, cada una de las cuales representa una característica del texto. Dependiendo de la importancia del diccionario, el conjunto de resultados puede ser grande:
+
+|Nombre de la columna 1|Tipo de columna 2|
+|-------------------|-------------------|
+|TEXTO DE USUARIO|Columna de datos original|
+|OPINIÓN|Columna de datos original|
+|TEXTO DE USUARIO: característica de hash 1|Columna de características con hash|
+|TEXTO DE USUARIO: característica de hash 2|Columna de características con hash|
+|TEXTO DE USUARIO: característica de hash 3|Columna de características con hash|
+|TEXTO DE USUARIO: característica de hash 1024|Columna de características con hash|
+
+Después de crear el conjunto de datos transformado, puede usarlo como entrada para el módulo Train Model (Entrenar modelo).
+ 
+### <a name="best-practices"></a>Procedimientos recomendados
+
+Los siguientes procedimientos recomendados pueden ayudarle a sacar el máximo partido al módulo **Feature Hashing**:
+
+* Agregue un módulo **Preprocess Text** (Preprocesamiento de texto) antes de usar **Feature Hashing** para preprocesar el texto de entrada. 
+
+* Agregue un módulo **Select Columns** (Selección de columnas) después del módulo **Feature Hashing** para eliminar columnas de texto del conjunto de datos de salida. No necesita las columnas de texto una vez generadas las características de hash.
+    
+* Considere la posibilidad de usar estas opciones de preprocesamiento de texto para simplificar los resultados y mejorar la precisión:
+
+    * División de palabras
+    * Detención de la eliminación de palabras
+    * Normalización de mayúsculas
+    * Eliminación de caracteres especiales y de puntuación
+    * Raíz  
+
+El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier solución individual depende del dominio, del vocabulario y de la necesidad empresarial. Experimente con los datos para ver qué métodos de procesamiento de texto son más eficaces.
+
+## <a name="next-steps"></a>Pasos siguientes
+            
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

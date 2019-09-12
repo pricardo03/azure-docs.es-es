@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: 2eb61a6b9afa3cabf1733be120dfbdacb7de4534
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/01/2019
+ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276533"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241221"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Supervisión y depuración de métricas de Azure Cosmos DB desde Azure Monitor
 
@@ -54,8 +54,8 @@ Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar di
             
 |Métrica (nombre para mostrar de la métrica)|Unidad (tipo de agregación) |DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (solicitudes totales) | Count (recuento) | Número de solicitudes realizadas| DatabaseName, CollectionName, Region, StatusCode| Todo | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, error interno del servidor, servicio no disponible, solicitudes limitadas, promedio de solicitudes por segundo | Se usa para supervisar las solicitudes por código de estado, la colección en una granularidad por minuto. Para obtener el promedio de solicitudes por segundo, utilice la agregación Count en un minuto y divida por 60. |
-| MetadataRequests (solicitudes de metadatos) |Count (recuento) | Recuento de las solicitudes de metadatos. Azure Cosmos DB mantiene una colección de metadatos del sistema para cada cuenta, lo que permite enumerar las colecciones, las bases de datos, etc., así como sus configuraciones de forma gratuita. | DatabaseName, CollectionName, Region, StatusCode| Todo| |Se usa para supervisar las limitaciones debido a las solicitudes de metadatos.|
+| TotalRequests (solicitudes totales) | Count (recuento) | Número de solicitudes realizadas| DatabaseName, CollectionName, Region, StatusCode| Todo | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, error interno del servidor, servicio no disponible, solicitudes limitadas, promedio de solicitudes por segundo | Se usa para supervisar las solicitudes por código de estado y contenedor en una granularidad por minuto. Para obtener el promedio de solicitudes por segundo, utilice la agregación Count en un minuto y divida por 60. |
+| MetadataRequests (solicitudes de metadatos) |Count (recuento) | Recuento de las solicitudes de metadatos. Azure Cosmos DB mantiene un contenedor de metadatos del sistema para cada cuenta, lo que permite enumerar las colecciones, las bases de datos, etc., así como sus configuraciones de forma gratuita. | DatabaseName, CollectionName, Region, StatusCode| Todo| |Se usa para supervisar las limitaciones debido a las solicitudes de metadatos.|
 | MongoRequests (solicitudes de Mongo) | Count (recuento) | Número de solicitudes de Mongo realizadas | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Todo |Tasa de solicitudes de consultas de Mongo, tasa de solicitudes de actualización de Mongo, tasa de solicitudes de eliminación de Mongo, tasa de solicitudes de inserción de Mongo y tasa de solicitudes de recuento de Mongo| Se usa para supervisar los errores de solicitud de Mongo y los usos por de comando. |
 
 ### <a name="request-unit-metrics"></a>Métricas de unidad de solicitud
@@ -64,17 +64,17 @@ Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar di
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (cargo de solicitud de Mongo) | Count (total) |Unidades de la solicitud de Mongo consumidas| DatabaseName, CollectionName, Region, CommandName, ErrorCode| Todo |Cargo de solicitudes de consultas de Mongo, cargo de solicitudes de actualización de Mongo, cargo de solicitudes de eliminación de Mongo, cargo de solicitudes de inserción de Mongo y cargo de solicitudes de recuento de Mongo| Se usa para supervisar las RU de recursos de Mongo en un minuto.|
 | TotalRequestUnits (unidades de solicitud totales)| Count (total) | Unidades de solicitud consumidas| DatabaseName, CollectionName, Region, StatusCode |Todo| TotalRequestUnits| Se usa para supervisar el uso de RU total en una granularidad por minuto. Para obtener el promedio de RU consumidas por segundo, utilice la agregación Total en un minuto y divida por 60.|
-| ProvisionedThroughput (rendimiento aprovisionado)| Count (máximo) |Rendimiento aprovisionado en granularidad de la colección| DatabaseName, CollectionName| 5M| | Se usa para supervisar el rendimiento aprovisionado por colección.|
+| ProvisionedThroughput (rendimiento aprovisionado)| Count (máximo) |Rendimiento aprovisionado en la granularidad del contenedor| DatabaseName, ContainerName| 5M| | Se usa para supervisar el rendimiento aprovisionado por contenedor.|
 
 ### <a name="storage-metrics"></a>Métricas de almacenamiento
 
 |Métrica (nombre para mostrar de la métrica)|Unidad (tipo de agregación)|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage (almacenamiento disponible) |Bytes (total) | Almacenamiento total disponible notificada a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M| Almacenamiento disponible| Se usa para supervisar la capacidad de almacenamiento disponible (aplicable solo para las colecciones de almacenamiento fijo). La granularidad mínima debe ser de cinco minutos.| 
-| DataUsage (uso de datos) |Bytes (total) |Uso total de datos notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M |Tamaño de los datos | Se utiliza para supervisar el uso total de los datos en la colección y la región, la granularidad mínima debe ser cinco minutos.|
-| IndexUsage (uso de índices) | Bytes (total) |Uso total del índice notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M| Tamaño de índice| Se utiliza para supervisar el uso total de los datos en la colección y la región, la granularidad mínima debe ser cinco minutos. |
-| DocumentQuota (cuota de documento) | Bytes (total) | Cuota total de almacenamiento notificado a una granularidad de cinco minutos por región.| DatabaseName, CollectionName, Region| 5M |Capacidad de almacenamiento| Se utiliza para supervisar la cuota total en la colección y la región. La granularidad mínima debe ser cinco minutos.|
-| DocumentCount (recuento de documentos) | Count (total) |Recuento total de documentos notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M |Recuento de documentos|Se utiliza para supervisar el recuento de documentos en la colección y la región. La granularidad mínima debe ser cinco minutos.|
+| DataUsage (uso de datos) |Bytes (total) |Uso total de datos notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M |Tamaño de los datos | Se utiliza para supervisar el uso total de los datos en el contenedor y la región, la granularidad mínima debe ser 5 minutos.|
+| IndexUsage (uso de índices) | Bytes (total) |Uso total del índice notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M| Tamaño de índice| Se utiliza para supervisar el uso total de los datos en el contenedor y la región, la granularidad mínima debe ser 5 minutos. |
+| DocumentQuota (cuota de documento) | Bytes (total) | Cuota total de almacenamiento notificado a una granularidad de cinco minutos por región.| DatabaseName, CollectionName, Region| 5M |Capacidad de almacenamiento| Se utiliza para supervisar la cuota total en el contenedor y la región, la granularidad mínima debe ser 5 minutos.|
+| DocumentCount (recuento de documentos) | Count (total) |Recuento total de documentos notificado a una granularidad de cinco minutos por región| DatabaseName, CollectionName, Region| 5M |Recuento de documentos|Se utiliza para supervisar el número de documentos en el contenedor y la región, la granularidad mínima debe ser 5 minutos.|
 
 ### <a name="latency-metrics"></a>Métricas de latencia
 

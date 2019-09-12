@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383412"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135799"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronización de Azure AD Connect: evitar eliminaciones accidentales
 En este tema se describe la característica para evitar eliminaciones accidentales en Azure AD Connect.
@@ -57,6 +57,8 @@ Si no es lo esperado, investigue y tome las medidas correctivas oportunas. Para 
 5. En la ventana emergente, en **Ámbito**, seleccione **Desconectado desde** y elija una hora en el pasado. Haga clic en **Buscar**. Esta página ofrece una vista de todos los objetos que se van a eliminar. Al hacer clic en cada elemento, puede obtener información adicional sobre el objeto. También puede hacer clic en **Valor de la columna** para agregar atributos adicionales para que sean visibles en la cuadrícula.
 
 ![Espacio del conector de búsqueda](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
+
+[!NOTE] Si no está seguro de querer realizar todas las eliminaciones y desea desplazarse por una ruta más segura. Puede usar el cmdlet de PowerShell `Enable-ADSyncExportDeletionThreshold` para establecer un nuevo umbral en lugar de deshabilitarlo, lo que podría provocar eliminaciones no deseadas. 
 
 Si se desean todas las eliminaciones, haga lo siguiente:
 
