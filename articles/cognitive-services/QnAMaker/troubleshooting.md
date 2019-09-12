@@ -8,19 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697965"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277479"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
 La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
+
+
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>Cómo obtener el nombre del host de servicios de QnAMaker
+
+El nombre del host de servicios de QnAMaker es útil para fines de depuración cuando se ponga en contacto con el soporte técnico de QnAMaker o UserVoice. El nombre de host es una dirección URL con este formato: https:// *{nombre de host}* .azurewebsites.net.
+    
+1. Vaya a su servicio QnAMaker (grupo de recursos) en [Azure Portal](https://portal.azure.com)
+
+    ![Grupo de recursos de Azure para QnAMaker en Azure Portal](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. Seleccione la instancia de App Service asociada al recurso de QnA Maker. Normalmente, los nombres son los mismos.
+
+     ![Selección del App Service QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. La dirección URL del nombre de host está disponible en la sección Información general
+
+    ![Nombre de host de QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Uso del bot de ayuda en el portal de QnA Maker
 
@@ -98,6 +116,14 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 
 Actualice su instancia de App Service cuando el icono de precaución aparezca junto al valor de versión de la base de conocimiento en la tabla **Endpoint keys** (Claves de punto de conexión) de la página **User Settings** [(Configuración de usuario)](https://www.qnamaker.ai/UserSettings).
 
+### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Eliminé mi servicio de Search existente. ¿Cómo lo puedo corregir?
+
+Si elimina un índice de Azure Search, la operación es definitiva y no es posible recuperar el índice. 
+
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Eliminé mi índice `testkb` en el servicio de Search. ¿Cómo lo puedo corregir? 
+
+No se pueden recuperar los datos antiguos. Cree un nuevo recurso de QnA Maker y cree su base de conocimiento nuevamente.
+
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>¿Cuándo debo actualizar mis claves de punto de conexión?
 
 Actualice las claves de punto de conexión si sospecha que han sido objeto de alguna acción fraudulenta.
@@ -108,7 +134,7 @@ Para usar varios idiomas y varias bases de conocimiento, el usuario tiene que cr
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>¿Cómo se puede cambiar el nombre del recurso de Azure Search usado por QnA Maker?
 
-El nombre del recurso de Azure Search es el nombre del recurso de QnA Maker con algunas letras aleatorias colocadas al final. Esto hace que sea más difícil distinguir entre varios recursos de Search en QnA Maker. Cree un servicio de Azure Search independiente (asígnele el nombre que desee) y conéctelo a su servicio de QnA. Los pasos son similares a los que debe hacer para [actualizar una instancia de Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+El nombre del recurso de Azure Search es el nombre del recurso de QnA Maker con algunas letras aleatorias colocadas al final. Esto hace que sea más difícil distinguir entre varios recursos de Search en QnA Maker. Cree un servicio de Azure Search independiente (asígnele el nombre que desee) y conéctelo a su servicio de QnA. Los pasos son similares a los que debe hacer para [actualizar una instancia de Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Cuando QnA Maker devuelve `Runtime core is not initialized,`, ¿cómo puedo corregirlo?
 
@@ -136,9 +162,25 @@ Es posible que el espacio en disco para el servicio de aplicaciones esté lleno.
 
 No, no es necesario usar [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) con QnA Maker. Sin embargo, QnA Maker se ofrece como una de las diversas plantillas de  [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service permite el desarrollo rápido de bots inteligentes mediante Microsoft Bot Framework y se ejecuta en un entorno sin servidor.
 
-### <a name="how-can-i-create-a-bot-with-qna-maker"></a>¿Cómo se puede crear un bot con QnA Maker?
+### <a name="how-can-i-create-a-new-bot-with-qna-maker"></a>¿Cómo se puede crear un bot con QnA Maker?
 
 Siga las instrucciones de [esta](./Tutorials/create-qna-bot.md) documentación para crear su Bot con Azure Bot Service.
+
+### <a name="how-do-i-use-a-different-knowledge-base-with-an-existing-azure-bot-service"></a>¿Cómo se usa una base de conocimiento diferente con un servicio de bot existente de Azure?
+
+Debe tener la siguiente información sobre la base de conocimiento:
+
+* Id. de base de conocimiento.
+* Nombre de host del punto de conexión publicado de la base de conocimiento; se encuentra en la página **Settings** (Configuración) después de publicarlo.
+* Clave del punto de conexión publicado de la base de conocimiento; se encuentra en **Settings** (Configuración) después de publicarlo. 
+
+Con esta información, vaya al servicio de aplicaciones del bot en Azure Portal. En **Configuración -> Configuración -> Configuración de la aplicación**, cambie esos valores.  
+
+La clave del punto de conexión de la base de conocimiento se llama `QnAAuthkey` en el servicio ABS. 
+
+### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>¿Pueden dos o más aplicaciones cliente compartir una base de conocimiento? 
+
+Sí, la base de conocimiento se puede consultar desde cualquier número de clientes. Si la respuesta de la base de conocimiento parece lenta o se agota el tiempo de espera, considere la posibilidad de actualizar el nivel de servicio del servicio de aplicaciones asociado a la base de conocimiento.
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>¿Cómo puedo insertar el servicio QnA Maker en mi sitio web?
 
