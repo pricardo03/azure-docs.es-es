@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5ec766cea2135f7c00df032ad0df4ada033d6293
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461983"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883349"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -91,7 +91,7 @@ La instrucción **SELECT** solo devuelve una fila.
 
 Este es el resultado de la instrucción **SELECT**:
 
-![Acoplamiento del documento JSON](./media/using-json-in-hive/flatten.png)
+![Acoplamiento del documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Análisis de documentos JSON en Hive
 Hive proporciona tres mecanismos distintos para ejecutar consultas en documentos JSON, pero también puede escribir las suyas propias:
@@ -101,7 +101,7 @@ Hive proporciona tres mecanismos distintos para ejecutar consultas en documentos
 * Use el serializador/deserializador (SerDe) personalizado.
 * Escriba su propia función definida por el usuario con Python u otros lenguajes. Para más información sobre cómo ejecutar su propio código Python con Hive, consulte [Funciones definidas por el usuario de Python con Apache Hive y Apache Pig][hdinsight-python].
 
-### <a name="use-the-getjsonobject-udf"></a>Uso de la función definida por el usuario get_json_object
+### <a name="use-the-get_json_object-udf"></a>Uso de la función definida por el usuario get_json_object
 Hive proporciona una función definida por el usuario integrada llamada [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object), que realiza consultas JSON en tiempo de ejecución. Este método toma dos argumentos: el nombre de la tabla y el nombre del método que tiene el documento JSON acoplado y el campo JSON que debe analizarse. Veamos un ejemplo para ver cómo funciona esta UDF.
 
 La siguiente consulta devuelve el nombre y el apellido de cada estudiante:
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 Este es el resultado cuando se ejecuta esta consulta en la ventana de la consola:
 
-![UDF get_json_object](./media/using-json-in-hive/getjsonobject.png)
+![UDF get_json_object](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 La función definida por el usuario get-json_object tiene algunas limitaciones:
 
@@ -124,7 +124,7 @@ La función definida por el usuario get-json_object tiene algunas limitaciones:
 
 Este es el motivo por el que el sitio wiki de Hive recomienda json_tuple.  
 
-### <a name="use-the-jsontuple-udf"></a>Uso de la función definida por el usuario json_tuple
+### <a name="use-the-json_tuple-udf"></a>Uso de la función definida por el usuario json_tuple
 Otra función definida por el usuario proporcionada por Hive se denomina [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que es más eficaz que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Este método toma un conjunto de claves y una cadena JSON, y devuelve una tupla de valores mediante una función. La siguiente consulta devuelve el identificador y el curso del estudiante del documento JSON:
 
 ```sql
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Salida de este script en la consola de Hive:
 
-![UDF json_tuple](./media/using-json-in-hive/jsontuple.png)
+![UDF json_tuple](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 La función definida por el usuariojson_tuple usa la sintaxis [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) de Hive, que permite que json\_tuple cree una tabla virtual mediante la aplicación la función de transferencia de datos uniforme a cada fila de la tabla original. Los JSON complejos se vuelven demasiado difíciles de manejar debido al uso repetido de **LATERAL VIEW**. Además, **JSON_TUPLE** no puede controlar los JSON anidados.
 

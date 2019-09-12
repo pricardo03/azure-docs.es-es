@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258980"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860333"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -25,7 +25,7 @@ En esta sección se trata el error en la operación de copia de seguridad de la 
 
 ### <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
 
-* Asegúrese de que el agente de máquina virtual (agente de WA) es la [versión más reciente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Asegúrese de que el agente de máquina virtual (agente de WA) es la [versión más reciente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Asegúrese de que la versión del sistema operativo de la máquina virtual Windows o Linux, consulte [Matriz de compatibilidad para copias de seguridad de máquinas virtuales IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Compruebe que no hay otro servicio de copia de seguridad en ejecución.
    * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
