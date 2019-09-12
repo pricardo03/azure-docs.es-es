@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 0f0f4da38b6b9b315508d956075840907fd46fd4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774736"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883806"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -28,7 +28,7 @@ Hay que instalar un pequeño paquete de instrumentación en la aplicación y con
 
 No solo puede instrumentar la aplicación de servicio web, sino también todos los componentes en segundo plano y JavaScript en las propias páginas web. 
 
-![La instrumentación de Application Insights de la aplicación envía datos de telemetría al recurso de Application Insights.](./media/app-insights-overview/01-scheme.png)
+![La instrumentación de Application Insights de la aplicación envía datos de telemetría al recurso de Application Insights.](./media/app-insights-overview/diagram.png)
 
 Además, puede obtener la telemetría de los entornos del host, como pueden ser contadores de rendimiento, diagnósticos de Azure o registros de Docker. También puede configurar pruebas web que envíen periódicamente solicitudes sintéticas al servicio web.
 
@@ -139,12 +139,6 @@ Comience en el tiempo de desarrollo con:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
   * [Blog de Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
-## <a name="videos"></a>Vídeos
-
-- Vídeo externo: [configuración de Application Insights con una aplicación ASP.NET](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- Vídeo externo: [configuración de Application Insights con ASP.NET Core y Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- Vídeo externo: [configuración de Application Insights con ASP.NET Core y Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

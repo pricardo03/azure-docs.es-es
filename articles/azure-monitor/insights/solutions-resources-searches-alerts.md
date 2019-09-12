@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662903"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772985"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -169,30 +169,29 @@ Las acciones de alerta tienen la siguiente estructura. Aquí se incluyen las var
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de alerta.
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
-| name | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| description | Sin | Descripción opcional de la alerta. |
-| severity | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
-
+| `type` | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
+| `name` | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
+| `description` | Sin | Descripción opcional de la alerta. |
+| `severity` | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 #### <a name="threshold"></a>Umbral
 Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Operator | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Value | Sí | Valor para comparar los resultados. |
+| `Operator` | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| `Value` | Sí | Valor para comparar los resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
-| Operator | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Value | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
+| `TriggerCondition` | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
+| `Operator` | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| `Value` | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
 
 
 #### <a name="throttling"></a>Limitaciones

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: d4774dcc96e5f7639ca0b03bca992c9a3126230b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623890"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879475"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -93,7 +93,7 @@ Las [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) de HDInsig
 
 El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  A continuación, se muestra un archivo de registro de ejemplo.
 
-![Ejemplo de archivo de registro de HDInsight](./media/hdinsight-log-management/logs.png)
+![Ejemplo de archivo de registro de HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Acceso a los archivos de registro de Hadoop
 
@@ -148,7 +148,7 @@ Después de determinar qué archivos de registro se pueden eliminar, puede ajust
 
 Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros ARM mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad**.  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos. 
 
-![Exportación de archivos de registro](./media/hdinsight-log-management/archive.png)
+![Exportación de archivos de registro](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 Como alternativa, puede crear scripts de archivado de registros con PowerShell.  Para obtener un ejemplo de script de PowerShell, consulte [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8) (Archivado de registros de Azure Automation en Azure Blob Storage).
 

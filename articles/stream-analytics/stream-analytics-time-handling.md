@@ -1,18 +1,18 @@
 ---
 title: Descripción del control del tiempo en Azure Stream Analytics
-description: Más información sobre el control del tiempo en Azure Stream Analytics
+description: Aprenda cómo funciona el control de tiempo y cómo resolver los problemas relacionados en Azure Stream Analytics.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692378"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172992"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 

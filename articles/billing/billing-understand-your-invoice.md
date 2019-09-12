@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60369963"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
@@ -100,7 +100,7 @@ La tabla siguiente describe los encabezados de columna de los cargos de uso que 
 | Término |DESCRIPCIÓN |
 | --- | --- |
 | NOMBRE |Identifica el servicio de nivel superior para el uso. |
-| Type |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
+| type |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
 | Recurso |Identifica la unidad de medida del medidor que se está utilizando. |
 | Region |Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
 | Consumida |La cantidad del medidor usado durante el período de facturación. |

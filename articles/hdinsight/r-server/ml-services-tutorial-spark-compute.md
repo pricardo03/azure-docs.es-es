@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: f072b6905881da7b7854b0e51d690dbbd40dffb5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227438"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899992"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Uso de R en el contexto de proceso de Spark en Azure HDInsight
 
@@ -59,7 +59,7 @@ El *conjunto de datos Airline 2012 On-Time* consta de 12 archivos separados po
 
 1. En el panel derecho, seleccione la pestaña **Entorno**. Las variables se muestran en **Valores**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/rstudio.png)
+    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
 1.  Cree el directorio local y descargue los datos de ejemplo. En RStudio, escriba el siguiente código:
 

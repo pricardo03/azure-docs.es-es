@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 07/27/2019
-ms.openlocfilehash: c6fd20a2e1766a8bc9abfc92c6fc11d10dbe1bf2
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/23/2019
+ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516087"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208403"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referencia de las funciones del Lenguaje de definición de flujo de trabajo en Azure Logic Apps y Microsoft Flow
 
@@ -23,7 +23,7 @@ En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logi
 > [!NOTE]
 > Esta página de referencia se aplica a Azure Logic Apps y Microsoft Flow, pero aparece en la documentación de Azure Logic Apps. Aunque esta página se refiere específicamente a las aplicaciones lógicas, estas funciones son válidas tanto para flujos como para aplicaciones lógicas. Para más información acerca de las funciones y las expresiones en Microsoft Flow, consulte [Uso de expresiones en condiciones](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando desee obtener la suma de números enteros y float. A continuación se muestran dos tareas de ejemplo que puede realizar con funciones:
+Por ejemplo, puede calcular valores con funciones matemáticas, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), cuando desee obtener la suma de números enteros y float. A continuación se muestran otras tareas de ejemplo que puede realizar con funciones:
 
 | Tarea | Sintaxis de la función | Resultado |
 | ---- | --------------- | ------ |
@@ -252,6 +252,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devuelve el elemento body de una parte específica de la salida de una acción que consta de varias partes. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Devuelve la salida en tiempo de ejecución de una acción. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Se devuelve el valor de un parámetro que se describe en la definición de flujo de trabajo. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Devuelve las entradas y salidas de todas las acciones dentro de la acción de ámbito especificada, como `For_each`, `Until` y `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devuelve la salida de un desencadenador en tiempo de ejecución, o desde otros pares de nombre y valor JSON. Consulte también [triggerOutputs](#triggerOutputs) y [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devuelve la salida `body` de un desencadenador en tiempo de ejecución. Consulte [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devuelve un valor único que coincide con un nombre de clave en las salidas del desencadenador *form-data* o *form-encoded*. |
@@ -521,7 +522,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*días*> | Sí | Entero | Número positivo o negativo de días que desea agregar |
+| <*días*> | Sí | Integer | Número positivo o negativo de días que desea agregar |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -563,7 +564,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*horas*> | Sí | Entero | Número positivo o negativo de horas que desea agregar |
+| <*horas*> | Sí | Integer | Número positivo o negativo de horas que desea agregar |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -605,7 +606,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*minutos*> | Sí | Entero | Número positivo o negativo de minutos que desea agregar |
+| <*minutos*> | Sí | Integer | Número positivo o negativo de minutos que desea agregar |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -638,7 +639,7 @@ Y devuelve este resultado: `"2018-03-15T00:15:00.0000000Z"`
 
 ### <a name="addproperty"></a>addProperty
 
-Agrega una propiedad y su valor o un par de nombre y valor a un objeto JSON y devuelve el objeto actualizado. Si el objeto ya existe en tiempo de ejecución, la función produce un error.
+Agrega una propiedad y su valor o un par de nombre y valor a un objeto JSON y devuelve el objeto actualizado. Si la propiedad ya existe en tiempo de ejecución, la función genera un error.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -656,13 +657,81 @@ addProperty(<object>, '<property>', <value>)
 | <*objeto-actualizado*> | Object | Objeto JSON actualizado con la propiedad especificada |
 ||||
 
-*Ejemplo*
-
-Este ejemplo agrega la propiedad `accountNumber` al objeto `customerProfile`, que se convierte en JSON con la función [JSON()](#json).
-La función asigna un valor generado por la función [guid()](#guid) y devuelve el objeto actualizado:
+Para agregar una propiedad secundaria a una propiedad existente, use esta sintaxis:
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sí | Object | Objeto JSON al que desea agregar una propiedad |
+| <*parent-property*> | Sí | Cadena | Nombre de la propiedad primaria en la que desea agregar la propiedad secundaria |
+| <*child-property*> | Sí | Cadena | Nombre de la propiedad secundaria que se va a agregar |
+| <*valor*> | Sí | Any | Valor que se va a establecer para la propiedad especificada |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*objeto-actualizado*> | Object | Objeto JSON actualizado cuya propiedad se ha establecido |
+||||
+
+*Ejemplo 1*
+
+En este ejemplo se agrega la propiedad `middleName` a un objeto JSON, que se convierte de una cadena a JSON mediante la función [JSON()](#json). El objeto ya incluye las propiedades `firstName` y `surName`. La función asigna el valor especificado a la nueva propiedad y devuelve el objeto actualizado:
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Ejemplo 2*
+
+En este ejemplo se agrega la propiedad secundaria `middleName` a la propiedad existente `customerName` en un objeto JSON, que se convierte de una cadena a JSON mediante la función [JSON()](#json). La función asigna el valor especificado a la nueva propiedad y devuelve el objeto actualizado:
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -678,7 +747,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*segundos*> | Sí | Entero | Número positivo o negativo de segundos que desea agregar |
+| <*segundos*> | Sí | Integer | Número positivo o negativo de segundos que desea agregar |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -721,7 +790,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a agregar |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
@@ -1427,7 +1496,7 @@ dayOfMonth('<timestamp>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*día-del-mes*> | Entero | Día del mes de la marca de tiempo especificada |
+| <*día-del-mes*> | Integer | Día del mes de la marca de tiempo especificada |
 ||||
 
 *Ejemplo*
@@ -1457,7 +1526,7 @@ dayOfWeek('<timestamp>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*día-de-la-semana*> | Entero | Día de la semana de la marca de tiempo especificada, donde el domingo es 0, el lunes es 1, etc. |
+| <*día-de-la-semana*> | Integer | Día de la semana de la marca de tiempo especificada, donde el domingo es 0, el lunes es 1, etc. |
 ||||
 
 *Ejemplo*
@@ -1487,7 +1556,7 @@ dayOfYear('<timestamp>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*día-del-año*> | Entero | Día del año de la marca de tiempo especificada |
+| <*día-del-año*> | Integer | Día del año de la marca de tiempo especificada |
 ||||
 
 *Ejemplo*
@@ -1618,7 +1687,7 @@ div(<dividend>, <divisor>)
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*resultado-cociente*> | Entero | Resultado entero de dividir el primer número entre el segundo número |
+| <*resultado-cociente*> | Integer | Resultado entero de dividir el primer número entre el segundo número |
 ||||
 
 *Ejemplo*
@@ -1950,7 +2019,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a sustraer |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
@@ -1994,7 +2063,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a sustraer |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
@@ -2187,7 +2256,7 @@ indexOf('<text>', '<searchText>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-de-índice*>| Entero | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+| <*valor-de-índice*>| Integer | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
 ||||
 
 *Ejemplo*
@@ -2217,7 +2286,7 @@ int('<value>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*resultado-de-número-entero*> | Entero | Versión como número entero de la cadena especificada. |
+| <*resultado-de-número-entero*> | Integer | Versión como número entero de la cadena especificada. |
 ||||
 
 *Ejemplo*
@@ -2300,7 +2369,7 @@ iterationIndexes('<loopName>')
 
 | Valor devuelto | type | DESCRIPCIÓN | 
 | ------------ | ---- | ----------- | 
-| <*índice*> | Entero | El valor de índice de la iteración actual dentro del bucle Until especificado | 
+| <*índice*> | Integer | El valor de índice de la iteración actual dentro del bucle Until especificado | 
 |||| 
 
 *Ejemplo* 
@@ -2560,7 +2629,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-de-índice-final*> | Entero | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+| <*valor-de-índice-final*> | Integer | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
 ||||
 
 *Ejemplo*
@@ -2591,7 +2660,7 @@ length([<collection>])
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*longitud-o-recuento*> | Entero | Número de elementos de la colección |
+| <*longitud-o-recuento*> | Integer | Número de elementos de la colección |
 ||||
 
 *Ejemplo*
@@ -2847,7 +2916,7 @@ multipartBody('<actionName>', <index>)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*nombre_de_la_acción*> | Sí | String | Nombre de la acción cuya salida tiene varias partes |
-| <*índice*> | Sí | Entero | Valor de índice de la parte que se busca |
+| <*índice*> | Sí | Integer | Valor de índice de la parte que se busca |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3066,13 +3135,13 @@ rand(<minValue>, <maxValue>)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*valor_mínimo*> | Sí | Entero | Entero más bajo del intervalo |
-| <*valor_maximo*> | Sí | Entero | Entero que sigue al entero más alto del intervalo que puede devolver la función |
+| <*valor_mínimo*> | Sí | Integer | Entero más bajo del intervalo |
+| <*valor_maximo*> | Sí | Integer | Entero que sigue al entero más alto del intervalo que puede devolver la función |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*resultado-aleatorio*> | Entero | Entero aleatorio devuelto del intervalo especificado |
+| <*resultado-aleatorio*> | Integer | Entero aleatorio devuelto del intervalo especificado |
 ||||
 
 *Ejemplo*
@@ -3097,8 +3166,8 @@ range(<startIndex>, <count>)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*índice_inicial*> | Sí | Entero | Valor entero que inicia la matriz como el primer elemento |
-| <*recuento*> | Sí | Entero | Número de enteros de la matriz |
+| <*índice_inicial*> | Sí | Integer | Valor entero que inicia la matriz como el primer elemento |
+| <*recuento*> | Sí | Integer | Número de enteros de la matriz |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3152,7 +3221,7 @@ Y devuelve este resultado: `"the new string"`
 
 ### <a name="removeproperty"></a>removeProperty
 
-Elimina una propiedad de un objeto y devuelve el objeto actualizado.
+Elimina una propiedad de un objeto y devuelve el objeto actualizado. Si la propiedad que intenta quitar no existe, la función devuelve el objeto original.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3169,20 +3238,208 @@ removeProperty(<object>, '<property>')
 | <*objeto-actualizado*> | Object | Objeto JSON actualizado sin la propiedad especificada |
 ||||
 
-*Ejemplo*
-
-Este ejemplo elimina la propiedad `"accountLocation"` de un objeto `"customerProfile"`, que se convierte en JSON con la función [JSON()](#json) y devuelve el objeto actualizado:
+Para quitar una propiedad secundaria de una propiedad existente, use esta sintaxis:
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sí | Object | Objeto JSON cuya propiedad desea quitar |
+| <*parent-property*> | Sí | Cadena | Nombre de la propiedad primaria con la propiedad secundaria que desea quitar |
+| <*child-property*> | Sí | Cadena | Nombre de la propiedad secundaria que se va a quitar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*objeto-actualizado*> | Object | Objeto JSON actualizado cuya propiedad secundaria ha quitado. |
+||||
+
+*Ejemplo 1*
+
+En este ejemplo se quita la propiedad `middleName` de un objeto JSON, que se convierte de cadena a JSON con la función [JSON()](#json) y devuelve el objeto actualizado:
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Ejemplo 2*
+
+En este ejemplo se quita la propiedad secundaria `middleName` de una propiedad primaria `customerName` en un objeto JSON, que se convierte de cadena a JSON mediante la función [JSON()](#json) y devuelve el objeto actualizado:
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### <a name="result"></a>result
+
+Devuelve las entradas y salidas de todas las acciones que se encuentran dentro de la acción de ámbito especificada, como una acción `For_each`, `Until` o `Scope`. Esta función resulta útil para devolver los resultados de una acción con errores para diagnosticar y controlar las excepciones. Para obtener más información, vea [Obtención del contexto y resultados de errores](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+
+```
+result('<scopedActionName>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | Sí | Cadena | Nombre de la acción con ámbito desde la que se van a devolver las entradas y salidas de todas las acciones internas |
+||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*array-object*> | Objeto de matriz | Matriz que contiene matrices de entradas y salidas de cada acción que aparece dentro de la acción con ámbito especificada |
+||||
+
+*Ejemplo*
+
+En este ejemplo se devuelven las entradas y salidas de cada iteración de una acción HTTP que está dentro de un bucle `For_each` mediante la función `result()` en la acción `Compose`:
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+Este es el aspecto que podría tener el ejemplo de matriz devuelta, donde el objeto `outputs` externo contiene las entradas y salidas de cada iteración de las acciones dentro de la acción `For_each`.
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### <a name="setproperty"></a>setProperty
 
-Establece el valor de una propiedad de un objeto y devuelve el objeto actualizado.
-Para agregar una nueva propiedad, puede usar esta función o la función [addProperty()](#addProperty).
+Establece el valor de propiedad de un objeto JSON y devuelve el objeto actualizado. Si la propiedad que intenta establecer no existe, la propiedad se agrega al objeto. Para agregar una nueva propiedad, utilice la función [addProperty()](#addProperty).
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3195,18 +3452,79 @@ setProperty(<object>, '<property>', <value>)
 | <*valor*> | Sí | Any | Valor que se va a establecer para la propiedad especificada |
 |||||
 
+Para establecer la propiedad secundaria en un objeto secundario, use una llamada `setProperty()` anidada en su lugar. De lo contrario, la función devuelve solo el objeto secundario como salida.
+
+```
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sí | Object | Objeto JSON cuya propiedad desea establecer |
+| <*parent-property*> | Sí | Cadena | Nombre de la propiedad primaria con la propiedad secundaria que desea establecer |
+| <*child-property*> | Sí | Cadena | Nombre de la propiedad secundaria que va a establecer |
+| <*valor*> | Sí | Any | Valor que se va a establecer para la propiedad especificada |
+|||||
+
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | <*objeto-actualizado*> | Object | Objeto JSON actualizado cuya propiedad se ha establecido |
 ||||
 
-*Ejemplo*
+*Ejemplo 1*
 
-Este ejemplo establece la propiedad `"accountNumber"` del objeto `"customerProfile"`, que se convierte en JSON con la función [JSON()](#json).
-La función asigna un valor generado por la función [guid()](#guid) y devuelve el objeto JSON actualizado:
+En este ejemplo se establece la propiedad `surName` en un objeto JSON, que se convierte de cadena a JSON mediante la función [JSON()](#json). La función asigna el valor especificado a la propiedad y devuelve el objeto actualizado:
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*Ejemplo 2*
+
+En este ejemplo se establece la propiedad secundaria `surName` para la propiedad primaria `customerName` en un objeto JSON, que se convierte de cadena a JSON mediante la función [JSON()](#json). La función asigna el valor especificado a la propiedad y devuelve el objeto actualizado:
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+Este es el objeto JSON actual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+Este es el objeto JSON actualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
@@ -3222,7 +3540,7 @@ skip([<collection>], <count>)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Array | Colección cuyos elementos desea eliminar |
-| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a eliminar al principio |
+| <*recuento*> | Sí | Integer | Entero positivo para el número de elementos a eliminar al principio |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3492,8 +3810,8 @@ substring('<text>', <startIndex>, <length>)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena cuyos caracteres se toman |
-| <*índice_inicial*> | Sí | Entero | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
-| <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena |
+| <*índice_inicial*> | Sí | Integer | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
+| <*longitud*> | Sí | Integer | Número positivo de caracteres que desea incluir en la subcadena |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3525,7 +3843,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a sustraer |
 | <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
 | <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
@@ -3569,7 +3887,7 @@ take([<collection>], <count>)
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena o matriz | Colección cuyos elementos desea tomar |
-| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a tomar desde el principio |
+| <*recuento*> | Sí | Integer | Entero positivo para el número de elementos a tomar desde el principio |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -3609,7 +3927,7 @@ ticks('<timestamp>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*número-de-ticks*> | Entero | Número de ticks desde la marca de tiempo especificada |
+| <*número-de-ticks*> | Integer | Número de ticks desde la marca de tiempo especificada |
 ||||
 
 <a name="toLower"></a>
@@ -3784,7 +4102,7 @@ triggerMultipartBody(<index>)
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*índice*> | Sí | Entero | Valor de índice de la parte que se busca |
+| <*índice*> | Sí | Integer | Valor de índice de la parte que se busca |
 |||||
 
 | Valor devuelto | type | DESCRIPCIÓN |
@@ -4075,7 +4393,7 @@ uriPort('<uri>')
 
 | Valor devuelto | type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*valor-port*> | Entero | Valor `port` del identificador URI especificado. Si `port` no especifica un valor, devuelve el puerto predeterminado del protocolo. |
+| <*valor-port*> | Integer | Valor `port` del identificador URI especificado. Si `port` no especifica un valor, devuelve el puerto predeterminado del protocolo. |
 ||||
 
 *Ejemplo*

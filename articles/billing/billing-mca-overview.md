@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: 87483c967641489e9548f38c99eebbf121d0d252
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 835686d639679cca7e9a83b5297b365953835e47
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490749"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880745"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -67,8 +67,8 @@ Los planes de Azure determinan los acuerdos de nivel de servicio y los precios d
 
 | Plan             | Definición  |
 |------------------|-------------|
-|Plan de Microsoft Azure   | Permita a los usuarios crear suscripciones que puedan ejecutar cualquier carga de trabajo. Para más información, consulte el [plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/). |
-|Plan de Microsoft Azure para desarrollo y pruebas | Permita a los suscriptores de Visual Studio crear suscripciones restringidas para desarrollar o probar cargas de trabajo. Estas suscripciones aportan ventajas como tarifas más bajas y acceso a imágenes exclusivas de máquinas virtuales en Azure Portal. Para más información, consulte el [plan de Microsoft Azure Plan para desarrollo y pruebas](https://azure.microsoft.com/offers/ms-azr-0148g/).|
+|Plan de Microsoft Azure   | Permita a los usuarios crear suscripciones que puedan ejecutar cualquier carga de trabajo.  |
+|Plan de Microsoft Azure para desarrollo y pruebas | Permita a los suscriptores de Visual Studio crear suscripciones restringidas para desarrollar o probar cargas de trabajo. Estas suscripciones aportan ventajas como tarifas más bajas y acceso a imágenes exclusivas de máquinas virtuales en Azure Portal. |
 
 ## <a name="invoice-sections"></a>Secciones de la factura
 

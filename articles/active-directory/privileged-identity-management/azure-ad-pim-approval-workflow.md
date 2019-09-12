@@ -3,7 +3,7 @@ title: 'Aprobación o rechazo de solicitudes de roles de Azure AD en PIM: Azure 
 description: Aprenda a aprobar o rechazar solicitudes para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476532"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804028"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en PIM
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822796"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845462"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de suscripción de Event Grid
 
@@ -35,8 +35,8 @@ El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de lo
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| de destino | objeto | El objeto que define el punto de conexión. |
-| filter | objeto | Un campo opcional para filtrar los tipos de eventos. |
+| de destino | object | El objeto que define el punto de conexión. |
+| filter | object | Un campo opcional para filtrar los tipos de eventos. |
 
 ### <a name="destination-object"></a>Objeto de destino
 
@@ -68,7 +68,7 @@ El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de lo
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

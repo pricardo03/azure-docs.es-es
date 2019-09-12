@@ -2,19 +2,19 @@
 title: Características de datos del cliente de Azure Key Vault | Microsoft Docs
 description: Obtenga información sobre los datos del cliente de Key Vault.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: f044c0da1cb1ed3f3c7f118764cc0e685cb3998f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 67e1aeab4211249075b51bd0138d7875756a3483
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687019"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883329"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Características de datos del cliente de Azure Key Vault
 

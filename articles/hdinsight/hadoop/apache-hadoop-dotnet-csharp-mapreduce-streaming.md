@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f82ad65ecc805d5a45c78e8b190dd0eee4c340c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727368"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882345"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
 
@@ -152,7 +152,7 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
 
 4. Expanda el clúster de HDInsight en el que desee implementar esta aplicación. Aparecerá una entrada con el texto __(Cuenta de almacenamiento predeterminada)__ en la lista.
 
-    ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
     * Si se puede expandir esta entrada, significa que está utilizando una __cuenta de Azure Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en __(Contenedor predeterminado)__ .
 
@@ -162,7 +162,7 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
 
    * Si utiliza una __cuenta de Azure Storage__, haga clic en el icono de carga y, a continuación, navegue hasta la carpeta **bin\debug** para localizar el proyecto **mapper**. Por último, seleccione el archivo **mapper.exe** y haga clic en **Aceptar**.
 
-       ![icono para cargar](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![icono para cargar](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * Si usa __Azure Data Lake Storage__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione __Cargar__. Por último, seleccione el archivo **mapper.exe** y haga clic en **Abrir**.
 

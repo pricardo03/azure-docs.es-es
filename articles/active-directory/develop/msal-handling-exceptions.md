@@ -3,7 +3,7 @@ title: Errores y excepciones (MSAL) | Azure
 description: Aprenda a controlar errores y excepciones, obtenga más información sobre el acceso condicional y el desafío de notificaciones en las aplicaciones de MSAL.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: negoe
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
-ms.author: twhitney
+ms.date: 08/19/2019
+ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c37a52ee939e6144b98e6a1369f94beabc5fc1d9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532866"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305062"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Control de excepciones y errores con MSAL
 Las excepciones de la biblioteca de autenticación de Microsoft (MSAL) están diseñadas para que los desarrolladores de aplicaciones solucionen problemas y no para mostrarse a los usuarios finales. Los mensajes de excepción no están traducidos.
@@ -43,13 +43,13 @@ Estas son las excepciones comunes que pueden producirse y algunas de las posible
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource (Ni el usuario ni el administrador han dado consentimiento para usar la aplicación con ID "{appId}" llamada "{appName}". Envíe una solicitud de autorización interactiva para este usuario y este recurso).| Debe obtener primero el consentimiento del usuario. Si no está utilizando .NET Core (que no tiene ninguna interfaz de usuario web), llame a `AcquireTokeninteractive` (solo una vez). Si lo utiliza o si no quiere realizar una operación `AcquireTokenInteractive`, el usuario puede ir a una dirección URL para dar su consentimiento: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. Para llamar a `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: The user is required to use multi-factor authentication (Es necesario que el usuario utilice la autenticación multifactor).| No hay ninguna mitigación. Si la autenticación multifactor está configurada para el inquilino y AAD decide aplicarla, deberá recurrir a un flujo interactivo como `AcquireTokenInteractive` o `AcquireTokenByDeviceCode`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: The grant type is not supported over the */common* or */consumers* endpoints. Use the */organizations* or tenant-specific endpoint. You used */common*. (El tipo de concesión no es compatible con los puntos de conexión /common o /consumers. Use /organizations o el punto de conexión específico del inquilino. Usó /common).| Como se ha explicado en el mensaje de Azure AD, la autoridad debe tener un inquilino o, en caso contrario, */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: The request body must contain the following parameter: 'client_secret or client_assertion' (El cuerpo de la solicitud debe contener el siguiente parámetro: "client_secret o client_assertion").| Esto puede ocurrir si la aplicación no estaba registrada como una aplicación cliente pública en Azure AD. En Azure Portal, edite el manifiesto de la aplicación y establezca `allowPublicClient` en `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: The request body must contain the following parameter: 'client_secret or client_assertion' (El cuerpo de la solicitud debe contener el siguiente parámetro: "client_secret o client_assertion").| Esta excepción puede ocurrir si la aplicación no estaba registrada como una aplicación cliente pública en Azure AD. En Azure Portal, edite el manifiesto de la aplicación y establezca `allowPublicClient` en `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user Message: Could not identify logged in user (No se pudo identificar al usuario que inició sesión).| La biblioteca no pudo consultar el usuario actual de Windows que ha iniciado sesión o este usuario no está unido a AD o AAD (los usuarios unidos a un lugar de trabajo no son compatibles). Mitigación 1: en UWP, compruebe que la aplicación tiene las siguientes funcionalidades: Autenticación empresarial, Redes privadas (cliente y servidor), Información de la cuenta de usuario. Mitigación2: Implemente su propia lógica para capturar el nombre de usuario (por ejemplo, john@contoso.com) y use el formulario `AcquireTokenByIntegratedWindowsAuth` que toma el nombre de usuario.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Este método se basa en un protocolo que Active Directory (AD) expone. Si un usuario se creó en Azure Active Directory sin respaldo de AD (usuario "administrado"), se producirá un error en este método. Los usuarios creados en AD y con respaldo de AAD (usuarios "federados") pueden beneficiarse de este método de autenticación no interactiva. Mitigación: Use la autenticación interactiva.|
 
 ## <a name="javascript-errors"></a>Errores de JavaScript
 
-MSAL.js proporciona objetos de error que describen brevemente y clasifican los diferentes tipos de errores habituales e incluyen una interfaz para acceder a los detalles específicos de los errores como, por ejemplo, a los mensajes de error, para administrarlos adecuadamente.
+MSAL.js proporciona objetos de error que abstraen y clasifican los distintos tipos de errores comunes. También proporciona la interfaz para tener acceso a detalles específicos de los errores, como los mensajes de error, para controlarlos de manera adecuada.
 
 **Objeto Error**
 
@@ -65,7 +65,7 @@ export class AuthError extends Error {
 }
 ```                
 Si extiende la clase de error, tendrá acceso a las siguientes propiedades:
-* **AuthError.message:** Esta es la misma que errorMessage.
+* **AuthError.message:**  igual que errorMessage.
 * **AuthError.stack:** Seguimiento de la pila de los errores que se produjeron. Permite el seguimiento hasta dar con el punto de origen del error.
 
 **Tipos de errores**
@@ -74,13 +74,13 @@ Están disponibles los siguientes tipos de errores:
 
 * *AuthError:* Clase de error básica para la biblioteca MSAL.js. También se usa para los errores inesperados.
 
-* *ClientAuthError:* Clase de error que indica un problema con la autenticación de cliente. La mayoría de los errores que proceden de la biblioteca serán del tipo ClientAuthErrors. Pueden ser errores como llamar a un método de inicio de sesión cuando el inicio de sesión ya está en curso, usuarios que cancelan un inicio de sesión, etc.
+* *ClientAuthError:* clase de error que indica un problema con la autenticación de cliente. La mayoría de los errores que proceden de la biblioteca serán del tipo ClientAuthErrors. Puede tratarse de errores como llamar a un método de inicio de sesión cuando el inicio de sesión ya está en curso, usuarios que cancelan un inicio de sesión, etc. 
 
-* *ClientConfigurationError:* Clase de error que extiende el tipo de error ClientAuthError que se produce antes de que se realicen las solicitudes si los parámetros de configuración de un usuario determinado están mal formados o faltan.
+* *ClientConfigurationError:* clase de error que extiende el tipo de error ClientAuthError que se produce antes de que se realicen las solicitudes si los parámetros de configuración de un usuario determinado faltan o tienen un formato incorrecto.
 
 * *ServerError:* Clase de error para representar las cadenas de error que envía el servidor de autenticación. Puede tratarse de errores como formatos o parámetros de solicitud no válidos o cualquier otro error que impida al servidor autenticar o autorizar al usuario.
 
-* *InteractionRequiredAuthError:* Clase de error que extiende ServerError para representar errores de servidor que requieren una llamada interactiva. `acquireTokenSilent` genera este error si se solicita al usuario que interactúe con el servidor para proporcionar credenciales o consentimiento para la autenticación o autorización. Entre los códigos de error se incluyen estos: "interaction_required", "login_required", "consent_required".
+* *InteractionRequiredAuthError:* clase de error que extiende ServerError para representar errores de servidor que requieren una llamada interactiva. `acquireTokenSilent` genera este error si se solicita al usuario que interactúe con el servidor para proporcionar credenciales o consentimiento para la autenticación o autorización. Entre los códigos de error se incluyen estos: "interaction_required", "login_required", "consent_required".
 
 Para el control de errores en flujos de autenticación con métodos de redireccionamiento (`loginRedirect`, `acquireTokenRedirect`), deberá registrar la devolución de llamada a la que se llama correctamente o con error después del redireccionamiento mediante el método `handleRedirectCallback()` de la siguiente manera:
 
@@ -111,7 +111,9 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### <a name="interaction-required-errors"></a>Errores al requerir una interacción
 
-Se devuelve un error cuando se requiere una interacción con la interfaz de usuario. Esto significa que ha intentado usar un método no interactivo de adquisición de un token (por ejemplo, `acquireTokenSilent`), pero MSAL no pudo hacerlo de forma automática. Los posibles motivos son:
+Se devuelve un error cuando intenta usar un método no interactivo para adquirir un token (por ejemplo, `acquireTokenSilent`) y MSAL no pudo hacerlo de manera silenciosa. 
+
+Los posibles motivos son:
 
 * Debe iniciar sesión
 * Debe dar su consentimiento
@@ -160,28 +162,24 @@ El patrón para controlar este error consiste en realizar una llamada interactiv
 myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
     // call API
 }).catch( function (error) {
-    // call acquireTokenPopup in case of acquireTokenSilent failure
-    myMSALObj.acquireTokenPopup(accessTokenRequest).then(
-        function (accessTokenResponse) {
+    if (error instanceof InteractionRequiredAuthError) {
+        // Extract claims from error message
+        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
+        // call acquireTokenPopup in case of InteractionRequiredAuthError failure
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
             // call API
         }).catch(function (error) {
             console.log(error);
         });
+    }
 });
 ```
 
 La adquisición interactiva del token avisa al usuario y le da la oportunidad de cumplir con la directiva de acceso condicional requerida.
 
-Al llamar a una API que requiere acceso condicional, puede recibir un desafío de notificaciones en el error de la API. En este caso, puede pasar las notificaciones que devolvió el error como `extraQueryParameters` en la llamada para adquirir tokens de manera que se le pida al usuario que cumpla con la directiva adecuada:
+Al llamar a una API que requiere acceso condicional, puede recibir un desafío de notificaciones en el error de la API. En este caso, puede pasar las notificaciones devueltas en el error al campo `claimsRequest` de la clase `AuthenticationParameters.ts` para satisfacer la directiva adecuada. 
 
-```javascript
-var request = {
-    scopes: ["user.read"],
-    extraQueryParameters: {claims: claims}
-}
-
-myMSALObj.acquireTokenPopup(request);
-```
+Consulte cómo [solicitar notificaciones adicionales](active-directory-optional-claims.md) para más información.
 
 ## <a name="retrying-after-errors-and-exceptions"></a>Nuevos intentos después de errores y excepciones
 
@@ -189,7 +187,7 @@ myMSALObj.acquireTokenPopup(request);
 MSAL.NET implementa un único mecanismo de un solo reintento para aquellos errores con códigos de error 500-600.
 
 ### <a name="http-429"></a>HTTP 429
-Cuando el servicio de token de seguridad (STS) está demasiado ocupado debido a "demasiadas solicitudes", devuelve un error HTTP 429 junto con una sugerencia sobre cuándo puede intentarlo de nuevo (el campo de respuesta Volver a intentar después de) en forma de retraso en segundos, o una fecha.
+Cuando el servidor de token de servicio (STS) se sobrecarga con demasiadas solicitudes, devuelve un error HTTP 429 con una sugerencia sobre cuándo puede intentarlo de nuevo en términos de tiempo. El error se puede leer en el campo de respuesta `Retry-After`.
 
 #### <a name="net"></a>.NET
 La excepción [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) muestra `System.Net.Http.Headers.HttpResponseHeaders` como una propiedad `namedHeaders`. Por lo tanto, puede aprovechar la información adicional del código de error para mejorar la confiabilidad de las aplicaciones. En el caso que acabamos de describir, puede usar `RetryAfterproperty` (del tipo `RetryConditionHeaderValue`) y calcular cuándo se debe volver a intentar.

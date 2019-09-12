@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733103"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307871"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conexión a la API de Media Services v3: Python
 
@@ -30,6 +30,9 @@ En este artículo se muestra cómo conectarse al SDK de Python de Azure Media 
 - Asegúrese de establecer la variable de entorno `PATH`.
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 - Siga los pasos descritos en el tema [Acceso a la API](access-api-cli-how-to.md). Registre el identificador de suscripción, el identificador de aplicación (el identificador de cliente), la clave de autenticación (el secreto) y el identificador de inquilino que necesitará en el paso posterior.
+
+> [!IMPORTANT]
+> Revise las [convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Instalación de los módulos
 

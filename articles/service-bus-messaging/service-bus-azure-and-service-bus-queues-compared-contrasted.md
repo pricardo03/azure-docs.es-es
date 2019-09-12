@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017788"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376330"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que actualmente ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -52,7 +52,9 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 * Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
 * Su solución requiere un comportamiento transaccional y atomicidad al enviar o recibir varios mensajes desde una cola.
 * Su aplicación administra mensajes que pueden superar los 64 KB pero probablemente no alcanzarán el límite de 256 KB.
-* Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores. Para más información, consulte [Control de acceso basado en rol de Active Directory (versión preliminar)](service-bus-role-based-access-control.md).
+* Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores. Para más información, consulte los siguientes artículos.
+    - [Autenticación con identidades administradas](service-bus-managed-service-identity.md)
+    - [Autenticación desde una aplicación](authenticate-application.md)
 * El tamaño de la cola no aumentará a más de 80 GB.
 * Quiere usar el protocolo de mensajería basado en estándares AMQP 1.0. Para obtener más información sobre AMQP, vea [Introducción al AMQP de Service Bus](service-bus-amqp-overview.md).
 * Puede idear una migración eventual desde la comunicación punto a punto basada en cola a un patrón de intercambio de mensajes que permite la integración perfecta de receptores adicionales (suscriptores), cada uno de los cuales recibe copias independientes de algunos o todos los mensajes enviados a la cola. El segundo se refiere a la capacidad de publicación o suscripción ofrecida por Service Bus de forma nativa.
@@ -68,7 +70,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 | Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección "Información adicional".</br> |**Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante el uso de sesiones de mensajería) |
-| Garantía de entrega |**Al menos una vez** |**Al menos una vez**<br/><br/>**Como máximo una vez** |
+| Garantía de entrega |**Al menos una vez** |**Al menos una vez** (con el modo de recepción PeekLock: este es el valor predeterminado) <br/><br/>**Por lo menos un meme** (mediante el modo de recepción ReceiveAndDelete) <br/> <br/> Más información sobre los [distintos modos de recepción](service-bus-queues-topics-subscriptions.md#receive-modes).  |
 | Compatibilidad con la operación atómica |**No** |**Sí**<br/><br/> |
 | Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo mediante el uso de la API administrada de .NET) |
 | API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de sesiones de [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y **OnMessage**. |
@@ -83,7 +85,6 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 * El sistema de los mensajes en las colas de Storage es normalmente primero en entrar, primero en salir; sin embargo, en ocasiones, pueden estar desordenados; por ejemplo, cuando expira la duración de tiempo de espera de visibilidad de un mensaje (por ejemplo, como resultado de una aplicación cliente que se bloquea durante el proceso). Cuando expira el tiempo de espera de visibilidad, el mensaje se vuelve visible en la cola para que otro trabajador lo quite de la cola. En ese momento, el mensaje recién visible se puede colocar en la cola (para quitarlo después) después de un mensaje que se colocó originalmente en cola después de él.
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
-* Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. 
 * Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus al usar el estado de sesión para almacenar el estado de la aplicación relativo al progreso del control de la secuencia del mensaje de la sesión y mediante el uso de transacciones sobre la fijación de los mensajes recibidos y la actualización del estado de la sesión. Este tipo de característica de coherencia a veces se denomina *procesamiento único* en productos de otros proveedores, pero los errores de transacción obviamente harán que los mensajes se vuelvan a enviar; por tanto, el término no es totalmente preciso.
 * Las colas de Storage ofrecen un modelo de programación coherente y uniforme en las colas, tablas y blobs, tanto para desarrolladores como para los equipos de operaciones.
 * Las colas de Service Bus ofrecen compatibilidad con transacciones locales en el contexto de una sola cola.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 45c802fb42088be1eecd7c711c6693d325252c91
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985799"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899400"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -209,13 +209,15 @@ De forma predeterminada el motor del contenedor Moby no establece límites de ta
 
 Puede limitar el tamaño de todos los archivos de registro del contenedor en las opciones de registro del motor del contenedor. En el ejemplo siguiente se establece el controlador de registro en `json-file` (recomendado) con límites de tamaño y número de archivos:
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 Agregue (o anexe) esta información a un archivo denominado `daemon.json` y colóquelo en la ubicación adecuada para su plataforma del dispositivo.
 
@@ -230,18 +232,19 @@ El motor del contenedor debe reiniciarse para que los cambios surtan efecto.
 
 Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Opciones adicionales en los sistemas Linux**
 

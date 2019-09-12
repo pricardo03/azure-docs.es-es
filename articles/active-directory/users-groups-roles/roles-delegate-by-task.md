@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4def4a6e8ca743ce03151f45e17da03d748c121e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126914"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207242"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -111,7 +111,7 @@ Leer toda la configuración | Lectores de directorios | Rol de usuario predeterm
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Crear una instancia de Azure AD Domain Services | Administrador global | 
-Realizar todas las tareas de Azure AD Domain Services | Grupo de administradores de DC de Azure AD ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Realizar todas las tareas de Azure AD Domain Services | Grupo de administradores de DC de Azure AD ([consulte la documentación](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Leer toda la configuración | Lector en la suscripción de Azure que contiene el servicio AD DS | 
 
 ## <a name="devices"></a>Dispositivos
@@ -143,6 +143,11 @@ Actualizar aprovisionamiento de aplicaciones empresariales | Propietario de la a
 Actualizar autoservicio de aplicaciones empresariales | Propietario de la aplicación empresarial ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicaciones en la nube, Administrador de aplicaciones
 Actualizar propiedades del inicio de sesión único | Propietario de la aplicación empresarial ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicaciones en la nube, Administrador de aplicaciones
 
+## <a name="entitlement-management"></a>Administración de derechos
+Tarea | Rol con privilegios mínimos | Roles adicionales
+---- | --------------------- | ----------------
+Adición de recursos a un catálogo | Administrador de usuarios | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)).
+Adición de sitios de SharePoint Online al catálogo | Administrador global
 
 
 ## <a name="groups"></a>Grupos

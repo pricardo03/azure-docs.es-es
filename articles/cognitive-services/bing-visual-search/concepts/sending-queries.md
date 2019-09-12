@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 7/01/2019
+ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883574"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194320"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API
 
@@ -242,7 +242,7 @@ El campo `tags` contiene un nombre para mostrar y una lista de acciones (conclus
 
 Para obtener una lista de conclusiones predeterminadas, consulte [Conclusiones predeterminadas](../default-insights-tag.md).
 
-Las etiquetas restantes contienen otras conclusiones que pueden ser de interés para el usuario. Por ejemplo, si la imagen contiene texto, una de las etiquetas puede incluir una conclusión TextResults, que contiene el texto reconocido. O bien, si Bing reconoce una entidad (es decir, una persona, un lugar o una cosa) en la imagen, una de las etiquetas puede identificar la entidad. Visual Search también devuelve un conjunto de términos variados (etiquetas) derivados de la imagen de entrada. Estas etiquetas permiten a los usuarios explorar los conceptos que se encuentran en la imagen. Por ejemplo, si la imagen de entrada es de un atleta famoso, una de las etiquetas podría ser deportes, que contiene vínculos a imágenes de deportes.
+Las etiquetas restantes contienen otras conclusiones que pueden ser de interés para el usuario. Por ejemplo, si la imagen contiene texto, una de las etiquetas puede incluir una conclusión TextResults, que contiene el texto reconocido. O bien, si Bing reconoce una entidad (es decir, una persona, un lugar o una cosa conocidos) en la imagen, una de las etiquetas puede identificar la entidad. Visual Search también devuelve un conjunto de términos variados (etiquetas) derivados de la imagen de entrada. Estas etiquetas permiten a los usuarios explorar los conceptos que se encuentran en la imagen. Por ejemplo, si la imagen de entrada es de un atleta famoso, una de las etiquetas podría ser deportes, que contiene vínculos a imágenes de deportes.
 
 Cada etiqueta incluye un nombre para mostrar que puede usar para clasificar las conclusiones, el rectángulo de selección que identifica la región de interés a que se aplica la conclusión, las propias conclusiones y una miniatura de la imagen. Por ejemplo, si la imagen es de una persona con un jersey de deportes, una de las etiquetas podría incluir un rectángulo de selección que delimite el jersey e incluya conclusiones de VisualSearch y ProductVisualSearch. Por otra parte, otra etiqueta podría incluir una conclusión de ImageResults que contenga una URL para una solicitud de API /images/search para obtener imágenes cuyos temas estén relacionados o una dirección URL de búsqueda de Bing.com que lleve al usuario a los resultados de búsqueda de imágenes de Bing.com.
 
@@ -368,7 +368,7 @@ El reconocimiento de texto también puede reconocer la información de contacto 
     }
 ```
 
-Si la imagen contiene una entidad reconocida, como una persona, lugar o cosa, una de las etiquetas puede incluir una conclusión de entidad.
+Si la imagen contiene una entidad reconocida, como una persona, lugar o cosa conocidos, una de las etiquetas puede incluir una conclusión de entidad.
 
 ```json
     {

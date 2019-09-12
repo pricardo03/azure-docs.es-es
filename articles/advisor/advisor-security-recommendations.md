@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467687"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772281"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Refuerzo de la seguridad de los recursos con Azure Advisor
 
@@ -38,7 +38,7 @@ Para obtener más información sobre las recomendaciones de seguridad, consulte 
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
-* [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
 

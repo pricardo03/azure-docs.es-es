@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555789"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162394"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Administrar la configuración de usuario con Azure Multi-Factor Authentication en la nube
 
@@ -32,9 +32,12 @@ Como administrador que tiene asignado el rol de administrador de autenticación,
 
 ![Administración de los métodos de autenticación desde Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Restablecer contraseña restablecerá la contraseña del usuario y asignará una contraseña temporal que se debe cambiar en el siguiente inicio de sesión.
-2. Requerir volver a registrar MFA lo hará de modo que, cuando el usuario inicie sesión la próxima vez, se le solicitará que configure un nuevo método de autenticación MFA.
-3. Revocar sesiones de MFA borra las sesiones de MFA recordadas del usuario y requiere que realicen MFA la próxima vez que la directiva lo requiera en el dispositivo.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. Elija el usuario en el que quiere realizar una acción y seleccione **Métodos de autenticación**.
+   - **Restablecer contraseña** restablecerá la contraseña del usuario y asignará una contraseña temporal que se debe cambiar en el siguiente inicio de sesión.
+   - **Requerir volver a registrar MFA** hará que cuando el usuario inicie sesión la próxima vez, se le solicite que configure un nuevo método de autenticación MFA.
+   - **Revocar sesiones de MFA** borra las sesiones de MFA recordadas del usuario y le pide que realice MFA la próxima vez que la directiva lo exija en el dispositivo.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Requerir a los usuarios que vuelvan a proporcionar métodos de contacto
 

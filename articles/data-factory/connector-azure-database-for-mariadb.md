@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cb783630b32b4cc28d4e4f1cfb33027da3b8d2e0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3325cb7170ebe42962c403d25d04c9fe2bae3b45
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966558"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276027"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar datos desde Azure Database for MariaDB mediante Azure Data Factory 
 
@@ -41,7 +41,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **MariaDB** | Sí |
+| type | La propiedad type debe establecerse en: **AzureMariaDB** | Sí |
 | connectionString | Cadena de conexión para conectarse a Azure Database for MariaDB. La encontrará en Azure Portal -> su instancia de Azure Database for MariaDB -> Cadenas de conexión -> ADO.NET uno. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
@@ -51,7 +51,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -72,7 +72,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 {
     "name": "AzureDatabaseForMariaDBLinkedService",
     "properties": {
-        "type": "MariaDB",
+        "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
@@ -99,11 +99,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección, se proporciona una lista de las propiedades que admite el conjunto de datos de Azure Database for MariaDB.
 
-Para copiar datos desde Azure Database for MariaDB, establezca la propiedad “type” del conjunto de datos en **MariaDBTable**. Se admiten las siguientes propiedades:
+Para copiar datos de Azure Database for MariaDB, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **MariaDBTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **AzureMariaDBTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -112,12 +112,13 @@ Para copiar datos desde Azure Database for MariaDB, establezca la propiedad “t
 {
     "name": "AzureDatabaseForMariaDBDataset",
     "properties": {
-        "type": "MariaDBTable",
+        "type": "AzureMariaDBTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Database for MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -128,11 +129,11 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="azure-database-for-mariadb-as-source"></a>Azure Database for MariaDB como origen
 
-Para copiar datos de Azure Database for MariaDB, establezca el tipo de origen de la actividad de copia en **MariaDBSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+Para copiar datos de Azure Database for MariaDB, se admiten las siguientes propiedades en la sección de **origen** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MariaDBSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureMariaDBSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -156,7 +157,7 @@ Para copiar datos de Azure Database for MariaDB, establezca el tipo de origen de
         ],
         "typeProperties": {
             "source": {
-                "type": "MariaDBSource",
+                "type": "AzureMariaDBSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

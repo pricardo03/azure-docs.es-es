@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668692"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242410"
 ---
 # <a name="feature-evaluation"></a>Evaluación de características
 
@@ -32,9 +32,9 @@ Las características más importantes tienen un mayor peso en el modelo. En cons
 
 ## <a name="getting-feature-importance-evaluation"></a>Evaluación de la importancia de las características
 
-Para ver los resultados de importancia de las características, debe ejecutarse una evaluación. La información resultante sobre la importancia de las características representa el modelo en línea actual de Personalizer. La evaluación analiza la importancia de las características del modelo guardado en la fecha final del período de evaluación. 
+Para ver los resultados de importancia de las características, debe ejecutarse una evaluación. La evaluación crea etiquetas de características legibles para el usuario que se basan en los nombres de las características observadas durante el período de evaluación.
 
-La evaluación crea etiquetas de características legibles para el usuario que se basan en los nombres de las características observadas durante el período de evaluación.
+La información resultante sobre la importancia de las características representa el modelo en línea actual de Personalizer. La evaluación analiza la importancia de las características del modelo guardado en la fecha de finalización del período de evaluación, después de llevar a cabo todo el entrenamiento realizado durante la evaluación, con la directiva de aprendizaje en línea actual. 
 
 Los resultados de la importancia de las características no representan otras directivas ni modelos probados o creados durante la evaluación.  La evaluación no incluirá características enviadas a Personalizer una vez que finalice el período de evaluación.
 

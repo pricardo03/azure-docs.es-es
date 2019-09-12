@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b3e74f337cf8f57321c3a8d94f8191fc3ebb530
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 78b04a06b71590a79180d1ae367e7d059e1b84a3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093897"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195225"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>¿Qué es una base de conocimiento de QnA Maker?
 
@@ -43,6 +43,8 @@ Los campos de metadatos constan de pares de clave-valor separados por dos puntos
 La base de conocimiento entrenada y [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) de QnA Maker recibe una consulta de usuario, ya sea desde un bot o de otra aplicación cliente, en [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). En el diagrama siguiente se muestra el proceso de recepción de la consulta de usuario.
 
 ![El proceso de clasificación de una consulta de usuario](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+
+### <a name="ranker-process"></a>Proceso del clasificador
 
 El proceso se explica en la tabla siguiente:
 

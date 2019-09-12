@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c775f5352461dce6c63f5cc4a1c910c7f8df80ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9d261acf80f51a09cc4daa9182a87b0354cf8a3d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563819"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845388"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Visualización de la lista de usuarios del portal de CloudSimple
 
-Los usuarios se agregan a la lista de usuarios cuando acceden por primera vez al portal de CloudSimple. Para ver la lista de usuarios que tienen acceso al portal de CloudSimple mediante Azure, [acceda al portal de CloudSimple](monitor-activity.md), seleccione **Account** (Cuenta) en el menú lateral y, luego, seleccione **Users** (Usuarios) en el portal de CloudSimple.
+Los usuarios se agregan a la lista de usuarios cuando acceden por primera vez al portal de CloudSimple. Para ver la lista de usuarios que tienen acceso al portal de CloudSimple mediante Azure, [acceda al portal de CloudSimple](access-cloudsimple-portal.md), seleccione **Account** (Cuenta) en el menú lateral y, luego, seleccione **Users** (Usuarios) en el portal de CloudSimple.
 
 * Para mostrar los detalles del usuario, incluidos los identificadores de usuario, la suscripción de Azure y el inquilino, haga clic en una entrada de la página **Users** (Usuarios).
 

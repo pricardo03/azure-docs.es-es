@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966860"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276619"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
 
@@ -25,7 +25,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 
 Las diferencias entre este conector REST, el [conector HTTP](connector-http.md) y el [conector de tabla web](connector-web-table.md) son:
 
-- El **conector REST** admite específicamente la copia de datos desde API RESTful; 
+- El **conector REST** admite específicamente la copia de datos desde API de RESTful; 
 - El **conector HTTP** es genérico y puede recuperar datos desde cualquier punto de conexión HTTP, por ejemplo, para descargar archivos. Antes de que esté disponible este conector REST, puede usar el conector HTTP para copiar datos de la API RESTful, lo que se admite, pero es menos funcional en comparación con el conector REST.
 - El **conector de tabla web** extrae contenido de la tabla de una página web HTML.
 
@@ -175,50 +175,23 @@ Para copiar datos de REST, se admiten las siguientes propiedades:
 |:--- |:--- |:--- |
 | type | La propiedad **type** del conjunto de datos debe establecerse en **RestResource**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin |
-| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin |
-| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin |
-| requestBody | Cuerpo de la solicitud HTTP. | Sin |
-| paginationRules | Las reglas de paginación para componer las solicitudes de página siguiente. Vea la sección [Compatibilidad con la paginación](#pagination-support) para obtener más información. | Sin |
 
-**Ejemplo 1: Mediante el método Get con la paginación**
+Si estaba configurando `requestMethod`, `additionalHeaders`, `requestBody` y `paginationRules` en el conjunto de datos, todavía se admite tal cual, aunque se aconseja usar el nuevo modelo en la fuente de actividad en el futuro.
+
+**Ejemplo:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Ejemplo 2: Uso del método POST**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -237,10 +210,14 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
+| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin |
+| requestBody | Cuerpo de la solicitud HTTP. | Sin |
+| paginationRules | Las reglas de paginación para componer las solicitudes de página siguiente. Vea la sección [Compatibilidad con la paginación](#pagination-support) para obtener más información. | Sin |
 | httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin |
 | requestInterval | El tiempo de espera antes de enviar la solicitud de página siguiente. El valor predeterminado es **00:00:01** |  Sin |
 
-**Ejemplo**
+**Ejemplo 1: Mediante el método Get con la paginación**
 
 ```json
 "activities":[
@@ -262,6 +239,46 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Ejemplo 2: Uso del método POST**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -274,7 +291,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 ## <a name="pagination-support"></a>Compatibilidad con la paginación
 
-Normalmente, la API REST limita su tamaño de carga de respuesta de una única solicitud a un número razonable; mientras que, para devolver gran cantidad de datos, divide el resultado en varias páginas y requiere que los autores de la llamada envíen solicitudes consecutivas para obtener la página siguiente del resultado. Por lo general, la solicitud para una página es dinámica y está compuesta por la información devuelta de la respuesta de página anterior.
+Normalmente, la API de REST limita su tamaño de carga de respuesta de una única solicitud a un número razonable; mientras que, para devolver gran cantidad de datos, divide el resultado en varias páginas y requiere que los autores de la llamada envíen solicitudes consecutivas para obtener la página siguiente del resultado. Por lo general, la solicitud para una página es dinámica y está compuesta por la información devuelta de la respuesta de página anterior.
 
 Este conector REST genérico admite los siguientes patrones de paginación: 
 
@@ -339,20 +356,16 @@ Facebook Graph API devuelve la respuesta en la siguiente estructura, en cuyo cas
 La configuración del conjunto de datos REST correspondiente, especialmente la `paginationRules`, es como sigue:
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

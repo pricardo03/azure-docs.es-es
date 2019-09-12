@@ -1,5 +1,5 @@
 ---
-title: 'Entidad Pattern.any: LUIS'
+title: 'Tutorial: Entidad Pattern.any: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Use la entidad Pattern.any para extraer datos de expresiones con el formato correcto y donde el final de los datos se pueda confundir fácilmente con el resto de las palabras de la expresión.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563281"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390295"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extracción de datos de forma libre con una entidad Pattern.any
 

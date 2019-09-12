@@ -4,21 +4,21 @@ description: Muestra cómo personalizar la autenticación y autorización en App
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ee8d8c54bd618780e00d9975f2fc6950cd795d44
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098539"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231977"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -130,7 +130,7 @@ Al utilizar direcciones URL completas, la dirección URL debe hospedarse en el m
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-Debe ejecutar el siguiente comando en [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Ejecute el siguiente comando en [Azure Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -230,7 +230,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitación del dominio de cuentas de inicio de sesión
 
-Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_, _live.com_ y _hotmail.com_. Azure Active Directory permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Este comportamiento puede no ser deseable para una aplicación interna, a la que no desea que cualquier persona con una cuenta de _outlook.com_ acceda. Para limitar el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
+Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_, _live.com_ y _hotmail.com_. Azure AD permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Sin embargo, puede que quiera acelerar el proceso para que los usuarios accedan directamente a su propia página de inicio de sesión personalizada de Azure AD (por ejemplo, `contoso.com`). Para sugerir el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
 
 En [https://resources.azure.com](https://resources.azure.com), desplácese hasta **subscriptions** >  **\<_nombre\_ suscripción_**  > **resourceGroups** >  **\<_nombre\_ grupo\_ recursos>_**  > **providers** > **Microsoft.Web** > **sites** >  **\<_nombre\_ aplicación>_**  > **config** > **authsettings**. 
 
@@ -239,6 +239,54 @@ Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en *
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+Esta configuración anexa el parámetro de cadena de consulta `domain_hint` a la dirección URL de redireccionamiento de inicio de sesión. 
+
+> [!IMPORTANT]
+> Es posible que el cliente quite el parámetro `domain_hint` después de recibir la dirección URL de redireccionamiento y, a continuación, inicie sesión con otro dominio. Por lo tanto, aunque esta función es cómoda, no es una característica de seguridad.
+>
+
+## <a name="authorize-or-deny-users"></a>Autorización o denegación de usuarios
+
+Si bien App Service se encarga del caso de autorización más sencillo (es decir, rechazar las solicitudes no autenticadas), es posible que la aplicación requiera un comportamiento de autorización más específico, como limitar el acceso a un solo grupo específico de usuarios. En algunos casos, debe escribir código de aplicación personalizado para permitir o denegar el acceso al usuario que inició sesión. En otros casos, App Service o el proveedor de identidades pueden ayudar sin necesidad de realizar cambios en el código.
+
+- [Nivel de servidor](#server-level-windows-apps-only)
+- [Nivel de proveedor de identidades](#identity-provider-level)
+- [Nivel de aplicación](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>Nivel de servidor (solo aplicaciones de Windows)
+
+En cualquier aplicación de Windows, puede definir el comportamiento de la autorización del servidor web de IIS editando el archivo *Web.config*. Las aplicaciones de Linux no usan IIS y no se pueden configurar a través de *Web. config*.
+
+1. Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
+
+1. En el explorador de archivos de App Service, vaya a *site/wwwroot*. Si no existe un archivo *Web.config*, créelo seleccionando **+**  > **Nuevo archivo**. 
+
+1. Seleccione el lápiz de *Web. config* para editarlo. Agregue el código de configuración siguiente y haga clic en **Guardar**. Si ya existe *Web.config*, simplemente agregue el elemento `<authorization>` con todo lo que contiene. Agregue las cuentas que desea permitir al elemento `<allow>`.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Nivel de proveedor de identidades
+
+El proveedor de identidades puede proporcionar cierta autorización llave en mano. Por ejemplo:
+
+- Para [Azure App Service](configure-authentication-provider-aad.md), puede [administrar el acceso de nivel empresarial](../active-directory/manage-apps/what-is-access-management.md) directamente en Azure AD. Para obtener instrucciones, consulte [Cómo quitar el acceso de un usuario a una aplicación](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- En el caso de [Google](configure-authentication-provider-google.md), los proyectos de la API de Google que pertenecen a una [organización](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) se pueden configurar para permitir el acceso solo a los usuarios de su organización (consulte la [página de soporte técnico de **configuración de OAuth 2.0** de Google](https://support.google.com/cloud/answer/6158849?hl=en)).
+
+### <a name="application-level"></a>Nivel de aplicación
+
+Si alguno de los otros niveles no proporciona la autorización que necesita, o si no se admite la plataforma o el proveedor de identidades, debe escribir código personalizado para autorizar a los usuarios en función de las [notificaciones de usuario](#access-user-claims).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9bfa5aca56352f616b3527e65eec26fa635d1771
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 40f97c3b31a7e49c9a5ecc790e3cc762572ecaa3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967010"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276366"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar datos de Hive con Azure Data Factory 
 
@@ -94,7 +94,9 @@ Para copiar datos de Hive, establezca la propiedad type del conjunto de datos en
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **HiveObject** | Sí |
-| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
+| schema | Nombre del esquema. |No (si se especifica "query" en el origen de la actividad)  |
+| table | Nombre de la tabla. |No (si se especifica "query" en el origen de la actividad)  |
+| tableName | Nombre de la tabla que incluye la parte del esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Para la nueva carga de trabajo use `schema` y`table`. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -103,11 +105,12 @@ Para copiar datos de Hive, establezca la propiedad type del conjunto de datos en
     "name": "HiveDataset",
     "properties": {
         "type": "HiveObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```

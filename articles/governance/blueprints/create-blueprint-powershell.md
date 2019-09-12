@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231910"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910053"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
@@ -27,6 +27,10 @@ Entender cómo crear y asignar planos técnicos permite la definición de patron
 > - Eliminación de un plano técnico que se ha asignado a una suscripción
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Si aún no se ha instalado, siga las instrucciones en [Adición del módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar y validar el módulo **Az.Blueprint** desde la Galería de PowerShell.
 
 ## <a name="create-a-blueprint"></a>Creación de un plano técnico
 

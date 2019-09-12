@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099428"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242366"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -260,11 +260,9 @@ Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejec
 
 Todas las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Para admitir las llamadas que sus aplicaciones lógicas realizan directamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y otras solicitudes HTTP, configure el firewall con *todas* las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región. 
 
-Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región.
+Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región. Para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-Para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
-
-Para [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas para los conectores no están disponibles actualmente.
+En cuanto a los conectores personalizados, [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas o fijas no están disponibles.
 
 > [!IMPORTANT]
 >

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a42fae4e7ff9ba9edc29c64480983987e41cf9c1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476797"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382759"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Actualización de módulos de Azure PowerShell en Azure Automation
 
@@ -31,6 +31,9 @@ Si desarrolla sus scripts de forma local, se recomienda tener localmente las mis
 > [!NOTE]
 > Es posible que una cuenta de Automation nueva no contenga los módulos más recientes.
 
+> [!NOTE]
+> No podrá eliminar módulos globales: los módulos que Automation proporciona de forma integrada.
+
 ## <a name="considerations"></a>Consideraciones
 
 Éstas son algunas consideraciones a tener en cuenta al usar este proceso para actualizar los módulos de Azure:
@@ -45,10 +48,6 @@ Si desarrolla sus scripts de forma local, se recomienda tener localmente las mis
 
 * Si desea utilizar una versión específica del módulo Azure PowerShell en lugar de la última disponible en la Galería de PowerShell, pase estas versiones al parámetro opcional `ModuleVersionOverrides` del runbook **Update-AutomationAzureModulesForAccount**. Para obtener ejemplos, consulte el runbook [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
 ). Los módulos de Azure PowerShell que no se mencionan en el parámetro `ModuleVersionOverrides` se actualizan con las últimas versiones de los módulos en la Galería de PowerShell. Si no se pasa nada al parámetro `ModuleVersionOverrides`, todos los módulos se actualizan con las versiones de módulo más recientes de la Galería de PowerShell. Se trata del mismo comportamiento que tiene el botón **Actualizar módulos de Azure**.
-
-## <a name="known-issues"></a>Problemas conocidos
-
-Hay un problema conocido con la actualización de los módulos de AzureRM de una cuenta de Automation que se encuentra en un grupo de recursos con un nombre numérico que empieza por 0. Para actualizar los módulos de Azure en la cuenta de Automation, esta debe estar en un grupo de recursos con un nombre alfanumérico. En este momento, los grupos de recursos con nombres numéricos que empiezan por 0 no pueden actualizar módulos de AzureRM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

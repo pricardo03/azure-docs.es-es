@@ -3,7 +3,7 @@ title: 'Revisión del acceso a los roles de recursos de Azure en PIM: Azure Acti
 description: Aprenda a revisar el acceso a los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c0ce1a5eee4b8d4cc40c47dadd4bcdc74d03ba
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602206"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804106"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>Revisión del acceso a los roles de recursos de Azure en PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure. 

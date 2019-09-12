@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 9afc2e2362721fd2905b2a241960507aec9b15a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151113"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375964"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido, creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con una plantilla de Azure Resource Manager.
@@ -36,7 +36,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 ## <a name="define-a-scale-set-in-a-template"></a>Definición de un conjunto de escalado en una plantilla
 Las plantillas de Azure Resource Manager le permiten implementar grupos de recursos relacionados. Las plantillas se escriben en notación de objetos JavaScript (JSON) y definen el entorno de infraestructura de Azure completo para la aplicación. En una única plantilla, puede crear el conjunto de escalado de máquinas virtuales, instalar aplicaciones y configurar reglas de escalado automático. Con el uso de variables y parámetros, esta plantilla se puede reutilizar para actualizar los conjuntos de escalado existentes o crear más. Puede implementar plantillas mediante Azure Portal, la CLI de Azure o Azure PowerShell, o bien desde las canalizaciones de integración continua o entrega continua (CI/CD).
 
-Para más información sobre las plantillas, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). Para la sintaxis y las propiedades de JSON, consulte la referencia de la plantilla [Microsoft.Compute/virtualmachinescalesets](/azure/templates/microsoft.compute/virtualmachinescalesets).
+Para más información sobre las plantillas, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Para la sintaxis y las propiedades de JSON, consulte la referencia de la plantilla [Microsoft.Compute/virtualmachinescalesets](/azure/templates/microsoft.compute/virtualmachinescalesets).
 
 Para crear una escala con una plantilla, debe definir los recursos adecuados. Las partes principales del tipo de recurso del conjunto de escalado de máquinas virtuales son:
 
@@ -44,7 +44,7 @@ Para crear una escala con una plantilla, debe definir los recursos adecuados. La
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | Tipo                         | Tipo de recurso de Azure que se creará                            | Microsoft.Compute/virtualMachineScaleSets |
 | Nombre                         | Nombre del conjunto de escalado                                       | myScaleSet                                |
-| location                     | Ubicación donde se creará el conjunto de escalado                     | Este de EE. UU                                   |
+| location                     | Ubicación donde se creará el conjunto de escalado                     | East US                                   |
 | sku.name                     | Tamaño de VM para cada instancia de conjunto de escalado                  | Standard_A1                               |
 | sku.capacity                 | Número de instancias de VM que se crearán inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de actualización de la instancia de VM cuando se producen cambios              | Automático                                 |

@@ -1,22 +1,20 @@
 ---
 title: Uso de Azure Functions Core Tools | Microsoft Docs
 description: Aprenda a codificar y probar funciones de Azure en el símbolo del sistema o terminal en la máquina local antes de ejecutarlas en Azure Functions.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4bad9db6af6d368c943619bc2105f3fba0b7eb7b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096161"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207284"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -414,6 +412,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publicación en Azure
 
 Azure Functions Core Tools admite dos tipos de implementación: la opción de implementar archivos del proyecto de funciones directamente en su aplicación de funciones a través de la [implementación de archivos zip](functions-deployment-technologies.md#zip-deploy) y la [implementación de un contenedor de Docker personalizado](functions-deployment-technologies.md#docker-container). Tiene que tener [creada una aplicación de funciones en su suscripción de Azure](functions-cli-samples.md#create) para implementar su código. Se deben compilar los proyectos que lo requieran para poder implementar los archivos binarios.
+
+Una carpeta de proyecto puede contener archivos y directorios específicos del idioma que no deben publicarse. Los elementos excluidos se enumeran en un archivo .funcignore en la carpeta raíz del proyecto.     
 
 ### <a name="project-file-deployment"></a>Implementación (archivos del proyecto)
 

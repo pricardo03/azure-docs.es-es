@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828792"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305076"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD (versión preliminar)
 
@@ -54,11 +54,11 @@ Para dirigirse a grupos de dispositivos específicos a fin de habilitar el prove
    1. Nombre: Claves de seguridad para inicio de sesión de Windows
    1. Description: Habilita claves de seguridad FIDO que se van a usar durante el inicio de sesión de Windows
    1. Plataforma: Windows 10 y versiones posteriores
-   1. Tipo de plataforma: Personalizado
+   1. Tipo de perfil: Personalizado
    1. Configuración OMA-URI personalizada:
       1. Nombre: Habilitar claves de seguridad FIDO para inicio de sesión de Windows
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Tipo de datos: Entero
+      1. Tipo de datos: Integer
       1. Valor: 1 
 1. Esta directiva se puede asignar a usuarios, dispositivos o grupos específicos. Se puede encontrar más información en el artículo [Asignación de perfiles de dispositivo en Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 

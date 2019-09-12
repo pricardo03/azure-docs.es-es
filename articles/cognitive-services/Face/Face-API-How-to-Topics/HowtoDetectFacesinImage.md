@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 36cd9b560bd149fd837db09cba33ce6bb2199a20
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827727"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306630"
 ---
 # <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
 
@@ -29,7 +29,7 @@ Esta guía le muestra cómo:
 
 ## <a name="setup"></a>Configuración
 
-En esta guía se da por supuesto que ya ha construido un objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) llamado `faceClient`, con una clave de suscripción y una dirección URL de punto de conexión de Face. A partir de aquí, puede usar la característica de detección de caras mediante una llamada a [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que se usa en esta guía o una llamada a [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obtener instrucciones sobre cómo configurar esta característica, consulte la [Guía de inicio rápido de detección de caras para C# ](../quickstarts/csharp-detect-sdk.md).
+En esta guía se da por supuesto que ya ha construido un objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) llamado `faceClient`, con una clave de suscripción y una dirección URL de punto de conexión de Face. A partir de aquí, puede usar la característica de detección de caras mediante una llamada a [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que se usa en esta guía o una llamada a [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obtener instrucciones sobre cómo configurar esta característica, siga uno de los inicios rápidos.
 
 Esta guía se centra en los detalles de la llamada de detección, como los argumentos que se pueden pasar y lo que puede hacer con los datos devueltos. Se recomienda consultar solo las características que necesita. Cada operación tarda más tiempo en completarse.
 

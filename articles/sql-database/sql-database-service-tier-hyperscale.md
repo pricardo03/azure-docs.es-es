@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981160"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845643"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Nivel de servicio Hiperescala para un máximo de 100 TB
 
@@ -186,7 +186,7 @@ Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que 
 
 2. Haga clic en [**Nueva solicitud de soporte técnico**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Hoja de ayuda y soporte técnico de Azure](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Hoja de ayuda y soporte técnico de Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
 
@@ -198,13 +198,13 @@ Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que 
 
 1. Haga clic en **Proporcionar detalles**
 
-    ![Detalles del problema](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Detalles del problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. Elija **Tipo de cuota de base de datos SQL**: **otra solicitud de cuota**
 
 9. Rellene la plantilla siguiente:
 
-    ![Detalles de la cuota](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Detalles de la cuota](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     En la plantilla, proporcione la información siguiente:
 

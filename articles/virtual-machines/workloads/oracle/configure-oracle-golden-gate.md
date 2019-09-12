@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 40eaabb149e2e897ecd4e1109e0db7c42b990925
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101544"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309597"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla cómo usar la CLI de Azure para la implementación de la base de datos de Oracle 12c desde la imagen de la galería de Azure Marketplace. 
 
-En este documento se muestra paso a paso cómo crear, instalar y configurar Oracle Golden Gate en una máquina virtual de Azure.
+En este documento se muestra paso a paso cómo crear, instalar y configurar Oracle Golden Gate en una máquina virtual de Azure. En este tutorial, se configuran dos máquinas virtuales en un conjunto de disponibilidad en una sola región. Se puede usar el mismo tutorial para configurar OracleGolden Gate para máquinas virtuales en diferentes Availability Zones en una sola región de Azure o para la configuración de máquinas virtuales en dos regiones diferentes.
 
 Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -78,7 +78,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-### <a name="create-a-virtual-machine"></a>de una máquina virtual
+### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Cree la máquina virtual con el comando [az vm create](/cli/azure/vm). 
 

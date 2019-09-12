@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f94d3cdbbd1683b20dbe1d370bcac43817458f44
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139380"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736003"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -4826,7 +4826,7 @@ En la tabla siguiente se enumeran entornos de proceso compatibles con Data Facto
 | [Azure Batch](#azure-batch) |[Actividad personalizada de .NET](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Actividad de ejecución de lotes de Machine Learning](#machine-learning-batch-execution-activity) y [actividad de recursos de actualización de Machine Learning](#machine-learning-update-resource-activity) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics) |[U-SQL de análisis con Data Lake](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1) y [SQL Server](#sql-server-1) |[Procedimiento almacenado](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse) y [SQL Server](#sql-server-1) |[Procedimiento almacenado](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Clúster de Azure HDInsight a petición
 El servicio Azure Data Factory crea automáticamente un clúster de HDInsight basado en Windows/Linux a petición para procesar los datos. El clúster se crea en la misma región que la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster. Puede ejecutar las siguientes actividades de transformación en este servicio vinculado: [actividad personalizada de .NET](#net-custom-activity), [actividad de Hive](#hdinsight-hive-activity), [actividad de Pig](#hdinsight-pig-activity), [actividad de MapReduce](#hdinsight-mapreduce-activity), actividad de streaming de Hadoop y [actividad de Spark](#hdinsight-spark-activity).
@@ -4995,58 +4995,6 @@ En el ejemplo siguiente se proporciona la definición de JSON de un servicio vin
     }
 }
 ```
-
-## <a name="azure-sql-database"></a>Azure SQL Database
-Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](#stored-procedure-activity) para invocar un procedimiento almacenado desde una canalización de Factoría de datos.
-
-### <a name="linked-service"></a>Servicio vinculado
-Para definir un servicio vinculado de Azure SQL Database, establezca el **tipo** de servicio vinculado en **AzureSqlDatabase** y especifique las siguientes propiedades en la sección **typeProperties**:
-
-| Propiedad | DESCRIPCIÓN | Obligatorio |
-| --- | --- | --- |
-| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure SQL para la propiedad connectionString. |Sí |
-
-#### <a name="json-example"></a>Ejemplo JSON
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#linked-service-properties) para más información sobre este servicio vinculado.
-
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Cree un servicio vinculado de SQL Data Warehouse y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory.
-
-### <a name="linked-service"></a>Servicio vinculado
-Para definir un servicio vinculado de Azure SQL Data Warehouse, establezca el **tipo** de servicio vinculado en **AzureSqlDW** y especifique las siguientes propiedades en la sección **typeProperties**:
-
-| Propiedad | DESCRIPCIÓN | Obligatorio |
-| --- | --- | --- |
-| connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad connectionString. |Sí |
-
-#### <a name="json-example"></a>Ejemplo JSON
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Para más información, consulte el artículo [Conector de Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## <a name="sql-server"></a>SQL Server
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory.

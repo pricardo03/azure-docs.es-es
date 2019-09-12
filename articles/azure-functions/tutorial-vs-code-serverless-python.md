@@ -3,21 +3,31 @@ title: Creación e implementación de Azure Functions en Python con Visual Stud
 description: Cómo usar la extensión de Visual Studio Code para Azure Functions para crear funciones sin servidor en Python e implementarlas en Azure.
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639093"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233107"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Implementación de Python en Azure Functions con Visual Studio Code
 
 En este tutorial, usará Visual Studio Code y la extensión de Azure Functions para crear un punto de conexión HTTP sin servidor con Python y agregar también una conexión (o "enlace") al almacenamiento. Azure Functions ejecuta el código en un entorno sin servidor sin necesidad de aprovisionar una máquina virtual ni publicar una aplicación web. La extensión de Azure Functions para Visual Studio Code simplifica considerablemente el proceso de uso de Functions mediante la administración automática de muchos trabajos de configuración.
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Instalación de la extensión de Azure Functions
+> * Crear una función desencadenada mediante HTTP
+> * Depuración local
+> * Sincronizar la configuración de la aplicación
+> * Ver los registros de streaming
+> * Conectar a Azure Storage
 
 Si tiene problemas con cualquiera de los pasos de este tutorial, nos encantaría conocer los detalles. Use el botón **He tenido un problema** que se encuentra al final de cada sección para enviar comentarios detallados.
 
@@ -100,29 +110,26 @@ Si no se reconoce el comando `func`, compruebe que la carpeta en la que instaló
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | **Python** | Lenguaje que se va a usar para la función, lo que determina la plantilla que se usa para el código. |
     | Seleccionar una plantilla para la primera función de su proyecto | **desencadenador HTTP** | Una función que usa un desencadenador HTTP se ejecuta cuando se realiza una solicitud HTTP al punto de conexión de la función. (Existen otros desencadenadores para Azure Functions. Para más información, consulte [¿Qué puedo hacer con las funciones?](functions-overview.md#what-can-i-do-with-functions)). |
     | Proporcionar un nombre de función | HttpExample | El nombre se usa para una subcarpeta que contiene el código de la función junto con los datos de configuración y también define el nombre del punto de conexión HTTP. Use "HttpExample" en lugar de aceptar el valor predeterminado "HTTPTrigger" para distinguir la propia función del desencadenador. |
-    | Nivel de autorización | **Anónimo** | La autorización anónima hace que la función sea accesible públicamente para cualquier usuario. |
+    | Nivel de autorización | **Function** | Las llamadas realizadas al punto de conexión de la función requieren una [clave de función](functions-bindings-http-webhook.md#authorization-keys). |
     | Seleccionar cómo desea que se abra el proyecto | **Abrir en la ventana actual** | Abre el proyecto en la ventana de Visual Studio Code actual. |
 
-1. Tras un breve período de tiempo, se muestra un mensaje para indicar que se ha creado el nuevo proyecto. En el **Explorador** está la subcarpeta creada para la función y Visual Studio Code abre el archivo *\_\_init\_\_.py*, que contiene el código predeterminado de la función:
+1. Tras un breve período de tiempo, se muestra un mensaje para indicar que se ha creado el nuevo proyecto. En el **explorador**, encontrará la subcarpeta creada para la función. 
+
+1. Si aún no está abierto, abra el archivo *\_\_init\_\_.py* que contiene el código de función predeterminado:
 
     [![Resultado de la creación de un nuevo proyecto de funciones de Python](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > Si Visual Studio Code le indica que no tiene un intérprete de Python seleccionado cuando abre *\_\_init\_\_.py*, abra la paleta de comandos (F1) y seleccione el comando **Python: seleccionar intérprete** y, a continuación, seleccione el entorno virtual en la carpeta `.env` local (que se creó como parte del proyecto). El entorno debe basarse en Python 3.6x específicamente, como se indicó anteriormente en [Requisitos previos](#prerequisites).
+    > Si Visual Studio Code le indica que no tiene un intérprete de Python seleccionado cuando abra *\_\_init\_\_.py*, abra la paleta de comandos (F1) y seleccione el comando **Python: seleccionar intérprete** y, a continuación, seleccione el entorno virtual en la carpeta `.env` local (que se creó como parte del proyecto). El entorno debe basarse en Python 3.6x específicamente, como se indicó anteriormente en [Requisitos previos](#prerequisites).
     >
     > ![Selección del entorno virtual creado con el proyecto](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
-
-> [!TIP]
-> Cuando desee crear otra función en el mismo proyecto, use el comando **Crear función** en el explorador de **Azure: Functions** o abra la paleta de comandos (F1) y seleccione el comando **Azure Functions: Create Function** (Crear función). Ambos comandos solicitan un nombre de función (que es el nombre del punto de conexión) y, a continuación, se crea una subcarpeta con los archivos predeterminados.
->
-> ![Comando Nueva función en el explorador de Azure: Functions](media/tutorial-vs-code-serverless-python/function-create-new.png)
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## <a name="examine-the-code-files"></a>Examen de los archivos de código
 
-En la subcarpeta de la función recién creada hay tres archivos: *\_\_init\_\_.py* contiene el código de la función, *function.json* describe la función para Azure Functions y *sample.dat* es un archivo de datos de ejemplo. Puede eliminar *sample.dat* si lo desea, ya que solo existe para mostrar que puede agregar otros archivos en la subcarpeta.
+En la subcarpeta de la función recién creada _HttpExample_ hay tres archivos: *\_\_init\_\_.py* contiene el código de la función, *function.json* describe la función para Azure Functions y *sample.dat* es un archivo de datos de ejemplo. Puede eliminar *sample.dat* si lo desea, ya que solo existe para mostrar que puede agregar otros archivos en la subcarpeta.
 
 Echemos un vistazo en primer lugar a *function.json* y luego al código de *\_\_init\_\_.py*.
 
@@ -135,7 +142,7 @@ El archivo function.json proporciona la información de configuración necesaria
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -155,7 +162,7 @@ El archivo function.json proporciona la información de configuración necesaria
 
 La propiedad `scriptFile` identifica el archivo de inicio del código y ese código debe contener una función de Python llamada `main`. Puede dividir el código en varios archivos, siempre y cuando el archivo especificado aquí contenga una función `main`.
 
-El elemento `bindings` contiene dos objetos, uno para describir las solicitudes entrantes y otro para describir la respuesta HTTP. En el caso de las solicitudes entrantes (`"direction": "in"`), la función responde a las solicitudes HTTP GET o POST y no requiere autenticación. La respuesta (`"direction": "out"`) es una respuesta HTTP que devuelve el valor que se devuelve desde la función de Python `main`.
+El elemento `bindings` contiene dos objetos, uno para describir las solicitudes entrantes y otro para describir la respuesta HTTP. En el caso de las solicitudes entrantes (`"direction": "in"`), la función responde a las solicitudes de tipo HTTP GET o POST y requiere que se proporcione la clave de función. La respuesta (`"direction": "out"`) es una respuesta HTTP que devuelve el valor que se devuelve desde la función de Python `main`.
 
 ### <a name="__initpy__"></a>\_\_init.py\_\_
 
@@ -200,7 +207,7 @@ Las partes importantes del código son las siguientes:
 
 ## <a name="debug-locally"></a>Depuración local
 
-1. Al crear el proyecto de Functions, la extensión de Visual Studio Code también crea una configuración de inicio en `.vscode/launch.json` que contiene una configuración única llamada **Conectar a funciones de Python**. Esta configuración significa que solo tiene que presionar F5 o usar el explorador de depuración para iniciar el proyecto:
+1. Al crear el proyecto de Functions, la extensión de Visual Studio Code también crea una configuración de inicio en `.vscode/launch.json` que contiene una configuración única llamada **Conectar a funciones de Python**. Esta configuración significa que solo tiene que presionar **F5** o usar el explorador de depuración para iniciar el proyecto:
 
     ![Explorador de depuración que muestra la configuración de inicio de Functions](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -233,7 +240,7 @@ Las partes importantes del código son las siguientes:
 
     Como alternativa, puede crear un archivo como *data.json* que contenga `{"name":"Visual Studio Code"}` y usar el comando `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
-1. Para probar la depuración de la función, establezca un punto de interrupción en la línea que lee `name = req.params.get('name')` y vuelva a realizar una solicitud a la dirección URL. El depurador de Visual Studio Code debe detenerse en esa línea, lo que le permite examinar las variables y recorrer el código. (Para un breve tutorial de depuración básica, consulte [Tutorial de Visual Studio Code: configurar y ejecutar el depurador](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger)).
+1. Para probar la función, establezca un punto de interrupción en la línea que lea `name = req.params.get('name')` y vuelva a realizar una solicitud a la dirección URL. El depurador de Visual Studio Code debe detenerse en esa línea, lo que le permite examinar las variables y recorrer el código. (Para un breve tutorial de depuración básica, consulte [Tutorial de Visual Studio Code: configurar y ejecutar el depurador](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger)).
 
 1. Cuando esté seguro de que ha probado exhaustivamente la función de forma local, detenga el depurador (con el comando de menú **Depurar** > **Detener depuración** o el comando **Desconectar** de la barra de herramientas de depuración).
 
@@ -386,7 +393,7 @@ Después de la primera implementación, puede realizar cambios en el código, co
     }
     ```
 
-1. Inicie el depurador; para ello, presione F5 o seleccione el comando de menú **Depurar** > **Iniciar depuración**. La ventana **Salida** ahora debería mostrar ambos puntos de conexión en el proyecto:
+1. Inicie el depurador; para ello, presione **F5** o seleccione el comando de menú **Depurar** > **Iniciar depuración**. La ventana **Salida** ahora debería mostrar ambos puntos de conexión en el proyecto:
 
     ```output
     Http Functions:
@@ -472,15 +479,15 @@ En esta sección, agregará un enlace de almacenamiento a la función HttpExampl
             )
     ```
 
-1. Para probar estos cambios localmente, vuelva a iniciar el depurador en Visual Studio Code; para ello, presione F5 o seleccione el comando de menú **Depurar** > **Iniciar depuración**. Como antes, la ventana **Salida** ahora debería mostrar los puntos de conexión del proyecto.
+1. Para probar estos cambios localmente, vuelva a iniciar el depurador en Visual Studio Code; para ello, presione **F5** o seleccione el comando de menú **Depurar** > **Iniciar depuración**. Como antes, la ventana **Salida** ahora debería mostrar los puntos de conexión del proyecto.
 
 1. En un explorador, visite la dirección URL `http://localhost:7071/api/HttpExample?name=VS%20Code` para crear una solicitud al punto de conexión de HttpExample, que también debe escribir un mensaje en la cola.
 
 1. Para comprobar que el mensaje se ha escrito en la cola "outqueue" (como se llama en el enlace), puede usar uno de los tres métodos siguientes:
 
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al grupo de recursos que contiene el proyecto de Functions. Dentro de ese grupo de recursos, busque y vaya a la cuenta de almacenamiento del proyecto y, a continuación, vaya a **Colas**. En esa página, vaya a "outqueue", que debería mostrar todos los mensajes registrados.
+    1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al grupo de recursos que contiene el proyecto de Functions. Dentro de ese grupo de recursos, busque y abra a la cuenta de almacenamiento del proyecto y, a continuación, vaya a **Colas**. En esa página, vaya a "outqueue", que debería mostrar todos los mensajes registrados.
 
-    1. Examine la cola con el Explorador de Azure Storage, que se integra con Visual Studio, tal y como se describe en [Conectar Functions a Azure Storage con Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especialmente la sección [Examen de la cola de salida](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue).
+    1. Abra y examine la cola con el Explorador de Azure Storage, que se integra con Visual Studio, tal y como se describe en [Conectar Functions a Azure Storage con Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md); preste especial atención a la sección [Examen de la cola de salida](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue).
 
     1. Use la CLI de Azure para consultar la cola de almacenamiento, tal como se describe en [Consulta de la cola de almacenamiento](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
     

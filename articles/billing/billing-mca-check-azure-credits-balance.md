@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490962"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
@@ -56,7 +56,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
    |---|---|
    | Saldo estimado | Importe del crédito de Azure que queda después de restarle al saldo actual los cargos elegibles de crédito no facturados|
    | Saldo actual | Importe del crédito de Azure que tiene antes de considerar los cargos elegibles de crédito no facturados. Se calcula mediante la suma de los créditos de Azure nuevos que recibió y el saldo del crédito en el momento de la última factura|
-   | Origen | El origen de la adquisición del crédito |
+   | Source | El origen de la adquisición del crédito |
    | Fecha de inicio | La fecha en la que se adquirió el crédito |
    | Fecha de expiración | Cuando expira el crédito |
    | Saldo | El saldo desde la última factura |

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 5883c1aa20af106dd39bffc95036ee90f312ffea
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051594"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231021"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -96,7 +96,7 @@ Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, pri
     * Detenga el objeto LiveEvent. Una vez que el objeto LiveEvent se detenga, dejará de suponer un coste. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
     * Puede detener el extremo de streaming, a menos que desee seguir proporcionando el archivo de su evento en vivo como una secuencia a petición. Si el evento en directo está en estado detenido, no supondrá ningún coste.
 
-El evento en directo convierte automáticamente los eventos en contenido a petición cuando se detiene. Incluso después de detener y eliminar el evento, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso. No se puede eliminar un recurso si lo está usando un evento; primero se debe eliminar el evento.
+El recurso en el que se está archivando la salida en directo, se convierte automáticamente en un recurso a petición cuando se elimina esa salida en directo. Debe eliminar todas las salidas en directo antes de que un evento en directo pueda detenerse. Puede usar una marca opcional [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para quitar automáticamente las salidas en directo cuando se detenga el proceso. 
 
 > [!TIP]
 > Consulte el [tutorial sobre streaming en vivo](stream-live-tutorial-with-api.md), en el artículo se examina el código que implementa los pasos descritos anteriormente.

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4306a918d56240bfe038100124b3c2b94964cebc
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249625"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306679"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras
 
@@ -109,7 +109,8 @@ La mejor manera de comparar el rendimiento de los modelos `detection_01` y `dete
 
 En este artículo, ha aprendido a especificar el modelo de detección que se debe usar con diferentes tipos de Face API. A continuación, siga un inicio rápido para empezar a usar la detección de caras.
 
-* [Detección de caras en una imagen con el SDK para .NET](../quickstarts/csharp-detect-sdk.md)
+* [SDK de .NET para Face](../Quickstarts/csharp-sdk.md)
+* [SDK de Python para Face](../Quickstarts/python-sdk.md)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

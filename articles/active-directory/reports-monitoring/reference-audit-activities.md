@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127142"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306009"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -408,6 +408,14 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de directorios|Obtención de IDP para un flujo de administración específico|
 |Administración de directorios|Obtención de una lista de todos los flujos de administración|
 |Administración de directorios|Obtención de lista de etiquetas para todos los flujos de administración de todos los usuarios|
+|Administración de grupos|Descarga masiva de miembros del grupo - Iniciada|
+|Administración de grupos|Descarga masiva de miembros del grupo - Terminada|
+|Administración de grupos|Importación masiva de miembros del grupo - Iniciada|
+|Administración de grupos|Importación masiva de miembros del grupo - Terminada|
+|Administración de grupos|Quitar en masa a miembros del grupo - Iniciado|
+|Administración de grupos|Quitar en masa a miembros del grupo - Terminado|
+|Administración de grupos|Descarga masiva del grupo - Iniciada|
+|Administración de grupos|Descarga masiva del grupo - Terminada|
 |Administración de grupos|Obtención de la lista de inquilinos de un usuario|
 |Administración de grupos|Obtención de notificaciones autoafirmadas de las cuentas locales|
 |Administración de grupos|Obtención de un json de recurso localizado|
@@ -454,28 +462,42 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de roles|Eliminación de la configuración del dispositivo|
 |Administración de roles|El dispositivo ya no es compatible|
 |Administración de roles|El dispositivo ya no está administrado|
-|User Management|Eliminación de propietario registrado del dispositivo|
-|User Management|Eliminación de usuarios registrados del dispositivo|
-|User Management|Actualización de dispositivo|
-|User Management|Actualización de configuración de dispositivo|
-|User Management|Incorporación de un miembro apto al rol|
-|User Management|Incorporación de un miembro a un rol|
-|User Management|Incorporación de asignación de roles a definición de roles|
-|User Management|Incorporación de rol desde plantilla|
-|User Management|Incorporación de miembro con ámbito agregado a rol|
-|User Management|Eliminación de miembros aptos del rol|
-|User Management|Eliminación de miembro del rol|
-|User Management|Eliminación de la asignación de roles de la definición de roles|
-|User Management|Eliminación de miembro con ámbito de rol|
-|User Management|Actualización de rol|
 |User Management|AccessReview_Review|
 |User Management|AccessReview_Update|
 |User Management|ActivationAborted|
 |User Management|ActivationApproved|
 |User Management|ActivationCanceled|
 |User Management|ActivationRequested|
+|User Management|Incorporación de un miembro apto al rol|
+|User Management|Incorporación de un miembro a un rol|
+|User Management|Incorporación de asignación de roles a definición de roles|
+|User Management|Incorporación de rol desde plantilla|
+|User Management|Incorporación de miembro con ámbito agregado a rol|
 |User Management|Se agregó|
 |User Management|Assign|
+|User Management|Creación masiva de usuarios - Iniciada|
+|User Management|Creación masiva de usuarios - Terminada|
+|User Management|Eliminación masiva de usuarios - Iniciada|
+|User Management|Eliminación masiva de usuarios - Terminada|
+|User Management|Descarga masiva de usuarios - Iniciada|
+|User Management|Descarga masiva de usuarios - Terminada|
+|User Management|Restauración masiva de usuarios eliminados - Iniciada|
+|User Management|Restauración masiva de usuarios eliminados - Terminada|
+|User Management|Invitación de usuario masiva - Iniciada|
+|User Management|Invitación de usuario masiva - Terminada|
+|User Management|Eliminación de propietario registrado del dispositivo|
+|User Management|Eliminación de usuarios registrados del dispositivo|
+|User Management|Eliminación de miembros aptos del rol|
+|User Management|Eliminación de miembro del rol|
+|User Management|Eliminación de la asignación de roles de la definición de roles|
+|User Management|Eliminación de miembro con ámbito de rol|
+|User Management|Actualización de dispositivo|
+|User Management|Actualización de configuración de dispositivo|
+|User Management|Actualización de rol|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Protección de identidad

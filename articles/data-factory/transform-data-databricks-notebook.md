@@ -3,21 +3,21 @@ title: 'Transformación de datos con cuadernos de Databricks: Azure | Microsoft 
 description: Aprenda a procesar o transformar datos mediante la ejecución de blocs de notas de Databricks.
 services: data-factory
 documentationcenter: ''
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: nabhishek
+ms.author: abnarain
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335845"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233064"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 
@@ -111,6 +111,19 @@ En la definición de la actividad de Databricks anterior, se especifican estos t
 ```
 
 Para más detalles, consulte la [documentación de Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) sobre los tipos de bibliotecas.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Pasar parámetros entre cuadernos y Data Factory
+
+Puede pasar parámetros de Data Factory a cuadernos mediante la propiedad *baseParameters* que se encuentra en la actividad de Databricks. 
+
+En ciertos casos, es posible que necesite devolver algunos valores del cuaderno a Data Factory, ya que se pueden usar en el flujo de control (esto es, para realizar comprobaciones condicionales) de Data Factory; también se pueden consumir mediante actividades de bajada (el límite de tamaño es de 2 MB). 
+
+1. En el cuaderno, puede llamar a [dbutils.notebook.exit("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) y el valor de "ReturnValue" correspondiente se devolverá a Data Factory.
+
+2. Puede usar la salida de Data Factory mediante una expresión como `'@activity('databricks notebook activity name').output.runOutput'`. 
+
+   > [!IMPORTANT]
+   > Si va a pasar un objeto JSON, puede obtener los valores anexando los nombres de propiedad. Ejemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Carga de una biblioteca en Databricks
 

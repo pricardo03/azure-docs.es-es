@@ -14,12 +14,12 @@ ms.date: 05/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381401"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842697"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad de SQL con Azure AD Connect
 En este artículo se explica cómo solucionar problemas de conectividad entre Azure AD Connect y SQL Server. 
@@ -37,7 +37,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 
 >[!NOTE]
 >Install-Module requiere la actualización a [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) o una versión posterior;  
-O bien instale la [versión preliminar de los módulos de PowerShell PackageManagement - marzo de 2016 para PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
+O bien instale la [versión preliminar de los módulos de PowerShell PackageManagement - marzo de 2016 para PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
 - **Mostrar todos los comandos**: `Get-Command -Module AdSyncTools` 
 - **Ejecute la función de PowerShell**: `Connect-ADSyncDatabase` con los siguientes parámetros

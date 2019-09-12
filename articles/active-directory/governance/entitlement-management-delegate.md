@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124907"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207144"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegación de tareas en Administración de derechos de Azure AD (versión preliminar)
 
@@ -117,6 +117,7 @@ Para que un usuario que no sea administrador global o administrador de usuarios 
 | [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | Usuario | Propietario del catálogo | Solo si es propietario del grupo | Solo si es propietario del grupo | Solo si es propietario de la aplicación |  |
 
+Para determinar el rol con menos privilegios de una tarea, también puede hacer referencia a los [roles de administrador por tarea de administrador en Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
 ## <a name="add-a-catalog-creator"></a>Adición de un creador de catálogos
 

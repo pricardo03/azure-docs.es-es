@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762307"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910312"
 ---
 # <a name="media-services-concepts"></a>Conceptos de Media Services
 
@@ -76,7 +76,7 @@ Al crear un **localizador de streaming**, debe especificar el nombre del recurso
 
 El empaquetado dinámico se utiliza si se transmite el contenido en directo o a petición. En el siguiente diagrama se muestra el flujo de trabajo para streaming a petición con empaquetado dinámico.
 
-![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
 

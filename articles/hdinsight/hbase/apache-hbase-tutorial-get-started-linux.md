@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 48b02a042b55af9ff65f57220f7a64c9cbde8848
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445545"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917414"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. Los ejemplos de este artículo usan el shell de Bash en Windows 10 para los comandos de curl. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.  Los ejemplos de curl, con algunas pequeñas modificaciones, pueden funcionar en un símbolo del sistema de Windows.  También puede usar el cmdlet de Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. Los ejemplos de este artículo usan el shell de Bash en Windows 10 para los comandos de curl. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.  Los ejemplos de curl, con algunas pequeñas modificaciones, pueden funcionar en un símbolo del sistema de Windows.  También puede usar el cmdlet de Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## <a name="create-apache-hbase-cluster"></a>Crear clústeres de Apache HBase
 
@@ -41,14 +41,14 @@ El siguiente procedimiento usa una plantilla de Azure Resource Manager para cr
 
 1. Seleccione la imagen siguiente para abrir la plantilla en Azure Portal. La plantilla se encuentra en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. En la hoja **Implementación personalizada**, escriba los valores siguientes:
 
     |Propiedad |DESCRIPCIÓN |
     |---|---|
     |Subscription|seleccione la suscripción de Azure que usa para crear este clúster.|
-    |Grupos de recursos|cree un grupo de administración de recursos de Azure o use uno existente.|
+    |Resource group|cree un grupo de administración de recursos de Azure o use uno existente.|
     |Location|especifique la ubicación del grupo de recursos. |
     |ClusterName|escriba el nombre del clúster de HBase.|
     |Nombre de inicio de sesión y contraseña del clúster|El nombre de inicio de sesión predeterminado es **admin**.|

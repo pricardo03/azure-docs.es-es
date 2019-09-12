@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7ff2d7e02b557676d2ba569f7baa216d07221b9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719998"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192553"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferencias entre Service Fabric en Linux y en Windows
 
@@ -31,6 +31,7 @@ Hay algunas características que se admiten en Windows, pero todavía no en Linu
 * El servicio de análisis de errores (FAS) en Linux
 * El servicio DNS para servicios de Service Fabric (el servicio DNS se admite para contenedores en Linux)
 * Los comandos equivalentes de la CLI para determinados comandos de Powershell (la lista aparece a continuación, la mayoría de los cuales es aplicable solo a clústeres independientes)
+* [Diferencias en la implementación de registros que pueden afectar a la escalabilidad](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets de PowerShell que no funcionan en un clúster de Service Fabric para Linux
 

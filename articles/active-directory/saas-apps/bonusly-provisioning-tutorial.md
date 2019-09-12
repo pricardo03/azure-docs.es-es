@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8368fc5369ee6cd93bbf472d4904cd647d66058d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 692eff26dbbc2289ec589a327dbe58958b414a56
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673037"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842732"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: configuración de Bonusly para el aprovisionamiento automático de usuarios
 
@@ -39,7 +39,7 @@ En el escenario que se describe en este tutorial se supone que ya cuenta con los
 * Una cuenta de usuario de Bonusly con permisos de administrador
 
 > [!NOTE]
-> El aprovisionamiento de integración de Azure AD se basa en la [API REST de Bonusly](https://bonusly.gelato.io/reference) que está disponible para desarrolladores de Bonusly.
+> El aprovisionamiento de integración de Azure AD se basa en la [API REST de Bonusly](https://konghq.com/solutions/gateway/) que está disponible para desarrolladores de Bonusly.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Adición de Bonusly desde la galería
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11fc41374089c0ab7258dd191a255387713836eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622317"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811423"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de QQ mediante Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Directo
 ### <a name="register-for-the-qq-developer-program"></a>Registro para el programa para desarrolladores de QQ
 
 1. Inicie sesión en el [portal para desarrolladores de QQ](http://open.qq.com) e inicie sesión con sus credenciales de la cuenta de QQ.
-1. Después de iniciar sesión, vaya a [http://open.qq.com/reg](http://open.qq.com/reg) para registrarse como un programador.
+1. Después de iniciar sesión, vaya a [https://open.qq.com/reg](https://open.qq.com/reg) para registrarse como un programador.
 1. Seleccione **个人** (Desarrollador individual).
 1. Escriba la información necesaria y luego seleccione **下一步** (Paso siguiente).
 1. Complete el proceso de comprobación de correo electrónico. Debe esperar unos días para recibir la aprobación después de registrarse como desarrollador.
@@ -48,7 +48,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Directo
 ## <a name="configure-qq-as-an-identity-provider"></a>Configuración de QQ como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** del menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **QQ (versión preliminar)** .
 1. Escriba un **nombre**. Por ejemplo, *QQ*.

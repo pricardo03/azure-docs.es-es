@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019110"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376297"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -226,7 +226,7 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto permite crear jerarquías de ejecuciones principales y secundarias, cada una de las cuales se ejecuta en distintos destinos de proceso, conectadas por un identificador de ejecución principal común.
 
-Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método 'submit_child' de la instancia de contexto.
+Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método 'submit_child' de la instancia de contexto.
 
 ```python
 ## In parent run script

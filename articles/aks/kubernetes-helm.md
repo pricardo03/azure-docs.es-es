@@ -7,31 +7,31 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66392139"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305274"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)
 
-[Helm][helm] es una herramienta de empaquetado de código abierto que le ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes. Helm, que funciona de forma similar a los administradores de paquetes de Linux como *APT* y *Yum*, se utiliza para administrar los gráficos de Kubernetes, que son paquetes de recursos de Kubernetes preconfigurados.
+[Helm][helm] es una herramienta de empaquetado de código abierto que ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes. Helm, que funciona de forma similar a los administradores de paquetes de Linux como *APT* y *Yum*, se utiliza para administrar los gráficos de Kubernetes, que son paquetes de recursos de Kubernetes preconfigurados.
 
 En este artículo se muestra cómo configurar y usar Helm en un clúster de Kubernetes en AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita tener instalada la CLI de Helm, que es el cliente que se ejecuta en el sistema de desarrollo. Permite iniciar, detener y administrar las aplicaciones con Helm. Si usa Azure Cloud Shell, la CLI de Helm ya está instalada. Para obtener las instrucciones de instalación en su plataforma local, consulte [Installing Helm][helm-install] (Instalación de Helm).
+También necesita tener instalada la CLI de Helm, que es el cliente que se ejecuta en el sistema de desarrollo. Permite iniciar, detener y administrar las aplicaciones con Helm. Si usa Azure Cloud Shell, la CLI de Helm ya está instalada. Para obtener las instrucciones de instalación en su plataforma local, consulte [Instalación de Helm][helm-install].
 
 > [!IMPORTANT]
 > Helm está diseñada para ejecutarse en nodos de Linux. Si tiene nodos de Windows Server en el clúster, debe asegurarse de que los pods de Helm solo se programan para ejecutarse en nodos de Linux. También deberá asegurarse de que todos los gráficos de Helm que instale están programados también para ejecutarse en los nodos correctos. Los comandos de este artículo utilizan [selectores de nodo][k8s-node-selector] para asegurarse de que los pods están programados para los nodos correctos, pero no todos los gráficos de Helm pueden exponer un selector de nodo. También puede considerar otras opciones en el clúster, como los valores [taints][taints].
 
 ## <a name="create-a-service-account"></a>Creación de una cuenta de servicio
 
-Antes de implementar Helm en un clúster de AKS habilitado para RBAC, necesita una cuenta de servicio y el enlace de rol para el servicio Tiller. Para obtener más información sobre cómo proteger Helm/Tiller en un clúster habilitado para RBAC, consulte [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, espacios de nombres y RBAC). Si el clúster de AKS no está habilitado para RBAC, omita este paso.
+Antes de implementar Helm en un clúster de AKS habilitado para RBAC, necesita una cuenta de servicio y el enlace de rol para el servicio Tiller. Para más información sobre cómo proteger Helm o Tiller en un clúster habilitado para RBAC, consulte [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, espacios de nombres y RBAC). Si el clúster de AKS no está habilitado para RBAC, omita este paso.
 
 Cree un archivo denominado `helm-rbac.yaml` y cópielo en el siguiente código YAML:
 
@@ -64,16 +64,18 @@ kubectl apply -f helm-rbac.yaml
 
 ## <a name="secure-tiller-and-helm"></a>Protección de Tiller y Helm
 
-El cliente de Helm y el servicio Tiller se autentican y comunican entre sí mediante TLS/SSL. Este método de autenticación ayuda a proteger el clúster de Kubernetes y a determinar qué servicios se pueden implementar. Para mejorar la seguridad, puede generar sus propios certificados firmados. Cada usuario de Helm recibiría su propio certificado de cliente, y Tiller se inicializaría en el clúster de Kubernetes con los certificados aplicados. Para más información, consulte [Using TLS/SSL between Helm and Tiller][helm-ssl] (Uso de TLS/SSL entre Helm y Tiller).
+El cliente de Helm y el servicio Tiller se autentican y comunican entre sí mediante TLS/SSL. Este método de autenticación ayuda a proteger el clúster de Kubernetes y a determinar qué servicios se pueden implementar. Para mejorar la seguridad, puede generar sus propios certificados firmados. Cada usuario de Helm recibiría su propio certificado de cliente, y Tiller se inicializaría en el clúster de Kubernetes con los certificados aplicados. Para más información, consulte [Uso de TLS/SSL entre Helm y Tiller][helm-ssl].
 
 Con un clúster de Kubernetes habilitado para RBAC, puede controlar el nivel de acceso de Tiller al clúster. Puede definir el espacio de nombres de Kubernetes en el que Tiller está implementado y restringir los espacios de nombres en los que Tiller puede implementar los recursos. Este enfoque le permite crear instancias de Tiller en diferentes espacios de nombres y establecer los límites de implementación, así como reducir el ámbito de los usuarios del cliente de Helm a determinados espacios de nombres. Para más información, consulte los [controles de acceso basado en rol de Helm][helm-rbac].
 
 ## <a name="configure-helm"></a>Configuración de Helm
 
-Para implementar un servicio básico de Tiller en un clúster de AKS, use el comando [helm init][helm-init]. Si el clúster no está habilitado para RBAC, quite el argumento `--service-account` y el valor. Si ha configurado SSL/TLS para Tiller y Helm, omita este paso de inicialización básica y, en su lugar, proporcione los parámetros `--tiller-tls-` necesarios, tal como se muestra en el ejemplo siguiente.
+Para implementar un servicio básico de Tiller en un clúster de AKS, use el comando [helm init][helm-init]. Si el clúster no está habilitado para RBAC, quite el argumento `--service-account` y el valor. Los siguientes ejemplos también establecen el [Historial-Max][helm-history-max] en 200.
+
+Si ha configurado SSL/TLS para Tiller y Helm, omita este paso de inicialización básica y, en su lugar, proporcione los parámetros `--tiller-tls-` necesarios, tal como se muestra en el ejemplo siguiente.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 Si ha configurado TLS/SSL entre Helm y Tiller, proporcione los parámetros `--tiller-tls-*` y los nombres de sus propios certificados, tal como se muestra en el ejemplo siguiente:
@@ -85,8 +87,9 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
+    --history-max 200 \
     --service-account tiller \
-    --node-selectors "beta.kubernetes.io/os"="linux"
+    --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 ## <a name="find-helm-charts"></a>Búsqueda de gráficos de Helm
@@ -140,7 +143,7 @@ $ helm repo update
 Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈
+Update Complete.
 ```
 
 ## <a name="run-helm-charts"></a>Ejecución de gráficos de Helm
@@ -217,6 +220,7 @@ Para más información sobre cómo administrar las implementaciones de aplicacio
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search

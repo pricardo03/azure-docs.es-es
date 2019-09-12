@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 36233dc986752ded409389a0a8e267c92a40b5a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 689926d0dbaebaaf56c8238e8fed7a691e8cacf4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562593"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882513"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Apache Hive mediante el controlador JDBC en HDInsight
 
@@ -63,11 +63,11 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 3. Inicie la aplicación SQL SQuirreL. A la izquierda de la ventana, seleccione **Drivers** (Controladores).
 
-    ![Pestaña de controladores a la izquierda de la ventana](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
+    ![Pestaña de controladores a la izquierda de la ventana](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png)
 
 4. En los iconos en la parte superior del cuadro de diálogo **Drivers** (Controladores), seleccione el icono de **+** para crear un nuevo controlador.
 
-    ![Iconos de controladores](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
+    ![Iconos de controladores](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
 
 5. En el cuadro de diálogo Add driver (agregar controlador), agregue la siguiente información:
 
@@ -76,13 +76,13 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
     * **Extra Class Path** (Ruta de acceso de clase adicional): haga clic en el botón **Agregar** para agregar todos los archivos .jar que se descargaron anteriormente
     * **Extra Class Path**(nombre de clase): org.apache.hive.jdbc.HiveDriver
 
-   ![cuadro de diálogo para agregar controlador](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
+   ![cuadro de diálogo para agregar controlador](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
 
    Seleccione **Aceptar** para guardar la configuración.
 
 6. En el lado izquierdo de la ventana de SQL SQuirreL, seleccione **Aliases**. A continuación, seleccione el icono de **+** para crear un nuevo alias de conexión.
 
-    ![agregar nuevo alias](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
+    ![agregar nuevo alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. Use los siguientes valores para el cuadro de diálogo **Add Alias** (Agregar alias).
 
@@ -98,7 +98,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
     * **Password** (Contraseña): contraseña para la cuenta de inicio de sesión del clúster.
 
-   ![cuadro de diálogo para agregar alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![cuadro de diálogo para agregar alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
     > [!IMPORTANT] 
     > Use el botón **Test** (Probar) para comprobar que la conexión funciona. Cuando aparezca el cuadro de diálogo **Connect to: Hive on HDInsight** (Conectarse a: Hive en HDInsight), haga clic en **Connect** (Conectar) para realizar la prueba. Si la prueba se realiza con éxito, verá un cuadro de diálogo **Connection successful** (Conexión correcta). Si se produce un error, consulte [Solución de problemas](#troubleshooting).
@@ -107,7 +107,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 8. En la lista desplegable **Connect to** (Conectar a), en la parte superior de SQL SQuirreL, seleccione **Hive on HDInsight** (Hive en HDInsight). Cuando se le pida, seleccione **Connect** (Conectar).
 
-    ![cuadro de diálogo de conexión](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
+    ![cuadro de diálogo de conexión](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
 9. Una vez conectado, escriba la siguiente consulta en el cuadro de diálogo de consulta SQL y seleccione el icono **Run** (Ejecutar) (la persona que lo ejecuta). El área de resultados debe mostrar los resultados de la consulta.
 
@@ -115,7 +115,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
     select * from hivesampletable limit 10;
     ```
 
-    ![cuadro de diálogo de consulta de SQL, incluidos los resultados](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
+    ![cuadro de diálogo de consulta de SQL, incluidos los resultados](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png)
 
 ## <a name="connect-from-an-example-java-application"></a>Conexión desde una aplicación de Java de ejemplo
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 889c2e75e9eee0586c709b032dbb6d1c58d45102
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996830"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142047"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar datos en Azure Database for MySQL
 
@@ -34,6 +34,10 @@ La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/s
 - Cada tabla debe tener una clave principal.
 - El servidor maestro debe usar el motor InnoDB de MySQL.
 - El usuario debe tener permisos para configurar el registro binario y crear nuevos usuarios en el servidor maestro.
+- Si el servidor maestro tiene SSL habilitado, asegúrese de que el certificado de entidad de certificación de SSL proporcionado para el dominio se haya incluido en el procedimiento almacenado `mysql.az_replication_change_master`. Consulte los [ejemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) siguientes y el parámetro `master_ssl_ca`.
+- Asegúrese de que la dirección IP del servidor maestro se ha agregado a las reglas de firewall del servidor de réplica de Azure Database for MySQL. Actualice las reglas de firewall mediante [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Asegúrese de que el equipo que hospeda el servidor maestro permite el tráfico entrante y saliente en el puerto 3306.
+- Asegúrese de que el servidor maestro tenga una **dirección IP pública** o de que el sistema DNS sea de acceso público.
 
 ### <a name="other"></a>Otros
 - La Replicación de datos de entrada solo se admite en los planes de tarifa De uso general y Optimizada para memoria.

@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032688"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231244"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
@@ -31,12 +31,12 @@ Después de ejecutar Azure AD Connect para configurar la organización para la c
 Todos los dispositivos unidos a un dominio que ejecuten Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD una vez que se han completado todos los pasos de configuración. Si prefiere realizar un lanzamiento controlada en lugar de este registro automático, puede usar la directiva de grupo para habilitar o deshabilitar el lanzamiento automático de forma selectiva.  Esta directiva de grupo debe establecerse antes de iniciar otros pasos de configuración:
 * Cree un objeto de directiva de grupo en Active Directory.
 * Póngale nombre (por ejemplo, combinación de Azure AD híbrido).
-* Edite y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
+* Edítelo y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
 
 >[!NOTE]
 >Para 2012R2, la configuración de directivas se encuentra en **Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Workplace Join > Automatically workplace join client computers** (Unión automática al área de trabajo de equipos cliente).
 
-* Deshabilite esta configuración:  Registro de equipos unidos a un dominio como dispositivos.
+* Habilite esta configuración:  Registro de equipos unidos a un dominio como dispositivos.
 * Aplique las opciones y haga clic en Aceptar.
 * Vincule GPO a la ubicación de su elección (unidad organizativa, grupo de seguridad o dominio para todos los dispositivos).
 

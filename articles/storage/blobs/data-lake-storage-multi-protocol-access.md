@@ -1,5 +1,5 @@
 ---
-title: Acceso multiprotocolo en Azure Data Lake Storage | Microsoft Docs
+title: Acceso multiprotocolo en Azure Data Lake Storage (versión preliminar) | Microsoft Docs
 description: Use API de blob y aplicaciones que emplean API de blob con Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855534"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259371"
 ---
-# <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acceso multiprotocolo en Azure Data Lake Storage
+# <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Acceso multiprotocolo en Azure Data Lake Storage (versión preliminar)
 
 Las API de blob ya funcionan con las cuentas que tienen un espacio de nombres jerárquico. Esto permite aprovechar todo el ecosistema de herramientas, aplicaciones y servicios, así como todas las características de Blob Storage para las cuentas que tienen un espacio de nombres jerárquico.
 
 Hasta hace poco, es posible que tuviera que mantener soluciones de almacenamiento independientes para los objetos y para los análisis. Esto se debe a que Azure Data Lake Storage Gen2 tenía una compatibilidad limitada con el ecosistema. Además, tenía acceso limitado a características de Blob service, como el registro de diagnóstico. Las soluciones de almacenamiento fragmentado son difíciles de mantener porque es necesario trasladar los datos entre las cuentas para llevar a cabo distintos escenarios. Pero esto ya no es necesario.
 
 > [!NOTE]
-> El acceso multiprotocolo en Data Lake Storage se encuentra en versión preliminar pública y solo está disponible en las regiones **Oeste de EE. UU. 2** y **Centro-oeste de EE. UU.** Para conocer las limitaciones, consulte el artículo [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [esta página](https://aka.ms/blobinteropsignup).
+> El acceso multiprotocolo en Data Lake Storage está en versión preliminar pública y se encuentra disponible en [estas regiones](#region-availability). Para conocer las limitaciones, consulte el artículo [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [esta página](https://aka.ms/blobinteropsignup).
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Uso de todo el ecosistema de aplicaciones, herramientas y servicios
 
@@ -46,7 +46,21 @@ Las API de blob y las API de Data Lake Storage Gen2 pueden operar en los mismos 
 
 ![Diagrama conceptual del acceso multiprotocolo en Data Lake Storage](./media/data-lake-storage-interop/interop-concept.png) 
 
-Las herramientas y aplicaciones existentes que usan la API de blob obtienen estos beneficios de forma automática. No es necesario que los desarrolladores las modifiquen. Data Lake Storage Gen2 aplica de forma coherente listas de control de acceso de nivel de archivo y de directorio independientemente del protocolo que usan las herramientas y las aplicaciones para acceder a los datos.   
+Las herramientas y aplicaciones existentes que usan la API de blob obtienen estos beneficios de forma automática. No es necesario que los desarrolladores las modifiquen. Data Lake Storage Gen2 aplica de forma coherente listas de control de acceso de nivel de archivo y de directorio independientemente del protocolo que usan las herramientas y las aplicaciones para acceder a los datos. 
+
+<a id="region-availability" />
+
+## <a name="region-availability"></a>Disponibilidad en regiones
+
+El acceso multiprotocolo en Azure Data Lake Storage (versión preliminar) está disponible en las regiones siguientes:
+
+|||||
+|-|-|-|-|
+|Centro de EE. UU.|Centro occidental de EE.UU.|Centro de Canadá|
+|East US|Asia oriental|Europa del Norte|
+|Este de EE. UU. 2|Sudeste asiático|Europa occidental|
+|Oeste de EE. UU.|Este de Australia|Este de Japón|
+|Oeste de EE. UU. 2|Sur de Brasil||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

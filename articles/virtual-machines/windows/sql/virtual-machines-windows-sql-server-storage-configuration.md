@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123838"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309237"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 
@@ -110,8 +110,7 @@ La otra opción para expandir el almacenamiento es ampliar la unidad existente. 
 
 Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL o la configuración en Azure Portal.
 
-* Si ha seleccionado menos de dos TB de almacenamiento para la máquina virtual, Azure no crea ningún grupo de almacenamiento.
-* Si ha seleccionado al menos dos TB de almacenamiento para la máquina virtual, Azure configura un grupo de almacenamiento. La siguiente sección de este tema proporciona los detalles de la configuración del grupo de almacenamiento.
+* Azure configura un bloque de almacenamiento desde el almacenamiento seleccionado de la máquina virtual. En la sección siguiente de este tema se proporcionan los detalles de la configuración del bloque de almacenamiento.
 * La configuración automática del almacenamiento siempre utiliza discos de datos P30 de [discos SSD Premium](../disks-types.md). En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
 
 Para más información, consulte la página [Storage pricing](https://azure.microsoft.com/pricing/details/storage) (Precios de almacenamiento) en la pestaña **Almacenamiento en disco** .

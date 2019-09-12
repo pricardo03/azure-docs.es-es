@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442066"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885273"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
@@ -76,7 +76,7 @@ Las alertas, con la excepción de **OK**, hacen que la entrada **# alerts** en l
 
 Las alertas se organizan en varios grupos predeterminados, que se pueden ver desde la página **Alertas** .
 
-![página de alertas](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![página de alertas](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 Para administrar los grupos, use el menú **Actions** (Acciones) y seleccione **Manage Alert Groups** (Administración de grupos de alertas).
 
@@ -92,11 +92,11 @@ Por último, al seleccionar __Manage Alert Settings__ (Administrar configuració
 
 La pestaña **Metrics** (Métricas) del panel contiene una serie de widgets que facilitan la supervisión del estado del clúster de un solo vistazo. Varios widgets, como **CPU Usage**(Uso de CPU), proporcionan información adicional al hacer clic en ellos.
 
-![panel con métricas](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![panel con métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 La pestaña **Heatmaps** (Mapas térmicos) muestran las métricas como mapas térmicos coloreados, desde el verde hasta el rojo.
 
-![panel con mapas térmicos](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![panel con mapas térmicos](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Para más información sobre los nodos del clúster, seleccione **Hosts**. A continuación, seleccione el nodo específico que le interesa.
 
@@ -142,7 +142,7 @@ Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de H
 
 La página **Hosts** muestra todos los hosts existentes en el clúster. Siga estos pasos para administrar los hosts.
 
-![página de hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![página de hosts](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > No se debe agregar, retirar o volver a programar un host con los clústeres de HDInsight.

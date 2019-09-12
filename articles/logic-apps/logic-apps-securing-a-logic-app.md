@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736896"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845436"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -440,7 +440,7 @@ Esta plantilla de ejemplo tiene varias definiciones de parámetros seguros que u
 | Nombre de parámetro | DESCRIPCIÓN |
 |----------------|-------------|
 | `TemplatePasswordParam` | Parámetro de plantilla que acepta una contraseña que se pasa, a continuación, al parámetro `basicAuthPasswordParam` de la definición del flujo de trabajo. |
-| `TemplatePasswordParam` | Parámetro de plantilla que acepta un nombre de usuario que se pasa a continuación al parámetro `basicAuthUserNameParam` de la definición del flujo de trabajo |
+| `TemplateUsernameParam` | Parámetro de plantilla que acepta un nombre de usuario que se pasa a continuación al parámetro `basicAuthUserNameParam` de la definición del flujo de trabajo |
 | `basicAuthPasswordParam` | Parámetro de definición de flujo de trabajo que acepta la contraseña para la autenticación básica en una acción HTTP |
 | `basicAuthUserNameParam` | Parámetro de definición de flujo de trabajo que acepta el nombre de usuario para la autenticación básica en una acción HTTP |
 |||

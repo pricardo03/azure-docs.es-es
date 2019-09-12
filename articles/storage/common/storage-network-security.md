@@ -9,31 +9,31 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 90f064ce5d6dc7ffa6b4c532ac30d9b4dd60e13f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 00e69d9222444e3b700fca10e3f15b4b110e0c60
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981134"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241738"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
-Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permite proteger las cuentas de almacenamiento en un conjunto específico de redes admitidas. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento.
+Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permite proteger las cuentas de almacenamiento en un subconjunto específico de redes. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento. Puede limitar el acceso a su cuenta de almacenamiento a las solicitudes procedentes de direcciones IP especificadas, intervalos IP o una lista de subredes de instancias de Azure Virtual Network.
 
-Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada en la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
+Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada para la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
 
 > [!IMPORTANT]
 > La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una red virtual (VNet) de Azure. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc.
 >
-> Puede conceder acceso a los servicios de Azure que funcionan desde una VNet al permitir la subred de la instancia de servicio. Habilite un número limitado de escenarios mediante el mecanismo [Excepciones](#exceptions) que se describe en la sección siguiente. Para acceder a Azure Portal, deberá estar en una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
+> Puede conceder acceso a los servicios de Azure que funcionan desde una VNet al permitir el tráfico de la subred que hospeda la instancia de servicio. Puede habilitar también un número limitado de escenarios mediante el mecanismo [Excepciones](#exceptions) que se describe en la sección siguiente. Para acceder a los datos de la cuenta de almacenamiento mediante Azure Portal, deberá estar en una máquina situada dentro del límite de confianza (IP o red virtual) que haya configurado.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Escenarios
 
-Configure las cuentas de almacenamiento para denegar el acceso al tráfico desde todas las redes (incluido el tráfico de Internet) de forma predeterminada. A continuación, conceda acceso para el tráfico desde redes virtuales específicas. Esta configuración le permite crear un límite de red seguro para las aplicaciones. También puede conceder acceso a intervalos de direcciones IP de Internet públicos, lo que permite habilitar conexiones desde clientes locales o específicos de Internet.
+Para proteger la cuenta de almacenamiento, primero debe configurar una regla para denegar el acceso al tráfico desde todas las redes (incluido el tráfico de Internet) de forma predeterminada. A continuación, debe configurar las reglas que conceden acceso al tráfico desde redes virtuales específicas. Esta configuración le permite crear un límite de red seguro para las aplicaciones. También puede configurar reglas para conceder acceso al tráfico desde intervalos de direcciones IP de Internet públicos, lo que permite habilitar conexiones desde clientes locales o específicos de Internet.
 
-Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para acceder a los datos con herramientas como Azure Portal, el Explorador de Storage y AZCopy, se requieren reglas de red explícitas.
+Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para tener acceso a los datos mediante herramientas como Azure Portal, el Explorador de Storage y AZCopy, deben configurarse reglas de red explícitas.
 
 Puede aplicar reglas de red a cuentas de almacenamiento existente o crear nuevas cuentas de almacenamiento.
 
@@ -112,9 +112,9 @@ Puede administrar las reglas predeterminadas de acceso a redes para las cuentas 
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concesión de acceso desde una red virtual
 
-Puede configurar las cuentas de almacenamiento para permitir el acceso solo desde redes virtuales específicas.
+Puede configurar las cuentas de almacenamiento para permitir el acceso solo desde subredes específicas. Las subredes permitidas pueden pertenecer a una red virtual de la misma suscripción o a las de una suscripción diferente, incluidas las suscripciones que pertenecen a un inquilino de Azure Active Directory diferente.
 
-Habilite un [punto de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Storage dentro de la red virtual. Este punto de conexión proporciona al tráfico una ruta óptima hasta el servicio de Azure Storage. Las identidades de la red virtual y la subred también se transmiten con cada solicitud. Luego, los administradores pueden configurar reglas de red para la cuenta de almacenamiento que permitan que se reciban solicitudes desde subredes específicas en la red virtual. Los clientes a los que se concedió acceso a través de estas reglas de red deben seguir cumpliendo los requisitos de autorización de la cuenta de almacenamiento para acceder a los datos.
+Habilite un [punto de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Storage dentro de la red virtual. El punto de conexión de servicio enruta el tráfico desde la red virtual a través de una ruta de acceso óptima al servicio Azure Storage. Las identidades de la red virtual y la subred también se transmiten con cada solicitud. Luego, los administradores pueden configurar reglas de red para la cuenta de almacenamiento que permitan que se reciban solicitudes desde subredes específicas en una red virtual. Los clientes a los que se concedió acceso a través de estas reglas de red deben seguir cumpliendo los requisitos de autorización de la cuenta de almacenamiento para acceder a los datos.
 
 Cada cuenta de almacenamiento admite hasta 100 reglas de red virtual, que se pueden combinar con [reglas de red de IP](#grant-access-from-an-internet-ip-range).
 
@@ -131,7 +131,10 @@ Al planear la recuperación ante desastres durante una interrupción regional, d
 
 Para aplicar una regla de red virtual a una cuenta de almacenamiento, el usuario debe tener permisos apropiados para las subredes que se van a agregar. El permiso necesario es *Join Service to a Subnet* (Unir el servicio a una subred) y se incluye en el rol integrado *Colaborador de la cuenta de almacenamiento*. También se puede agregar a definiciones de roles personalizados.
 
-La cuenta de almacenamiento y las redes virtuales a las que se concedió acceso pueden estar en distintas suscripciones, pero esas suscripciones deben formar parte del mismo inquilino de Azure AD.
+La cuenta de almacenamiento y las redes virtuales a las que se concedió acceso pueden estar en distintas suscripciones, incluidas suscripciones que formen parte del un inquilino de Azure AD diferente.
+
+> [!NOTE]
+> La configuración de reglas que conceden acceso a subredes en redes virtuales que forman parte de un inquilino de Azure Active Directory diferente solo se admiten actualmente a través de PowerShell, la CLI y las API REST. Estas reglas no se pueden configurar mediante Azure Portal, aunque se puedan ver en el portal.
 
 ### <a name="managing-virtual-network-rules"></a>Administración de reglas de red virtual
 
@@ -149,6 +152,8 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
 
     > [!NOTE]
     > Si un punto de conexión de servicio para Azure Storage no se ha configurado previamente para la red virtual y las subredes seleccionadas, se puede configurar como parte de esta operación.
+    >
+    > Actualmente, solo se muestran las redes virtuales que pertenecen al mismo inquilino de Azure Active Directory para su selección durante la creación de la regla. Para conceder acceso a una subred de una red virtual que pertenece a otro inquilino, use PowerShell, la CLI o la API REST.
 
 1. Para quitar una regla de red virtual o subred, haga clic en **...** para abrir el menú contextual de la red virtual o la subred y haga clic en **Quitar**.
 
@@ -176,6 +181,9 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
+
+    > [!TIP]
+    > Para agregar una regla de red para una subred de una red virtual que pertenezca a otro inquilino de Azure AD, use un parámetro completo **VirtualNetworkResourceId** con el formato "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
 1. Quite una regla de red para una red virtual y subred.
 
@@ -209,6 +217,11 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
     $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
+
+    > [!TIP]
+    > Para agregar una regla para una subred de una red virtual que pertenezca a otro inquilino de Azure AD, use un identificador de subred completo con el formato "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > 
+    > Puede usar el parámetro **subscription** para recuperar el identificador de subred de una red virtual que pertenezca a otro inquilino de Azure AD.
 
 1. Quite una regla de red para una red virtual y subred.
 
@@ -344,7 +357,7 @@ Las reglas de red pueden habilitar una configuración de red segura para la mayo
 
 Algunos servicios de Microsoft que interactúan con las cuentas de almacenamiento funcionan desde redes a las que no se puede conceder acceso a través de reglas de red.
 
-Para ayudar a que este tipo de servicio funcione según lo previsto, permita que el conjunto de servicios de Microsoft de confianza omita las reglas de red. Estos servicios usarán luego una autenticación sólida para acceder a la cuenta de almacenamiento.
+Para que algunos servicios funcionen según lo previsto, debe permitir que un subconjunto de servicios de Microsoft de confianza omitan las reglas de red. Estos servicios usarán luego una autenticación sólida para acceder a la cuenta de almacenamiento.
 
 Si habilita la excepción **Permitir que los servicios de Microsoft de confianza…** , se concede acceso a la cuenta de almacenamiento a los siguientes servicios (cuando se han registrado en su suscripción):
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a256eb787d7e3dbd800ec2e630cac591b07ca0fc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3ddf5a1ab37ac0af25379394b4513627139fcbd5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444163"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307951"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conexión a la API de Media Services v3: .NET
 
@@ -28,6 +28,9 @@ En este artículo se muestra cómo conectar con el SDK de .NET de Azure Media 
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 - Instale una herramienta que quiera usar para el desarrollo con .NET. Los pasos descritos en este artículo muestran cómo usar [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Puede usar Visual Studio Code, consulte [Working with C# ](https://code.visualstudio.com/docs/languages/csharp) (Trabajar con C#). O bien, puede usar otro editor de código.
+
+> [!IMPORTANT]
+> Revise las [convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-console-application"></a>Creación de una aplicación de consola
 

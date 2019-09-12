@@ -3,7 +3,7 @@ title: Preguntas frecuentes sobre Azure Dedicated HSM | Microsoft Docs
 description: Preguntas frecuentes que abarcan diferentes temas sobre Azure Dedicated HSM
 services: dedicated-hsm
 author: johncdawson
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.custom: mvc
 ms.service: key-vault
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
-ms.author: barclayn
-ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467735"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883570"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -66,7 +66,7 @@ El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (mod
 
 Desde finales de marzo de 2019, Dedicated HSM está disponible en las 14 regiones que se indican a continuación. Además, está prevista la inclusión de más regiones. Si le interesan otras, coménteselo a su representante de cuenta Microsoft.
 
-* Este de EE. UU
+* East US
 * Este de EE. UU. 2
 * Oeste de EE. UU.
 * Centro-Sur de EE. UU

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7133e8bc7d04b3653b6b788347b7bc5176087f4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240299"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883480"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
 La versión más reciente de Azure Mobile Services es la característica **Mobile Apps** de Azure App Service.
@@ -28,8 +28,6 @@ Los SDK de cliente y servidor de Mobile Apps originalmente se basaban en los de 
 Es decir, debe usar el SDK de cliente de *Mobile Apps* con un SDK de servidor de *Mobile Apps* y algo parecido sucede con *Mobile Services*. Este contrato se aplica a través de un valor de encabezado especial usado por los SDK de cliente y servidor, `ZUMO-API-VERSION`.
 
 Nota: cada vez que este documento hace referencia a un back-end de *Mobile Services* , no es necesario que esté hospedado en Mobile Services. Ahora es posible migrar un servicio móvil para que se ejecute en App Service sin realizar ningún cambio en el código, pero el servicio seguirá usando versiones de SDK de *Mobile Services*.
-
-Para más información sobre la migración a App Service sin realizar ningún cambio en el código, consulte el artículo [Migración del servicio móvil de Azure existente a App Service].
 
 ## <a name="header-specification"></a>Especificación del encabezado
 La clave `ZUMO-API-VERSION` se puede especificar en el encabezado HTTP o en la cadena de consulta. El valor es una cadena de versión con el formato **x.y.z**.

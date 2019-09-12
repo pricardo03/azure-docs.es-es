@@ -7,12 +7,12 @@ services: monitoring
 ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 1151eb8659c60cd71430c3dd971e73ec03a5545f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538120"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383153"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general
@@ -61,8 +61,8 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
     ![Cuadro de diálogo "Agregar alerta de registro de actividad"](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
-> [!NOTE]
-> Esta suscripción se usa para guardar la alerta del registro de actividad. El recurso de la alerta se implementa en esta suscripción y supervisa los eventos en el registro de actividad para dicho recurso.
+    > [!NOTE]
+    > Esta suscripción se usa para guardar la alerta del registro de actividad. El recurso de la alerta se implementa en esta suscripción y supervisa los eventos en el registro de actividad para dicho recurso.
 
 1. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problema de servicio*, *Mantenimiento planeado* y *Avisos de estado* 
 
@@ -90,7 +90,6 @@ Obtenga información acerca de cómo [configurar notificaciones de webhook para 
 
 >[!NOTE]
 >El grupo de acciones definido en estos pasos es reutilizable, como grupo de acciones existente, en todas las futuras definiciones de alertas.
->
 >
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta con un grupo de acciones existente mediante Azure Portal

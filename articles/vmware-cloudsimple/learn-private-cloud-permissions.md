@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972701"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194131"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permisos de la nube privada de VMware vCenter de CloudSimple
 
@@ -24,7 +24,7 @@ CloudSimple conserva el acceso administrativo completo al entorno de nube privad
 Cuando crea una nube privada, se crea un usuario **CloudOwner** en el dominio de inicio de sesión único de vCenter, con acceso **Cloud-Owner-Role** para administrar objetos en la nube privada. Este usuario también puede configurar [orígenes de identidad de vCenter](set-vcenter-identity.md) adicionales y otros usuarios en la instancia de vCenter de la nube privada.
 
 > [!NOTE]
-> El usuario predeterminado para el vCenter de la nube privada de CloudSimple es `cloudowner@cloudsimple.local` cuando se crea una nube privada sin vincularla a su instancia de vCenter local.
+> El usuario predeterminado para el vCenter de la nube privada de CloudSimple es cloudowner@cloudsimple.local cuando se crea una nube privada.
 
 ## <a name="user-groups"></a>Grupos de usuarios
 

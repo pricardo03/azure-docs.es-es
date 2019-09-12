@@ -1,76 +1,112 @@
 ---
-title: 'Servicios de comercialización: las ventajas de Marketplace | Azure'
+title: 'Servicios de comercialización: las ventajas de Marketplace comercial | Azure'
 description: 'Servicios de comercialización: en esta sección se describen los recursos de Microsoft que los anunciantes pueden usar.'
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 01/12/2019
-ms.author: ellacroi
-ms.openlocfilehash: 02fcda2d851ddefa1c592bf0b5b09d5e5d59828f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 09/04/2019
+ms.author: v-qiwe
+ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128221"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309043"
 ---
-# <a name="your-marketplace-benefits"></a>Sus ventajas de Marketplace
+# <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
-Como parte del proceso de publicación, deberá crear los recursos técnicos y de marketing para su oferta. Como resultado, hay ventajas técnicas y de marketing que los anunciantes de Azure Marketplace y AppSource pueden usar con el fin de mejorar la involucración del usuario con su oferta. Puede que encuentre útiles los siguientes recursos técnicos.
+Ya publicó correctamente en Marketplace, ahora quiere ver que su oferta tenga éxito. Le ofrecemos las ventajas (de ventas, técnicas y de marketing) que necesita para agilizar el crecimiento de su oferta.
 
-## <a name="technical-resources-provided-by-microsoft"></a>Recursos técnicos de Microsoft
+Cuando publique su oferta, el equipo de Recompensas de Marketplace se pondrá en contacto con usted para empezar a trabajar en conjunto con respecto a sus ventajas elegibles. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
 
-Durante la creación de la oferta, puede aprovechar un número de recursos de Microsoft, como consultar con un experto técnico o la obtención de soporte técnico para probar una solución específica de Marketplace.
+## <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
-Los recursos técnicos se pueden usar en cualquier momento.  En la tabla siguiente se enumeran las ventajas:
+Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de crecimiento específica, empezando por las actividades de reconocimiento para ayudarlo a obtener sus primeros clientes. A medida que crezca en Marketplace, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos. 
 
-![](./media/marketplace-publishers-guide/technical-benefit-table.png)
+El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para que progrese hasta la fase siguiente, lo que le permite hacer crecer su negocio a los clientes de Microsoft, con el campo de Microsoft y a través del canal de Microsoft aprovechando Marketplace comercial como plataforma. 
 
-## <a name="how-to-access-microsoft-resources"></a>Cómo obtener acceso a los recursos de Microsoft
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
-Los partners que han publicado una oferta recientemente pueden acceder a las ventajas de comercialización. 
+Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad. 
 
-1. Incorporación: [regístrese](https://azuremarketplace.microsoft.com/sell) para obtener acceso a Cloud Partner Portal y a los recursos de soporte técnico para la incorporación.
-2. Consultas de Microsoft Marketplace: aproveche esta [consulta gratuita](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) para recibir ayuda en la planificación de la arquitectura de su aplicación de Marketplace.
-3. Foros de Marketplace: formule sus preguntas directamente a los empleados de Microsoft y otros partners de Marketplace en el [foro de Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Soporte técnico: use el menú de Ayuda en [Cloud Partner Portal](https://cloudpartner.azure.com/) para obtener ayuda con las preguntas de soporte técnico relacionadas con Marketplace. 
-5. Patrocinio de la integración, desarrollo y pruebas de AAD: podrá participar cuando obtenga oferta que permita realizar transacciones (como por ejemplo, una oferta implementable y facturable). Consulte la siguiente sección para saber cómo comenzar a trabajar con las ventajas de lanzamiento al mercado.
+En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma de Marketplace, se desbloquean mayores ventajas por nivel. 
 
-## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Ventajas de comercialización (GTM) en Marketplace
+El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma. 
 
-Las publicaciones nuevas en Azure Marketplace y AppSource son aptas para recibir ventajas de GTM gratuitas de Marketplace a través del equipo de servicios de GTM de Microsoft. Este equipo le ayudará a optimizar sus publicaciones y aumentar la atención hacia sus soluciones de Microsoft Marketplace.
+Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) 
 
-| Escaparate | Ventajas adicionales disponibles |
-|:--- |:--- |
-| AppSource |  Partners Microsoft Gold <br> Ofertas de transacciones: recompensas de Marketplace <br> Aplicaciones de evaluación |
-| Azure Marketplace | Ofertas de transacciones: recompensas de Marketplace <br> Ofertas de evaluación |
+Puede encontrar descripciones detalladas de todas las ventajas del programa en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
-El soporte de comercialización (GTM) incluye plantillas, contenido web, aprendizaje y herramientas para promocionar su negocio.
+Los pasos para comenzar son sencillos:
 
-Para obtener acceso a estas ventajas, necesitará:
+1. Publique una oferta en Microsoft AppSource o en Azure Marketplace.
+2. El equipo se comunica con el "propietario" o el "contacto principal" por oferta de Marketplace. Como procedimiento recomendado, especifique un individuo o un alias que revise periódicamente: por lo general, los mensajes enviados a los alias, como info@company.com, se perderán.
 
-1. Publicar una oferta en Azure Marketplace o AppSource.
-2. Asegurarse de que ha escrito un contacto de marketing la sección **Información de contacto** de la oferta. Debe tratarse de un recurso dedicado de marketing, en lugar de un alias comodín. (es decir, evite el uso de "soporte\@", "info\@", "marketing\@", etc.)
+>[!Note]
+>Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, ya sea mirando Cloud Partner Portal o en el Centro de partners. Deberían tener la comunicación y los pasos siguientes. <br> <br> Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en https://aka.ms/marketplacepublishersupport.
 
-Según el estado de la solución (cuando la oferta sea Lista, Prueba o Transacción – recompensas de Marketplace), recibirá un correo electrónico con recursos de autoayuda o una invitación a una llamada de consulta con un administrador de involucración dedicado. No es necesario hacer nada para iniciar la llamada, el equipo de incorporación de Marketplace se comunicará con usted en función de la información proporcionada en [Cloud Partner Portal](https://cloudpartner.azure.com/).
+El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.
 
-El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las publicaciones recibirán un nivel básico de recomendaciones de optimización y promoción.  Dichas publicaciones también son aptas para las ventajas de marketing adicionales según el estado de la solución (Lista, Prueba o Transacción – recompensas de Marketplace), el Marketplace seleccionado y los logros de las competencias Microsoft Partner.
+## <a name="list-trial-and-consulting-benefits"></a>Ventajas de lista, prueba y consultoría
+
+Si publica un taller, una implementación o una prueba de concepto de prueba o consultoría, se le asignará un administrador de involucración durante tres meses, que lo guiará por un plan de comercialización adecuado. Puede repetir esta involucración de tres meses cada vez que publique una oferta nueva, para que cada una de las ofertas nuevas se inicie correctamente.
 
 En la tabla siguiente se resumen los requisitos de elegibilidad para las ofertas de lista y prueba:
 
-![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Ventajas de comercialización](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-\* Requiere competencia Silver o Gold. <br>
-\*\* Requiere competencia Gold. <br>
-\*\*\* Requiere competencia Gold y publicación Co-Sell Ready en la lista de asociados. <br>
-^ Solo para Transact, se aplica a Azure Marketplace.
+Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas de Marketplace para asociados de transacciones
 
-La lista completa de las ventajas para las recompensas de Marketplace puede consultarse en las [diapositivas de resumen del programa](https://aka.ms/marketplacerewards).
+Cuando publique su oferta que permite transacciones en Azure Marketplace o en Microsoft AppSource, podrá tener acceso a ventajas adicionales a medida que crezcan sus transacciones de ventas facturadas mediante Marketplace comercial. 
+
+Estas ventajas están diseñadas para ayudarlo en actividades de marketing, de ventas y técnicas y, por lo tanto, lo ayudan a obtener más visitantes, a recibir más clientes potenciales y a convertir más negocios.
+
+Todos los asociados que tienen una oferta publicada trabajan con un administrador de involucración dedicado para elegir las actividades de mayor valor para su cartera de ofertas de Marketplace. Esta involucración es permanente para cada oferta, lo que significa que puede elegir las actividades y el tiempo de estas actividades para alinearse con el tiempo de las estrategias de ventas y marketing más amplias de su empresa. 
+
+![Ventajas de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+![Ventajas de ventas](./media/marketplace-publishers-guide/sales-benefit.png)
+
+![Ventajas técnicas](./media/marketplace-publishers-guide/technical-benefit.png)
+
+Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
+
+Además de las ventajas de las recompensas, los asociados de aplicaciones empresariales que tienen ofertas de Dynamics publicadas en Microsoft AppSource tienen una programación complementaria disponible a través de [Connect para ISV](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Esto incluye soporte técnico, de marketing y de ventas especializado para las necesidades de los asociados de aplicaciones empresariales.
+
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>Requisitos y restricciones de las Recompensas de Marketplace
+
+### <a name="publisher-agreement"></a>Contrato del anunciante
+
+Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://docs.microsoft.com/legal/marketplace/terms) y se incluyen en el anexo del programa de ventajas comerciales.
+
+### <a name="cancellation-policy"></a>Directiva de cancelaciones
+
+Los anunciantes de ofertas de [lista y prueba](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pueden participar o no en las actividades por publicación de oferta. Los asociados pueden rechazar cualquier involucración en cualquier momento. 
+
+Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que: 
+
+* participen en una actividad ilícita con su lista de Marketplace.
+* hayan sido eliminados de las listas de Marketplace comercial. 
+* usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales.
+* infrinjan las directivas del [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), que incluyen, entre otras, el uso de fondos de patrocinio de Azure para sus propias operaciones internas o minería de bitcoins. 
+
+### <a name="offer-availability"></a>Disponibilidad de la oferta
+
+Esta oferta se realiza en inglés para todos los asociados con una oferta publicada en Azure Marketplace o Microsoft AppSource.
+
+Las transacciones que se comprueban como fraudulentas no se contabilizarán en el [nivel del programa de ventas facturadas](https://aka.ms/marketplacepublisherrewards) del anunciante, como se indica en la sección de ofertas de [lista, prueba y consultoría](#list-trial-and-consulting-benefits), en la sección sobre las [ventajas para los asociados de transacciones](#marketplace-rewards-for-transact-partners) y en la [presentación detallada del programa](https://aka.ms/marketplacepublisherrewards). Microsoft asignará asociados a los niveles de elegibilidad en función de sus ventas facturadas reales una vez que se haya eliminado el fraude. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) para crear y configurar la oferta.
+Si creó la oferta en Cloud Partner Portal, inicie sesión para crearla o configurarla.
+
+Si creó la oferta en el Centro de partners, inicie sesión para crearla o configurarla.
+
+Revise los [recursos de autoservicio disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+
+Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) y obtenga información sobre los temas pertinentes o únase al debate.
 
 ---

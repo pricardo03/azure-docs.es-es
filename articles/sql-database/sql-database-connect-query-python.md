@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 89e67fd58f6cfc54e21406e9385e7ca5e5bc1d17
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569151"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764293"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Python para consultar una base de datos de Azure SQL
 
@@ -56,7 +56,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **SQL Database** o **Instancias administradas de SQL**.
+2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
 
 3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una única base de datos o el nombre completo del servidor junto a **Host** para una instancia administrada. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Entidad simple y lista de frases: LUIS'
+title: 'Tutorial: Entidad simple y lista de frases: LUIS'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se extraen datos aprendidos automáticamente de un nombre de empleo de una expresión con la entidad Simple. Para aumentar la precisión de extracción, agregue una lista de frases de términos específicos para la entidad simple.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648601"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376263"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extracción de nombres con una lista de entidades simples y frases
 

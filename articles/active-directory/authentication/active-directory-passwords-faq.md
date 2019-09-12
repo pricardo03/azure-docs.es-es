@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001f3c88b676a2786159946a8981823e18ea5f6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440963"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274409"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -179,7 +179,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Durante cuánto tiempo es válido el código de acceso de un solo uso que se recibe por correo electrónico o mensaje SMS?**
 
-  > **R:** La duración de la sesión de restablecimiento de contraseña es de 15 minutos. Desde el inicio de la operación de restablecimiento de contraseña, el usuario tiene 15 minutos para restablecer la contraseña. El código de acceso de un solo uso que recibe por correo electrónico o mensaje SMS no es válido después de este período de tiempo.
+  > **R:** La duración de la sesión de restablecimiento de contraseña es de 15 minutos. Desde el inicio de la operación de restablecimiento de contraseña, el usuario tiene 15 minutos para restablecer la contraseña. Los códigos de acceso de un solo uso de SMS y correo electrónico son válidos por 5 minutos durante la sesión de restablecimiento de contraseña.
   >
   >
 * **P:  ¿Puedo impedir que los usuarios restablezcan su contraseña?**

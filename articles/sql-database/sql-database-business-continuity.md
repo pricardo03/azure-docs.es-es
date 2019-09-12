@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569338"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744463"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -140,7 +140,7 @@ Si utiliza las copias de seguridad automatizadas con almacenamiento con redundan
 Cuando efectúe la recuperación con cualquiera de los mecanismos para llevarla a cabo, debe realizar las siguientes tareas adicionales antes de que los usuarios y las aplicaciones vuelvan a conectarse:
 
 - Redirija los clientes y las aplicaciones cliente al nuevo servidor y a la base de datos restaurada.
-- Asegúrese de aplicar reglas de firewall de IP en el nivel de servidor adecuadas para que se conecten los usuarios o use [firewalls de nivel de base de datos](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) para habilitar las reglas adecuadas.
+- Asegúrese de aplicar reglas de firewall de IP en el nivel de servidor adecuadas para que se conecten los usuarios o use [firewalls de nivel de base de datos](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) para habilitar las reglas adecuadas.
 - No se olvide de emplear permisos de nivel de base de datos maestra e inicios de sesión apropiados (o use [usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configure la auditoría según corresponda.
 - Configure las alertas según corresponda.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 4b4f3877b56752756050de0af226571ac2a93293
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750828"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308874"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Ejecución de scripts de Python en Azure Machine Learning Studio
 
@@ -67,7 +67,7 @@ Los conjuntos de datos de Studio no son lo mismo que los DataFrames de Pandas. E
 
 ## <a id="import-modules"></a>Importación de módulos de scripts existentes de Python
 
-El back-end que se usa para ejecutar Python se basa en [Anaconda](https://store.continuum.io/cshop/anaconda/), una distribución científica de Python ampliamente usada. Incluye cerca de 200 de los paquetes más comunes de Python que se utilizan en las cargas de trabajo centradas en datos. Studio no admite actualmente el uso de sistemas de administración de paquetes, como Pip o Conda, para instalar y administrar bibliotecas externas.  Si encuentra la necesidad de incorporar bibliotecas adicionales, use el siguiente escenario como guía.
+El back-end que se usa para ejecutar Python se basa en [Anaconda](https://www.anaconda.com/distribution/), una distribución científica de Python ampliamente usada. Incluye cerca de 200 de los paquetes más comunes de Python que se utilizan en las cargas de trabajo centradas en datos. Studio no admite actualmente el uso de sistemas de administración de paquetes, como Pip o Conda, para instalar y administrar bibliotecas externas.  Si encuentra la necesidad de incorporar bibliotecas adicionales, use el siguiente escenario como guía.
 
 Un caso de uso común es incorporar scripts existentes de Python a experimentos de Studio. El modulo [Ejecutar script de Python][execute-python-script] acepta un archivo ZIP que contiene los módulos de Python en el tercer puerto de entrada. El marco de ejecución descomprime el archivo en runtime y el contenido se agrega a la ruta de acceso de la biblioteca del intérprete de Python. La función de punto de entrada `azureml_main` luego puede importar directamente estos módulos. 
 

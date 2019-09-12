@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015656"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376447"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -167,8 +167,7 @@ Recuerde que los datos almacenados en un disco temporal se pierden cuando se apa
 ### <a name="unsupported-features-or-services"></a>Características o servicios no compatibles
 Las siguientes características o servicios no son compatibles con la conmutación por error de una cuenta en la versión preliminar:
 
-- Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si se hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién orgaizados en capas.  
-- No se pueden conmutar por error las cuentas de almacenamiento que usan el espacio de nombres jerárquico de Azure Data Lake Storage Gen2.
+- Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.  
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs archivados. Mantenga los blobs archivados en otra cuenta de almacenamiento que no planee conmutar por error.
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - Una vez completada la conmutación por error, las siguientes características dejarán de funcionar si estaban habilitadas originalmente: [Suscripciones a eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [Directivas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Registro de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602058"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233161"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -285,7 +285,7 @@ Para ver el estado de mantenimiento actualizado, puede actualizar la página Dia
 
 El mantenimiento de Azure Monitor para VM se integra con las [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md). Genera una alerta cuando se detecta que los criterios predefinidos cambian de un estado correcto a un estado incorrecto. Las alertas se clasifican por gravedad, desde Gravedad 0 a Gravedad 4, siendo Gravedad 0 el nivel más alto.
 
-Las alertas no están asociadas a un grupo de acciones para notificarle cuándo se ha desencadenado la alerta. El propietario de la suscripción debe configurar las notificaciones según los pasos descritos en la sección [Configuración de alertas](#configure-alerts).
+Las alertas no están asociadas a un grupo de acciones para notificarle cuándo se ha desencadenado la alerta. Un usuario con el rol de propietario en el ámbito de la suscripción debe configurar las notificaciones siguiendo los pasos descritos en la sección de [configuración de alertas](#configure-alerts).
 
 El número total de alertas de mantenimiento de la máquina virtual clasificadas según la gravedad está disponible en el panel **Mantenimiento** de la sección **Alertas**. Cuando selecciona el número total de alertas o el número correspondiente a un nivel de gravedad, la página **Alertas** se abre y muestra todas las alertas que coinciden con su selección.
 

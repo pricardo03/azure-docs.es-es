@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606759"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858975"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 
@@ -37,7 +37,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave. Después, [cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la cadena de punto de conexión del servicio y la clave denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
+- Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) con el nivel de API 22, o posterior (requerido por la biblioteca cliente de Face).
 
 ## <a name="create-the-android-studio-project"></a>Creación del proyecto de Android Studio
@@ -56,17 +57,17 @@ Siga estos pasos para crear un nuevo proyecto de aplicación de Android.
 
 Abra *activity_main.xml*. En el Editor de diseño, seleccione la pestaña **Text** (Texto) y sustituya el contenido por el código siguiente.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
 ### <a name="create-the-main-class"></a>Creación de la clase main
 
 Abra *MainActivity.java* y sustituya las instrucciones `import` existentes por el siguiente código.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
 Luego, reemplace el contenido de la clase **MainActivity** por el código siguiente. Así se crea un controlador de eventos en **Button** que inicia una nueva actividad para permitir al usuario seleccionar una imagen. Muestra la imagen en **ImageView**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
 ### <a name="try-the-app"></a>Prueba de la aplicación
 
@@ -86,17 +87,15 @@ En el panel **Project** (Proyecto), utilice el selector de lista desplegable par
 
 Vuelva a **MainActivity.java** y agregue las siguientes instrucciones `import`:
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
 Luego, inserte el siguiente código en la clase **MainActivity**, encima del método **onCreate**:
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
-
-Tendrá que reemplazar `<Subscription Key>` por la clave de suscripción. Además, sustituya `<API endpoint>` por el punto de conexión de Face API, mediante el identificador de región correcto (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**.
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_fields)]
 
 En el panel **Project** (Proyecto), expanda **app**, a continuación, **manifests** y abra *AndroidManifest.xml*. Inserte el siguiente elemento como elemento secundario directo del elemento `manifest`:
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_manifest_entry)]
 
 ## <a name="upload-image-and-detect-faces"></a>Carga de imagen y detección de caras
 
@@ -106,13 +105,13 @@ Cada instancia de **Face** devuelta contiene un rectángulo para indicar su ubic
 
 Inserte los dos métodos siguientes en la clase **MainActivity**. Tenga en cuenta que cuando se completa la detección de caras, la aplicación llama al método **drawFaceRectanglesOnBitmap** para modificar **ImageView**. Dicho método se definirá a continuación.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
 ## <a name="draw-face-rectangles"></a>Dibujar rectángulos faciales
 
 Inserte el siguiente método auxiliar en la clase **MainActivity**. Este método dibuja un rectángulo alrededor de cada rostro detectado y utiliza las coordenadas del rectángulo de cada instancia de **Face**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 Por último, quite la marca de comentario de la llamada al método **detectAndFrame** de **onActivityResult**.
 

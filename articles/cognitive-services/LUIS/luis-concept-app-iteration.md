@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639263"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256925"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Ciclo de creación de una aplicación de LUIS
 LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -38,12 +38,12 @@ Debe indicar a LUIS que ignore las expresiones que no sean pertinentes para el d
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
 Una vez que tenga entre 15 y 30 expresiones diferentes en cada intención, con las entidades necesarias etiquetadas, tendrá que [entrenar](luis-how-to-train.md) y, a continuación, [publicar](luis-how-to-publish-app.md). Desde la notificación de éxito de publicación, use el vínculo para obtener los puntos de conexión. Asegúrese de crear y publicar la aplicación de manera que esté disponible en las [regiones de punto de conexión](luis-reference-regions.md) que necesite. 
 
-## <a name="https-endpoint-testing"></a>Pruebas de puntos de conexión HTTPS
-Puede probar la aplicación de LUIS desde el punto de conexión HTTPS. La realización de pruebas desde el punto de conexión permite a LUIS elegir cualquier expresión con una confianza baja para la [revisión](luis-how-to-review-endpoint-utterances.md).  
+## <a name="https-prediction-endpoint-testing"></a>Pruebas de punto de conexión de predicción HTTPS
+Puede probar la aplicación de LUIS desde el punto de conexión de predicción HTTPS. La realización de pruebas desde el punto de conexión de predicción permite a LUIS elegir cualquier expresión con una confianza baja para la [revisión](luis-how-to-review-endpoint-utterances.md).  
 
 ## <a name="recycle"></a>Reciclar
 
-Cuando haya terminado un ciclo de creación, puede empezar de nuevo. Empiece [revisando las expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) que LUIS ha marcado con una confianza baja. Compruebe la intención y la entidad de estas expresiones. Una vez revisadas las expresiones, la lista de revisión debería estar vacía.  
+Cuando haya terminado un ciclo de creación, puede empezar de nuevo. Empiece [revisando las expresiones del punto de conexión de predicción](luis-how-to-review-endpoint-utterances.md) que LUIS haya marcado con una confianza baja. Compruebe la intención y la entidad de estas expresiones. Una vez revisadas las expresiones, la lista de revisión debería estar vacía.  
 
 Considere la posibilidad de [clonar](luis-concept-version.md#clone-a-version) la versión actual en una nueva versión y, a continuación, comience a crear los cambios en la nueva versión. 
 
@@ -53,4 +53,4 @@ Las [pruebas por lotes](luis-concept-batch-test.md) son una manera de ver cuánt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre conceptos relativos a la [colaboración](luis-concept-collaborator.md).
+Obtenga información sobre conceptos relativos a la [colaboración](luis-concept-keys.md).

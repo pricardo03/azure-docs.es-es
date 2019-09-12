@@ -163,8 +163,8 @@
           maintainContext: true
     - name: Preguntas más frecuentes sobre los conjuntos de escalado
       href: virtual-machine-scale-sets-faq.md
-    - name: Atributos de seguridad
-      href: virtual-machine-scale-sets-security-attributes.md
+    - name: Controles de seguridad integrados
+      href: virtual-machine-scale-sets-security-controls.md
 - name: Procedimientos
   items:
     - name: Planeamiento y diseño

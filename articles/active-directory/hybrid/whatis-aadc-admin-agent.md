@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab3fff4294b4cda3d1554ef2761d3f4acaca35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222dab87ee71870e564e426d7466555893cc565b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687250"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305184"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>¿Qué es el agente administrador de Azure AD Connect? 
 El agente de administración de Azure AD Connect es un nuevo componente de Azure Active Directory Connect que se puede instalar en un servidor de Azure Active Directory Connect. Se utiliza para recopilar datos específicos de su entorno de Active Directory que ayudan al ingeniero de soporte técnico de Microsoft a solucionar problemas cuando el usuario abre una incidencia de soporte técnico. 
@@ -29,18 +29,20 @@ Una vez instalado, el agente de administración de Azure AD Connect espera solic
 La información que recupera el agente de administración Azure AD Connect del entorno no se almacena de ninguna manera; solo se muestra al ingeniero de soporte técnico de Microsoft para ayudarle a investigar y solucionar problemas del caso de soporte técnico relacionado con Azure Active Directory Connect que ha abierto. El agente de administración de Azure AD Connect no está instalado en el servidor de Azure AD Connect de forma predeterminada. 
 
 ## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Instale al agente de administración de Azure AD Connect en el servidor de Azure AD Connect 
-Los archivos binarios del agente de administración de Azure AD Connect se colocan en el servidor de AAD Connect. Para instalar al agente, realice las siguientes operaciones: 
 
+Requisitos previos:
+1.  Azure AD Connect está instalado en el servidor
+2.  Azure AD Connect Health está instalado en el servidor
 
+![agente de administración](media/whatis-aadc-admin-agent/adminagent0.png)
 
-1. Abra PowerShell en modo de administrador. 
-2. Vaya al directorio donde está ubicada la aplicación, cd "C:\Program Files\Microsoft Azure Active Directory Connect\SetupFiles" 
-3. Ejecute la aplicación AADConnectAdminAgentSetup.exe 
- 
-Cuando se le solicite, escriba las credenciales de administrador global de Azure AD. 
+Los archivos binarios del agente de administración de Azure AD Connect se colocan en el servidor de AAD Connect. Para instalar al agente, realice las siguientes operaciones:
 
->[!NOTE]
->Existe un problema conocido en que se le pedirán las credenciales varias veces. Este problema se solucionará en la próxima versión.
+1.  Abra PowerShell en modo de administrador.
+2.  Vaya al directorio donde está ubicada la aplicación, cd "C:\Program Files\Microsoft Azure Active Directory Connect\Tools".
+3.  Ejecute ConfigureAdminAgent.ps1.
+
+Cuando se le solicite, escriba las credenciales de administrador global de Azure AD. Deben ser las mismas credenciales que se especificaron durante la instalación de Azure AD Connect.
 
 Después de instalar el agente, verá los siguientes dos programas nuevos en la lista "Agregar o quitar programas" en el Panel de control del servidor: 
 

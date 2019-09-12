@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396538"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873365"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -46,7 +46,7 @@ Tenga en cuenta que no se admiten los dispositivos exportados por controladores 
 2. Prepare los servidores de [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) locales. Si va a migrar equipos físicos, no es necesario preparar nada. Solo hay que comprobar la [matriz de compatibilidad](vmware-physical-azure-support-matrix.md).
 
 
-## <a name="select-a-replication-goal"></a>Selección de un objetivo de replicación
+## <a name="select-a-protection-goal"></a>Selección de un objetivo de protección
 
 Seleccione aquello que desea replicar y la ubicación donde se va a realizar la replicación.
 1. Haga clic en **Almacenes de Recovery Services** > almacén.

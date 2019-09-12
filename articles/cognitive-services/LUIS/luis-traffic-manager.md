@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650539"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256602"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de pantalla de Azure Portal con dos claves de LUIS en el grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. En el sitio web de [LUIS][LUIS], en la sección **Manage** (Administrar), en la página **Keys and endpoints** (Claves y puntos de conexión), asigne claves a la aplicación y vuelva a publicar la aplicación; para ello, seleccione el botón **Publish** (Publicar) del menú superior derecho. 
+2. En el sitio web de [LUIS][LUIS], en la sección **Administrar**, en la página **Recursos de Azure**, asigne claves a la aplicación y vuelva a publicar esta; para ello, seleccione el botón **Publicar** del menú superior derecho. 
 
     En la dirección URL de ejemplo de la columna **Punto de conexión** se usa una solicitud GET con la clave de punto de conexión como un parámetro de consulta. Copie las dos nuevas direcciones URL de punto de conexión de las claves. Se usarán como parte de la configuración de Traffic Manager más adelante en este artículo.
 

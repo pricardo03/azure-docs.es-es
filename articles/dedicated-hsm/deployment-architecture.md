@@ -2,8 +2,8 @@
 title: Arquitectura de implementación de HSM dedicado de Azure | Microsoft Docs
 description: Consideraciones de diseño básica al usar HSM dedicado de Azure como parte de una arquitectura de aplicación
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912299"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883836"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitectura de implementación de Azure Dedicated HSM
 
@@ -29,7 +29,7 @@ HSM dedicado de Azure proporciona almacenamiento de claves criptográficas en Az
 
 Los dispositivos HSM se distribuyen entre los centros de datos de Microsoft y se pueden aprovisionar fácilmente como un par de dispositivos como la base de una solución de alta disponibilidad. También se puede implementar en las regiones para una solución resistente ante desastres. Las regiones con HSM dedicado disponibles actualmente son:
 
-* Este de EE. UU
+* East US
 * Este de EE. UU. 2
 * Oeste de EE. UU.
 * Centro-Sur de EE. UU

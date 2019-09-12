@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103120"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813346"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad automatizadas
 
@@ -127,10 +127,7 @@ Actualmente no se admite la restauración a un momento dad en una base de datos 
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauración geográfica mediante Azure Portal
 
-Para realizar una restauración geográfica de una base de datos mediante Azure Portal, abra la página de instancias de SQL Database y, luego, haga clic en **Agregar**. En el cuadro de texto **Seleccionar origen** cuadro de texto, seleccione **Copia de seguridad**. Especifique la copia de seguridad desde la que se va a recuperar en la región y en el servidor de su elección.
-
-> [!Note]
-> La restauración geográfica mediante Azure Portal no está disponible en la instancia administrada, así que use en su lugar PowerShell.
+Para realizar una restauración geográfica de una base de datos mediante Azure Portal, abra la página de instancias de SQL Database y, luego, haga clic en **Agregar**. En el cuadro de texto **Seleccionar origen** cuadro de texto, seleccione **Copia de seguridad**. Especifique la copia de seguridad desde la que se va a recuperar en la región y en el servidor de su elección. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Recuperación mediante programación con copias de seguridad automatizadas
 

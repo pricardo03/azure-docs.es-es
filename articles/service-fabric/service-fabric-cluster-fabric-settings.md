@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014424"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241746"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -236,6 +236,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |UserMaxStandByReplicaCount |Int, el valor predeterminado es 1. |Dinámica|El número máximo predeterminado de réplicas en espera que mantiene el sistema para los servicios de usuario. |
 |UserReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es 60.0 \* 30. |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente deja de funcionar, Windows Fabric espera esta cantidad de tiempo a que la réplica vuelva antes de crear nuevas réplicas de reemplazo (lo que requeriría una copia del estado). |
 |UserStandByReplicaKeepDuration |Tiempo en segundos, el valor predeterminado es 3600.0 \* 24 \* 7. |Dinámica|Especifique el intervalo de tiempo en segundos. Cuando una réplica persistente vuelve de un estado inactivo, puede que ya se haya reemplazado. Este temporizador determina cuánto tiempo el FM mantendrá la réplica en espera antes de descartarla. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60 * 10)|Dinámica|Especifique el intervalo de tiempo en segundos. Entrada de configuración para el tiempo de espera de comprobación de seguridad de WaitForInBuildReplica opcional. Esta configuración define el tiempo de espera de la comprobación de seguridad de WaitForInBuildReplica para las desactivaciones y las actualizaciones de nodo. Esta comprobación de seguridad genera un error si se cumple alguna de las condiciones siguientes: - Se está creando un primario y el tamaño del conjunto de réplica de destino > 1 - Si la réplica actual está en la compilación y se conserva -Si este es el primario actual y se está generando una réplica nueva Esta comprobación de seguridad se omitirá si expira el tiempo de espera incluso si una de las condiciones anteriores se sigue cumpliendo. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60.0 * 10)|Dinámica|Especifique el intervalo de tiempo en segundos. Entrada de configuración para el tiempo de espera de comprobación de seguridad de WaitForReconfiguration opcional. Esta configuración define el tiempo de espera de la comprobación de seguridad de WaitForReconfiguration para las desactivaciones y las actualizaciones de nodo. Esta comprobación de seguridad produce un error si la réplica que se está comprobando forma parte de una partición que se está reconfigurando. La comprobación de seguridad se omitirá después de que expire este tiempo de espera, incluso si la partición todavía está en reconfiguración.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -309,7 +311,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, el valor predeterminado es false. |estática|Directiva de evaluación de mantenimiento del clúster: habilita la evaluación de mantenimiento de tipos por aplicación. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, el valor predeterminado es 500. |Dinámica|Número máximo de informes de estado que una entidad puede tener antes de levantar suspicacias sobre la lógica de los informes de estado del watchdog. Se supone que cada entidad de estado tiene un número relativamente pequeño de informes de estado. Si la cantidad de informes supera este número, puede que haya problemas con la implementación del watchdog. Una entidad con demasiados informes se marca en un informe de estado de advertencia cuando dicha entidad se evalúa. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, el valor predeterminado es 100 |Dinámica|Número máximo de informes de estado que una entidad puede tener antes de levantar suspicacias sobre la lógica de los informes de estado del watchdog. Se supone que cada entidad de estado tiene un número relativamente pequeño de informes de estado. Si la cantidad de informes supera este número, puede que haya problemas con la implementación del watchdog. Una entidad con demasiados informes se marca en un informe de estado de advertencia cuando dicha entidad se evalúa. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
@@ -647,6 +649,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |AADClusterApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación API web o identificador que representa el clúster. |
 |AADLoginEndpoint|string, el valor predeterminado es "".|estática|Punto de conexión de inicio de sesión de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us". |
 |AADTenantId|string, el valor predeterminado es "".|estática|Id. de inquilino (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, el valor predeterminado es FALSE|Dinámica|Marca que indica si se aceptan certificados de clúster expirados declarados por la huella digital de aplicación solo a los certificados de clúster a fin de mantener el clúster activo. |
 |AdminClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes con el rol de administrador. Lista de nombres separados por comas. |
 |AADTokenEndpointFormat|string, el valor predeterminado es "".|estática|Punto de conexión de token de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}". |
 |AdminClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes de administración. Tiene el mismo formato que ClientClaims. Esta lista se agrega internamente a ClientClaims, por lo que no es necesario agregar también las mismas entradas para ClientClaims. |

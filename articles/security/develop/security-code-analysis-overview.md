@@ -1,6 +1,6 @@
 ---
-title: Información general sobre la documentación de Análisis de código de seguridad de Microsoft Azure
-description: Este artículo incluye información general sobre la extensión Análisis de código de seguridad
+title: Introducción a la documentación de Análisis de código de seguridad de Microsoft
+description: Este artículo incluye información general sobre la extensión Análisis de código de seguridad.
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -12,93 +12,106 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 283d63bafc583f2ac9da3294644aaebd17d7c950
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a7ab908673f60a651db48ae0485592a362741b6d
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718171"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242313"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Acerca de Análisis de código de seguridad de Microsoft
 
-La **extensión Análisis de código de seguridad de Microsoft** permite a los equipos integrar sin problemas el análisis de códigos de seguridad en sus canalizaciones de CI/CD de Azure DevOps, tal y como lo recomiendan los expertos del [Ciclo de vida de desarrollo de seguridad (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) de Microsoft. La seguridad se simplifica a través de una experiencia de usuario coherente que abstrae las complejidades de tener que ejecutar diversas herramientas. Con una entrega de las herramientas basada en NuGet, los equipos ya no tienen que administrar la instalación ni actualización de las herramientas. Con las interfaces de línea de comandos y de tarea de compilación básica, todos los usuarios, desde los expertos en herramientas más experimentados hasta los desarrolladores cotidianos, pueden tener tanto o tan poco control sobre las herramientas como deseen. Los equipos también pueden aprovechar las eficaces capacidades de procesamiento posterior, como la publicación de registros para retención, la generación de informes procesables orientados a desarrolladores y la configuración de interrupciones de compilación en regresiones.
+Con la extensión Análisis de código de seguridad de Microsoft, los equipos pueden agregar análisis de código de seguridad a sus canalizaciones de integración y entrega continuas (CI/CD) de Azure DevOps. Este análisis lo recomiendan los expertos del [Ciclo de vida de desarrollo de seguridad de Microsoft (SDL)](https://www.microsoft.com/securityengineering/sdl/practices).
 
-## <a name="why-microsoft-security-code-analysis"></a>Por qué el Análisis de código de seguridad de Microsoft
+Una experiencia de usuario coherente simplifica la seguridad al ocultar la complejidad de ejecutar herramientas. Con una entrega de las herramientas basada en NuGet, los equipos ya no tienen que administrar la instalación ni actualización de las herramientas. Con las interfaces de línea de comandos y básicas para las tareas de compilación, todos los usuarios todos los usuarios pueden tener tanto control sobre las herramientas como deseen.
+
+Los equipos también pueden utilizar eficaces funcionalidades de posprocesamiento, como:
+
+- Publicación de registros para la retención
+- Generación de informes accionables y centrados en el desarrollador
+- Configuración de interrupciones de compilación en pruebas de regresión
+
+## <a name="why-should-i-use-microsoft-security-code-analysis"></a>¿Por qué debo usar Análisis de código de seguridad de Microsoft?
 
 ### <a name="security-simplified"></a>Seguridad simplificada
 
-Agregar herramientas de análisis de códigos de seguridad a su canalización de Azure DevOps es tan sencillo como agregar nuevas tareas. Personalícelas o quédese con las predeterminadas. Las tareas se ejecutan como parte de la canalización de DevOps y generan registros que detallan todo tipo de conclusiones.
+Agregar herramientas de Análisis de código de seguridad de Microsoft a la canalización de Azure DevOps es tan sencillo como agregar nuevas tareas. Personalice las tareas o utilice su comportamiento predeterminado. Las tareas se ejecutan como parte de la canalización de Azure DevOps y generan registros que detallan muchos tipos de resultados.
 
 ### <a name="clean-builds"></a>Compilaciones limpias
 
-Después de solucionar los problemas iniciales informados por las herramientas, puede configurar la extensión para interrumpir las compilaciones en los nuevos problemas. Nunca fue tan fácil configurar la compilación de integración continua en cada solicitud de incorporación de cambios.
+Después de solucionar los problemas iniciales informados por las herramientas, puede configurar la extensión para interrumpir las compilaciones en los nuevos problemas. Es fácil configurar la compilación de integración continua en cada solicitud de incorporación de cambios.
 
 ### <a name="set-it-and-forget-it"></a>Establézcalas y olvídese
 
-Las herramientas y tareas de compilación se pueden establecer para que se mantengan actualizadas (y lo están de manera predeterminada). Si hay una versión actualizada de la herramienta, no es necesario descargarla e instalarla, esta extensión se encarga automáticamente. 
+De forma predeterminada, las herramientas y las tareas de compilación se mantienen actualizadas. Si hay una versión actualizada de una herramienta, no es necesario descargarla e instalarla. La extensión se encarga de todo.
 
->>>
-### <a name="under-the-hood"></a>Una mirada al interior
+### <a name="under-the-hood"></a>En segundo plano
 
-Las tareas de compilación de la extensión Análisis de código de seguridad de Microsoft abstraen las complejidades de:
-  - Ejecutar herramientas de análisis estáticos de seguridad.
+Las tareas de compilación de la extensión ocultan las complejidades de:
+  - Ejecutar las herramientas de análisis estáticos de seguridad.
   - Procesar los resultados de los archivos de registro para crear un informe de resumen o interrumpir la compilación.
->>>
 
-## <a name="security-code-analysis-toolset"></a>Conjunto de herramientas de Análisis de código de seguridad
+## <a name="microsoft-security-code-analysis-tool-set"></a>Conjunto de herramientas de Análisis de código de seguridad de Microsoft
 
-La extensión Análisis de código de seguridad de Microsoft hace que tenga disponible de inmediato las versiones más recientes de herramientas de análisis importantes. La extensión incluye tanto herramientas internas de Microsoft como de código abierto. Las herramientas se descargan automáticamente en el agente hospedado en la nube una vez que usted configura y ejecuta la canalización con la tarea de compilación correspondiente. A continuación, encontrará el conjunto de herramientas que están disponibles en la extensión actualmente. Manténgase atento para conocer más y envíenos sus sugerencias de herramientas que podrían agregarse.
+La extensión Análisis de código de seguridad de Microsoft hace que estén disponibles las versiones más recientes de las herramientas de análisis importantes. La extensión incluye tanto herramientas administradas de Microsoft como de código abierto.
+
+Las herramientas se descargan automáticamente en el agente hospedado en la nube una vez que se usa la tarea de compilación correspondiente para configurar y ejecutar la canalización.
+
+En esta sección se enumera el conjunto de herramientas que están disponibles en la extensión actualmente. Esté atento a la adición de más herramientas. Además, envíenos sus sugerencias sobre las herramientas que desea agregar.
 
 ### <a name="anti-malware-scanner"></a>Anti-Malware Scanner
 
-La tarea de compilación de Anti-Malware Scanner se incluye ahora en la extensión Análisis de código de seguridad de Microsoft. Debe ejecutarse en un agente de compilación que ya tenga instalado Windows Defender. Para obtener más información, visite el [sitio web de Defender](https://aka.ms/defender). 
+La tarea de compilación de Anti-Malware Scanner se incluye ahora en la extensión Análisis de código de seguridad de Microsoft. Esta tarea debe ejecutarse en un agente de compilación que ya tenga instalado Windows Defender. Para más información, consulte el [sitio web de Windows Defender](https://aka.ms/defender).
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim es un detector portátil ligero ejecutable (PE) que valida la configuración del compilador/vinculador y otras características binarias pertinentes para la seguridad. La tarea de compilación proporciona un contenedor de línea de comandos alrededor de la aplicación BinSkim.exe. BinSkim es una herramienta de código abierto y, para obtener más información, visite [BinSkim en GitHub](https://github.com/Microsoft/binskim).
+BinSkim es un detector portátil ligero ejecutable (PE) que valida la configuración del compilador, la del vinculador y otras características de seguridad pertinentes de archivos binarios. Esta tarea de compilación proporciona un contenedor de línea de comandos alrededor de la aplicación de consola binskim.exe. BinSkim es una herramienta de código abierto. Para más información, consulte [BinSkim en GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Credential Scanner
 
-Las contraseñas y otros secretos almacenados en el código fuente actualmente son un problema importante. Credential Scanner es una herramienta de análisis estático de propiedad de Microsoft que detecta credenciales, secretos, certificados y otros contenidos confidenciales en el código fuente y en la salida de la compilación.
+Las contraseñas y otros secretos almacenados en el código fuente actualmente son un problema importante. Credential Scanner es una herramienta de análisis estático patentada que ayuda a resolver este problema. La herramienta detecta credenciales, secretos, certificados y otros contenidos confidenciales en el código fuente y en la salida de la compilación.
 
 ### <a name="microsoft-security-risk-detection"></a>Detección de riesgos de seguridad de Microsoft
 
-Detección de riesgos de seguridad es el servicio de pruebas de vulnerabilidad ante datos aleatorios o inesperados basado en la nube exclusivo de Microsoft para identificar errores de seguridad infringibles en el software. Este servicio requiere un proceso de incorporación independiente. Para obtener más información, visite [MSRD en docs.microsoft.com](https://docs.microsoft.com/security-risk-detection/).
+Detección de riesgos de seguridad de Microsoft (MSRD) es un servicio basado en la nube para pruebas aproximadas. Identifica errores de seguridad en el software que se pueden infringir. Este servicio requiere un proceso de incorporación independiente. Para más información, consulte el [Centro para desarrolladores de MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analizadores basados en Roslyn
 
-Herramienta de análisis estático integrada en el compilador de Microsoft para analizar código administrado (C# y VB). Para obtener más información, visite [Analizadores basados en Roslyn en docs.microsoft.com](https://docs.microsoft.com/dotnet/standard/analyzers/).
+Los analizadores basados en Roslyn son herramientas integradas por el compilador de Microsoft para analizar de forma estática el código administrado de C# y Visual Basic. Para más información, consulte [Analizadores basados en Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
 
 ### <a name="tslint"></a>TSLint
 
-TSLint es una herramienta de análisis estático extensible que comprueba el código TypeScript para mejorar la legibilidad, el mantenimiento y los errores de funcionalidad. Es ampliamente compatible con los editores y sistemas de compilación modernos, y se puede personalizar con sus propias reglas de lint, configuraciones y formateadores. TSLint es una herramienta de código abierto y, para obtener más información, visite [TSLint en GitHub](https://github.com/palantir/tslint).
+TSLint es una herramienta de análisis estático extensible que comprueba el código TypeScript para mejorar la legibilidad, el mantenimiento y los errores de funcionalidad. Es ampliamente compatible con los editores modernos y sistemas de compilación. Puede personalizarlo con sus propias reglas de Lint, configuraciones y formateadores. TSLint es una herramienta de código abierto. Para más información, consulte [TSLint en GitHub](https://github.com/palantir/tslint).
 
 ## <a name="analysis-and-post-processing-of-results"></a>Análisis y procesamiento posterior de los resultados
 
-La extensión Análisis de código de seguridad de Microsoft también tiene tres tareas útiles de procesamiento posterior para ayudarle a procesar y analizar los resultados encontrados por las tareas de las herramientas de seguridad. Normalmente se agregan en la canalización después de todas las demás tareas de las herramientas.
+La extensión Análisis de código de seguridad de Microsoft también tiene tres tareas de posprocesamiento. Estas tareas le ayudan a analizar los resultados encontrados por las tareas de las herramientas de seguridad. Cuando se agregan a una canalización, estas tareas normalmente siguen todas las demás tareas de herramientas.
 
 ### <a name="publish-security-analysis-logs"></a>Publish Security Analysis Logs
-La tarea de compilación Publish Security Analysis Logs conserva los archivos de registro de las herramientas de seguridad que se ejecutan durante la compilación para su investigación y seguimiento.
 
-Se pueden publicar en los artefactos del servidor de Azure (como archivo ZIP) o copiar en un recurso compartido de archivos accesible desde el agente de compilación privado.
+La tarea de compilación Publish Security Analysis Logs conserva los archivos de registro de las herramientas de seguridad que se ejecutan durante la compilación. Puede leer estos registros para investigación y seguimiento.
+
+Puede publicar los archivos de registro en Azure Artifacts como archivo .zip. También puede copiarlos en un recurso compartido de archivos accesible desde el agente de compilación privado.
 
 ### <a name="security-report"></a>Security Report
-La tarea de compilación Security Report analiza los archivos de registro creados por las herramientas de seguridad que se ejecutan durante la compilación y crea un único archivo de informe de resumen con todos los problemas detectados por las herramientas de análisis.
 
-La tarea se puede configurar para que informe de los hallazgos de herramientas específicas o para todas las herramientas, aunque también puede elegir el nivel de problemas (errores o errores y advertencias) que deben notificarse.
+La tarea de compilación Security Report analiza los archivos de registro. Estos archivos se crean mediante las herramientas de seguridad que se ejecutan durante la compilación. La tarea de compilación crea después un único archivo de informe de resumen. Este archivo muestra todos los problemas que detectan las herramientas de análisis.
+
+Puede configurar esta tarea para que informe de los resultados de herramientas específicas o de todas las herramientas. También puede elegir el nivel de problema que se va a notificar, como solo errores o errores y advertencias.
 
 ### <a name="post-analysis-build-break"></a>Post-Analysis (interrupción de la compilación)
-La tarea de compilación Post-Analysis permite al cliente insertar una interrupción de la compilación y hacer que la compilación fracase en caso de que una o más herramientas de análisis informen sobre hallazgos o problemas en el código.
 
-La tarea se puede configurar para interrumpir la compilación por problemas encontrados por herramientas específicas o para todas las herramientas, y también en función de la gravedad de los problemas encontrados (errores o advertencias).
+Con la tarea de compilación Post Analysis, puede insertar una interrupción de la compilación que provoque un error en la compilación. Se inserta una interrupción de la compilación si una o varias herramientas de análisis notifican problemas en el código.
+
+Puede configurar esta tarea para interrumpir la compilación de los problemas encontrados por herramientas específicas o por todas las herramientas. También puede configurarla en función de la gravedad de los problemas encontrados, como errores o advertencias.
 
 >[!NOTE]
->Las tareas de compilación individuales se completarán correctamente, por diseño, siempre y cuando la herramienta se complete correctamente, tanto si hay hallazgos como si no, para que la compilación pueda ejecutarse hasta su finalización, lo que permite que se ejecuten todas las herramientas.
+>Cada tarea de compilación se realiza correctamente si la tarea finaliza correctamente. Esto es cierto tanto si una herramienta encuentra problemas como si no, de modo que la compilación puede ejecutarse hasta el final al permitir que se ejecuten todas las herramientas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener instrucciones sobre cómo incorporar e instalar Análisis de código de seguridad, consulte [nuestra guía de incorporación e instalación](security-code-analysis-onboard.md).
+Para más instrucciones sobre cómo incorporar e instalar Análisis de código de seguridad de Microsoft, consulte [nuestra guía de incorporación e instalación](security-code-analysis-onboard.md).
 
-Para obtener más información sobre la configuración de las tareas de compilación, consulte nuestra [guía de configuración](security-code-analysis-customize.md).
+Para más información sobre la configuración de las tareas de compilación, consulte nuestra [guía de configuración](security-code-analysis-customize.md).
 
-Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen,[ consulte nuestra página de preguntas más frecuentes](security-code-analysis-faq.md).
+Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra [página de preguntas más frecuentes](security-code-analysis-faq.md).

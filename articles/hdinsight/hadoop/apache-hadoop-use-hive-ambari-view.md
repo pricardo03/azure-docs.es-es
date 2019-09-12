@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719570"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917725"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -34,11 +34,11 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
 3. En la lista de vistas, seleccione __Vista de Hive__.
 
-    ![La vista de Hive seleccionada](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![La vista de Hive seleccionada](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     La página de la vista de Hive es similar a la siguiente imagen:
 
-    ![Imagen de la hoja de cálculo de consulta de la vista de Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Imagen de la hoja de cálculo de consulta de la vista de Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. En la pestaña __Consulta__, pegue las instrucciones HiveQL siguientes en la hoja de cálculo:
 
@@ -104,19 +104,19 @@ Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez UI** qu
 
 La pestaña __Trabajos__ muestra un historial de las consultas de Hive.
 
-![Imagen del historial de trabajos](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Imagen del historial de trabajos](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tablas de la base de datos
 
 Puede usar la pestaña __Tablas__ para trabajar con tablas dentro de una base de datos de Hive.
 
-![Imagen de la pestaña de tablas](./media/apache-hadoop-use-hive-ambari-view/tables.png)
+![Imagen de la pestaña de tablas](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Consultas guardadas
 
 Si lo desea, puede guardar consultas en la pestaña **Consulta**. Si guarda una consulta, podrá volver a usarla en la pestaña __Consultas guardadas__.
 
-![Imagen de la pestaña de consultas guardadas](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Imagen de la pestaña de consultas guardadas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Las consultas guardadas se almacenan en el almacenamiento predeterminado del clúster. Puede encontrar las consultas guardadas en la ruta de acceso `/user/<username>/hive/scripts`. Se almacenan como archivos de texto sin formato `.hql`.

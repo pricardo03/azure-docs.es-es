@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101916"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280169"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
@@ -113,7 +113,7 @@ Para usar BYOL con una máquina virtual con SQL Server, debe tener una licencia 
 
 | Ventaja de BYOL | Descripción |
 |-----|-----|
-| **Ahorros en costos** | El [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) ofrece un ahorro de hasta el 55 %. Para obtener más información, consulte el artículo [Cambiar el modelo de licencia](virtual-machines-windows-sql-ahb.md). |
+| **Ahorros en costos** | El [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) ofrece un ahorro de hasta el 55 %. Para más información, consulte el artículo sobre cómo [cambiar el modelo de licencia](virtual-machines-windows-sql-ahb.md). |
 | **Réplica secundaria pasiva gratuita** | Otra ventaja que aporta traer su propia licencia es la [licencia gratuita para una réplica secundaria pasiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fines de alta disponibilidad. De esta forma, se reduce a la mitad el costo de una implementación de SQL Server de alta disponibilidad (por ejemplo, el uso de grupos de disponibilidad Always On). Los derechos para ejecutar la réplica secundaria pasiva se proporcionan con la ventaja de Software Assurance en servidores de conmutación por error. |
 
 Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas imágenes del modelo traiga su propia licencia, vea las máquinas virtuales con el prefijo "{BYOL}":

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639276"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382890"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS: 
@@ -84,7 +84,7 @@ Una vez comprenda cómo se comporta sin estas características, agregue cada una
 
 No existe ningún inconveniente en agregarlas al principio del diseño del modelo, pero es más fácil ver cómo resulta cada cambio de la característica después de que el modelo se haya probado con expresiones. 
 
-Una práctica recomendada consiste en probar a través del [punto de conexión](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) para obtener la ventaja adicional del [aprendizaje activo](luis-concept-review-endpoint-utterances.md). El [panel prueba interactiva](luis-interactive-test.md) también es una metodología de pruebas válida. 
+Una práctica recomendada consiste en probar a través del [punto de conexión](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) para obtener la ventaja adicional del [aprendizaje activo](luis-concept-review-endpoint-utterances.md). El [panel prueba interactiva](luis-interactive-test.md) también es una metodología de pruebas válida. 
  
 
 ### <a name="phrase-lists"></a>Listas de frases

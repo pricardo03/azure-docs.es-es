@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9d04d00be52619d220a698697459376e4937942d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5c97648bd11a506d3c818584ed7d82d0a12d2e2c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134954"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387489"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Go para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -28,7 +28,8 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-También debe tener la [clave de acceso y punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que se generó automáticamente durante el registro.
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 
 <a name="Detect"></a>
 

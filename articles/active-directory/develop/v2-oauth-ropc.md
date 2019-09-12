@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482381"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193213"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>La Plataforma de identidad de Microsoft y la credencial de contraseña de propietario de recursos OAuth 2.0
 
@@ -43,7 +43,7 @@ En el diagrama siguiente se muestra el flujo de ROPC.
 
 ## <a name="authorization-request"></a>Solicitud de autorización
 
-El flujo de ROPC es una solicitud única&mdash;envía la identificación del cliente y las credenciales del usuario al punto de distribución de emisión (IDP) y después, a cambio, recibe tokens. El cliente debe solicitar la dirección de correo electrónico (UPN) y la contraseña del usuario antes de hacerlo. Inmediatamente después de que una solicitud se realice correctamente, el cliente deberá liberar de manera segura las credenciales del usuario de la memoria. Nunca debe guardarlas.
+El flujo de ROPC es una solicitud única que envía la identificación del cliente y las credenciales del usuario al punto de distribución de emisión (IDP) y después, a cambio, recibe tokens. El cliente debe solicitar la dirección de correo electrónico (UPN) y la contraseña del usuario antes de hacerlo. Inmediatamente después de que una solicitud se realice correctamente, el cliente deberá liberar de manera segura las credenciales del usuario de la memoria. Nunca debe guardarlas.
 
 > [!TIP]
 > Pruebe a ejecutar esta solicitud en Postman
@@ -51,7 +51,7 @@ El flujo de ROPC es una solicitud única&mdash;envía la identificación del cli
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,10 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que desea iniciar la sesión del usuario. Puede estar en formato de nombre descriptivo o GUID. Este parámetro no se puede establecer en `common` ni en `consumers`, pero sí se puede establecer en `organizations`. |
+| `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. | 
 | `grant_type` | Obligatorio | Se debe establecer en `password`. |
 | `username` | Obligatorio | La dirección de correo electrónico del usuario. |
 | `password` | Obligatorio | La contraseña del usuario. |
 | `scope` | Recomendado | Una lista de [ámbitos](v2-permissions-and-consent.md) o permisos separada por espacios que requiere la aplicación. En un flujo interactivo, el administrador o el usuario deben dar su consentimiento a estos ámbitos de antemano. |
+| `client_secret`| A veces es necesario | Si la aplicación es un cliente público, no se puede incluir el valor de `client_secret` o `client_assertion`.  Si la aplicación es un cliente confidencial, se debe incluir. | 
+| `client_assertion` | A veces es necesario | Una forma diferente de `client_secret`, que se genera mediante un certificado.  Consulte [Credenciales de certificado](active-directory-certificate-credentials.md) para más información. | 
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 
@@ -105,8 +108,7 @@ Si el usuario no ha proporcionado la contraseña o el nombre de usuario adecuado
 | Error | DESCRIPCIÓN | Acción del cliente |
 |------ | ----------- | -------------|
 | `invalid_grant` | Error de autenticación | Las credenciales no eran las correctas o el cliente no tiene consentimiento para los ámbitos solicitados. Si no se conceden los ámbitos, se devolverá un error `consent_required`. Si esto ocurre, el cliente debería enviar el usuario a una solicitud interactiva mediante una vista web o un explorador. |
-| `invalid_request` | La solicitud se construyó de manera inadecuada. | El tipo de concesión no es compatible con los contextos de autenticación `/common` ni `/consumers`.  En su lugar, use `/organizations`. |
-| `invalid_client` | La aplicación no está correctamente configurada | Esto puede ocurrir si la propiedad `allowPublicClient` no está establecida en true en el [manifiesto de aplicación](reference-app-manifest.md). La propiedad `allowPublicClient` es necesaria porque la concesión de ROPC no tiene un URI de redireccionamiento. Azure AD no puede determinar si la aplicación es una aplicación cliente pública o una aplicación cliente confidencial, a menos que se establezca esta propiedad. ROPC solo es compatible con aplicaciones cliente públicas. |
+| `invalid_request` | La solicitud se construyó de manera inadecuada. | El tipo de concesión no es compatible con los contextos de autenticación `/common` ni `/consumers`.  Use `/organizations` o un identificador de inquilino en su lugar. |
 
 ## <a name="learn-more"></a>Más información
 

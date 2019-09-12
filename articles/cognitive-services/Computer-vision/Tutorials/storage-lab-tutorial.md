@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: c125941414c73b14138f2b2fc15e470d9ed2d905
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8ecf5fb7d54e7c9411c1153610d3a637477285bf
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137535"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382977"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Uso de Computer Vision para generar metadatos de imágenes en Azure Storage
 
@@ -42,7 +42,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Deberá crear un recurso de Computer Vision para su cuenta de Azure; este recurso administra el acceso al servicio Computer Vision de Azure. 
 
-1. Siga las instrucciones que se indican en [Creación de un recurso de Azure Cognitive Services](../../cognitive-services-apis-create-account.md#single-service-resource) para crear un recurso de Computer Vision.
+1. Siga las instrucciones que se indican en [Creación de un recurso de Azure Cognitive Services](../../cognitive-services-apis-create-account.md) para crear un recurso de Computer Vision.
 
 1. Luego, vuelva al menú del grupo de recursos y haga clic en la suscripción de Computer Vision API que acaba de crear. Copie la dirección URL de **Punto de conexión** a cualquier lugar en que pueda recuperarla fácilmente en un momento. Luego, haga clic en **Show access keys** (Mostrar claves de acceso).
 

@@ -3,7 +3,7 @@ title: 'Compatibilidad: Azure Dedicated HSM | Microsoft Docs'
 description: Opciones de compatibilidad y áreas de responsabilidad de Azure Dedicated HSM en distintos escenarios
 services: dedicated-hsm
 author: johndaw
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: 8341e9057b07fbb72957eddc342ae875e4591993
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912276"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881007"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Compatibilidad de Azure Dedicated HSM
 

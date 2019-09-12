@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 564bced9ae71213cb534393a7dcc45c929df3794
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129406"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917361"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
+
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Aprenda a utilizar Apache Sqoop en HDInsight para importar y exportar datos entre un clúster de HDInsight y una instancia de Azure SQL Database.
@@ -72,15 +73,15 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
 
 1. Seleccione en la imagen siguiente para abrir una plantilla de Resource Manager en Azure Portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. Especifique las siguientes propiedades:
 
     |Campo |Valor |
     |---|---|
     |Subscription |Seleccione la suscripción de Azure en la lista desplegable.|
-    |Grupos de recursos |Seleccione el grupo de recursos en la lista desplegable o cree uno nuevo.|
-    |Ubicación |Seleccione una región en la lista desplegable.|
+    |Resource group |Seleccione el grupo de recursos en la lista desplegable o cree uno nuevo.|
+    |Location |Seleccione una región en la lista desplegable.|
     |Cluster Name |Escriba el nombre del clúster de Hadoop. Utilice solo letras minúsculas.|
     |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster) |Mantenga el valor rellenado previamente `admin`.|
     |Cluster Login Password (Contraseña de inicio de sesión del clúster) |Escriba una contraseña.|
@@ -91,7 +92,7 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
     |_artifacts Location (Ubicación de _artefactos) | Use el valor predeterminado a no ser que quiera usar su propio archivo .bacpac en una ubicación diferente.|
     |_artifacts Location Sas Token (Token de Sas de ubicación de _artefactos) |déjelo en blanco.|
     |Bacpac File Name (Nombre de archivo .bacpac) |Use el valor predeterminado a no ser que quiera usar su propio archivo .bacpac.|
-    |Ubicación |Use el valor predeterminado.|
+    |Location |Use el valor predeterminado.|
 
     El nombre de Azure SQL Server será `<ClusterName>dbserver`. El nombre de la base de datos será `<ClusterName>db`. El nombre predeterminado de la cuenta de almacenamiento será `e6qhezrh2pdqu`.
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072920"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259141"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -44,9 +44,9 @@ Reemplace `<headnode-FQDN>` por el nombre de dominio completo de un nodo princip
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Al clúster de Enterprise Security Package (ESP) de HDInsight
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Al clúster de Enterprise Security Package (ESP) de HDInsight mediante Kerberos
 
-Al conectarse desde un cliente a un clúster de Enterprise Security Package (ESP) unido a Azure Active Directory (AAD) en una máquina del mismo dominio del clúster, también debe especificar el nombre de dominio `<AAD-Domain>` y el nombre de una cuenta de usuario de dominio que tenga permisos para acceder al clúster `<username>`:
+Al conectarse desde un cliente a un clúster de Enterprise Security Package (ESP) unido a Azure Active Directory (AAD)-DS en una máquina del mismo dominio del clúster, también debe especificar el nombre de dominio `<AAD-Domain>` y el nombre de una cuenta de usuario de dominio que tenga permisos para acceder al clúster `<username>`:
 
 ```bash
 kinit <username>
@@ -57,12 +57,18 @@ Reemplace `<username>` con el nombre de una cuenta en el dominio con permisos pa
 
 ---
 
-### <a name="over-public-internet"></a>A través de la red pública de Internet
+### <a name="over-public-or-private-endpoints"></a>A través de puntos de conexión públicos o privados
 
-Al conectarse a un clúster no ESP o ESP unido a Azure Active Directory (AAD) a través de la red Internet pública, debe proporcionar el nombre (valor predeterminado `admin`) y la contraseña de la cuenta de inicio de sesión del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `<clustername>.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL:
+Al conectarse a un clúster mediante los puntos de conexión públicos o privados, debe proporcionar el nombre de la cuenta de inicio de sesión (valor predeterminado `admin`) y la contraseña del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `<clustername>.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+o para el punto de conexión privado:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
@@ -73,13 +79,21 @@ Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admi
 
 Apache Spark proporciona su propia implementación de HiveServer2 que, en algunas ocasiones, se denomina servidor Thrift de Spark. Este servicio utiliza Spark SQL para resolver las consultas en lugar de Hive y proporciona un mejor rendimiento en función de la consulta.
 
-#### <a name="over-public-internet-with-apache-spark"></a>A través de la red pública de Internet con Apache Spark
+#### <a name="through-public-or-private-endpoints"></a>A través de puntos de conexión públicos o privados
 
-La cadena de conexión que se utiliza para la conexión a través de Internet es ligeramente diferente. En lugar de contener `httpPath=/hive2`, es `httpPath/sparkhive2`:
+La cadena de conexión usada es ligeramente distinta. En lugar de contener `httpPath=/hive2`, es `httpPath/sparkhive2`:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+o para el punto de conexión privado:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
 
 ---
 

@@ -3,18 +3,18 @@ title: 'Protección del acceso a un almacén de claves: Azure Key Vault | Micros
 description: Administración de los permisos de acceso para Azure Key Vault, claves y secretos. Trata sobre el modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves.
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118983"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883097"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -123,7 +123,7 @@ Es necesario autorizar las siguientes operaciones para los roles:
 
 En la tabla siguiente se resumen los permisos de acceso para los roles y la aplicación. 
 
-| Rol | Permisos del plano de administración | Permisos del plano de datos |
+| Role | Permisos del plano de administración | Permisos del plano de datos |
 | --- | --- | --- |
 | Equipo de seguridad | Colaborador de almacén de claves | Claves: copia de seguridad, creación, eliminación, obtención, importación, lista y restauración<br>Secretos: todas las operaciones |
 | Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota**: Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None |

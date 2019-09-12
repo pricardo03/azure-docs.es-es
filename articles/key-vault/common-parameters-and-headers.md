@@ -3,18 +3,18 @@ title: Parámetros y encabezados comunes
 description: Los parámetros y encabezados comunes a todas las operaciones que puede realizar relacionadas con los recursos de Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 7ec8e1df71e6513b13e9c37174a3363471be01d9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64696684"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879272"
 ---
 # <a name="common-parameters-and-headers"></a>Parámetros y encabezados comunes
 
@@ -39,7 +39,7 @@ El servicio usará códigos de estado HTTP para indicar el éxito o el error. Ad
    }  
 ```
 
-|Nombre del elemento | Type | DESCRIPCIÓN |
+|Nombre del elemento | type | DESCRIPCIÓN |
 |---|---|---|
 | código | string | El tipo de error que se produjo.|
 | message | string | Una descripción de lo que produjo el error. |

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061865"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743400"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
@@ -54,7 +54,7 @@ Lo qué aprenderá:
 
 Este artículo continúa donde lo dejó en [Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) o [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md). Si aún no lo ha hecho, siga uno de los dos tutoriales en primer lugar. Como alternativa, puede adaptar los pasos para su propia aplicación .NET con SQL Database.
 
-Para depurar la aplicación con SQL Database como back-end, asegúrese de permitir la conexión de cliente desde el equipo. Si no es así, agregue la dirección IP del cliente siguiendo los pasos que se describen en [Administración de reglas de firewall de nivel de servidor mediante Azure Portal](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+Para depurar la aplicación con SQL Database como back-end, asegúrese de permitir la conexión de cliente desde el equipo. Si no es así, agregue la dirección IP del cliente siguiendo los pasos que se describen en [Administración de reglas de firewall de nivel de servidor mediante Azure Portal](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

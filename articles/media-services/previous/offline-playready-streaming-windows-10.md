@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939534"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844785"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10  
 
@@ -28,7 +28,7 @@ ms.locfileid: "64939534"
 > * [Versión 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services admite la descarga o reproducción sin conexión con protección DRM. En este artículo, se explica la compatibilidad sin conexión de Azure Media Services para clientes de Windows 10/PlayReady. Para obtener información sobre la compatibilidad del modo sin conexión para iOS/FairPlay y dispositivos Android/Widevine, vea los artículos siguientes:
 
@@ -48,7 +48,7 @@ La dificultad a la que nos enfrentamos al implementar el modo sin conexión es l
 * MP4 es compatible con una gran variedad de reproductores y herramientas de codificador, pero no hay ningún enlace entre el contenedor de MP4 y DRM.
 * A largo plazo, la forma correcta es usar CFF con CENC. Pero, actualmente, el ecosistema de compatibilidad de herramientas o reproductores aún no está preparado. Necesitamos una solución hoy mismo.
  
-La idea es esta: el formato de archivo de streaming con velocidad de transmisión adaptable ([PIFF](https://go.microsoft.com/?linkid=9682897)) con H264/AAC tiene un enlace con PlayReady (AES-128 CTR). El archivo .ismv individual de streaming con velocidad de transmisión adaptable (siempre que el audio se multiplexe en el vídeo) es en sí un archivo fMP4 y puede usarse para la reproducción. Si un contenido de streaming con velocidad de transmisión adaptable pasa por un cifrado de PlayReady, cada archivo .ismv se convierte en un MP4 fragmentado protegido por PlayReady. Podemos seleccionar un archivo .ismv con la velocidad de bits preferida y cambiar su extensión a .mp4 para su descarga.
+La idea es esta: el formato de archivo de streaming con velocidad de transmisión adaptable ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC tiene un enlace con PlayReady (AES-128 CTR). El archivo .ismv individual de streaming con velocidad de transmisión adaptable (siempre que el audio se multiplexe en el vídeo) es en sí un archivo fMP4 y puede usarse para la reproducción. Si un contenido de streaming con velocidad de transmisión adaptable pasa por un cifrado de PlayReady, cada archivo .ismv se convierte en un MP4 fragmentado protegido por PlayReady. Podemos seleccionar un archivo .ismv con la velocidad de bits preferida y cambiar su extensión a .mp4 para su descarga.
 
 Existen dos opciones para hospedar los archivos MP4 protegidos por PlayReady para su descarga progresiva:
 

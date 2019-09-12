@@ -1,28 +1,27 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects'
 description: Con Azure DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos puede iniciar una aplicación web de Ruby en un servicio de Azure.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4cf3feeb92f04b4e97cbdc83c539c206790a78c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264529"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899562"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects
 
@@ -133,7 +132,7 @@ Azure DevOps Projects configura automáticamente una canalización de CI/CD comp
 1. A la derecha, seleccione **Ver versiones** para mostrar un historial de las versiones.
 
 1. Seleccione los puntos suspensivos (...) que se encuentran junto a una de las versiones y, después, **Abrir**.  
-    Puede explorar varios menús, como un resumen de las versiones, elementos de trabajo asociados y pruebas.
+    Puede explorar varios menús, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
 
 1. Seleccione **Confirmaciones**.  
     Esta vista muestra las confirmaciones de código que están asociadas a esta implementación. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c56d469360814cb663b4c5c11689961225eebb2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544039"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772343"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
 
@@ -24,7 +24,7 @@ Las tablas de firewall y las reglas asociadas permiten aplicar restricciones sob
 
 ## <a name="add-a-new-firewall-table"></a>Adición de una nueva tabla de firewall
 
-1. [Acceda al portal de CloudSimple](monitor-activity.md) y seleccione **Network** (Red) en el menú lateral.
+1. [Acceda al portal de CloudSimple](access-cloudsimple-portal.md) y seleccione **Network** (Red) en el menú lateral.
 2. Seleccione **Firewall Tables** (Tablas de firewall).
 3. Seleccione **Create firewall table** (Crear tabla de firewall).
 

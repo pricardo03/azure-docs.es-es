@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8a06573e6bcb2d5a6c6c97ad19e168f9c71aaa13
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876053"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308217"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -34,7 +34,7 @@ Los tipos de ofertas de Azure Marketplace aparecen en la tabla siguiente.
 | **Tipo de oferta**    | **Descripción**  |
 | :------------------- | :-------------------|
 | [**Máquinas virtuales**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtual para la suscripción asociada con el cliente. |
-| [**Plantillas de solución**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use el tipo de oferta plantilla de solución cuando la solución requiera automatización adicional de la implementación y la configuración más allá de una VM simple. |
+| [**Plantillas de solución**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use el tipo de oferta de plantilla de solución (también conocida como aplicación de Azure) cuando la solución requiera automatización adicional de la implementación y la configuración más allá de una VM simple. Las plantillas de solución pueden emplear muchos tipos diferentes de recursos de Azure, incluidas, entre otros, las máquinas virtuales.  |
 | [**Aplicaciones administradas**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Use el tipo de oferta Aplicación de Azure: aplicación administrada cuando se requieran las condiciones siguientes: <br> <ul> <li> Se implementa una solución basada en suscripciones para al cliente con una máquina virtual o una solución completa basada en IaaS. </li> <li>Usted o su cliente requieren que la solución la administre un asociado. </li> <ul> |
 | [**Aplicaciones SaaS**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Use el tipo de oferta de aplicación SaaS para permitir que el cliente compre su solución técnica basada en SaaS como suscripción. |
 | [**Ofertas de contenedor**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Utilice el tipo de oferta Contenedor cuando la solución sea una imagen de contenedor de Docker aprovisionada como un servicio de contenedor de Azure basado en Kubernetes. |

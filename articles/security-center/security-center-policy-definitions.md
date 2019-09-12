@@ -2,24 +2,18 @@
 title: Las definiciones de directiva de Azure supervisadas en Azure Security Center | Microsoft Docs
 description: Las definiciones de directiva de Azure supervisadas en Azure Security Center.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990505"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910350"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Directivas de seguridad de Azure supervisadas por Security Center
 Este artículo proporciona una lista de definiciones de Azure Policy que puede supervisar en Azure Security Center. Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
@@ -48,9 +42,9 @@ Para comprender las directivas integradas que Security Center supervisa, consul
 |Se deben habilitar los registros de diagnósticos en Key Vault|Audite la habilitación de los registros y consérvelos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
 |Se deben habilitar los registros de diagnósticos en el centro de eventos|Audite la habilitación de los registros y consérvelos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
 |Se deben habilitar los registros de diagnósticos en Azure Data Lake Storage|Permite auditar la habilitación de los registros y conservarlos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
-|Se deben habilitar los registros de diagnósticos en Data Lake Analytics|Permite auditar la habilitación de los registros y conservarlos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
+|Se deben permitir los registros de diagnóstico en Data Lake Analytics|Audite la habilitación de los registros y consérvelos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
 |Se deben migrar las cuentas de almacenamiento a nuevos recursos de AzureRM|Utilice Azure Resource Manager para las cuentas de almacenamiento a fin de proporcionar mejoras de seguridad. Entre ellas se incluyen las siguientes: <br>- Control de acceso más seguro (RBAC)<br>- Mejor auditoría<br>- Gobierno e implementación basada en Azure Resource Manager<br>- Acceso a identidades administradas<br>- Acceso a Azure Key Vault para los secretos<br>- Autenticación basada en Azure AD<br>- Compatibilidad con las etiquetas y los grupos de recursos para facilitar la administración de seguridad|
-|Se deben migrar las máquinas virtuales a nuevos recursos de AzureRM|Utilice Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad.  Entre ellas se incluyen las siguientes: <br>- Control de acceso más seguro (RBAC)<br>- Mejor auditoría<br>- Gobierno e implementación basada en Azure Resource Manager<br>- Acceso a identidades administradas<br>- Acceso a Azure Key Vault para los secretos<br>- Autenticación basada en Azure AD<br>- Compatibilidad con las etiquetas y los grupos de recursos para facilitar la administración de seguridad|
+|Se deben migrar las máquinas virtuales a nuevos recursos de AzureRM|Utilice Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad. Entre ellas se incluyen las siguientes: <br>- Control de acceso más seguro (RBAC)<br>- Mejor auditoría<br>- Gobierno e implementación basada en Azure Resource Manager<br>- Acceso a identidades administradas<br>- Acceso a Azure Key Vault para los secretos<br>- Autenticación basada en Azure AD<br>- Compatibilidad con las etiquetas y los grupos de recursos para facilitar la administración de seguridad|
 |Las reglas de alerta de métrica deben configurarse en las cuentas de Batch|Permite auditar la configuración de reglas de alertas de métricas en una cuenta de Azure Batch para habilitar la métrica requerida.|
 |Se deben habilitar los registros de diagnóstico en las cuentas de Batch|Audite la habilitación de los registros y consérvelos hasta un año. De esta forma se crean seguimientos de actividad que pueden investigarse cuando se produce un incidente de seguridad o se pone en peligro la red.|
 |El cifrado debe habilitarse en las variables de cuentas de Automation|Es importante habilitar el cifrado de recursos de variables de cuentas de Azure Automation al almacenar datos confidenciales.|

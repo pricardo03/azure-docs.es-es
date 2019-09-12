@@ -6,24 +6,24 @@ keywords: seguridad, elemento seguro, enclave, TEE, IoT Edge
 author: eustacea
 manager: philmea
 ms.author: eustacea
-ms.date: 07/30/2018
+ms.date: 08/30/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: bc441e2bbd36c8d078eb67aff48e58684a026289
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f137070cb8a62f2c11f9e2688b5c7db47c1b866f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444999"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208218"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
-El Administrador de seguridad de Azure IoT Edge es un núcleo de seguridad bien delimitado para proteger el dispositivo IoT Edge y todos sus componentes mediante la abstracción de hardware de silicio seguro. Es crucial para fortalecer la seguridad y proporciona el punto de integración de la tecnología para los fabricantes de dispositivos originales (OEM).
+El Administrador de seguridad de Azure IoT Edge es un núcleo de seguridad bien delimitado para proteger el dispositivo IoT Edge y todos sus componentes mediante la abstracción de hardware de silicio seguro. Es crucial para fortalecer la seguridad y proporciona el punto de integración de la tecnología para los fabricantes de equipos originales (OEM).
 
 ![Administrador de seguridad de IoT Edge](media/edge-security-manager/iot-edge-security-manager.png)
 
-El objeto del administrador de seguridad de IoT Edge es defender la integridad del dispositivo IoT Edge y todas las operaciones de software inherentes.  Para ello, transiciona la confianza desde la raíz de confianza de hardware subyacente (si está disponible) para arrancar de manera segura en el entorno de ejecución de IoT Edge y continuar supervisando la integridad de sus operaciones.  El administrador de seguridad de IoT Edge es software que funciona junto con el hardware de silicio seguro (donde esté disponible) para ayudar a entregar las garantías de seguridad más altas posible.  
+El objeto del administrador de seguridad de IoT Edge es defender la integridad del dispositivo IoT Edge y todas las operaciones de software inherentes. El administrador de seguridad transiciona la confianza desde la raíz de confianza de hardware subyacente (si está disponible) para arrancar en el entorno de ejecución de IoT Edge y supervisar la integridad de sus operaciones.  El administrador de seguridad de IoT Edge es software que funciona junto con el hardware de silicio seguro (donde esté disponible) para ayudar a entregar las garantías de seguridad más altas posible.  
 
 Las responsabilidades del administrador de seguridad de IoT Edge incluyen, entre otras:
 
@@ -42,7 +42,7 @@ El administrador de seguridad de IoT Edge consta de tres componentes:
 
 ## <a name="the-iot-edge-security-daemon"></a>El demonio de seguridad de IoT Edge
 
-El demonio de seguridad de IoT Edge es el software responsable de las operaciones lógicas del administrador de seguridad de IoT Edge. Consta de una porción importante de la base informática de confianza del dispositivo IoT Edge. 
+El demonio de seguridad de IoT Edge es el responsable de las operaciones lógicas del administrador de seguridad de IoT Edge. Representa una porción importante de la base informática de confianza del dispositivo IoT Edge. 
 
 ### <a name="design-principles"></a>Principios de diseño
 
@@ -59,42 +59,42 @@ El acceso físico siempre es una amenaza para los dispositivos IoT. La raíz de 
 
 Existen dos tipos de entornos de ejecución para usar la raíz de confianza del hardware:
 
-* El entorno de ejecución estándar o enriquecido (REE) que se basan en el uso de elementos seguros para proteger información confidencial.
-* El entorno de ejecución de confianza (TEE) que se basan en el uso de la tecnología de enclave seguro para proteger información confidencial y ofrecer protección para la ejecución de software.
+* El entorno de ejecución estándar o enriquecido (REE) que se basa en el uso de elementos seguros para proteger información confidencial.
+* El entorno de ejecución de confianza (TEE) que se basa en el uso de la tecnología de enclave seguro para proteger información confidencial y ofrecer protección para la ejecución de software.
 
-Para dispositivos que usan los enclaves seguros como raíz de confianza de hardware, se espera que la lógica confidencial dentro del demonio de seguridad de IoT Edge resida dentro del enclave.  Las partes no confidenciales del demonio de seguridad pueden residir fuera del entorno de ejecución de confianza.  En cualquier caso, se espera que los original design manufacturers (ODM) y los fabricantes de equipos originales (OEM) amplíen la confianza desde su HSM para medir y defender la integridad del demonio de seguridad de IoT Edge en el arranque y en el entorno de ejecución.
+En el caso de los dispositivos que usan los enclaves seguros como raíz de confianza de hardware, la lógica confidencial dentro del demonio de seguridad de IoT Edge debe encontrarse dentro del enclave.  Las partes no confidenciales del demonio de seguridad pueden estar fuera del entorno de ejecución de confianza.  En cualquier caso, los original design manufacturers (ODM) y los fabricantes de equipos originales (OEM) deben ampliar la confianza desde su HSM para medir y defender la integridad del demonio de seguridad de IoT Edge en el arranque y en el entorno de ejecución.
 
 #### <a name="minimize-bloat-and-churn"></a>Minimización del sobredimensionamiento y la renovación
 
-Otro principio básico para el demonio de seguridad de IoT Edge es minimizar la renovación.  Para obtener el máximo nivel de confianza, el demonio de seguridad de IoT Edge puede acoplarse estrechamente con la raíz de confianza de hardware de dispositivo y funcionar como código nativo.  Es común que estos tipos de realizaciones actualicen el software de demonio a través de las rutas de actualización segura de la raíz de confianza de hardware (en lugar de los mecanismos de actualización que proporciona el SO), algo que puede ser complicado en función del escenario de hardware e implementación específico.  Aunque la renovación de seguridad es una recomendación firme para los dispositivos IoT, resulta evidente que los requisitos excesivos de actualización o las cargas de actualizaciones de gran tamaño pueden expandir de muchas maneras la superficie expuesta a amenazas.  Algunos ejemplos son la omisión de las actualizaciones para maximizar la disponibilidad operativa o hardware de raíz de confianza demasiado limitado para procesar grandes cargas de actualizaciones.  Por tanto, el diseño del demonio de seguridad de IoT Edge es conciso para que la superficie y, por tanto, base informática de confianza no crezcan y para minimizar los requisitos de actualizaciones.
+Otro principio básico para el demonio de seguridad de IoT Edge es minimizar la renovación.  Para obtener el máximo nivel de confianza, el demonio de seguridad de IoT Edge puede acoplarse estrechamente con la raíz de confianza de hardware de dispositivo y funcionar como código nativo.  Es común que estos tipos de realizaciones actualicen el software de demonio a través de las rutas de actualización segura de la raíz de confianza de hardware (en lugar de los mecanismos de actualización que proporciona el SO), algo que puede ser complicado en determinados escenarios.  Aunque la renovación de seguridad es una recomendación para los dispositivos IoT, excesivos requisitos excesivos de actualización o cargas de actualizaciones de gran tamaño pueden expandir de muchas maneras la superficie expuesta a amenazas.  Algunos ejemplos son la omisión de las actualizaciones para maximizar la disponibilidad operativa o hardware de raíz de confianza demasiado limitado para procesar grandes cargas de actualizaciones.  Por tanto, el diseño del demonio de seguridad de IoT Edge es conciso para que la superficie y la base informática de confianza no crezcan y para minimizar los requisitos de actualizaciones.
 
 ### <a name="architecture-of-iot-edge-security-daemon"></a>Arquitectura del demonio de seguridad de IoT Edge
 
 ![Demonio de seguridad de Azure IoT Edge](media/edge-security-manager/iot-edge-security-daemon.png)
 
-El demonio de seguridad de IoT Edge e-stá diseñado para aprovechar las ventajas de cualquier tecnología de raíz de confianza de hardware disponible para fortalecer la seguridad.  También permite la operación de división global entre un entorno de ejecución estándar o enriquecido (REE) y un entorno de ejecución de confianza (TEE) cuando las tecnologías de hardware ofrecen los entornos de ejecución de confianza. Las interfaces específicas de rol habilitan la interacción de componentes importantes de Edge para garantizar la integridad del dispositivo IoT Edge y sus operaciones.
+El demonio de seguridad de IoT Edge aprovecha las ventajas de cualquier tecnología de raíz de confianza de hardware disponible para fortalecer la seguridad.  También permite la operación de división global entre un entorno de ejecución estándar o enriquecido (REE) y un entorno de ejecución de confianza (TEE) cuando las tecnologías de hardware ofrecen los entornos de ejecución de confianza. Las interfaces específicas de rol habilitan los componentes importantes de IoT Edge para garantizar la integridad del dispositivo IoT Edge y sus operaciones.
 
 #### <a name="cloud-interface"></a>Interfaz de la nube
 
-La interfaz de la nube permite que el demonio de seguridad de IoT Edge tenga acceso a los servicios en la nube como cortesía de la nube para la seguridad de los dispositivos, como la renovación de seguridad.  Por ejemplo, el demonio de seguridad de IoT Edge actualmente usa esta interfaz para tener acceso a Azure IoT Hub [el servicio de aprovisionamiento de dispositivos (DPS)](https://docs.microsoft.com/azure/iot-dps/) para la administración del ciclo de vida de la identidad.  
+La interfaz de la nube permite que el demonio de seguridad de IoT Edge tenga acceso a los servicios en la nube como cortesía de la nube para la seguridad de los dispositivos, como la renovación de seguridad.  Por ejemplo, el demonio de seguridad de IoT Edge actualmente usa esta interfaz para tener acceso a Azure IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) para la administración del ciclo de vida de la identidad.  
 
 #### <a name="management-api"></a>API de administración
 
-El demonio de seguridad de IoT Edge ofrece una API de administración, que el agente de IoT Edge llama en el momento de crear, iniciar, detener o eliminar un módulo de Edge. El demonio de seguridad de IoT Edge almacena "registros" para todos los módulos activos. Estos registros asignan la identidad de un módulo a alguna propiedades del módulo. Algunos ejemplos de estas propiedades son el identificador de proceso (pid) del proceso que se ejecuta en el contenedor o el hash de contenido del contenedor de Docker.
+El demonio de seguridad de IoT Edge ofrece una API de administración, que el agente de IoT Edge llama en el momento de crear, iniciar, detener o eliminar un módulo de IoT Edge. El demonio de seguridad almacena "registros" para todos los módulos activos. Estos registros asignan la identidad de un módulo a alguna propiedades del módulo. Algunos ejemplos de estas propiedades son el identificador de proceso (pid) del proceso que se ejecuta en el contenedor o el hash de contenido del contenedor de Docker.
 
-La API de carga de trabajo (que se describe a continuación) usa estas propiedades para atestar que el autor de llamada está autorizado para hacer una acción.
+La API de carga de trabajo (que se describe a continuación) usa estas propiedades para verificar que el autor de llamada está autorizado para hacer una acción.
 
-La API de administración es una API con privilegios, a la que solo se puede llamar desde el agente de IoT Edge.  Como el demonio de seguridad de IoT Edge arranca e inicia al agente de IoT Edge, puede crear un registro implícito del agente de IoT Edge, una vez que se ha atestado que el agente de IoT Edge que no se ha manipulado. El mismo proceso de atestación que usa la API de carga de trabajo se usa para restringir el acceso a la API de administración solo para el agente de IoT Edge.
+La API de administración es una API con privilegios, a la que solo se puede llamar desde el agente de IoT Edge.  Como el demonio de seguridad de IoT Edge arranca e inicia al agente de IoT Edge, puede crear un registro implícito del agente de IoT Edge, una vez que se ha atestado que el agente de IoT Edge que no se ha manipulado. El mismo proceso de atestación que usa la API de carga de trabajo restringe también el acceso a la API de administración solo para el agente de IoT Edge.
 
 #### <a name="container-api"></a>API de contenedor
 
-El demonio de seguridad de IoT Edge ofrece la interfaz de contenedor para interactuar con el sistema del contenedor en uso, como Moby y Docker, para la creación de instancias de módulo.
+La API de contenedor interactúa con el sistema de contenedor en uso para la administración de módulos, como Moby o Docker.
 
 #### <a name="workload-api"></a>API de carga de trabajo
 
-La API de carga de trabajo es un API del demonio de seguridad de IoT Edge accesible para todos los módulos, incluido el agente de IoT Edge. Proporciona una prueba de identidad, en forma de un certificado X509 o token firmado liberado de HSM, y la agrupación de confianza correspondiente a un módulo. La agrupación de confianza contiene certificados de entidad de certificación para todos los demás servidores en que deben confiar los módulos.
+La API de carga de trabajo es accesible para todos los módulos. Proporciona una prueba de identidad, en forma de un certificado X509 o token firmado liberado de HSM, y la agrupación de confianza correspondiente a un módulo. La agrupación de confianza contiene certificados de entidad de certificación para todos los demás servidores en que deben confiar los módulos.
 
-El demonio de seguridad de IoT Edge usa un proceso de atestación para proteger esta API. Cuando un módulo llama a esta API, el demonio de seguridad de IoT Edge intenta encontrar un registro para la identidad. Si eso se completa correctamente, usa las propiedades del registro para medir el módulo. Si el resultado del proceso de medición coincide con el registro, se genera un nuevo certificado X509 o token firmado liberado de HSM. Los certificados de entidad de certificación correspondientes (agrupación de confianza) se devuelven al módulo.  El módulo usa este certificado para conectarse a IoT Hub, otros módulos, o iniciar un servidor. Cuando el certificado o un token firmado se acerca a la expiración, es responsabilidad del módulo solicitar un certificado nuevo. 
+El demonio de seguridad de IoT Edge usa un proceso de atestación para proteger esta API. Cuando un módulo llama a esta API, el demonio de seguridad intenta encontrar un registro para la identidad. Si eso se completa correctamente, usa las propiedades del registro para medir el módulo. Si el resultado del proceso de medición coincide con el registro, se genera una nueva prueba de identidad. Los certificados de entidad de certificación correspondientes (agrupación de confianza) se devuelven al módulo.  El módulo usa este certificado para conectarse a IoT Hub, otros módulos, o iniciar un servidor. Cuando el certificado o un token firmado se acerca a la expiración, es responsabilidad del módulo solicitar un certificado nuevo. 
 
 ### <a name="integration-and-maintenance"></a>Integración y mantenimiento
 
@@ -102,7 +102,7 @@ Microsoft mantiene el código base principal para el [demonio de seguridad de Io
 
 #### <a name="installation-and-updates"></a>Instalación y actualizaciones
 
-La instalación y las actualizaciones del demonio de seguridad de IoT Edge se administra a través del sistema de administración de paquetes del sistema operativo. Los dispositivos IoT Edge con raíz de confianza de hardware deben proporcionar una protección adicional a la integridad del demonio a través de la administración de su ciclo de vida mediante los sistemas de administración de actualizaciones y el arranque seguro.  Se deja al criterio de los fabricantes de dispositivos la exploración de estas vías según las funcionalidades de sus respectivos dispositivos.
+La instalación y las actualizaciones del demonio de seguridad de IoT Edge se administra a través del sistema de administración de paquetes del sistema operativo. Los dispositivos IoT Edge con raíz de confianza de hardware deben proporcionar una protección adicional a la integridad del demonio a través de la administración de su ciclo de vida mediante los sistemas de administración de actualizaciones y el arranque seguro. Los fabricantes de dispositivos deben explorar estas vías en función de sus respectivas funcionalidades del dispositivo.
 
 #### <a name="versioning"></a>Control de versiones
 
@@ -110,7 +110,7 @@ El entorno de ejecución de IoT Edge hace el seguimiento de la versión del demo
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Capa de abstracción de plataforma del módulo de seguridad de hardware (HSM PAL)
 
-HSM PAL abstrae todo el hardware de raíz de confianza para aislar al desarrollador o usuario de IoT Edge de sus complejidades.  Se compone de una combinación de la interfaz de programación de aplicaciones (API) y procedimientos de comunicaciones entre dominios, por ejemplo, la comunicación entre un entorno de ejecución estándar y un enclave seguro.  La implementación real de HSM PAL depende del hardware seguro específico que esté en uso. Su existencia permite el uso de prácticamente cualquier hardware de silicio seguro.
+HSM PAL abstrae todo el hardware de raíz de confianza para aislar al desarrollador o usuario de IoT Edge de sus complejidades.  Incluye una combinación de la interfaz de programación de aplicaciones (API) y procedimientos de comunicaciones entre dominios, por ejemplo, la comunicación entre un entorno de ejecución estándar y un enclave seguro.  La implementación real de HSM PAL depende del hardware seguro específico que esté en uso. Su existencia permite el uso de prácticamente cualquier hardware de silicio seguro.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Hardware de raíz de confianza de silicio seguro
 

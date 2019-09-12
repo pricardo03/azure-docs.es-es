@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6548b84f9599116aaa5055324bfa4625ea621ec3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087247"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735173"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
@@ -43,7 +43,9 @@ Los parámetros de [StartNewAsync](https://azure.github.io/azure-functions-durab
 * **Entrada**: todos los datos serializables con JSON que deben pasarse como entrada a la función de orquestador.
 * **InstanceId**: (Opcional) El identificador único de la instancia. Si no se especifica este parámetro, el método utiliza un identificador aleatorio.
 
-A continuación, se muestra un ejemplo de C# sencillo:
+Estos son algunos ejemplos:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -592,6 +594,8 @@ Para quitar todos los datos asociados con una orquestación, puede purgar el his
 
  El método tiene dos sobrecargas. La primera de ellas purga el historial por el identificador de la instancia de orquestación:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -603,6 +607,8 @@ public static Task Run(
 ```
 
 En el segundo ejemplo se muestra una función de desencadenador por temporizador que purga el historial de todas las instancias de orquestación que se completan después del intervalo de tiempo especificado. En este caso, se quitan los datos de todas las instancias que se completaron hace 30 días o más. Se programa para ejecutarse una vez al día a las 12 a. m.:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]

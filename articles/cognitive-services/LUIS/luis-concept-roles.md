@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eead9e0fec8ac4322bc7816de4a4774f8be8129c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638335"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257967"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Roles de entidad para subtipos contextuales
 
@@ -93,7 +93,7 @@ La entidad y el rol se incluyen entre paréntesis, `{}`. La entidad y el rol se 
 
 ## <a name="entity-roles-versus-collaborator-roles"></a>Roles de entidad frente a roles de colaborador
 
-Los roles de entidad se aplican al modelo de datos de la aplicación de LUIS. Los roles de [colaborador](luis-concept-collaborator.md) se aplican a los niveles de acceso de creación. 
+Los roles de entidad se aplican al modelo de datos de la aplicación de LUIS. [Los roles de colaborador](luis-concept-keys.md#contributions-from-other-authors) se aplican a los niveles de acceso de creación. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 

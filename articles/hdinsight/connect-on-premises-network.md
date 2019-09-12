@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404546"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918541"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -67,7 +67,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
   
 2. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Proceso** > **Ubuntu Server 18.04 LTS**.
 
-    ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. Introduzca la siguiente información de la pestaña __Aspectos básicos__:  
   
@@ -84,7 +84,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
     |Contraseña o clave pública SSH | El campo disponible lo determina la opción elegida en **Tipo de autenticación**.  Escriba el valor adecuado.|
     |Puertos de entrada públicos|Seleccione **Permitir los puertos seleccionados**. A continuación, seleccione **SSH (22)** en la lista desplegable **Seleccionar puertos de entrada**.|
 
-    ![Configuración básica de la máquina virtual](./media/connect-on-premises-network/vm-basics.png)
+    ![Configuración básica de la máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Deje otras entradas con los valores predeterminados y seleccione la pestaña **Redes**.
 
@@ -109,7 +109,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
 
 2. Anote los valores de **ETIQUETA CDE NOMBRE DNS O DIRECCIÓN IP PÚBLICA** y **DIRECCIÓN IP PRIVADA** para su uso posterior.
 
-   ![Direcciones IP pública y privada](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Direcciones IP pública y privada](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalación y configuración de Bind (software DNS)
 

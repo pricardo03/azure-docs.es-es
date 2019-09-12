@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325545"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307708"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Actualización de contenedores en Azure Container Instances
 
-Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores de un grupo de contenedores. Por ejemplo, podría querer actualizar la versión de la imagen, cambiar un nombre DNS, actualizar las variables de entorno o el estado de un contenedor cuya aplicación se ha bloqueado.
+Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores en ejecución de un [grupo de contenedores](container-instances-container-groups.md). Por ejemplo, podría querer actualizar la versión de la imagen, cambiar un nombre DNS, actualizar las variables de entorno o el estado de un contenedor cuya aplicación se ha bloqueado.
+
+> [!NOTE]
+> No se pueden actualizar los grupos de contenedores finalizados o eliminados. Una vez que un grupo de contenedores ha finalizado (se encuentra en un estado correcto o con errores) o se ha eliminado, el grupo se debe implementar como nuevo.
 
 ## <a name="update-a-container-group"></a>Actualización de un grupo de contenedores
 
-Para actualizar los contenedores de un grupo de contenedores, vuelva a implementar un grupo existente con al menos una propiedad modificada. Cuando se actualiza un grupo de contenedores, todos los contenedores en ejecución se reinician localmente.
+Para actualizar los contenedores de un grupo de contenedores en ejecución, vuelva a implementar un grupo existente con al menos una propiedad modificada. Al actualizar un grupo de contenedores, todos los contenedores en ejecución en el grupo se reinician en contexto, por lo general en el mismo host de contenedor subyacente.
 
-Para reimplementar un grupo de contenedores existente, emita el comando create (o use Azure Portal) y especifique el nombre de un grupo existente. Modifique al menos una propiedad válida del grupo al emitir el comando create para desencadenar la reimplementación. No todas las propiedades del grupo de contenedores son válidas para una reimplementación. Para ver una lista de propiedades no admitidas, consulte [Propiedades que requieren la eliminación del contenedor](#properties-that-require-container-delete).
+Para reimplementar un grupo de contenedores existente, emita el comando create (o use Azure Portal) y especifique el nombre de un grupo existente. Modifique al menos una propiedad válida del grupo cuando emita el comando CREATE para desencadenar la reimplementación y deje sin modificar las propiedades restantes (o siga usando los valores predeterminados). No todas las propiedades del grupo de contenedores son válidas para una reimplementación. Para ver una lista de propiedades no admitidas, consulte [Propiedades que requieren la eliminación del contenedor](#properties-that-require-container-delete).
 
-En el siguiente ejemplo de la CLI de Azure se actualiza un grupo de contenedores con una nueva etiqueta de nombre DNS. Dado que se modifica la propiedad de etiqueta del nombre DNS del grupo, se vuelve a implementar el grupo de contenedores y se reinician sus contenedores.
+En el siguiente ejemplo de la CLI de Azure se actualiza un grupo de contenedores con una nueva etiqueta de nombre DNS. Dado la propiedad de etiqueta del nombre DNS del grupo es una de las que se pueden actualizar, se vuelve a implementar el grupo de contenedores y se reinician sus contenedores.
 
 Implementación inicial con la etiqueta de nombre DNS *myapplication-staging*:
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Actualice el grupo de contenedores con una nueva etiqueta de nombre DNS, *myapplication*:
+Actualice el grupo de contenedores con una nueva etiqueta de nombre DNS, *myapplication*, y deje las propiedades restantes sin cambios:
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -81,10 +84,10 @@ Se ha mencionado varias veces en este artículo el **grupo de contenedores**. Ca
 
 [Implementación de grupos de varios contenedores](container-instances-multi-container-group.md)
 
+[Detener o iniciar contenedores manualmente en Azure Container Instances](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

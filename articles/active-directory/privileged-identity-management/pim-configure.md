@@ -3,7 +3,7 @@ title: Qué es Privileged Identity Management Azure Active Directory | Microsoft
 description: Ofrece una introducción a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 5009310dd4ea4e99e1da2871085ee2d2d99a6eab
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473680"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804513"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -48,11 +48,11 @@ Para conocer mejor PIM y su documentación, debe revisar los términos siguiente
 
 | Término o concepto | Categoría de asignación de roles | DESCRIPCIÓN |
 | --- | --- | --- |
-| Apto | Type | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
-| active | Type | Asignación de roles que no requiere que el usuario realice ninguna acción para usar el rol. Los usuarios asignados como activos tienen privilegios asignados al rol. |
+| Apto | type | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
+| active | type | Asignación de roles que no requiere que el usuario realice ninguna acción para usar el rol. Los usuarios asignados como activos tienen privilegios asignados al rol. |
 | activar |  | Proceso de realizar una o varias acciones para usar un rol para el que es apto un usuario. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. |
-| asignado | Estado | Usuario que tiene una asignación de roles activa. |
-| activado | Estado | Usuario con una asignación de roles apta, que ha realizado las acciones necesarias para activar el rol y ahora está activo.  Una vez activado, el usuario puede utilizar el rol durante un período preconfigurado de tiempo antes de tener que volver a activarlo. |
+| asignado | State | Usuario que tiene una asignación de roles activa. |
+| activado | State | Usuario con una asignación de roles apta, que ha realizado las acciones necesarias para activar el rol y ahora está activo.  Una vez activado, el usuario puede utilizar el rol durante un período preconfigurado de tiempo antes de tener que volver a activarlo. |
 | apto permanente | Duration | Asignación de roles en la que un usuario siempre es apto para activar el rol. |
 | activo permanente | Duration | Asignación de roles en la que un usuario siempre puede usar el rol, sin realizar ninguna acción. |
 | apto con expiración | Duration | Asignación de roles en la que un usuario es apto para activar el rol en un plazo específico de tiempo, con principio y fin. |

@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de la autenticación de Facebook: Azure App Service'
-description: Obtenga información acerca de cómo configurar la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones.
+description: Obtenga información acerca de cómo configurar la autenticación mediante Facebook para la aplicación App Service.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f4d26572dc21e2c7454fb739cb4b5fb5665bd1db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 410d769d0d9abe3a0a0f9c45e3cf67bb94ec9f4d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098577"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232065"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,7 +32,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 1. Desplácese hasta el sitio web para [desarrolladores de Facebook] e inicie sesión con las credenciales de su cuenta de Facebook.
 3. (Opcional) Si no tiene una cuenta de Facebook for Developers, haga clic en **Empezar** y siga los pasos de registro.
 4. Haga clic en **Mis aplicaciones** > **Agregar una nueva aplicación**.
-5. En **Nombre para mostrar**, escriba un nombre único para la aplicación. Proporcione, también, el **Correo electrónico de contacto** y, a continuación, haga clic en **Create App ID** (Crear id. de aplicación) y complete la comprobación de seguridad. Esto le llevará al panel del desarrollador de la nueva aplicación de Facebook.
+5. En **Nombre para mostrar**, escriba un nombre único para la aplicación. Proporcione, también, el **Correo electrónico de contacto** y, a continuación, haga clic en **Create App ID** (Crear id. de aplicación) y complete la comprobación de seguridad. Se abre el panel del desarrollador de la nueva aplicación de Facebook.
 6. Haga clic en **Panel** > **Inicio de sesión de Facebook** > **Configurar** > **Web**.
 1. En el panel de navegación izquierdo, en **Inicio de sesión de Facebook**, haga clic en **Configuración**.
 1. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` y reemplace *\<app-name>* por el nombre de su aplicación de Azure App Service. Haga clic en **Guardar cambios**.
@@ -42,7 +42,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
    > El secreto de aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
    > 
    > 
-9. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **App Review** (Revisión de aplicaciones) y habilite **Make \<<your-app-name> public** (Hacer pública <nombre-de-su-aplicación>) para habilitar el acceso público general mediante la autenticación de Facebook.
+9. La cuenta de Facebook que utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **App Review** (Revisión de aplicaciones) y habilite **Make \<<your-app-name> public** (Hacer pública <nombre-de-su-aplicación>) para habilitar el acceso público general mediante la autenticación de Facebook.
 
 ## <a name="secrets"></a>Agregar información de Facebook a la aplicación
 1. Inicie sesión en [Azure Portal] y vaya a la aplicación App Service. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que **Autenticación de App Service** está **Activada**.

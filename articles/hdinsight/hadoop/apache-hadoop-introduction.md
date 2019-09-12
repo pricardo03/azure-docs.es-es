@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207234"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899559"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>¿Qué es Apache Hadoop en Azure HDInsight?
 
@@ -30,10 +30,6 @@ MapReduce de Apache Hadoop es un marco de software para escribir trabajos que pr
 * **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor).
 
 * **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador.
-
-En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:
-
-![HDI.ProgramaRecuentoPalabras][image-hdi-wordcountdiagram]
 
 La salida de este trabajo es un recuento de las veces que aparece cada palabra en el texto.
 
