@@ -35,7 +35,7 @@ El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de lo
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| de destino | object | El objeto que define el punto de conexión. |
+| destination | object | El objeto que define el punto de conexión. |
 | filter | object | Un campo opcional para filtrar los tipos de eventos. |
 
 ### <a name="destination-object"></a>Objeto de destino
