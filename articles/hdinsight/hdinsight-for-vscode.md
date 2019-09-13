@@ -306,7 +306,7 @@ Envíe un archivo, y observe que la carpeta .vscode se agrega automáticamente a
     | numExecutors | Número de ejecutores para iniciar en esta sesión | Int |
     | archives | Archivos que se usarán en esta sesión | Lista de cadenas |
     | queue | El nombre de la cola YARN a la que se enviará| Cadena |
-    | Nombre | Nombre de esta sesión | Cadena |
+    | name | Nombre de esta sesión | Cadena |
     | conf | Propiedades de configuración de Spark. | Asignación de clave = val |
 
     Response body   
