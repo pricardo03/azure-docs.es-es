@@ -290,7 +290,7 @@ Envíe un archivo, y observe que la carpeta .vscode se agrega automáticamente a
     **POST /batches**   
     Cuerpo de la solicitud
 
-    | Nombre | description | Tipo | 
+    | name | description | Tipo | 
     | :- | :- | :- | 
     | file | Archivo que contiene la aplicación para ejecutar | Ruta (obligatorio) |
     | proxyUser | Usuario para suplantar cuando se ejecuta el trabajo | Cadena |
@@ -312,7 +312,7 @@ Envíe un archivo, y observe que la carpeta .vscode se agrega automáticamente a
     Response body   
     El objeto Batch creado.
 
-    | Nombre | description | Tipo |
+    | name | description | Tipo |
     | :- | :- | :- | 
     | id | Identificador de la sesión | Int | 
     | appId | Identificador de la aplicación de esta sesión | Cadena |
