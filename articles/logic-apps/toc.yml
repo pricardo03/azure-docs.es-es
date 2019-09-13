@@ -15,7 +15,7 @@
       href: quickstart-create-logic-apps-visual-studio-code.md
 - name: Tutoriales
   items:
-    - name: Comprobación del tráfico regularmente
+    - name: Creación de flujos de trabajo basados en programación
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
     - name: Administrar solicitudes de lista de distribución de correo
       href: tutorial-process-mailing-list-subscriptions-workflow.md
