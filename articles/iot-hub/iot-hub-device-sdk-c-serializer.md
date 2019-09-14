@@ -74,7 +74,7 @@ Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de
 | int16\_t |entero de 16 bits |
 | int32\_t |entero de 32 bits |
 | int64\_t |entero de 64 bits |
-| booleano |boolean |
+| bool |boolean |
 | ascii\_char\_ptr |Cadena ASCII |
 | EDM\_DATE\_TIME\_OFFSET |desplazamiento de fecha y hora |
 | EDM\_GUID |GUID |
