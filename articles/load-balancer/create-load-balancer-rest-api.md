@@ -55,7 +55,7 @@ El único parámetro necesario es `location`. Si no se define la versión *SKU*,
 
 En este ejemplo, primero hay que crear una instancia de Load Balancer básico junto con sus recursos. A continuación, configurará los recursos del equilibrador de carga que incluyen una configuración de IP de front-end, un grupo de direcciones de back-end, una regla de equilibrio de carga, un sondeo de estado y una regla NAT entrante.
 
-Antes de crear un equilibrador de carga mediante el siguiente ejemplo, cree una red virtual denominada *vnetlb* con una subred con el nombre *subnetlb* en un grupo de recursos llamado *rg1* en la ubicación **Este de EE. UU**.
+Antes de crear un equilibrador de carga mediante el siguiente ejemplo, cree una red virtual denominada *vnetlb* con una subred con el nombre *subnetlb* en un grupo de recursos llamado *rg1* en la ubicación **East US**.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>PASO 1. Creación de una instancia de Load Balancer básico
 En este paso, creará una instancia de Load Balancer básico denominada *lb* en la ubicación **EAST US** ubicación dentro del grupo de recursos *rg1*.
