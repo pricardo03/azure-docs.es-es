@@ -1,10 +1,10 @@
 - name: Documentación de Data Lake Analytics
-  href: index.md
+  href: index.yml
 - name: Información general
   items:
     - name: ¿Qué es Data Lake Analytics?
       href: data-lake-analytics-overview.md
-- name: Introducción
+- name: Primeros pasos
   items:
     - name: Portal de Azure
       href: data-lake-analytics-get-started-portal.md
@@ -14,7 +14,7 @@
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: data-lake-analytics-get-started-cli.md
 - name: Procedimientos
   items:
@@ -24,7 +24,7 @@
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
-            - name: Azure CLI
+            - name: CLI de Azure
               href: data-lake-analytics-manage-use-cli.md
             - name: Azure PowerShell
               href: data-lake-analytics-manage-use-powershell.md
