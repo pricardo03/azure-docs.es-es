@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b590eeb86972a8e769fc240b1935c6c8ed32530a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e723fab12c6ba88ec5698a697ba1ddd774eed7e2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231739"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000507"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
@@ -38,7 +38,7 @@ Este entorno se compone de varios servicios de Azure que se usan para proporcion
   - Un jumpbox o un host de tipo bastión que se usa con fines de administración y al que solo se puede acceder a través de una instancia de [Azure Firewall](../../../../firewall/overview.md) implementada en la subred de la pila de entrada.
   - Dos máquinas virtuales que ejecutan Active Directory Domain Services (ADDS) y un sistema de nombres de dominio al que solo se puede acceder mediante el jumpbox, y que únicamente se puede configurar para que replique AD en una conexión VPN o de [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (que el plano técnico no implementa).
   - Uso de [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) y protección contra DDoS estándar
-- Una instancia de [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) utilizada para hospedar los secretos empleados por las máquinas virtuales implementadas en el entorno de servicios compartidos
+- Una instancia de [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilizada para hospedar los secretos empleados por las máquinas virtuales implementadas en el entorno de servicios compartidos
 
 Todos estos elementos se atienen a los procedimientos probados que se publicaron en [Centro de arquitectura de Azure: Arquitecturas de referencia](/azure/architecture/reference-architectures/).
 
