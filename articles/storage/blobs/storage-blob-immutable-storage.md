@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a3f9768043c9acef9640b8e286611de94e44a7ff
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941946"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910487"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -189,7 +189,7 @@ Sí, un contenedor puede tener una suspensión legal y una directiva de retenci�
 
 No, la suspensión legal es simplemente el término general que se usa con la directiva de retención sin duración definida. Su uso no se aplica solamente a procedimientos judiciales. También es útil para deshabilitar la sobrescritura y las eliminaciones con el fin de proteger los datos WORM importantes de la empresa, cuando el período de retención se desconoce. Se puede usar como una directiva de empresa para proteger las cargas de trabajo WORM críticas o como una directiva de almacenamiento provisional antes de que un desencadenador de eventos personalizado requiera el uso de una directiva de retención con duración definida. 
 
-**¿Se puede quitar una suspensión legal o una directiva de retención con duración definida *bloqueada*?**
+**¿Se puede quitar una suspensión legal o una directiva de retención con duración definida _bloqueada_?**
 
 Solo las directivas de retención con duración definida desbloqueadas se pueden quitar de un contenedor. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar; solo se permiten extensiones del período de retención efectivo. Se pueden eliminar las etiquetas de suspensión legal. Cuando se eliminan todas las etiquetas legales, se quita la suspensión legal.
 
