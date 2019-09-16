@@ -236,7 +236,7 @@
         - name: Introducción
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: Administración de una configuración de Linux
+        - name: Administración de la configuración de una máquina
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: Incorporación

@@ -614,6 +614,12 @@
       items:
         - name: Procesamiento de archivos de texto de ancho fijo
           href: how-to-fixed-width.md
+    - name: Migración de SSIS desde un entorno local
+      items:
+        - name: Introducción a la migración de SSIS
+          href: scenario-ssis-migration-overview.md
+        - name: Migración de SSISDB a Instancia administrada de Azure SQL Database
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referencia
   items:
     - name: .NET

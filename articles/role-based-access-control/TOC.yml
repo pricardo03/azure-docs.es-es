@@ -40,9 +40,11 @@
       items:
         - name: Portal
           href: role-assignments-portal.md
+        - name: 'Portal: Usuarios invitados'
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: role-assignments-cli.md
         - name: API DE REST
           href: role-assignments-rest.md
@@ -64,7 +66,7 @@
           href: custom-roles.md
         - name: PowerShell
           href: custom-roles-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: custom-roles-cli.md
         - name: API DE REST
           href: custom-roles-rest.md
@@ -72,8 +74,6 @@
       href: change-history-report.md
     - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
       href: elevate-access-global-admin.md
-    - name: Administración del acceso de usuarios externos
-      href: role-assignments-external-users.md
     - name: Administradores clásicos
       href: classic-administrators.md
     - name: Solución de problemas
@@ -88,7 +88,7 @@
       href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/role?view=azure-cli-latest
     - name: API DE REST
       href: /rest/api/authorization/

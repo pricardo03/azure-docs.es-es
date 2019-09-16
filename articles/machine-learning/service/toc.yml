@@ -1,9 +1,9 @@
-- name: Documentación sobre el servicio Azure Machine Learning
+- name: Documentación de Azure Machine Learning
   href: ../index.yml
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es el servicio Azure Machine Learning?
+    - name: ¿Qué es Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
     - name: Arquitectura y términos
@@ -31,6 +31,11 @@
             - name: Entrenamiento automático de un modelo de Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
+        - name: Puntuación por lotes con canalizaciones (avanzado)
+          items:
+            - name: Puntuación por lotes de un modelo de clasificación
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
     - name: Interfaz visual
       items:
         - name: 1. Entrenamiento del modelo de regresión
@@ -122,7 +127,7 @@
         - name: Uso de plantillas de Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: "Configuración del entorno de desarrollo\_"
+    - name: Configuración del entorno de desarrollo
       items:
         - name: Configuración de entornos de desarrollo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'

@@ -1,10 +1,10 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Anomaly Detector API
+summary: Aprenda a usar Anomaly Detector API para supervisar datos con el paso del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
 metadata:
   title: 'Anomaly Detector API: Tutoriales, inicios rápidos, referencia de API'
   titleSuffix: Azure Cognitive Services
-  description: 'Anomaly Detector API se usa para supervisar datos con el paso del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.'
+  description: Anomaly Detector API se usa para supervisar datos con el paso del tiempo y detectar anomalías en el aprendizaje automático. Obtenga información acerca de sus datos, independientemente del volumen, el sector o el escenario.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -12,62 +12,102 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 09/10/2019
   ms.author: aahi
-abstract:
-  description: 'Anomaly Detector API le ayuda a insertar fácilmente funcionalidades de detección de anomalías en sus aplicaciones, con el fin de que los usuarios puedan identificar rápidamente los problemas, minimizar las pérdidas y reducir el impacto en el cliente. No se requiere ningún entorno de aprendizaje automático. A través de una sola llamada a la API, puede activar este modelo de inteligencia artificial previamente entrenado que ingiere datos de series temporales de todos los tipos y volúmenes, selecciona el modelo de detección de anomalías que más se ajusta a los datos para garantizar una alta precisión y muestra automáticamente los incidentes en cuanto se producen. Puede personalizar el servicio para que detecte anomalías de todos los tamaños.  Anomaly Detector se usa para identificar incidentes empresariales, supervisar el tráfico de los dispositivos de IoT, administrar el fraude, responder a los cambiantes mercados, etc.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/anomaly-detector/overview
-            html: <p>Obtenga información acerca de Anomaly Detector API</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: ¿Qué es Anomaly Detector API?
-          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-            html: <p>Optimice los resultados de la detección de anomalías mediante los procedimientos recomendados con la API</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Procedimientos recomendados cuando se usa Anomaly Detector API
-          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-            html: '<p>Ajuste la sensibilidad de la detección de anomalías, use los diferentes modos de detección y mucho más.</p>'
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Uso de Anomaly Detection API
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Detecte anomalías en sus datos de series temporales mediante:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: quickstarts/detect-data-anomalies-csharp
-            text: 'C#'
-          - image:
-              src: media/logo_Java.svg
-            href: quickstarts/detect-data-anomalies-java
-            text: Java
-          - image:
-              src: media/logo_python.svg
-            href: quickstarts/detect-data-anomalies-python
-            text: Python
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API DE REST
-            html: '<p><a href="https://aka.ms/anomaly-detector-rest-api-ref">Anomaly Detector API</a></p>'
-          - title: SDK
-            html: '<p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.js</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>'
+  ms.openlocfilehash: 61db0fe16557b582ad43cd2eddbe8e421a0b743a
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70967067"
+landingContent:
+- title: Acerca de Anomaly Detector API
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Anomaly Detector API?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Demostración de Anomaly Detector
+      url: https://aka.ms/adDemo
+  - linkListType: video
+    links:
+    - text: Introducción a Anomaly Detector API
+      url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+    - text: Algoritmos que usa Anomaly Detection API
+      url: https://www.youtube.com/embed/ERTaAnwCarM
+  - linkListType: reference
+    links:
+    - text: Algoritmos que se usan en la detección de anomalías (notas del producto)
+      url: https://arxiv.org/abs/1906.03821
+- title: Detección de anomalías en los datos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Con C#
+      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+    - text: Usar Python
+      url: quickstarts/detect-data-anomalies-python-sdk.md
+  - linkListType: tutorial
+    links:
+    - text: Visualización de anomalías con detección por lotes y Power BI
+      url: tutorials/batch-anomaly-detection-powerbi.md
+    - text: Detección de anomalías en datos de streaming con Azure Databricks
+      url: tutorials/batch-anomaly-detection-powerbi.md
+  - linkListType: video
+    links:
+    - text: Detección de anomalías en datos transmitidos con Azure Databricks
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
+- title: Optimización de los resultados de la detección
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ajuste los modos y parámetros de la detección de anomalías para sus datos.
+      url: how-to/identify-anomalies.md
+    - text: Use procedimientos recomendados para optimizar los resultados de la detección de anomalías.
+      url: concepts/anomaly-detection-best-practices.md
+  - linkListType: video
+    links:
+    - text: Procedimientos recomendados de Anomaly Detector
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices
+- title: Uso de contenedores de Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Instalación y ejecución de contenedores de Anomaly Detector
+      url: anomaly-detector-container-howto.md
+    - text: Configuración de los contenedores de Anomaly Detector
+      url: anomaly-detector-container-configuration.md
+    - text: Implementación de una instancia de contenedor en Azure
+      url: how-to/deploy-anomaly-detection-on-container-instances.md
+  - linkListType: video
+    links:
+    - text: Incorporación de Anomaly Detector en el entorno local con compatibilidad con contenedores
+      url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+- title: Únase a la comunidad de Anomaly Detector
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Unirse al grupo de asesores de Anomaly Detector en Microsoft Teams
+      url: https://aka.ms/adadvisorsjoin
+    - text: Contenido destacado generado por el usuario
+      url: user-generated-content.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API DE REST
+      url: https://aka.ms/anomaly-detector-rest-api-ref
+    - text: .NET SDK
+      url: https://aka.ms/anomaly-detector-dotnet-ref
+    - text: SDK de Python
+      url: https://go.microsoft.com/fwlink/?linkid=2090370
+    - text: Go SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2089915
+    - text: SDK de Node.js
+      url: https://go.microsoft.com/fwlink/?linkid=2090788
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: CLI de Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
