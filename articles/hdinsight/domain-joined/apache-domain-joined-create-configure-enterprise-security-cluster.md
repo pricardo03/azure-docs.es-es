@@ -306,7 +306,7 @@ Compruebe que el certificado está instalado en el almacén Personal del equipo.
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | Destino | Any |
+        | Destination | Any |
         | Destination port range | 636 |
         | Protocolo | Any |
         | Action | Allow |
