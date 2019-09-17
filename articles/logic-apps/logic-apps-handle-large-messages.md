@@ -119,16 +119,16 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
    | Campo de encabezado de solicitud de Logic Apps | Valor | type | DESCRIPCIÓN |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | Cadena | Indica que el contenido se carga en fragmentos |
-   | **x-ms-content-length** | <*content-length*> | Entero | El tamaño del contenido completo en bytes antes de la fragmentación |
+   | **x-ms-transfer-mode** | chunked | String | Indica que el contenido se carga en fragmentos |
+   | **x-ms-content-length** | <*content-length*> | Integer | El tamaño del contenido completo en bytes antes de la fragmentación |
    ||||
 
 2. El punto de conexión responde con el código de estado correcto "200" y esta información opcional:
 
    | Campo de encabezado de respuesta del punto de conexión | type | Obligatorio | DESCRIPCIÓN |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |
-   | **Ubicación** | Cadena | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
+   | **x-ms-chunk-size** | Integer | Sin | El tamaño de fragmento sugerido en bytes |
+   | **Location** | String | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
    ||||
 
 3. La aplicación lógica crea y envía mensajes HTTP PATCH de seguimiento, cada uno con esta información:
