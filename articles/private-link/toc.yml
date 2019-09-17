@@ -1,0 +1,78 @@
+- name: Documentación de Azure Private Link
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Private Link?
+      href: private-link-overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: Creación de un punto de conexión privado
+      items:
+        - name: Portal de Azure
+          href: create-private-endpoint-portal.md
+        - name: CLI de Azure
+          href: create-private-endpoint-cli.md
+        - name: Azure PowerShell
+          href: create-private-endpoint-powershell.md
+    - name: Creación de un servicio Private Link
+      items:
+        - name: Azure PowerShell
+          href: create-private-link-service-powershell.md
+        - name: Azure CLI
+          href: create-private-link-service-cli.md
+- name: Conceptos
+  items:
+    - name: Punto de conexión privado
+      href: private-endpoint-overview.md
+    - name: Servicio Private Link
+      href: private-link-service-overview.md
+- name: Procedimientos
+  items:
+    - name: Conexión de forma privada a una cuenta de almacenamiento
+      href: create-private-endpoint-storage-portal.md
+    - name: Deshabilitar las directivas de red de un punto de conexión privado
+      href: disable-private-endpoint-network-policy.md
+    - name: Deshabilitar las directivas de red de un servicio Private Link
+      href: disable-private-link-service-network-policy.md
+    - name: Administración de puntos de conexión privados
+      href: manage-private-endpoint.md
+- name: Referencia
+  items:
+    - name: CLI de Azure
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtualnetwork/privateendpoints
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.network/allversions
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+- name: Recursos
+  items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Foro de redes
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Comentarios de redes
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
+    - name: Preguntas más frecuentes
+      href: private-link-faq.md

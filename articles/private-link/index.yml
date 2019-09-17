@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentación de Private Link
+summary: Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de los asociados, a través de un punto de conexión privado de la red virtual.  El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede crear su propio servicio Private Link en la red virtual y enviarlo de forma privada a los clientes.
+metadata:
+  title: 'Documentación de Private Link: Inicios rápidos, guías paso a paso, tutoriales y referencias de API'
+  description: Aprenda a usar el servicio Azure Private Link. Los inicios rápidos y los tutoriales le enseñarán a implementar un servicio Private Link.
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/16/2019
+  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71020218"
+landingContent:
+- title: Acerca de Azure Private Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Private Link?
+      url: private-link-overview.md
+- title: Conexión a un servicio de Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es un punto de conexión privado?
+      url: private-endpoint-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Creación de un punto de conexión privado
+      url: create-private-endpoint-portal.md
+- title: Creación de su propio servicio Private Link
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es el servicio Private Link?
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de un servicio Private Link
+      url: create-private-link-service-powershell.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI de Azure
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST
+      url: /rest/api/virtualnetwork/privatelinkservices
