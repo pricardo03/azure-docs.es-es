@@ -199,7 +199,7 @@
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Actualización de las credenciales de la entidad de servicio del clúster
           href: update-credentials.md
-        - name: Restricción y control del tráfico de salida del clúster (versión preliminar)
+        - name: Restricción y control del tráfico de salida del clúster
           href: limit-egress-traffic.md
         - name: Habilitar la integración de Azure Active Directory
           items:
