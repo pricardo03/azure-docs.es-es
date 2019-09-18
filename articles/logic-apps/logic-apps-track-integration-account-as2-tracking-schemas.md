@@ -111,21 +111,21 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| senderPartnerName | string | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
-| receiverPartnerName | Cadena | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |
-| as2To | Cadena | Nombre del asociado que recibe el mensaje AS2. (Obligatorio) |
-| as2From | Cadena | Nombre del asociado que envía el mensaje AS2. (Obligatorio) |
-| agreementName | Cadena | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección |Cadena | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
-| messageId | Cadena | Identificador del mensaje AS2. (Opcional) |
-| originalMessageId |Cadena | Identificador del mensaje original AS2. (Opcional) |
-| dispositionType | Cadena | Valor de tipo de disposición de MDN. (Opcional) |
+| senderPartnerName | String | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
+| receiverPartnerName | String | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |
+| as2To | String | Nombre del asociado que recibe el mensaje AS2. (Obligatorio) |
+| as2From | String | Nombre del asociado que envía el mensaje AS2. (Obligatorio) |
+| agreementName | String | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
+| dirección |String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| messageId | String | Identificador del mensaje AS2. (Opcional) |
+| originalMessageId |String | Identificador del mensaje original AS2. (Opcional) |
+| dispositionType | String | Valor de tipo de disposición de MDN. (Opcional) |
 | isMessageFailed |Boolean | Si el mensaje AS2 genera error. (Obligatorio) |
 | isMessageSigned |Boolean | Si el mensaje AS2 está firmado. (Obligatorio) |
 | isNrrEnabled | Boolean | Si no se conoce el valor, use el valor predeterminado. (Obligatorio) |
 | statusCode | Enum | Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
 | micVerificationStatus | Enum | Los valores permitidos son **NotApplicable**, **Succeeded** y **Failed**. (Obligatorio) |
-| correlationMessageId | Cadena | Id. de correlación. Identificador del mensaje original (identificador del mensaje para el que está configurando MDN). (Opcional) |
+| correlationMessageId | String | Id. de correlación. Identificador del mensaje original (identificador del mensaje para el que está configurando MDN). (Opcional) |
 | incomingHeaders | Diccionario de JToken | Indica los detalles del encabezado del mensaje entrante. (Opcional) |
 | outgoingHeaders |Diccionario de JToken | Indica los detalles del encabezado del mensaje saliente. (Opcional) |
 ||||

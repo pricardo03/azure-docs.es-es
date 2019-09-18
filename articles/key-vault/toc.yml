@@ -17,7 +17,7 @@
       href: quick-create-net.md
     - name: 'Establecimiento y recuperación de un secreto: Node.js'
       href: quick-create-node.md
-    - name: 'Establecimiento y recuperación de un secreto: plantilla de Resource Manager'
+    - name: Establecimiento y recuperación de un secreto con una plantilla
       displayName: 'resource manager, resource manager template, arm'
       href: quick-create-template.md
 - name: Tutoriales
