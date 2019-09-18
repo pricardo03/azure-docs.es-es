@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797524"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858488"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Habilitación de InfiniBand con SR-IOV
 
-La manera más sencilla y recomendada de configurar una imagen de máquina virtual personalizada con InfiniBand (IB) es agregar la extensión de máquina virtual InfiniBandDriverLinux o InfiniBandDriverWindows a la implementación.
+La manera más sencilla y recomendada de empezar a trabajar con máquinas virtuales IaaS para HPC consiste en usar la imagen de sistema operativo para máquina virtual CentOS-HPC 7.6. Si usa la imagen de máquina virtual personalizada, la forma más sencilla de configurarla con InfiniBand (IB) es agregar la extensión de máquina virtual InfiniBandDriverLinux o InfiniBandDriverWindows a la implementación.
 Aprenda a usar estas extensiones de máquina virtual con [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) y [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
 Para configurar manualmente InfiniBand en máquinas virtuales con SR-IOV habilitado (actualmente, las series HB y HC), siga estos pasos. Estos pasos son solo para RHEL/CentOS. En el caso de Ubuntu (16.04 y 18.04) y SLES (12 SP4 y 15), los controladores integrados funcionan bien.

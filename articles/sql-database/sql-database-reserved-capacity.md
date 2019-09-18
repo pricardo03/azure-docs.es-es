@@ -1,5 +1,5 @@
 ---
-title: Pago por adelantado de los núcleos virtuales de Azure SQL Database para ahorrar dinero | Microsoft Docs
+title: Ahorro de costos de los núcleos virtuales de Azure SQL Database | Microsoft Docs
 description: Aprenda a comprar capacidad reservada de Azure SQL Database para ahorrar en los costos de proceso.
 services: sql-database
 ms.service: sql-database
@@ -10,22 +10,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 08/02/2019
-ms.openlocfilehash: 61b646ca1ec5a4826ac6418c1b80b88a89266012
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.date: 08/29/2019
+ms.openlocfilehash: 5ab5481a89f7bb9c74133487b01879b00b7def32
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972546"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806577"
 ---
-# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
+# <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Ahorro de costos de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
-Ahorre dinero con Azure SQL Database al pagar por adelantado los recursos de proceso en lugar de elegir el pago por uso. Con la capacidad reservada, se compromete de antemano en Azure SQL Database durante un período de uno a tres años para obtener un descuento considerable en los costos de proceso. Para comprar capacidad reservada de SQL Database, debe especificar la región de Azure, el tipo de implementación, el nivel de servicio y el período.
+Ahorre dinero con Azure SQL Database al comprometerse a una reserva de recursos de proceso en lugar de elegir el pago por uso. Con la capacidad reservada, se compromete a usar Azure SQL Database durante un período de uno a tres años para obtener un descuento considerable en los costos de proceso. Para comprar capacidad reservada de SQL Database, debe especificar la región de Azure, el tipo de implementación, el nivel de servicio y el período.
 
 
-No es necesario asignar la reserva a instancias específicas de SQL Database (bases de datos únicas, grupos elásticos o instancias administradas). Al igualarse las instancias de SQL Database en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuando se compra una reserva, los costos de proceso de SQL Database que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados a la instancia de SQL Database. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de SQL Database se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+No es necesario asignar la reserva a instancias específicas de SQL Database (bases de datos únicas, grupos elásticos o instancias administradas). Al igualarse las instancias de SQL Database en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se compromete a usar el servicio por los costos de proceso durante un período de uno a tres años. En cuando se compra una reserva, los costos de proceso de SQL Database que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados a la instancia de SQL Database. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de SQL Database se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-Puede comprar capacidad reservada de Azure SQL Database en [Azure Portal](https://portal.azure.com). Para comprar capacidad reservada de SQL Database:
+Puede comprar capacidad reservada de Azure SQL Database en [Azure Portal](https://portal.azure.com). Pague la reserva [por adelantado o mensualmente](../billing/billing-monthly-payments-reservations.md). Para comprar capacidad reservada de SQL Database:
 
 - Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.

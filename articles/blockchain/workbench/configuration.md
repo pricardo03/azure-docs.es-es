@@ -1,21 +1,21 @@
 ---
 title: Referencia sobre la configuración de Azure Blockchain Workbench
-description: Introducción a la configuración de aplicaciones de Azure Blockchain Workbench.
+description: Introducción a la configuración de aplicaciones de la versión preliminar de Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578988"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845102"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -60,18 +60,18 @@ Se puede modelar la lógica de negocios de una aplicación como una máquina de 
 | Description | Descripción del flujo de trabajo. | Sin | 255 |
 | Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | Sí | |
 | StartState | Nombre del estado inicial del flujo de trabajo. | Sí | |
-| Properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | Sí | |
+| properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | Sí | |
 | Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | Sí | |
 | Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | Sí | |
 | States | Una colección de [estados](#states) del flujo de trabajo. | Sí | |
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>type
 
 Tipos de datos admitidos.
 
-| Type | Description |
+| type | Description |
 |-------|-------------|
 | address  | Tipo de dirección de Blockchain, como *contratos* o *usuarios*. |
 | array    | Matriz de nivel único de tipo integer, booleano, money o time. Las matrices pueden ser estáticas o dinámicas. Use **ElementType** para especificar el tipo de datos de los elementos dentro de la matriz. Consulte la [configuración de ejemplo](#example-configuration-of-type-array). |

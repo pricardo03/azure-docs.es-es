@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278175"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879066"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> Para el procedimiento de validación cruzada (VC), los datos de serie temporal pueden infringir las suposiciones estadísticas básicas de la estrategia de validación cruzada de K iteraciones canónica, por lo que el aprendizaje automático automatizado implementa un procedimiento de validación de origen gradual para crear subconjuntos de validación cruzada para los datos de serie temporal. Para usar este procedimiento, especifique el parámetro `n_cross_validations` en el objeto `AutoMLConfig`. Puede omitir la validación y usar sus propios conjuntos validación con los parámetros `X_valid` y `y_valid`.
+Consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obtener ejemplos de código detallados de la configuración de predicciones avanzada, que incluye:
+
+* detección y caracterización de festividades;
+* validación cruzada de origen variable;
+* retardos configurables;
+* características de agregado en periodos acumulados.
 
 ### <a name="view-feature-engineering-summary"></a>Visualización del resumen de ingeniería de las características
 

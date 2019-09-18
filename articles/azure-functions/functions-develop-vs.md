@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905682"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773154"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -41,6 +41,8 @@ Los demás recursos que necesita, como una cuenta de Azure Storage, se crean en 
 
 > [!NOTE]
 > En Visual Studio 2017, la carga de trabajo de desarrollo de Azure instala las herramientas de Azure Functions como una extensión independiente. Al actualizar Visual Studio 2017, también debe asegurarse de que está usando la [versión más reciente](#check-your-tools-version) de las herramientas de Azure Functions. En las secciones siguientes se muestra cómo comprobar y, si es necesario, actualizar la extensión de herramientas de Azure Functions en Visual Studio 2017. 
+>
+> Omita esta sección al usar Visual Studio 2019.
 
 ### <a name="check-your-tools-version"></a>Comprobar la versión de las herramientas en Visual Studio 2017
 
@@ -146,7 +148,7 @@ Puede utilizar el procedimiento anterior para agregar más funciones a su proyec
 
 Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se agregan a la función como atributos de enlace. Agregue los enlaces a una función como se indica a continuación:
 
-1. Asegúrese de que ha [configurado el proyecto para el desarrollo local](#configure-the-project-for-local-development).
+1. Asegúrese de que ha [configurado el proyecto para desarrollo local](#configure-the-project-for-local-development).
 
 2. Agregue el paquete de extensión de NuGet adecuado para el enlace concreto. Para más información, consulte [Desarrollo local con C# mediante Visual Studio](./functions-bindings-register.md#local-csharp) en el artículo Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions. Los requisitos del paquete NuGet específico del enlace se encuentran en el artículo de referencia del enlace. Por ejemplo, buscar los requisitos del paquete para el desencadenador de Event Hubs en el [artículo de referencia Enlaces de Azure Event Hubs](functions-bindings-event-hubs.md).
 

@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567803"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845608"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -142,7 +142,7 @@ Los puntos de conexión de servicio (SE) le permiten exponer los recursos críti
 
 #### <a name="reserved-ips"></a>Direcciones IP reservadas
 
-Otra opción es aprovisionar [direcciones IP reservadas](../virtual-network/virtual-networks-reserved-public-ip.md) para las máquinas virtuales e incluir en la lista de permitidas esas direcciones IP específicas de las máquinas virtuales en la configuración de firewall del servidor. Mediante la asignación de direcciones IP reservadas, se evita el problema de tener que actualizar las reglas del firewall con el cambio de direcciones IP.
+Otra opción es aprovisionar [direcciones IP reservadas](../virtual-network/virtual-networks-reserved-public-ip.md) para las máquinas virtuales e incluir esas direcciones IP específicas de las máquinas virtuales en la configuración de firewall del servidor. Mediante la asignación de direcciones IP reservadas, se evita el problema de tener que actualizar las reglas del firewall con el cambio de direcciones IP.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>A qué puerto debo conectarme en SQL Database
 

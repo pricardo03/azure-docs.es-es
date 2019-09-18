@@ -1,29 +1,26 @@
 ---
-title: Configuración de la replicación en máquinas virtuales habilitadas para Azure Disk Encryption en Azure Site Recovery | Microsoft Docs
+title: Configuración de la replicación en máquinas virtuales habilitadas para Azure Disk Encryption en Azure Site Recovery
 description: En este artículo se describe cómo configurar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption de una región de Azure a otra mediante Site Recovery.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884127"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861318"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 
-En este artículo se describe cómo replicar máquinas virtuales habilitadas para Azure Disk Encryption de una región de Azure a otra.
+En este artículo se describe cómo replicar máquinas virtuales de Azure habilitadas para Azure Disk Encryption (ADE) de una región de Azure a otra.
 
 >[!NOTE]
->Actualmente, Azure Site Recovery solo admite aquellas máquinas virtuales habilitadas para Azure Disk Encryption que ejecuten un sistema operativo Windows. Solo se admiten las máquinas virtuales habilitadas para Azure Disk Encryption sin la aplicación Azure AD si usan discos administrados. No se admiten las máquinas virtuales con discos no administrados.
+> Actualmente, Site Recovery admite ADE con y sin Azure Active Directory (AAD) para máquinas virtuales que ejecutan Windows.  En el caso de las máquinas que ejecutan ADE 1.1 (sin AAD), las máquinas virtuales de Windows deben usar discos administrados. No se admiten las máquinas virtuales con discos no administrados. Si cambia de ADE 0.1 (con AAD) a 1.1, debe deshabilitar la replicación y volver a habilitarla para una máquina virtual después de habilitar la versión 1.1.
 
->[!NOTE]
->Si cambia de ADE V1 (con la aplicación Azure AD) a ADE V2 (sin la aplicación Azure AD), deberá deshabilitar la replicación y habilitarla después de habilitar ADE V2.
 
 ## <a id="required-user-permissions"></a> Permisos de usuario necesarios
 Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves desde el almacén de claves de la región de origen al de la región de destino.

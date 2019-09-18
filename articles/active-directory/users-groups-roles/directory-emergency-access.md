@@ -1,10 +1,10 @@
 ---
 title: 'Administración de cuentas de administrador de acceso de emergencia: Azure Active Directory | Microsoft Docs'
-description: En este artículo se describe cómo usar las cuentas de acceso de emergencia para ayudar a evitar que se bloquee inadvertidamente su acceso al inquilino de Azure Active Directory (Azure AD).
+description: En este artículo se describe cómo usar las cuentas de acceso de emergencia para ayudar a evitar que se bloquee inadvertidamente su acceso a la organización de Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 ms.author: curtand
-ms.date: 03/19/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083906"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772420"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
-Es importante evitar que se bloquee accidentalmente su acceso al inquilino de Azure Active Directory (Azure AD) porque no podrá iniciar sesión ni activar una cuenta de un usuario individual existente como administrador. Puede mitigar el efecto de una falta involuntaria de acceso administrativo mediante la creación de dos o más *cuentas de acceso de emergencia* en su inquilino.
+Es importante evitar que se bloquee accidentalmente su acceso a la organización de Azure Active Directory (Azure AD) porque no podrá iniciar sesión ni activar otra cuenta de usuario como administrador. El impacto de una falta involuntaria de acceso administrativo se puede mitigar mediante la creación de dos o más *cuentas de acceso de emergencia* en la organización.
 
-Las cuentas de acceso de emergencia tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Las organizaciones deben incluir como objetivo la restricción del uso de las cuentas de emergencia solo para aquellos momentos en los que sean absolutamente necesarias.
+Las cuentas de acceso de emergencia tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Se recomienda que mantenga como objetivo la restricción del uso de las cuentas de emergencia solo para aquellos momentos en los que sean absolutamente necesarias.
 
 En este artículo se proporcionan instrucciones para administrar las cuentas de acceso de emergencia en Azure AD.
 
-## <a name="when-would-you-use-an-emergency-access-account"></a>¿Cuándo usaría una cuenta de acceso de emergencia?
+## <a name="why-use-an-emergency-access-account"></a>¿Por qué usaría una cuenta de acceso de emergencia?
 
 Puede que una organización necesite usar una cuenta de acceso de emergencia en las siguientes situaciones:
 
@@ -36,7 +36,7 @@ Puede que una organización necesite usar una cuenta de acceso de emergencia en 
 - La persona con el acceso de Administrador global más reciente ha dejado la organización. Azure AD impide que se pueda eliminar la última cuenta de Administrador global, pero no impide que esta se pueda eliminar o deshabilitar de forma local. Es posible que alguna de estas situaciones impida a la organización recuperar la cuenta.
 - Circunstancias imprevistas, como un desastre natural, durante las cuales puede que las redes de telefonía móvil u otras redes no estén disponibles. 
 
-## <a name="create-two-cloud-based-emergency-access-accounts"></a>Creación de dos cuentas de acceso de emergencia basadas en la nube
+## <a name="create-emergency-access-accounts"></a>Creación de cuentas de acceso de emergencia
 
 Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que estén solo en la nube, que usen el dominio \*.onmicrosoft.com y que no estén federadas ni sincronizadas desde un entorno local.
 
@@ -46,7 +46,6 @@ Al configurarlas, deben cumplirse los siguientes requisitos:
 - El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros.
 - El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
 - Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
-
 
 ### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Exclusión de al menos una cuenta de autenticación multifactor basada en teléfono
 
@@ -58,24 +57,84 @@ Sin embargo, al menos una de sus cuentas de acceso de emergencia no debe tener e
 
 Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Por eso, debe excluirse por lo menos una cuenta de acceso de emergencia de todas las directivas de acceso condicional. Si ha habilitado un [directiva de línea base](../conditional-access/baseline-protection.md), debe excluir las cuentas de acceso de emergencia.
 
-## <a name="additional-guidance-for-hybrid-customers"></a>Instrucciones adicionales para clientes híbridos
+## <a name="federation-guidance"></a>Guía de federación
 
 Una opción adicional para las organizaciones que usan AD Domain Services, ADFS o proveedores de identidades similares para federar con Azure AD, es configurar una cuenta de acceso de emergencia cuya notificación de MFA podría proporcionarla dicho proveedor de identidades.  Por ejemplo, la cuenta de acceso de emergencia podría estar respaldada por un par de certificado y clave como el almacenado en una tarjeta inteligente.  Cuando ese usuario se autentica en Active Directory, ADFS pueden proporcionar una notificación a Azure AD para indicar que el usuario ha cumplido con los requisitos de MFA.  Incluso con este enfoque, las organizaciones todavía deben tener cuentas de acceso de emergencia basadas en la nube en caso de que no se pueda establecer la federación. 
 
-## <a name="store-devices-and-credentials-in-a-safe-location"></a>Guardado de los dispositivos y de las credenciales en una ubicación segura
+## <a name="store-account-credentials-safely"></a>Almacenamiento seguro de las credenciales de cuenta
 
 Las organizaciones se deben asegurar de que las credenciales de estas cuentas de acceso de emergencia estén protegidas y solo las conozcan los usuarios que están autorizados para usarlas. Algunos clientes usan una tarjeta inteligente y otros usan contraseñas. La contraseña de una cuenta de acceso de emergencia se encuentra normalmente dividida en dos o tres partes, escrita en diferentes fragmentos de papel que se almacenan en cajas de seguridad a prueba de incendios que están en ubicaciones separadas seguras.
 
 Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y que no expiren. Idealmente, las contraseñas deben tener al menos 16 caracteres y generarse aleatoriamente.
 
-
 ## <a name="monitor-sign-in-and-audit-logs"></a>Supervisión de registros de inicio de sesión y de auditoría
 
-Supervise los [registros de inicio de sesión y de auditoría de Azure AD](../reports-monitoring/concept-sign-ins.md) para analizar los inicios de sesión y actividades de auditoría de las cuentas de acceso de emergencia. Normalmente, esas cuentas no deben iniciar sesión y tampoco deberían realizar cambios, por lo que su uso es anómalo y requiere una investigación de seguridad.
+Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-## <a name="validate-accounts-at-regular-intervals"></a>Validación de cuentas a intervalos regulares
+### <a name="prerequisites"></a>Requisitos previos
 
-Para entrenar a los miembros del personal en el uso de cuentas de acceso de emergencia y validar dichas cuentas, siga estos pasos mínimos a intervalos regulares:
+1. [Envíe registros de inicio de sesión de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Azure Monitor.
+
+### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtención de los Id. de objeto de las cuentas de emergencia
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asignada al rol de Usuario administrador.
+1. Seleccione **Azure Active Directory** > **Usuarios**.
+1. Busque la cuenta de emergencia y seleccione el nombre del usuario.
+1. Copie y guarde el atributo de Id. de objeto para usarlo más adelante.
+1. Repita los pasos anteriores para la segunda cuenta de emergencia.
+
+### <a name="create-an-alert-rule"></a>Crear una regla de alerta
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asignada al rol de Colaborador de supervisión en Azure Monitor.
+1. Seleccione **Todos los servicios**", escriba "log analytics" en la búsqueda y después seleccione **Áreas de trabajo de Log Analytics**.
+1. Seleccione un área de trabajo.
+1. En el área de trabajo, seleccione **Alertas** > **Nueva regla de alertas**.
+    1. En **Recurso**, compruebe que la suscripción es la que quiere asociar con la regla de alertas.
+    1. En **condición**, seleccione **Agregar**.
+    1. Seleccione **Custom log search** (Búsqueda de registros personalizada) en **Nombre de señal**.
+    1. En **Consulta de búsqueda**, escriba la siguiente consulta e inserte los Id. de objeto de las dos cuentas de emergencia.
+        > [!NOTE]
+        > Para cada cuenta de emergencia adicional que quiera incluir, agregue otro "or UserId == "ObjectGuid"" a la consulta.
+
+        ![Agregar los Id. de objeto de las cuentas de emergencia a una regla de alertas](./media/directory-emergency-access/query-image1.png)
+
+    1. En **Lógica de alerta**, escriba lo siguiente:
+
+        - Basado en: Número de resultados
+        - Operador: Mayor que
+        - Valor del umbral: 0
+
+    1. En **Se evaluó basándose en**, seleccione el **Periodo (en minutos)** durante el que quiere que se ejecute la consulta, así como la **Frecuencia (en minutos)** con la que quiere que se ejecute la consulta. La frecuencia debe ser menor o igual que el periodo.
+
+        ![lógica de alerta](./media/directory-emergency-access/alert-image2.png)
+
+    1. Seleccione **Listo**. Ahora puede ver el costo mensual estimado de esta alerta.
+1. Seleccione el grupo de acciones con los usuarios a los que notificará la alerta. Si quiere crear uno, consulte [Creación de un grupo de acciones](#create-an-action-group).
+1. Para personalizar la notificación por correo electrónico que se envía a los miembros del grupo de acciones, seleccione Acciones en **Personalizar las acciones**.
+1. En **Detalles de alertas**, especifique el nombre de la regla de alerta y agregue una descripción opcional.
+1. Establezca el **Nivel de gravedad** del evento. Se recomienda que lo establezca en **Crítico (gravedad 0)** .
+1. Under **Habilitar regla tras la creación**, deje el valor como **sí**.
+1. Para desactivar las alertas durante un tiempo, active la casilla **Suprimir alertas**, escriba la duración de la pausa antes de reanudar las alertas y seleccione **Guardar**.
+1. Haga clic en **Crear regla de alertas**.
+
+### <a name="create-an-action-group"></a>Creación de un grupo de acciones
+
+1. Seleccione **Create an action group** (Crear un grupo de acciones).
+
+    ![crear un grupo de acciones para las acciones de notificación](./media/directory-emergency-access/action-group-image3.png)
+
+1. Escriba el nombre del grupo de acciones y un nombre corto.
+1. Compruebe la suscripción y el grupo de recursos.
+1. En Tipo de acción, seleccione **Correo electrónico/SMS/Push/Voz**.
+1. Escriba un nombre de acción como **Notificar al administrador global**.
+1. Seleccione el **Tipo de acción** como **Correo electrónico/SMS/Push/Voz**.
+1. Seleccione **Editar detalles** para seleccionar los métodos de notificación que quiere configurar y escriba la información de contacto necesaria. Después, seleccione **Aceptar** para guardar los detalles.
+1. Agregue las acciones adicionales que quiera desencadenar.
+1. Seleccione **Aceptar**.
+
+## <a name="validate-accounts-regularly"></a>Validación de las cuentas de forma regular
+
+Cuando entrena a los miembros del personal en el uso de cuentas de acceso de emergencia y validar dichas cuentas, como mínimo debe seguir estos pasos a intervalos regulares:
 
 - Asegúrese de que el personal de supervisión de seguridad sea consciente de que la actividad de comprobación de las cuentas es continua.
 - Asegúrese de que el proceso para escenarios de máxima emergencia en los que se usarán estas cuentas está documentado y es actual.

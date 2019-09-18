@@ -1,21 +1,21 @@
 ---
 title: Configurar el firewall de base de datos de SQL de Azure Blockchain Workbench
-description: Vea cómo configurar el firewall de base de datos de SQL de Azure Blockchain Workbench.
+description: Obtenga información sobre cómo configurar el firewall de base de datos de SQL de la versión preliminar de Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: d56e7f4750510dc7bb50dbb316dce320b8e8d12b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510020"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845221"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar el firewall de base de datos de Azure Blockchain Workbench
 

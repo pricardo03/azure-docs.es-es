@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875659"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861394"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -41,7 +41,15 @@ El equipo de Site Recovery trabaja con el equipo de administración de la capaci
 ## <a name="replication"></a>Replicación
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>¿Puedo replicar máquinas virtuales habilitadas a través de Azure Disk Encryption?
-Sí, puede replicarlas. Vea el artículo [Replicación de máquinas virtuales habilitadas para Azure Disk Encryption (ADE) en otra región de Azure](azure-to-azure-how-to-enable-replication-ade-vms.md). Actualmente, Azure Site Recovery solo admite máquinas virtuales de Azure con el sistema operativo Windows y que estén habilitadas para el cifrado con aplicaciones de Azure Active Directory (Azure AD).
+
+Sí, Site Recovery admite la recuperación ante desastres de máquinas virtuales con Azure Disk Encryption (ADE) habilitado. Cuando está habilitada la replicación, todos los secretos y claves de cifrado del disco necesarios se copian desde la región de origen en el contexto del usuario. Si no tiene el permiso adecuado, se puede entregar un script listo para usar al administrador de seguridad para copiar las claves y los secretos.
+
+- Site Recovery admite ADE para las máquinas virtuales de Azure que ejecutan Windows.
+- Site Recovery admite la versión de ADE 0.1, con un esquema que usa Azure Active Directory (AAD); así como la versión 1.1 sin AAD. [Más información](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Para ADE versión 1.1, las máquinas virtuales de Windows deben usar discos administrados.
+- [Más información](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre la habilitación de la replicación para máquinas virtuales cifradas.
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>¿Se pueden replicar máquinas virtuales en otra suscripción?
 Sí, puede replicar máquinas virtuales de Azure en otra suscripción que esté en el mismo inquilino de Azure AD.

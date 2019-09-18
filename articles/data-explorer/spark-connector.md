@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 0fe81926327bcccac56718cc0d06e336e1af17fe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165084"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383049"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector de Azure Data Explorer para Apache Spark (versión preliminar)
 
@@ -21,7 +21,7 @@ ms.locfileid: "70165084"
 El conector de Azure Data Explorer para Spark implementa el origen y el receptor de datos para mover datos entre clústeres de Azure Data Explorer y Spark y utilizar sus capacidades. Con Azure Data Explorer y Apache Spark, se pueden crear aplicaciones rápidas y escalables orientadas a escenarios controlados por datos, tales como el aprendizaje automático, la extracción, transformación y carga de datos (ETL), y Log Analytics. La escritura en Azure Data Explorer puede realizarse en modo de transmisión por secuencias y por lotes.
 La lectura desde Azure Data Explorer admite la eliminación de columnas y la aplicación del predicado, lo que reduce el volumen de datos transferidos mediante el filtrado de datos en Azure Data Explorer.
 
-El conector de Spark de Azure Data Explorer es un [proyecto de código abierto](https://github.com/Azure/azure-kusto-spark) que se puede ejecutar en cualquier clúster de Spark.
+El conector de Spark de Azure Data Explorer es un [proyecto de código abierto](https://github.com/Azure/azure-kusto-spark) que se puede ejecutar en cualquier clúster de Spark. El conector de Spark de Azure Data Explorer convierte a Azure Data Explorer en un almacén de datos válido para las operaciones estándar de origen y receptor de Spark, como escritura, lectura y writeStream. 
 
 > [!NOTE]
 > Aunque algunos de los ejemplos siguientes se refieren a un clúster de Spark de [Azure Databricks](https://docs.azuredatabricks.net/), el conector de Spark de Azure Data Explorer no tiene dependencias directas en Databricks ni en ninguna otra distribución de Spark.

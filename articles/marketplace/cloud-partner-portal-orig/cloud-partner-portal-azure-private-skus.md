@@ -5,14 +5,14 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935919"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883124"
 ---
 <a name="private-skus-and-plans"></a>SKU y planes privados
 ============
@@ -51,9 +51,7 @@ Puede proporcionar nuevos discos para la SKU privada o volver a usar los mismos 
 
 ![Indicar la reutilización de imágenes](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-Después de confirmar que la SKU reutiliza las imágenes de otra SKU, deben identificar la SKU de origen de las imágenes.
-
-Los mensajes de la siguiente captura de pantalla muestran cómo identificar si la SKU privada volvería a usar las imágenes de la SKU seleccionada:
+Después de confirmar que la SKU reutiliza las imágenes, seleccione la SKU de origen o de *base* para las imágenes:
 
 ![Seleccionar una imagen](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
@@ -84,15 +82,93 @@ Contenido del archivo CSV de ejemplo:
 
 Al cambiar de la vista de entrada manual a la de carga de CSV o de la entrada de CSV a la entrada manual, no se conserva la lista antigua de identificadores de suscripción con acceso a la SKU. Se muestra una advertencia y solo se sobrescribe la lista al guardar la oferta.
 
-<a name="sync-private-subscriptions"></a>Suscripciones de sincronización privada
+<a name="managing-private-audiences"></a>Administración de audiencias privadas
 -------------------------
 
-Al agregar suscripciones a una oferta publicada con una SKU o plan privados, no es necesario volver a publicar la oferta para agregar información de la audiencia. Simplemente use un id. de suscripción de Azure (planes y SKU) o el id. de inquilino (solo planes) para agregar la audiencia.
+**Para actualizar la audiencia sin volver a publicar toda la oferta, realice los cambios de audiencia que quiera (mediante la interfaz de usuario o la API) y, a continuación, inicie la acción "Sincronizar audiencias privadas".**
 
-<a name="previewing-private-offers"></a>Obtener una vista previa de las ofertas privadas
+Si la audiencia es de 10 o menos suscripciones, puede administrarla completamente mediante la interfaz de usuario de CPP.
+
+Si su audiencia tiene más de 10 suscripciones, puede administrarla mediante un archivo CSV que puede cargar en la interfaz de usuario de CPP o con la API.
+
+Si usa la API y no quiere mantener un archivo CSV, puede administrar al público directamente mediante la API según las instrucciones a continuación.
+
+> [!NOTE]
+> Use un id. de suscripción de Azure (planes y SKU) o el id. de inquilino (solo planes) para agregar la audiencia a la oferta privada.
+
+###  <a name="managing-subscriptions-with-the-api"></a>Administración de suscripciones con la API
+
+Puede usar la API para cargar un archivo CSV o administrar la audiencia directamente (sin usar un archivo CSV). En general, solo tiene que recuperar la oferta, actualizar el objeto `restrictedAudience` y, a continuación, enviar los cambios de vuelta a la oferta para agregar o quitar miembros de la audiencia.
+
+A continuación se indica cómo actualizar la lista de audiencias mediante programación:
+
+1. [Recupere los datos de la oferta](cloud-partner-portal-api-retrieve-specific-offer.md):
+
+    ```
+    GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
+    ```
+
+2. Busque objetos de audiencia restringidos en cada SKU de la oferta mediante esta consulta JPath:
+
+    ```
+    $.definition.plans[*].restrictedAudience
+    ```
+3. Actualice los objetos de audiencia restringidos para su oferta.
+
+    **Si originalmente cargó la lista de suscripciones para la oferta privada desde un archivo CSV:**
+
+    Los objetos *restrictedAudience* tendrán el siguiente aspecto.
+    ```
+    "restrictedAudience": {
+                  "uploadedCsvUri": "{SasUrl}"
+    }
+    ```
+
+    Para cada objeto de audiencia restringida:
+
+    a. Descargue el contenido de `restrictedAudience.uploadedCsvUri`. El contenido es simplemente un archivo CSV con encabezados. Por ejemplo:
+
+        type,id,description
+        subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
+        subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
+
+    b. Agregue o elimine las suscripciones en el archivo CSV descargado según sea necesario.
+
+    c. Cargue el archivo CSV actualizado en una ubicación, como [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) o [OneDrive](https://onedrive.live.com), y cree un vínculo de solo lectura en el archivo. Este será la nueva *SasUrl*.
+
+    d. Actualice la clave `restrictedAudience.uploadedCsvUri` con la nueva *SasUrl*.
+
+    **Si especificó manualmente la lista original de suscripciones de la oferta privada en Cloud Partner Portal:**
+
+    Los objetos *restrictedAudience* tendrán un aspecto similar al siguiente:
+
+    ```
+    "restrictedAudience": {
+        "manualEntries": [{
+            "type": "subscriptionId",
+            "id": "541a269f-3df2-486e-8fe3-c8f9dcf28205",
+            "description": "sub1"
+            }, {
+            "type": "subscriptionId",
+            "id": "c0da499c-25ec-4e4b-a42a-6e75635253b9",
+            "description": "sub2"
+            }
+        ]}
+    ```
+
+    a. Para cada objeto de audiencia restringido, agregue o elimine las entradas en la lista `restrictedAudience.manualEntries` según sea necesario.
+
+4. Cuando termine de actualizar todos los objetos *restrictedAudience* para cada SKU de la oferta privada, [actualice la oferta](cloud-partner-portal-api-creating-offer.md):
+
+    ```
+    PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
+    ```
+    Gracias a ello, la lista de audiencias actualizada ahora está en vigor.
+
+<a name="previewing-private-offers"></a>Vista previa de las ofertas privadas
 -------------------------
 
-Durante el paso de previsualización o almacenamiento provisional, solo podrán acceder a la SKU las suscripciones de versión preliminar de nivel de la oferta. Esta es la fase de pruebas durante la cual puede validar el aspecto de la oferta para sus clientes de destino. Esta fase es estándar para todos los tipos de publicación.
+Durante el paso de previsualización o almacenamiento provisional, solo podrán acceder a la SKU las suscripciones de versión preliminar de nivel de la oferta. En esta fase de prueba puede obtener una vista previa de la oferta tal y como aparecería para los clientes de destino.
 
 Suscripciones de versión preliminar de nivel de la oferta para acceder a ofertas almacenadas temporalmente:
 

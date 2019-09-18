@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566687"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773207"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -37,7 +37,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|
 |Retención de copias de seguridad|7 días|35 días|35 días|
 |CPU|Bajo|Bajo, medio, alto|Medio, alto|
-|Rendimiento de E/S (aproximado) |2,5 IOPS por DTU| 2,5 IOPS por DTU | 48 IOPS por DTU|
+|Rendimiento de E/S (aproximado) |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
 |Latencia de E/S (aproximada)|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
 |Índice de almacén de columnas |N/D|S3 y versiones posteriores|Compatible|
 |OLTP en memoria (optimización en memoria|N/D|N/D|Compatible|

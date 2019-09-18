@@ -1,19 +1,18 @@
 ---
-title: Ejecución de un simulacro de recuperación ante desastres en Azure mediante Azure Site Recovery | Microsoft Docs
+title: Ejecución de un simulacro de recuperación ante desastres en Azure mediante Azure Site Recovery
 description: Obtenga información sobre cómo ejecutar un simulacro de recuperación ante desastres desde el entorno local a Azure mediante el servicio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399934"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814359"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure 
 

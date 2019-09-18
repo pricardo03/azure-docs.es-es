@@ -1,6 +1,6 @@
 ---
 title: 'Solución de VMware en Azure de CloudSimple: establecimiento de una nube privada como sitio de recuperación ante desastres mediante VMware Site Recovery Manager'
-description: Describe cómo configurar la nube privada de CloudSimple como un sitio de recuperación ante desastres para las cargas de trabajo locales de VMware.
+description: Describe cómo configurar la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972788"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846146"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configuración de una nube privada como destino de recuperación ante desastres con VMware Site Recovery Manager
 
@@ -33,6 +33,8 @@ La solución de CloudSimple requiere que haga lo siguiente:
 * Proporcione sus propias licencias para SRM cuando la nube privada sea el sitio protegido. No necesita ninguna licencia de SRM adicional para el sitio de CloudSimple cuando se usa como sitio de recuperación.
 
 Con esta solución, tiene control total sobre vSphere Replication y SRM. La UI y las interfaces conocidas de la API y la CLI permiten el uso de los scripts y las herramientas existentes.
+
+![Implementación del Site Recovery Manager](media/srm-deployment.png)
 
 Puede usar cualquier versión de vRA y SRM que sea compatible con la nube privada y los entornos locales. En los ejemplos de esta guía se usan vRA 6.5 y SRM 6.5. Estas versiones son compatibles con vSphere 6.5, cuya versión también es compatible con CloudSimple.
 

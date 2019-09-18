@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707832"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814118"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight
 
@@ -54,11 +54,11 @@ En la interfaz de usuario de Spark, puede explorar en profundidad los trabajos d
     ![Ver ejecutores de Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Haga clic en la pestaña **Stages** (Fases) para ver las fases asociadas a la aplicación.
    
-    ![Ver fases de Spark](./media/apache-spark-job-debugging/view-spark-stages.png)
+    ![Visualización de las fases de Spark](./media/apache-spark-job-debugging/view-spark-stages.png "Visualización de las fases de Spark")
    
     Cada fase puede tener varias tareas de las que puede ver las estadísticas de ejecución, como se muestra a continuación.
    
-    ![Ver fases de Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
+    ![Visualización de los detalles de las fases de Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Visualización de los detalles de las fases de Spark") 
 4. En la página de detalles de la fase, puede iniciar la visualización de DAG. Expanda el vínculo **DAG Visualization** (Visualización de DAG) en la parte superior de la página, como se muestra a continuación.
    
     ![Ver visualización DAG de las fases de Spark](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
@@ -87,14 +87,14 @@ Cuando se completa un trabajo, se conserva la información sobre este en el serv
 
 1. Para iniciar el servidor de historial de Spark, en la hoja de información general, haga clic en **Servidor de historial de Spark** en **Paneles de clúster**.
    
-    ![Iniciar servidor de historial de Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Inicio del servidor de historial de Spark1](./media/apache-spark-job-debugging/launch-spark-history-server.png "Inicio del servidor de historial de Spark1")
    
    > [!TIP]  
    > También puede iniciar la interfaz de usuario del servidor de historial de Spark desde la de Ambari. Para iniciar la UI de Ambari, en la hoja de información general, haga clic en **Inicio de Ambari** en **Paneles de clúster**. En la interfaz de usuario de Ambari, haga clic en **Spark**, en **Vínculos rápidos** y en **Spark History Server UI** (IU del servidor de historial de Spark).
 
 2. Aparecerá una lista de todas las aplicaciones completadas. Haga clic en un identificador de aplicación para explorar en profundidad una aplicación para obtener más información.
    
-    ![Iniciar servidor de historial de Spark](./media/apache-spark-job-debugging/view-completed-applications.png)
+    ![Inicio del servidor de historial de Spark2](./media/apache-spark-job-debugging/view-completed-applications.png "Inicio del servidor de historial de Spark2")
 
 ## <a name="see-also"></a>Otras referencias
 *  [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)

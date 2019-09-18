@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706520"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845453"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
@@ -83,10 +83,10 @@ Al ejecutar el comando `Get-LogicAppTemplate` con esta herramienta, el comando o
 
 ### <a name="generate-template-with-powershell"></a>Generación de plantillas con PowerShell
 
-Para generar la plantilla después de instalar el módulo LogicAppTemplate, ejecute este comando de PowerShell:
+Para generar la plantilla después de instalar el módulo LogicAppTemplate y la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ejecute este comando de PowerShell:
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 Para seguir la recomendación de la canalización en un token desde la [herramienta de cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient), ejecute este comando como alternativa donde `$SubscriptionId` sea su identificador de suscripción de Azure:

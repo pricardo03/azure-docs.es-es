@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072409"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861256"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Direcciones IP de Azure API Management
 
@@ -27,7 +27,9 @@ Puede usar direcciones IP para crear reglas de firewall, filtrar el tráfico ent
 
 ## <a name="ip-addresses-of-api-management-service"></a>Direcciones IP del servicio API Management
 
-Si el servicio API Management es un servicio con el nivel Desarrollador, Básico, Estándar o Premium, puede recuperar las direcciones IP desde el panel de información general del recurso en Azure Portal.
+Cada instancia de servicio de API Management en el nivel de Desarrollador, Básico, Estándar o Premium tiene direcciones IP públicas, que solo son exclusivas de esa instancia de servicio (no se comparten con otros recursos). 
+
+Puede recuperar las direcciones IP desde el panel de información general del recurso en Azure Portal.
 
 ![Direcciones IP de API Management](media/api-management-howto-ip-addresses/public-ip.png)
 
@@ -100,5 +102,6 @@ En los niveles Desarrollador, Básico, Estándar y Premium de API Management, la
 * El servicio se elimina y se vuelve a crear.
 * La suscripción al servicio se [suspende](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o se [advierte](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por ejemplo, por falta de pago) y luego se reinstaura.
 * Azure Virtual Network se agrega o se quita del servicio.
+* El servicio API Management se cambia entre los modos de implementación de red virtual externa e interna.
 
 En las [implementaciones en varias regiones](api-management-howto-deploy-multi-region.md), la dirección IP regional cambia si una región está vacía y, posteriormente, se restituye.

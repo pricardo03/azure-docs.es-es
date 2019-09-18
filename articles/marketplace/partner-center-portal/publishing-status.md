@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191785"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883410"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Comprobación del estado de publicación de una oferta de Marketplace comercial
 
@@ -98,6 +98,9 @@ Este informe contiene descripciones de las directivas con error, junto con notas
 ## <a name="preview-creation"></a>Creación de versión preliminar
 
 Durante el paso **Creación de versión preliminar** creamos una versión de la oferta accesible solo a la audiencia que especificó en la sección de versión preliminar de esta.
+
+>[!Note]
+> No utilice este paso para otorgar visibilidad sobre la oferta a personas ajenas a la organización. En su lugar, use la opción **Oferta privada**. En este momento, la oferta no se ha probado y validado por completo y no está lista para distribuirse fuera de la organización.
 
 ## <a name="publisher-approval"></a>Aprobación del anunciante
 

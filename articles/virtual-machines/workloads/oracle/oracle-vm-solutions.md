@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 3d3805fe5a574d3e6ecd9a6fa8f95dd28f308d25
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101389"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858561"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
 
@@ -58,11 +58,8 @@ Estas imágenes se consideran "Traiga su propia licencia" y, por tanto, solo se 
 
 Los individuos pueden elegir también basar sus soluciones en una imagen personalizada que crean desde cero en Azure o carga su imagen personalizada de su entorno local.
 
-## <a name="support-for-jd-edwards"></a>Compatibilidad con JD Edwards
-De acuerdo con la nota de compatibilidad de Oracle con el [identificador de documento 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), las versiones de JD Edwards EnterpriseOne 9.2 y superiores se admiten en **cualquier oferta de nube pública** que satisfaga sus `Minimum Technical Requirements` (MTR) específicos.  Debe crear imágenes personalizadas que cumplan sus especificaciones de MTR para la compatibilidad con el sistema operativo y la aplicación de software. 
-
 ## <a name="oracle-database-vm-images"></a>Imágenes de máquinas virtuales de base de datos de Oracle
-Oracle admite la ejecución de las ediciones Oracle DB 12.1 Standard y Enterprise en Azure en imágenes de máquina virtual basadas en Oracle Linux.  Para conseguir el mejor rendimiento para las cargas de trabajo de producción de Oracle DB en Azure, asegúrese de ajustar correctamente el tamaño de la imagen de máquina virtual y de usar discos administrados que estén respaldados por Premium Storage. Para obtener instrucciones sobre cómo conseguir poner en marcha rápidamente una instancia de Oracle DB en Azure mediante la imagen de máquina virtual publicada, [pruebe el tutorial de inicio rápido de Oracle DB](oracle-database-quick-create.md).
+Oracle admite la ejecución de las ediciones Oracle DB 12.1 y posteriores en edición Standard y Enterprise en Azure en imágenes de máquina virtual basadas en Oracle Linux.  Para conseguir el mejor rendimiento para las cargas de trabajo de producción de Oracle DB en Azure, asegúrese de ajustar correctamente el tamaño de la imagen de máquina virtual y de usar discos administrados SSD Premium o SSD Ultra. Para obtener instrucciones sobre cómo conseguir poner en marcha rápidamente una instancia de Oracle DB en Azure mediante la imagen de máquina virtual publicada, [pruebe el tutorial de inicio rápido de Oracle DB](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Opciones de configuración de discos conectados
 
@@ -80,6 +77,13 @@ Azure NetApp Files se diseñó para satisfacer los requisitos principales de la 
 Estas funcionalidades son posibles porque Azure NetApp Files está basado en sistemas all-flash de NetApp® ONTAP® que se ejecutan en el entorno del centro de datos de Azure como un servicio nativo de Azure. El resultado es una tecnología de almacenamiento de base de datos idónea que se puede aprovisionar y utilizar como otras opciones de almacenamiento de Azure. Consulte la [documentación de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) para más información sobre cómo implementar y acceder a los volúmenes NFS de Azure NetApp Files. Consulte [Guía de procedimientos recomendados para la implementación de Oracle en Azure con Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) para conocer los procedimientos recomendados para manejar una base de datos de Oracle en Azure NetApp Files.
 
 
+## <a name="licensing-oracle-database--software-on-azure"></a>Licencias para Oracle Database y software en Azure
+Microsoft Azure es un entorno de nube autorizado para ejecutar Oracle Database. La tabla de factores de núcleos de Oracle no se aplica al conceder licencias a las bases de datos de Oracle en la nube. En su lugar, al usar las máquinas virtuales con la tecnología Hyper-Threading habilitada para las bases de datos de la edición Enterprise, cuente dos vCPU como equivalentes a una licencia de procesador de Oracle si el hyperthreading está habilitado (como se indica en el documento de directiva). Puede consultar los detalles de la directiva [aquí](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Las bases de datos de Oracle suelen requerir una mayor cantidad de memoria y E/S. Por esta razón, se recomienda usar [máquinas virtuales optimizadas para memoria](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) para estas cargas de trabajo. Para optimizar aún más las cargas de trabajo, se recomiendan las [CPU virtuales principales restringidas](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) para las cargas de trabajo Oracle DB que requieran gran cantidad de memoria, almacenamiento y ancho de banda de E/S, pero no un gran número de núcleos.
+
+Al migrar el software y las cargas de trabajo de Oracle del entorno local a Microsoft Azure, Oracle ofrece movilidad de licencias como se indica en las [preguntas más frecuentes sobre Oracle en Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
+
+
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Clúster de aplicaciones reales de Oracle (Oracle RAC)
 Oracle RAC está diseñado para mitigar el error de un único nodo en una configuración local de clúster de varios nodos. Se basa en dos tecnologías locales que no son nativas para los entornos de nube pública de hiperescala: multidifusión y disco compartido de red. Si la solución de base de datos requiere Oracle RAC en Azure, se necesita software de terceros para habilitar estas tecnologías. Para más información sobre Oracle RAC, consulte la [página de FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
@@ -95,6 +99,11 @@ Con la Protección de datos de Oracle, se puede lograr alta disponibilidad con u
 En el tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) (Implementación de Oracle GoldenGate en Azure) se describe el procedimiento de configuración básico en Azure.
 
 Además de tener una solución de alta disponibilidad y recuperación ante desastres diseñada en Azure, debe contar con una estrategia de copia de seguridad en vigor para restaurar la base de datos. En el tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) (Copia de seguridad y recuperación de una instancia de Oracle Database) se describe el procedimiento básico para establecer una copia de seguridad coherente.
+
+
+## <a name="support-for-jd-edwards"></a>Compatibilidad con JD Edwards
+De acuerdo con la nota de compatibilidad de Oracle con el [identificador de documento 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), las versiones de JD Edwards EnterpriseOne 9.2 y superiores se admiten en **cualquier oferta de nube pública** que satisfaga sus `Minimum Technical Requirements` (MTR) específicos.  Debe crear imágenes personalizadas que cumplan sus especificaciones de MTR para la compatibilidad con el sistema operativo y la aplicación de software. 
+
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Imágenes de máquina virtual de Oracle WebLogic Server
 

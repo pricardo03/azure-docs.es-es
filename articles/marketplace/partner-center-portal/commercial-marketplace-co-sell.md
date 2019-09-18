@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 8524a315228601adbb30a5def383f7b54a8f1495
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076044"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773218"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
@@ -47,10 +47,10 @@ Las áreas de solución ayudan a definir los escenarios que su oferta dirige.
 
 | **Documentos**    | **Descripción**  |
 | :------------------- | :-------------------|
-| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes a continuación: <br> <ul> <li> [Plantilla de buscapersonas de Microsoft Azure](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Plantilla de buscapersonas de Microsoft Dynamics 365](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Plantilla de buscapersonas de Office 365](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Plantilla de buscapersonas de Windows 10](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes disponibles en el centro de partners: <br> <ul> <li> Plantilla de una página de Microsoft Azure </li> <li> Plantilla de una página de Microsoft Dynamics 365 </li> <li> Plantilla de una página de Office 365 </li> <li> Plantilla de una página de Windows 10 </li> </ul>
  |
-| *Presentación del cliente* | Diapositivas para lanzar su solución y su propuesta de valor. Tras asegurarse de que su oferta está lista para el cliente, los equipos de ventas de Microsoft pueden compartir la presentación con los clientes para expresar el valor que traen ambas empresas al implementar una solución conjunta. En la presentación debe tratarse lo que hace su solución, cómo puede ayudar a los clientes, para qué sectores es la solución y cómo se compara con las soluciones de la competencia. <br> <br> Para obtener más información, consulte la [plantilla Presentación del cliente](https://aka.ms/GTMServices_CustomerPresentation).|
-| *Caso práctico del cliente* | En esta información se muestra a un posible cliente cómo han implementado tanto Microsoft como usted esta solución en casos anteriores. <br> <br> Para obtener más información, consulte la [plantilla de caso práctico](https://aka.ms/GTM_Case_Study_Template). |
+| *Presentación del cliente* | Diapositivas para lanzar su solución y su propuesta de valor. Tras asegurarse de que su oferta está lista para el cliente, los equipos de ventas de Microsoft pueden compartir la presentación con los clientes para expresar el valor que traen ambas empresas al implementar una solución conjunta. En la presentación debe tratarse lo que hace su solución, cómo puede ayudar a los clientes, para qué sectores es la solución y cómo se compara con las soluciones de la competencia. <br> <br> Utilice la plantilla disponible en el centro de partners.|
+| *Caso práctico del cliente* | En esta información se muestra a un posible cliente cómo han implementado tanto Microsoft como usted esta solución en casos anteriores. <br> <br> Utilice la plantilla disponible en el centro de partners. |
 | *Logros de clientes comprobables (opcional)* | Ejemplos específicos de éxitos de clientes tras la implementación de su solución. |
 | *Presentación del canal (opcional)* | Diapositivas con información que ayudarán a los revendedores del canal a obtener más información sobre su solución y a preparar sus equipos de ventas para vender su oferta. Suele incluir un "discurso de ascensor", información sobre los clientes de destino, preguntas que formular a los clientes, puntos de conversación y vínculos a vídeos, documentación e información de soporte técnico. |
 | *Diagramas de la arquitectura de referencia* | Un documento en el que se muestra el modelo que representa la IP creada por el asociado, junto con su relación con los servicios en la nube de Microsoft y cómo cumple los requisitos técnicos del programa de venta conjunta de IP. |

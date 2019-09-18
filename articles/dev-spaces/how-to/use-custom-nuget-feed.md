@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Use una fuente NuGet personalizada para acceder a paquetes NuGet y utilizarlos en Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 manager: gwallace
-ms.openlocfilehash: 44a87491d276e09e1fa8fed3f5e6803648c3e4a2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305402"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873260"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Uso de una fuente NuGet personalizada en Azure Dev Spaces
 
@@ -33,7 +33,7 @@ Agregue una [referencia de paquete](https://docs.microsoft.com/nuget/consume-pac
 </ItemGroup>
 ```
 
-Cree un archivo [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) en la carpeta del proyecto y defina las secciones `packageSources` y `packageSourceCredentials` de la fuente de NuGet. La sección `packageSources` contiene la dirección URL de la fuente, que debe ser de acceso público. `packageSourceCredentials` se corresponde con las credenciales para acceder a la fuente. Por ejemplo:
+Cree un archivo [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) en la carpeta del proyecto y defina las secciones `packageSources` y `packageSourceCredentials` de la fuente de NuGet. La sección `packageSources` contiene la dirección URL de la fuente, a la que debe poder acceder desde el clúster de AKS. `packageSourceCredentials` se corresponde con las credenciales para acceder a la fuente. Por ejemplo:
 
 ```xml
 <packageSources>

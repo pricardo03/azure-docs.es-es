@@ -2,24 +2,19 @@
 title: Administración de incidentes de seguridad en Azure Security Center | Microsoft Docs
 description: Este documento le ayuda a usar Azure Security Center para administrar incidentes de seguridad.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047618"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873374"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Administración de incidentes de seguridad en Azure Security Center
 
@@ -41,7 +36,7 @@ En Security Center, un incidente de seguridad es la suma de todas las alertas de
 
     ![Respuesta a incidentes de seguridad en Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. Para más información sobre cada alerta, haga clic en una alerta. La corrección sugerida por Security Center varía según la alerta de seguridad. La corrección sugerida por Security Center varía según la alerta de seguridad. 
+1. Para más información sobre cada alerta, haga clic en una alerta. La corrección sugerida por Security Center varía según la alerta de seguridad.
 
    > [!NOTE]
    > La misma alerta puede existir como parte de un incidente y estar visible como alerta independiente.

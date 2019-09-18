@@ -1,18 +1,18 @@
 ---
 title: Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido
-description: Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido
+description: Uso de Caffe en Apache Spark para el aprendizaje profundo distribuido en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721520"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814202"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido
 
@@ -175,7 +175,7 @@ En este ejemplo, dado que se va a usar la CPU, en lugar de la GPU, es preciso ca
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Configuración de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Configuración 1 de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
 
 Puede cambiar otras líneas si fuera necesario.
 
@@ -184,7 +184,7 @@ El segundo archivo (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) def
 - cambie "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" a "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - cambie "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" a "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Configuración de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Configuración 2 de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
 Para obtener más información acerca de cómo definir la red, consulte la [documentación de Caffe en el conjunto de datos MNIST](https://caffe.berkeleyvision.org/gathered/examples/mnist.html).
 

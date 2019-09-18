@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972613"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845475"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -108,7 +108,7 @@ Para obtener más información, consulte [Redes privadas virtuales](https://docs
 
 En los pasos siguientes se muestra cómo capturar el identificador del enrutador lógico de la instancia de enrutador lógico de DR de nivel 0 para los servicios IPsec y L2VPN. El identificador del enrutador lógico se necesitará más adelante al implementar L2VPN.
 
-1. Inicie sesión en el administrador de NSX (https://nsx-t-manager-ip-address) ) y seleccione **Redes** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Información general**. En **Modo de alta disponibilidad**, seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
+1. Inicie sesión en el administrador de NSX-T (https://*nsx-t-manager-ip-address*) y seleccione **Redes** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Información general**. En **Modo de alta disponibilidad**, seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
 
     ![Selección de espera activo](media/l2vpn-fetch01.png)
 
