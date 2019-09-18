@@ -63,19 +63,6 @@ sections:
             html: "<p>Ayude a proteger las bases de datos con la autenticación de Azure\_AD, Virtual Network, firewalls y conexiones Always Encrypted. Identifique las amenazas y vulnerabilidades con la seguridad integrada.</p>"
             image:
               src: media/index/i_security.svg
-  - title: Novedades y características de la versión preliminar
-    items:
-      - type: paragraph
-        text: 'Estamos mejorando continuamente la base de datos SQL Database con nuevas características y nos gustaría escuchar sus comentarios sobre las siguientes:'
-      - type: list
-        style: unordered
-        items:
-          - html: "(Versión preliminar) Nivel <a href=\"sql-database-service-tier-hyperscale\">Hiperescala</a> que admite bases de datos de hasta 100\_TB y varias réplicas legibles."
-          - html: "(Versión preliminar) Nuevas características de <a href=\"https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017\">procesamiento inteligente de consultas</a> de SQL Server\_2019, como <a href=\"https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation\">compilación diferida de variables de tabla</a>, <a href=\"https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore\">modo por lotes en tablas de almacén de filas</a> e <a href=\"https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json\">inserción escalar de UDF</a>."
-          - html: '(Versión preliminar) Nuevas funcionalidades del lenguaje Transact-SQL, como <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">el agregado APROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">importación masiva desde Azure Blob Storage</a>.'
-          - html: "(Versión preliminar) Nuevas operaciones de índice de almacén de columnas en clúster de SQL Server\_2019 Online de <a href=\"https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off\">creación</a> y regeneración."
-          - html: '(Versión preliminar) Nuevo <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Machine Learning Services (con R) en Azure SQL Database</a>.'
-          - html: '(Versión preliminar) El nuevo <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">nivel de proceso sin servidor</a> proporciona escalado automático de proceso y se factura por segundo para el proceso que se usa.'
   - title: Inicios rápidos en cinco minutos
     items:
       - type: paragraph
@@ -88,7 +75,7 @@ sections:
             title: Portal de Azure
           - image:
               src: media/index/cli.svg
-            title: Azure CLI
+            title: CLI de Azure
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -96,7 +83,7 @@ sections:
               src: media/index/logo_arm.svg
             title: Plantilla del Administrador de recursos de Azure
         rows:
-          - title: Creación de una base de datos
+          - title: Crear una base de datos
             values:
               - href: /azure/sql-database/sql-database-single-database-get-started
               - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli

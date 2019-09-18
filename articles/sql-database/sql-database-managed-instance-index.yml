@@ -62,26 +62,6 @@ sections:
           - title: Seguridad avanzada
             href: /azure/sql-database/sql-database-security-index
             html: <p>Proteja su instancia y las bases de datos con las características de seguridad integradas en Azure SQL Database.<p>
-  - title: Novedades y características de la versión preliminar
-    items:
-      - type: paragraph
-        text: 'Estamos mejorando Instancia administrada continuamente con características nuevas:'
-      - type: list
-        style: unordered
-        items:
-          - html: '(Versión preliminar) <a href="/azure/sql-database/sql-database-instance-pools"> Grupos de instancias</a>: proporcionan una manera útil y rentable de migrar pequeñas instancias de SQL a la nube.'
-          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 núcleos virtuales en la generación de hardware Gen5</a>'
-          - html: "Compatibilidad con las suscripciones con <a href=\"https://aka.ms/sql-mi-visual-studio-subscribers\" > crédito mensual de Azure para suscriptores de Visual\_Studio</a>"
-          - html: "Compatibilidad con <a href=\"https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019\"> SharePoint\_2016 y SharePoint\_2019 </a> y <a href=\"https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance\"> Dynamics\_365 Business Central </a>"
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configuración de zona horaria</a> durante la creación de la instancia.'
-          - html: 'Cree instancias con la <a href="https://aka.ms/managed-instance-collation">intercalación de nivel de servidor que elija</a>.'
-          - html: 'La funcionalidad de restauración geográfica le permite <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar la base de datos en otro centro de datos mediante PowerShell</a>.'
-          - html: '(Versión preliminar) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Recreación de bases de datos anuladas mediante PowerShell</a>'
-          - html: Las instancias administradas están protegidas con el <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall integrado</a>.
-          - html: '(Versión preliminar) <a href="https://aka.ms/managed-instance-tde-byok">Use claves de cifrado propias</a> al migrar bases de datos locales en las que ya se ha habilitado el cifrado de datos transparente (TDE).'
-          - html: '(Versión preliminar) Use <a href="https://aka.ms/managed-instance-failover-groups">grupos de conmutación por error distribuidos geográficamente</a> para mantener una copia de la instancia en la otra región y asegurarse de que los datos estarán disponibles incluso en caso de desastre regional.'
-          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Puede configurar la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. Tenga en cuenta que la retención de copias de seguridad a largo plazo (hasta 10 años) aún no está habilitada, por lo que se pueden usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">copias de seguridad de solo copia</a> como alternativa.'
-          - html: '(Versión preliminar) Las <a href="https://aka.ms/managed-instance-aadlogins">entidades de seguridad (inicios de sesión) de un servidor de Azure AD en el nivel de instancia</a> se crean mediante <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.'
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph

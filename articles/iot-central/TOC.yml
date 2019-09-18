@@ -35,8 +35,6 @@
   items:
     - name: Conexión de dispositivos
       items:
-        - name: Generación de una cadena de conexión del dispositivo
-          href: howto-generate-connection-string.md
         - name: Preparación y conexión de una aplicación de Node.js (genérica)
           href: howto-connect-nodejs.md
         - name: Preparación y conexión de una instancia de MXChip IoT DevKit
