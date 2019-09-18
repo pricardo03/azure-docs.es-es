@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 5e635064af21996b7bd87b9da0f6b1ec9aa29378
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307795"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382503"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Inicio rápido: Uso de automatización del hogar compilada previamente
 
@@ -80,7 +80,7 @@ Turn off the lights
 
 Compruebe que la intención con puntuación más alta se corresponde con la intención que espera para cada expresión de prueba.
 
-En este ejemplo, "Turn off the lights" está identificada correctamente como la intención con puntuación más alta de "HomeAutomation.TurnOff".
+En este ejemplo, `Turn off the lights` está identificada correctamente como la intención con puntuación más alta de **HomeAutomation.TurnOff**.
 
 [![Captura de pantalla del panel Probar con una expresión resaltada](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
 
@@ -97,83 +97,134 @@ Vuelva a seleccionar **Test** (Prueba) para contraer el panel de prueba.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consulta del punto de conexión con una expresión diferente
+## <a name="query-the-v2-api-prediction-endpoint"></a>Consulta del punto de conexión de predicción de la API V2
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Vaya al final de la dirección URL en la dirección, escriba `turn off the living room light` y presione Intro. El navegador muestra la versión V2 de la API de la respuesta JSON de el punto de conexión HTTP.
+1. Vaya al final de la dirección URL en la dirección, escriba `turn off the living room light` y presione Intro. El navegador muestra la versión de la **API V2** de la respuesta JSON del punto de conexión HTTP.
+
+    ```json
+    {
+      "query": "turn off the living room light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOff",
+        "score": 0.9753089
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.9753089
+        },
+        {
+          "intent": "HomeAutomation.QueryState",
+          "score": 0.01027893
+        },
+        {
+          "intent": "HomeAutomation.TurnUp",
+          "score": 0.006881481
+        },
+        {
+          "intent": "HomeAutomation.SetDevice",
+          "score": 0.006786365
+        },
+        {
+          "intent": "HomeAutomation.TurnDown",
+          "score": 0.005145787
+        },
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.004114749
+        },
+        {
+          "intent": "None",
+          "score": 0.000598924
+        }
+      ],
+      "entities": [
+        {
+          "entity": "living room",
+          "type": "HomeAutomation.Location",
+          "startIndex": 13,
+          "endIndex": 23,
+          "score": 0.94558233
+        },
+        {
+          "entity": "living room light",
+          "type": "HomeAutomation.DeviceName",
+          "startIndex": 13,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "living room light"
+            ]
+          }
+        },
+        {
+          "entity": "light",
+          "type": "HomeAutomation.DeviceType",
+          "startIndex": 25,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "light"
+            ]
+          }
+        }
+      ]
+    }
+    ```
+    
+## <a name="query-the-v3-api-prediction-endpoint"></a>Consulta del punto de conexión de predicción de la API V3
+
+En el caso de una [consulta de API V3](luis-migration-api-v3.md), en el explorador, cambie la solicitud HTTPS del método GET y cambie los valores entre corchetes angulares pos los suyos propios. 
+
+**Dirección URL de V2 con el método GET**:
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**
+
+**Dirección URL de V3 con el método GET**:
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
+
+El navegador muestra la versión de la **API V3** de la respuesta JSON del punto de conexión HTTP.
 
 ```json
 {
-  "query": "turn off the living room light",
-  "topScoringIntent": {
-    "intent": "HomeAutomation.TurnOff",
-    "score": 0.9753089
-  },
-  "intents": [
-    {
-      "intent": "HomeAutomation.TurnOff",
-      "score": 0.9753089
-    },
-    {
-      "intent": "HomeAutomation.QueryState",
-      "score": 0.01027893
-    },
-    {
-      "intent": "HomeAutomation.TurnUp",
-      "score": 0.006881481
-    },
-    {
-      "intent": "HomeAutomation.SetDevice",
-      "score": 0.006786365
-    },
-    {
-      "intent": "HomeAutomation.TurnDown",
-      "score": 0.005145787
-    },
-    {
-      "intent": "HomeAutomation.TurnOn",
-      "score": 0.004114749
-    },
-    {
-      "intent": "None",
-      "score": 0.000598924
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
+                "HomeAutomation.DeviceType": [
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-  ],
-  "entities": [
-    {
-      "entity": "living room",
-      "type": "HomeAutomation.Location",
-      "startIndex": 13,
-      "endIndex": 23,
-      "score": 0.94558233
-    },
-    {
-      "entity": "living room light",
-      "type": "HomeAutomation.DeviceName",
-      "startIndex": 13,
-      "endIndex": 29,
-      "resolution": {
-        "values": [
-          "living room light"
-        ]
-      }
-    },
-    {
-      "entity": "light",
-      "type": "HomeAutomation.DeviceType",
-      "startIndex": 25,
-      "endIndex": 29,
-      "resolution": {
-        "values": [
-          "light"
-        ]
-      }
-    }
-  ]
 }
 ```
-    
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

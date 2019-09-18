@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: ca1478801ad704888266175a23b6f436d067dd10
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950895"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882880"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Inicio rápido: Personalización de la biblioteca de cliente para Python
 
@@ -46,6 +46,9 @@ Después de obtener una clave del recurso o la suscripción de evaluación, cree
 
 * `PERSONALIZER_KEY` para la clave de recurso.
 * `PERSONALIZER_ENDPOINT` para el punto de conexión de recurso.
+
+En Azure Portal, los valores de clave y punto de conexión están disponibles en la página **Inicio rápido**.
+
 
 ### <a name="install-the-python-library-for-personalizer"></a>Instalación de la biblioteca de Python para Personalizer
 
@@ -108,6 +111,8 @@ A continuación, cree un método para devolver un cliente de Personalizer. El pa
 ## <a name="get-content-choices-represented-as-actions"></a>Obtención de opciones de contenido representadas como acciones
 
 Las acciones representan las opciones de contenido que desea que Personalizer clasifique. Agregue los métodos siguientes a la clase Program para obtener una entrada de usuario desde la línea de comandos para la hora del día y la preferencia alimentaria actual.
+
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 

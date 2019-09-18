@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679111"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913970"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guía de programación de Azure Event Hubs
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -140,7 +140,10 @@ La clase [EventProcessorHost][] también implementa un mecanismo de puntos de co
 
 ## <a name="publisher-revocation"></a>Revocación de publicador
 
-Además de las características avanzadas del entorno en tiempo de ejecución de [EventProcessorHost][], Event Hubs permite la revocación del publicador con el fin de impedir a publicadores específicos el envío de eventos a un centro de eventos. Estas características son útiles si se ha visto comprometido el token de un publicador o si una actualización de software está provocando que se comporten incorrectamente. En estas situaciones, es posible bloquear que la identidad del editor, que forma parte de su token de SAS, publique eventos.
+Además de las características avanzadas del entorno en tiempo de ejecución del host del procesador de eventos, el servicio Event Hubs permite la [revocación del editor](/rest/api/eventhub/revoke-publisher) con el fin de impedir a editores específicos el envío de eventos a un centro de eventos. Estas características son útiles si se ha visto comprometido el token de un publicador o si una actualización de software está provocando que se comporten incorrectamente. En estas situaciones, es posible bloquear que la identidad del editor, que forma parte de su token de SAS, publique eventos.
+
+> [!NOTE]
+> Actualmente, solo la API REST es compatible con esta característica ([revocación del editor](/rest/api/eventhub/revoke-publisher)).
 
 Para más información acerca de la revocación del publicador y cómo realizar envíos a Event Hubs como publicador, consulte el ejemplo de [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Publicación segura a gran escala de Event Hubs).
 

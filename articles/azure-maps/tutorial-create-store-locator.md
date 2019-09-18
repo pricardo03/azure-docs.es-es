@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2b68da881edd0406a85692d6e0586427a57b7806
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478854"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916432"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
 
@@ -35,7 +35,7 @@ Avance al [ejemplo de localizador de almacén activo](https://azuremapscodesampl
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar los pasos de este tutorial, primero debe [crear su cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y [obtener la clave de suscripción de su cuenta](./tutorial-search-location.md#getkey).
+Para realizar los pasos de este tutorial, primero debe [crear su cuenta de Azure Maps](./tutorial-search-location.md#createaccount) y seguir los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
 
 ## <a name="design"></a>Diseño
 

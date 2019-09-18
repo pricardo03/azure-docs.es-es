@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 686b21d3e02266af77687778c32f0d1ca6d55154
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607720"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383065"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Síntesis de voz en C++ en Windows mediante el SDK de Voz
 
-También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-cpp-windows.md) y la [traducción de voz](quickstart-translate-speech-cpp-windows.md).
+También hay guías de inicio rápido para el [reconocimiento](quickstart-cpp-windows.md) y la [traducción de voz](quickstart-translate-speech-cpp-windows.md).
 
-En este artículo, creará una aplicación de consola de C++ para Windows. Usará el [SDK de Voz](speech-sdk.md) de Cognitive Services para sintetizar la voz a partir de texto en tiempo real y reproducirla en los altavoces de su PC. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior (cualquier edición).
-
-La característica descrita en este artículo está disponible en [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
+En este artículo, creará una aplicación de consola de C++ para Windows. Usará el [SDK de Voz](speech-sdk.md) de Cognitive Services para sintetizar la voz a partir de texto en tiempo real y reproducirla en los altavoces de su PC. La aplicación se compila con el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019 (cualquier edición).
 
 Para obtener una lista completa de los idiomas o voces disponibles para la síntesis de voz, consulte la [compatibilidad con idiomas](language-support.md#text-to-speech).
 
@@ -37,7 +35,9 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Abra el archivo de origen *helloworld.cpp*. Reemplace todo el código que aparece debajo de la instrucción include inicial (`#include "stdafx.h"` o `#include "pch.h"`) por lo siguiente:
+1. Abra el archivo de origen **helloworld.cpp**.
+
+1. Reemplace todo el código por el fragmento siguiente:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -45,21 +45,17 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
 1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
-1. Guarde los cambios en el proyecto.
+1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-1. Compile la aplicación. En la barra de menús, elija **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+1. En la barra de menús, seleccione **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Compilar solución resaltada](media/sdk/qs-cpp-windows-06-build.png)
+1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Inicie la aplicación. En la barra de menús, elija **Depurar** > **Iniciar depuración** o bien presione **F5**.
+1. Diga una oración o frase en inglés. La aplicación transmite el texto a Speech Services, que envía la voz sintetizada a la aplicación para que se reproduzca en el altavoz.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. Aparece una ventana de consola que le pide que escriba texto. Escriba algunas palabras o una frase. El texto que escriba se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
-
-   ![Captura de pantalla de la salida de consola después de una síntesis correcta](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Salida de la consola después de una síntesis correcta](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -70,5 +66,5 @@ Se pueden encontrar ejemplos adicionales, por ejemplo, cómo guardar voz en un a
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalizar las fuentes de voz](how-to-customize-voice-font.md)
-- [Grabación de ejemplos de voz](record-custom-voice-samples.md)
+- [Creación de una voz personalizada](how-to-custom-voice-create-voice.md)
+- [Grabación de ejemplos de voz personalizada](record-custom-voice-samples.md)

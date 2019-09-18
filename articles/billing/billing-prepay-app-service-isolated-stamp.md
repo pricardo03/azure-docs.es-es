@@ -1,23 +1,23 @@
 ---
-title: Pago por adelantado del impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
-description: Obtenga información sobre cómo puede pagar por adelantado el impuesto sobre el timbre de Azure App Service aislado con la capacidad reservada a fin de ahorrar dinero.
+title: Ahorro de costos en el impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
+description: Aprenda a ahorrar costos en el impuesto sobre el timbre de Azure App Service aislado con capacidad reservada.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779999"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70806363"
 ---
-# <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Pago por adelantado del impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
+# <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Ahorro de costos en el impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
 
-Para ahorrar dinero en los impuestos sobre el timbre de Azure App Service aislado, puede preparar el uso que hará del timbre durante un plazo de tres años. Para comprar la capacidad reservada del impuesto sobre el timbre en entorno aislado, debe elegir la región de Azure en la que se implementará el timbre y el número de timbres que quiere comprar.
+Para ahorrar dinero en los impuestos sobre el timbre de Azure App Service aislado, puede confirmar una reserva para el uso que hará del timbre durante un plazo de tres años. Para comprar la capacidad reservada del impuesto sobre el timbre en entorno aislado, debe elegir la región de Azure en la que se implementará el timbre y el número de timbres que quiere comprar.
 
 Cuando compra una reserva, el uso del impuesto sobre el timbre en entorno aislado que coincide con los atributos de reserva deja de pagarse según las tarifas de pago por uso. La reserva se aplica automáticamente al número de timbres en entornos aislados que coinciden con el ámbito y la región de la capacidad reservada. No es necesario que asigne una reserva a un timbre aislado. La reserva no se aplica a los trabajos, por lo que los demás recursos asociados con el timbre se cobran por separado.
 
@@ -25,7 +25,7 @@ Cuando expira la capacidad reservada, los timbres en entornos aislados siguen ej
 
 ## <a name="determine-the-right-reservation-to-purchase"></a>Determinación de la reserva de compra adecuada
 
-Al comprar una reserva, paga por adelantado el uso que hará de las cantidades reservadas durante los tres años siguientes. Compruebe los datos de uso para determinar cuántos timbres de App Service aislado usa de forma coherente y es posible que use en un futuro.
+Al comprar una reserva, confirma el uso que hará de las cantidades reservadas durante los tres años siguientes. Compruebe los datos de uso para determinar cuántos timbres de App Service aislado usa de forma coherente y es posible que use en un futuro.
 
 Además, asegúrese de comprender cómo el timbre en entorno aislado emite el medidor de Linux o de Windows.
 
@@ -39,7 +39,7 @@ Compre reservas de timbres de Windows si tiene uno o más trabajos de Windows en
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Compra de la capacidad reservada de timbres en entornos aislados
 
-Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Para comprar la capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
+Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague la reserva [por adelantado o mensualmente](billing-monthly-payments-reservations.md). Para comprar la capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
 
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Data Warehouse son los agentes de administración o de ventas.
@@ -47,7 +47,7 @@ Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure P
 **Para comprar:**
 
 1. Vaya a [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Seleccione una suscripción. Utilice la lista **Suscripción** para elegir la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P) o una suscripción a CSP.
+1. Seleccione una suscripción. Utilice la lista **Suscripción** para elegir la que se va a usar para pagar la capacidad reservada. Los costos de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P) o una suscripción a CSP.
     - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
     - Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.
 1. Utilice un **ámbito** para elegir el ámbito de la suscripción.

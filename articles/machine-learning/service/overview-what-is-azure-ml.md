@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278124"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858651"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>¿Qué es el servicio Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Azure Machine Learning Service proporciona un entorno basado en la nube que pued
 
 Explore y prepare datos, entrene y pruebe modelos e impleméntelos mediante herramientas enriquecidas, como:
 + Una [interfaz visual](ui-tutorial-automobile-price-train-score.md) en la que se pueden arrastrar y colocar módulos para compilar sus experimentos y, después, implementar modelos.
-+ [Cuadernos de Jupyter Notebook](https://jupyter.org) en los que puede utilizar [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) para escribir su propio código como, por ejemplo [estos cuadernos de ejemplo](https://aka.ms/aml-notebooks).
++ [Cuadernos de Jupyter Notebook](https://jupyter.org) en los que puede utilizar [SDK](https://docs.microsoft.com/azure/machine-learning) para escribir su propio código como, por ejemplo [estos cuadernos de ejemplo](https://aka.ms/aml-notebooks).
 + [Extensión de Visual Studio Code](how-to-vscode-tools.md)
 
 
@@ -66,7 +66,7 @@ Para el entrenamiento sin código, pruebe:
 
 Cuando tenga el modelo adecuado, podrá usarlo fácilmente en un servicio web, en un dispositivo de IoT o en Power BI. Para más información, consulte el artículo sobre [cómo y dónde llevar a cabo la implementación](how-to-deploy-and-where.md).
 
-Después, puede administrar los modelos implementados mediante el [SDK para Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [Azure Portal](https://portal.azure.com/).
+Después, puede administrar los modelos implementados mediante el [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk), [Azure Portal](https://portal.azure.com/) o la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
 
 Se pueden usar estos modelos para que devuelvan predicciones en [tiempo real](how-to-consume-web-service.md) o de forma [asincrónica](how-to-run-batch-predictions.md) para grandes cantidades de datos.
 
@@ -93,7 +93,7 @@ Esta es una comparación rápida.
 |Módulos de la interfaz| Muchos | Conjunto inicial de módulos conocidos|
 |Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso con Azure Machine Learning, GPU o CPU.<br/>(Se admiten otros procesos en el SDK)|
 |Destinos de proceso de implementación| Formato del servicio web propietario, no personalizable | Opciones de seguridad de empresa y Azure Kubernetes Service. <br/>([Otros procesos](how-to-deploy-and-where.md) que admite el SDK) |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizados | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal). |
+|Entrenamiento de modelos y optimización de hiperparámetros automatizados | Sin | No disponible todavía en la interfaz visual. <br/> (Se admite en el SDK y en Azure Portal/página de aterrizaje del área de trabajo). |
 
 Pruebe la interfaz visual (versión preliminar) con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md).
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd75ca1fbad358e80a2c040b5ead8c50611489e2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 52355a8896f4891e99d07e2b4106cede77a1f8df
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478873"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916205"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ruta a un punto de interés mediante Azure Maps
 
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y el SDK de Route
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de continuar, siga los pasos del tutorial anterior [Create your Azure Maps account](./tutorial-search-location.md#createaccount) (Creación de una cuenta con Azure Maps) y [Get the subscription key for your account](./tutorial-search-location.md#getkey) (Obtención de la clave principal para la cuenta).
+Antes de continuar, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
 
 <a id="getcoordinates"></a>
 

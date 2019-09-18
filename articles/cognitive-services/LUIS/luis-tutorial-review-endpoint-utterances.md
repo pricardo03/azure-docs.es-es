@@ -1,5 +1,5 @@
 ---
-title: 'Revisión de expresiones de punto de conexión: LUIS'
+title: 'Tutorial: Revisión de expresiones de punto de conexión: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Mejore las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563342"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387517"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
@@ -85,15 +85,17 @@ Para ello, siga los pasos que se describen a continuación:
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Trabajo: "Proceso de lenguaje natural"|
 
+    Para cambiar `natural language processing` de la entidad keyPhrase a una entidad Job, seleccione la frase y, después, seleccione **Job** (Trabajo) en la lista. Si desea seleccionar solo parte del texto de keyPhrase para una entidad diferente, debe quitar keyPhrase como una entidad, etiquetarla con una entidad distinta y, a continuación, volver a aplicar la entidad keyPhrase a la aplicación. 
+
     Al incorporar la expresión, esta se mueve de **Review endpoint utterances** (Revisar las expresiones de punto de conexión) a la intención **GetJobInformation**. La expresión de punto de conexión ahora es una expresión de ejemplo para esa intención. 
 
     Además de alinear correctamente esta expresión, se deben agregar más expresiones a la intención **GetJobInformation**. Esto queda como ejercicio para que pueda realizar por su cuenta. Cada intención, excepto para la intención **None** (Ninguno), debe tener aproximadamente el mismo número de expresiones de ejemplo. La intención **None** (Ninguno) debe contener un 10 % de las expresiones totales de la aplicación. 
 
-1. Revise las expresiones restantes de esta intención, mediante el etiquetado de expresiones y la corrección de la **intención alineada**, si son incorrectas.
+    Revise las expresiones restantes de esta intención, mediante el etiquetado de expresiones y la corrección de la **intención alineada**, si son incorrectas.
 
-1. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
+    La lista **Review endpoint utterances** (Revisar expresiones de punto de conexión) ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
 
-1. Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla.
+    Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla.
 
     Continúe hasta que todas las intenciones y entidades de la lista de filtros tengan una lista vacía. Se trata de una aplicación muy pequeña. El proceso de revisión tarda solo unos minutos. 
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bfdad0d81599035e7d8c270ec4e8ee8d6a45125e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997739"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858928"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>¿Qué es Azure IoT Central (características en versión preliminar)?
 
@@ -62,7 +62,8 @@ Para Azure IoT Central, en este artículo se describe lo siguiente:
 - No se admiten los tipos de esquema de matriz.
 - No se admite la exportación de plantillas de aplicación y la copia de aplicaciones.
 - Solo se admiten el SDK de dispositivos de C y los SDK de dispositivos y servicios de Node.js.
-- Solo está disponible en algunas regiones.
+- Solo está disponible en las regiones de Europa del norte y Centro de EE. UU.
+- Los modelos de funcionalidad del dispositivo deben tener todas las interfaces definidas insertadas en el mismo archivo.
 
 ## <a name="personas"></a>Personas
 
@@ -100,7 +101,7 @@ Esta plantilla de dispositivo incluye:
 Como generador, tiene varias opciones para crear plantillas de dispositivo:
 
 - Diseñe la plantilla de dispositivo en IoT Central y, después, implemente el modelo de funcionalidad del dispositivo en el código del dispositivo.
-- Importe un modelo de funcionalidad de dispositivo desde el [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat) y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
+- Importe un modelo de funcionalidad del dispositivo desde el [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat) y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo desde el modelo y conecte el dispositivo a la aplicación de IoT Central. IoT Central encuentra el modelo de funcionalidad del dispositivo en un repositorio y crea automáticamente una plantilla de dispositivo simple.
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de funcionalidad del dispositivo en la aplicación de IoT Central y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
 

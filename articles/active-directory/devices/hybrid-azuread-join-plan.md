@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 306382a7dede44a0f1db53373e14e81cb54098ca
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231273"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914733"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -77,7 +77,7 @@ Actualmente, no se admite la unión a Azure AD híbrido si el entorno consta de 
 
 Actualmente, no se admite la unión a Azure AD híbrido cuando se usa la infraestructura de escritorio virtual (VDI).
 
-No se admite la unión a Azure AD híbrido para TPM compatibles con FIPS. Si los dispositivos tienen TPM compatibles con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico.
+La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. A partir de la versión 10 1903 de Windows, los TPM 1,2 no se usan para la unión de Azure AD híbrida y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
 
 No se admite la unión a Azure AD híbrido para Windows Server que ejecuta el rol de controlador de dominio (DC).
 
@@ -149,7 +149,7 @@ En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos 
 | ----- | ----- | ----- | ----- |
 | Enrutable | Federado | A partir de la versión 1703 | Disponibilidad general |
 | No enrutable | Federado | A partir de la versión 1803 | Disponibilidad general |
-| Enrutable | Administrado | No compatible | |
+| Enrutable | Administrado | A partir de la versión 1803 | Disponible con carácter general, no se admite el servicio SSPR de Azure AD en la pantalla de bloqueo de Windows |
 | No enrutable | Administrado | No compatible | |
 
 ## <a name="next-steps"></a>Pasos siguientes

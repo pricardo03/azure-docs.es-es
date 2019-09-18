@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606969"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859200"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
@@ -65,7 +65,9 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Adición de los campos esenciales
 
-Reemplace la clase **Main** por el código siguiente. Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). También es posible que desee establecer el valor de `imageWithFaces` en una ruta de acceso que apunte a un archivo de imagen diferente.
+Reemplace la clase **Main** por el código siguiente. Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y cambiar la cadena `uriBase` para que contenga la cadena del punto de conexión correcta. También es posible que desee establecer el valor de `imageWithFaces` en una ruta de acceso que apunte a un archivo de imagen diferente.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 El campo `faceAttributes` es simplemente una lista de determinados tipos de atributos. Especificará qué información recuperar sobre las caras detectadas.
 
@@ -74,15 +76,8 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
     private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        "https://<My Endpoint String>.com/face/v1.0/detect";
 
     private static final String imageWithFaces =
         "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
@@ -93,7 +88,7 @@ public class Main {
 
 ### <a name="call-the-face-detection-rest-api"></a>Llamada a la API REST de detección de caras
 
-Agregue el método **main** con el código siguiente. Construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `faceAttributes` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
+Agregue el método **main** con el código siguiente. Este método construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `faceAttributes` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
 
 ```Java
     public static void main(String[] args) {

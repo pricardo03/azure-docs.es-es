@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 78062dd92d20da365bb4f3d9c21cc4d576bae01f
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182801"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918867"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -39,7 +39,7 @@ El cifrado en reposo es la codificación (cifrado) de datos cuando se conserva. 
 - Se usa una clave de cifrado simétrico para cifrar datos mientras se escriben en el almacenamiento.
 - La misma clave de cifrado se utiliza para descifrar los datos tal y como se prepararon para su uso en la memoria.
 - Se pueden particionar datos y se pueden usar claves diferentes para cada partición.
-- Las claves deben almacenarse en una ubicación segura con el control de acceso basado en identidades y directivas de auditoría. Las claves de cifrado de datos se cifran a menudo con el cifrado asimétrico para limitar aún más el acceso.
+- Las claves deben almacenarse en una ubicación segura con el control de acceso basado en identidades y directivas de auditoría. Las claves de cifrado de datos se cifran a menudo con la clave de cifrado de claves en Azure Key Vault para limitar aún más el acceso.
 
 En la práctica, los escenarios de control y administración de la clave, así como las convicciones de escala y disponibilidad, requieren construcciones adicionales. A continuación se describen los componentes y conceptos del cifrado en reposo de Microsoft Azure.
 
@@ -71,12 +71,12 @@ Los permisos para usar las claves almacenadas en Azure Key Vault, además de par
 
 ### <a name="key-hierarchy"></a>Jerarquía de las claves
 
-Se usa más de una clave de cifrado en una implementación de cifrado en reposo. El cifrado asimétrico es útil para establecer la confianza y la autenticación necesarias para la administración y acceso a la clave. El cifrado simétrico es más eficaz para el cifrado masivo y descifrado, lo que permite un cifrado más seguro y un mejor rendimiento. Si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Los modelos de cifrado en reposo de Azure utilizan una jerarquía de claves formada por los siguientes tipos de claves:
+Se usa más de una clave de cifrado en una implementación de cifrado en reposo. Almacenar una clave de cifrado en Azure Key Vault garantiza el acceso de clave segura y la administración central de claves. Sin embargo, el acceso local del servicio a las claves de cifrado es más eficaz para el cifrado y descifrado masivo que la interacción con Key Vault para cada operación de datos, lo que permite un cifrado más seguro y un mejor rendimiento. Si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Los modelos de cifrado en reposo de Azure utilizan una jerarquía de claves formada por los siguientes tipos de claves a fin de abordar las necesidades que se indican a continuación:
 
 - **Clave de cifrado de datos (DEK)** : Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
-- **Clave de cifrado de claves (KEK)** : Una clave de cifrado asimétrico utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de clave permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
+- **Clave de cifrado de claves (KEK)** : una clave de cifrado utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de claves que siempre permanece en Key Vault permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
 
-Las claves de cifrado de datos cifradas con las claves de cifrado de clave se almacenan por separado y solo una entidad con acceso a la clave de cifrado de clave puede obtener las claves de cifrado de datos cifrados con dicha clave. Se admiten diferentes modelos de almacenamiento de claves. Analizaremos cada modelo con más detalle más adelante en la sección siguiente.
+Las claves de cifrado de datos cifradas con las claves de cifrado de claves se almacenan por separado y solo una entidad con acceso a la clave de cifrado de claves puede descifrar dichas claves de cifrado de datos. Se admiten diferentes modelos de almacenamiento de claves. Analizaremos cada modelo con más detalle más adelante en la sección siguiente.
 
 ## <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -150,7 +150,9 @@ Cuando se usa el cifrado del lado servidor con las claves administradas del serv
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del lado servidor mediante claves administradas por el cliente en Azure Key Vault
 
-Para escenarios donde el requisito es cifrar los datos en reposo y controlar los clientes de las claves de cifrado, los clientes pueden usar el cifrado de lado servidor mediante las claves almacenadas por el cliente en Key Vault. Algunos servicios solo pueden almacenar la clave de cifrado de clave de raíz en Azure Key Vault y almacenar la clave de cifrado de datos cifrada en una ubicación interna cercana a los datos. En este escenario, los clientes pueden aportar sus propias claves a Key Vault (BYOK: aportar su propia clave), o generar nuevas y usarlas para cifrar los recursos deseados. Mientras que el proveedor de recursos realiza las operaciones de cifrado y descifrado, usa la clave configurada como clave raíz para todas las operaciones de cifrado.
+Para escenarios donde el requisito es cifrar los datos en reposo y controlar los clientes de las claves de cifrado, los clientes pueden usar el cifrado de lado servidor mediante las claves almacenadas por el cliente en Key Vault. Algunos servicios solo pueden almacenar la clave de cifrado de clave de raíz en Azure Key Vault y almacenar la clave de cifrado de datos cifrada en una ubicación interna cercana a los datos. En este escenario, los clientes pueden aportar sus propias claves a Key Vault (BYOK: aportar su propia clave), o generar nuevas y usarlas para cifrar los recursos deseados. Mientras que el proveedor de recursos realiza las operaciones de cifrado y descifrado, usa la clave de cifrado de claves configurada como clave raíz para todas las operaciones de cifrado.
+
+La pérdida de claves de cifrado de claves significa también la pérdida de los datos. Por esta razón, no se deben eliminar las claves. Se debe realizar una copia de seguridad de las claves cada vez que se creen o giren. La [eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) debe estar habilitada en cualquier almacén que almacene claves de cifrado de claves. En lugar de eliminar una clave, establezca la opción Habilitado en "false" o defina la fecha de expiración.
 
 ##### <a name="key-access"></a>Acceso a la clave
 
@@ -266,7 +268,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sí                | -                  | -                  |
-| Event Hubs                       | Sí                | -                  | -                  |
+| Event Hubs                       | Sí                | Versión preliminar, todas las longitudes de RSA. | -                  |
 | Azure Analysis Services          | Sí                | -                  | -                  |
 | Azure Data Catalog               | Sí                | -                  | -                  |
 | Apache Kafka en Azure HDInsight  | Sí                | Todas las longitudes de RSA.   | -                  |

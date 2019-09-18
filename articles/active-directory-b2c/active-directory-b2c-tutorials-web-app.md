@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C | Microsoft Docs'
+title: 'Tutorial: Habilitación de la autenticación en una aplicación web en Azure Active Directory B2C'
 description: Tutorial sobre cómo usar Azure Active Directory B2C para proporcionar inicios de sesión de usuario en una aplicación web de ASP.NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2066a7848efaf067dddde3d5db1decfc88d94436
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464758"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914216"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C
 
@@ -32,8 +32,8 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación.
-- Instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
+* [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación.
+* Instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 
 ## <a name="update-the-application"></a>Actualizar la aplicación
 
@@ -58,15 +58,21 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Los dos proyectos siguientes están en la solución de ejemplo:
 
-- **TaskWebApp**: para crear y editar una lista de tareas. El ejemplo utiliza el flujo de usuario de **registro o de inicio de sesión** para que los usuarios se registren o inicien sesión.
+- **TaskWebApp**: para crear y editar una lista de tareas. En este ejemplo se utiliza el flujo de usuario de **registro o de inicio de sesión** para que los usuarios se registren e inicien sesión.
 - **TaskService**: admite la funcionalidad para crear, leer, actualizar y eliminar la lista de tareas. Azure AD B2C protege la API y TaskWebApp la llama.
 
-Puede cambiar el ejemplo para que use la aplicación que está registrada en su inquilino, la cual incluye el identificador de aplicación y la clave que registró anteriormente. También puede configurar los flujos de usuario que ha creado. El ejemplo define los valores de configuración como valores en el archivo Web.config. Para cambiar estos valores:
+Puede cambiar el ejemplo para que use la aplicación que está registrada en su inquilino, la cual incluye el identificador de aplicación y la clave que registró anteriormente. También puede configurar los flujos de usuario que ha creado. El ejemplo define los valores de configuración como valores en el archivo *Web.config*.
+
+Actualice la configuración en el archivo Web.config para que funcione con el flujo de usuario:
 
 1. Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
-2. En el proyecto **TaskWebApp**, abra el archivo **Web.config**. Reemplace el valor de `ida:Tenant` con el nombre del inquilino que ha creado. Reemplace el valor de `ida:ClientId` con el identificador que ha registrado. Reemplace el valor de `ida:ClientSecret` con la clave que ha registrado. Debe codificar en XML el secreto de cliente antes de agregarlo al archivo Web.config.
-3. En el archivo **Web.config**, reemplace el valor de `ida:SignUpSignInPolicyId` con `b2c_1_signupsignin1`. Reemplace el valor de `ida:EditProfilePolicyId` con `b2c_1_profileediting1`. Reemplace el valor de `ida:ResetPasswordPolicyId` con `b2c_1_passwordreset1`.
-
+1. En el proyecto **TaskWebApp**, abra el archivo **Web.config**.
+    1. Reemplace el valor de `ida:Tenant` y `ida:AadInstance` por el nombre del inquilino que ha creado.
+    1. Reemplace el valor de `ida:ClientId` por el identificador de la aplicación que ha registrado.
+    1. Reemplace el valor de `ida:ClientSecret` con la clave que ha registrado. Debe codificar en XML el secreto de cliente antes de agregarlo al archivo Web.config.
+    1. Reemplace el valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
+    1. Reemplace el valor de `ida:EditProfilePolicyId` por `b2c_1_profileediting1`.
+    1. Reemplace el valor de `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 

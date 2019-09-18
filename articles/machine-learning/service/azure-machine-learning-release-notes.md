@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 48da5e27184076676edb3f3b89b478bcf2fe347f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278302"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900453"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -23,12 +23,42 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
+## <a name="2019-09-09"></a>2019-09-09
+
+### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Nueva experiencia web para áreas de trabajo de Azure Machine Learning (versión preliminar)
+La nueva experiencia web permite a los científicos de datos y a los ingenieros de datos completar su ciclo de vida completo de aprendizaje automático a partir de la preparación y la visualización de los datos para entrenar e implementar modelos en una sola ubicación. 
+
+![Interfaz de usuario del área de trabajo de Azure Machine Learning (versión preliminar)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+
+**Características principales:**
+
+Con esta nueva interfaz de Azure Machine Learning, ahora puede:
++ Administrar los cuadernos o vincular a Jupyter.
++ [Ejecutar experimentos de ML automatizados](tutorial-first-experiment-automated-ml.md).
++ [Crear conjuntos de datos a partir de archivos locales, almacenes de datos y archivos web](how-to-create-register-datasets.md).
++ Explorar y preparar conjuntos de datos para la creación de modelos.
++ Supervisar el desfase de datos de los modelos. 
++ Ver recursos recientes desde un panel.
+
+En el momento de esta versión, se admiten los siguientes exploradores: Chrome, Firefox, Safari y la versión preliminar de Microsoft Edge.
+
+**Problemas conocidos**:
+
+1. Actualice el explorador si ve el mensaje "Se ha producido un error al cargar los archivos de fragmentos" cuando la implementación está en curso.  
+
+1. No se puede eliminar ni cambiar el nombre de un archivo en Notebooks y Files. Durante la versión preliminar pública, puede usar la interfaz de usuario de Jupyter o terminal en la VM de Notebook para realizar operaciones de actualización de archivos. Dado que se trata de un sistema de archivos de red montado, todos los cambios que realice en la VM de Notebook se reflejarán inmediatamente en el área de trabajo de Notebook. 
+
+1. Para SSH en la VM de Notebook:
+   1. Busque las claves SSH que se crearon durante la configuración de la VM. También puede buscar las claves en Azure Portal de Azure ML > abra la pestaña Proceso > busque VM de Notebook en la lista > abra sus propiedades: copie las claves del cuadro de diálogo.
+   1. Importe esas claves SSH públicas y privadas en el equipo local.
+   1. Úselas para SSH en la VM de Notebook. 
+
 ## <a name="2019-09-03"></a>2019-09-03
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>SDK de Azure Machine Learning para Python v1.0.60
 
 + **Nuevas características:**
   + Incorporó FileDataset, que hace referencia a uno o varios archivos de sus almacenes de archivos o direcciones URL públicas. Los archivos pueden tener cualquier formato. FileDataset proporciona la capacidad de descargar o montar los archivos en el proceso. Para obtener información sobre FileDataset, visite https://aka.ms/file-dataset.
-  + Se agregó compatibilidad de canalización con YAML para PythonScript Step, Adla Step, Databrick Step, DataTransferStep y AzureBatch Step
+  + Se agregó compatibilidad de canalización con YAML para PythonScript Step, Adla Step, Databricks Step, DataTransferStep y AzureBatch Step.
 
 + **Mejoras y correcciones de errores**
   + **azureml-automl-core**
@@ -39,7 +69,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Los modelos AutoML ahora devuelven las excepciones AutoMLE
     + Esta versión mejora el rendimiento de ejecución de las ejecuciones locales automatizadas de aprendizaje automático.
   + **azureml-core**
-    + Introduzca `Dataset.get_all()` que devuelve un diccionario de `TabularDataset` y `FileDataset` objetos con clave por su nombre de registro. 
+    + Se incorporó Dataset.get_all(workspace), que devuelve un diccionario de objetos `TabularDataset` y `FileDataset` con clave por su nombre de registro. 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -47,7 +77,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     mydata = all_datasets['my-data'] 
     ```
     
-    + Introduzca `parition_format` como argumento para `Dataset.Tabular.from_delimited_files` y `Dataset.Tabular.from_parquet.files`. La información de partición de cada ruta de acceso de datos se extraerá en columnas según el formato especificado. “{column_name}” crea una columna de cadena y “{column_name:yyyy/MM/dd/HH/mm/ss}” crea una columna DateTime, donde “YYYY”, “MM”, “dd”, “HH”, “mm” y “SS” se usan para extraer año, mes, día, hora, minuto y segundo para el tipo datetime. El partition_format debe empezar por la posición de la primera clave de partición hasta el final de la ruta de acceso del archivo. Por ejemplo, dada la ruta de acceso “ .. /USA/2019/01/01/data.csv” donde la partición es por país y hora, partition_format = “ /{Country}/{PartitionDate: YYYY/MM/DD}/Data. csv ” crea la columna de cadena “Country” con el valor “EE. UU. ” y la columna de fecha y hora “PartitionDate ” con el valor “2019-01-01 ”.
+    + Introduzca `parition_format` como argumento para `Dataset.Tabular.from_delimited_files` y `Dataset.Tabular.from_parquet.files`. La información de partición de cada ruta de acceso de datos se extraerá en columnas según el formato especificado. "{column_name}" crea una columna de cadena y "{column_name:yyyy/MM/dd/HH/mm/ss}" crea una columna DateTime, donde "yyyy", "MM", "dd", "HH", "mm" y "ss" se usan para extraer año, mes, día, hora, minuto y segundo para el tipo datetime. El partition_format debe empezar por la posición de la primera clave de partición hasta el final de la ruta de acceso del archivo. Por ejemplo, dada la ruta de acceso “ .. /USA/2019/01/01/data.csv” donde la partición es por país y hora, partition_format = “ /{Country}/{PartitionDate: YYYY/MM/DD}/Data. csv ” crea la columna de cadena “Country” con el valor “EE. UU. ” y la columna de fecha y hora “PartitionDate ” con el valor “2019-01-01 ”.
     + `to_csv_files` y los `to_parquet_files` métodos y se han agregado a `TabularDataset`. Estos métodos permiten la conversión entre un `TabularDataset` y un `FileDataset` al convertir los datos a archivos del formato especificado.
     + Inicie sesión automáticamente en el registro de imágenes base al guardar un Dockerfile generado por Model.package ().
     + “gpu_support” ya no es necesario; AzureML ahora detecta y usa automáticamente la extensión de Docker de Nvidia cuando está disponible. Se eliminará en una próxima versión.
@@ -64,12 +94,18 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Uso optimizado de memoria al explicar el procesamiento por lotes
     + Los modelos AutoML ahora devuelven las excepciones AutoMLE
   + **azureml-pipeline-core**
-    + Se agregó compatibilidad para crear, actualizar y usar PipelineDrafts-se puede usar para mantener las definiciones de canalización mutable y usarlas de forma interactiva para ejecutar
+    + Se agregó compatibilidad para crear, actualizar y usar PipelineDrafts; se puede usar para mantener las definiciones de canalización mutable y usarlas de forma interactiva para ejecutar.
   + **azureml-train-automl**
-    + Se creó la característica para instalar versiones específicas de pytorch v1.1.0 con compatible con gpu, cuda toolkit 9.0, pytorch-transformers que se requiere para habilitar BERT o XLNet en el entorno remoto de tiempo de ejecución de python.
+    + Se creó la característica para instalar versiones específicas de pytorch v1.1.0 con compatible con gpu, cuda toolkit 9.0, pytorch-transformers, que se requiere para habilitar BERT o XLNet en el entorno remoto de tiempo de ejecución de Python.
   + **azureml-train-core**
     + Error temprano de algunos errores de definición de espacio de hiperparámetros directamente en el SDK en lugar del lado del servidor.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1114"></a>SDK de preparación de datos de Azure Machine Learning v1.1.14
++ **Mejoras y correcciones de errores**
+  + Se ha habilitado la escritura en ADLS/ADLSGen2 mediante la ruta de acceso sin formato y las credenciales.
+  + Se ha corregido un error que provocaba que `include_path=True` no funcionara para `read_parquet`.
+  + Se ha corregido el error `to_pandas_dataframe()` causado por la excepción "Valor de propiedad no válido: hostSecret".
+  + Se ha corregido un error por el que no se podían leer los archivos en DBFS en modo de Spark.
   
 ## <a name="2019-08-19"></a>2019-08-19
 
@@ -146,7 +182,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + El rendimiento de `read_parquet` ha mejorado considerablemente cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Tenga en cuenta que debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -405,7 +441,7 @@ Hemos revertido un cambio que mejoraba el rendimiento, ya que provocaba problema
 + **Mejoras y correcciones de errores**
   + Se ha quitado la dependencia de Paramiko de azureml-core. Se han agregado advertencias de desuso para los métodos para adjuntar destinos de proceso heredados.
   + Mejora del rendimiento de run.create_children
-  + En la explicación de imitación con clasificador binario, se ha corregido el orden de las probabilidades cuando se usa la probabilidad del profesor para escalar los valores Shap
+  + En la explicación de imitación con clasificador binario, se ha corregido el orden de las probabilidades cuando se usa la probabilidad del profesor para escalar los valores de forma.
   + Se ha mejorado el control de errores y los mensajes para el aprendizaje automático automatizado. 
   + Se ha corregido el problema de tiempo de expiración de iteraciones para el aprendizaje automático automatizado.
   + Ha mejorado el rendimiento de la transformación de las series temporales para el aprendizaje automático automatizado.

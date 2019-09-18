@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194598"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909779"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -41,7 +41,7 @@ Azure AD proporciona un generador de reglas para crear y actualizar las reglas i
 Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomienda construir mediante el cuadro de texto:
 
 - Regla con más de cinco expresiones
-- Regla de subordinados directos
+- La regla de subordinados directos
 - Configuración de la [precedencia de operadores](groups-dynamic-membership.md#operator-precedence)
 - [Reglas con expresiones complejas](groups-dynamic-membership.md#rules-with-complex-expressions); por ejemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
@@ -359,6 +359,11 @@ El nombre de la propiedad personalizada se puede encontrar en el directorio medi
 
 También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. No puede tener usuarios y dispositivos como miembros del grupo a la vez. El atributo **organizationalUnit** ya no aparece y no debe usarse. Intune establece esta cadena en casos concretos, pero Azure AD no la reconoce, por lo que no se agregan dispositivos a grupos basados este atributo.
 
+> [!NOTE]
+> systemlabels es un atributo de solo lectura que no se puede establecer con Intune.
+>
+> En Windows 10, el formato correcto del atributo deviceOSVersion es el siguiente: (device.deviceOSVersion -eq "10.0 (17763)"). El formato se puede validar con el cmdlet Get-MsolDevice PowerShell.
+
 Pueden utilizarse los siguientes atributos del dispositivo.
 
  Atributo de dispositivo  | Valores | Ejemplo
@@ -371,7 +376,7 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Cualquier valor de cadena | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, empresa, desconocido | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Perfil de inscripción de dispositivo Apple o nombre de perfil de Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Perfil de inscripción de dispositivos de Apple, inscripción de dispositivos: identificadores de dispositivos corporativos (Android: quiosco) o nombre de perfil de Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móviles)<br>PC (para equipos administrados por el agente de PC de Intune) | (device.managementType -eq "MDM")
  deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

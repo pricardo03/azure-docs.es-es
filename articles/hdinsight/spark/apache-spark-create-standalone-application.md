@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una aplicación de Scala Maven para Spark en Azure HDInsight mediante IntelliJ'
+title: 'Tutorial: Aplicación de Scala Maven para Spark con IntelliJ (Azure HDInsight)'
 description: 'Tutorial: Creación de una aplicación de Spark escrita en Scala con Apache Maven como sistema de compilación y con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 263eea88182a947eccc8a57450432fce8d2fcfc9
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839724"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899888"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
@@ -177,27 +177,27 @@ Para instalar el complemento Scala, siga estos pasos:
 
     2. En la ventana **Project Structure** (Estructura de proyecto), vaya a **Artifacts** > **the plus symbol +**  > **JAR** > **From modules with dependencies...** (Artefactos > el símbolo + > JAR > Desde módulos con dependencias).
 
-        ![Crear archivo JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Crear JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. En la ventana **Create JAR from Modules** (Crear JAR a partir de módulos), seleccione el icono de carpeta en el cuadro de texto **Main Class** (Clase principal).
 
     4. En el cuadro de diálogo **Select Main Class** (Seleccionar clase principal), seleccione la clase que aparece de forma predeterminada y, luego, seleccione **OK** (Aceptar).
 
-        ![Crear archivo JAR](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Crear JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. En la ventana **Create JAR from Modules** (Crear JAR desde módulos), asegúrese de que está seleccionada la opción **Extract to the target JAR** (Extraer al archivo JAR de destino) y, después, seleccione **OK** (Aceptar).  Este valor crea un archivo JAR único con todas las dependencias.
 
-        ![Crear archivo JAR](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Crear JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. La pestaña **Output Layout** (Diseño de salida) enumera todos los archivos JAR que forman parte del proyecto Maven. Puede seleccionar y eliminar aquellos de los que la aplicación de Scala no tenga ninguna dependencia directa. Para la aplicación que va a crear aquí puede quitar todos, salvo el último (**SparkSimpleApp compile output**). Seleccione los archivos JAR que va a eliminar y, después, seleccione símbolo negativo **-** .
 
-        ![Crear archivo JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Crear JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
 
         Asegúrese de que la casilla **Include in project build** (Incluir en compilación del proyecto) esté activada para garantizar que el archivo JAR se crea cada vez que el proyecto se compila o actualiza. Seleccione **Apply** (Aplicar) y, después, **OK** (Aceptar).
 
     7. Para crear el archivo JAR, vaya a **Build** > **Build Artifacts** > **Build** (Compilar > Artefactos de compilación > Compilar). El proyecto se compilará al cabo de 30 segundos aproximadamente.  El archivo JAR de salida se crea en **\out\artifacts**.
 
-        ![Crear archivo JAR](./media/apache-spark-create-standalone-application/output.png)
+        ![output](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Ejecución de la aplicación en el clúster de Apache Spark
 

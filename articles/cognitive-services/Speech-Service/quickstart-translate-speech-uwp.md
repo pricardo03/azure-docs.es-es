@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Traducción de voz, C# (UWP): Servicios de voz'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, creará una sencilla aplicación con la Plataforma universal de Windows (UWP) para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
+description: En este inicio rápido, creará una aplicación con la Plataforma universal de Windows (UWP) para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 07/23/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 ms.topic: quickstart
-ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e513cbbc615965ef196a830351aab8ac241c3f20
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640021"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382654"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Inicio rápido: Traducción de voz con el SDK de Voz para C# (UWP)
 
-También hay disponibles inicios rápidos para la [conversión de voz a texto](quickstart-csharp-uwp.md), la [conversión de texto a voz](quickstart-text-to-speech-csharp-uwp.md) y el [Asistente virtual por voz](quickstart-virtual-assistant-csharp-uwp.md).
+También hay disponibles inicios rápidos para el [reconocimiento de voz](quickstart-csharp-uwp.md), la [síntesis de voz](quickstart-text-to-speech-csharp-uwp.md) y el [Asistente virtual por voz](quickstart-virtual-assistant-csharp-uwp.md).
 
-En este inicio rápido, creará una sencilla aplicación con la Plataforma universal de Windows (UWP) que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior.
+En este inicio rápido, creará una aplicación con la Plataforma universal de Windows (UWP) que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019.
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
@@ -32,7 +32,7 @@ Para obtener una lista completa de los idiomas disponibles para la traducción d
 
 Esta guía de inicio rápido requiere:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
@@ -41,37 +41,43 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. La interfaz de usuario de la aplicación se define mediante el uso de XAML. Abra `MainPage.xaml` en el Explorador de soluciones. En la vista XAML del diseñador, inserte el fragmento de código XAML siguiente entre `<Grid>` y `</Grid>`.
+Ahora, agregue el código XAML que define la interfaz de usuario de la aplicación y agregue la implementación de código C# subyacente.
 
-    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
+1. En el **Explorador de soluciones**, abra `MainPage.xaml`.
 
-1. Abra el archivo de código subyacente `MainPage.xaml.cs` (Búsquelo agrupado en `MainPage.xaml`). Reemplace todo el código que contiene por lo siguiente.
+1. En la vista XAML del diseñador, inserte el fragmento de código XAML siguiente en la etiqueta **Cuadrícula** (entre `<Grid>` y `</Grid>`):
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. En el controlador `SpeechTranslationFromMicrophone_ButtonClicked` de este archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
+1. En **Explorador de soluciones**, abra el archivo de código fuente subyacente `MainPage.xaml.cs`. (Se agrupa en `MainPage.xaml`).
 
-1. En el controlador `SpeechTranslationFromMicrophone_ButtonClicked`, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada con la suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace todo el código que contiene por el fragmento siguiente:
 
-1. Guarde todos los cambios en el proyecto.
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+1. En el controlador `SpeechTranslationFromMicrophone_ButtonClicked` en este archivo, busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción.
 
-1. Compile la aplicación. En la barra de menús, seleccione **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+1. En el controlador `SpeechTranslationFromMicrophone_ButtonClicked`, busque la cadena `YourServiceRegion` y reemplácela por la [región](regions.md) asociada a su suscripción. (Por ejemplo, use `westus` para la suscripción de prueba gratuita).
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Generar solución resaltada](media/sdk/qs-csharp-uwp-08-build.png "Compilación correcta")
+1. En la barra de menús, elija **Archivo** > **Guardar todo** para guardar los cambios.
 
-1. Inicie la aplicación. En la barra de menús, seleccione **Depurar** > **Iniciar depuración** o bien presione **F5**.
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-csharp-uwp-09-start-debugging.png "Iniciar la aplicación en depuración")
+Ahora está listo para compilar y probar la aplicación.
 
-1. Aparece una ventana. Seleccione **Enable Microphone** (Habilitar teléfono) y confirme la solicitud de permiso emergente.
+1. En la barra de menús, seleccione **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-    ![Captura de pantalla de la solicitud de permiso](media/sdk/qs-csharp-uwp-10-access-prompt.png "Iniciar la aplicación en depuración")
+1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación. Aparece la ventana **HelloWorld**.
 
-1. Seleccione **Speech recognition with microphone input** (Reconocimiento de voz con entrada de micrófono) y diga una frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá al servicio de Voz y se transcribe en texto, que aparece en la misma ventana.
+   ![Ejemplo de aplicación de traducción de UWP en C#: inicio rápido](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-    ![Captura de pantalla de la interfaz de usuario de reconocimiento de voz](media/sdk/qs-translate-csharp-uwp-ui-result.png)
+1. Seleccione **Habilitar micrófono** y, cuando aparezca la solicitud de permiso de acceso, seleccione **Sí**.
+
+   ![Solicitud de permiso de acceso al micrófono](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+
+1. Seleccione **Speech recognition with microphone input** (Reconocimiento de voz con entrada de micrófono) y diga una frase en inglés en el micrófono del dispositivo. La aplicación transmite su voz al servicio de voz, que la traduce y la transcribe a texto en otro idioma, en este caso, a alemán. El servicio de voz envía el texto traducido de nuevo a la aplicación, que muestra la traducción en la ventana.
+
+   ![Interfaz de usuario de la traducción de voz](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -80,5 +86,4 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Entrenamiento de un modelo de Custom Speech](how-to-custom-speech-train-model.md)

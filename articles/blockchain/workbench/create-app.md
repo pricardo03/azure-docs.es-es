@@ -1,21 +1,21 @@
 ---
 title: Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
-description: Tutorial sobre cómo crear una aplicación de cadena de bloques en Azure Blockchain Workbench.
+description: Tutorial sobre cómo crear una aplicación de cadena de bloques en Azure Blockchain Workbench (versión preliminar).
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417368"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845162"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
 
@@ -214,7 +214,7 @@ El principio del archivo de configuración contiene información acerca de la ap
 
 La sección de roles de aplicación define los roles de usuario que pueden actuar o participar en la aplicación de cadena de bloques. Puede definir un conjunto de roles diferentes según la funcionalidad. En el escenario de solicitud-respuesta, hay una diferencia entre la funcionalidad de un solicitante como entidad que genera solicitudes y la de un respondedor como entidad que genera respuestas.
 
-### <a name="workflows"></a>Flujos de trabajo
+### <a name="workflows"></a>Workflows
 
 Los flujos de trabajo definen una o varias etapas y acciones del contrato. En el escenario de solicitud-respuesta, la primera etapa (estado) del flujo de trabajo es que un solicitante (rol) realiza una acción (transición) para enviar una solicitud (función). La siguiente etapa (estado) es que un respondedor (función) realiza una acción (transición) para enviar una respuesta (función). Un flujo de trabajo de una aplicación puede incluir las propiedades, funciones y estados necesarios para describir el flujo de un contrato.
 

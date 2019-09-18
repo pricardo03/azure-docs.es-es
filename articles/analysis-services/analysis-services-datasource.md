@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142555"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899409"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -34,7 +34,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 ||||
 
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.   
-<a name="azsqlmanaged">2</a>: Compatible con Instancia administrada de Azure SQL Database. Dado que se ejecuta una instancia administrada dentro de la red virtual de Azure con una dirección IP privada, se requiere una puerta de enlace de datos local. Actualmente no se admite Instancia administrada de Azure SQL Database con un punto de conexión público.   
+<a name="azsqlmanaged">2</a>: Compatible con Instancia administrada de Azure SQL Database. Dado que la instancia administrada se ejecuta dentro de una red virtual de Azure con una dirección IP privada, el punto de conexión público debe estar habilitado en la instancia. Si no está habilitado, se requiere una puerta de enlace de datos local.    
 <a name="databricks">3</a>: Actualmente no se admite Azure Databricks con el conector de Spark.   
 <a name="gen2">4</a>: Actualmente no se admite ADLS Gen2.
 
@@ -76,7 +76,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Fuente OData<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   
-|Base de datos de Postgre SQL<sup>[1](#tab1400b)</sup>    | 
+|Base de datos de PostgreSQL<sup>[1](#tab1400b)</sup>    | 
 |Objetos de Salesforce<sup>[1](#tab1400b)</sup> |  
 |Informes de Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  

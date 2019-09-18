@@ -1,5 +1,5 @@
 ---
-title: 'Conexión a Apache Hadoop mediante Herramientas de Data Lake para Visual Studio: Azure HDInsight'
+title: 'Apache Hadoop y Data Lake Tools para Visual Studio: Azure HDInsight'
 description: Aprenda a instalar y utilizar Herramientas de Data Lake para Visual Studio para conectarse a clústeres de Apache Hadoop en Azure HDInsight y luego ejecutar consultas de Hive.
 keywords: herramientas hadoop, consulta hive, visual studio, visual studio hadoop
 services: hdinsight
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 485f3a4b6a5fde532229873fe1f3feaa30ece523
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450193"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884035"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -46,7 +46,7 @@ Para completar este artículo y usar Herramientas de Data Lake para Visual Studi
 
   En las instalaciones existentes, en la barra de menús, vaya a **Herramientas** > **Obtener herramientas y características...** para abrir el Instalador de Visual Studio.  Luego, seleccione como mínimo las cargas de trabajo **Desarrollo de Azure** o **Almacenamiento y procesamiento de datos**.
 
-  ![Captura de pantalla del Instalador de Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/vs2017_installation.png)
+  ![Captura de pantalla del Instalador de Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/vs-2017-installation.png)
 
 * Visual Studio 2013 y 2015  
   [Descargue Herramientas de Data Lake](https://www.microsoft.com/download/details.aspx?id=49504). Elija la versión de Data Lake Tools que coincida con su versión de Visual Studio.  
@@ -195,13 +195,13 @@ Para crear y ejecutar consultas ad hoc:
 
       Asegúrese de que **Interactivo** está seleccionado y, después, seleccione **Ejecutar**.
 
-      ![Captura de pantalla de la consulta y la opción Ejecutar](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
+      ![Captura de pantalla de la consulta y la opción Ejecutar](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
       Asegúrese de que **Lote** está seleccionado y, después, seleccione **Enviar**.  Si selecciona la opción de envío avanzado, configure las opciones **Nombre del trabajo**, **Argumentos**, **Configuraciones adicionales** y **Estado de directorio** del script.
 
-      ![Captura de pantalla de la consulta y la opción Lote](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)  
+      ![Captura de pantalla de la consulta y la opción Lote](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![Captura de pantalla de consulta de Hive para Hadoop en HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Envío de consultas")
 
@@ -224,7 +224,7 @@ Para crear y ejecutar una solución de Hive:
 
 El resumen del trabajo varía ligeramente entre los modos por **lotes** e **interactivo**.
 
-![Resumen del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/jobSummary.png "Resumen del trabajo de Hive")
+![Resumen del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Resumen del trabajo de Hive")
 
 Utilice el botón **Actualizar** para actualizar el estado hasta que el estado del trabajo cambie a **Finalizado**.  
 
@@ -232,7 +232,7 @@ Utilice el botón **Actualizar** para actualizar el estado hasta que el estado d
 
 * Para obtener detalles del trabajo del modo **interactivo**, vea las pestañas **Salida** y **Salida de HiveServer2**.
 
-  ![Detalles del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Detalles del trabajo de Hive")
+  ![Detalles del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Detalles del trabajo de Hive")
 
 ### <a name="view-job-graph"></a>Visualización del gráfico del trabajo
 

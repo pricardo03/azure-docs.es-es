@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638805"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915755"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -27,7 +27,8 @@ Para representar marcadores, etiquetas y superposiciones geométricas personaliz
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos descritos en este artículo, primero deberá [crear una cuenta de Azure Maps](how-to-manage-account-keys.md) en el plan de tarifa S1.
+Para completar los procedimientos de este artículo, primero debe crear una cuenta de Azure Maps siguiendo las instrucciones en [Administrar la cuenta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) y seguir los pasos de la sección [Obtener la clave principal](./tutorial-search-location.md#getkey) para recuperar una clave de suscripción principal para su cuenta.
+
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas
 

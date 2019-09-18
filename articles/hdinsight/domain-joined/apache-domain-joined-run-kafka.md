@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package: Azure'
+title: 'Tutorial: Apache Kafka con Enterprise Security Package en Azure HDInsight'
 description: 'Tutorial: Obtenga información sobre cómo configurar directivas de Apache Ranger para Kafka en Azure HDInsight con Enterprise Security Package.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441372"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885944"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -64,7 +64,7 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
    * ’*’ indica ninguna o más repeticiones de caracteres.
    * ’?’ indica cualquier carácter individual.
 
-   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Apache Ranger Admin UI Create Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
 
@@ -79,7 +79,7 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
    |Seleccionar usuario  |  marketing_user1 |
    |Permisos  | publicar, consumir, crear |
 
-   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Apache Ranger Admin UI Create Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. Seleccione **Agregar** para guardar la directiva.
 

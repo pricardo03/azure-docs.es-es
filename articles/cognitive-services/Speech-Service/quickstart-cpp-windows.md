@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: c795f1581ae36f100065c39cd47bc4efc564b9fe
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a9c43e1d27a396a2c3e9123ce5ce538296c6870c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607890"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381914"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 
-También hay inicios rápidos disponibles para [texto a voz](quickstart-text-to-speech-cpp-windows.md) y [traducción de voz](quickstart-translate-speech-cpp-windows.md).
+También hay guías de inicio rápido para la [síntesis](quickstart-text-to-speech-cpp-windows.md) y la [traducción de voz](quickstart-translate-speech-cpp-windows.md).
 
-Si lo desea, elija otro lenguaje de programación diferente o entorno:<br/>
+Si lo desea, elija otro lenguaje de programación diferente y entorno:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo, creará una aplicación de consola de C++ para Windows. Va a utilizar el [SDK de Voz](speech-sdk.md) de Cognitive Services para transcribir la conversión de voz en texto en tiempo real desde el micrófono de un equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior (cualquier edición).
+En este artículo, creará una aplicación de consola de C++ para Windows. Va a utilizar el [SDK de Voz](speech-sdk.md) de Cognitive Services para transcribir la conversión de voz en texto en tiempo real desde el micrófono de un equipo. La aplicación se compila con el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019 (cualquier edición).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,7 +36,9 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Abra el archivo de origen *helloworld.cpp*. Reemplace todo el código que aparece debajo de la instrucción include inicial (`#include "stdafx.h"` o `#include "pch.h"`) por lo siguiente:
+1. Abra el archivo de origen **helloworld.cpp**.
+
+1. Reemplace todo el código por el fragmento siguiente:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -44,21 +46,17 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
 1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
-1. Guarde los cambios en el proyecto.
+1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-1. Compile la aplicación. En la barra de menús, elija **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+1. En la barra de menús, seleccione **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Compilar solución resaltada](media/sdk/qs-cpp-windows-06-build.png)
+1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Inicie la aplicación. En la barra de menús, elija **Depurar** > **Iniciar depuración** o bien presione **F5**.
+1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la transcribe a texto y lo envía de vuelta a la aplicación para que se muestre.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. Aparece una ventana de consola que le pide decir algo. Diga una oración o frase en inglés. Lo que diga se transmitirá a los servicios de voz y se transcribirá en texto, que aparece en la misma ventana.
-
-   ![Captura de pantalla de la salida de la consola después de un reconocimiento correcto](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Salida de la consola después de un reconocimiento correcto](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -69,5 +67,4 @@ Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz de un arch
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Entrenamiento de un modelo de Custom Speech](how-to-custom-speech-train-model.md)

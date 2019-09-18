@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428507"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916183"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
@@ -56,7 +56,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
-   | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 2. Haga clic en **Create**(Crear).
 
@@ -70,7 +70,9 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 3. Seleccione su cuenta y su suscripción > Seleccione el **recurso existente** que creó en Azure Portal > Haga clic en **Registrar**.
 
-4. Seleccione **Depurar** > **Iniciar sin depurar** (Ctrl + F5) para iniciar la aplicación.
+4. Seleccione **Proyecto** > **Administrar paquetes NuGet** > **Origen de paquete: Nuget.org** > **Actualizar** para actualizar los paquetes del SDK de Application Insights a la versión estable más reciente.
+
+5. Seleccione **Depurar** > **Iniciar sin depurar** (Ctrl + F5) para iniciar la aplicación.
 
     ![Menú Introducción de Application Insights](./media/dotnetcore-quick-start/3debug.png)
 

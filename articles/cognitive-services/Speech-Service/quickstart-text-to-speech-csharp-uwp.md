@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Síntesis de voz, C# (UWP): Servicios de voz'
 titleSuffix: Azure Cognitive Services
-description: En este artículo, creará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el SDK de Voz de Cognitive Services. Puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo. La aplicación se crea con el paquete NuGet del SDK de Voz y Microsoft Visual Studio 2017.
+description: En este artículo, creará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el SDK de Voz de Cognitive Services. Puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo. La aplicación se crea con el paquete NuGet del SDK de voz y Microsoft Visual Studio 2019.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/24/2019
+ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 5e1f8aea1b00cbba7fec6c7ca416a965458ab526
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 65b65c9af377b6a9951f9f328e0732850d3b9c1d
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607746"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382214"
 ---
 # <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Inicio rápido: Síntesis de voz en una aplicación para UWP mediante Speech SDK
 
 También hay disponibles inicios rápidos para el [reconocimiento de voz](quickstart-csharp-uwp.md), la [traducción de voz](quickstart-translate-speech-uwp.md) y el [Asistente virtual por voz](quickstart-virtual-assistant-csharp-uwp.md).
 
-En este artículo, desarrollará una aplicación de la Plataforma universal de Windows (UWP; versión de Windows 1709 o posterior) para C# mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. El programa sintetizará la voz a partir de texto en tiempo real en el altavoz del dispositivo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior (cualquier edición).
+En este artículo, desarrollará una aplicación para la Plataforma universal de Windows (UWP) de C# mediante el [SDK de voz](speech-sdk.md) de Cognitive Services. El programa sintetiza la voz a partir de texto en tiempo real en el altavoz del dispositivo. La aplicación se compila con el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019 (cualquier edición).
 
 > [!NOTE]
 > La Plataforma universal de Windows permite desarrollar aplicaciones que se ejecutan en cualquier dispositivo que admite Windows 10, incluidos PC, Xbox, Surface Hub y otros dispositivos.
@@ -30,7 +30,7 @@ En este artículo, desarrollará una aplicación de la Plataforma universal de W
 
 Esta guía de inicio rápido requiere:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
@@ -39,33 +39,39 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. La interfaz de usuario de la aplicación se define mediante el uso de XAML. Abra `MainPage.xaml` en el Explorador de soluciones. En la vista XAML del diseñador, inserte el fragmento de código XAML siguiente en la etiqueta de cuadrícula (entre `<Grid>` y `</Grid>`).
+Ahora, agregue el código XAML que define la interfaz de usuario de la aplicación y agregue la implementación de código C# subyacente.
+
+1. En el **Explorador de soluciones**, abra `MainPage.xaml`.
+
+1. En la vista XAML del diseñador, inserte el fragmento de código XAML siguiente en la etiqueta **Cuadrícula** (entre `<Grid>` y `</Grid>`):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. Abra el archivo de código subyacente `MainPage.xaml.cs` (Búsquelo agrupado en `MainPage.xaml`). Reemplace todo el código que contiene por lo siguiente.
+1. En **Explorador de soluciones**, abra el archivo de código fuente subyacente `MainPage.xaml.cs`. (Se agrupa en `MainPage.xaml`).
+
+1. Reemplace todo el código que contiene por el fragmento siguiente:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-1. En el controlador `Speak_ButtonClicked` de este archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
+1. En el controlador `Speak_ButtonClicked` del archivo de código fuente, busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción.
 
-1. En el controlador `Speak_ButtonClicked`, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada con la suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. En el controlador `Speak_ButtonClicked`, busque la cadena `YourServiceRegion` y reemplácela por la [región](regions.md) asociada a su suscripción. (Por ejemplo, use `westus` para la suscripción de prueba gratuita).
 
-1. Guarde todos los cambios en el proyecto.
+1. En la barra de menús, elija **Archivo** > **Guardar todo** para guardar los cambios.
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-1. Compile la aplicación. En la barra de menús, seleccione **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+Ahora está listo para compilar y probar la aplicación.
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Generar solución resaltada](media/sdk/qs-csharp-uwp-08-build.png "Compilación correcta")
+1. En la barra de menús, elija **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-1. Inicie la aplicación. En la barra de menús, seleccione **Depurar** > **Iniciar depuración** o bien presione **F5**.
+1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación. Aparece la ventana **HelloWorld**.
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-csharp-uwp-09-start-debugging.png "Iniciar la aplicación en depuración")
+   ![Ejemplo de aplicación de síntesis de voz de UWP en C#: inicio rápido](media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
 1. Escriba algún texto en el cuadro de texto y haga clic en **Hablar**. El texto se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
 
-    ![Captura de pantalla de la interfaz de usuario de síntesis de voz](media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Interfaz de usuario de síntesis de voz](media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -74,5 +80,5 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalizar las fuentes de voz](how-to-customize-voice-font.md)
+- [Creación y uso de modelos de voz personalizados](how-to-custom-voice-create-voice.md)
 - [Grabación de ejemplos de voz](record-custom-voice-samples.md)

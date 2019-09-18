@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686497"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914008"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Prueba de las consultas de Stream Analytics localmente con Visual Studio
 
-Puede usar las herramientas de Azure Stream Analytics para Visual Studio para probar los trabajos de Stream Analytics localmente con datos de ejemplo.
+Puede usar las herramientas de Azure Stream Analytics para Visual Studio para probar los trabajos de Stream Analytics localmente con datos de ejemplo o [datos activos](stream-analytics-live-data-local-testing.md). 
 
 Use este [Inicio rápido](stream-analytics-quick-create-vs.md) para aprender a crear un trabajo de Stream Analytics mediante Visual Studio.
 
@@ -74,7 +74,9 @@ Puede ver el progreso en la ventana **Salida**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso de Visual Studio para ver trabajos de Azure Stream Analytics](stream-analytics-vs-tools.md)
+
 * [Inicio rápido: creación de un trabajo de Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Uso de Visual Studio para ver trabajos de Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio (versión preliminar)](stream-analytics-live-data-local-testing.md)
 * [Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integración y desarrollo continuos con las herramientas de Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

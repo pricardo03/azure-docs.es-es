@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697745"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845351"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de sentimiento con Text Analytics
 
@@ -80,7 +80,7 @@ Para obtener más información sobre la definición de la solicitud, consulte [L
 
 + Cree una solicitud POST. Para consultar la documentación de la API para esta solicitud, vea [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Establezca el punto de conexión de HTTP para el análisis de sentimiento mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
++ Establezca el punto de conexión de HTTP para el análisis de sentimiento mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir `/text/analytics/v2.1/sentiment` en la dirección URL. Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
 + Establezca un encabezado de solicitud para incluir la [clave de acceso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para las operaciones de Text Analytics.
 
@@ -139,8 +139,8 @@ La [siguiente versión de Análisis de sentimiento](https://westcentralus.dev.co
 > [!NOTE]
 > * El formato de las solicitudes de la versión 3 de Análisis de sentimiento y los [límites de datos](../overview.md#data-limits) son los mismos que en la versión anterior.
 > * En este momento, la versión 3 de Análisis de sentimiento:
->    * Actualmente solo admite el idioma inglés.
->    * Está disponible en las siguientes regiones: `Central US`, `Central Canada` y `East Asia`.
+>    * Admite actualmente los idiomas inglés, chino simplificado y japonés.
+>    * Disponible en las siguientes regiones: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` y `West US 2`.
 
 |Característica |DESCRIPCIÓN  |
 |---------|---------|

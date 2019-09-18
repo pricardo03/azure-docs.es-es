@@ -1,6 +1,6 @@
 ---
 title: 'Administración de clústeres de Machine Learning Services en HDInsight: Azure'
-description: Aprenda a administrar un clúster de ML Services en Azure HDInsight.
+description: Aprenda a administrar varias tareas en un clúster de ML Services en Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: fa838f371607f3c0b0f76f81d6755c842a5901f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3ff9cfbd312e672fb89afb4838ad9f8aa6574370
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448959"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900028"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -209,7 +209,7 @@ Para instalar paquetes de R en los nodos de trabajo del clúster, debe usar una 
    >
    >
 
-   ![Agregar una Acción de script](./media/r-server-hdinsight-manage/submitscriptaction.png)
+   ![Agregar una Acción de script](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Seleccione **Crear** para ejecutar el script. Una vez que finalice el script, los paquetes de R estarán disponibles en todos los nodos de trabajo.
 

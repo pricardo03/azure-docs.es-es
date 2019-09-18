@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e043d9bf0e87304868b2c573600578c911134856
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603356"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859176"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Ruby
 
@@ -33,10 +33,8 @@ Cree un archivo, _faceDetection.rb_ y agregue el código siguiente. Este código
 ```ruby
 require 'net/http'
 
-# You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
-# replace "westcentralus" in the URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect')
+# replace <My Endpoint String> in the URL below with the string from your endpoint.
+uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
 uri.query = URI.encode_www_form({
     # Request parameters
     'returnFaceId' => 'true',
@@ -62,7 +60,9 @@ end
 puts response.body
 ```
 
-Tendrá que actualizar el valor `request['Ocp-Apim-Subscription-Key']` con su clave de suscripción y es posible que deba cambiar la cadena `uri` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). 
+Deberá actualizar el campo `request['Ocp-Apim-Subscription-Key']` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uri` para que contenga el punto de conexión correcto.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 También es posible que desee cambiar el campo `imageUri` para que apunte a su propia imagen de entrada. Del mismo modo, puede cambiar el campo `returnFaceAttributes`, que especifica qué atributos de cara recuperar.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663496"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873309"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -30,6 +30,10 @@ En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web 
 > * Ejecutar una conmutación por error única en Azure
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
+
+
+> [!NOTE]
+    > El servicio de Azure Migrate ahora se puede usar para migrar instancias de AWS a Azure. [Más información](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones compatibles son: 
@@ -91,11 +95,11 @@ Cuando se crean máquinas virtuales de Azure después de la migración (conmutac
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Redes** >
    **Red virtual**.
 3. En **Nombre**, escriba **myMigrationNetwork**.
-4. Deje el valor predeterminado de **Espacio de direcciones**.
+4. Deje el valor predeterminado de **Espacio de direcciones** (es preciso escribir un valor).
 5. En **Suscripción**, seleccione la suscripción que quiera usar.
 6. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
 7. En **Ubicación**, seleccione **Europa Occidental**.
-8. En **Subred**, mantenga los valores predeterminados de **Nombre** e **Intervalo IP**.
+8. En **Subred**, deje los valores predeterminados de **Nombre** e **Intervalo IP** (es preciso especificar un valor).
 9. Agregue instrucciones para la configuración de protección contra DDoS.
 10. Mantenga la opción **Puntos de conexión de servicio** deshabilitada.
 11. Agregue instrucciones para la configuración de firewall.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: f51e93ff164c0ec2352c1a57eb698a4374fbe5c9
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1bb9ec02fdba93d26b7060c080b68f05298dbd6b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276920"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812981"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copia de datos desde un servidor SFTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -177,12 +177,12 @@ Para usar la autenticación de clave pública SSH, establezca la propiedad "auth
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para el **formato binario, de texto delimitado, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, Parquet y Avro](#format-based-dataset).
-- Para obtener otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
+- En el caso de otros formatos como **ORC**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, Parquet y Avro
+### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos como origen y destino de **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para SFTP en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos desde y hacia el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en el formato y configuraciones admitidas. Las propiedades siguientes se admiten para SFTP en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -221,7 +221,7 @@ Para copiar datos como origen y destino de **formato binario, de texto delimitad
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos de SFTP en **formato ORC o JSON**, se admiten las propiedades siguientes:
+Para copiar datos de SFTP en **formato ORC**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -276,12 +276,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="sftp-as-source"></a>SFTP como origen
 
-- Para copiar desde el **formato binario, de texto delimitado, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, Parquet y Avro](#format-based-source).
-- Para copiar desde otros formatos como **ORC o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
+- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, Parquet y Avro
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para SFTP en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para SFTP en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -339,7 +339,7 @@ Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos de SFTP en **formato ORC o JSON**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
+Para copiar datos de SFTP en **formato ORC**, se admiten las propiedades siguientes en la sección **origen** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

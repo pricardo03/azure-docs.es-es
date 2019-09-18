@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: a2189b2012f598542725acd2d5ebe3a7586bafd9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171915"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880825"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Después de completar este artículo, tendrá una directiva personalizada de registro e inicio de sesión con su marca y apariencia. Con Azure Active Directory B2C (Azure AD B2C), controlará prácticamente todo el contenido HTML y CSS que se presenta a los usuarios. Cuando se usa una directiva personalizada, la personalización de la interfaz del usuario se configura en XML en lugar de con controles de Azure Portal. 
+Después de completar este artículo, tendrá una directiva personalizada de registro e inicio de sesión con su marca y apariencia. Con Azure Active Directory B2C (Azure AD B2C), controlará prácticamente todo el contenido HTML y CSS que se presenta a los usuarios. Cuando se usa una directiva personalizada, la personalización de la interfaz del usuario se configura en XML en lugar de con controles de Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +51,7 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
    </html>
    ```
 
-2. Pegue el fragmento de código copiado en un editor de texto y guarde el archivo como *customize-ui.html*.
+1. Pegue el fragmento de código copiado en un editor de texto y guarde el archivo como *customize-ui.html*.
 
 > [!NOTE]
 > Si se usa login.microsoftonline.com, los elementos de formulario HTML se quitarán debido a las restricciones de seguridad. Si quiere usar elementos de formulario HTML en el contenido HTML personalizado, utilice b2clogin.com. Consulte [Uso de b2clogin.com](b2clogin.md) para conocer otras ventajas.
@@ -61,71 +61,71 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
 >[!NOTE]
 > En este artículo se usa Azure Blob Storage para hospedar el contenido. Puede elegir hospedar el contenido en un servidor web, pero deberá [habilitar CORS en el servidor web](https://enable-cors.org/server.html).
 
-Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
+Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
-3. Seleccione una **Suscripción** para la cuenta de almacenamiento.
-4. Cree un **Grupo de recursos** o seleccione uno existente.
-5. Escriba un **Nombre** único para la cuenta de almacenamiento.
-6. Seleccione la **Ubicación geográfica** de la cuenta de almacenamiento. 
-7. El **Modelo de implementación** puede permanecer como **Resource Manager**.
-8. El **Rendimiento** puede permanecer como **Estándar**.
-9. Cambie **Tipo de cuenta** a **Almacenamiento de blobs**.
-10. La **Replicación** puede permanecer como **RA-GRS**.
-11. El **Nivel de acceso** puede permanecer **Activo**. 
-12. Haga clic en **Revisar + Crear** para crear la cuenta de almacenamiento.  
-    Espere que termine la implementación y la hoja de la **Cuenta de almacenamiento** se abrirá automáticamente.
+1. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
+1. Seleccione una **Suscripción** para la cuenta de almacenamiento.
+1. Cree un **Grupo de recursos** o seleccione uno existente.
+1. Escriba un **Nombre** único para la cuenta de almacenamiento.
+1. Seleccione la **Ubicación geográfica** de la cuenta de almacenamiento.
+1. El **Modelo de implementación** puede permanecer como **Resource Manager**.
+1. El **Rendimiento** puede permanecer como **Estándar**.
+1. Cambie **Tipo de cuenta** a **Almacenamiento de blobs**.
+1. La **Replicación** puede permanecer como **RA-GRS**.
+1. El **Nivel de acceso** puede permanecer **Activo**.
+1. Haga clic en **Revisar + Crear** para crear la cuenta de almacenamiento.
+    Espere a que termine la implementación y la página de la **cuenta de almacenamiento** se abrirá automáticamente.
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Para crear un contenedor público en Blob Storage, haga lo siguiente:
+Para crear un contenedor público en Blob Storage, realice los siguientes pasos:
 
 1. En **Blob service** en el menú izquierdo, seleccione **Blobs**.
-2. Haga clic en **+Contenedor**.
-3. En **Nombre**, escriba *root*. Este puede ser un nombre de su elección, por ejemplo *wingtiptoys*, sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
-4. Para **Nivel de acceso público**, seleccione **Blob** y, luego, **Aceptar**.
-5. Haga clic en **root** para abrir el contenedor nuevo.
-6. Haga clic en **Cargar**.
-7. Haga clic en el icono de carpeta junto a **Seleccione un archivo**.
-8. Vaya a **customize-ui.html**, que creó anteriormente en la sección Personalización de la interfaz de usuario de la página, y selecciónelo.
-9. Si quiere cargar en una subcarpeta, expanda **Avanzadas** y escriba un nombre de la carpeta en **Cargar en carpeta**.
-10. Seleccione **Cargar**.
-11. Seleccione el blob **customize-ui.html** que cargó.
-12. A la derecha del cuadro de texto **URL**, seleccione el icono **Copiar al Portapapeles** para copiar la dirección URL en el Portapapeles.
-13. En el explorador web, vaya a la dirección URL que copió para verificar que puede acceder al blob que cargó. Si no puede acceder, por ejemplo, si hay un error `ResourceNotFound`, asegúrese de que el tipo de acceso del contenedor esté establecido en **blob**.
+1. Haga clic en **+Contenedor**.
+1. En **Nombre**, escriba *root*. Este puede ser un nombre de su elección, por ejemplo *wingtiptoys*, sin embargo, usamos *root* en este ejemplo por motivos de simplicidad.
+1. Para **Nivel de acceso público**, seleccione **Blob** y, luego, **Aceptar**.
+1. Haga clic en **root** para abrir el contenedor nuevo.
+1. Haga clic en **Cargar**.
+1. Haga clic en el icono de carpeta junto a **Seleccione un archivo**.
+1. Vaya a **customize-ui.html**, que creó anteriormente en la sección Personalización de la interfaz de usuario de la página, y selecciónelo.
+1. Si quiere cargar en una subcarpeta, expanda **Avanzadas** y escriba un nombre de la carpeta en **Cargar en carpeta**.
+1. Seleccione **Cargar**.
+1. Seleccione el blob **customize-ui.html** que cargó.
+1. A la derecha del cuadro de texto **URL**, seleccione el icono **Copiar al Portapapeles** para copiar la dirección URL en el Portapapeles.
+1. En el explorador web, vaya a la dirección URL que copió para verificar que puede acceder al blob que cargó. Si no puede acceder, por ejemplo, si hay un error `ResourceNotFound`, asegúrese de que el tipo de acceso del contenedor esté establecido en **blob**.
 
 ## <a name="configure-cors"></a>Configuración de CORS
 
-Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CORS), haga lo siguiente:
+Para configurar Blob Storage para el uso compartido de recursos entre orígenes (CORS), realice los siguientes pasos:
 
 1. En el menú, seleccione **CORS**.
-2. En **Orígenes permitidos**, escriba `https://your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `https://fabrikam.b2clogin.com`. Al escribir su nombre de inquilino, use solo minúsculas.
-3. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
-4. En **Encabezados permitidos**, escriba un asterisco (*).
-5. En **Encabezados expuestos**, escriba un asterisco (*).
-6. Para **Antigüedad máxima**, introduzca 200.
-7. Haga clic en **Save**(Guardar).
+1. En **Orígenes permitidos**, escriba `https://your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `https://fabrikam.b2clogin.com`. Al escribir su nombre de inquilino, use solo minúsculas.
+1. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
+1. En **Encabezados permitidos**, escriba un asterisco (*).
+1. En **Encabezados expuestos**, escriba un asterisco (*).
+1. Para **Antigüedad máxima**, introduzca 200.
+1. Haga clic en **Save**(Guardar).
 
 ## <a name="test-cors"></a>Prueba de CORS
 
-Para comprobar que está listo, haga lo siguiente:
+Para comprobar que está listo, realice los siguientes pasos:
 
 1. Vaya al sitio web [www.test-cors.org](https://www.test-cors.org/) y pegue la dirección URL en el cuadro **Remote URL** (Dirección URL remota).
-2. Haga clic en **Send Request** (Enviar solicitud).  
+1. Haga clic en **Send Request** (Enviar solicitud).
     Si recibe un error, asegúrese de que la [configuración de CORS](#configure-cors) sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
 
 ## <a name="modify-the-extensions-file"></a>Modificación del archivo de extensiones
 
 Para configurar la personalización de la interfaz de usuario, se copia **ContentDefinition** y sus elementos secundarios del archivo base al archivo de extensiones.
 
-1. Abra el archivo base de la directiva. Por ejemplo, *TrustFrameworkBase.xml*.
-2. Busque y copie todo el contenido del elemento **ContentDefinitions**.
-3. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
-4. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**. 
-5. Busque el elemento **ContentDefinition** que contenga `Id="api.signuporsignin"` en el XML que ha copiado.
-6. Cambie el valor de **LoadUri** a la dirección URL del archivo HTML que cargó en el almacenamiento. Por ejemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
-    
+1. Abra el archivo base de la directiva. Por ejemplo: *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`***. Este es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Busque y copie todo el contenido del elemento **ContentDefinitions**.
+1. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
+1. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**.
+1. Busque el elemento **ContentDefinition** que contenga `Id="api.signuporsignin"` en el XML que ha copiado.
+1. Cambie el valor de **LoadUri** a la dirección URL del archivo HTML que cargó en el almacenamiento. Por ejemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+
     La directiva personalizada debería ser similar a la siguiente:
 
     ```xml
@@ -143,22 +143,22 @@ Para configurar la personalización de la interfaz de usuario, se copia **Conten
     </BuildingBlocks>
     ```
 
-7. Guarde el archivo de extensiones.
+1. Guarde el archivo de extensiones.
 
 ## <a name="upload-your-updated-custom-policy"></a>Carga de la directiva personalizada actualizada
 
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Marco de experiencia de identidad**.
-2. Haga clic en **Todas las directivas**.
-3. Haga clic en **Cargar directiva**.
-4. Cargue el archivo de extensiones que cambió anteriormente.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Haga clic en **Todas las directivas**.
+1. Haga clic en **Cargar directiva**.
+1. Cargue el archivo de extensiones que cambió anteriormente.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Prueba de la directiva personalizada con **Ejecutar ahora**
 
-1. En la hoja **Azure AD B2C**, vaya a **Todas las directivas**.
-2. Seleccione la directiva personalizada que cargó y, luego, haga clic en el botón **Ejecutar ahora**.
-3. Debería poder registrarse con una dirección de correo electrónico.
+1. En la página de **Azure AD B2C**, vaya a **Todas las directivas**.
+1. Seleccione la directiva personalizada que cargó y, luego, haga clic en el botón **Ejecutar ahora**.
+1. Debería poder registrarse con una dirección de correo electrónico.
 
 ## <a name="reference"></a>Referencia
 
@@ -179,19 +179,20 @@ La carpeta sample_templates/wingtip contiene los siguientes archivos HTML:
 | *unified.html* | Use este archivo como plantilla para una página de inicio de sesión o registro unificada. |
 | *updateprofile.html* | Use este archivo como plantilla para una página de actualización de perfil. |
 
-Estos son los pasos sobre cómo usar el ejemplo. 
-1. Clone el repositorio en la máquina local. Elija una carpeta de plantilla en sample_templates. Puede usar `wingtip` o `contoso`.
-2. Cargue todos los archivos en las carpetas `css`, `fonts` y `images` en Blob Storage, como se describe en las secciones anteriores. 
-3. A continuación, abra cada archivo \*.html en la raíz de `wingtip` o `contoso` (el que haya seleccionado en el primer paso) y reemplace todas las instancias de "http://localhost" con las direcciones URL de los archivos css, de imágenes y de fuentes que cargó en el paso 2.
-4. Guardar los archivos \*.html y cárguelos en Blob Storage.
-5. Ahora, modifique el archivo de extensiones como se mencionó anteriormente en [Modificación del archivo de extensiones](#modify-the-extensions-file).
-6. Si ve que faltan las fuentes, imágenes o css, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
+Estos son los pasos sobre cómo usar el ejemplo:
 
-### <a name="content-defintion-ids"></a>Id. de definición de contenido
+1. Clone el repositorio en la máquina local. Elija una carpeta de plantilla en sample_templates. Puede usar `wingtip` o `contoso`.
+1. Cargue todos los archivos en las carpetas `css`, `fonts` y `images` en Blob Storage, como se describe en las secciones anteriores.
+1. A continuación, abra cada archivo \*.html en la raíz de `wingtip` o `contoso` (el que haya seleccionado en el primer paso) y reemplace todas las instancias de "http://localhost" con las direcciones URL de los archivos css, de imágenes y de fuentes que cargó en el paso 2.
+1. Guardar los archivos \*.html y cárguelos en Blob Storage.
+1. Ahora, modifique el archivo de extensiones como se mencionó anteriormente en [Modificación del archivo de extensiones](#modify-the-extensions-file).
+1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
+
+### <a name="content-definition-ids"></a>Id. de definición de contenido
 
 En la sección Modificación de la directiva de inicio de sesión o de registro configuró la definición del contenido de `api.idpselections`. Todos los identificadores de definición de contenido que se reconocen en el marco de la experiencia de identidad de Azure AD B2C y sus descripciones aparecen en la tabla siguiente:
 
-| Id. de definición de contenido | DESCRIPCIÓN | 
+| Id. de definición de contenido | DESCRIPCIÓN |
 |-----------------------|-------------|
 | *api.error* | **Página de error**. Esta página se muestra cuando se produce una excepción o un error. |
 | *api.idpselections* | **Página de selección del proveedor de identidades**. Esta página contiene una lista de proveedores de identidades que el usuario puede elegir durante el inicio de sesión. Estas opciones son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
@@ -206,4 +207,4 @@ En la sección Modificación de la directiva de inicio de sesión o de registro 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información adicional sobre los elementos de la interfaz de usuario que se pueden personalizar, consulte la [guía de referencia para la personalización de la interfaz de usuario para las directivas integradas](active-directory-b2c-reference-ui-customization.md).
+Para obtener información adicional sobre los elementos de la interfaz de usuario que se pueden personalizar, consulte la [guía de referencia para la personalización de la interfaz de usuario para las directivas integradas](active-directory-b2c-reference-ui-customization.md).

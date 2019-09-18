@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación, carga y consulta de un índice con Azure Portal: Azure Search'
+title: 'Inicio rápido: Creación de un índice de búsqueda mediante Azure Portal (Azure Search)'
 description: Utilice el Asistente para importar datos en Azure Portal para crear, cargar y consultar el primer índice de Azure Search.
 author: lobrien
 manager: nitinme
@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656350"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884566"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Search en Azure Portal
 > [!div class="op_single_selector"]

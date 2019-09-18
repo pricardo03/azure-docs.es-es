@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package para Azure'
+title: 'Tutorial: Configuración de Apache HBase con Enterprise Security Package (Azure)'
 description: 'Tutorial: Aprenda cómo se configura las directivas de Apache Ranger para HBase en Azure HDInsight con Enterprise Security Package.'
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274404"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885156"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package
 
@@ -100,7 +100,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
 
 2. La pantalla **List of Policies** (Lista de directivas) mostrará todas las directivas de Ranger creadas para este clúster. Puede aparecer una directiva configurada previamente. Haga clic en **Add New Policy** (Agregar nueva directiva).
 
-    ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Lista de directivas de Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. En la página **Create Policy** (Crear directiva), escriba los siguientes valores:
 
@@ -119,7 +119,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
    * `*` indica ninguna o más repeticiones de caracteres.
    * `?` indica cualquier carácter individual.
 
-   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Crear directiva de Apache Ranger, ventas](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
@@ -138,7 +138,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
    |Seleccionar usuario  | marketing_user1 |
    |Permisos  | Lectura |
 
-   ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Crear directiva de Apache Ranger, marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Haga clic en **Agregar** para guardar la directiva.
 
@@ -146,7 +146,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
 
 Según las directivas de Ranger configuradas, **sales_user1** puede ver todos los datos para las columnas tanto en ambas familias de columnas `Name` y `Contact`. **marketing_user1** solo puede ver los datos en la familia de columnas `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Acceso a los datos como sales_user1
+### <a name="access-data-as-sales_user1"></a>Acceso a los datos como sales_user1
 
 1. Abra una nueva conexión SSH al clúster. Use el siguiente comandos para iniciar sesión en el clúster:
 
@@ -188,7 +188,7 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Acceso a los datos como marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Acceso a los datos como marketing_user1
 
 1. Abra una nueva conexión SSH al clúster. Use el siguiente comando para iniciar sesión como **marketing_user1**:
 

@@ -1,20 +1,19 @@
 ---
 title: Conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
 description: Aprenda cómo recuperar por conmutación máquinas virtuales de Azure con el servicio Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399501"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814519"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Conmutación por recuperación de una máquina virtual de Azure entre regiones de Azure
 
@@ -45,25 +44,18 @@ Una vez que las máquinas virtuales vuelven a estar protegidas, puede conmutar p
 
     ![Conmutación por recuperación a la región primaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. Haga clic en **Conmutación por error de prueba** para realizar una conmutación por error de prueba a la región primaria.
-4. Seleccione el punto de recuperación y la red virtual para la conmutación por error de prueba y haga clic en **Aceptar**. Puede revisar la máquina virtual de prueba creada en la región primaria.
-5. Una vez que la conmutación por error de prueba se realice correctamente, haga clic en **Limpiar conmutación por error de prueba** para limpiar los recursos creados en la región de origen para esta prueba.
-6. En **Elementos replicados**, seleccione la máquina virtual y luego seleccione **Conmutación por error**.
-7. En **Conmutación por error**, seleccione un punto de recuperación en el que realizar la conmutación por error:
+2. En **Elementos replicados**, seleccione la máquina virtual y luego seleccione **Conmutación por error**.
+3. En **Conmutación por error**, seleccione un punto de recuperación en el que realizar la conmutación por error:
     - **Más reciente (opción predeterminada)** : procesa todos los datos en el servicio Site Recovery y proporciona el objetivo de punto de recuperación (RPO) más bajo.
     - **Procesado más recientemente**: revierte la máquina virtual al último punto de recuperación procesado por Site Recovery.
     - **Personalizado**: conmuta por error a un punto de recuperación concreto. Esta opción es útil para realizar una conmutación por error de prueba.
-
-8. Seleccione **Apague la máquina antes de comenzar con la conmutación por error** si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Tenga en cuenta que Site Recovery no es un origen limpio después de la conmutación por error.
-9. Siga el progreso de la conmutación por error en la página **Trabajos**.
-10. Una vez terminada la conmutación por error, valide la máquina virtual iniciando sesión en ella. Puede cambiar el punto de recuperación según sea necesario.
-11. Después de haber comprobado la conmutación por error, seleccione **Commit the failover** (Confirmar la conmutación por error). Al hacerlo, se eliminarán los puntos de recuperación disponibles. La opción Cambiar punto de recuperación ya no está disponible.
-12. La máquina virtual debe mostrarse como conmutada por error y conmutada por recuperación.
+4. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar con la conmutación por error) si desea que Site Recovery intente apagar las máquinas virtuales de la región de recuperación ante desastres antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. 
+5. Siga el progreso de la conmutación por error en la página **Trabajos**.
+6. Una vez terminada la conmutación por error, valide la máquina virtual iniciando sesión en ella. Puede cambiar el punto de recuperación según sea necesario.
+7. Después de haber comprobado la conmutación por error, seleccione **Commit the failover** (Confirmar la conmutación por error). Al hacerlo, se eliminarán los puntos de recuperación disponibles. La opción Cambiar punto de recuperación ya no está disponible.
+8. La máquina virtual debe mostrarse como conmutada por error y conmutada por recuperación.
 
     ![Máquina virtual en regiones primarias y secundarias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-> [!NOTE]
-> Las máquinas virtuales de recuperación ante desastres permanecerán en estado apagado o desasignado. Esto es así intencionadamente, ya que Site Recovery guarda la información de la máquina virtual, que puede ser útil para la conmutación por error desde la región primaria a la secundaria más adelante. No se cobra por las máquinas virtuales desasignadas, por lo que deben conservarse tal cual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

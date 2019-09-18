@@ -6,27 +6,26 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f7429a6de05a301b579354d722ad354b78ce6cbf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263769"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899670"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Creación de una canalización de CI/CD para Go mediante Azure DevOps Projects
 
-Configure la integración continua (CI) y la entrega continua (CD) para la aplicación Go mediante Azure DevOps Projects. DevOps Projects simplifica la configuración inicial de una canalización de compilación y de versión de DevOps.
+Configure la integración continua (CI) y la entrega continua (CD) para la aplicación Go mediante Azure DevOps Projects. DevOps Projects simplifica la configuración inicial de una canalización de compilación y de versión de Azure DevOps.
 
 Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -145,7 +144,7 @@ Cuando dejen de ser necesarios, puede eliminar la instancia de Azure App Service
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo modificar las canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo, consulte:
+Para más información acerca de cómo modificar las canalizaciones de compilación y versión para satisfacer las necesidades de su equipo, consulte:
 
 > [!div class="nextstepaction"]
 > [Definición de la canalización de implementación continua (CD) en varias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

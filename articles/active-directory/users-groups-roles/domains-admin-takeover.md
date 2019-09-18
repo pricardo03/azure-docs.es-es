@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736797"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914771"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -43,7 +43,7 @@ Algunos productos que incluyen SharePoint y OneDrive, como Office 365, no admite
 
 3. En el correo electrónico de confirmación de Power BI, seleccione la opción que indica que **es el destinatario del mensaje**.
 
-4. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com) con la cuenta de usuario de Power BI. Recibe un mensaje que le indica que debe **convertirse en el administrador** del nombre de dominio que ya se comprobó en el inquilino no administrado. Seleccione la opción que indica que **desea convertirse en el administrador**.
+4. Inicie sesión en el [Centro de administración de Microsoft 365](https://portal.office.com/admintakeover) con la cuenta de usuario de Power BI. Recibe un mensaje que le indica que debe **convertirse en el administrador** del nombre de dominio que ya se comprobó en el inquilino no administrado. Seleccione la opción que indica que **desea convertirse en el administrador**.
   
    ![primera captura de pantalla para convertirse en el administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -102,15 +102,17 @@ Los planes de servicio compatibles incluyen:
 - Microsoft Stream
 - Evaluación gratuita de Dynamics 365
 
-La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office. También puede usar la opción [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio del inquilino no administrado y comprobarlo en el inquilino deseado. Esta opción no moverá usuarios ni mantendrá el acceso a la suscripción. Solo mueve el nombre de dominio. 
+La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office. 
+
+También puede usar la opción [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio del inquilino no administrado y comprobarlo en el inquilino deseado. **La opción ForceTakeover no moverá usuarios ni mantendrá el acceso a la suscripción. Esta opción solo mueve el nombre de dominio.**
 
 #### <a name="more-information-about-rms-for-individuals"></a>Más información acerca de RMS para individuos
 
-En el caso de [RMS para individuos](/azure/information-protection/rms-for-individuals), cuando el inquilino no administrado está en la misma región que el inquilino que posee, tanto la [clave de inquilino de Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) como las [plantillas de protección predeterminadas](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates), que se crean automáticamente, se mueven con el nombre de dominio. 
+En el caso de [RMS para individuos](/azure/information-protection/rms-for-individuals), cuando el inquilino no administrado está en la misma región que el inquilino que posee, tanto la [clave de inquilino de Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) como las [plantillas de protección predeterminadas](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates), que se crean automáticamente, se mueven con el nombre de dominio.
 
-Si inquilino no administrado está en otra región, la clave y las plantillas no se mueven. Por ejemplo, el inquilino no administrado está en Europa y el inquilino que posee se encuentra en Norteamérica. 
+Si inquilino no administrado está en otra región, la clave y las plantillas no se mueven. Por ejemplo, si el inquilino no administrado está en Europa y al organización que usted posee se encuentra en Norteamérica.
 
-Aunque RMS para individuos está diseñado para admitir la autenticación de Azure AD para abrir contenido protegido, no impide que los usuarios también protejan el contenido. Si los usuarios han protegido el contenido con la suscripción a RMS para individuos y la clave y las plantillas no se han movido, no será posible acceder a dicho contenido después de la adquisición de dominio.
+Aunque RMS para individuos está diseñado para admitir la autenticación de Azure AD para abrir contenido protegido, no impide que los usuarios también protejan el contenido. Si los usuarios han protegido el contenido con la suscripción a RMS para individuos y la clave y las plantillas no se han movido, no será posible acceder a dicho contenido después de la adquisición del dominio.
 
 #### <a name="more-information-about-power-bi"></a>Más información sobre Power BI
 
@@ -119,8 +121,7 @@ Al realizar un adquisición externa, el contenido de Power BI que se creó antes
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets de Azure AD PowerShell para la opción ForceTakeover
 Puede ver estos cmdlets en uso en el [ejemplo de PowerShell](#powershell-example).
 
-
-cmdlet | Uso 
+cmdlet | Uso
 ------- | -------
 `connect-msolservice` | Cuando se le solicite, inicie sesión en el inquilino administrado.
 `get-msoldomain` | Muestra los nombres de dominio asociados con el inquilino actual.
@@ -129,6 +130,9 @@ cmdlet | Uso
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Proporciona la información que se va a ingresar en el registro TXT de DNS para el dominio (MS=xxxxx). Es posible que la comprobación no suceda de inmediato porque el registro TXT tarda un tiempo en propagarse. Por lo tanto, debe esperar unos minutos antes de considerar la opción **-ForceTakeover**. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si todavía no es posible comprobar el nombre de dominio, puede continuar con la opción **-ForceTakeover**. Comprueba que se creó el registro TXT e inicia el proceso de adquisición.<li>La opción **-ForceTakeover** se debe agregar al cmdlet solo cuando se fuerza una adquisición de administración externa, por ejemplo cuando el inquilino no administrado tiene servicios de Office 365 que bloquean la adquisición.
 `get-msoldomain` | La lista de dominios ahora muestra el nombre de dominio como **Comprobado**.
+
+> [!NOTE]
+> La organización de Azure AD no administrada se elimina 10 días después de que se ejecute la opción de fuerza de adquisición externa.
 
 ### <a name="powershell-example"></a>Ejemplo de PowerShell
 

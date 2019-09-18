@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541906"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915150"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -194,13 +194,13 @@ El código de C# de ejemplo que acompaña a la plantilla del proyecto usa la [cl
 
 6. Busque la propiedad **modules** de las propiedades deseadas de $edgeAgent. 
 
-   Debería haber dos módulos. El primero es **tempSensor**, que se incluye en todas las plantillas de forma predeterminada para proporcionar datos de temperatura simulados que se pueden usar para probar los módulos. El segundo es el módulo **IotEdgeModule1** que creó como parte de este proyecto.
+   Debería haber dos módulos. El primero es **SimulatedTemperatureSensor**, que se incluye en todas las plantillas de forma predeterminada para proporcionar datos de temperatura simulados que se pueden usar para probar los módulos. El segundo es el módulo **IotEdgeModule1** que creó como parte de este proyecto.
 
    Esta propiedad modules declara qué módulos se deben incluir en la implementación en el dispositivo o dispositivos. 
 
 7. Busque la propiedad **routes** de las propiedades deseadas de $edgeHub. 
 
-   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IotEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo tempSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1. 
+   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IotEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo SimulatedTemperatureSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1. 
 
    ![Revisar las rutas de deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ Ha verificado que las imágenes de contenedor creadas se almacenan en el registr
 
 4. Expanda los detalles para el dispositivo IoT Edge en Cloud Explorer para ver los módulos del dispositivo.
 
-5. Use el botón **Actualizar** para actualizar el estado del dispositivo para ver que los módulos tempSensor y IotEdgeModule1 se implementan en el dispositivo. 
+5. Use el botón **Actualizar** para actualizar el estado del dispositivo para ver que los módulos SimulatedTemperatureSensor y IotEdgeModule1 se implementan en el dispositivo. 
 
 
    ![Visualización de los módulos que se ejecutan en el dispositivo IoT Edge](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>Visualización de los mensajes desde el dispositivo
 
-El código IotEdgeModule1 recibe mensajes mediante la cola de entrada y los pasa por la cola de salida. El manifiesto de implementación declaraba las rutas que pasaban los mensajes de tempSensor a IotEdgeModule1, y luego enviaban los mensajes de IotEdgeModule1 a la instancia de IoT Hub. Las herramientas Azure IoT Edge Tools para Visual Studio permiten ver los mensajes que llegan a IoT Hub desde dispositivos individuales. 
+El código IotEdgeModule1 recibe mensajes mediante la cola de entrada y los pasa por la cola de salida. El manifiesto de implementación declaraba las rutas que pasaban los mensajes de SimulatedTemperatureSensor a IotEdgeModule1, y luego enviaban los mensajes de IotEdgeModule1 a la instancia de IoT Hub. Las herramientas Azure IoT Edge Tools para Visual Studio permiten ver los mensajes que llegan a IoT Hub desde dispositivos individuales. 
 
 1. En el explorador en la nube de Visual Studio, seleccione el nombre del dispositivo IoT Edge en el que se ha realizado la implementación. 
 
@@ -315,7 +315,7 @@ Los comandos de esta sección son para el dispositivo IoT Edge, no en la máquin
    iotedge list
    ```
 
-   Debería ver cuatro módulos: los dos módulos personalizados del entorno de ejecución de IoT Edge, tempSensor e IotEdgeModule1. Los cuatro deben aparecer como en ejecución.
+   Debería ver cuatro módulos: los dos módulos personalizados del entorno de ejecución de IoT Edge, SimulatedTemperatureSensor e IotEdgeModule1. Los cuatro deben aparecer como en ejecución.
 
 * Inspeccione los registros para un módulo específico:
 
@@ -325,7 +325,7 @@ Los comandos de esta sección son para el dispositivo IoT Edge, no en la máquin
 
    Los módulos IoT Edge distinguen mayúsculas de minúsculas. 
 
-   Los registros de tempSensor y IotEdgeModule1 deben mostrar los mensajes que están procesando. El módulo edgeAgent es responsable de iniciar los otros módulos, por lo que sus registros tendrá información sobre cómo implementar el manifiesto de implementación. Si algún módulo no aparece en la lista o no se está ejecutando, es probable que los registros de edgeAgent contengan los errores. El módulo edgeHub es responsable de las comunicaciones entre los módulos e IoT Hub. Si los módulos están en funcionamiento, pero los mensajes no llegan al centro de IoT, los registros de edgeHub probablemente contendrán los errores. 
+   Los registros de SimulatedTemperatureSensor e IotEdgeModule1 deben mostrar los mensajes que están procesando. El módulo edgeAgent es responsable de iniciar los otros módulos, por lo que sus registros tendrá información sobre cómo implementar el manifiesto de implementación. Si algún módulo no aparece en la lista o no se está ejecutando, es probable que los registros de edgeAgent contengan los errores. El módulo edgeHub es responsable de las comunicaciones entre los módulos e IoT Hub. Si los módulos están en funcionamiento, pero los mensajes no llegan al centro de IoT, los registros de edgeHub probablemente contendrán los errores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

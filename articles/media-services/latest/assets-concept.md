@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230982"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390496"
 ---
 # <a name="assets"></a>Recursos
 
@@ -48,7 +48,7 @@ Una vez que los archivos digitales se cargan en el almacenamiento y se asocian a
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. Obtenga una dirección URL de SAS con permisos de lectura y escritura que podrá usar para cargar archivos digitales en el contenedor de recursos. Puede usar la API de Media Services para [enumerar las direcciones URL del contenedor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Use los SDK o API de Azure Storage (por ejemplo, la [API REST de Storage](../../storage/common/storage-rest-api-auth.md), el [SDK para JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md) o el [SDK para .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para cargar archivos en el contenedor de recursos. 
+3. Use los SDK o las API de Azure Storage (por ejemplo, la [API de REST de Storage](../../storage/common/storage-rest-api-auth.md), el [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para cargar archivos en el contenedor de recursos. 
 4. Use las API de Media Services v3 para crear una transformación y un trabajo para procesar el recurso de "entrada". Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md).
 5. Haga streaming del contenido del recurso de "salida".
 

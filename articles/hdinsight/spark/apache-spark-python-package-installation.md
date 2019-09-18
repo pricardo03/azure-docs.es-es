@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574648"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900688"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en Apache Spark en HDInsight
+
 > [!div class="op_single_selector"]
 > * [Uso de magic cell](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Uso de acciones de script](apache-spark-python-package-installation.md)
@@ -96,7 +97,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
     El resultado se parecerá al siguiente:
     
-    ![Ejecución de código de TensorFlow](./media/apache-spark-python-package-installation/execution.png "Ejecución de código de TensorFlow")
+    ![Ejecución de código de TensorFlow](./media/apache-spark-python-package-installation/tensorflow-execution.png "Ejecución de código de TensorFlow")
 
 > [!NOTE]  
 > Hay dos instalaciones de Python en el clúster. Spark usará la instalación de Python de Anaconda ubicada en `/usr/bin/anaconda/bin` y usará como predeterminado el entorno de Python 2.7. Para usar Python 3.x e instalar paquetes en el kernel de PySpark3, use la ruta de acceso al ejecutable `conda` para ese entorno y use el parámetro `-n` para especificar el entorno. Por ejemplo, el comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, instala el paquete `ggplot` en el entorno de Python 3.5 mediante el canal `conda-forge`.

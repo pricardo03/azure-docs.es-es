@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277090"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812311"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -87,6 +87,9 @@ Para usar un `escapeChar` en lugar de `quoteChar`, reemplace la línea con `quot
 * Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no contienen datos ni información de encabezado. Especifique `skipLineCount` para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar `firstRowAsHeader`. Si se especifican `skipLineCount` y `firstRowAsHeader`, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada.
 
 ## <a name="json-format"></a>Formato JSON
+
+>[!NOTE]
+>Data Factory presentó el nuevo conjunto de datos con formato JSON; consulte el artículo [JSON](format-json.md) para obtener todos los detalles al respecto. Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
 Para **importar o exportar un archivo JSON como está en Azure Cosmos DB**, consulte la sección sobre la importación o exportación de documentos JSON en el artículo [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) (Movimiento de datos a y desde Azure Cosmos DB).
 

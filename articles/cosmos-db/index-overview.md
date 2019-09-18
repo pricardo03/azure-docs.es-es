@@ -4,14 +4,14 @@ description: Comprenda cómo funciona la indexación en Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479286"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914191"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
@@ -25,6 +25,7 @@ Cada vez que un elemento se almacena en un contenedor, su contenido se proyecta 
 
 Por ejemplo, considere este elemento:
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -36,6 +37,7 @@ Por ejemplo, considere este elemento:
             { "city": "Athens" }
         ]
     }
+```
 
 Se podría representar mediante el árbol siguiente:
 
@@ -70,13 +72,13 @@ El tipo de índice de **rango** se usa con:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - Consultas por rango:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   (funciona para `>`, `<`, `>=`, `<=`, `!=`).
 
 - Consultas `ORDER BY`:
@@ -107,15 +109,27 @@ El tipo de índice **espacial** se usa con:
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-Los índices espaciales pueden usarse en objetos [GeoJSON](geospatial.md) con un formato correcto. Actualmente se admiten puntos, LineStrings y polígonos.
+Los índices espaciales pueden usarse en objetos [GeoJSON](geospatial.md) con un formato correcto. Actualmente, se admiten Points, LineStrings, Polygons y MultiPolygons.
 
 El tipo de índice **compuesto** se usa con:
 
-- Consultas `ORDER BY` en varias propiedades: 
+- Consultas `ORDER BY` en varias propiedades:
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Consultas con un filtro y `ORDER BY`. Estas consultas pueden emplear un índice compuesto si la propiedad de filtro se agrega a la cláusula `ORDER BY`.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Consultas con un filtro en dos o más propiedades en las que al menos una propiedad es un filtro de igualdad
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## <a name="querying-with-indexes"></a>Consultas con índices
 
@@ -126,7 +140,7 @@ Por ejemplo, considere la consulta siguiente: `SELECT location FROM location IN 
 ![Coincidencia con una ruta de acceso específica dentro de un árbol](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. De forma similar, una consulta con varias cláusulas `ORDER BY`*siempre* necesita un índice compuesto.
+> Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. Del mismo modo, una consulta `ORDER BY` que se ordena por varias propiedades *siempre* necesita un índice compuesto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

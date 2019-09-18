@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640044"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845300"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure
 
@@ -26,12 +26,12 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 Para seguir todos los pasos de este artículo de inicio rápido debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-single-database"></a>Creación de una base de datos única
+## <a name="create-a-single-database"></a>Crear una base de datos única
 
 Una base de datos única se puede crear en el nivel de proceso aprovisionado o sin servidor (versión preliminar).
 
-- Una base de datos única en el nivel de proceso aprovisionado tiene una cantidad definida de recursos de proceso asignados previamente más un conjunto de recursos de memoria y almacenamiento con uno o dos [modelos de compra](sql-database-purchase-models.md).
-- Una base de datos única en el nivel de proceso sin servidor tiene una variedad de recursos de proceso que se escalan automáticamente más una cantidad especificada de memoria por núcleo y una cantidad especificada de recursos de proceso y solo está disponible en los [modelos de compra basados en núcleo virtual](sql-database-service-tiers-vcore.md).
+- Una base de datos única en el nivel de proceso aprovisionado tiene asignada previamente una cantidad fija de recursos de proceso, como memoria y CPU con uno o dos [modelos de compra](sql-database-purchase-models.md).
+- Una base de datos única en el nivel de proceso sin servidor tiene una variedad de recursos de proceso, como memoria y CPU que se escalan automáticamente, y solo está disponible en los [modelos de compra basados en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 Cuando se crea una base de datos única, también se define un [servidor de SQL Database](sql-database-servers.md) para administrarla y colocarla dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) de una región determinada.
 

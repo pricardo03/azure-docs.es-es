@@ -1,23 +1,23 @@
 ---
-title: Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada de Azure
-description: Obtenga información cómo puede pagar por adelantado los cargos de SQL Data Warehouse con la capacidad reservada para ahorrar dinero.
+title: Ahorro de costos de los cargos de SQL Data Warehouse con la capacidad reservada de Azure
+description: Obtenga información de cómo ahorrar costos en los cargos de SQL Data Warehouse con la capacidad reservada para ahorrar dinero.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779979"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70806284"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pago por adelantado de los cargos de SQL Data Warehouse con la capacidad reservada
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Ahorro de costos de los cargos de SQL Data Warehouse con la capacidad reservada
 
-Puede ahorrar dinero con Azure SQL Data Warehouse si paga por adelantado por el uso de cDWU durante uno o tres años. Para comprar capacidad reservada de SQL Data Warehouse, deberá elegir la región de Azure y el período. Después, deberá agregar la SKU de SQL Data Warehouse al carro de compra y elegir la cantidad de unidades de cDWU que desea comprar.
+Puede ahorrar dinero con Azure SQL Data Warehouse si se compromete a reservar el uso de cDWU durante uno o tres años. Para comprar capacidad reservada de SQL Data Warehouse, deberá elegir la región de Azure y el período. Después, deberá agregar la SKU de SQL Data Warehouse al carro de compra y elegir la cantidad de unidades de cDWU que desea comprar.
 
 Cuando se compra una reserva, el uso de SQL Data Warehouse que coincida con los atributos de reserva deja de pagarse según las tarifas de pago por uso.
 
@@ -27,7 +27,7 @@ Cuando expira la capacidad reservada, las instancias de SQL Data Warehouse sigue
 
 Para más información sobre precios, consulte la [oferta de capacidad reservada de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-Puede comprar capacidad reservada de Azure SQL Data Warehouse en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Para adquirir capacidad reservada:
+Puede comprar capacidad reservada de Azure SQL Data Warehouse en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pague la reserva [por adelantado o mensualmente](billing-monthly-payments-reservations.md). Para adquirir capacidad reservada:
 
 - Debe tener rol de propietario al menos en una suscripción Enterprise o de Pago por uso.
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal del Contrato Enterprise](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
@@ -45,7 +45,7 @@ Por ejemplo, suponga que el consumo total de SQL Data Warehouse es DW3000c. Dese
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Todos los servicios** > **Reservations**.
-3. Seleccione una suscripción. Utilice la lista de suscripciones para elegir la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
+3. Seleccione una suscripción. Utilice la lista de suscripciones para elegir la que se va a usar para pagar la capacidad reservada. Los costos de la capacidad reservada se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
    - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
    - Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.
 4. Seleccione un ámbito. Utilice la lista de ámbitos para elegir el ámbito de la suscripción.

@@ -8,29 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 6ba4e44efc7ff24aa48f9f16840b2248423f7241
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607707"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382674"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Inicio rápido: Traducción de voz con el SDK de Voz para C++
+# <a name="quickstart-translate-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Traducción de voz en C++ en Windows mediante el SDK de voz
 
-También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-cpp-windows.md) y [de texto a voz](quickstart-text-to-speech-cpp-windows.md).
+También hay guías de inicio rápido para el [reconocimiento](quickstart-cpp-windows.md) y la [síntesis de voz](quickstart-text-to-speech-cpp-windows.md).
 
-En este inicio rápido, creará una sencilla aplicación de C++ que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 o una versión posterior.
+En este inicio rápido, creará una aplicación de C++ que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación se compila con el [paquete NuGet del SDK de voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019 (cualquier edición).
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esta guía de inicio rápido requiere:
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versiones posteriores
-* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
+Necesita una clave de suscripción de servicios de voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita de los servicios de voz](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
@@ -38,38 +35,35 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Abra el archivo de origen *helloworld.cpp*. Reemplace todo el código que aparece debajo de la instrucción include inicial (`#include "stdafx.h"` o `#include "pch.h"`) por lo siguiente:
+1. Abra el archivo de origen **helloworld.cpp**.
 
-    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp#code)]
+1. Reemplace todo el código por el fragmento siguiente:
+
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp?range=2-#code)]
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
 1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
-1. Guarde los cambios en el proyecto.
+1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-1. Compile la aplicación. En la barra de menús, elija **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+1. En la barra de menús, seleccione **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Compilar solución resaltada](media/sdk/qs-cpp-windows-06-build.png)
+1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Inicie la aplicación. En la barra de menús, elija **Depurar** > **Iniciar depuración** o bien presione **F5**.
+1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, a francés y alemán. Después, Speech Services envían el texto de nuevo a la aplicación para que se muestren.
 
-   ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. Aparece una ventana de consola que le pide decir algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio Voz, se traducirá y se transcribirá como texto que aparecerá en la misma ventana.
-
-   ![Captura de pantalla de la salida de la consola después de una traducción correcta](media/sdk/qs-translate-cpp-windows-output.png)
+   ![Salida de la consola después de una traducción de voz correcta](media/sdk/qs-translate-cpp-windows-output.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Se pueden encontrar ejemplos adicionales como, por ejemplo, leer voz desde un archivo de audio y proporcionar una salida del texto traducido como voz sintetizada, en GitHub.
+En GitHub se pueden encontrar ejemplos adicionales, para, por ejemplo, leer voz desde un archivo de audio y convertir el texto traducido en voz sintetizada.
 
 > [!div class="nextstepaction"]
 > [Exploración de ejemplos de C++ en GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Entrenamiento de un modelo de Custom Speech](how-to-custom-speech-train-model.md)

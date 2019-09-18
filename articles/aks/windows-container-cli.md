@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147204"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914890"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -42,7 +42,7 @@ Debe agregar un grupo de nodos adicionales después de crear el clúster que pue
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para usar contenedores de Windows Server, necesitará la versión 0.4.1 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para usar contenedores de Windows Server, necesitará la versión 0.4.12 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
-* Hay varios grupos de nodos disponibles para los clústeres creados después de haber registrado correctamente *WindowsPreview*. También hay varios grupos de nodos disponibles si registra las características *MultiAgentpoolPreview* y *VMSSPreview* para la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que estas características se registraran satisfactoriamente.
+* Hay varios grupos de nodos disponibles para los clústeres creados después de haber registrado correctamente *WindowsPreview*. También hay varios grupos de nodos disponibles si registra la característica *MultiAgentpoolPreview* en la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que esta característica se registrara satisfactoriamente.
 * No puede eliminar el primer grupo de nodos.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 

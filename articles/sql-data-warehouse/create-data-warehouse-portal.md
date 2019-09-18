@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575183"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375835"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas
 
@@ -98,7 +98,7 @@ El servicio SQL Data Warehouse crea un firewall en el nivel de servidor. El fire
 > SQL Data Warehouse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 
 1. Una vez finalizada la implementación, seleccione **Todos los servicios** en el menú izquierdo. Seleccione **Bases de datos**, seleccione la estrella junto a **Almacenes de SQL Data Warehouse** para agregar almacenes de SQL Data Warehouse a sus favoritos.
-1. Seleccione **Almacenes de SQL Data Warehouse** en el menú izquierdo y, luego, haga clic en **mySampleDatabase** la página **Almacenes de SQL Data Warehouse**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net**) y proporciona opciones para otras configuraciones.
+1. Seleccione **Almacenes de SQL Data Warehouse** en el menú izquierdo y, luego, haga clic en **mySampleDataWarehouse** en la página **Almacenes de SQL Data Warehouse**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net**) y proporciona opciones para otras configuraciones.
 1. Copie este nombre para conectarse a su servidor y a sus bases de datos en este inicio rápido y los posteriores. Para abrir la configuración del servidor, haga clic en su nombre.
 
    ![búsqueda del nombre del servidor](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)

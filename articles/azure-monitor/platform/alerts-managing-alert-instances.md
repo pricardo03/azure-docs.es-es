@@ -1,5 +1,5 @@
 ---
-title: Administración de instancias de alertas
+title: Administración de instancias de alertas en Azure Monitor
 description: Administración de instancias de alertas en Azure
 author: anantr
 services: monitoring
@@ -8,42 +8,51 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: dbc7d37ce311d203ee051b5a23632d2bf401e27a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f97fa69926cd9c59a0617f409c72610336120333
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034840"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916010"
 ---
-# <a name="manage-alert-instances"></a>Administración de instancias de alertas
-Con la [experiencia de alertas unificadas](https://aka.ms/azure-alerts-overview) en Azure Monitor, ahora puede ver todos los tipos de alertas en Azure que abarcan varias suscripciones, en un solo panel de datos. En este artículo se explica cómo puede ver sus instancias de alerta y cómo realizar una inmersión profunda en el portal para encontrar instancias de alerta específicas para la solución de problemas.
+# <a name="manage-alert-instances-with-unified-alerts"></a>Administrar instancias de alerta con alertas unificadas
+Gracias a la [experiencia de alertas unificadas](https://aka.ms/azure-alerts-overview) en Azure Monitor, puede ver todos los tipos de alertas en Azure. Aquí se abarcan varias suscripciones en un solo panel. En este artículo se explica cómo puede ver sus instancias de alerta y cómo buscar instancias de alerta específicas para la solución de problemas.
 
 > [!NOTE]
-   >  Solo se puede acceder a las alertas generadas en los últimos 30 días en la experiencia de usuario o a través de las API REST.
+   >  Solo puede acceder a las alertas generadas en los últimos 30 días.
 
-1. Hay tres formas de llegar a la página Alertas:
+## <a name="go-to-the-alerts-page"></a>Ir a la página de alertas
 
-   + En [Azure Portal](https://portal.azure.com/), seleccione **Supervisar** y, en la sección Supervisar, elija **Alertas**.  
-     ![Supervisión](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
+Puede ir a la página de alertas de cualquiera de las siguientes maneras:
+
+   + En [Azure Portal](https://portal.azure.com/), seleccione **Monitor** > **Alertas**.  
+     ![Captura de pantalla de las alertas de Monitor](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-   + Puede ir a la sección Alertas desde el contexto de un **recurso** determinado. Una vez que se abra un recurso, explore la tabla de contenido y vaya a la sección Supervisión; elija **Alertas** y asegúrese de que la página de inicio esté filtrada previamente para recibir alertas sobre ese recurso específico.
+   + Use el contexto de un recurso específico. Abra un recurso, vaya a la sección de **supervisión** y seleccione **Alertas**. La página de aterrizaje se filtrará previamente para mostrar las alertas de ese recurso específico.
    
-     ![Supervisión](media/alerts-managing-alert-instances/alert-resource.JPG)
+     ![Captura de pantalla de las alertas de supervisión de recursos](media/alerts-managing-alert-instances/alert-resource.JPG)
     
-   + Puede ir a la sección Alertas desde el contexto de un **grupo de recursos** determinado. Una vez abierto el grupo de recursos, explore la tabla de contenido y vaya a la sección Supervisión; elija **Alertas** y asegúrese de que la página de inicio esté filtrada previamente para recibir alertas sobre ese grupo de recursos específico.    
+   + Use el contexto de un grupo de recursos específico. Abra un grupo de recursos, vaya a la sección de **supervisión** y seleccione **Alertas**. La página de aterrizaje se filtrará previamente para mostrar las alertas de ese grupo de recursos específico.    
    
-     ![Supervisión](media/alerts-managing-alert-instances/alert-rg.JPG)
+     ![Captura de pantalla de alertas de supervisión del grupo de recursos](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-1. Llegará a la página **Resumen de alertas**, que le proporciona información general de todas sus instancias de alerta en Azure. Puede modificar la vista de resumen seleccionando **varias suscripciones** (un máximo de 5) o filtrando por **grupos de recursos**, ya sean **recursos** o **intervalos de tiempo** específicos. Haga clic en Alertas totales o en cualquiera de las bandas de gravedad para ir a la vista de lista de sus alertas.     
-   ![Resumen de alertas](media/alerts-managing-alert-instances/alerts-summary.jpg)
+## <a name="find-alert-instances"></a>Buscar instancias de alertas
+
+La página **Resumen de alertas** le proporciona información general de todas sus instancias de alerta en Azure. Puede modificar la vista de resumen seleccionando **varias suscripciones** (hasta un máximo de 5) o filtrando por **grupos de recursos**, ya sean **recursos** o **intervalos de tiempo** específicos. Haga clic en **Alertas totales** o en cualquiera de las bandas de gravedad para ir a la vista de lista de sus alertas.     
+   ![Captura de pantalla de la página de resumen de alertas](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-1. Llegará a la página **Todas las alertas**, donde verá todas las instancias de alerta enumeradas en Azure. Si accede al portal desde una notificación de alerta, puede usar los filtros disponibles para limitar esa instancia de alerta específica. (**Nota**: si llegó a la página haciendo clic en cualquiera de las bandas de gravedad, la lista se filtrará previamente para esa gravedad en cuanto acceda a la página). Además de los filtros disponibles en la página anterior, ahora también puede realizar procesos de filtrado en función del servicio de supervisión (por ejemplo, Plataforma para métricas), la condición de la supervisión (activada o resuelta), la gravedad, el estado de las alertas (nuevo/confirmado/cerrado), o el identificador de grupo inteligente.
+En la página **Todas las alertas** se muestran todas las instancias de alerta en Azure. Si accede al portal desde una notificación de alerta, puede usar los filtros disponibles para limitar esa instancia de alerta específica.
 
-   ![Todas las alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
+> [!NOTE]
+>  Si llegó a la página haciendo clic en cualquiera de las bandas de gravedad, la lista se filtrará previamente en función de esa gravedad.
+
+Además de los filtros disponibles en la página anterior, también puede realizar procesos de filtrado en función del servicio de supervisión (por ejemplo, Plataforma para métricas), la condición de la supervisión (activada o resuelta), la gravedad, el estado de las alertas (nueva, confirmada y cerrada), o el id. de grupo inteligente.
+
+   ![Captura de pantalla de la página de alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
-   >  Si llegó a la página haciendo clic en cualquiera de las bandas de gravedad, la lista se filtrará previamente para esa gravedad en cuanto acceda a la página.
+   >  Si llegó a la página haciendo clic en cualquiera de las bandas de gravedad, la lista se filtrará previamente en función de esa gravedad.
  
-1. Al hacer clic en cualquier instancia de alerta, se abre la página **Detalles de alerta**, lo que le permite profundizar en la información sobre esa instancia de alerta específica.   
-   ![Detalles de alertas](media/alerts-managing-alert-instances/alert-details.jpg)  
+Al seleccionar cualquier instancia de alerta, se abre la página **Detalles de alerta**, lo que le permite obtener más detalles sobre esa instancia de alerta específica.   
+   ![Captura de pantalla de la página de detalles de alerta](media/alerts-managing-alert-instances/alert-details.jpg)  
 

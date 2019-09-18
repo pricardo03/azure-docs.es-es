@@ -1,19 +1,19 @@
 ---
-title: Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
+title: Rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
 description: Obtenga información acerca de la memoria caché de E/S de Azure HDInsight y cómo usarla para mejorar el rendimiento de Apache Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695205"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915369"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight 
 
 La memoria caché de E/S es un servicio de almacenamiento en caché de datos para Azure HDInsight que mejora el rendimiento de trabajos de Apache Spark. La memoria caché de E/S también funciona con cargas de trabajo de [Apache TEZ](https://tez.apache.org/) y [Apache Hive](https://hive.apache.org/), que se pueden ejecutar en clústeres de [Apache Spark](https://spark.apache.org/). La memoria caché de E/S usa un componente de almacenamiento en caché de código abierto denominado RubiX. RubiX es una caché de disco local para su uso con los motores de análisis de macrodatos que tienen acceso a datos desde sistemas de almacenamiento en la nube. RubiX es único entre los sistemas de almacenamiento en caché, porque utiliza unidades de estado sólido (SSD) en lugar de reservar memoria operativa para el almacenamiento en caché. El servicio de memoria caché de E/S inicia y administra servidores de los metadatos de RubiX en cada nodo de trabajo del clúster. También configura todos los servicios del clúster para su uso transparente de la memoria caché de RubiX.
 

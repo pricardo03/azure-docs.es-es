@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 938c65371b05807c774c9f2d73d4c27efe706c47
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143243"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898984"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
@@ -26,7 +26,7 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 
 ### <a name="supported-regions"></a>Regiones admitidas
 
-La eliminación temporal se admite actualmente en la región centro-oeste de EE. UU.
+La eliminación temporal se admite actualmente en la región Centro-oeste de EE. UU. y Asia Oriental.
 
 ### <a name="soft-delete-for-vms"></a>Eliminación temporal para máquinas virtuales
 
@@ -136,4 +136,4 @@ No. Actualmente, la eliminación temporal solo es compatible con máquinas virtu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Atributos de seguridad de Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes).
+* Obtenga más información sobre los [Controles de seguridad para Azure Backup](backup-security-controls.md).

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085327"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916456"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
 
-Para completar los pasos de este tutorial, primero necesita consultar el artículo sobre cómo [administrar la cuenta y las claves](how-to-manage-account-keys.md) para crear y administrar la suscripción de cuenta con el plan de tarifa S1.
+Para completar los pasos de este tutorial, siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
 
 ## <a name="upload-geofences"></a>Carga de geovallas
 

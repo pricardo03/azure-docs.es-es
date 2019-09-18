@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390405"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910115"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
 
 Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o países de Asia.
 
-### <a name="pick-up-in-us-canada"></a>Recogida en EE. UU. y Canadá
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[En Estados Unidos o Canadá](#tab/in-us-or-canada)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o Canadá.
 
@@ -68,7 +68,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
     - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
-### <a name="pick-up-in-europe"></a>Recogida en Europa
+### <a name="in-europetabin-europe"></a>[En Europa](#tab/in-europe)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 
@@ -81,7 +81,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 4. Visite el sitio Web de DHL Express del país o región y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).    
 3. Especifique el número de factura de porte aéreo y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
 
-### <a name="pick-up-in-australia"></a>Recogida en Australia
+### <a name="in-australiatabin-australia"></a>[En Australia](#tab/in-australia)
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes para la recogida en Australia.
 
@@ -89,9 +89,9 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 3. Pegue la etiqueta en la caja. 
 4. Utilice el vínculo https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference para reservar en línea una recogida. 
 
-### <a name="pick-up-in-asia"></a>Recogida en Asia
+### <a name="in-japan-koreatabin-japan-korea"></a>[En Japón, Corea](#tab/in-japan-korea)
 
-Las instrucciones de recogida son diferentes para Japón, Corea y Singapur.
+Estas son las instrucciones de recogida de Japón y Corea.
 
 #### <a name="pick-up-in-japan"></a>Recogida en Japón
 
@@ -134,7 +134,8 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
     3. Si el mensajero no realiza la recogida, llame a la línea directa de *Quantium Solutions International* para buscar otra fecha. 
     4. Recibirá una confirmación verbal si la solicitud se realiza por teléfono.
 
-#### <a name="pick-up-in-singapore"></a>Recogida en Singapur
+
+### <a name="in-singaporetabin-singapore"></a>[En Singapur](#tab/in-singapore)
 
 1. Imprima la etiqueta de envío y póngala en la caja. Si la etiqueta se daña o se pierde:
     - Vaya a **Información general > Descargar la etiqueta de envío** y obtenga una etiqueta de envío de devolución.

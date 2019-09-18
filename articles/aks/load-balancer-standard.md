@@ -1,20 +1,20 @@
 ---
-title: 'Vista previa: Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)'
+title: Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 description: Aprenda a usar un equilibrador de carga con una SKU estándar para exponer los servicios con Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898960"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914835"
 ---
-# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Vista previa: Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
+# <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
 Para proporcionar acceso a las aplicaciones en Azure Kubernetes Service (AKS), puede crear y usar una instancia de Azure Load Balancer. Los equilibradores de carga que se ejecutan en AKS pueden usarse como un equilibrador de carga interno o externo. Un equilibrador de carga interno permite que un servicio de Kubernetes sea accesible solo para las aplicaciones que se ejecutan en la misma red virtual que el clúster de AKS. Un equilibrador de carga externo recibe una o más direcciones IP públicas de entrada y permite que un servicio de Kubernetes sea accesible externamente mediante las direcciones IP públicas.
 
@@ -23,8 +23,6 @@ Azure Load Balancer está disponible en dos SKU: *Básica* y *Estándar*. De for
 En este artículo se muestra cómo crear y usar una instancia de Azure Load Balancer con la SKU *estándar* con Azure Kubernetes Service (AKS).
 
 Se presupone que tiene un conocimiento básico de los conceptos de Kubernetes y Azure Load Balancer. Para obtener más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts] y [¿Qué es Azure Load Balancer?][azure-lb].
-
-Esta funcionalidad actualmente está en su versión preliminar.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -36,17 +34,11 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 
 Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
 
-Debe crear un clúster de AKS que establezca la SKU del equilibrador de carga en *estándar* y no *básica*, que es la predeterminada. La creación de un clúster de AKS se trata en el último paso, pero primero debe habilitar varias características en vista previa.
-
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
+Debe crear un clúster de AKS que establezca la SKU del equilibrador de carga en *estándar* y no *básica*, que es la predeterminada.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para usar la SKU estándar del equilibrador de carga de Azure, necesita la extensión *aks-preview* de la CLI, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para usar la SKU estándar del equilibrador de carga de Azure, necesita la extensión *aks-preview* de la CLI, versión 0.4.12 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -56,47 +48,17 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-aksazurestandardloadbalancer-preview-feature"></a>Registro de la característica en vista previa AKSAzureStandardLoadBalancer
-
-Para crear un clúster de AKS que pueda usar un equilibrador de carga con la SKU *estándar*, debe habilitar la marca de la característica *AKSAzureStandardLoadBalancer* en su suscripción. La característica *AKSAzureStandardLoadBalancer* también usa *VMSSPreview* al crear un clúster mediante conjuntos de escalado de máquinas virtuales. Esta característica proporciona el conjunto de mejoras de servicio más recientes al configurar un clúster. Aunque no es necesario, se recomienda habilitar también la marca de característica *VMSSPreview*.
-
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
-
-Registre las marcas de características *VMSSPreview* y *AKSAzureStandardLoadBalancer* con el comando [az feature register][az-feature-register], tal como se muestra en el ejemplo siguiente:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
-az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureStandardLoadBalancer"
-```
-
-> [!NOTE]
-> Los clústeres de AKS que cree después de haber registrado correctamente las marcas de características *VMSSPreview* o *AKSAzureStandardLoadBalancer* usan esta experiencia de clúster en vista previa. Para seguir creando clústeres normales, totalmente compatibles, no habilite características en versión preliminar en las suscripciones de producción. Utilice una suscripción independiente de prueba o de desarrollo de Azure para probar características en versión preliminar.
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### <a name="limitations"></a>Limitaciones
 
 Las siguientes limitaciones se aplican al crear y administrar clústeres de AKS que admiten un equilibrador de carga con la SKU *estándar*:
 
-* Cuando se use la SKU *estándar* para un equilibrador de carga, debe permitir direcciones públicas y evitar la creación de cualquier directiva de Azure que prohíba la creación de direcciones IP. El clúster de AKS crea automáticamente una IP pública de SKU *estándar* en el mismo grupo de recursos creado para el clúster de AKS, que normalmente se nombra con *MC_* al principio. AKS asigna la dirección IP pública al equilibrador de carga de SKU *estándar*. La dirección IP pública es necesaria para permitir el tráfico de salida desde el clúster de AKS. Esta dirección IP pública también es necesaria para mantener la conectividad entre el plano de control y los nodos agente, así como para mantener la compatibilidad con versiones anteriores de AKS.
-* Cuando se usa la SKU *estándar* para un equilibrador de carga, debe utilizar la versión de Kubernetes 1.13.5 o superior.
-
-Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
-
-* Cuando se usa la SKU *estándar* para un equilibrador de carga en AKS, no se puede establecer su propia dirección IP pública de salida del equilibrador de carga. Debe usar la dirección IP que asigna AKS al equilibrador de carga.
-* No se puede usar con la [característica de IP pública de nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
+* Se requiere al menos una dirección IP pública o un prefijo de dirección IP pública para permitir el tráfico de salida del clúster de AKS. Esta dirección IP o el prefijo de dirección IP pública son necesarios para mantener la conectividad entre el plano de control y los nodos de agente, así como para mantener la compatibilidad con versiones anteriores de AKS. Tiene las siguientes opciones para especificar direcciones IP o prefijos de dirección IP pública con un equilibrador de carga de SKU *estándar*:
+    * Proporcione sus propias IP públicas.
+    * Proporcione sus propios prefijos de dirección IP pública.
+    * Especifique un número hasta 100 para permitir que el clúster de AKS cree esa cantidad de direcciones IP públicas de SKU *estándar* en el mismo grupo de recursos que se creó como el clúster de AKS, que normalmente se denomina con *MC_* al principio. AKS asigna la dirección IP pública al equilibrador de carga de SKU *estándar*. De forma predeterminada, se creará automáticamente una IP pública en el mismo grupo de recursos que el clúster de AKS, si no se especifica ninguna dirección IP pública, prefijo de dirección IP pública o número de direcciones IP. Asimismo, debe permitir las direcciones públicas y evitar la creación de cualquier directiva de Azure Policy que prohíba la creación de direcciones IP.
+* Cuando se usa la SKU *estándar* de un equilibrador de carga, debe usar la versión de Kubernetes 1.13 o una superior.
+* La definición de la SKU del equilibrador de carga solo puede realizarse cuando se crea un clúster de AKS. No se puede cambiar la SKU del equilibrador de carga una vez creado un clúster de AKS.
+* Además, solo se puede usar un tipo de SKU de equilibrador de carga en un único clúster.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -129,12 +91,14 @@ Para poder ejecutar un clúster de AKS que admita un equilibrador de carga con l
 
 > [!NOTE]
 > La propiedad *load-balancer-sku* solo puede usarse cuando se crea el clúster. No se puede cambiar la SKU del equilibrador de carga una vez creado un clúster de AKS. Además, solo se puede usar un tipo de SKU de equilibrador de carga en un único clúster.
+> 
+> Si quiere usar sus propias direcciones IP públicas, use los parámetros *load-balancer-Outbound-ips*o *load-balancer-outbound-ip-prefixes*. Ambos parámetros también se pueden usar al [actualizar el clúster.](#optional---provide-your-own-public-ips-or-prefixes-for-egress)
 
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --node-count 1 \
     --load-balancer-sku standard \
     --generate-ssh-keys
@@ -309,6 +273,71 @@ Vaya a la dirección IP pública en un explorador y compruebe que ve la aplicaci
 > [!NOTE]
 > También puede configurar el equilibrador de carga como interno y no exponer una dirección IP pública. Para configurar el equilibrador de carga como interno, agregue `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` como una anotación al servicio *LoadBalancer*. Puede ver un manifiesto de YAML de ejemplo, así como más detalles sobre un equilibrador de carga interno [aquí][internal-lb-yaml].
 
+## <a name="optional---scale-the-number-of-managed-public-ips"></a>Opcional: escalar el número de direcciones IP públicas administradas
+
+Cuando se usa un equilibrador de carga de SKU *estándar* con direcciones IP públicas de salida administradas, las cuales se crean de forma predeterminada, se puede escalar el número de direcciones IP públicas de salida administradas mediante el parámetro *load-balancer-managed-ip-count*.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-managed-outbound-ip-count 2
+```
+
+En el ejemplo anterior se establece el número de direcciones IP públicas de salida administradas en *2* para el clúster de *myAKSCluster* en *myResourceGroup*. También puede usar el parámetro *load-balancer-managed-ip-count* para establecer el número inicial de direcciones IP públicas de salida administradas al crear el clúster. El número predeterminado de direcciones IP públicas de salida administradas es 1.
+
+## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Opcional: proporcione sus propios prefijos o direcciones IP públicas para la salida
+
+Cuando se usa un equilibrador de carga de SKU *estándar*, el clúster de AKS crea automáticamente una dirección IP pública en el mismo grupo de recursos creado para el clúster de AKS y asigna la dirección IP pública al equilibrador de carga de SKU *estándar*. Como alternativa, puede asignar su propia dirección IP pública.
+
+> [!IMPORTANT]
+> Debe usar direcciones IP públicas de SKU *estándar* para salida con la SKU *estándar* del equilibrador de carga. Puede comprobar la SKU de las direcciones IP públicas mediante el comando [az network public-ip show][az-network-public-ip-show]:
+>
+> ```azurecli-interactive
+> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+> ```
+
+Use el comando [az network public-ip show][az-network-public-ip-show] para enumerar los id. de las direcciones IP públicas.
+
+```azurecli-interactive
+az network public-ip show --resource-group myResourceGroup --name myPublicIP --query id -o tsv
+```
+
+El comando anterior muestra el id. de la dirección IP pública *myPublicIP* en el grupo de recursos *myResourceGroup*.
+
+Use el comando *az aks update* con el parámetro *load-balancer-outbound-ips* para actualizar el clúster con las direcciones IP públicas.
+
+En el ejemplo siguiente se usa el parámetro *load-balancer-outbound-ips* con los id. del comando anterior.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+También puede usar prefijos de dirección IP pública para la salida con el equilibrador de carga de SKU *estándar*. En el ejemplo siguiente se usa el comando [az network public-ip prefix show][az-network-public-ip-prefix-show] para enumerar los id. de los prefijos de dirección IP pública:
+
+```azurecli-interactive
+az network public-ip prefix show --resource-group myResourceGroup --name myPublicIPPrefix --query id -o tsv
+```
+
+El comando anterior muestra el id. del prefijo de dirección IP pública *myPublicIPPrefix* en el grupo de recursos *myResourceGroup*.
+
+Use el comando *az aks update* con el parámetro *load-balancer-outbound-ip-prefixes* con los id. del comando anterior.
+
+En el ejemplo siguiente se usa el parámetro *load-balancer-outbound-ip-prefixes* con los id. del comando anterior.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
+
+> [!IMPORTANT]
+> Las direcciones IP públicas y los prefijos de dirección IP pública deben estar en la misma región y formar parte de la misma suscripción que el clúster de AKS.
+
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Limpieza de la configuración del equilibrador de carga de SKU estándar
 
 Para quitar la configuración del equilibrador de carga y de la aplicación de ejemplo, use [kubectl delete][kubectl-delete]:
@@ -346,6 +375,8 @@ Más información sobre los servicios de Kubernetes en la [documentación de ser
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
@@ -355,3 +386,4 @@ Más información sobre los servicios de Kubernetes en la [documentación de ser
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+

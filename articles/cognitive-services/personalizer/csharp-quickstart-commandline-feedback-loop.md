@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: e9dd01a58309a6b65538b19b25df70e3d18866a9
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 2940073d18cfee5a2313c03a5e9de6c00782edff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207340"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882926"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Inicio rápido: Personalización de la biblioteca de cliente para .NET
 
@@ -47,6 +47,8 @@ Después de obtener una clave del recurso o la suscripción de evaluación, cree
 
 * `PERSONALIZER_RESOURCE_KEY` para la clave de recurso.
 * `PERSONALIZER_RESOURCE_ENDPOINT` para el punto de conexión de recurso.
+
+En Azure Portal, los valores de clave y punto de conexión están disponibles en la página **Inicio rápido**.
 
 ### <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6755825aa123b3d7d1eed23291790ff3dc477ac5
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752007"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382482"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novedades de Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway se actualiza de forma continuada. Para mantenerse al d
 
 |Característica  |DESCRIPCIÓN  |Fecha de adición  |
 |---------|---------|---------|
+|Más métricas |Hemos agregado las siguientes métricas nuevas para ayudarle a supervisar la SKU de Application Gateway v2: [Métricas relacionadas con el control de tiempo](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), estado de respuesta de back-end, bytes recibidos, bytes enviados, protocolo TLS de cliente y unidades de proceso actuales. Consulte las [Métricas compatibles con la SKU de Application Gateway V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto de 2019 |
 |Reglas personalizadas del firewall de aplicaciones web |Application Gateway WAF_v2 admite ya la creación de reglas personalizadas. Consulte [Reglas personalizadas de Application Gateway](custom-waf-rules-overview.md). |Junio de 2019 |
 |Escalado automático, redundancia de zona, disponibilidad general del soporte técnico de VIP estática |Disponibilidad general de SKU v2 que admite el escalado automático, la redundancia de zona, la mejora del rendimiento, las VIP estáticas, Key Vault y la reescritura de encabezados. Vea la [documentación sobre el escalado automático de Application Gateway](application-gateway-autoscaling-zone-redundant.md). |Abril de 2019 |
 |Integración de Key Vault |Application Gateway ahora admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Vea [Terminación SSL con certificados de Key Vault](key-vault-certs.md). |Abril de 2019 |

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240312"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914048"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70240312"
 
 ::: zone target = "chromeless"
 
-## <a name="copy-data-to-azure-data-box-heavy"></a>Copia de datos en Azure Data Box Heavy
+# <a name="copy-data-to-azure-data-box-heavy"></a>Copia de datos en Azure Data Box Heavy
 
 ::: zone-end
 
@@ -333,7 +333,7 @@ Para obtener instrucciones paso a paso, consulte [Tutorial: Uso del servicio de 
 3. Después, puede copiar los datos con las herramientas de SMB o NFS.
 4. Repita estos pasos para conectarse y copiar los datos en el segundo nodo de Data Box Heavy.
 
-Para obtener instrucciones paso a paso, consulte [Tutorial: Uso de Data Box Heavy para importar datos como discos administrados en Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+Para obtener instrucciones paso a paso, consulte [Tutorial: Use Data Box Heavy para importar datos como discos administrados en Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

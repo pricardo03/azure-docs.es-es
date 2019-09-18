@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con SAP Fiori | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Fiori | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SAP Fiori.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
 ms.service: active-directory
@@ -13,83 +13,69 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 50d1875ce2529222e8ff7472c48bf6d4dd878667
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092146"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772866"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Tutorial: Integración de Azure Active Directory con SAP Fiori
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Fiori
 
-En este tutorial aprenderá a integrar SAP Fiori con Azure Active Directory (Azure AD).
+En este tutorial aprenderá a integrar SAP Fiori con Azure Active Directory (Azure AD). Al integrar SAP Fiori con Azure AD, puede hacer lo siguiente:
 
-La integración de SAP Fiori con Azure AD le proporciona las siguientes ventajas:
+* Controlar quién tiene acceso en Azure AD a SAP Fiori.
+* Permitir que los usuarios puedan iniciar sesión automáticamente en SAP Fiori con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-* Puede usar Azure AD para controlar quién tiene acceso a SAP Fiori.
-* Puede permitir que los usuarios inicien sesión automáticamente en SAP Fiori (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con SAP Fiori, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción de Azure AD, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Una suscripción de SAP Fiori habilitada para el inicio de sesión único.
-* Se requiere SAP Fiori 7.20 o posterior.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en SAP Fiori.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba e integrar SAP Fiori con Azure AD.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-SAP Fiori admite las siguientes características:
+* SAP Fiori admite el inicio de sesión único iniciado por **SP**
 
-* **Inicio de sesión único iniciado por SP**
+> [!NOTE]
+> En el caso de la autenticación de iFrame iniciada por SAP Fiori, se recomienda usar el parámetro **IsPassive** de AuthnRequest de SAML para la autenticación silenciosa. Para más detalles sobre el parámetro **isPassive**, consulte la información de [Inicio de sesión único de SAML de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
 
-## <a name="add-sap-fiori-in-the-azure-portal"></a>Incorporación de SAP Fiori en Azure Portal
+## <a name="adding-sap-fiori-from-the-gallery"></a>Incorporación de SAP Fiori desde la galería
 
-Para integrar SAP Fiori con Azure AD, tiene que agregar SAP Fiori a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de SAP Fiori en Azure AD, será preciso que agregue SAP Fiori desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **SAP Fiori** en el cuadro de búsqueda.
+1. Seleccione **SAP Fiori** en el panel de resultados y, después, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. Seleccione **Azure Active Directory** en el menú izquierdo.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-fiori"></a>Configuración y prueba del inicio de sesión único de Azure AD para SAP Fiori
 
-    ![Opción de Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con SAP Fiori mediante un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de SAP Fiori.
 
-1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con SAP Fiori, es preciso completar los siguientes bloques de creación:
 
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en SAP Fiori](#configure-sap-fiori-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación del usuario de prueba de SAP Fiori](#create-sap-fiori-test-user)** , para tener un homólogo de B. Simon en SAP Fiori vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-1. Para agregar una aplicación, seleccione **Nueva aplicación**.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Opción Nueva aplicación](common/add-new-app.png)
-
-1. En el cuadro de búsqueda, escriba **SAP Fiori**. En los resultados de búsqueda, seleccione **SAP Fiori** y, luego, **Agregar**.
-
-    ![SAP Fiori en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con SAP Fiori con un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SAP Fiori.
-
-Para configurar y probar el inicio de sesión único de Azure AD con SAP Fiori, tiene que completar los siguientes bloques de creación:
-
-| Tarea | DESCRIPCIÓN |
-| --- | --- |
-| **[Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
-| **[Configuración de inicio de sesión único en SAP Fiori](#configure-sap-fiori-single-sign-on)** | Configura los valores de inicio de sesión único en la aplicación. |
-| **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
-| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
-| **[Creación de un usuario de prueba de SAP Fiori](#create-an-sap-fiori-test-user)** | Crea un homólogo de Britta Simon en SAP Fiori que está vinculado a la representación del usuario en Azure AD. |
-| **[Prueba de inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, configurará el inicio de sesión único de Azure AD con SAP Fiori en Azure Portal.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. Abra una ventana del explorador web e inicie sesión como administrador en el sitio SAP Fiori de su compañía.
 
@@ -150,31 +136,23 @@ En esta sección, configurará el inicio de sesión único de Azure AD con SAP 
 
     ![El vínculo de descarga de metadatos en el cuadro de diálogo de metadatos de SAP SAML 2.0](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
 
-1. En la página de integración de la aplicación **SAP Fiori** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **SAP Fiori** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-    ![La opción de inicio de sesión único](common/select-sso.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En el panel **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** o **SAML/WS-Fed** para habilitar el inicio de sesión único.
+1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
+    a. Haga clic en **Cargar el archivo de metadatos**.
 
-1. En el panel **Configurar el inicio de sesión único con SAML**, seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML**.
+    ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-1. En la sección **Configuración básica de SAML**, siga estos pasos:
+    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
 
-    1. Seleccione **Cargar el archivo de metadatos**.
-
-        ![La opción Cargar el archivo de metadatos](common/upload-metadata.png)
-
-   1. Para seleccionar el archivo de metadatos, seleccione el icono de carpeta y, a continuación, seleccione **Cargar**.
-
-       ![Selección del archivo de metadatos y después del botón Cargar](common/browse-upload-metadata.png)
-
-1. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en el panel **Configuración básica de SAML**. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: https:\//\<la instancia de SAP Fiori de su empresa\>.
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de SAP Fiori](common/sp-identifier-reply.png)
+    c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en el panel **Configuración básica de SAML**. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https:\//\<your company instance of SAP Fiori\>`.
 
     > [!NOTE]
     > Algunos clientes han informado sobre errores relacionados con la configuración incorrecta de los valores de **URL de respuesta**. Si ve este error, puede usar el siguiente script de PowerShell para establecer la dirección URL de respuesta correcta para la instancia:
@@ -202,21 +180,46 @@ En esta sección, configurará el inicio de sesión único de Azure AD con SAP 
        ![El panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute.png)
 
        ![La sección Transformación en el panel Administrar las notificaciones del usuario](./media/sapfiori-tutorial/nameidattribute1.png)
+    
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** junto a **XML de metadatos de federación**. Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
-
-    ![Opción de descarga del certificado](common/metadataxml.png)
-
-1. En la sección **Configurar SAP Fiori**, copie las direcciones URL siguientes en base a sus requisitos:
-
-    * URL de inicio de sesión
-    * Identificador de Azure AD
-    * URL de cierre de sesión
+1. En la sección **Set up SAP Fiori** (Configurar SAP Fiori), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-### <a name="configure-sap-fiori-single-sign-on"></a>Configuración de inicio de sesión único en SAP Fiori
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
+
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Create**(Crear).
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B. Simon acceda a SAP Fiori mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **SAP Fiori**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+
+    ![Vínculo de Agregar usuario](common/add-assign-user.png)
+
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-sap-fiori-sso"></a>Configuración de inicio de sesión único en SAP Fiori
 
 1. Inicie sesión en el sistema SAP y vaya al código de transacción **SAML2**. Se abre una nueva ventana del explorador con la página de configuración de SAML.
 
@@ -298,61 +301,11 @@ En esta sección, configurará el inicio de sesión único de Azure AD con SAP 
 
     ![La opción de aceptar en el cuadro de diálogo de configuración de SAML 2.0 en SAP](./media/sapfiori-tutorial/configuration2.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
-
-1. En Azure Portal, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
-
-    ![Opciones Usuarios y Todos los usuarios](common/users.png)
-
-1. Seleccione **Nuevo usuario**.
-
-    ![Opción Nuevo usuario](common/new-user.png)
-
-1. En el panel **Usuario**, siga estos pasos:
-
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
-  
-    1. En el cuadro de texto **Nombre de usuario**, escriba **brittasimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **brittasimon\@contoso.com**.
-
-    1. Active la casilla de verificación **Mostrar contraseña**. Anote el valor que se muestra en el cuadro **Contraseña**.
-
-    1. Seleccione **Crear**.
-
-    ![Panel Usuario](common/user-properties.png)
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, concederá acceso a Britta Simon a SAP Fiori para que use el inicio de sesión único de Azure.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **SAP Fiori**.
-
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
-
-1. En la lista de aplicaciones, seleccione **SAP Fiori**.
-
-    ![SAP Fiori en la lista de aplicaciones](common/all-applications.png)
-
-1. En el menú, seleccione **Usuarios y grupos**.
-
-    ![Opción Usuarios y grupos](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. Después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![El panel Agregar asignación](common/add-assign-user.png)
-
-1. En el panel **Usuarios y grupos**, en la lista de usuarios, seleccione **Britta Simon**. Elija **Seleccionar**.
-
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista. Elija **Seleccionar**.
-
-1. En el panel **Agregar asignación**, seleccione **Asignar**.
-
-### <a name="create-an-sap-fiori-test-user"></a>Creación de un usuario de prueba de SAP Fiori
+### <a name="create-sap-fiori-test-user"></a>Creación de un usuario de prueba en SAP Fiori
 
 En esta sección, creará un usuario llamado Britta Simon en SAP Fiori. Colabore con su equipo interno de expertos en SAP o con el asociado SAP de su organización para agregar el usuario en la plataforma de SAP Fiori.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
 1. Una vez activado el proveedor de identidades de Azure AD en SAP Fiori, intente obtener acceso a una de las siguientes direcciones URL para probar el inicio de sesión (no se le debería pedir ni nombre de usuario ni contraseña):
 
@@ -368,10 +321,12 @@ En esta sección, creará un usuario llamado Britta Simon en SAP Fiori. Colabore
 
 1. Si se le pide un nombre de usuario y contraseña, habilite el trace de sistema para ayudar con el diagnostico del problema. Use la siguiente dirección URL para el trace: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="additional-resources"></a>Recursos adicionales
 
-Para más información, consulte estos artículos:
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Inicio de sesión único en aplicaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Pruebe SAP Fiori con Azure AD](https://aad.portal.azure.com/)

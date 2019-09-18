@@ -1,5 +1,5 @@
 ---
-title: Bot de Language Understanding C# v4
+title: 'Tutorial: Bot de Language Understanding C# v4'
 titleSuffix: Azure Cognitive Services
 description: Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS). El bot se compila con la versión 4 de Bot Framework y el servicio de bot de aplicación web de Azure.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: c78359920ebc5faab2e0a678a901bcb8581a4e45
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 0911747da38ed736a79e692fd511e5bfbfaf7439
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207334"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772910"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: usar un bot de aplicación web habilitado con Language Understanding en C#
 
@@ -80,14 +80,15 @@ El proceso de creación del servicio de bot también crea una nueva aplicación 
 |--|--|
 |Reservar vuelo|`Travel to Paris`|
 |Cancelar|`bye`|
+|GetWeather|`what's the weather like?`|
 |None|Nada fuera del dominio de la aplicación.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Probar el bot en Chat en web
 
 1. Mientras sigue en Azure Portal para el nuevo bot, seleccione **Test in Web Chat** (Probar en chat web). 
-1. En el cuadro de texto **Type your message** (Escriba su mensaje), escriba el texto `hello`. El bot responde con información sobre el marco del bot, así como consultas de ejemplo para el modelo LUIS específico, como la reserva de un vuelo a París. 
+1. En el cuadro de texto **Type your message** (Escriba su mensaje), escriba el texto `Book a flight from Seattle to Berlin tomorrow`. Al responder, el bot comprueba que desea reservar un vuelo. 
 
-    ![Captura de pantalla de Azure Portal, escribir el texto "hello".](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
+    ![Captura de pantalla de Azure Portal, escribir el texto "hello".](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
     Puede usar la funcionalidad de prueba para probar rápidamente su bot. Para pruebas más completas, como la depuración, descargue el código de bot y use Visual Studio. 
 
@@ -106,206 +107,119 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
 
 1. Guarde el archivo ZIP en el equipo local y extraiga los ficheros. Abra el proyecto con Visual Studio. 
 
-## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revise el código para enviar la expresión a LUIS y obtener respuesta
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Revisión del código para enviar la expresión a LUIS y obtener respuesta
 
-1. Abra el archivo **LuisHelper.cs**. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS. La respuesta de LUIS se devuelve desde el método como un objeto **BookDetails**. Al crear su bot propio, también debe crear su propio objeto para devolver los detalles de LUIS. 
-
+1. Para enviar la expresión del usuario al punto de conexión de predicción LUIS, abra el archivo **FlightBookingRecognizer.cs**. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS. La respuesta de LUIS se devuelve desde el método **RecognizeAsync**.  
 
     ```csharp
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    using System;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.AI.Luis;
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Logging;
     
     namespace Microsoft.BotBuilderSamples
     {
-        public static class LuisHelper
+        public class FlightBookingRecognizer : IRecognizer
         {
-            public static async Task<BookingDetails> ExecuteLuisQuery(IConfiguration configuration, ILogger logger, ITurnContext turnContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = new BookingDetails();
+            private readonly LuisRecognizer _recognizer;
     
-                try
+            public FlightBookingRecognizer(IConfiguration configuration)
+            {
+                var luisIsConfigured = !string.IsNullOrEmpty(configuration["LuisAppId"]) && !string.IsNullOrEmpty(configuration["LuisAPIKey"]) && !string.IsNullOrEmpty(configuration["LuisAPIHostName"]);
+                if (luisIsConfigured)
                 {
-                    // Create the LUIS settings from configuration.
                     var luisApplication = new LuisApplication(
                         configuration["LuisAppId"],
                         configuration["LuisAPIKey"],
-                        "https://" + configuration["LuisAPIHostName"]
-                    );
+                        "https://" + configuration["LuisAPIHostName"]);
     
-                    var recognizer = new LuisRecognizer(luisApplication);
+                    _recognizer = new LuisRecognizer(luisApplication);
+                }
+            }
     
-                    // The actual call to LUIS
-                    var recognizerResult = await recognizer.RecognizeAsync(turnContext, cancellationToken);
+            // Returns true if luis is configured in the appsettings.json and initialized.
+            public virtual bool IsConfigured => _recognizer != null;
     
-                    var (intent, score) = recognizerResult.GetTopScoringIntent();
-                    if (intent == "Book_flight")
+            public virtual async Task<RecognizerResult> RecognizeAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+                => await _recognizer.RecognizeAsync(turnContext, cancellationToken);
+    
+            public virtual async Task<T> RecognizeAsync<T>(ITurnContext turnContext, CancellationToken cancellationToken)
+                where T : IRecognizerConvert, new()
+                => await _recognizer.RecognizeAsync<T>(turnContext, cancellationToken);
+        }
+    }
+    ````
+
+1. Al abrir **dialogs -> mainDialog.cs**, se captura la expresión y se envía a executeLuisQuery en el método actStep. 
+
+    ```csharp
+    public class MainDialog : ComponentDialog
+    {
+        private readonly FlightBookingRecognizer _luisRecognizer;
+
+        ...
+
+        public MainDialog(FlightBookingRecognizer luisRecognizer, BookingDialog bookingDialog, ILogger<MainDialog> logger)
+                    : base(nameof(MainDialog))
+        {
+            _luisRecognizer = luisRecognizer;
+            ...
+        }
+
+        private async Task<DialogTurnResult> ActStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        {
+            if (!_luisRecognizer.IsConfigured)
+            {
+                // LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
+                return await stepContext.BeginDialogAsync(nameof(BookingDialog), new BookingDetails(), cancellationToken);
+            }
+
+            // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
+            var luisResult = await _luisRecognizer.RecognizeAsync<FlightBooking>(stepContext.Context, cancellationToken);
+            switch (luisResult.TopIntent().intent)
+            {
+                case FlightBooking.Intent.BookFlight:
+                    await ShowWarningForUnsupportedCities(stepContext.Context, luisResult, cancellationToken);
+
+                    // Initialize BookingDetails with any entities we may have found in the response.
+                    var bookingDetails = new BookingDetails()
                     {
-                        // We need to get the result from the LUIS JSON which at every level returns an array.
-                        bookingDetails.Destination = recognizerResult.Entities["To"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
-                        bookingDetails.Origin = recognizerResult.Entities["From"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
-    
-                        // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
-                        // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
-                        bookingDetails.TravelDate = recognizerResult.Entities["datetime"]?.FirstOrDefault()?["timex"]?.FirstOrDefault()?.ToString().Split('T')[0];
-                    }
-                }
-                catch (Exception e)
-                {
-                    logger.LogWarning($"LUIS Exception: {e.Message} Check your LUIS configuration.");
-                }
-    
-                return bookingDetails;
+                        // Get destination and origin from the composite entities arrays.
+                        Destination = luisResult.ToEntities.Airport,
+                        Origin = luisResult.FromEntities.Airport,
+                        TravelDate = luisResult.TravelDate,
+                    };
+
+                    // Run the BookingDialog giving it whatever details we have from the LUIS call, it will fill out the remainder.
+                    return await stepContext.BeginDialogAsync(nameof(BookingDialog), bookingDetails, cancellationToken);
+
+                case FlightBooking.Intent.GetWeather:
+                    // We haven't implemented the GetWeatherDialog so we just display a TODO message.
+                    var getWeatherMessageText = "TODO: get weather flow here";
+                    var getWeatherMessage = MessageFactory.Text(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(getWeatherMessage, cancellationToken);
+                    break;
+
+                default:
+                    // Catch all for unhandled intents
+                    var didntUnderstandMessageText = $"Sorry, I didn't get that. Please try asking in a different way (intent was {luisResult.TopIntent().intent})";
+                    var didntUnderstandMessage = MessageFactory.Text(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    await stepContext.Context.SendActivityAsync(didntUnderstandMessage, cancellationToken);
+                    break;
             }
+
+            return await stepContext.NextAsync(null, cancellationToken);
         }
+        
+        ...
+
     }
     ```
-
-1. Abra **BookingDetails.cs** para ver cómo el objeto abstrae la información de LUIS. 
-
-    ```csharp
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    namespace Microsoft.BotBuilderSamples
-    {
-        public class BookingDetails
-        {
-            public string Destination { get; set; }
-    
-            public string Origin { get; set; }
-    
-            public string TravelDate { get; set; }
-        }
-    }
-    ```
-
-1. Abra **Cuadros de diálogo -> BookingDialog.cs** para saber cómo se usa el objeto BookingDetails para administrar el flujo de conversación. Los detalles de viaje se solicitan en pasos, luego la reserva completa se confirma y, por último, esta se repite al usuario. 
-
-    ```csharp
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
-    
-    namespace Microsoft.BotBuilderSamples.Dialogs
-    {
-        public class BookingDialog : CancelAndHelpDialog
-        {
-            public BookingDialog()
-                : base(nameof(BookingDialog))
-            {
-                AddDialog(new TextPrompt(nameof(TextPrompt)));
-                AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
-                AddDialog(new DateResolverDialog());
-                AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
-                {
-                    DestinationStepAsync,
-                    OriginStepAsync,
-                    TravelDateStepAsync,
-                    ConfirmStepAsync,
-                    FinalStepAsync,
-                }));
-    
-                // The initial child Dialog to run.
-                InitialDialogId = nameof(WaterfallDialog);
-            }
-    
-            private async Task<DialogTurnResult> DestinationStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                if (bookingDetails.Destination == null)
-                {
-                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where would you like to travel to?") }, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.Destination, cancellationToken);
-                }
-            }
-    
-            private async Task<DialogTurnResult> OriginStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                bookingDetails.Destination = (string)stepContext.Result;
-    
-                if (bookingDetails.Origin == null)
-                {
-                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where are you traveling from?") }, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.Origin, cancellationToken);
-                }
-            }
-            private async Task<DialogTurnResult> TravelDateStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                bookingDetails.Origin = (string)stepContext.Result;
-    
-                if (bookingDetails.TravelDate == null || IsAmbiguous(bookingDetails.TravelDate))
-                {
-                    return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), bookingDetails.TravelDate, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.TravelDate, cancellationToken);
-                }
-            }
-    
-            private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                bookingDetails.TravelDate = (string)stepContext.Result;
-    
-                var msg = $"Please confirm, I have you traveling to: {bookingDetails.Destination} from: {bookingDetails.Origin} on: {bookingDetails.TravelDate}";
-    
-                return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions { Prompt = MessageFactory.Text(msg) }, cancellationToken);
-            }
-    
-            private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                if ((bool)stepContext.Result)
-                {
-                    var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                    return await stepContext.EndDialogAsync(bookingDetails, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.EndDialogAsync(null, cancellationToken);
-                }
-            }
-    
-            private static bool IsAmbiguous(string timex)
-            {
-                var timexProperty = new TimexProperty(timex);
-                return !timexProperty.Types.Contains(Constants.TimexTypes.Definite);
-            }
-        }
-    }
-    ```
-
 
 ## <a name="start-the-bot-code-in-visual-studio"></a>Iniciar el código del bot en Visual Studio
 
-En Visual Studio, inicie el bot. Se abre una ventana del explorador con el sitio web del bot de aplicación web en `http://localhost:3978/`. Se muestra una página principal con información sobre su bot.
+En Visual Studio 2019, inicie el bot. Se abre una ventana del explorador con el sitio web del bot de aplicación web en `http://localhost:3978/`. Se muestra una página principal con información sobre su bot.
 
 ![Se muestra una página principal con información sobre su bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
@@ -315,50 +229,19 @@ En Visual Studio, inicie el bot. Se abre una ventana del explorador con el sitio
 1. En el cuadro de diálogo emergente **Open a bot** (Abrir un bot), escriba la dirección URL del bot, por ejemplo, `http://localhost:3978/api/messages`. La ruta `/api/messages` es la dirección web para el bot.
 1. Escriba valores en **Microsoft App ID** (Id. de aplicación de Microsoft) y **Microsoft App password** (Contraseña de aplicación de Microsoft), que se encuentran en el archivo **appsettings.json** en la raíz del código de bot que descargó.
 
-    Si lo desea, puede crear una nueva configuración de bot y copiar los valores `appId` y `appPassword` desde el archivo **appsettings.json** en el proyecto de Visual Studio para el bot. El nombre del archivo de configuración de bot debe ser el mismo que el nombre del bot. 
 
-    ```json
-    {
-        "name": "<bot name>",
-        "description": "<bot description>",
-        "services": [
-            {
-                "type": "endpoint",
-                "appId": "<appId from appsettings.json>",
-                "appPassword": "<appPassword from appsettings.json>",
-                "endpoint": "http://localhost:3978/api/messages",
-                "id": "<don't change this value>",
-                "name": "http://localhost:3978/api/messages"
-            }
-        ],
-        "padlock": "",
-        "version": "2.0",
-        "overrides": null,
-        "path": "<local path to .bot file>"
-    }
-    ```
+1. En el emulador de bot, escriba `Book a flight from Seattle to Berlin tomorrow` y obtenga la misma respuesta para el bot básico que la que recibió en el **Test in Web Chat** (Probar en chat web).
 
-1. En el emulador de bot, escriba `Hello` y obtenga la misma respuesta para el bot básico que la que recibió en el **Test in Web Chat** (Probar en chat web).
-
-    [![Respuesta de bot básico en el emulador](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
-
-
-## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>Formule una pregunta al bot para la intención de reservar vuelo
-
-1. En el emulador de bot, reserve un vuelo. Para ello, especifique la expresión siguiente: 
-
-    ```console
-    Book a flight from Paris to Berlin on March 22, 2020
-    ```
-
-    El emulador de bot solicita confirmación. 
+    [![Respuesta de bot básico en el emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Seleccione **Sí**. El bot responde con un resumen de sus acciones. 
 1. En el registro del emulador bot, seleccione la línea que incluye `Luis Trace`. Esto muestra la respuesta JSON de LUIS para la intención y las entidades de la expresión.
 
-    [![Respuesta de bot básico en el emulador](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Respuesta de bot básico en el emulador](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

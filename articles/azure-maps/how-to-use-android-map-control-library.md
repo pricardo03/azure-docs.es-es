@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3423635ab226693e0b3b057e2c2cb441861ea1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 934fe2219ccca917999cf49cb9c9826276545e73
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839404"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915659"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -24,7 +24,7 @@ Android SDK para Azure Maps es una biblioteca de mapas vectoriales para Android.
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos descritos en este artículo, primero deberá [crear una cuenta de Azure Maps](how-to-manage-account-keys.md) en el plan de tarifa S1.
+Para completar los procedimientos descritos en este artículo, primero deberá [crear una cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) en el plan de tarifa S1.
 
 ### <a name="download-android-studio"></a>Descargar Android Studio
 
@@ -109,7 +109,18 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
     * establecer la información de autenticación de Azure Maps
     * obtener la instancia del control de mapa en el método **onCreate**
 
-    La configuración de la información de autenticación en la clase AzureMaps de forma global mediante los métodos setSubscriptionKey o setAadProperties hace que no tenga que agregar su información de autenticación en cada vista. El control de mapa contiene sus propios métodos de ciclo de vida para administrar el ciclo de vida de OpenGL de Android, al que debe llamarse directamente desde la actividad que lo contiene. Para que la aplicación funcione correctamente al llamar a los métodos de ciclo de vida del control de mapa, debe anular los siguientes métodos de ciclo de vida en la actividad que contiene el control de mapa y llamar al método de control de mapa correspondiente. 
+    La configuración de la información de autenticación en la clase `AzureMaps` de forma global mediante los métodos `setSubscriptionKey` o `setAadProperties` hace que no tenga que agregar su información de autenticación en cada vista. 
+
+    El control de mapa contiene sus propios métodos de ciclo de vida para administrar el ciclo de vida de OpenGL de Android, al que debe llamarse directamente desde la actividad que lo contiene. Para que la aplicación funcione correctamente al llamar a los métodos de ciclo de vida del control de mapa, debe anular los siguientes métodos de ciclo de vida en la actividad que contiene el control de mapa y llamar al método de control de mapa correspondiente. 
+
+    * onCreate(Bundle) 
+    * onStart() 
+    * onResume() 
+    * onPause() 
+    * onStop() 
+    * onDestroy() 
+    * onSaveInstanceState(Bundle) 
+    * onLowMemory() 
 
     Edite el **MainActivity.java** como sigue:
     
@@ -140,13 +151,24 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
             mapControl = findViewById(R.id.mapcontrol);
 
             mapControl.onCreate(savedInstanceState);
-
+    
+            //Wait until the map resources are ready.
+            mapControl.onReady(map -> {
+                //Add your post map load code here.
+    
+            });
         }
 
         @Override
         public void onResume() {
             super.onResume();
             mapControl.onResume();
+        }
+
+        @Override
+        protected void onStart(){
+            super.onStart();
+            mapControl.onStart();
         }
 
         @Override
@@ -178,7 +200,6 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
         }
-
     }
 
     ```

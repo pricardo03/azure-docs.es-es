@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210179"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773133"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creación de una función en Linux con una imagen personalizada
 
@@ -143,9 +143,8 @@ Una vez que la imagen personalizada ya se ejecuta en un contenedor de Docker loc
 
 ![Prueba de la aplicación de función de manera local](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Opcionalmente, puede volver a probar la función, esta vez en el contenedor local, con la dirección URL siguiente:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> En este momento, cuando intente llamar a su función HTTP específica, obtendrá una respuesta de error HTTP 401. Esto se debe a que la función se ejecuta en el contenedor local como lo haría en Azure, lo que significa que se requiere la clave de función. Dado que el contenedor todavía no se ha publicado en una aplicación de función, no hay ninguna clave de función disponible. Más adelante verá que, al usar las herramientas principales para publicar el contenedor, se le mostrarán las teclas de función. Si desea probar la función que se ejecuta en el contenedor local, puede cambiar la [clave de autorización](functions-bindings-http-webhook.md#authorization-keys) a `anonymous`. 
 
 Después de haber comprobado la aplicación de función en el contenedor, detenga la ejecución. Ahora, puede insertar la imagen personalizada en su cuenta de Docker Hub.
 

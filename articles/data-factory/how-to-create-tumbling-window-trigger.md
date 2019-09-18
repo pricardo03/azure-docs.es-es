@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/11/2019
+ms.openlocfilehash: 7600398d213748bdea9da5a483a8c10d486a8048
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141551"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915546"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -25,11 +25,14 @@ Los desencadenadores de ventana de saltos de tamaño constante son un tipo de de
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
 
-Para crear un desencadenador de ventana de saltos de tamaño constante en Azure Portal, seleccione **Desencadenador > Ventana de saltos de tamaño constante > Siguiente**, y luego configure las propiedades que definen la ventana de saltos de tamaño constante.
+1. Para crear un desencadenador de ventana de saltos de tamaño constante en la interfaz de usuario de Data Factory, seleccione la pestaña de los **desencadenadores** y, a continuación, seleccione **New** (Nuevo). 
+1. Después de abrir el panel de configuración del desencadenador,seleccione la **ventana de saltos de tamaño constante** y, a continuación, defina las propiedades del desencadenador de la misma. 
+1. Cuando finalice, seleccione **Guardar**.
 
 ![Creación de un desencadenador de ventana de saltos de tamaño constante en Azure Portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propiedades del tipo de desencadenador de ventana de saltos de tamaño constante
+
 Una ventana de saltos de tamaño constante tiene las siguientes propiedades del tipo de desencadenador:
 
 ```
@@ -94,7 +97,7 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 | **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | Cadena | "TumblingWindowTrigger" | Sí |
 | **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | String | "Started," "Stopped," "Disabled" | Sí |
 | **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sí |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Integer | Un número entero positivo. | Sí |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. <br/>**Nota**: El intervalo de ventana mínimo es de 15 minutos. | Integer | Un número entero positivo. | Sí |
 | **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | DateTime | Un valor DateTime. | Sí |
 | **endTime**| La última repetición, que puede ser en el pasado. | DateTime | Un valor DateTime. | Sí |
 | **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | Sin |

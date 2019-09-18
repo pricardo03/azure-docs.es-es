@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241426"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898172"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Asegúrese de que la copia de datos se ha completado en el dispositivo y que la 
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Envíos en EE.UU., Canadá, Europa
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[En EE. UU., Canadá, Europa](#tab/in-us-canada-europe)
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, Canadá o Europa.
 
@@ -94,7 +94,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, 
 4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
 
 
-## <a name="ship-in-australia"></a>Envíos en Australia
+## <a name="in-australiatabin-australia"></a>[En Australia](#tab/in-australia)
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes si el envío se realiza en Australia.
 
@@ -126,7 +126,7 @@ Para consultas telefónicas relacionadas con su pedido:
 - Primero, envíe un correo electrónico para la recogida.
 - Proporcione el nombre del pedido por teléfono.
 
-## <a name="ship-in-japan"></a>Envío en Japón 
+## <a name="in-japantabin-japan"></a>[En Japón](#tab/in-japan) 
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
 2. Apague el dispositivo y quite los cables.
