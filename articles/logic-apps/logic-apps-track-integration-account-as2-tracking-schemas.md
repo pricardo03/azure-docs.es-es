@@ -58,24 +58,24 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| senderPartnerName | string | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
-| receiverPartnerName | Cadena | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |
-| as2To | Cadena | Nombre del destinatario del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
-| as2From | Cadena | Nombre del remitente del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
-| agreementName | Cadena | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Cadena | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
-| messageId | Cadena | Identificador del mensaje AS2, de los encabezados del mensaje AS2 (opcional) |
-| dispositionType |Cadena | Valor del tipo de disposición de notificación de disposición del mensaje (MDN). (Opcional) |
-| fileName | Cadena | Nombre de archivo, del encabezado del mensaje AS2. (Opcional) |
+| senderPartnerName | String | Nombre de asociado del remitente del mensaje AS2. (Opcional) |
+| receiverPartnerName | String | Nombre de asociado del destinatario del mensaje AS2. (Opcional) |
+| as2To | String | Nombre del destinatario del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
+| as2From | String | Nombre del remitente del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
+| agreementName | String | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
+| dirección | String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| messageId | String | Identificador del mensaje AS2, de los encabezados del mensaje AS2 (opcional) |
+| dispositionType |String | Valor del tipo de disposición de notificación de disposición del mensaje (MDN). (Opcional) |
+| fileName | String | Nombre de archivo, del encabezado del mensaje AS2. (Opcional) |
 | isMessageFailed |Boolean | Si el mensaje AS2 genera error. (Obligatorio) |
 | isMessageSigned | Boolean | Si el mensaje AS2 está firmado. (Obligatorio) |
 | isMessageEncrypted | Boolean | Si el mensaje AS2 está cifrado. (Obligatorio) |
 | isMessageCompressed |Boolean | Si el mensaje AS2 está comprimido. (Obligatorio) |
-| correlationMessageId | Cadena | Identificador de mensajes AS2, para correlacionar mensajes con MDN. (Opcional) |
+| correlationMessageId | String | Identificador de mensajes AS2, para correlacionar mensajes con MDN. (Opcional) |
 | incomingHeaders |Diccionario de JToken | Detalles del encabezado del mensaje AS2 entrante. (Opcional) |
 | outgoingHeaders |Diccionario de JToken | Detalles del encabezado del mensaje AS2 saliente. (Opcional) |
 | isNrrEnabled | Boolean | Si no se conoce el valor, use el valor predeterminado. (Obligatorio) |
-| isMdnExpected | Booleano | Si no se conoce el valor, use el valor predeterminado. (Obligatorio) |
+| isMdnExpected | Boolean | Si no se conoce el valor, use el valor predeterminado. (Obligatorio) |
 | mdnType | Enum | Los valores permitidos son **NotConfigured**, **Sync** y **Async**. (Obligatorio) |
 ||||
 
