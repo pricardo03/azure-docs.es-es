@@ -1,25 +1,27 @@
 ---
-title: Introducción a Azure Blockchain Workbench
-description: Introducción a Azure Blockchain Workbench y sus funcionalidades.
+title: Introducción a la versión preliminar de Azure Blockchain Workbench
+description: Introducción a la versión preliminar de Azure Blockchain Workbench y sus funcionalidades.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/20/2019
+ms.date: 09/05/2019
 ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955207"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844102"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>¿Qué es Azure Blockchain Workbench?
 
-Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñadas para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Azure Blockchain Workbench proporciona el scaffolding de infraestructura para compilar aplicaciones de cadena de bloques, lo que permite a los desarrolladores centrarse en crear lógica de negocios y contratos inteligentes. También facilita la creación de aplicaciones de cadena de bloques al integrar varios servicios y funcionalidades de Azure para ayudar a automatizar tareas comunes de desarrollo.
+La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Azure Blockchain Workbench proporciona el scaffolding de infraestructura para compilar aplicaciones de cadena de bloques, lo que permite a los desarrolladores centrarse en crear lógica de negocios y contratos inteligentes. También facilita la creación de aplicaciones de cadena de bloques al integrar varios servicios y funcionalidades de Azure para ayudar a automatizar tareas comunes de desarrollo.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="create-blockchain-applications"></a>Creación de aplicaciones de cadena de bloques
 

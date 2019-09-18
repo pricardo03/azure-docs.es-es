@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 246d3eac8f9d8aff6d603ea8686e430ce0f772ea
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a082e4b7896b317bf2b28971d3693bada95a3445
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881594"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806543"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution"></a>Inicio rápido: Interacción con un dispositivo IoT Plug and Play (versión preliminar) que esté conectado a una solución
 
@@ -28,6 +28,9 @@ Descargue e instale Node.js desde [nodejs.org](https://nodejs.org).
 ## <a name="prepare-an-iot-hub"></a>Preparación de un centro de IoT
 
 También necesitará un centro de IoT de Azure en la suscripción de Azure para completar este inicio rápido. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+> [!NOTE]
+> Durante la versión preliminar pública, las características de IoT Plug and Play solo están disponibles en los centros de IoT creados en las regiones **Centro de EE. UU.** , **Norte de Europa** y **Este de Japón**.
 
 Agregue la extensión Microsoft Azure IoT para la CLI de Azure:
 
@@ -83,7 +86,7 @@ En este inicio rápido, se usa un sensor ambiental de ejemplo, que se ha escrito
 
 1. Verá mensajes que indican que el dispositivo ha enviado datos de telemetría y sus propiedades. El dispositivo ya está listo para recibir comandos y actualizaciones de propiedades. No cierre este terminal, ya que lo necesitará más adelante para confirmar que los ejemplos del servicio también han funcionado.
 
-## <a name="build-the-solution"></a>Compilación de la solución
+## <a name="build-the-solution"></a>Compile la solución
 
 En este inicio rápido, se usa una solución de IoT de ejemplo creada en Node.js para interactuar con el dispositivo de ejemplo.
 

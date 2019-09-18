@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171400"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743963"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom
 
@@ -44,7 +44,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Zoom admite el inicio de sesión único iniciado por **SP**.
+* Zoom admite el inicio de sesión único iniciado por **SP**. 
+* Zoom admite el [**aprovisionamiento automatizado** de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
 
 ## <a name="adding-zoom-from-the-gallery"></a>Adición de Zoom desde la galería
 
@@ -87,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `<companyname>.zoom.us`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Contacte con el [equipo de soporte al cliente de Zoom](https://support.zoom.us/hc/en-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Contacte con el [equipo de soporte al cliente de Zoom](https://support.zoom.us/hc/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -101,7 +102,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 > Para aprender a configurar el rol en Azure AD, consulte [Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 > [!NOTE]
-> El zoom puede esperar una notificación de grupo en la carga de SAML. Si ha creado algún grupo, póngase en contacto con el [equipo de soporte técnico al cliente de Zoom](https://support.zoom.us/hc/en-us) con la información del grupo para que pueda configurarla en su extremo. También debe proporcionar el identificador de objeto al [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) para que puedan configurar el identificador de objeto en su extremo. Para obtener el identificador de objeto, consulte [Configuración de Zoom con Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
+> El zoom puede esperar una notificación de grupo en la carga de SAML. Si ha creado algún grupo, póngase en contacto con el [equipo de soporte técnico al cliente de Zoom](https://support.zoom.us/hc/) con la información del grupo para que pueda configurarla en su extremo. También debe proporcionar el identificador de objeto al [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/) para que puedan configurar el identificador de objeto en su extremo. Para obtener el identificador de objeto, consulte [Configuración de Zoom con Azure](https://support.zoom.us/hc/articles/115005887566).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -172,30 +173,10 @@ En esta sección, va a permitir que B. Simon acceda a Zoom mediante el inicio d
 
 ### <a name="create-zoom-test-user"></a>Creación de un usuario de prueba de Zoom
 
-Para permitir que los usuarios de Azure AD inicien sesión en Zoom, deben aprovisionarse en Zoom. En el caso de Zoom, el aprovisionamiento es una tarea manual.
-
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para aprovisionar una cuenta de usuario, realice estos pasos:
-
-1. Inicie sesión en su sitio de la compañía de **Zoom** como administrador.
-
-2. En la pestaña **Administración de cuentas** haga clic en **Administración de usuarios**.
-
-3. En la sección Administración de usuarios, haga clic en **Agregar usuarios**.
-
-    ![Administración de usuarios](./media/zoom-tutorial/ic784703.png "Administración de usuarios")
-
-4. En la página **Agregar usuarios** , realice los pasos siguientes:
-
-    ![Agregar usuarios](./media/zoom-tutorial/ic784704.png "Agregar usuarios")
-
-    a. Como **Tipo de usuario**, seleccione **Básico**.
-
-    b. En el cuadro de texto **Correos electrónicos** , escriba la dirección de correo electrónico de una cuenta de Azure AD válida que quiera suministrar.
-
-    c. Haga clic en **Agregar**.
+El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en Zoom. Zoom admite el aprovisionamiento automático de usuarios, que está habilitado de forma predeterminada. [Aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zoom que proporcione Zoom para aprovisionar cuentas de usuario de Azure Active Directory.
+> Si necesita crear manualmente un usuario, debe ponerse en contacto con el [equipo de soporte técnico al cliente de Zoom](https://support.zoom.us/hc/)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

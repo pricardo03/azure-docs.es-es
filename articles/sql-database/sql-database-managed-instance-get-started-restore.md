@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567477"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744420"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Inicio rápido: Restauración de una base de datos en una instancia administrada
 
@@ -37,6 +37,7 @@ En esta guía de inicio rápido:
 - Es necesario el uso de SSMS para conectarse a la instancia administrada. Consulte estos inicios rápidos sobre procedimientos de conexión:
   - [Conexión a una Instancia administrada de Azure SQL Database desde una máquina virtual de Azure](sql-database-managed-instance-configure-vm.md)
   - [Configuración de una conexión de punto a sitio a una instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md).
+- Requiere una cuenta de Azure Blob Storage (por ejemplo, Standard_LRS V2) en la **dirección IP pública** protegida con la **credencial SAL** que tenga el permiso `rw`. [Actualmente no se admiten las direcciones IP privadas para el almacenamiento de blobs protegidos por el firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) ni los puntos de conexión del servicio Azure Blob Storage.
 
 > [!NOTE]
 > Para más información sobre cómo realizar una copia de seguridad de una base de datos de SQL Server y restaurarla mediante Azure Blob Storage y una clave de [Firma de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [Copia de seguridad de SQL Server en una dirección URL](sql-database-managed-instance-get-started-restore.md).

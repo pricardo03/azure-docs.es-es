@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un índice enriquecido con IA en Azure Portal: Azure Search'
+title: 'Inicio rápido: Obtenga información sobre el enriquecimiento de inteligencia artificial de búsqueda cognitiva en Azure Portal (Azure Search)'
 description: Aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en un portal de indexación de datos de Azure Search mediante Azure Portal y datos de ejemplo.
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648921"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881094"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Inicio rápido: Creación de una canalización de indexación basada en IA mediante aptitudes cognitivas en Azure Search
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Inicio rápido: Creación de una canalización de enriquecimiento de inteligencia artificial mediante aptitudes cognitivas en Azure Search
 
 Azure Search se integra con [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) lo cual permite agregar aptitudes de extracción de contenido, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes a una canalización de indexación de Azure Search, lo que hace que el contenido no apto para la búsqueda o no estructurado sea más fácil de buscar. 
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) proporciona inteligencia artificial. Este inicio rápido incluye pasos para agregar estos recursos en línea, al especificar la canalización. No es necesario configurar las cuentas de antemano.
 
-Se requieren servicios de Azure que proporcionen las entradas para la canalización de indexación. Puede usar cualquier origen de datos compatible con [indexadores de Azure Search](search-indexer-overview.md) excepto Azure Table Storage, que no se admite para la indexación de inteligencia artificial. Este inicio rápido usa [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) como un contenedor para los archivos de datos de origen. 
+Se requieren servicios de Azure que proporcionen las entradas para la canalización de indexación. Se puede usar cualquier origen de datos compatible con los [indexadores de Azure Search](search-indexer-overview.md). Este inicio rápido usa [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) como un contenedor para los archivos de datos de origen. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar el servicio de Azure Blob y cargar los datos de ejemplo
 

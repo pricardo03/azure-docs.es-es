@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309567"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918812"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -155,7 +155,7 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 
 ## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 
-Los recursos compartidos estándar de Azure Files admiten tres opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS),almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona geográfica (GZRS) [versión preliminar].
+Los recursos compartidos estándar de Azure Files admiten cuatro opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS),almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar).
 
 Los recursos compartidos prémium de Azure Files solo admiten el almacenamiento con redundancia local (LRS).
 
@@ -206,14 +206,21 @@ Esta sección solo se aplica a los recursos compartidos de archivos estándar. T
 
 Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, está disponible con un límite de 100 TiB. Estas regiones se muestran en la tabla siguiente:
 
-|Region |Redundancia admitida |Admite cuentas de almacenamiento existentes |Soporte técnico del portal*   |
+|Region |Redundancia admitida |Admite cuentas de almacenamiento existentes |Soporte técnico del portal* |
 |-------|---------|---------|---------|
-|Este de Australia  |LRS     |Sin    |Sí|
-|Centro de Francia  |LRS     |Sin    |Aún no|
-|Sur de Francia    |LRS     |Sin    |Aún no|
-|Sudeste Asiático  |LRS, ZRS|Sin    |Sí|
-|Europa occidental     |LRS, ZRS|Sin    |Sí|
-|Oeste de EE. UU. 2       |LRS, ZRS|Sin    |Sí|
+|Este de Australia |LRS     |Sin    |Sí|
+|Sudeste de Australia|LRS     |Sin    |Aún no|
+|India Central  |LRS     |Sin    |Aún no|
+|East US        |LRS     |Sin    |Aún no|
+|Centro de Francia |LRS, ZRS|Sin    |LRS: sí; ZRS: aún no|
+|Sur de Francia   |LRS     |Sin    |Sí|
+|Sur de la India    |LRS     |Sin    |Aún no|
+|Sudeste asiático |LRS, ZRS|Sin    |Sí|
+|Centro occidental de EE.UU.|LRS     |Sin    |Aún no|
+|Europa occidental    |LRS, ZRS|Sin    |Sí|
+|Oeste de EE. UU.        |LRS     |Sin    |Aún no|
+|Oeste de EE. UU. 2      |LRS, ZRS|Sin    |Sí|
+
 
 *En el caso de las regiones sin soporte técnico del portal, de todos modos puede usar PowerShell en la Interfaz de la línea de comandos (CLI) de Azure para crear recursos compartidos de más de 5 TiB. Además, puede crear un recurso compartido mediante el portal sin especificar ninguna cuota. Esto creará un recurso compartido con un tamaño predeterminado de 100 TiB que se pueden actualizar más adelante a través de PowerShell o la CLI de Azure.
 

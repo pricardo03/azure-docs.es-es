@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823689"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376071"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Tutorial: Integración de Learning at Work con Azure Active Directory
 
@@ -90,9 +90,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Learning at Work](https://www.learninga-z.com/site/contact/support) obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación Learning at Work espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde  **nameidentifier** se asigna con  **user.userprincipalname**.
+5. La aplicación Learning at Work espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**.
 
-    Puede actualizar el valor del **nameidentifier** en Azure AD en función de la configuración de la organización; este valor debe coincidir con el del **identificador de usuario** en la nube de SABA, de modo que tendrá que editar la asignación de atributos; para ello, haga clic en el icono  **Edición**  y cambie la asignación de los atributos.
+    Puede actualizar el valor del **nameidentifier** en Azure AD en función de la configuración de la organización; este valor debe coincidir con el del **identificador de usuario** en la nube de SABA, de modo que tendrá que editar la asignación de atributos; para ello, haga clic en el icono **Edición** y cambie la asignación de los atributos.
 
     ![imagen](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ En esta sección, va a permitir que B. Simon acceda a Learning at Work mediante
 
 ### <a name="create-learning-at-work-test-user"></a>Creación de un usuario de prueba en Learning at Work
 
-En esta sección, creará un usuario llamado B. Simon en Learning at Work. Trabaje con el  [equipo de soporte técnico de Learning at Work](https://www.learninga-z.com/site/contact/support) para agregar los usuarios a la plataforma Learning at Work. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Learning at Work. Trabaje con el [equipo de soporte técnico de Learning at Work](https://www.learninga-z.com/site/contact/support) para agregar los usuarios en la plataforma Learning at Work. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO 
 

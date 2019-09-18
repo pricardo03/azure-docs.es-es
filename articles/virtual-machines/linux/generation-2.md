@@ -11,22 +11,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 9d94c4be90b408da7635f47567aa8f713f14de86
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5dbd13775bd91a2bab3a7a4989cb14f4d7b44fa8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083183"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900734"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
 
 > [!IMPORTANT]
-> La compatibilidad de Azure para máquinas virtuales de generación 2 está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> La compatibilidad de Azure para máquinas virtuales de generación 2 está actualmente en versión preliminar.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La compatibilidad para las máquinas virtuales (VM) de generación 2 ahora está disponible en Azure en versión preliminar. No se puede cambiar la generación de una máquina virtual después de haberla creado, así que revise las consideraciones de esta página antes de elegir una generación. 
+La compatibilidad para las máquinas virtuales (VM) de generación 2 ahora está disponible en Azure en versión preliminar. No se puede cambiar la generación de una máquina virtual después de haberla creado, así que revise las consideraciones de esta página antes de elegir una generación.
 
 Las máquinas virtuales de generación 2 admiten características clave que no se admiten en las VM de generación 1. Estas características incluyen una memoria mayor, Intel Software Guard Extensions (SGX Intel) y memoria persistente virtualizada (vPMEM). Las VM de generación 2 también tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte la sección [Características y funcionalidades](#features-and-capabilities).
 
@@ -37,14 +38,18 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 Las VM de generación 1 son compatibles con todos los tamaños de máquina virtual en Azure. Azure ahora ofrece compatibilidad de generación 2 en vista previa para las siguientes series de VM seleccionadas:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [Serie DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
 * [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) y [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
 * [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [Serie HB](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
+* [Serie HC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
 * [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 * [Serie NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) y [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [Serie ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
+* [Serie NVv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
 
@@ -54,6 +59,8 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
+* SUSE Linux Enterprise Server 15 SP1
+* SUSE Linux Enterprise Server 12 SP4
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 
@@ -120,6 +127,21 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
 
 * **¿Hay diferencia de precio entre las VM de generación 1 y de generación 2?**  
     No.
+
+* **Tengo un archivo .vhd de mi VM de generación 2 local. ¿Puedo usar ese archivo .vhd para crear una VM de generación 2 en Azure?**
+  Sí, puede llevar el archivo .vhd de generación 2 a Azure y usarlo para crear una VM de generación 2. Para ello, siga estos pasos:
+    1. Cargue el archivo . vhd en una cuenta de almacenamiento en la misma región en la que quiere crear la VM.
+    1. Cree un disco administrado a partir del archivo .vhd. Establezca la propiedad de generación de HyperV en V2. Los siguientes comandos de PowerShell establecen la propiedad de generación de HyperV al crear el disco administrado.
+
+        ```powershell
+        $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+        $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+        $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+        New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+        ```
+
+    1. Una vez que el disco esté disponible, cree una VM mediante la conexión de este disco. La VM creada será de generación 2.
+    Cuando se crea la VM de generación 2, puede generalizar la imagen de esta VM de forma opcional. Al generalizar la imagen, puede usarla para crear varias VM.
 
 * **¿Cómo se puede aumentar el tamaño del disco del SO?**  
   Los discos del SO mayores de 2 TB son nuevos en las máquinas virtuales de generación 2. De forma predeterminada, los discos del SO son menores que 2 TB para las máquinas virtuales de generación 2. Puede aumentar el tamaño del disco hasta un máximo recomendado de 4 TB. Use la CLI de Azure o Azure Portal para aumentar el tamaño del disco del SO. Para obtener información sobre cómo expandir los discos mediante programación, vea [Cómo ampliar la unidad de sistema operativo de una máquina virtual](expand-disks.md).

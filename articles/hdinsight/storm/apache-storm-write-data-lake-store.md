@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de Apache Storm para escribir en Storage o Data Lake Storage: Azure HDInsight'
+title: 'Tutorial: Escritura de Apache Storm en Storage o Data Lake Storage en Azure HDInsight'
 description: 'Tutorial: Obtenga más información sobre cómo usar Apache Storm para escribir datos en almacenamiento compatible con HDFS para Azure HDInsight.'
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946448"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736352"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escritura en HDFS de Apache Hadoop desde Apache Storm en Azure HDInsight
 

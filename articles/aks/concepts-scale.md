@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561564"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899486"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Actualmente, no se pueden ajustar estos valores de recuperación a partir del va
 
 ## <a name="cluster-autoscaler"></a>Cluster Autoscaler
 
-Para responder a las distintas exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler (actualmente en versión preliminar en AKS) que ajusta el número de nodos según los recursos de proceso solicitados en el grupo de nodos. De forma predeterminada, Cluster Autoscaler comprueba en el servidor de API cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
+Para responder a las distintas exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler (actualmente en versión preliminar en AKS) que ajusta el número de nodos según los recursos de proceso solicitados en el grupo de nodos. De manera predeterminada, Cluster Autoscaler comprueba en el servidor de la API de métricas cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
 
 ![Cluster Autoscaler de Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 

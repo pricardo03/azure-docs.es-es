@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4a0c9d16474ddf032ff88382bc240713bc734ff8
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 82996db232fde0424ccc8e3e478a70a5892231e6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211887"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884834"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Paseo por la interfaz de usuario de Azure IoT Central (características en versión preliminar)
 
@@ -44,24 +44,23 @@ Use el menú de navegación izquierdo para acceder a las diferentes áreas de la
       ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
   :::column-end:::
   :::column span="2":::
+     **Dashboard** (Panel) muestra el panel de la aplicación. Como generador, puede personalizar el panel para los operadores. Los usuarios también pueden crear sus propios paneles.
+     
+     **Devices** (Dispositivos) muestra los dispositivos simulados y reales asociados a cada plantilla de la aplicación. Como operador, usará **Device Explorer** (Explorador de dispositivos) para administrar los dispositivos conectados.
 
-      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
-    
-      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
-    
-      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+     **Device groups** (Grupos de dispositivos) permite ver y crear grupos de dispositivos. Los operadores pueden crear grupos de dispositivos como colecciones lógicas de dispositivos especificados por una consulta.
 
-      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
-    
-      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
-    
-      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
-    
-      **Device templates** shows the tools a builder uses to create and manage device templates.
-    
-      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
-    
-      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+     **Rules** (Reglas) permite editar reglas que se activan en función de la telemetría del dispositivo y desencadenan acciones personalizables.
+
+     **Analytics** (Análisis) muestra los análisis derivados de los datos de telemetría de los dispositivos y grupos de dispositivos. Como operador, puede crear vistas personalizadas a partir de los datos de los dispositivos para obtener información detallada de la aplicación.
+
+     **Jobs** (Trabajos) habilita la administración de dispositivos en masa, ya que obliga a crear y ejecutar trabajos para actualizar los dispositivos a escala.
+
+     **Device templates** (Plantillas de dispositivo) muestra las herramientas que utilizan los generadores para crear y administrar las plantillas de dispositivo.
+
+     **Data Export** (Exportación de datos) permite a los administradores configurar una exportación continua a otros servicios de Azure, como el almacenamiento y las colas.
+
+     **Administration** (Administración) muestra las páginas de administración de aplicaciones, en las que un administrador puede administrar la configuración, los usuarios y los roles de una aplicación.
    :::column-end:::
 :::row-end:::
 

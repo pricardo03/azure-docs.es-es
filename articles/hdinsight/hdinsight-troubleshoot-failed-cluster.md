@@ -1,6 +1,6 @@
 ---
 title: 'Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight: Azure HDInsight'
-description: Diagnostique y solucione los problemas de un clúster de HDInsight lento o con errores.
+description: Diagnóstico y solución de problemas de un trabajo lento o con errores en un clúster de Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573638"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900172"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
@@ -54,7 +54,7 @@ A continuación, se indica la información importante del clúster:
 
 Azure Portal puede proporcionar esta información:
 
-![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 También puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 

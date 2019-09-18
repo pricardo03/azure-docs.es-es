@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Configuración del inicio de sesión en una aplicación de página única mediante Azure Active Directory B2C | Microsoft Docs'
+title: 'Inicio rápido: Configuración del inicio de sesión en una aplicación de página única mediante Azure Active Directory B2C'
 description: Ejecute un ejemplo de aplicación de página única que use Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 353cbae59a26f6e1efd566b99a04318321740590
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835335"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914419"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 - Instalar [Node.js](https://nodejs.org/en/download/)
-- Una cuenta de redes sociales de Facebook, Google, Microsoft o Twitter.
+- Una cuenta de redes sociales de Facebook, Google o Microsoft.
 - [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
 
     ```
@@ -58,9 +58,9 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
     ![Aplicación de página única de ejemplo en el explorador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    El ejemplo admite varias opciones de registro: usar un proveedor de identidades de redes sociales o crear una cuenta local con una dirección de correo electrónico. Para este tutorial rápido, use una cuenta de proveedor de identidades sociales de Facebook, Google, Microsoft o Twitter.
+    El ejemplo admite varias opciones de registro: usar un proveedor de identidades de redes sociales o crear una cuenta local con una dirección de correo electrónico. Para este inicio rápido, use una cuenta de proveedor de identidades sociales de Facebook, Google o Microsoft.
 
-2. Azure AD B2C presenta una página de inicio de sesión personalizada para una marca ficticia llamada Wingtip Toys para la aplicación web de ejemplo. Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar.
+2. Azure AD B2C presenta una página de inicio de sesión para una empresa ficticia llamada Fabrikam para la aplicación web de ejemplo. Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar.
 
     ![Página de inicio de sesión o registro que muestra los botones del proveedor de identidades](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 

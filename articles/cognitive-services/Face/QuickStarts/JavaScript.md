@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bc8d20abcc7bc66d319874978e134c5c86c86e1c
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603423"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859048"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript
 
@@ -73,16 +73,8 @@ Agregue el código siguiente justo encima del elemento `h1` en el documento. Est
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
     
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change 
-        // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<My Endpoint String>.com/face/v1.0/detect";
     
         // Request parameters.
         var params = {
@@ -132,7 +124,9 @@ Agregue el código siguiente justo encima del elemento `h1` en el documento. Est
 </script>
 ```
 
-Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). El campo `returnFaceAttributes` especifica qué atributos de cara recuperar; puede ser conveniente cambiar esta cadena según su uso previsto.
+Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y debe cambiar la cadena `uriBase` para que contenga la cadena del punto de conexión correcta. El campo `returnFaceAttributes` especifica qué atributos de cara recuperar; puede ser conveniente cambiar esta cadena según su uso previsto.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Ejecute el script
 

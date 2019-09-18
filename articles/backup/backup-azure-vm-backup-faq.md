@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827576"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909798"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -120,6 +120,12 @@ Para una máquina virtual de Azure con discos administrados, se puede habilitar 
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>¿Cómo se consiguen rendimientos de restauración más rápidos?
 La funcionalidad [Restauración instantánea](backup-instant-restore-capability.md) ayuda en copias de seguridad y restauraciones de las instantáneas más rápidas.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>¿Qué ocurre cuando se cambia la configuración de Key Vault para la máquina virtual cifrada?
+
+Después de cambiar la configuración de Key Vault para la máquina virtual cifrada, las copias de seguridad seguirán funcionando con el nuevo conjunto de detalles, sin embargo, después de realizar la restauración desde un punto de recuperación que no tenga el cambio implementado, tendrá que restaurar los secretos en una instancia de Key Vault para poder crear la máquina virtual a partir de esa. Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+
+Las operaciones como la sustitución de claves o secretos no requieren este paso y se puede usar la misma instancia de Key Vault después de la restauración.
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

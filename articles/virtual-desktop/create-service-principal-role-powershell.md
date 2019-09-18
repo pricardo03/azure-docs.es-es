@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/12/2019
+ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a9b5eecd97b078c9446e28d971f900c4cf65130f
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206658"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845530"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -38,13 +38,9 @@ Para poder crear entidades de servicio y asignaciones de roles, necesita hacer t
     Install-Module AzureAD
     ```
 
-2. Ejecutar los siguientes cmdlet con los valores entre comillas, sustituidos por los valores de su sesión.
+2. [Descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-    ```powershell
-    $myTenantName = "<my-tenant-name>"
-    ```
-
-3. Seguir todas las instrucciones de este artículo en la misma sesión de PowerShell. Si se cierra la ventana y se intenta volver a ella después, podría no funcionar.
+3. Seguir todas las instrucciones de este artículo en la misma sesión de PowerShell. Es posible que el proceso no funcione si interrumpe la sesión de PowerShell al cerrar la ventana y volver a abrirla más adelante.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Creación de una entidad de servicio en Azure Active Directory
 
@@ -56,34 +52,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Creación de una asignación de roles en la versión preliminar de Windows Virtual Desktop
-
-Ahora que ha creado una entidad de servicio, puede usarla para iniciar sesión en Windows Virtual Desktop. Asegúrese de que iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
-
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
-
-Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y crear una asignación de roles para la entidad de servicio.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
-```
-
-## <a name="sign-in-with-the-service-principal"></a>Inicio de sesión con la entidad de servicio
-
-Después de crear una asignación de roles para la entidad de servicio, asegúrese de que esta puede iniciar sesión en Windows Virtual Desktop mediante la ejecución del siguiente cmdlet:
-
-```powershell
-$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
-```
-
-Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Windows Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
-
 ## <a name="view-your-credentials-in-powershell"></a>Visualización de las credenciales en PowerShell
 
-Antes de finalizar la sesión de PowerShell, vea las credenciales y anótelas para futura referencia. La contraseña es especialmente importante, porque no podrá recuperarla una vez que cierre esta sesión de PowerShell.
+Antes de crear la asignación de roles para la entidad de servicio, consulte sus credenciales y escríbalas para futura referencia. La contraseña es especialmente importante, porque no podrá recuperarla una vez que cierre esta sesión de PowerShell.
 
 Estas son las tres credenciales que debe anotar y los cmdlets que necesita para ejecutar para obtenerlas:
 
@@ -104,6 +75,36 @@ Estas son las tres credenciales que debe anotar y los cmdlets que necesita para 
     ```powershell
     $svcPrincipal.AppId
     ```
+
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Creación de una asignación de roles en la versión preliminar de Windows Virtual Desktop
+
+A continuación debe crear una asignación de roles para que la entidad de servicio pueda iniciar sesión en Windows Virtual Desktop. Asegúrese de que iniciar sesión con una cuenta que tenga permisos para crear la asignación de roles.
+
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+
+Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual Desktop y mostrar los inquilinos.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Get-RdsTenant
+```
+
+Cuando encuentre el nombre del inquilino para el que desea crear una asignación de roles, úselo en el siguiente cmdlet:
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
+```
+
+## <a name="sign-in-with-the-service-principal"></a>Inicio de sesión con la entidad de servicio
+
+Después de crear una asignación de roles para la entidad de servicio, asegúrese de que esta puede iniciar sesión en Windows Virtual Desktop mediante la ejecución del siguiente cmdlet:
+
+```powershell
+$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+```
+
+Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Windows Virtual Desktop con la entidad de servicio para asegurarse de que todo funciona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

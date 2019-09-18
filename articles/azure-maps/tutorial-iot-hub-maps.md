@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898337"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916407"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -41,10 +41,10 @@ En nuestro caso, los vehículos de alquiler están equipados con dispositivos Io
 ```JSON
 {
     "data": {
-         "properties": {
+        "properties": {
             "Engine": "ON"
-         },
-         "systemProperties": {
+        },
+        "systemProperties": {
             "iothub-content-type": "application/json",
             "iothub-content-encoding": "utf-8",
             "iothub-connection-device-id": "ContosoRentalDevice",
@@ -52,13 +52,13 @@ En nuestro caso, los vehículos de alquiler están equipados con dispositivos Io
             "iothub-connection-auth-generation-id": "636959817064335548",
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
-         },
-         "body": { 
-                    "location": { 
-                        "type": "Point",
-                        "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-                     } 
-                 } 
+        },
+        "body": { 
+            "location": { 
+                "type": "Point",
+                "coordinates": [ -77.025988698005662, 38.9015330523316 ]
+            } 
+        } 
     }
 }
 ```
@@ -104,7 +104,7 @@ Para completar los pasos de este tutorial, antes es preciso crear un grupo de re
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
 
-Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones que encontrará en el artículo en el que se explica cómo [administrar una cuenta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys) para crear una suscripción a una cuenta de Azure Maps con el plan de tarifa S1, y consulte el artículo en el que se explican los [detalles de la autenticación](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) para aprender a obtener la clave de la suscripción.
+Para implementar la lógica de negocios basada en el análisis espacial de Azure Maps, es preciso crear una cuenta de Azure Maps en el grupo de recursos que hemos creado. Siga las instrucciones de [Administrar cuentas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para crear una suscripción de cuenta de Azure Maps con el plan de tarifa S1 y siga los pasos de [Obtención de la clave principal](./tutorial-search-location.md#getkey) para obtener la clave de suscripción principal de la cuenta.
 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento

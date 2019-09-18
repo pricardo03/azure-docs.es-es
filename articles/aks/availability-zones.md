@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 4d76578de0c80570e67db03046c42985500ddcdb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033138"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914725"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Versión preliminar: cree un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -34,7 +34,7 @@ Es necesario tener instalada y configurada la versión 2.0.66 de la CLI de Azure
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para crear clústeres de AKS que usen zonas de disponibilidad, necesita la extensión de CLI *aks-preview*, versión 0.4.1 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para crear clústeres de AKS que usen zonas de disponibilidad, necesita la versión 0.4.12 o superior de la extensión de CLI *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>Registro de la marca de características de la suscripción
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Registro de la marca de características de AvailabilityZonePreview para la suscripción
 
-Para crear un clúster de AKS con zonas de disponibilidad, primero debe habilitar algunas marcas de características en su suscripción. Los clústeres usan conjuntos de escalado de máquinas virtuales para administrar la implementación y configuración de los nodos de Kubernetes. La SKU *estándar* del equilibrador de carga de Azure también es necesaria para proporcionar solidez a los componentes de la red para enrutar el tráfico a su clúster. Registre las marcas de características *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer* y *VMSSPreview* con el comando [az feature register][az-feature-register], tal como se muestra en el ejemplo siguiente:
+Para crear un clúster de AKS con zonas de disponibilidad, primero debe habilitar la marca de características *AvailabilityZonePreview* en su suscripción. Para registrar la marca de características *AvailabilityZonePreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 
 > [!CAUTION]
 > Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
@@ -90,7 +86,7 @@ Las siguientes limitaciones se aplican cuando crea un clúster de AKS mediante z
 * Los clústeres con zonas de disponibilidad habilitadas requieren el uso de equilibradores de carga estándar de Azure para la distribución entre zonas.
 * Debe usar la versión 1.13.5 o superior de Kubernetes para implementar los equilibradores de carga estándar.
 
-Los clústeres de AKS que usan zonas de disponibilidad deben usar el SKU *estándar* del equilibrador de carga de Azure. La SKU *básica* predeterminada del equilibrador de carga de Azure no admite la distribución entre zonas de disponibilidad. Para obtener más información y las limitaciones del equilibrador de carga estándar, consulte las [limitaciones de la versión preliminar de la SKU estándar del equilibrador de carga de Azure][standard-lb-limitations].
+Los clústeres de AKS que usan zonas de disponibilidad deben usar el SKU *estándar* del equilibrador de carga de Azure. La SKU *básica* predeterminada del equilibrador de carga de Azure no admite la distribución entre zonas de disponibilidad. Para obtener más información y las limitaciones del equilibrador de carga estándar, consulte las [limitaciones de la SKU estándar del equilibrador de carga de Azure][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitaciones de los discos de Azure
 
@@ -125,7 +121,7 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --generate-ssh-keys \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
     --node-zones 1 2 3

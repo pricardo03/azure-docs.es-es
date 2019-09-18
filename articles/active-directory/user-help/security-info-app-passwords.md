@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382933"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915976"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Administración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
 
@@ -30,11 +30,9 @@ Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos
 
 Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
-- Las contraseñas de aplicaciones se generan automáticamente y solo se escriben una vez por cada aplicación.
+- Las contraseñas de aplicaciones se generan automáticamente y deben crearse y escribirse una sola vez por cada aplicación.
 
 - Hay un límite de 40 contraseñas por usuario. Si intenta crear una después de ese límite, se le pedirá que elimine una contraseña existente antes de que se le permita crear una nueva.
-
-- Utilice una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, cree una única contraseña para todas las aplicaciones del equipo portátil y luego otra contraseña única para todas las aplicaciones del equipo de sobremesa.
 
     >[!Note]
     >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicaciones para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).

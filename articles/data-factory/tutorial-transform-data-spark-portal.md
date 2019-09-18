@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312583"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812269"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
 En este tutorial, usará Azure Portal para crear una canalización de Azure Data Factory. Esta canalización permite transformar datos mediante una actividad de Spark y un servicio vinculado de Azure HDInsight a petición. 
@@ -153,7 +153,7 @@ En esta sección, deberá crear dos servicios vinculados:
    
    e. Escriba el **identificador de la entidad de servicio** que tenga permiso para crear un clúster de HDInsight. 
    
-      Esta entidad de servicio debe ser miembro del rol de colaborador de la suscripción o del grupo de recursos en el que se crea el clúster. Para más información, consulte [Creación de una aplicación de Azure Active Directory y una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md).
+      Esta entidad de servicio debe ser miembro del rol de colaborador de la suscripción o del grupo de recursos en el que se crea el clúster. Para más información, consulte [Creación de una aplicación de Azure Active Directory y una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md). El **Id. de entidad de servicio** es equivalente al *Id. de aplicación* y una **Clave de entidad de servicio** es equivalente al valor de un *Secreto de cliente*.
    
    f. Escriba la **clave de la entidad de servicio**. 
    

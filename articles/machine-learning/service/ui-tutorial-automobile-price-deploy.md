@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891617"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858640"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementación de un modelo de Machine Learning con la interfaz visual
 
@@ -118,6 +118,8 @@ Los modelos y las implementaciones de servicios web que cree en la interfaz visu
 1. Seleccione **Deployments** (implementaciones) y obtendrá una lista de todos los servicios web que usan el modelo. Seleccione el nombre del servicio web, irá a la página de detalles del servicio web. En dicha página, puede obtener información más detallada del servicio web.
 
     [![Captura de pantalla del informe de ejecución detallado](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+Estos modelos e implementaciones también se puede encontrar en las seccione **Modelos** y **Puntos de conexión** de la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
