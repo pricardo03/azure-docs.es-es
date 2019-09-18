@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: db2457cc3e320ac413cb245f51810b654c63aa22
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/06/2019
+ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308986"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773281"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -35,7 +35,9 @@ Esta característica de réplica de lectura utiliza la replicación asincrónica
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta del servidor maestro. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 
-Puede tener un servidor maestro en cualquier [región de Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un servidor maestro puede tener una réplica emparejada en su región o en las regiones de la réplica universal.
+Puede tener un servidor maestro en cualquier [región de Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un servidor maestro puede tener una réplica emparejada en su región o en las regiones de la réplica universal. En la imagen siguiente se muestran las regiones de réplica disponibles en función de la región maestra.
+
+[ ![Regiones de réplica de lectura](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Siempre puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Estas son las regiones de réplica universal:

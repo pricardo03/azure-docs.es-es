@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644890"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858547"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -201,7 +201,7 @@ La intercalación de la instancia predeterminada es `SQL_Latin1_General_CP1_CI_A
 
 ### <a name="compatibility-levels"></a>Niveles de compatibilidad
 
-- Los niveles de compatibilidad admitidos son 100, 110, 120, 130 y 140.
+- Los niveles de compatibilidad admitidos son 100, 110, 120, 130, 140 y 150.
 - No se admiten los niveles de compatibilidad menores que 100.
 - El nivel de compatibilidad predeterminado es 140 para las bases de datos nuevas. Para las bases de datos restauradas, el nivel de compatibilidad no cambiará si era 100 o superior.
 
@@ -338,6 +338,10 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 - `CREATE ASSEMBLY FROM FILE` no se admite. Consulte [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` no puede hacer referencia a archivos. Consulte [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### <a name="database-mail-db_mail"></a>Correo electrónico de base de datos: (db_mail)
+ - `sp_send_dbmail` no puede enviar datos adjuntos con el parámetro @file_attachments. El sistema de archivos local y los recursos compartidos externos, o Azure Blob Storage, no son accesibles en este procedimiento.
+ - Vea los problemas conocidos relacionados con el parámetro `@query` y la autenticación.
+ 
 ### <a name="dbcc"></a>DBCC
 
 Las instancias administradas no admiten instrucciones DBCC no documentadas que estén habilitadas en SQL Server.
@@ -537,6 +541,22 @@ Una instancia administrada coloca información detallada en los registros de err
 
 ## <a name="Issues"></a> Problemas conocidos
 
+### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error
+
+**Fecha:** Septiembre de 2019
+
+La característica [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) que le permite limitar los recursos asignados a la carga de trabajo de usuario puede clasificar incorrectamente alguna carga de trabajo de usuario después de una conmutación por error o un cambio de nivel de servicio iniciado por el usuario (por ejemplo, el cambio de número máximo de núcleos virtuales o tamaño máximo de almacenamiento de instancia).
+
+**Solución alternativa**: Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte del trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
+
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>No se puede autenticar en servidores de correo externos mediante una conexión segura (SSL)
+
+**Fecha:** Agosto de 2019
+
+El correo electrónico de base de datos que se [configura mediante una conexión segura (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) no se puede autenticar en algunos servidores de correo electrónico fuera de Azure. Se trata de un problema de configuración de seguridad que se resolverá pronto.
+
+**Solución alternativa**: Quite temporalmente la conexión segura (SSL) de la configuración del correo de la base de datos hasta que se resuelva el problema. 
+
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio
 
 **Fecha:** Agosto de 2019
@@ -572,6 +592,12 @@ Si la replicación transaccional se habilita en una base de datos en un grupo de
 SQL Server Management Studio y SQL Server Data Tools no son completamente compatibles con los inicios de sesión y usuarios de Azure Active Directory.
 - Actualmente no se admite el uso de entidades de seguridad (inicios de sesión) y usuarios(versión preliminar pública) del servidor de Azure AD con SQL Server Data Tools.
 - No se admite la creación de scripts para entidades de seguridad (inicios de sesión) y usuarios (versión preliminar pública) del servidor de Azure AD en SQL Server Management Studio.
+
+### <a name="temporary-database-is-used-during-restore-operation"></a>La base de datos temporal se usa durante la operación RESTORE
+
+Cuando una base de datos se restaura en Instancia administrada, el servicio de restauración crea primero una base de datos vacía con el nombre deseado para asignar el nombre a la instancia. Después de un tiempo, esta base de datos se quitará y se iniciará la restauración de la base de datos real. La base de datos que se encuentra en estado de *restauración* será temporal y tendrá un valor de GUID aleatorio en lugar del nombre. El nombre temporal se cambiará al nombre deseado especificado en la instrucción `RESTORE` una vez que se complete el proceso de restauración. En la fase inicial, el usuario puede acceder a la base de datos vacía e incluso crear tablas o cargar datos en esta base de datos. Esta base de datos temporal se quitará cuando el servicio de restauración inicie la segunda fase.
+
+**Solución alternativa**: No acceda a la base de datos que va a restaurar hasta que vea que la restauración se ha completado.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Se vuelve a crear la estructura y el contenido de TEMPDB
 

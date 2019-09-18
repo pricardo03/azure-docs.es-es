@@ -1,19 +1,18 @@
 ---
-title: Creación y personalización de planes de recuperación para la recuperación ante desastres mediante Azure Site Recovery | Microsoft Docs
+title: Creación y personalización de planes de recuperación para la recuperación ante desastres mediante Azure Site Recovery
 description: Aprenda a crear y personalizar planes de recuperación para la recuperación ante desastres mediante el servicio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ca44ffd26e1b87dd201ed6f274791eadfeb0737
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399999"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814407"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 

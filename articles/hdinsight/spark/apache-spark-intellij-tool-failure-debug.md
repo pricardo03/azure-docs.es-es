@@ -1,6 +1,6 @@
 ---
 title: 'Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar) '
-description: Instrucciones paso a paso para el uso de las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota en clústeres de HDInsight mediante SSH
+description: Guía para usar las herramientas de HDInsight en Azure Toolkit for IntelliJ con el fin de depurar aplicaciones
 keywords: depurar remotamente intellij, depuración remota intellij, ssh, intellij, hdinsight, depurar intellij, depuración
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: aff9f0f70377ebc6e741618b22ff82bc06251521
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a07dcd58263674aa6fd360e138c0b9c999ea644e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295910"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814152"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 
@@ -83,7 +83,7 @@ Cree una aplicación Scala o Java de Spark, y después ejecútela en un clúster
 
 6. Puede comprobar el identificador de la aplicación en la ventana de salida.
    
-   ![Botón de ejecución remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
+   ![Resultado de ejecución remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
 
 ## <a name="download-failed-job-profile"></a>Error en la descarga del perfil de trabajo
 
@@ -91,9 +91,9 @@ Si se produce un error al enviar el trabajo, puede descargar el perfil de trabaj
 
 1. Abra el **Explorador de Microsoft Azure Storage**, busque la cuenta de HDInsight del clúster del trabajo con errores, descargue los recursos de trabajo con errores desde la ubicación correspondiente: **\hdp\spark2-events\\.spark-failures\\\<Id. de la aplicación>** a una carpeta local. En la ventana **activities** (actividades) se mostrará el progreso de la descarga.
 
-   ![Descarga del archivo con error](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   ![Descarga del archivo con error1](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
-   ![Descarga del archivo con error](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
+   ![Descarga del archivo con error2](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configuración del entorno de depuración local y depuración en caso de error
 
@@ -101,13 +101,13 @@ Si se produce un error al enviar el trabajo, puede descargar el perfil de trabaj
 
 2. En IntelliJ IDEA, cree un archivo de configuración **Spark Failure Debug** (Depuración de errores de Spark) y seleccione el archivo FTD de los recursos de trabajo con errores que ha descargado antes para el campo **Spark Job Failure Context location** (Ubicación del contexto de error del trabajo de Spark).
    
-   ![Botón de ejecución remota](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   ![crear configuración de error](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
 4. Haga clic en el botón de ejecución local en la barra de herramientas; el error se mostrará en la ventana de ejecución.
    
-   ![Botón de ejecución remota](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   ![ejecutar-configuración-de-error1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
 
-   ![Botón de ejecución remota](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   ![ejecutar-configuración-de-error2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
 5. Establezca el punto de interrupción como se indica en el registro y, después, haga clic en el botón depuración local para realizar la depuración local como en los proyectos normales de Scala o Java en IntelliJ.
 
