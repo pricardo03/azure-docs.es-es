@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011517"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844990"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
@@ -24,7 +24,7 @@ En este artículo aprenderá a usar Azure Machine Learning Service para implemen
 La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo implementado para realizar predicciones. El uso de GPU en lugar de CPU ofrece ventajas de rendimiento en el cálculo que se puede paralelizar considerablemente.
 
 > [!IMPORTANT]
-> La inferencia de GPU solo se admite en Azure Kubernetes Service.
+> En el caso de las implementaciones de servicios web, la inferencia de GPU solo se admite en Azure Kubernetes Service. Para realizar la inferencia mediante __una canalización de aprendizaje automático__, las GPU solo se admiten en Proceso de Azure Machine Learning. Para más información sobre el uso de canalizaciones de aprendizaje automático, consulte [Ejecución de predicciones por lotes](how-to-run-batch-predictions.md). 
 
 > [!TIP]
 > Aunque los fragmentos de código de este artículo usan un modelo de TensorFlow, puede aplicar la información a cualquier marco de aprendizaje automático que admita GPU.

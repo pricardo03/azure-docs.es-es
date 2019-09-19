@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837882"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382498"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
-En este artículo se describe cómo usar los permisos de aplicación en roles personalizados de Azure Active Directory (Azure AD) para satisfacer las necesidades de administración de aplicaciones. Azure Active Directory (Azure AD) le permite delegar los permisos de creación y administración de aplicaciones de las siguientes maneras:
+En este artículo se describe cómo usar los permisos concedidos por roles personalizados de Azure Active Directory (Azure AD) para satisfacer las necesidades de administración de aplicaciones. En Azure AD puede delegar los permisos de creación y administración de aplicaciones de las siguientes maneras:
 
 - [Restricción de quién puede crear aplicaciones](#restrict-who-can-create-applications) y administración de las aplicaciones que crean. De forma predeterminada, en Azure AD, todos los usuarios pueden registrar registros de aplicación y administrar todos los aspectos de las aplicaciones que crean. Esto se puede restringir para permitir que solo los usuarios seleccionados tengan permiso.
 - [Asignación de uno o varios propietarios a una aplicación](#assign-application-owners). Esta es una manera sencilla de conceder a alguien la posibilidad de administrar todos los aspectos de la configuración de Azure AD de una aplicación específica.
@@ -40,7 +40,7 @@ De forma predeterminada, en Azure AD, todos los usuarios pueden registrar regist
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Deshabilitar la capacidad predeterminada de crear registros de aplicación o dar consentimiento a las aplicaciones
 
 1. Inicie sesión en la organización de Azure AD con una cuenta que sea válida para el rol de administrador global de esa organización.
-1. Cuando haya obtenido permisos suficientes, establezca una o ambas de las siguientes opciones:
+1. Establezca uno o los dos valores siguientes:
 
     - En la  [página Configuración de usuario de su organización](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), establezca el valor **Los usuarios pueden registrar aplicaciones** en No. Esto deshabilitará la capacidad predeterminada de los usuarios de crear registros de aplicación.
     - En la  [configuración de usuario de las aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), establezca el valor **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre**, en No. Esto deshabilitará la capacidad predeterminada de los usuarios de dar su consentimiento a las aplicaciones que acceden a los datos de la compañía en su nombre.

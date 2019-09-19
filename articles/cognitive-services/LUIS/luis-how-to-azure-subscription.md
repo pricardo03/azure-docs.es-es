@@ -1,7 +1,7 @@
 ---
-title: 'Claves de suscripción: LUIS'
+title: Cómo usar las claves de creación y tiempo de ejecución - LUIS
 titleSuffix: Azure Cognitive Services
-description: No es necesario crear claves de suscripción para usar las primeras 1000 consultas de punto de conexión. Si recibe un error de que se ha quedado _sin cuota_ como un error HTTP 403 o 429, debe crear una clave y asignarla a la aplicación.
+description: La primera vez que use Language Understanding (LUIS), no es necesario crear una clave de suscripción. Cuando quiera publicar la aplicación, use el punto de conexión en tiempo de ejecución; a continuación, debe crear y asignar la clave de tiempo de ejecución a la aplicación.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,133 +9,138 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1f8b84722c881cee1fe196e5a614b58cf3c19031
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932856"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844871"
 ---
-# <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
+# <a name="using-authoring-and-runtime-resource-keys"></a>Uso de las claves de recursos de creación y de tiempo de ejecución
 
-La primera vez que use Language Understanding (LUIS), no es necesario crear claves de suscripción. Se le proporcionarán 1000 consultas de punto de conexión para empezar. 
-
-Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de producción, use un plan de [pago](https://aka.ms/luis-price-tier). No use la [clave de creación](luis-concept-keys.md#authoring-key) para las consultas de punto de conexión en producción.
-
+Los recursos de creación y de tiempo de ejecución proporcionan autenticación a la aplicación LUIS y al punto de conexión de predicción.
 
 <a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Creación del recurso del entorno de ejecución de punto de conexión de predicción en Azure Portal
+Al iniciar sesión en el portal de LUIS, puede continuar usando:
 
-Cree el [recurso del punto de conexión de predicción](get-started-portal-deploy-app.md#create-the-endpoint-resource) en Azure Portal. Dicho recurso solo se debe usar para las consultas de predicción de punto de conexión. No se debe usar para la creación de los cambios en la aplicación.
+* una [clave de evaluación](#trial-key) gratuita que proporciona la creación y algunas consultas de puntos de conexión de predicción.
+* un nuevo recurso de creación de LUIS de Azure para crear un nuevo recurso. Esto no es lo mismo que un recurso de punto de conexión de predicción. 
 
-Puede crear un recurso de Language Understanding o de Cognitive Services. Si va a crear un recurso de Language Understanding, se recomienda posponer el tipo de recurso al nombre del recurso. 
 
-<a name="programmatic-key" ></a>
-<a name="authoring-key" ></a>
-<a name="endpoint-key" ></a>
-<a name="use-endpoint-key-in-query" ></a>
-<a name="api-usage-of-ocp-apim-subscription-key" ></a>
-<a name="key-limits" ></a>
-<a name="key-limit-errors" ></a>
-<a name="key-concepts"></a>
-<a name="authoring-key"></a>
-<a name="create-and-use-an-endpoint-key"></a>
-<a name="assign-endpoint-key"></a>
-<a name="assign-resource"></a>
+<a name="starter-key"></a>
 
-### <a name="using-resource-from-luis-portal"></a>Uso de un recurso del portal de LUIS
+## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Inicio de sesión en el portal de LUIS y comience el proceso de creación
 
-Si usa el recurso del portal de LUIS, no necesita conocer la clave y la ubicación. En su lugar, debe conocer el inquilino del recurso, la suscripción y el nombre del recurso.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y acepte los términos de uso.
+1. Inicie la aplicación LUIS seleccionando el tipo de clave de creación de LUIS que quiera usar: la clave de evaluación gratuita o la nueva clave de creación de LUIS de Azure. 
 
-Una vez que [asigne](#assign-resource-key-to-luis-app-in-luis-portal) el recurso a la aplicación de LUIS en el portal de LUIS, la clave y la ubicación se proporcionan como parte de la dirección URL del punto de conexión de predicción de consulta en la página **Configuración de claves y puntos de conexión** de la sección Administrar.
- 
-### <a name="using-resource-from-rest-api-or-sdk"></a>Uso de un recurso de API REST o del SDK
+    ![Elección de un tipo de recurso de creación de Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-Si usa el recurso de API REST o del SDK, necesita conocer la clave y la ubicación. Esta información se proporciona como parte de la dirección URL del punto de conexión de predicción de consulta en la página **Configuración de claves y puntos de conexión** de la sección Administrar, así como en Azure Portal, en las páginas Información general y Claves del recurso.
+1. Cuando haya terminado con el proceso de selección de recursos, [cree una aplicación nueva](luis-how-to-start-new-app.md#create-new-app-in-luis). 
 
-## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Asignación de la clave de recurso a la aplicación de LUIS en el portal de LUIS
+## <a name="trial-key"></a>Clave de la versión de prueba
 
-Cada vez que crea un recurso para LUIS, será preciso que lo [asigne a la aplicación de LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
+La clave de la versión de prueba (de inicio) se proporciona automáticamente. Se usa como clave de autenticación para consultar el tiempo de ejecución del punto de conexión de predicción, y es capaz de realizar hasta 1000 consultas al mes. 
 
-<!-- content moved to luis-reference-regions.md, need replacement links-->
-<a name="regions-and-keys"></a>
-<a name="publishing-to-europe"></a>
-<a name="publishing-to-australia"></a>
+Se puede encontrar en la página de **configuración de usuario** y en las páginas **Administrar -> Recursos de Azure** del portal de LUIS. 
 
-### <a name="unassign-resource"></a>Anulación de la asignación de un recurso
-Al anular la asignación de la clave de punto de conexión, no se elimina de Azure. Solo se desvincula de LUIS. 
+Cuando esté listo para publicar el punto de conexión de predicción, cree y asigne ñas claves de creación y de tiempo de ejecución de predicción para reemplazar la funcionalidad de la clave de inicio. 
 
-Cuando una clave de punto de conexión está sin asignar o no está asignada a la aplicación, cualquier solicitud a la dirección URL de punto de conexión devuelve un error: `401 This application cannot be accessed with the current subscription`. 
+## <a name="create-resources-in-the-azure-portal"></a>Creación de recursos en Azure Portal
 
-### <a name="include-all-predicted-intent-scores"></a>Incluir todas las puntuaciones de intención pronosticada
-La casilla de verificación **Include all predicted intent scores** (Incluir todas las puntuaciones de intención pronosticada) permite que la respuesta a la consulta del punto de conexión incluya la puntuación de predicción para cada intención. 
+1. Inicie sesión en el [Azure Portal](https://azure.microsoft.com/free/). 
+1. Seleccione **+ Crear un recurso**.
+1. En el cuadro de búsqueda, escriba `Language understanding`.
+1. Seleccione **Crear** para iniciar el proceso de creación. 
+1. Cree **ambos** para crear una clave de tiempo de ejecución de punto de conexión de predicción y de creación. 
+1. Escriba la información necesaria para crear el recurso y seleccione **Crear** para finalizar el proceso.
 
-Esta opción permite que el bot de chat o la aplicación que llama a LUIS tome decisiones mediante programación basadas en las puntuaciones de las intenciones devueltas. Por lo general, las dos primeras intenciones son las más interesantes. Si la mejor puntuación es la intención None, el bot de chat puede hacer una pregunta de seguimiento que elegirá definitivamente entre la intención None y la otra intención con una puntuación alta. 
+    ![Creación del recurso de reconocimiento del lenguaje](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-Las intenciones y sus puntuaciones también se incluyen en los registros de punto de conexión. También puede [exportar](luis-how-to-start-new-app.md#export-app) esos registros y analizar los resultados. 
+    |NOMBRE|Propósito|
+    |--|--|
+    |Nombre del recurso| Es el nombre personalizado que elija, que se usa como parte de la dirección URL para las consultas de punto de conexión de creación y predicción.|
+    |Nombre de la suscripción| Es la suscripción que se facturará por el recurso.|
+    |Resource group| Es el nombre del grupo de recursos personalizado que elija o cree. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración en la misma región.|
+    |Creación de la ubicación|Es la región asociada al modelo.|
+    |Creación del plan de tarifa|El plan de tarifa determina el número máximo de transacciones por segundo y mes.|
+    |Ubicación del tiempo de ejecución|Es la región asociada al tiempo de ejecución del punto de conexión de predicción publicado.|
+    |Plan de tarifa del tiempo de ejecución|El plan de tarifa determina el número máximo de transacciones por segundo y mes.|
 
-```JSON
-{
-  "query": "book a flight to Cairo",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.5223427
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.5223427
-    },
-    {
-      "intent": "BookFlight",
-      "score": 0.372391433
-    }
-  ],
-  "entities": []
-}
-```
+    Una vez creados ambos recursos, asígnelos en el portal de LUIS.
 
-### <a name="enable-bing-spell-checker"></a>Habilitar el corrector ortográfico de Bing 
-En **Endpoint url settings** (Configuración de dirección URL de punto de conexión), el conmutador **Bing spell checker** (Corrector ortográfico de Bing) permite a LUIS corregir las palabras mal escritas antes de realizar la predicción. Cree una **[clave de Bing Spell Check](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
+## <a name="create-resources-in-azure-cli"></a>Creación de recursos en la CLI de Azure
 
-Agregue el parámetro de cadena de consulta **spellCheck=true** y **bing-spell-check-subscription-key={SU_CLAVE_DE_BING}** . Reemplace `{YOUR_BING_KEY_HERE}` con su clave del corrector ortográfico de Bing.
+Use la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para crear cada recursos de manera individual. 
 
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
+Recurso: `kind`:
 
-### <a name="publishing-regions"></a>Regiones de publicación
+* Creación: `LUIS.Authoring`
+* Predicción: `LUIS` 
 
-Obtenga más información sobre las [regiones](luis-reference-regions.md) de publicación, incluida la publicación en [Europa](luis-reference-regions.md#publishing-to-europe) y [Australia](luis-reference-regions.md#publishing-to-australia). Las regiones de publicación son diferentes de las regiones de creación. Cree una aplicación en la región de creación correspondiente a la región de publicación que quiera para el punto de conexión de consulta.
+1. Inicie sesión en la CLI de Azure.
 
-## <a name="assign-resource-without-luis-portal"></a>Asignación del recurso sin el portal de LUIS
+    ```console
+    az login
+    ```
 
-Para fines de automatización, como una canalización de CI/CD, puede automatizar la asignación de un recurso de LUIS para una aplicación de LUIS. Para ello, tiene que realizar los siguientes pasos:
+    Se abre un explorador que le permite seleccionar la cuenta correcta y proporcionar autenticación.
+
+1. Cree un **recurso de creación de LUIS**, de tipo `LUIS.Authoring`, llamado `my-luis-authoring-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Cree un **recurso de punto de conexión de predicción de LUIS**, de tipo `LUIS`, llamado `my-luis-prediction-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. Si quiere un rendimiento superior al del nivel gratuito, cambie `F0` por `S0`. Más información sobre [planes de tarifa y rendimiento](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > Estas claves **no** se usan en el portal de LUIS hasta que se asignan en dicho portal en **Manage -> Azure resources** (Administrar > Recursos de Azure).
+
+## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Asignación de un recurso de creación en el portal de LUIS para todas las aplicaciones
+
+Puede asignar un recurso de creación de una sola aplicación o de todas las aplicaciones en LUIS. En el siguiente procedimiento se asignan todas las aplicaciones a un único recurso de creación.
+
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai).
+1. En la barra de navegación superior, en el extremo derecho, seleccione su cuenta de usuario y, a continuación, seleccione **Settings** (Configuración).
+1. En la página de **configuración de usuario**, seleccione **Add authoring resource** (Agregar recurso de creación) y, a continuación, seleccione un recurso de creación existente. Seleccione **Guardar**. 
+
+## <a name="assign-a-resource-to-an-app"></a>Asignar un recurso a una aplicación
+
+Puede asignar un único recurso, creación o tiempo de ejecución de punto de conexión de predicción a una aplicación con el siguiente procedimiento.
+
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y seleccione una aplicación de la lista **My apps** (Mis aplicaciones).
+1. Vaya a la página **Manage -> Azure resources** (Administrar -> Recursos de Azure).
+
+    ![Seleccione Manage -> Azure resources (Administrar -> Recursos de Azure) en el portal de LUIS para asignar un recurso a la aplicación.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+
+1. Seleccione la pestaña de predicción o de recursos de creación y, a continuación, seleccione el botón **Add prediction resource** (Agregar recurso de predicción) o **Add authoring resource** (Agregar recurso de creación). 
+1. Seleccione los campos en el formulario para buscar el recurso correcto y, a continuación, seleccione **Save** (Guardar).  
+
+### <a name="assign-runtime-resource-without-using-luis-portal"></a>Asignación de recursos de tiempo de ejecución sin usar el portal de LUIS
+
+Para fines de automatización, como una canalización de CI/CD, puede automatizar la asignación de un recurso de tiempo de ejecución de LUIS a una aplicación de LUIS. Para ello, tiene que realizar los siguientes pasos:
 
 1. Obtenga un token de Azure Resource Manager en este [sitio web](https://resources.azure.com/api/token?plaintext=true). Este token expira, por lo que debe usarlo de inmediato. La solicitud devuelve un token de Azure Resource Manager.
 
     ![Solicitud de un token de Azure Resource Manager y recepción del token de Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use el token para solicitar los recursos de LUIS en distintas suscripciones desde la [API Get LUIS azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), su cuenta de usuario tiene acceso. 
+1. Use el token para solicitar los recursos de tiempo de ejecución de LUIS en distintas suscripciones desde la [API Get LUIS azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a la cual su cuenta de usuario tiene acceso. 
 
     Esta API POST requiere la siguiente configuración:
 
     |Encabezado|Valor|
     |--|--|
     |`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.| 
-    |`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|
+    |`Ocp-Apim-Subscription-Key`|Su clave de creación.|
 
     Esta API devuelve una matriz de objetos JSON con las suscripciones de LUIS, incluidos el identificador de suscripción, el grupo de recursos y el nombre del recurso, que se devuelve como nombre de cuenta. Busque el elemento de la matriz que es el recurso de LUIS que se va a asignar a la aplicación de LUIS. 
 
@@ -146,12 +151,34 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
     |type|Configuración|Valor|
     |--|--|--|
     |Encabezado|`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.|
-    |Encabezado|`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|
+    |Encabezado|`Ocp-Apim-Subscription-Key`|Su clave de creación.|
     |Encabezado|`Content-type`|`application/json`|
     |QueryString|`appid`|El id. de la aplicación LUIS. 
     |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Cuando esta API finaliza correctamente, devuelve un estado 201: creado. 
+
+## <a name="unassign-resource"></a>Anulación de la asignación de un recurso
+
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y seleccione una aplicación de la lista **My apps** (Mis aplicaciones).
+1. Vaya a la página **Manage -> Azure resources** (Administrar -> Recursos de Azure).
+1. Seleccione la pestaña de predicción o de recursos de creación y, a continuación, seleccione el botón **Unassign resource** (Cancelar asignación del recurso). 
+
+Al cancelar la asignación de un recurso, no se elimina de Azure. Solo se desvincula de LUIS. 
+
+## <a name="reset-authoring-key"></a>Restablecimiento de la clave de creación
+
+**Para [crear aplicaciones migradas](luis-migration-authoring.md) de recursos**: si la clave de creación se ve comprometida, restablezca la clave en Azure Portal en la página **Claves** para ese recurso de creación. 
+
+**En el caso de las aplicaciones que no se han migrado todavía**: la clave se restablece en todas las aplicaciones del portal de LUIS. Si crea sus aplicaciones a través de las API de creación, debe cambiar el valor de Ocp-Apim-Subscription-Key por la clave nueva.
+
+## <a name="regenerate-azure-key"></a>Regeneración de la clave de Azure
+
+Vuelva a generar las claves de Azure desde Azure Portal, en la página de **claves**.
+
+## <a name="delete-account"></a>Eliminación de cuenta
+
+Vea [Data storage and removal](luis-concept-data-storage.md#accounts) (Almacenamiento y eliminación de datos) para obtener información acerca de qué datos se eliminan al eliminar la cuenta.
 
 ## <a name="change-pricing-tier"></a>Cambiar el plan de tarifa
 
@@ -163,39 +190,16 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
     ![Cambiar el plan de pago de LUIS](./media/luis-usage-tiers/plans.png)
 1.  Una vez completado el cambio de tarifa, el plan de tarifa nuevo se comprueba en una ventana emergente. 
     ![Comprobar el plan de pago de LUIS](./media/luis-usage-tiers/updated.png)
-1. No olvide [asignar esta clave de punto de conexión](#assign-endpoint-key) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
+1. No olvide [asignar esta clave de punto de conexión](#assign-a-resource-to-an-app) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
 
-## <a name="fix-http-status-code-403-and-429"></a>Corrección de los códigos de estado HTTP 403 y 429
+## <a name="viewing-azure-resource-metrics"></a>Visualización de las métricas de recursos de Azure
 
-Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones por segundo o las transacciones al mes del plan de tarifa.
-
-### <a name="when-you-receive-an-http-403-error-status-code"></a>Cuando reciba un código de estado de error HTTP 403
-
-Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403. 
-
-Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
-
-Las soluciones para este error incluyen:
-
-* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa**, cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
-*  Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
-
-### <a name="when-you-receive-an-http-429-error-status-code"></a>Cuando reciba un código de estado de error HTTP 429
-
-Este código de estado se devuelve cuando las transacciones por segundo superan su plan de tarifa.  
-
-Entre las soluciones, se incluyen las siguientes:
-
-* También puede [aumentar el plan de tarifa](#change-pricing-tier), si no está en el nivel más alto.
-* Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
-* También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado. 
-
-## <a name="viewing-summary-usage"></a>Ver uso de resumen
+### <a name="viewing-azure-resource-summary-usage"></a>Visualización del uso de resumen de los recursos de Azure
 En Azure puede ver la información de uso de LUIS. En la página **Información general** se muestra información de resumen reciente incluidos los errores y las llamadas. Si realiza una solicitud de punto de conexión de LUIS, consulte inmediatamente la **página Información general**, y deje que pasen hasta cinco minutos hasta que se muestre el uso.
 
 ![Ver uso de resumen](./media/luis-usage-tiers/overview.png)
 
-## <a name="customizing-usage-charts"></a>Personalización de los gráficos de uso
+### <a name="customizing-azure-resource-usage-charts"></a>Personalización de los gráficos de uso de los recursos de Azure
 Las métricas proporcionan una vista más detallada de los datos.
 
 ![Métricas predeterminadas](./media/luis-usage-tiers/metrics-default.png)
@@ -204,7 +208,7 @@ Puede configurar los gráficos de métricas para el período de tiempo y el tipo
 
 ![Métricas personalizadas](./media/luis-usage-tiers/metrics-custom.png)
 
-## <a name="total-transactions-threshold-alert"></a>Alerta de umbral de transacciones totales
+### <a name="total-transactions-threshold-alert"></a>Alerta de umbral de transacciones totales
 Si le gustaría saber cuándo se alcanza un umbral de transacciones determinado (por ejemplo 10.000) puede crear una alerta. 
 
 ![Alertas predeterminadas](./media/luis-usage-tiers/alert-default.png)
@@ -213,4 +217,7 @@ Agregue una alerta de métrica para la métrica **Llamadas totales** para un per
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo usar las [versiones](luis-how-to-manage-versions.md) para administrar los cambios en la aplicación de LUIS.
+* Obtenga información sobre [cómo usar versiones](luis-how-to-manage-versions.md) para controlar el ciclo de vida de la aplicación.
+* Entienda los conceptos, incluidos el [recurso de creación](luis-concept-keys.md#authoring-key) y los [colaboradores](luis-concept-keys.md#contributions-from-other-authors) de ese recurso.
+* Obtenga información sobre [cómo crear](luis-how-to-azure-subscription.md) los recursos de creación y de tiempo de ejecución.
+* Migre al nuevo [recurso de creación](luis-migration-authoring.md). 

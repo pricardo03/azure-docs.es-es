@@ -1,105 +1,96 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronización con ámbito | Microsoft Docs'
-description: Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
+title: Sincronización con ámbito en Azure AD Domain Services | Microsoft Docs
+description: Aprenda a configurar la sincronización con ámbito entre Azure AD y un dominio administrado de Azure Active Directory Domain Services.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5fe19d3800883782187ae15c0a6fc0cd9709f0e9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617123"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842671"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
-En este artículo se muestra cómo configurar solo cuentas de usuario específicas para sincronizarlas entre el directorio de Azure AD y el dominio administrado de Azure AD Domain Services.
+# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configuración de la sincronización con ámbito entre Azure AD y Azure Active Directory Domain Services
 
+Para proporcionar servicios de autenticación, Azure Active Directory Domain Services (Azure AD DS) sincroniza los usuarios y grupos de Azure AD. En un entorno híbrido, los usuarios y grupos de un entorno local de Active Directory Domain Services (AD DS) se pueden sincronizar primero con Azure AD mediante Azure AD Connect y, luego, con Azure AD DS. De forma predeterminada, todos los usuarios y grupos de un directorio de Azure AD se sincronizan con un dominio administrado de Azure AD DS. Si tiene necesidades específicas, puede optar por sincronizar solo un conjunto definido de usuarios.
 
-## <a name="group-based-scoped-synchronization"></a>Sincronización con ámbito basada en grupos
-De forma predeterminada, todos los usuarios y grupos del directorio de Azure AD se sincronizan con el dominio administrado. Si solo unos cuantos usuarios usan el dominio administrado, solo puede sincronizar esas cuentas de usuario. La sincronización con ámbito basada en grupos le permite hacer eso. Cuando está configurada, solo las cuentas de usuario que pertenecen a los grupos que haya especificado se sincronizan con el dominio administrado.
+En este artículo se muestra cómo crear un dominio administrado de Azure AD DS que use la sincronización con ámbito y, luego, cambiar o deshabilitar el conjunto de usuarios con ámbito.
 
-La tabla siguiente le ayuda a determinar cómo usar la sincronización con ámbito:
+## <a name="scoped-synchronization-overview"></a>Introducción a la sincronización con ámbito
 
-| **Estado actual** | **Estado deseado** | **Configuración necesaria** |
+De forma predeterminada, todos los usuarios y grupos de un directorio de Azure AD se sincronizan con un dominio administrado de Azure AD DS. Si solo unos cuantos usuarios necesitan acceso al dominio administrado, puede sincronizar únicamente esas cuentas de usuario. Esta sincronización son ámbito se basa en grupos. Al configurar la sincronización con ámbito basada en grupos, solo las cuentas de usuario que pertenecen a los grupos que especifique se sincronizan con el dominio administrado de Azure AD DS.
+
+En la tabla siguiente se describe cómo usar la sincronización con ámbito:
+
+| Estado actual | Estado deseado | Configuración necesaria |
 | --- | --- | --- |
-| El dominio administrado existente está configurado para sincronizar todas las cuentas de usuario y grupos. | Quiere sincronizar solo las cuentas de usuario que pertenecen a grupos específicos con su dominio administrado. | [Elimine el dominio administrado existente](delete-aadds.md). A continuación, siga las instrucciones de este artículo para volver a crearlo con la sincronización con ámbito configurada. |
-| No tiene un dominio administrado existente. | Quiere crear un dominio administrado y sincronizar solo las cuentas de usuario que pertenecen a grupos específicos. | Siga las instrucciones de este artículo para crear un dominio administrado con la sincronización con ámbito configurada. |
-| El dominio administrado existente está configurado para sincronizar únicamente las cuentas que pertenecen a grupos específicos. | Quiere modificar la lista de grupos cuyos usuarios se deben sincronizar con el dominio administrado. | Siga las instrucciones de este artículo para modificar la sincronización con ámbito. |
+| Un dominio administrado existente está configurado para sincronizar todas las cuentas de usuario y grupos. | Quiere sincronizar únicamente las cuentas de usuario que pertenecen a grupos específicos. | No puede pasar de sincronizar todos los usuarios a usar la sincronización con ámbito. [Elimine el dominio administrado existente](delete-aadds.md) y, luego, siga los pasos de este artículo para volver a crear un dominio administrado de Azure AD DS con la sincronización con ámbito configurada. |
+| No existen dominios administrados. | Quiere crear un dominio administrado y sincronizar solo las cuentas de usuario que pertenecen a grupos específicos. | Siga los pasos de este artículo para crear un dominio administrado de Azure AD DS con la sincronización con ámbito configurada. |
+| Un dominio administrado existente está configurado para sincronizar únicamente las cuentas que pertenecen a grupos específicos. | Quiere modificar la lista de grupos cuyos usuarios se deben sincronizar con el dominio administrado de Azure AD DS. | Siga los pasos de este artículo para modificar la sincronización con ámbito. |
+
+Use Azure Portal o PowerShell para configurar la sincronización con ámbito:
+
+| . | | |
+|--|--|--|
+| Creación de un dominio administrado de Azure AD DS y configuración de la sincronización con ámbito | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificación de la sincronización con ámbito | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Deshabilitación de la sincronización con ámbito | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> **Al cambiar el ámbito de la sincronización, el dominio administrado pasa por una resincronización.**
+> Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos.
 > 
->  * Al cambiar el ámbito de sincronización de un dominio administrado, se produce una resincronización completa.
->  * Los objetos que ya no son necesarios en el dominio administrado se eliminan. Se crean objetos en el dominio administrado.
->  * La resincronización puede tardar mucho tiempo en completarse, según el número de objetos (usuarios, grupos y pertenencia a grupos) en el dominio administrado y el directorio de Azure AD. En directorios grandes con muchos cientos de miles de objetos, la resincronización puede tardar algunos días.
+>  * Cuando se cambia el ámbito de sincronización de un dominio administrado de Azure AD DS, se produce una resincronización completa.
+>  * Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan. Se crean objetos en el dominio administrado.
+>  * La resincronización puede tardar mucho tiempo en completarse; depende del número de objetos, como usuarios, grupos y pertenencias a grupos en el dominio administrado de Azure AD DS y el directorio de Azure AD. En directorios grandes con muchos cientos de miles de objetos, la resincronización puede tardar algunos días.
 
+## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Habilitación de la sincronización con ámbito mediante Azure Portal
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Creación de un dominio administrado y habilitación de la sincronización con ámbito basada en grupos mediante Azure Portal
+1. Siga el [tutorial para crear y configurar una instancia de Azure AD DS](tutorial-create-instance.md). Aparte del ámbito de sincronización, complete todos los requisitos previos y los pasos de implementación.
+1. Elija **Ámbito** en el paso de sincronización y, después, seleccione los grupos de Azure AD que se van a sincronizar con la instancia de Azure AD DS.
 
-1. Siga la [guía de introducción](tutorial-create-instance.md) para volver a crear un dominio administrado.
-2. Elija **con ámbito** durante la selección del estilo de sincronización en el Asistente para la creación de Azure AD Domain Services.
+El dominio administrado de Azure AD DS puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado de Azure AD DS muestra el estado actual durante esta fase de implementación.
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Creación de un dominio administrado y habilitación de la sincronización con ámbito basada en grupos mediante PowerShell
-Use PowerShell para completar este conjunto de pasos. Consulte las instrucciones para [habilitar Azure Active Directory Domain Services mediante PowerShell](powershell-create-instance.md). Un par de pasos de este artículo se han modificado ligeramente para configurar la sincronización con ámbito.
+Cuando en Azure Portal se muestra que el dominio administrado de Azure AD DS ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
 
-Lleva a cabo los pasos siguientes para configurar la sincronización de ámbito basadas en grupos con el dominio administrado:
+* Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
+    * Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+* [Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
-1. Realice las siguientes tareas:
-   * [Tarea 1: Instalación de los módulos de PowerShell necesarios](powershell-create-instance.md#task-1-install-the-required-powershell-modules).
-   * [Tarea 2: Creación de la entidad de servicio necesaria en el directorio de Azure AD](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-   * Tarea 3: Cree y configure el grupo "Administradores de controlador de dominio de AAD" group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-   * [Tarea 4: Registro del proveedor de recursos de Azure AD Domain Services](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-   * [Tarea 5: Creación de un grupo de recursos](powershell-create-instance.md#task-5-create-a-resource-group).
-   * [Tarea 6: Creación y configuración de la red virtual](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network).
+## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Modificación de la sincronización con ámbito mediante Azure Portal
 
-2. Seleccione los grupos que quiere sincronizar y proporcione el nombre para mostrar de los grupos que quiere que se sincronicen con el dominio administrado.
+Para modificar la lista de grupos cuyos usuarios deben sincronizarse con el dominio administrado de Azure AD DS, lleve a cabo los pasos siguientes:
 
-3. Guarde el [script en la sección siguiente](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) en un archivo llamado ```Select-GroupsToSync.ps1```. Ejecute el script como se muestra a continuación:
+1. En Azure Portal, seleccione la instancia de Azure AD DS, por ejemplo, *contoso.com.* .
+1. Seleccione **Sincronización** en el menú de la izquierda.
+1. Para agregar un grupo, elija **+ Seleccionar grupos** en la parte superior y, después, seleccione los grupos que quiere agregar.
+1. Para quitar un grupo del ámbito de sincronización, selecciónelo en la lista de grupos actualmente sincronizados y elija **Quitar grupos**.
+1. Cuando se realicen todos los cambios, seleccione **Guardar ámbito de sincronización**.
 
-   ```powershell
-   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-   ```
+Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos. Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan y la resincronización puede tardar mucho tiempo en completarse.
 
-   > [!WARNING]
-   > **No olvide incluir el grupo "Administradores de controladores de dominio de AAD".**
-   >
-   > Debe incluir el grupo "Administradores de controladores de dominio de AAD" en la lista de grupos configurados para la sincronización con ámbito. Si no incluye este grupo, el dominio administrado será inutilizable.
-   >
+## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Deshabilitación de la sincronización con ámbito mediante Azure Portal
 
-4. Ahora, cree el dominio administrado y habilite para él la sincronización son ámbito basada en grupos. Incluya la propiedad ```"filteredSync" = "Enabled"``` en el parámetro ```Properties```. Por ejemplo, vea el siguiente fragmento de script, que se ha copiado de [Tarea 7: Aprovisionamiento del dominio administrado de Azure AD Domain Services](powershell-create-instance.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+Para deshabilitar la sincronización con ámbito basada en grupos para un dominio administrado de Azure AD DS, lleve a cabo los pasos siguientes:
 
-   ```powershell
-   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
-   $ResourceGroupName = "ContosoAaddsRg"
-   $VnetName = "DomainServicesVNet_WUS"
-   $AzureLocation = "westus"
+1. En Azure Portal, seleccione la instancia de Azure AD DS, por ejemplo, *contoso.com.* .
+1. Seleccione **Sincronización** en el menú de la izquierda.
+1. Establezca el ámbito de sincronización de **Ámbito** a **Todo** y, luego, seleccione **Guardar ámbito de sincronización**.
 
-   # Enable Azure AD Domain Services for the directory.
-   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-   -Location $AzureLocation `
-   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-   -ApiVersion 2017-06-01 -Force -Verbose
-   ```
+Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos. Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan y la resincronización puede tardar mucho tiempo en completarse.
 
-   > [!TIP]
-   > No olvide incluir ```"filteredSync" = "Enabled"``` en el parámetro ```-Properties```, de modo que la sincronización con ámbito esté habilitada para el dominio administrado.
+## <a name="powershell-script-for-scoped-synchronization"></a>Script de PowerShell para la sincronización con ámbito
 
+Para configurar la sincronización de ámbito mediante PowerShell, primero guarde el siguiente script en un archivo llamado `Select-GroupsToSync.ps1`. Este script configura Azure AD DS para sincronizar los grupos seleccionados de Azure AD. Todas las cuentas de usuario que forman parte de los grupos especificados se sincronizan con el dominio administrado de Azure AD DS.
 
-## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Script para seleccionar grupos para sincronizar con el dominio administrado (Select-GroupsToSync.ps1)
-Guarde el siguiente script en un archivo (```Select-GroupsToSync.ps1```). Este script configura Azure AD Domain Services para sincronizar los grupos seleccionados con el dominio administrado. Todas las cuentas de usuario que pertenecen a los grupos especificados se sincronizarán con el dominio administrado.
+Este script se usa en los pasos adicionales de este artículo.
 
 ```powershell
 param (
@@ -178,33 +169,87 @@ foreach ($id in $newGroupIds)
 Write-Output "****************************************************************************`n"
 ```
 
+## <a name="enable-scoped-synchronization-using-powershell"></a>Habilitación de la sincronización con ámbito mediante PowerShell
 
-## <a name="modify-group-based-scoped-synchronization"></a>Modificación de la sincronización con ámbito basada en grupos
-Para modificar la lista de grupos cuyos usuarios se deben sincronizar con el dominio administrado, vuelva a ejecutar el [script de PowerShell](scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) y especifique la nueva lista de grupos. No olvide especificar siempre el grupo "Administradores de controladores de dominio de AAD" en esta lista.
+Use PowerShell para completar este conjunto de pasos. Consulte las instrucciones para [habilitar Azure Active Directory Domain Services mediante PowerShell](powershell-create-instance.md). Un par de pasos de este artículo se han modificado ligeramente para configurar la sincronización con ámbito.
+
+1. Lleve a cabo las siguientes tareas del artículo para habilitar Azure AD DS con PowerShell. Deténgase en el paso para crear realmente el dominio administrado. La sincronización con ámbito se configura para crear el dominio administrado de Azure AD DS.
+
+   * [Instale los módulos de PowerShell necesarios](powershell-create-instance.md#prerequisites).
+   * [Cree la entidad de servicio y el grupo de Azure AD necesarios para el acceso administrativo](powershell-create-instance.md#create-required-azure-ad-resources).
+   * [Cree recursos de Azure complementarios, como una red virtual y subredes](powershell-create-instance.md#create-supporting-azure-resources).
+
+1. Determine los grupos y los usuarios que contienen que quiere sincronizar desde Azure AD. Cree una lista de los nombres para mostrar de los grupos que se van a sincronizar con Azure AD DS.
+
+1. Ejecute el [script de la sección anterior](#powershell-script-for-scoped-synchronization) y use el parámetro *-groupsToAdd* para pasar la lista de grupos que se van a sincronizar.
+
+   > [!WARNING]
+   > Debe incluir el grupo *Administradores de controladores de dominio de AAD* en la lista de grupos para la sincronización con ámbito. Si no incluye este grupo, no se puede usar el dominio administrado de Azure AD DS.
+
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
+
+1. Ahora, cree el dominio administrado de Azure AD DS y habilite la sincronización son ámbito basada en grupos. Incluya *"filteredSync" = "Enabled"* en el parámetro *-Properties*.
+
+    Establezca el identificador de la suscripción de Azure y, luego, proporcione un nombre al dominio administrado, como *contoso.com*. Puede obtener el identificador de la suscripción con el cmdlet [Get-AzSubscription][Get-AzSubscription]. Establezca el nombre del grupo de recursos, el nombre de la red virtual y la región en los valores usados en los pasos anteriores para crear los recursos de Azure complementarios:
+
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso.com"
+   $ResourceGroupName = "myResourceGroup"
+   $VnetName = "myVnet"
+   $AzureLocation = "westus"
+
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
+   -Force -Verbose
+   ```
+
+Tarda unos minutos hasta que se crea el recurso y se devuelve el control al símbolo del sistema de PowerShell. El dominio administrado de Azure AD DS se sigue aprovisionando en segundo plano y puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado de Azure AD DS muestra el estado actual durante esta fase de implementación.
+
+Cuando en Azure Portal se muestra que el dominio administrado de Azure AD DS ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
+
+* Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
+    * Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+* [Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
+
+## <a name="modify-scoped-synchronization-using-powershell"></a>Modificación de la sincronización con ámbito mediante PowerShell
+
+Para modificar la lista de grupos cuyos usuarios se deben sincronizar con el dominio administrado de Azure AD DS, vuelva a ejecutar el [script de PowerShell](#powershell-script-for-scoped-synchronization) y especifique la nueva lista de grupos. En el ejemplo siguiente, los grupos que se van a sincronizar ya no incluyen *GroupName2*, ahora incluyen *GroupName3*.
 
 > [!WARNING]
-> **No olvide incluir el grupo "Administradores de controladores de dominio de AAD".**
->
-> Debe incluir el grupo "Administradores de controladores de dominio de AAD" en la lista de grupos configurados para la sincronización con ámbito. Si no incluye este grupo, el dominio administrado será inutilizable.
->
-
-
-## <a name="disable-group-based-scoped-synchronization"></a>Deshabilitación de la sincronización con ámbito basada en grupos
-Use el siguiente script de PowerShell para deshabilitar la sincronización con ámbito basada en grupos para el dominio administrado:
+> Debe incluir el grupo *Administradores de controladores de dominio de AAD* en la lista de grupos para la sincronización con ámbito. Si no incluye este grupo, no se puede usar el dominio administrado de Azure AD DS.
 
 ```powershell
-// Login to your Azure AD tenant
-Login-AzAccount
+.\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
+```
 
-// Retrieve the Azure AD Domain Services resource.
+Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos. Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan y la resincronización puede tardar mucho tiempo en completarse.
+
+## <a name="disable-scoped-synchronization-using-powershell"></a>Deshabilitación de la sincronización con ámbito mediante PowerShell
+
+Para deshabilitar la sincronización con ámbito basada en grupos para un dominio administrado de Azure AD DS, establezca *"filteredSync" = "Disabled"* en el recurso de Azure AD DS y, luego, actualice el dominio administrado. Cuando finalice, todos los usuarios y grupos están establecidos para sincronizarse desde Azure AD.
+
+```powershell
+// Retrieve the Azure AD DS resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
+// Update the Azure AD DS resource
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
+Al cambiar el ámbito de sincronización el dominio administrado de Azure AD DS vuelve a sincronizar todos los datos. Los objetos que ya no son necesarios en el dominio administrado de Azure AD DS se eliminan y la resincronización puede tardar mucho tiempo en completarse.
+
 ## <a name="next-steps"></a>Pasos siguientes
-* [Sincronización de Azure AD Domain Services](synchronization.md)
-* [Habilitación de Azure Active Directory Domain Services mediante PowerShell](powershell-create-instance.md)
+
+Para más información sobre el proceso de sincronización , consulte [Funcionamiento de la sincronización en Azure AD Domain Services](synchronization.md).
+
+<!-- EXTERNAL LINKS -->
+[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription

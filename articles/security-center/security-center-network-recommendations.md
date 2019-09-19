@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101025"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910458"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -128,9 +128,9 @@ En la sección **Topología de red**, se ofrece una vista jerárquica de los rec
 
 Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad.
 
-En esta vista de topología, el primer nivel muestra las redes virtuales. El segundo nivel tiene subredes y el tercero muestra las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual de las recomendaciones del grupo de seguridad de red para esos recursos.
+En esta vista de topología, el primer nivel muestra las redes virtuales. El segundo nivel muestra subredes y el tercero muestra las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual de las recomendaciones del grupo de seguridad de red para esos recursos.
 
-El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descrito anteriormente. Puede hacer clic en un recurso para ver más información o aplicar la configuración o el control de seguridad necesario.
+El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descrito anteriormente. Puede hacer clic en un recurso para obtener más información o aplicar la configuración o el control de seguridad necesario.
 
 ## <a name="network-recommendations"></a>Recomendaciones de red
 

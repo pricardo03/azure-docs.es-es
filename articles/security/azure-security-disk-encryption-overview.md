@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7855b1048826a9146e206226ae7326661e4609cb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164635"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764398"
 ---
 # <a name="azure-disk-encryption-overview"></a>Introducción a Azure Disk Encryption
 
@@ -72,6 +72,7 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 * Azure Files (sistema de archivos compartido).
 * Network File System (NFS).
 * Volúmenes dinámicos.
+* Contenedores de Windows Server, que crean volúmenes dinámicos para cada contenedor.
 * Discos de sistema operativo efímero.
 * Cifrado de sistemas de archivos compartidos o distribuidos como (pero no limitados a): DFS, GFS, DRDB, CephFS, etc.
 

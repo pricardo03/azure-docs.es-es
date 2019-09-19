@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989594"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383169"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -153,6 +153,8 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |70018|El código de verificación no es válido debido a que el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización.|
 |70019|El código de verificación ha expirado. Pida al usuario que vuelva a iniciar sesión.|
 |70037|Se ha proporcionado una respuesta incorrecta al desafío. Se ha rechazado la sesión de autenticación remota.|
+|70043|La administración de sesiones de acceso condicional de Azure fuerza la expiración de la sesión.|
+|70044|La administración de sesiones de acceso condicional de Azure fuerza la expiración de la sesión.|
 |75001|Se ha producido un error durante el enlace de mensajes de SAML.|
 |75003|La aplicación ha devuelto un error relacionado con un enlace no admitido (la respuesta del protocolo SAML no se puede enviar a través de enlaces que no sean HTTP POST). Póngase en contacto con el propietario de la aplicación.|
 |75005|Azure AD no admite la solicitud SAML enviada por la aplicación para el inicio de sesión único. Póngase en contacto con el propietario de la aplicación.|

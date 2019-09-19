@@ -1,7 +1,7 @@
 ---
-title: Usar ML automático para compilar e implementar modelos de aprendizaje automático
+title: Uso de la interfaz de ML automatizado de Azure para entrenar e implementar modelos
 titleSuffix: Azure Machine Learning service
-description: Creación, administración e implementación de experimentos de Machine Learning automatizado en Azure Portal
+description: Cree, administre e implemente experimentos de aprendizaje automático automatizado en la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
-ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 09/09/2019
+ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990585"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910416"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creación, exploración e implementación de experimentos de Machine Learning automatizado en Azure Portal (versión preliminar)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
 
- En este artículo, aprenderá a crear, explorar e implementar experimentos de Machine Learning automatizado en Azure Portal sin una sola línea de código. El aprendizaje automático automatizado automatiza el proceso de selección del mejor algoritmo que se usará para datos específicos, por lo que puede generar un modelo de Machine Learning rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
+ En este artículo, aprenderá a crear, explorar e implementar experimentos de aprendizaje automático automatizado en la página de aterrizaje del área de trabajo de Machine Learning sin una sola línea de código. El aprendizaje automático automatizado automatiza el proceso de selección del mejor algoritmo que se usará para datos específicos, por lo que puede generar un modelo de Machine Learning rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
 
  Si prefiere una experiencia más basada en código, también puede [configurar los experimentos de aprendizaje automático automatizado de Python](how-to-configure-auto-train.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -32,21 +32,26 @@ ms.locfileid: "68990585"
 
 ## <a name="get-started"></a>Primeros pasos
 
-Navegue hasta el panel izquierdo del área de trabajo. Seleccione Aprendizaje automático automatizado en la sección Creación (versión preliminar).
 
-![Panel de navegación de Azure Portal](media/how-to-create-portal-experiments/nav-pane.png)
+1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/workspaceportal/). 
 
- Si es la primera vez que realiza algún experimento, verá la pantalla **Bienvenido a Machine Learning automatizado**. 
+1. Seleccione su suscripción y área de trabajo. 
+
+1. Navegue al panel izquierdo. Seleccione **Automated ML** (ML automatizado) en la sección **Creación**.
+
+[![Panel de navegación de Azure Portal](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ Si es la primera vez que realiza algún experimento, verá la pantalla **Introducción**. 
 
 En caso contrario, verá el panel de **Machine Learning automatizado** con una introducción de todos sus experimentos de aprendizaje automático, incluidos aquellos creados con el SDK. Aquí puede filtrar y explorar las ejecuciones por la fecha, el nombre de experimento y el estado de la ejecución.
 
-## <a name="create-an-experiment"></a>Creación de un experimento
+## <a name="create-and-run-experiment"></a>Creación y ejecución de un experimento
 
-Seleccione **Create Experiment** (Crear experimento) y complete el formulario **Create a new automated machine learning experiment** (Crear un nuevo experimento de Machine Learning automatizado).
+1. Seleccione **Create Experiment** (Crear experimento) y rellene el formulario.
 
 1. Escriba un nombre único para el experimento.
 
-1. Seleccione un proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Hay una lista de los procesos existentes disponible en la lista desplegable. Para crear un nuevo proceso, siga las instrucciones del paso 3.
+1. Seleccione un proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Hay una lista de los procesos existentes disponible en la lista desplegable. Para crear un nuevo proceso, siga las instrucciones del paso 4.
 
 1. Seleccione **Create a new compute** (Crear un proceso) para configurar el contexto del proceso de este experimento.
 
@@ -55,32 +60,40 @@ Seleccione **Create Experiment** (Crear experimento) y complete el formulario **
     Nombre del proceso| Escriba un nombre único que identifique el contexto del proceso.
     Tamaño de la máquina virtual| Seleccione el tamaño de la máquina virtual para el proceso.
     Configuración adicional| *Min node* (Nodos mín.): escriba el número mínimo de nodos para el proceso. El número mínimo de nodos para el proceso de AML es 0. Para habilitar la generación de perfiles de datos, debe tener 1 o más nodos. <br> *Max node* (Nodos máx.): escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
+    
+    Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
 
-      Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
+    >[!NOTE]
+    > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte la sección sobre la [generación de perfiles de los datos](#profile) para más detalles ).
 
-      >[!NOTE]
-      > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte el punto 7b para más detalles sobre la generación de perfiles de los datos).
+1. Seleccione un conjunto de datos en el contenedor de almacenamiento o cree uno cargando un archivo desde el equipo local al contenedor. La versión preliminar pública solo admite cargas de archivos locales y cuentas de Azure Blob Storage.
 
-1. Seleccione una cuenta de almacenamiento para los datos. 
-
-1. Seleccione un contenedor de almacenamiento.
-
-1. Seleccione un archivo de datos en el contenedor de almacenamiento o cargue un archivo desde el equipo local al contenedor. La versión preliminar pública solo admite cargas de archivos locales y cuentas de Azure Blob Storage.
     >[!Important]
-    > Requisitos para los datos de aprendizaje:
+    > Requisitos para los datos de entrenamiento:
     >* Los datos deben estar en formato tabular.
     >* El valor que quiere predecir (columna de destino) debe estar presente en los datos.
 
-    [![Seleccionar el archivo de datos](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. Para crear un nuevo conjunto de datos a partir de un archivo en el proceso local, seleccione **Examinar** y seleccione el archivo. 
 
-1. Use las pestañas Vista previa y Perfil para definir más configuraciones para los datos para este experimento.
+    1. Asigne un nombre único al conjunto de datos y proporcione una descripción opcional. 
 
-    1. En la pestaña **Preview** (Vista previa), indique si los datos incluyen encabezados y seleccione las características (columnas) para el entrenamiento utilizando los conmutadores **incluidos** de cada columna de característica.
+    1. Seleccione **Siguiente** para cargarlo en el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo o elija un contenedor de almacenamiento que quiera usar para el experimento. 
 
-    1. En la pestaña **Profile** (Perfil), puede ver el [perfil de los datos](#profile) en función de las características, así como la distribución, el tipo y las estadísticas de resumen (media, mediana, máximo y mínimo, etc.) de cada una.
+    1. Revise el formulario **Settings and preview** (Configuración y vista previa) para ver que todo está correcto. El formulario se rellena de forma inteligente según el tipo de archivo. 
 
-        >[!NOTE]
-        > El siguiente mensaje de error aparecerá si el contexto del proceso **no** admite la generación de perfiles: *Data profiling is only available for compute targets that are already running* (La generación de perfiles de los datos solo está disponible para destinos de proceso que ya se están ejecutando).
+        Campo| DESCRIPCIÓN
+        ----|----
+        Formato de archivo| Define el diseño y el tipo de datos almacenados en un archivo.
+        Delimitador| Uno o más caracteres para especificar el límite entre regiones independientes en texto sin formato u otros flujos de datos.
+        Encoding| Identifica qué tabla de esquema de bit a carácter se va a usar para leer el conjunto de elementos.
+        Encabezados de columna| Indica cómo se tratarán los encabezados del conjunto de datos, si existen.
+        Omitir filas | Indica el número de filas, si hay alguna, que se omiten en el conjunto de datos.
+    
+        Seleccione **Next** (Siguiente).
+
+    1. El formulario **Esquema** se rellena de forma inteligente en función de las selecciones realizadas en el formulario **Settings and preview** (Configuración y vista previa). Aquí se configura el tipo de datos para cada columna, se revisan los nombres de columna y se seleccionan las columnas que **no se van a incluir** en el experimento. 
+            
+        Seleccione **Siguiente**.
 
 1. Seleccione el tipo de trabajo de entrenamiento: clasificación, regresión o previsión.
 
@@ -91,7 +104,7 @@ Seleccione **Create Experiment** (Crear experimento) y complete el formulario **
 
     1. Seleccione el horizonte de previsión: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
 
-1. (Opcional) Configuración avanzada: configuración adicional que puede usar para controlar mejor el trabajo de entrenamiento.
+1. (Opcional) Configuración avanzada: configuración adicional que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
 
     Configuración avanzada|DESCRIPCIÓN
     ------|------
@@ -162,7 +175,7 @@ Los trabajos de entrenamiento pueden tardar un tiempo para que cada canalizació
 
 Explorar en profundidad en cualquiera de los modelos de salida para ver los detalles de ejecución del entrenamiento, como las métricas de rendimiento y los gráficos de distribución. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
 
-![Detalles de la iteración](media/how-to-create-portal-experiments/iteration-details.png)
+[![Detalles de la iteración](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Implementación del modelo
 
@@ -175,7 +188,8 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
     + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione Deploy Best Model (Implementar el mejor modelo) en la página Run Detail (Detalles de ejecución).
 
     + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su página de detalles de ejecución específicos y seleccione Deploy Model (Implementar modelo).
-1. Rellene el panel **Deploy Model** (Implementar modelo),
+
+1. Rellene el panel **Deploy Model** (Implementar modelo).
 
     Campo| Valor
     ----|----

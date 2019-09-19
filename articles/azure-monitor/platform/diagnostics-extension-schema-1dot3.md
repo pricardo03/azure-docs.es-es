@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60238062"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735097"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
@@ -27,13 +27,11 @@ ms.locfileid: "60238062"
 >
 > Esta página solo es pertinente si está usando uno de estos servicios.
 
-Esta página es válida para las versiones 1.3 y posterior (Azure SDK 2.4 y posterior). Las secciones de configuración más recientes incluyen comentarios para mostrar en qué versión se agregaron.  
+Esta página es válida para las versiones 1.3 y posterior (Azure SDK 2.4 y posterior). Las secciones de configuración más recientes incluyen comentarios para mostrar en qué versión se agregaron. Las versiones 1.0 y 1.2 del esquema se han archivado y ya no está disponibles. 
 
 El archivo de configuración descrito en este artículo se usa para establecer la configuración de diagnóstico al iniciar el monitor de diagnóstico.  
 
 La extensión se usa junto con otros productos de diagnósticos de Microsoft, como Azure Monitor, que incluye Application Insights y Log Analytics.
-
-
 
 Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:  
 

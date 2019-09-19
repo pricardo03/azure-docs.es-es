@@ -1,6 +1,6 @@
 ---
 title: Escalado automático de clústeres de Azure HDInsight (versión preliminar)
-description: Usar la característica de escalabilidad automática de HDInsight para escalar clústeres automáticamente
+description: Use la característica de escalabilidad automática de Azure HDInsight para escalar clústeres de Apache Hadoop automáticamente.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9071b41ab39c62f639b62a439e4d2530a7d7e11b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509102"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880070"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de Azure HDInsight (versión preliminar)
 
@@ -31,7 +31,7 @@ En la tabla siguiente se describen las versiones y los tipos de clúster que son
 | HDInsight 3.6 sin ESP | Sí | Sí | No | No | No | No | Sin |
 | HDInsight 4.0 sin ESP | Sí | Sí | No | No | No | No | Sin |
 | HDInsight 3.6 sin ESP | Sí | Sí | No | No | No | No | Sin |
-| HDInsight 3.6 sin ESP | Sí | Sí | No | No | No | No | Sin |
+| HDInsight 4.0 con ESP | Sí | Sí | No | No | No | No | Sin |
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -85,7 +85,7 @@ Para habilitar la característica Escalabilidad automática con escalado basado 
     * El número **mínimo** de nodos de trabajo.  
     * El número **máximo** de nodos de trabajo.  
 
-    ![Habilitación de la opción de escalabilidad automática basada en carga del nodo de trabajo](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Habilitación de la escalabilidad automática basada en carga del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 El número inicial de nodos de trabajo debe estar comprendido entre los valores mínimo y máximo, ambos inclusives. Este valor define el tamaño inicial del clúster cuando se crea. El número mínimo de nodos de trabajo debe ser mayor que cero.
 
@@ -103,7 +103,7 @@ Para habilitar la característica Escalabilidad automática con escalado basado 
 1. Edite la hora en que debería aplicarse la condición y el número de nodos a los que se debe escalar el clúster.
 1. Si es necesario, agregue más condiciones.
 
-    ![Habilitación de la opción de escalabilidad automática basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![Habilitación de la creación basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
 El número de nodos debe estar entre 1 y el número de nodos de trabajo que especificó antes de agregar las condiciones.
 
@@ -111,7 +111,7 @@ El número de nodos debe estar entre 1 y el número de nodos de trabajo que espe
 
 Tanto para el escalado basado en carga como el basado en programación, seleccione el tipo de máquina virtual de los nodos de trabajo con un clic en **Tamaño del nodo de trabajo** y **Tamaño del nodo principal**. Después de elegir el tipo de máquina virtual para cada tipo de nodo, puede ver el intervalo de costo estimado para todo el clúster. Ajuste los tipos de máquina virtual que se ajusten a su presupuesto.
 
-![Habilitación de la opción de escalabilidad automática basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
+![Habilitación de la escalabilidad automática del tamaño del nodo basada en la programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 La suscripción tiene una cuota de capacidad para cada región. El número total de núcleos de los nodos principales junto con el número máximo de nodos de trabajo no puede superar la cuota de capacidad. Sin embargo, esta cuota tiene un límite flexible; sencillamente puede crear una incidencia de soporte técnico en cualquier momento para que la aumenten.
 
@@ -189,7 +189,7 @@ Para crear un clúster de HDInsight con el escalado automático basado en progra
 #### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 Para habilitar la escalabilidad automática en un clúster en ejecución, seleccione **Tamaño del clúster** en **Configuración**. Luego, haga clic en **Enable autoscale** (Habilitar escalabilidad automática). Seleccione el tipo de escalabilidad automática que quiere y especifique las opciones de escalado basado en carga o basado en programación. Finalmente, haga clic en **Guardar**.
 
-![Habilitación de la opción de escalabilidad automática basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Habilitación de la escalabilidad automática de la ejecución del clúster basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 #### <a name="using-the-rest-api"></a>Uso de la API de REST
 Para habilitar o deshabilitar el escalado automático en un clúster en ejecución mediante la API REST, realice una solicitud POST al punto de conexión de escalado automático, tal como se muestra en el siguiente fragmento de código:
@@ -231,7 +231,7 @@ Los trabajos en ejecución se seguirán ejecutando y se completarán. Los trabaj
 
 El estado del clúster que aparece en Azure Portal puede ayudarlo a supervisar las actividades de escalabilidad automática.
 
-![Habilitación de la opción de escalabilidad automática basada en carga del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![Habilitación de la escalabilidad automática del estado del clúster basada en la carga del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
 Todos los mensajes de estado del clúster que podría ver se explican en la lista siguiente.
 
@@ -251,7 +251,7 @@ Puede ver el historial de escalado y reducción verticales del clúster como par
 
 Seleccione **Métricas** en **Supervisión**. Luego, haga clic en **Agregar métrica** y **Número de trabajos activos** en el cuadro desplegable **Métrica**. Haga clic en el botón que se encuentra en la esquina superior derecha para cambiar el intervalo de tiempo.
 
-![Habilitación de la opción de escalabilidad automática basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![Habilitación de la escalabilidad automática de la métrica basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

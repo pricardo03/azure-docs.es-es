@@ -1,19 +1,18 @@
 ---
-title: Asignación de red para la recuperación ante desastres de máquinas virtuales de Hyper-V (con VMM) en Azure con Site Recovery | Microsoft Docs
+title: Asignación de red para la recuperación ante desastres de máquinas virtuales de Hyper-V (con VMM) en Azure con Site Recovery
 description: Se describe cómo configurar la asignación de red para la recuperación ante desastres de máquinas virtuales de Hyper-V (administradas en nubes de VMM) en Azure con Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399371"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813677"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparación de la asignación de red para la recuperación ante desastres de las máquinas virtuales de Hyper-V en Azure
 

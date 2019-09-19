@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969373"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813413"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas del servidor de procesos
 
@@ -168,7 +168,7 @@ Compruebe si el servidor de procesos está insertando datos activamente en Azure
 
   1. En el servidor de procesos, abra el Administrador de tareas (presione Ctrl+Mayús+Esc).
   2. Seleccione la pestaña **Rendimiento** > **Abrir el Monitor de recursos**.
-  3. En la página **Monitor de recursos**, seleccione la pestaña **Red**. En **Procesos con actividad de red**, compruebe si cbengine.exe está enviando activamente un gran número de datos.
+  3. En la página **Monitor de recursos**, seleccione la pestaña **Red**. En **Procesos con actividad de red**, compruebe si cbengine.exe está enviando un gran volumen de datos.
 
        ![Volúmenes en procesos con actividad de red](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 

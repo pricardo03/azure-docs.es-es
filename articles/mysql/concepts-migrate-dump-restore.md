@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525777"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390541"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración.
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MySQL.
@@ -49,6 +49,7 @@ Para optimizar el rendimiento, tenga en cuenta estas consideraciones al volcar g
 -   Use tablas con particiones cuando sea necesario.
 -   Cargue los datos en paralelo. Evite demasiada paralelismo que podría provocar que se alcanzara un límite de recursos, y supervise los recursos mediante las métricas disponibles en Azure Portal. 
 -   Use la opción `defer-table-indexes` de mysqlpump al volcar las bases de datos, para que la creación de índices tenga lugar una vez cargados los datos de las tablas.
+-   Use la opción `skip-definer` de mysqlpump para omitir las cláusulas DEFINER y SQL SECURITY de las instrucciones CREATE para las vistas y los procedimientos almacenados.  Al volver a cargar el archivo de volcado de memoria, se crean objetos que usan los valores DEFINER y SQL SECURITY predeterminados.
 -   Copie los archivos de copia de seguridad en un blob o almacén de Azure y realice la restauración desde allí, lo que debería ser mucho más rápido que realizar la restauración a través de Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creación de un archivo de copia de seguridad a partir de la línea de comandos mediante mysqldump
@@ -76,10 +77,6 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 Para hacer una copia de seguridad de más de una base de datos a la vez, use el conmutador --database y ordene los nombres de las bases de datos en una lista separados por espacios. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
-```
-Para hacer una copia de seguridad de todas las bases del servidor a la vez, use la opción --all-databases.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Creación de una base de datos en el servidor de destino de Azure Database for MySQL

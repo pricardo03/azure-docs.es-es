@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88b1d05a47f4a8267ab936a922ac190a925bd5ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510182"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880091"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usar Graph API de Azure AD
 
@@ -42,13 +42,15 @@ Cuando tenga el inquilino B2C, deberá registrar su aplicación mediante [Azure 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD B2C, seleccione una cuenta en la esquina superior derecha de la página.
-3. En el panel de navegación izquierdo, elija **Todos los servicios**, haga clic en **Registros de aplicaciones** y, luego, en **Agregar**.
+3. En el panel de navegación izquierdo, elija **Todos los servicios**, haga clic en **Registros de aplicaciones** y, luego, en **Nuevo registro**.
 4. Siga las indicaciones y cree una nueva aplicación. 
-    1. Seleccione **Aplicación web o API** como Tipo de aplicación.    
-    2. Proporcione **cualquier dirección URL de inicio de sesión** (p. ej., `https://B2CGraphAPI`), ya que no es pertinente para este ejemplo.  
+    1. Adición de un nombre adecuado
+    2. Seleccione **Solo las cuentas de este directorio organizativo**.
+    3. Seleccione **Web** como tipo de aplicación y **proporcione cualquier dirección URL de inicio de sesión** (p. ej.,`https://B2CGraphAPI`), ya que no es pertinente para este ejemplo.  
+    4. Haga clic en Registrar.
 5. La aplicación aparecerá ahora en la lista de aplicaciones. Haga clic en ella para obtener el **Identificador de aplicación** (también conocido como id. de cliente). Cópielo, pues lo necesitará en una sección posterior.
-6. En el menú Configuración, haga clic en **Claves**.
-7. En la sección **Contraseñas**, escriba la descripción de la clave y seleccione una duración y, a continuación, haga clic en **Guardar**. Copie el valor de clave (también conocido como secreto de cliente) para su uso en una sección posterior.
+6. En el menú de configuración, haga clic en **Certificados y secretos**.
+7. En la sección **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**, proporcione una descripción para el secreto y seleccione una duración y, luego, haga clic en **Agregar**. Copie el valor del secreto (también conocido como secreto de cliente) para su uso en una sección posterior.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configuración de permisos de creación, lectura y actualización para la aplicación
 Ahora debe configurar la aplicación para obtener todos los permisos necesarios para crear, leer, actualizar y eliminar usuarios.

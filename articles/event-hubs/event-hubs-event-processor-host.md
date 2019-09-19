@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277369"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772158"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 
@@ -184,6 +184,10 @@ No recomendamos el uso de aplicaciones donde crea un receptor con época y, lueg
 - Si hay un receptor ya ha creado con época e1 y está recibiendo eventos activamente y se crea un receptor sin época, se producirá un error en la creación del receptor. Los receptores de época siempre tienen prioridad en el sistema.
 - Si hubiera un receptor ya ha creado con época e1 y se desconectara y se creara un receptor sin época en una nueva instancia de MessagingFactory, la creación del receptor se realizaría correctamente. Hay una salvedad aquí y es que nuestro sistema detectará la "desconexión del receptor" al cabo de unos 10 minutos.
 - Si hay uno o varios receptores creados sin época y se crea uno con época e1, se desconectan todos los receptores antiguos.
+
+
+> [!NOTE]
+> Se recomienda el uso de diferentes grupos de consumidores para las aplicaciones que usan épocas y para aquellos que no usan épocas para evitar errores. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

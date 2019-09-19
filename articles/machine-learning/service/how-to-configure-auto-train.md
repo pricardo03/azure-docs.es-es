@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997911"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858887"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -34,7 +34,7 @@ Opciones de configuración disponibles en el aprendizaje automático automatizad
 * Explorar las métricas del modelo
 * Registrar e implementar el modelo
 
-Si prefiere una experiencia sin código, también puede [crear experimentos de aprendizaje automático automatizado en Azure Portal](how-to-create-portal-experiments.md).
+Si prefiere una experiencia sin código, también puede [crear experimentos de aprendizaje automático automatizados en Azure Portal](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Seleccione el tipo de experimento
 
@@ -553,13 +553,13 @@ Hay dos maneras de generar la importancia de características.
     print(per_class_summary)
     ```
 
-Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. Muestre la dirección URL mediante el objeto de ejecución:
+Muestre la dirección URL para ver la importancia de la característica mediante el objeto de ejecución:
 
 ```
 automl_run.get_portal_url()
 ```
 
-Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. El gráfico también se muestra al usar el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` en un cuaderno. Para más información sobre los gráficos, consulte [Descripción de los resultados del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
+Puede visualizar el gráfico de importancia de las características en el área de trabajo de Azure Portal o desde la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com). El gráfico también se muestra al usar el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` en un cuaderno. Para más información sobre los gráficos, consulte [Descripción de los resultados del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

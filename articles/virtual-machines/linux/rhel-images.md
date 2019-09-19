@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309224"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764299"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.
@@ -114,18 +114,19 @@ Las ofertas siguientes son SKU que están disponibles actualmente para uso gener
 
 Oferta| SKU | Creación de particiones | Aprovisionamiento | Notas
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Agente Linux | Familia de imágenes de RHEL 7. <br> No se adjuntan a repositorios de EUS de forma predeterminada.
-|             | 7-LVM    | LVM    | Agente Linux | Familia de imágenes de RHEL 7. <br> No adjuntada a repositorios de EUS de forma predeterminada.
-|             | 7-RAW-CI | RAW-CI | Cloud-Init  | Familia de imágenes de RHEL 7. <br> No adjuntada a repositorios de EUS de forma predeterminada.
-|             | 6.7      | RAW    | Agente Linux | Imágenes de RHEL 6.7, convención de nomenclatura anterior
-|             | 6,8      | RAW    | Agente Linux | Igual que anteriormente para RHEL 6.8
-|             | 6.9      | RAW    | Agente Linux | Igual que anteriormente para RHEL 6.9
-|             | 6.10     | RAW    | Agente Linux | Igual que anteriormente para RHEL 6.10
-|             | 7,2      | RAW    | Agente Linux | Igual que anteriormente para RHEL 7.2
-|             | 7.3      | RAW    | Agente Linux | Igual que anteriormente para RHEL 7.3
-|             | 7.4      | RAW    | Agente Linux | Igual que anteriormente para RHEL 7.4. <br> Adjuntada a repositorios de EUS de forma predeterminada a partir de abril de 2019
-|             | 7.5      | RAW    | Agente Linux | Igual que anteriormente para RHEL 7.5. <br> Adjuntada a repositorios de EUS de forma predeterminada a partir de junio de 2019
-|             | 7.6      | RAW    | Agente Linux | Igual que anteriormente para RHEL 7.6. <br> Adjuntada a repositorios de EUS de forma predeterminada a partir de mayo de 2019
+RHEL          | 7-RAW    | RAW    | Agente Linux | Familia de imágenes de RHEL 7.x. <br> No adjuntada a repositorios de EUS de forma predeterminada.
+|             | 7-LVM    | LVM    | Agente Linux | Familia de imágenes de RHEL 7.x. <br> No adjuntada a repositorios de EUS de forma predeterminada.
+|             | 7-RAW-CI | RAW-CI | Cloud-Init  | Familia de imágenes de RHEL 7.x. <br> No adjuntada a repositorios de EUS de forma predeterminada.
+|             | 6.7      | RAW    | Agente Linux |
+|             | 6,8      | RAW    | Agente Linux |
+|             | 6.9      | RAW    | Agente Linux |
+|             | 6.10     | RAW    | Agente Linux |
+|             | 7,2      | RAW    | Agente Linux |
+|             | 7.3      | RAW    | Agente Linux |
+|             | 7.4      | RAW    | Agente Linux | Adjuntada a repositorios de EUS de forma predeterminada a partir de abril de 2019.
+|             | 7.5      | RAW    | Agente Linux | Adjuntada a repositorios de EUS de forma predeterminada a partir de junio de 2019.
+|             | 7.6      | RAW    | Agente Linux | Adjuntada a repositorios de EUS de forma predeterminada a partir de mayo de 2019.
+|             | 7,7      | LVM    | Agente Linux | Adjuntada a repositorios de EUS de forma predeterminada.
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 for SAP HANA and Business Apps
 |             | 7.5      | LVM    | Agente Linux | RHEL 7.5 for SAP HANA and Business Apps
 RHEL-SAP-HANA | 6.7      | RAW    | Agente Linux | RHEL 6.7 for SAP HANA

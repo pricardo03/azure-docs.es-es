@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883956"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844801"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -29,6 +29,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 |Ámbito|Límite|
 |--|:--|
 | [Nombre de la aplicación][luis-get-started-create-app] | *Máximo de caracteres predeterminado |
+| APLICACIONES| 500 aplicaciones por recurso de creación de Azure |
 | [Pruebas por lotes][batch-testing]| 10 conjuntos de datos, 1000 expresiones por cada conjunto de datos|
 | Lista explícita | 50 por aplicación|
 | Entidades externas | sin límites |
@@ -44,7 +45,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
 | [Expresión][utterances] | 500 caracteres|
 | [Expresiones][utterances] | 15 000 por aplicación: no hay ningún límite en el número de expresiones por intención|
-| [Versiones](luis-concept-version.md)| ilimitado |
+| [Versiones](luis-concept-version.md)| 100 versiones por aplicación |
 | [Nombre de versión][luis-how-to-manage-versions] | 10 caracteres, restringido a caracteres alfanuméricos y punto (.) |
 
 *El valor máximo predeterminado de caracteres es 50. 
@@ -64,19 +65,24 @@ No use los siguientes caracteres en los siguientes nombres.
 
 Language Understanding tiene claves independientes, un tipo para la creación y un tipo para las consultas en el punto de conexión de la predicción. Para más información sobre las diferencias entre los tipos de claves, consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md).
 
-## <a name="key-limits"></a>Límites de la clave
+<a name="key-limits"></a>
 
-La clave de creación tiene distintos límites para la creación y el punto de conexión. La clave de punto de conexión de servicio de LUIS solo es válida para las consultas del punto de conexión.
+## <a name="resource-key-limits"></a>Límites de las claves de recurso
 
+Las claves de recurso tienen límites diferentes para la creación y el punto de conexión. La clave de punto de conexión de consultas de predicción de LUIS solo es válida para las consultas de punto de conexión. 
+
+* 500 aplicaciones por recurso de creación de Azure 
 
 |Clave|Creación|Punto de conexión|Propósito|
 |--|--|--|--|
-|Creación/Inicio de Language Understanding|1 millón/mes, 5/segundo|1000/mes, 5/segundo|Creación de la aplicación de LUIS|
-|[Suscripción][pricing] de Language Understanding - F0 - nivel Gratis |no válido|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
-|[Suscripción][pricing] de Language Understanding - S0 - nivel Básico|no válido|50/segundo|Consultar el punto de conexión de LUIS|
-|[Suscripción][pricing] de Cognitive Services - S0 - nivel Estándar|no válido|50/segundo|Consultar el punto de conexión de LUIS|
-|[Integración del análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)|no válido|sin cargo|Agregar información de sentimiento, incluida la extracción de datos de frases clave |
-|[Integración de voz](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|no válido|5,50 USD/1000 solicitudes de punto de conexión|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
+|Inicio|1 millón/mes, 5/segundo|1000/mes, 5/segundo|Creación de la aplicación de LUIS|
+|F0: nivel Gratis |1 millón/mes, 5/segundo|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
+|S0: nivel Básico|-|50/segundo|Consultar el punto de conexión de LUIS|
+|S0: nivel Estándar|-|50/segundo|Consultar el punto de conexión de LUIS|
+|[Integración del análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|La incorporación de información de opinión, incluida la extracción de datos de frases clave, se proporciona sin necesidad de otro recurso de Azure. |
+|[Integración de voz](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 solicitudes de punto de conexión por costo de unidad|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
+
+[Más información sobre precios.][pricing]
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 

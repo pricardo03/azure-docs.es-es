@@ -1,27 +1,29 @@
 ---
-title: Implementación de Azure Blockchain Workbench
-description: Implementación de Azure Blockchain Workbench
+title: Implementación de Azure Blockchain Workbench (versión preliminar)
+description: Cómo implementar Azure Blockchain Workbench (versión preliminar)
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/06/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea18c784c6b5cf61013c131360d20349e67b1e5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154659"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845285"
 ---
-# <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
+# <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
 
-Azure Blockchain Workbench se implementa mediante una plantilla de solución de Azure Marketplace. La plantilla simplifica la implementación de los componentes necesarios para crear aplicaciones de cadena de bloques. Una vez implementado, Blockchain Workbench proporciona acceso a las aplicaciones cliente para crear y administrar usuarios y aplicaciones de cadena de bloques.
+Azure Blockchain Workbench (versión preliminar) se implementa mediante una plantilla de solución de Azure Marketplace. La plantilla simplifica la implementación de los componentes necesarios para crear aplicaciones de cadena de bloques. Una vez implementado, Blockchain Workbench proporciona acceso a las aplicaciones cliente para crear y administrar usuarios y aplicaciones de cadena de bloques.
 
 Para más información acerca de los componentes de Blockchain Workbench, consulte [Arquitectura de Azure Blockchain Workbench](architecture.md).
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="prepare-for-deployment"></a>Preparación de la implementación
 
@@ -36,7 +38,7 @@ Blockchain Workbench le permite implementar un libro de contabilidad de cadena d
 * Cuenta de Azure Storage (Estándar LRS)
 * Conjunto de escalado de máquinas virtuales con una capacidad de 1
 * Grupo de recursos de Virtual Network (con equilibrador de carga, grupo de seguridad de red, dirección IP pública y red virtual)
-* Opcional: Azure Blockchain Service (Básico B0 predeterminado)
+* Azure Blockchain Service. Si usa una implementación anterior de Blockchain Workbench, existe la posibilidad de volver a implementar Azure Blockchain Workbench para utilizar Azure Blockchain Service.
 
 La siguiente es una implementación de ejemplo creada en el grupo de recursos **myblockchain**.
 
@@ -81,7 +83,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
     | Subscription | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
-    | Ubicación | Especifique la región en la que desea implementar la plataforma. |
+    | Location | Especifique la región en la que desea implementar la plataforma. |
 
 7. Seleccione **Aceptar** para finalizar la sección de configuración básica.
 

@@ -1,22 +1,17 @@
 ---
 title: Procedimientos recomendados para plantillas de Azure Resource Manager
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812907"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983820"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 
@@ -47,7 +42,8 @@ Al implementar recursos en un grupo de recursos, este almacena metadatos sobre l
 Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para minimizar el riesgo, busque el grupo de recursos y los recursos en la misma región.
 
 ## <a name="parameters"></a>Parámetros
-La información en esta sección puede ser útil cuando se trabaja con [parámetros](resource-group-authoring-templates.md#parameters).
+
+La información en esta sección puede ser útil cuando se trabaja con [parámetros](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Recomendaciones generales para parámetros
 
@@ -149,7 +145,7 @@ La información en esta sección puede ser útil cuando se trabaja con [parámet
 
 ## <a name="variables"></a>variables
 
-La siguiente información puede ser útil cuando se trabaja con [variables](resource-group-authoring-templates.md#variables):
+La siguiente información puede ser útil cuando se trabaja con [variables](template-variables.md):
 
 * Use mayúsculas y minúsculas combinadas para los nombres de variables.
 
@@ -286,7 +282,7 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](resou
 
 ## <a name="outputs"></a>Salidas
 
-Si usa una plantilla para crear direcciones IP públicas incluya una [sección de salidas](resource-group-authoring-templates.md#outputs) en la que se devuelvan detalles de la dirección IP y el nombre de dominio completo (FQDN). Puede usar valores de salida para recuperar fácilmente los detalles sobre las direcciones IP públicas y los nombres FQDN después de la implementación.
+Si usa una plantilla para crear direcciones IP públicas incluya una [sección de salidas](template-outputs.md) en la que se devuelvan detalles de la dirección IP y el nombre de dominio completo (FQDN). Puede usar valores de salida para recuperar fácilmente los detalles sobre las direcciones IP públicas y los nombres FQDN después de la implementación.
 
 ```json
 "outputs": {

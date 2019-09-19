@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 748c6f08da535013724f68b8be424e50a2d49dfd
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907466"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764430"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
 
-**Se aplica a:** Azure Database for PostgreSQL con un único servidor 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL: Versiones de servidor único 9.6, 10, 11
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 

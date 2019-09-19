@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012711"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773043"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -305,7 +305,7 @@ El objeto de solicitud que se pasa al script es del tipo `HttpRequestContext`, c
 
 | Propiedad  | DESCRIPCIÓN                                                    | type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Objeto que contiene el cuerpo de la solicitud. `Body` se serializa al mejor tipo en función de los datos. Por ejemplo, si los datos son JSON, se pasa como tabla hash. Si los datos están una cadena, se pasan en forma de cadena. | objeto |
+| **`Body`**    | Objeto que contiene el cuerpo de la solicitud. `Body` se serializa al mejor tipo en función de los datos. Por ejemplo, si los datos son JSON, se pasa como tabla hash. Si los datos están una cadena, se pasan en forma de cadena. | object |
 | **`Headers`** | Diccionario que contiene los encabezados de la solicitud.                | Diccionario<cadena,cadena><sup>*</sup> |
 | **`Method`** | Método HTTP de la solicitud.                                | string                    |
 | **`Params`**  | Objeto que contiene los parámetros de enrutamiento de la solicitud. | Diccionario<cadena,cadena><sup>*</sup> |
@@ -320,7 +320,7 @@ El objeto de respuesta que debe enviar de vuelta es de tipo `HttpResponseContext
 
 | Propiedad      | DESCRIPCIÓN                                                 | type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Objeto que contiene el cuerpo de la respuesta.           | objeto                    |
+| **`Body`**  | Objeto que contiene el cuerpo de la respuesta.           | object                    |
 | **`ContentType`** | Una mano corta para establecer el tipo de contenido para la respuesta. | string                    |
 | **`Headers`** | Objeto que contiene los encabezados de la respuesta.               | Diccionario o tabla hash   |
 | **`StatusCode`**  | Código de estado HTTP de la respuesta.                       | cadena o entero             |
@@ -403,14 +403,18 @@ Puede ver la versión actual mediante la impresión de `$PSVersionTable` desde c
 
 ## <a name="dependency-management"></a>Administración de dependencias
 
-Las funciones de PowerShell admiten que el servicio administre módulos de Azure. Al modificar el archivo host.json y configurar la propiedad habilitada managedDependency en true, se procesará el archivo requirements.psd1. Los módulos de Azure más recientes se descargarán automáticamente y estarán disponibles para la función.
+Las funciones de PowerShell admiten la descarga y administración de módulos de la [galería de PowerShell](https://www.powershellgallery.com) por parte del servicio. Al modificar el archivo host.json y configurar la propiedad habilitada managedDependency en true, se procesará el archivo requirements.psd1. Los módulos especificados se descargarán automáticamente y estarán disponibles para la función. 
+
+El número máximo de módulos admitidos actualmente es 10. La sintaxis admitida es MajorNumber.* o la versión exacta del módulo, como se muestra a continuación. El módulo Azure Az se incluye de forma predeterminada cuando se crea una aplicación de función de PowerShell.
+
+El rol de trabajo de lenguaje seleccionará todos los módulos actualizados en el reinicio.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-El aprovechamiento de sus proprios módulos personalizados o de módulos de la [Galería de PowerShell](https://powershellgallery.com) difiere un poco de lo normal.
+Aprovechar los propios módulos personalizados es algo diferente a como lo haría normalmente.
 
 Al instalar el módulo en la máquina local, va a una de las carpetas con disponibilidad global de `$env:PSModulePath`. Dado que la función se ejecuta en Azure, no tendrá acceso a los módulos instalados en la máquina. Esto requiere que `$env:PSModulePath` de una aplicación de funciones de PowerShell difiera de `$env:PSModulePath` en un script de PowerShell normal.
 
@@ -433,16 +438,19 @@ En Functions, `PSModulePath` contiene dos rutas de acceso:
 
 ### <a name="function-app-level-modules-folder"></a>Carpeta `Modules` del nivel de la aplicación de funciones
 
-Para usar los módulos personalizados o los módulos de PowerShell desde la Galería de PowerShell, puede colocar los módulos de los que dependen las funciones en una carpeta `Modules`. Desde esta carpeta los módulos están automáticamente disponibles para Functions Runtime. Cualquier función de la aplicación de funciones puede usar estos módulos.
+Para usar módulos personalizados, puede colocar los módulos de los que dependen sus funciones en una carpeta `Modules`. Desde esta carpeta los módulos están automáticamente disponibles para Functions Runtime. Cualquier función de la aplicación de funciones puede usar estos módulos. 
 
-Para aprovechar las ventajas de esta característica, cree una carpeta `Modules` en la raíz de la aplicación de funciones. Guarde los módulos que desee usar en las funciones en esta ubicación.
+> [!NOTE]
+> Los módulos especificados en el archivo requirements.psd1 se descargan y se incluyen automáticamente en la ruta de acceso, por lo que no es necesario incluirlos en la carpeta modules. Estos se almacenan localmente en la carpeta $env:LOCALAPPDATA/AzureFunctions y en la carpeta/data/ManagedDependencies cuando se ejecutan en la nube.
+
+Para aprovechar las ventajas de la característica de módulos personalizados, cree una carpeta `Modules` en la raíz de la aplicación de funciones. Copie los módulos que quiere usar en las funciones en esta ubicación.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Use `Save-Module` para guardar todos los módulos que usan las funciones o copie sus propios módulos personalizados en la carpeta `Modules`. Con una carpeta Modules, la aplicación de funciones debe tener la siguiente estructura de carpetas:
+Con una carpeta Modules, la aplicación de funciones debe tener la siguiente estructura de carpetas:
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 Al inicia la aplicación de funciones, el trabajo de lenguaje de PowerShell agrega esta carpeta `Modules` a `$env:PSModulePath`, de manera que pueda confiar en la carga automática del módulo del mismo modo que lo haría en un script de PowerShell normal.
@@ -503,17 +512,7 @@ Establezca esta variable de entorno en la [configuración de la aplicación](fun
 
 ### <a name="considerations-for-using-concurrency"></a>Consideraciones para usar la simultaneidad
 
-De forma predeterminada, PowerShell es un _único subproceso_ de lenguaje de scripting. Sin embargo, la simultaneidad puede agregarse mediante el uso de varios espacios de ejecución de PowerShell en el mismo proceso. Esta característica es cómo funciona Azure Functions Runtime de PowerShell.
-
-Existen algunos inconvenientes con este enfoque.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>La simultaneidad es solo tan buena como la máquina donde se ejecuta
-
-Si la aplicación de funciones se ejecuta en un [plan de App Service](functions-scale.md#app-service-plan) que solo admite un único núcleo, la simultaneidad no ayuda demasiado. Esto es así porque no hay núcleos adicionales para ayudar a equilibrar la carga. En este caso, el rendimiento puede variar cuando el núcleo único tiene intercambios de contexto entre espacios de ejecución.
-
-El [plan Consumo](functions-scale.md#consumption-plan) se ejecuta con un solo núcleo,por lo que la simultaneidad no se aprovecha. Si desea aprovechar al máximo la simultaneidad, implemente las funciones a una aplicación de funciones que se ejecute en un plan de App Service dedicado con núcleos suficientes.
-
-#### <a name="azure-powershell-state"></a>Estado de Azure PowerShell
+De forma predeterminada, PowerShell es un _único subproceso_ de lenguaje de scripting. Sin embargo, la simultaneidad puede agregarse mediante el uso de varios espacios de ejecución de PowerShell en el mismo proceso. La cantidad de espacios de ejecución coincidirá con la configuración de la aplicación PSWorkerInProcConcurrencyUpperBound. El rendimiento se verá afectado por la cantidad de CPU y memoria disponibles en el plan seleccionado.
 
 Azure PowerShell usa algunos procesos y estados de _nivel de proceso_ para que no tenga que escribir tanto. Sin embargo, si activa la simultaneidad en la aplicación de funciones e invoca acciones que cambien el estado, puede acabar con las condiciones de carrera. Estas condiciones de carrera son difíciles de depurar, ya que una invocación se basa en un estado determinado y la otra ha cambiado el estado.
 

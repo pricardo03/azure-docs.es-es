@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165209"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882031"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -47,7 +47,7 @@ Si usa **Azure Machine Learning Service**, puede diseñar y ejecutar sus experim
 
 1. **Configure el destino de proceso para el entrenamiento del modelo**, puede ser [un equipo local, los procesos de Azure Machine Learning, las máquinas virtuales remotas o Azure Databricks](how-to-set-up-training-targets.md).  Obtenga información sobre el entrenamiento automático [en recursos remotos](how-to-auto-train-remote.md).
 
-1. **Configure los parámetros de aprendizaje de automático automatizado** que determinan el número de iteraciones en diferentes modelos, las configuraciones de hiperparámetros, la caracterización y preprocesamiento de datos y las métricas que se deben observar para seleccionar al mejor modelo.  Puede configurar los valores para el experimento de entrenamiento automático [en Azure Portal](how-to-create-portal-experiments.md) o [con el SDK](how-to-configure-auto-train.md).
+1. **Configure los parámetros de aprendizaje de automático automatizado** que determinan el número de iteraciones en diferentes modelos, las configuraciones de hiperparámetros, la caracterización y preprocesamiento de datos y las métricas que se deben observar para seleccionar al mejor modelo.  Puede configurar los valores para el experimento de entrenamiento automático en [Azure Portal](how-to-create-portal-experiments.md), la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com) o [con el SDK](how-to-configure-auto-train.md). 
 
 1. **Envíe la ejecución del entrenamiento.**
 
@@ -98,7 +98,12 @@ La creación de previsiones es una parte integral de cualquier empresa, ya sea a
 
 Un experimento automatizado de series temporales se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores. Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene la ventaja de incorporar de forma natural varias variables contextuales y su relación entre sí durante el entrenamiento. El aprendizaje automático automatizado aprende un modelo único (a menudo, internamente bifurcado) para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series totalmente nuevas.
 
-Obtenga más información y vea un ejemplo de [aprendizaje automático automatizado para la predicción de series temporales](how-to-auto-train-forecast.md).
+Obtenga más información y vea un ejemplo de [aprendizaje automático automatizado para la predicción de series temporales](how-to-auto-train-forecast.md). O bien, consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obtener ejemplos de código detallados de la configuración de predicciones avanzada, que incluye:
+
+* detección y caracterización de festividades
+* validación cruzada de origen variable
+* retardos configurables
+* características de agregado en periodos acumulados
 
 ## <a name="ensemble"></a> Modelos de conjunto
 
@@ -133,7 +138,7 @@ Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático au
 + Lea el [Tutorial: entrenamiento automático de un modelo de regresión con Azure Machine Learning automatizado](tutorial-auto-train-models.md).
 
 + Configure el experimento de entrenamiento automático:
-  + Desde la interfaz de Azure Portal, [siga los siguientes pasos](how-to-create-portal-experiments.md).
+  + En la interfaz de Azure Portal o la página de aterrizaje del área de trabajo (versión preliminar), [siga estos pasos](how-to-create-portal-experiments.md).
   + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
 
 + Obtenga información sobre cómo realizar entrenamientos automáticos con datos de series temporales [con estos pasos](how-to-auto-train-forecast.md).

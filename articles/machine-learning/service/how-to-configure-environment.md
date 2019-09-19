@@ -1,7 +1,7 @@
 ---
 title: Configurar un entorno de desarrollo de Python
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con Azure Machine Learning Service. En este artículo aprenderá a usar entornos de Conda, crear archivos de configuración y configurar su propio servidor de cuadernos basado en la nube, Jupyter Notebook, Azure Databricks, Azure Notebooks, IDE, editores de código y Data Science Virtual Machine.
+description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con Azure Machine Learning Service. En este artículo aprenderá a usar entornos de Conda, crear archivos de configuración y configurar su propio servidor de cuadernos basado en la nube, Jupyter Notebook, Azure Databricks, IDE, editores de código y Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bf83f483bb7680b71bf928430858240deb3d603
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278822"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860579"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -30,7 +30,7 @@ En la tabla siguiente se muestra cada entorno de desarrollo que se trata en este
 | [Entorno local](#local) | Control total del entorno de desarrollo y las dependencias. Funciona con cualquier herramienta de compilación, entorno o IDE de su elección. | Tarda más tiempo en comenzar. Se deben instalar los paquetes de SDK necesarios y también debe instalarse un entorno si aún no tiene uno. |
 | [Azure Databricks](#aml-databricks) | Perfecto para ejecutar flujos de trabajo de aprendizaje automático intensivos y a gran escala en la plataforma escalable de Apache Spark. | Excesivo para aprendizaje automático experimental o experimentos y flujos de trabajo a pequeña escala. Costo adicional por Azure Databricks. Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | De forma parecida a la máquina virtual de cuadernos basada en la nube (con Python y el SDK preinstalados), pero con herramientas adicionales de ciencia de datos y aprendizaje automático conocidas instaladas previamente. Fácil de escalar y combinar con otras herramientas y flujos de trabajo personalizados. | Una experiencia de inicio más lenta en comparación con la máquina virtual de cuadernos basada en la nube. |
-| [Azure Notebooks](#aznotebooks) | Experiencia de inicio gratuita y ligera, con Python y el SDK previamente instalados. | Máquinas virtuales menos eficaces disponibles en comparación con las máquinas virtuales de cuadernos basadas en la nube. Aislado del área de trabajo y otros recursos. |
+
 
 En este artículo también se proporcionan sugerencias de uso adicionales para las siguientes herramientas:
 
@@ -40,7 +40,7 @@ En este artículo también se proporcionan sugerencias de uso adicionales para l
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, vea [Crear un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#notebookvm), una instancia de [DSVM](#dsvm), [Azure Databricks](#aml-databricks) o [Azure Notebooks](#aznotebooks).
+Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, vea [Crear un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#notebookvm), una instancia de [DSVM](#dsvm) o [Azure Databricks](#aml-databricks).
 
 Para instalar el entorno de SDK para el [equipo local](#local), el [servidor de Jupyter Notebook](#jupyter) o [Visual Studio Code](#vscode), también necesita:
 
@@ -352,17 +352,6 @@ Pruebe lo siguiente:
   Aunque hay muchos cuadernos de ejemplo disponibles, **solo [estos cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionan con Azure Databricks.**
 
 + Obtenga información sobre cómo [crear una canalización con Databricks como proceso de entrenamiento](how-to-create-your-first-pipeline.md).
-
-## <a id="aznotebooks"></a>Azure Notebooks
-
-[Azure Notebooks](https://notebooks.azure.com) (versión preliminar) es un entorno de desarrollo interactivo en la nube de Azure. Es una manera sencilla de empezar a trabajar con el desarrollo de Azure Machine Learning.
-
-* El SDK de Azure Machine Learning ya está instalado.
-* Después de crear un área de trabajo de Azure Machine Learning Service en Azure Portal, puede hacer clic en un botón para configurar automáticamente el entorno de Azure Notebook para trabajar con el área de trabajo.
-
-Utilice [Azure Portal](https://portal.azure.com) para comenzar a usar Azure Notebooks.  Abra el área de trabajo y, en la sección **Introducción**, seleccione **Introducción a Azure Notebooks**.
-
-De forma predeterminada, Azure Notebooks usa un nivel de servicio gratuito que está limitado a 4 GB de memoria y 1 GB de datos. Sin embargo, puede quitar estos límites si adjunta una instancia de Data Science Virtual Machine al proyecto de Azure Notebooks. Para más información, consulte [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Administración y configuración de proyectos de Azure Notebooks: nivel de proceso).
 
 ## <a id="workspace"></a>Crear un archivo de configuración del área de trabajo
 

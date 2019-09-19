@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972684"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910549"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conexión desde una red local a CloudSimple mediante ExpressRoute
 
 Si ya tiene una conexión de Azure ExpressRoute desde una ubicación externa (por ejemplo, local) a Azure, puede conectarla a su entorno de CloudSimple. Puede hacerlo a través de una característica de Azure que permite que dos circuitos ExpressRoute se conecten entre sí. Este método establece entre los dos entornos una conexión segura, privada, de ancho de banda alto y baja latencia.
 
 [![Conexión de ExpressRoute local: Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Se requiere un bloque de direcciones de red **/29** para establecer la conexión de Global Reach desde el entorno local.  El espacio de direcciones /29 se usa para la red de tránsito entre circuitos de ExpressRoute.  La red de tránsito no debe superponerse con ninguna de las redes virtuales de Azure, redes locales o redes de nube privada de CloudSimple.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +32,7 @@ Si ya tiene una conexión de Azure ExpressRoute desde una ubicación externa (po
 
 ## <a name="scenarios"></a>Escenarios
 
-El hecho de conectar la red local con la red de nube privada permite usar la nube privada de varias maneras, entre las que se incluyen las siguientes:
+El hecho de conectar la red local con la red de nube privada permite usar la nube privada de varias maneras, entre las que se incluyen los siguientes escenarios:
 
 * Acceso a la red de nube privada sin crear una conexión VPN de sitio a sitio.
 * Uso de la instancia local de Active Directory como origen de identidades en la nube privada.
@@ -39,6 +43,7 @@ El hecho de conectar la red local con la red de nube privada permite usar la nub
 ## <a name="connecting-expressroute-circuits"></a>Conexión de circuitos ExpressRoute
 
 Para establecer la conexión de ExpressRoute, debe crear una autorización en el circuito ExpressRoute y proporcionar la información de autorización a CloudSimple.
+
 
 ### <a name="create-expressroute-authorization"></a>Creación de la autorización de ExpressRoute
 
@@ -65,3 +70,13 @@ Para establecer la conexión de ExpressRoute, debe crear una autorización en el
     * Tipo de problema: **Solicitud de servicio**
     * Subtipo de problema: **Creación de una conexión de ExpressRoute a local**
     * Proporcione el identificador de recurso y la clave de autorización que copió y guardó en el panel de detalles.
+    * Proporcione un espacio de direcciones de red /29 para la red de tránsito.
+    * ¿Está enviando la ruta predeterminada a través de ExpressRoute?
+    * ¿Debe usar el tráfico de nube privada la ruta predeterminada enviada a través de ExpressRoute?
+
+    > [!IMPORTANT]
+    > El envío de la ruta predeterminada le permite enviar todo el tráfico de Internet desde la nube privada mediante su conexión a Internet local.  Para deshabilitar la ruta predeterminada configurada en la nube privada y usar la ruta predeterminada de la conexión local, proporcione los detalles en la incidencia de soporte técnico.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Obtener más información acerca de las conexiones de red de Azure](cloudsimple-azure-network-connection.md)  

@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720997"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882435"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Análisis de registros de Apache Hadoop
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Análisis de los registros de Apache Hadoop en Azure HDInsight
 
 Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Apache Hadoop en HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
@@ -44,7 +44,7 @@ Estas tablas contienen los siguientes campos:
 * Message
 * N
 * PreciseTimeStamp
-* Rol
+* Role
 * RowIndex
 * Inquilino
 * TIMESTAMP
@@ -73,7 +73,7 @@ Power Query puede instalarse desde [Microsoft Power Query para Excel](https://ww
 5. Haga clic con el botón derecho en la tabla hadoopservicelog, en el panel **Navegador**, y seleccione **Editar**. Verá cuatro columnas. Opcionalmente, puede eliminar las columnas **Clave de partición**, **Clave de fila** y **Marca de tiempo** seleccionándolas y haciendo clic en **Quitar columnas** en las opciones de la cinta.
 6. Haga clic en el icono Expandir, en la columna Contenido, para elegir las columnas que desea importar en la hoja de cálculo de Excel. Para esta demostración, se ha elegido TraceLevel y ComponentName: Pueden aportar información básica sobre los componentes que tenían problemas.
    
-    ![Registros de Hadoop de HDInsight: elegir columnas](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![Selección de columnas en Excel de registros de HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "HDInsight Hadoop logs choose columns excel")
 7. Haga clic en **Aceptar** para importar los datos.
 8. Seleccione las columnas **TraceLevel**, Rol y **ComponentName** y, luego, haga clic en el control **Agrupar por** en la cinta.
 9. Haga clic en **Aceptar** en el cuadro de diálogo Agrupar por.
@@ -93,7 +93,7 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Puede intere
    
         TraceLevel eq 'ERROR'
    
-    ![Registros de Hadoop de HDInsight: elegir columnas](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![Selección de columnas en vs de registros de HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop logs choose columns vs")
    
     Para más información sobre cómo construir filtros, consulte [Construcción de cadenas de filtro para el Diseñador de tablas](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
@@ -120,7 +120,7 @@ Puede utilizar la IU de YARN para hacer lo siguiente:
 
 * **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esta acción presenta detalles del estado del clúster, como la memoria total asignada, los núcleos que se están usando, el estado del administrador de recursos del clúster, la versión del clúster, etc.
   
-    ![Inicie el panel del clúster](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
+    ![Inicio del panel del clúster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Launch cluster dashboard yarn")
 * **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
 * **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
 

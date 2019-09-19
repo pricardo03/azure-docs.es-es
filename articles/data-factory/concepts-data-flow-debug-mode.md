@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/06/2019
+ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991923"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801708"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de Mapping Data Flow
 
@@ -20,16 +20,17 @@ ms.locfileid: "69991923"
 
 ## <a name="overview"></a>Información general
 
-La asignación de Data Flow de Azure Data Factory tiene un modo de depuración, que puede activarse con el botón "Data Flow Debug" (Depurar Data Flow) de la parte superior de la superficie de diseño. Al diseñar flujos de datos, si se activa el modo de depuración, puede ver interactivamente la transformación de la forma de los datos mientras crea y depura los flujos de datos. La sesión de depuración se puede usar tanto en sesiones de diseño de Data Flow como durante la ejecución de depuración de la canalización de flujos de datos.
+El modo de depuración de Azure Data Factory Mapping Data Flow permite ver de forma interactiva cómo se transforman los datos mientras se crean y depuran los flujos de datos. La sesión de depuración se puede usar tanto en sesiones de diseño de Data Flow como durante la ejecución de la depuración de la canalización de los flujos de datos. Para activar el modo de depuración, use el botón "Data Flow Debug" (Depuración de Data Flow) situado en la parte superior de la superficie de diseño.
 
-![Botón de depuración](media/data-flow/debugbutton.png "Debug button")
+![Control deslizante de depuración](media/data-flow/debugbutton.png "Debug slider")
+
+Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida de 60 minutos. Para más información sobre los entornos de ejecución de integración del flujo de datos, consulte [Rendimiento de flujo de datos](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+
+![Selección del IR de depuración](media/data-flow/debugbutton2.png "Debug IR selection")
 
 Cuando el modo de depuración está activado, creará interactivamente el flujo de datos con un clúster de Spark activo. Una vez que desactive la depuración en Azure Data Factory, se cerrará la sesión. Debe tener en cuenta los gastos por hora que genera Azure Databricks durante el tiempo que tiene la sesión de depuración activa.
 
 En la mayoría de los casos, se recomienda crear instancias de Data Flow en modo de depuración para poder validar la lógica de negocios y ver las transformaciones de datos antes de publicar el trabajo en Azure Data Factory. Use el botón "Depurar" del panel de la canalización para probar el flujo de datos en una canalización.
-
-> [!NOTE]
-> Mientras la luz del modo de depuración esté iluminada de color verde en la barra de herramientas de Data Factory, se le cobrará la tarifa de depuración de Data Flow de 8 núcleos por hora de proceso general con un período de vida de 60 minutos. 
 
 ## <a name="cluster-status"></a>Estado del clúster
 
@@ -81,7 +82,7 @@ Con las opciones **Conversión de tipo** y **Modificar** se generará una transf
 
 ### <a name="data-profiling"></a>Generación de perfiles de los datos
 
-Si selecciona una columna en la pestaña Vista previa de datos y hace clic en **Estadísticas** en la barra de herramientas de la vista previa de datos, aparecerá un gráfico en el extremo derecho de la cuadrícula de datos con estadísticas detalladas sobre cada campo. Azure Data Factory realizará una determinación basada en el muestreo de datos de qué tipo de gráfico mostrar. Los campos de alta cardinalidad establecerán como valor predeterminado los gráficos NULL o NOT NULL, mientras que los datos categóricos y numéricos que tienen una cardinalidad baja mostrarán gráficos de barras con la frecuencia de valor de los datos. También verá la longitud máxima y mínima de los campos de cadena, los valores máximos y mínimos en los campos numéricos, la desviación estándar, los percentiles, los recuentos y el promedio.
+Si selecciona una columna en la pestaña de vista previa de datos y hace clic en **Estadísticas** en la barra de herramientas de la vista previa de datos, aparecerá un gráfico en el extremo derecho de la cuadrícula de datos con estadísticas detalladas sobre cada campo. Azure Data Factory realizará una determinación basada en el muestreo de datos de qué tipo de gráfico mostrar. Los campos de alta cardinalidad establecerán como valor predeterminado los gráficos NULL o NOT NULL, mientras que los datos categóricos y numéricos que tienen una cardinalidad baja mostrarán gráficos de barras con la frecuencia de valor de los datos. También verá la longitud máxima y mínima de los campos de cadena, los valores máximos y mínimos en los campos numéricos, la desviación estándar, los percentiles, los recuentos y el promedio.
 
 ![Estadísticas de columna](media/data-flow/stats.png "Column statistics")
 

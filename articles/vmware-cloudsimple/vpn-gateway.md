@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972602"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845366"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configuración de puertas de enlace de VPN en la red de CloudSimple
 
@@ -56,7 +56,7 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
     > [!WARNING]
     > Para habilitar la alta disponibilidad, es necesario que el dispositivo VPN local admita la conexión a dos direcciones IP. Esta opción no se puede deshabilitar una vez implementada la puerta de enlace de VPN.
 
-5. Cree la primera conexión desde la red local y haga clic en **Siguiente**.
+5. Cree la primera conexión desde la red local y haga clic en **Next** (Siguiente).
 
     * Escriba un nombre para identificar la conexión.
     * Para la IP del mismo nivel, escriba la dirección IP pública de la puerta de enlace de VPN local.
