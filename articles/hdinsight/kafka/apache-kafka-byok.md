@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811549"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000101"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Método Bring Your Own Key para Apache Kafka en Azure HDInsight
 
@@ -58,7 +58,7 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 
         b. Establezca **Opciones** en **Generar** y asigne un nombre a la clave.
 
-        ![Generar el nombre de la clave](./media/apache-kafka-byok/kafka-create-a-key.png "Generate key name")
+        ![Generar el nombre de la clave](./media/apache-kafka-byok/apache-kafka-create-key.png "Generate key name")
 
         c. Seleccione la clave que creó en la lista de claves.
 
@@ -103,7 +103,7 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 
    Para rotar la clave, debe tener la dirección URL completa de la nueva clave (vea el paso 3 de [Configuración de Key Vault y las claves](#setup-the-key-vault-and-keys)). Cuando lo tenga, vaya a la sección de propiedades del clúster de Kafka en el portal y haga clic en **Cambiar clave** en **Disk Encryption Key URL** (URL de clave de cifrado de disco). Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
 
-   ![Rotación de la clave de cifrado de disco de Kafka](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Rotación de la clave de cifrado de disco de Kafka](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Preguntas más frecuentes de BYOK a Apache Kafka
 
@@ -146,5 +146,5 @@ Si el clúster pierde acceso a la clave, se mostrarán advertencias en el portal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md)
+* Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)
 * Para empezar a trabajar con Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-overview.md).

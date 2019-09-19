@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 291fc7f385f652005f44c3e0cd52d4929e914989
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f5ac70381f0879a896e96cb37a70c1b1a1f0b5da
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736187"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091001"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Escenario: Error 404 "No encontrado" del servidor de Jupyter debido a "Cross Origin Blocking API" en Azure HDInsight
 

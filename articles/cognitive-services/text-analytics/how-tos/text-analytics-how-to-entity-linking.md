@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390258"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984277"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -47,7 +47,6 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Cantidad      | Number        | "6", "seis"     |
 | Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"|
 | Cantidad      | Ordinal       | "2.º", "segundo"     |
-| Cantidad      | NumberRange   | "De 4 a 8"     |
 | Cantidad      | Edad           | "90 días","30 años"    |
 | Cantidad      | Moneda      | "10,99 $"     |
 | Cantidad      | Dimension Data     | "10 millas", "40 cm"     |
@@ -59,7 +58,6 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     |
 | DateTime      | Duration      | "1 minuto y 45 segundos"   |
 | DateTime      | Set           | "Todos los martes"     |
-| DateTime      | TimeZone      |    |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 

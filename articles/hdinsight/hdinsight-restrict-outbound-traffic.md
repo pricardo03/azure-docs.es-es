@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811945"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018741"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante el uso de un firewall (Versión preliminar)
 
@@ -63,7 +63,8 @@ En la pantalla **Agregar colección de reglas de aplicación**, realice los paso
    | **Nombre** | **Dirección de origen** | **Protocolo:Puerto** | **FQDN de destino** | **Notas** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Permite la actividad de inicio de sesión de Windows |
-   | Rule_3 | * | https:443,http:80 | <nombre_de_la_cuenta_de_almacenamiento.blob.core.windows.net> | Si el clúster está respaldado por WASB, agregue una regla para WASB. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada en la cuenta de almacenamiento. |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | Permite la actividad de inicio de sesión de Windows |
+   | Rule_4 | * | https:443,http:80 | <nombre_de_la_cuenta_de_almacenamiento.blob.core.windows.net> | Si el clúster está respaldado por WASB, agregue una regla para WASB. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada en la cuenta de almacenamiento. |
 
 1. Haga clic en **Agregar**.
 
