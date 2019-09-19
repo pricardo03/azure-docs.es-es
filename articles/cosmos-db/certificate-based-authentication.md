@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9d06cf334f08ba6ec9c47450d21d33733900ebe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356581"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882849"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
@@ -233,4 +233,4 @@ De forma similar a la sección anterior puede ver el registro de actividad de la
 
 * [Protección de las claves de Azure Cosmos con Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Atributos de seguridad de Azure Cosmos DB](cosmos-db-security-attributes.md)
+* [Controles de seguridad para Azure Cosmos DB](cosmos-db-security-controls.md)

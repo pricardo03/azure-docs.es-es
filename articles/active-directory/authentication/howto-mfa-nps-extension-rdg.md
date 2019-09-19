@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf9188502dd2b17bcd898e2655138b06cfe5cebf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64873426"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898550"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -178,7 +178,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 En esta sección, configurará las directivas de autorización de conexión de la puerta de enlace de Escritorio remoto y otras opciones de RADIUS.
 
-El flujo de autenticación requiere que se intercambien mensajes RADIUS entre la puerta de enlace de Escritorio remoto y el servidor NPS donde está instalado el servicio NPS. Esto significa que debe configurar los valores del cliente RADIUS tanto en la puerta de enlace de Escritorio remoto como en el servidor NPS donde está instalada la extensión NPS.
+El flujo de autenticación requiere que se intercambien mensajes RADIUS entre la puerta de enlace de Escritorio remoto y el servidor NPS donde está instalada la extensión NPS. Esto significa que debe configurar los valores del cliente RADIUS tanto en la puerta de enlace de Escritorio remoto como en el servidor NPS donde está instalada la extensión NPS.
 
 ### <a name="configure-remote-desktop-gateway-connection-authorization-policies-to-use-central-store"></a>Configuración de las directivas de autorización de conexiones de la puerta de enlace de Escritorio remoto para usar un almacén central
 

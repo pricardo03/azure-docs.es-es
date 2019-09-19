@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004470"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772271"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -30,7 +30,7 @@ En esta página se explican los conceptos básicos sobre dominios, zonas DNS y r
 
 El sistema de nombres de dominio es una jerarquía de dominios. La jerarquía empieza por el dominio "raíz", cuyo nombre es sencillamente " **.** ".  Después de él, se encuentran los dominios de primer nivel, a saber, “com”, “net”, “org”, “uk” o “jp”.  A continuación, se colocan los dominios de segundo nivel, como “org.uk” o “co.jp”. Los dominios están distribuidos globalmente, hospedados por servidores de nombres DNS de todo el mundo.
 
-Un registrador de nombres de dominio es una organización que le permite adquirir un nombre de dominio, como "contoso.com".  Comprar un nombre de dominio le concede el derecho a controlar la jerarquía DNS bajo ese nombre, por ejemplo, permitiéndole dirigir el nombre "www.contoso.com" al sitio web de empresa. El propio registrador puede hospedar el dominio del usuario en los servidores de nombres de este último, o bien el usuario puede especificar servidores de nombres alternativos.
+Un registrador de nombres de dominio es una organización que le permite adquirir un nombre de dominio, como "contoso.com".  Comprar un nombre de dominio le concede el derecho a controlar la jerarquía DNS bajo ese nombre, por ejemplo, permitiéndole dirigir el nombre www.contoso.com al sitio web de empresa. El propio registrador puede hospedar el dominio del usuario en los servidores de nombres de este último, o bien el usuario puede especificar servidores de nombres alternativos.
 
 DNS de Azure proporciona una infraestructura de servidores de nombre de alta disponibilidad distribuida globalmente, que se puede utilizar para hospedar el dominio. Al hospedar los dominios en DNS de Azure, puede administrar los registros DNS con las mismas credenciales, interfaces API, herramientas, facturación y soporte técnico que con los demás servicios de Azure.
 

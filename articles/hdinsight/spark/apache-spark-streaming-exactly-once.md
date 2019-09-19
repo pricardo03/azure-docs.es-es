@@ -4,15 +4,16 @@ description: Cómo configurar Apache Spark Streaming para procesar un evento una
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ce2cff6a1a6bf769f52940ecc0d1dc5a4678cbd5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814020"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091019"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"
 

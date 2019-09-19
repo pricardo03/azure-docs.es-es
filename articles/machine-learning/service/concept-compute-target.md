@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: a7944b284a9c1c0424af54874554d05d49ad4b20
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806048"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860590"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>¿Qué son los destinos de proceso en Azure Machine Learning Service? 
 
@@ -55,7 +55,7 @@ Puede usar Proceso de Azure Machine Learning para el entrenamiento y para infere
 * Administración del clúster automático y programación de trabajos 
 * Es compatible con recursos de CPU y GPU
 
-Puede crear instancias de Proceso de Azure Machine Learning en Azure Portal, con el SDK o la CLI. Cuando se crea, forma parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
+Puede crear instancias de Proceso de Azure Machine Learning en Azure Portal o su [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com), con el SDK o la CLI. Cuando se crea, forma parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
 
 ## <a name="unmanaged-compute"></a>Proceso no administrado
 

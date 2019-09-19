@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 93f01513841d1174fea796f1615ab05df0a41af4
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150380"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802256"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -50,7 +50,7 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 | Velocidad de fotogramas máxima de vídeo de entrada|60 fotogramas por segundo|Standard o Premium1080p: 30 fotogramas por segundo|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
 | Precio|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|
-| Tiempo de ejecución máximo| 24 horas x 365 días, lineal en directo | Hasta 24 horas|
+| Tiempo de ejecución máximo| 24 horas x 365 días, lineal en directo | 24 horas x 365 días, lineal en directo (vista previa)|
 | Posibilidad de pasar a través de los subtítulos CEA 608/708 insertados|Sí|Sí|
 | Compatibilidad con inserción de tabletas táctiles|Sin|Sin|
 | Compatibilidad con señalización de anuncios mediante API| Sin|Sin|

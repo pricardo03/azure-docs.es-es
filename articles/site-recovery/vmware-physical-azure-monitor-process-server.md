@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/05/2019
 ms.author: raynew
-ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972172"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383207"
 ---
 # <a name="monitor-the-process-server"></a>Supervisión del servidor de procesos
 
@@ -57,10 +57,12 @@ El servidor de procesos genera una serie de alertas de estado que se resumen en 
 ![Advertencia][yellow] | Uso de CPU > 80 % durante los últimos 15 minutos.
 ![Advertencia][yellow] | Uso de memoria > 80 % durante los últimos 15 minutos.
 ![Advertencia][yellow] | Espacio libre de la carpeta de caché < 30 % durante los últimos 15 minutos.
+![Advertencia][yellow] | Site Recovery supervisa los datos pendientes y salientes cada cinco minutos y calcula que los datos de la caché del servidor de procesos no se pueden cargar en Azure en un plazo de 30 minutos.
 ![Advertencia][yellow] | Los servicios del servidor de procesos no se han ejecutado durante los últimos 15 minutos.
 ![Crítico][red] | Uso de CPU > 95 % durante los últimos 15 minutos.
 ![Crítico][red] | Uso de memoria > 95 % durante los últimos 15 minutos.
 ![Crítico][red] | Espacio libre de la carpeta de caché < 25 % durante los últimos 15 minutos.
+![Crítico][red] | Site Recovery supervisa los datos pendientes y salientes cada cinco minutos y calcula que los datos de la caché del servidor de procesos no se pueden cargar en Azure en un plazo de 45 minutos.
 ![Crítico][red] | No hay latido del servidor de procesos desde hace 15 minutos.
 
 ![Clave de tabla](./media/vmware-physical-azure-monitor-process-server/table-key.png)

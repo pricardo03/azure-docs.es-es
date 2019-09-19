@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617645"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910441"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -245,6 +245,10 @@ VHD compartido | No compatible. | Se produce un error en la comprobación si no 
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.
 BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. |
 Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
+
+## <a name="resource-group-limits"></a>Límites de los grupos de recursos
+
+Para comprender el número de máquinas virtuales que se pueden proteger en un único grupo de recursos, consulte el artículo sobre [los límites y las cuotas de la suscripción](https://docs.microsoft.com/azure/azure-subscription-service-limits#resource-group-limits).
 
 ## <a name="churn-limits"></a>Límites de renovación
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602121"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390802"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
@@ -23,10 +23,11 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
 * Se ejecuta en JavaScript. Próximamente más lenguajes.
 * Termina de ejecutarse en cinco segundos o menos.
 * Administra datos de hasta 50 MB de tamaño.
+* No es necesario trabajar con [acciones de **variables **](../logic-apps/logic-apps-create-variables-store-values.md), ya que aún no están permitidas.
 * Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > La función require() no es compatible con la acción **Código en línea** para la ejecución de JavaScript.
+  > La función `require()` no es compatible con la acción **Código en línea** para la ejecución de JavaScript.
 
 Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento como un token denominado **Result**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios en los que desee crear una función para el código, intente [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 
@@ -43,6 +44,9 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando llega
    La aplicación lógica de ejemplo en este tema usa este desencadenador de Office 365 Outlook: **Cuando llega un nuevo correo electrónico**
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica.
+
+  > [!NOTE]
+  > Asegúrese de usar una cuenta de integración adecuada para su caso de uso o escenario. Por ejemplo, las cuentas de integración de [nivel gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) están diseñadas solo para escenarios y cargas de trabajo exploratorias, no para escenarios de producción, están limitadas en el uso y el rendimiento, y no se admiten en un contrato de nivel de servicio (SLA). Otros niveles implican costos, pero incluyen compatibilidad con el contrato de nivel de servicio, ofrecen más rendimiento y tienen límites más altos. Obtenga más información sobre los [niveles](../logic-apps/logic-apps-pricing.md#integration-accounts) de la cuenta de integración, los [precios](https://azure.microsoft.com/pricing/details/logic-apps/) y los [límites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="add-inline-code"></a>Adición de código en línea
 
@@ -130,8 +134,8 @@ Esta tabla contiene más información acerca de estas subpropiedades:
 | Propiedad | Escriba | DESCRIPCIÓN |
 |----------|------|-------|
 | `actions` | Colección de objetos | Objetos de resultado de acciones que se ejecutan antes de que el fragmento de código se ejecute. Cada objeto tiene un par *clave-valor* donde la clave es el nombre de una acción y el valor es equivalente a llamar a la [función actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. El nombre de la acción utiliza el mismo nombre de acción que se usa en la definición del flujo de trabajo subyacente, que reemplaza los espacios (" ") en el nombre de acción por caracteres de subrayado (_). Este objeto proporciona acceso a los valores de propiedad de la acción de la ejecución de la instancia de flujo de trabajo actual. |
-| `trigger` | Objeto | Objeto de resultado del desencadenador, equivalente a llamar a la [función trigger()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto proporciona acceso a los valores de propiedad del desencadenador de la ejecución de la instancia de flujo de trabajo actual. |
-| `workflow` | Objeto | Objeto de flujo de trabajo, equivalente a llamar a la [función workflow()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Este objeto proporciona acceso a los valores de propiedad de flujo de trabajo, como el nombre del flujo de trabajo, el identificador de ejecución, etc., de la ejecución de la instancia de flujo de trabajo actual. |
+| `trigger` | Object | Objeto de resultado del desencadenador, equivalente a llamar a la [función trigger()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto proporciona acceso a los valores de propiedad del desencadenador de la ejecución de la instancia de flujo de trabajo actual. |
+| `workflow` | Object | Objeto de flujo de trabajo, equivalente a llamar a la [función workflow()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Este objeto proporciona acceso a los valores de propiedad de flujo de trabajo, como el nombre del flujo de trabajo, el identificador de ejecución, etc., de la ejecución de la instancia de flujo de trabajo actual. |
 |||
 
 En el ejemplo de este tema, el objeto `workflowContext` tiene estas propiedades a las que puede acceder el código:

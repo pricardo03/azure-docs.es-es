@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c357cba8ce2fbe2ad902d5c215f8adbfc99a9f0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827289"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813016"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -489,6 +489,9 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
    > [!TIP]
    > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito en **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de Workday. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
+   > [!CAUTION] 
+   > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de Workday con AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../manage-apps/skip-out-of-scope-deletions.md).
+  
 1. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
 1. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory.
@@ -1333,66 +1336,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 ### <a name="exporting-and-importing-your-configuration"></a>Exportación e importación de la configuración
 
-En esta sección se describe cómo usar Microsoft Graph API y el Probador de Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de Workday a un archivo JSON e importarlos de nuevo en Azure AD.
-
-#### <a name="step-1-retrieve-your-workday-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento de Workday (Id. de objeto)
-
-1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento de Workday.
-1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Graph.
-
-   ![Identificador de la entidad de servicio de la aplicación de Workday](./media/workday-inbound-tutorial/wd_export_01.png)
-
-#### <a name="step-2-sign-into-microsoft-graph-explorer"></a>Paso 2: Iniciar sesión en el Probador de Graph de Microsoft
-
-1. Iniciar el [Probador de Graph de Microsoft](https://developer.microsoft.com/graph/graph-explorer)
-1. Haga clic en el botón "Iniciar sesión con Microsoft" e inicie sesión con las credenciales de administrador de la aplicación o de administrador global de Azure AD.
-
-    ![Inicio de sesión en Graph](./media/workday-inbound-tutorial/wd_export_02.png)
-
-1. Una vez haya iniciado sesión correctamente, verá los detalles de la cuenta de usuario en el panel izquierdo.
-
-#### <a name="step-3-retrieve-the-provisioning-job-id-of-the-workday-provisioning-app"></a>Paso 3: Recuperar el identificador del trabajo de aprovisionamiento de la aplicación de aprovisionamiento de Workday
-
-En el Probador de Graph de Microsoft, ejecute la siguiente consulta GET; para ello, reemplace [servicePrincipalId] con la propiedad **ServicePrincipalId** extraído del [paso 1](#step-1-retrieve-your-workday-provisioning-app-service-principal-id-object-id).
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
-```
-
-Obtendrá una respuesta como la que se muestra a continuación. Copie el "atributo de identificador" que aparece en la respuesta. Este valor se corresponde con la propiedad **ProvisioningJobId** y se utilizará para recuperar los metadatos del esquema subyacente.
-
-   [![Id. del trabajo de aprovisionamiento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
-
-#### <a name="step-4-download-the-provisioning-schema"></a>Paso 4: Descargar el esquema de aprovisionamiento
-
-En el Probador de Graph de Microsoft, ejecute la siguiente consulta GET, reemplace [servicePrincipalId] y [ProvisioningJobId] con las propiedades ServicePrincipalId y ProvisioningJobId recuperadas en los pasos anteriores.
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-Copie el objeto JSON de la respuesta y guárdelo en un archivo para crear una copia de seguridad del esquema.
-
-#### <a name="step-5-import-the-provisioning-schema"></a>Paso 5: Importar el esquema de aprovisionamiento
-
-> [!CAUTION]
-> Realice este paso solo si necesita modificar el esquema de configuración y no puede hacerlo en Azure Portal o si necesita restaurar la configuración desde un archivo de copia de seguridad anterior con un esquema válido que funcione.
-
-En el Probador de Graph de Microsoft, configure la siguiente consulta PUT, reemplace [servicePrincipalId] y [ProvisioningJobId] con las propiedades ServicePrincipalId y ProvisioningJobId recuperadas en los pasos anteriores.
-
-```http
-    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-En la pestaña "Cuerpo de la solicitud", copie el contenido del archivo del esquema JSON.
-
-   [![Cuerpo de la solicitud](./media/workday-inbound-tutorial/wd_export_04.png)](./media/workday-inbound-tutorial/wd_export_04.png#lightbox)
-
-En la pestaña "Encabezados de solicitud", agregue el atributo de encabezado Content-Type con el valor “application/json”.
-
-   [![Encabezados de solicitud](./media/workday-inbound-tutorial/wd_export_05.png)](./media/workday-inbound-tutorial/wd_export_05.png#lightbox)
-
-Haga clic en el botón "Ejecutar consulta" para importar el nuevo esquema.
+Consulte el artículo [Exportación e importación de la configuración de aprovisionamiento](../manage-apps/export-import-provisioning-configuration.md).
 
 ## <a name="managing-personal-data"></a>Administración de datos personales
 

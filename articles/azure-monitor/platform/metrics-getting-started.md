@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ceaefffaf04a3ab266cde300e8c4b93a5e804796
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595457"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861085"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -50,6 +50,9 @@ Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el rec
 El gráfico muestra las últimas 24 horas de los datos de métricas de forma predeterminada. Use el panel del **selector de hora** para cambiar el intervalo de tiempo o acercar o alejar el gráfico. 
 
 ![Panel para cambiar el intervalo de tiempo](./media/metrics-getting-started/time-picker.png)
+
+> [!NOTE]
+> Use la herramienta del **pincel de tiempo** para investigar un área interesante del gráfico (un repunte o una caída). Coloque el puntero al principio del área, haga clic y mantenga presionado el botón principal, arrastre al otro lado del área y entonces suelte el botón. El gráfico acercará el intervalo de tiempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensión y divisiones
 

@@ -1,73 +1,108 @@
 ---
-title: 'Azure Active Directory Domain Services: Creación de una cuenta de servicio administrada de grupos | Microsoft Docs'
+title: Cuentas de servicio administradas de grupo para Azure AD Domain Services | Microsoft Docs
 description: Obtenga información sobre cómo crear una cuenta de servicio administrada de grupo (gMSA) para su uso con los dominios administrados de Azure Active Directory Domain Services.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 3742aed7ff39e0a2f6bdf353fb9f261176027422
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1cfddf14d60b7d73bae283a18732c7c99ae22b4d
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612946"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898225"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Cree una cuenta de servicio administrada de grupo (gMSA) en un dominio administrado de Azure AD Domain Services
-En este artículo se muestra cómo crear cuentas de servicio administradas en un dominio administrado de Azure AD Domain Services.
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Cree una cuenta de servicio administrada de grupo (gMSA) en Azure AD Domain Services
 
-## <a name="managed-service-accounts"></a>Cuentas de servicio administradas
-Una cuenta de servicio administrada independiente (sMSA) es una cuenta de dominio administrada cuya contraseña se administra automáticamente. Simplifica la administración de los nombre de entidad de seguridad de servicio (SPN), y permite delegar la administración a otros administradores. Este tipo de cuenta de servicio administrada (MSA) se incorporó por primera vez en Windows Server 2008 R2 y Windows 7.
+Las aplicaciones y servicios suelen necesitar una identidad para autenticarse con otros recursos. Por ejemplo, es posible que un servicio web tenga que autenticarse con un servicio de base de datos. Si una aplicación o servicio tiene varias instancias, como una granja de servidores web, la creación y configuración manuales de las identidades para esos recursos llevan mucho tiempo. En su lugar, se puede crear una cuenta de servicio administrada (gMSA) en el dominio administrado de Azure Active Directory Domain Services (Azure AD DS). El SO Windows administra automáticamente las credenciales para gMSA, que simplifica la administración de grupos de recursos de gran tamaño.
 
-La cuenta de servicio administrada de grupo (gMSA) proporciona las mismas ventajas a los numerosos servidores del dominio. Para poder funcionar, todas las instancias de un servicio hospedado en una granja de servidores deben usar la misma entidad de servicio para los protocolos de autenticación mutua. Cuando se usa una gMSA como entidad de servicio, el sistema operativo Windows administra la contraseña de la cuenta en lugar de recurrir al administrador.
+En este artículo se muestra cómo crear una gMSA en un dominio administrado de Azure AD DS.
 
-**Más información:**
-- [Información general sobre las cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Introducción a las cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+## <a name="before-you-begin"></a>Antes de empezar
 
+Para completar este artículo, necesitará los siguientes recursos y privilegios:
 
-## <a name="using-service-accounts-in-azure-ad-domain-services"></a>Uso de cuentas de servicio en Azure AD Domain Services
-Los dominios administrados de Azure AD Domain Services están bloqueados y los administra Microsoft. Hay un par de consideraciones importantes a la hora de usar cuentas de servicio con Azure AD Domain Services.
+* Una suscripción de Azure activa.
+    * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
+    * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+    * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
+    * Si es necesario, complete el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 
-### <a name="create-service-accounts-within-custom-organizational-units-ou-on-the-managed-domain"></a>Creación de cuentas de servicio dentro de unidades organizativas personalizadas en el dominio administrado
-No se puede crear una cuenta de servicio en las unidades organizativas integradas "Usuarios AADDC" ni "Equipos AADDC". [Cree la unidad organizativa personalizada](create-ou.md) en el dominio administrado y, después, cree las cuentas de servicio dentro de esa unidad organizativa personalizada.
+## <a name="managed-service-accounts-overview"></a>Información general sobre las cuentas de servicio administradas
 
-### <a name="the-key-distribution-services-kds-root-key-is-already-pre-created"></a>La clave raíz de servicios de distribución de claves (KDS) ya se ha creado previamente
-La clave raíz de servicios de distribución de claves (KDS) se ha creado previamente en un dominio administrado de Azure AD Domain Services. No es necesario crear una clave raíz de KDS y no tiene privilegios para hacerlo. Tampoco puede ver la clave raíz de KDS en el dominio administrado.
+Una cuenta de servicio administrada independiente (sMSA) es una cuenta de dominio cuya contraseña se administra automáticamente. Este enfoque simplifica la administración de los nombres de entidad de seguridad de servicio (SPN), y permite delegar la administración a otros administradores. No es necesario crear y girar credenciales manualmente para la cuenta.
 
-## <a name="sample---create-a-gmsa-using-powershell"></a>Ejemplo: crear una gMSA con PowerShell
-En el ejemplo siguiente se muestra cómo crear una unidad organizativa personalizada con PowerShell. A continuación, puede crear una gMSA dentro de esa unidad organizativa con el parámetro ```-Path``` para especificar la unidad organizativa.
+Una cuenta de servicio administrada de grupo (gMSA) proporciona la misma simplificación de administración, pero para varios servidores del dominio. Una gMSA permite a todas las instancias de un servicio hospedado en una granja de servidores usar la misma entidad de servicio para que los protocolos de autenticación mutua funcionen. Cuando se usa una gMSA como entidad de servicio, el sistema operativo Windows vuelve a administrar la contraseña de la cuenta en lugar de recurrir al administrador.
+
+Para más información, consulte [Introducción a las cuentas de servicio administradas de grupo (gMSA)][gmsa-overview].
+
+## <a name="using-service-accounts-in-azure-ad-ds"></a>Uso de cuentas de servicio en Azure AD DS
+
+Como Microsoft bloquea y administra los dominios administrados de Azure AD DS, debe tener en cuenta algunas consideraciones al usar cuentas de servicio:
+
+* Cree cuentas de servicio en unidades organizativas (UO) personalizadas en el dominio administrado.
+    * No se puede crear una cuenta de servicio en las unidades organizativas integradas *Usuarios AADDC* ni *Equipos AADDC*.
+    * En su lugar, [cree una unidad organizativa personalizada][create-custom-ou] en el dominio administrado de Azure AD DS y, después, cree las cuentas de servicio en esa unidad organizativa personalizada.
+* La clave raíz de servicios de distribución de claves (KDS) se ha creado previamente.
+    * La clave raíz de KDS se usa para generar y recuperar contraseñas para gMSA. En Azure AD DS, la raíz de KDS se crea automáticamente.
+    * No tiene privilegios para crear otra o ver el valor predeterminado, la clave raíz de KDS.
+
+## <a name="create-a-gmsa"></a>Crear una gMSA
+
+En primer lugar, cree una unidad organizativa personalizada mediante el cmdlet [New-ADOrganizationalUnit][New-AdOrganizationalUnit]. Para obtener más información sobre cómo crear y administrar unidades organizativas personalizadas, consulte [Creación de una unidad organizativa en un dominio administrado de Azure AD Domain Services][create-custom-ou].
+
+En el siguiente ejemplo se crea una unidad organizativa personalizada llamada *myNewOU* en el dominio administrado de Azure AD DS denominado *contoso.com*. Use su propia unidad organizativa y nombre de dominio administrado:
 
 ```powershell
-# Create a new custom OU on the managed domain
-New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=contoso,DC=COM"
-
-# Create a service account 'WebFarmSvc' within the custom OU.
-New-ADServiceAccount -Name WebFarmSvc  `
--DNSHostName ` WebFarmSvc.contoso.com  `
--Path "OU=MYNEWOU,DC=contoso,DC=com"  `
--KerberosEncryptionType AES128, AES256  ` -ManagedPasswordIntervalInDays 30  `
--ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
-http/WebFarmSvc.contoso.com/contoso,  `
-http/WebFarmSvc/contoso.com, http/WebFarmSvc/contoso  `
--PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
 ```
 
-**Documentación de cmdlets de PowerShell:**
-- [Cmdlet New-ADOrganizationalUnit](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit)
-- [Cmdlet New-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/New-ADServiceAccount)
+Ahora, cree una gMSA mediante el cmdlet [New-ADServiceAccount][New-ADServiceAccount]. Se definen los siguientes parámetros de ejemplo:
 
+* **-Name** se establece en *WebFarmSvc*
+* El parámetro **-Path** especifica la unidad organizativa personalizada para la gMSA creada en el paso anterior.
+* Las entradas de DNS y los nombres de entidad de seguridad de servicio se establecen para *WebFarmSvc.contoso.com*
+* Se permiten las entidades de seguridad en *CONTOSO-SERVER$* . Para recuperar la contraseña, use la identidad.
+
+Especifique sus propios nombres y nombres de dominio.
+
+```powershell
+New-ADServiceAccount -Name WebFarmSvc `
+    -DNSHostName WebFarmSvc.contoso.com `
+    -Path "OU=MYNEWOU,DC=contoso,DC=com" `
+    -KerberosEncryptionType AES128, AES256 `
+    -ManagedPasswordIntervalInDays 30 `
+    -ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
+        http/WebFarmSvc.contoso.com/contoso, `
+        http/WebFarmSvc/contoso.com, `
+        http/WebFarmSvc/contoso `
+    -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+```
+
+Ahora se pueden configurar las aplicaciones y servicios para usar la gMSA según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una unidad organizativa personalizada en un dominio administrado](create-ou.md)
-- [Información general sobre las cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Introducción a las cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+
+Para más información sobre las gMSA, consulte [Introducción a las cuentas de servicio administradas de grupo][gmsa-start].
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[create-custom-ou]: create-ou.md
+
+<!-- EXTERNAL LINKS -->
+[New-ADOrganizationalUnit]: /powershell/module/addsadministration/New-AdOrganizationalUnit
+[New-ADServiceAccount]: /powershell/module/addsadministration/New-AdServiceAccount
+[gmsa-overview]: /windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
+[gmsa-start]: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts

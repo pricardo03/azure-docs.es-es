@@ -1,6 +1,6 @@
 ---
 title: 'Profundización: análisis avanzado en Azure HDInsight'
-description: Obtenga información sobre cómo el análisis avanzado usa algoritmos para procesar macrodatos.
+description: Obtenga información sobre cómo el análisis avanzado usa algoritmos para procesar macrodatos en Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712399"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918260"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -23,7 +23,7 @@ HDInsight proporciona la capacidad de obtener información valiosa de grandes ca
 
 ## <a name="advanced-analytics-process"></a>Proceso de análisis avanzado
 
-![Proceso](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Proceso](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 Una vez que haya identificado el problema empresarial y haya empezado a recopilar y procesar los datos, debe crear un modelo que represente la pregunta que quiera predecir. Su modelo usará uno o varios algoritmos de aprendizaje automático para realizar el tipo de predicción que mejor se adapte a sus necesidades empresariales.  Se debe usar la mayoría de los datos para entrenar el modelo, y la parte restante para probarlo o evaluarlo. 
 
@@ -33,7 +33,7 @@ Después de crear, cargar, probar y evaluar el modelo, en el siguiente paso se d
 
 Las soluciones de análisis avanzado proporcionan un conjunto de algoritmos de aprendizaje automático. Este es un resumen de las categorías de los algoritmos y los casos de uso empresariales comunes asociados.
 
-![Casos de uso de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![Casos de uso de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Además de seleccionar los algoritmos más adecuados, debe considerar si debe proporcionar o no datos para el aprendizaje. Los algoritmos de aprendizaje automático se clasifican como se indica a continuación:
 
@@ -98,7 +98,7 @@ Hay tres tareas clave en este escenario de análisis avanzado:
 
 En este ejemplo se utiliza el conjunto de imágenes de CIFAR-10 que compilan y distribuyen Alex Krizhevsky, Vinod Nair y Geoffrey Hinton. El conjunto de datos de CIFAR-10 contiene 60 000 imágenes 32 x 32 que pertenecen a 10 clases mutuamente exclusivas de color:
 
-![Imágenes](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![Imágenes](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Para obtener más detalles sobre el conjunto de datos, vea [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) (Entrenamiento de varias capas de características a partir de imágenes muy pequeñas) de Alex Krizhevsky.
 
@@ -111,7 +111,7 @@ El conjunto de datos se dividió en particiones para formar un conjunto de apren
 
 El proceso completo del procesamiento previo o la puntuación de 10 000 imágenes tarda menos de un minuto en un clúster con 4 nodos de trabajo. El modelo predice con precisión las etiquetas de aproximadamente 9100 imágenes (91 %). Una matriz de confusión muestra los errores más comunes de clasificación. Por ejemplo, la matriz muestra que el etiquetado incorrecto de perros como gatos y viceversa se produce con mayor frecuencia que con otros pares de etiquetas.
 
-![Results](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![Results](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>¡Pruébelo!
 

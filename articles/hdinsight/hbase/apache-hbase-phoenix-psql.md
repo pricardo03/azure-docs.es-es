@@ -1,6 +1,6 @@
 ---
 title: 'Carga masiva en Phoenix Apache con psql: Azure HDInsight'
-description: Utilice la herramienta psql para cargar datos de forma masiva en tablas de Phoenix.
+description: Utilice la herramienta psql para cargar datos de forma masiva en tablas de Apache Phoenix en Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718631"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917261"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carga masiva de datos en Apache Phoenix mediante psql
 
@@ -29,7 +29,7 @@ La carga masiva con MapReduce se usa para volúmenes de datos mucho más grandes
 
 Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que la configuración de tiempo de espera de consulta es la prevista.  Acceda al panel de [Apache Ambari](https://ambari.apache.org/) del clúster de HDInsight, seleccione HBase y, después, la pestaña Configuración.  Desplácese hacia abajo para comprobar que Apache Phoenix está establecido en `enabled` tal como se muestra:
 
-![Configuración del clúster de Apache Phoenix HDInsight](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Configuración del clúster de Apache Phoenix HDInsight](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Usar `psql` para cargar tablas de forma masiva
 

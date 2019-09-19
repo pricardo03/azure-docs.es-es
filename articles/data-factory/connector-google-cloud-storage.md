@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: fba6feb035e47cfdfbe830ea628fc91cb483a907
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: fcfdf7de3d121030e0ceb345829b153235a52703
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840280"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813512"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage con Azure Data Factory
 
@@ -84,12 +84,12 @@ Este es un ejemplo:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
-- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
+- Para otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en el **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos desde el **formato binario, de texto delimitado, Parquet o Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y configuraciones admitidas. Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Para copiar datos en el **formato binario, de texto delimitado o Parquet**, cons
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos de Google Cloud Storage en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes:
+Para copiar datos de Google Cloud Storage en **formato ORC**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -183,12 +183,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage como origen
 
-- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
-- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
+- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos desde el **formato de texto binario, de texto delimitado, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Google Cloud Storage en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -247,7 +247,7 @@ Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos de Google Cloud Storage en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
+Para copiar datos de Google Cloud Storage en **formato ORC**, se admiten las propiedades siguientes en la sección **origen** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

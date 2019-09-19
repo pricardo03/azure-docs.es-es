@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527313"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735084"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  
@@ -54,13 +54,7 @@ La extensión Azure Diagnostics se usa con otros productos de diagnóstico de Mi
  A partir de SDK 2.5 (versión 1.2 de Diagnósticos), Diagnósticos de Azure pasó a un modelo de extensión. Las herramientas para usar las características nuevas solo estaban disponibles en las versiones más recientes de Azure SDK, pero cualquier servicio que use Azure Diagnostics seleccionaría la versión de envío más reciente directamente desde Azure. Por ejemplo, cualquier usuario que siga usando SDK 2.5 estaría cargando la versión más reciente que se muestra en la tabla anterior, sin importar si usan las características más recientes.  
 
 ## <a name="schemas-index"></a>Índice de esquemas  
-Las distintas versiones de Azure Diagnostics utilizan esquemas de configuración diferentes.
-
-[Esquema de configuración de Diagnósticos 1.0](diagnostics-extension-schema-1dot0.md)  
-
-[Esquema de configuración de Diagnósticos 1.2](diagnostics-extension-schema-1dot2.md)  
-
-[Esquema de configuración de Diagnósticos 1.3 y versiones posteriores](diagnostics-extension-schema-1dot3.md)  
+Las distintas versiones de Azure Diagnostics utilizan esquemas de configuración diferentes. Los esquemas 1.0 y 1.2 están en desuso. Para más información sobre la versión 1.3 y versiones posteriores, consulte [Esquema de configuración de Diagnostics 1.3 y versiones posteriores](diagnostics-extension-schema-1dot3.md).  
 
 ## <a name="version-history"></a>Historial de versiones
 

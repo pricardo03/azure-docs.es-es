@@ -1,6 +1,6 @@
 ---
 title: Supervisión del rendimiento de un clúster en Azure HDInsight
-description: Supervisión de la capacidad y rendimiento de un clúster de HDInsight.
+description: Cómo supervisar el estado y el rendimiento de los clústeres de Apache Hadoop en Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393412"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879702"
 ---
-# <a name="monitor-cluster-performance"></a>Supervisión del rendimiento de un clúster
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
 La supervisión del mantenimiento y rendimiento de un clúster de HDInsight es esencial para mantener un rendimiento y una utilización óptimos de los recursos. La supervisión puede ayudarle también a detectar y solucionar problemas de código de usuario y de errores de configuración del clúster.
 
@@ -68,7 +68,7 @@ Para obtener una visión más detallada de las colas, seleccione en el panel de 
 
 En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Programador) en el menú de la izquierda. Se ve una lista de las colas debajo de *Application Queues* (Colas de aplicación). Aquí puede ver la capacidad que se usa para cada una de las colas, cómo se distribuyen los trabajos entre ellas y si alguno de los trabajos tiene los recursos restringidos.
 
-![Vínculo del menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 

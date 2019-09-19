@@ -2,31 +2,25 @@
 title: Guía de planeamiento y operaciones de Security Center | Microsoft Docs
 description: Este documento lo ayuda a planear antes de adoptar Azure Security Center y proporciona consideraciones sobre las operaciones diarias.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afb7d4530a56687e7cd4d9c279451870d5567284
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032118"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910587"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
-Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.
+Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
 
 
 ## <a name="planning-guide"></a>Guía de planeamiento
-Esta guía abarca un conjunto de pasos y tareas que se pueden seguir para optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración de nube de su organización. Para poder beneficiarse plenamente de Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas al desarrollo y las operaciones seguros, la supervisión, la gobernanza y la respuesta a incidentes. Las áreas clave que se deben tener en cuenta al planear el uso de Security Center son:
+Esta guía abarca una serie de tareas que se pueden seguir para optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración de la nube de su organización. Para poder beneficiarse plenamente de Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas al desarrollo y las operaciones seguros, la supervisión, la gobernanza y la respuesta a incidentes. Las áreas clave que se deben tener en cuenta al planear el uso de Security Center son:
 
 * Roles de seguridad y controles de acceso
 * Directivas de seguridad y recomendaciones
@@ -81,7 +75,7 @@ Security Center usa el [control de acceso basado en rol (RBAC)](../role-based-ac
 - **Lector de seguridad**: un usuario que pertenece a este rol solo puede ver las configuraciones de Security Center, que incluyen recomendaciones, alertas, directivas y estados, pero no puede realizar cambios.
 - **Administrador de seguridad**: igual que el lector de seguridad pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
 
-Los roles de Security Center descritos anteriormente no tienen acceso a otras áreas de servicio de Azure, como Storage, Web y móvil o Internet de las cosas.  
+Los roles de Security Center descritos anteriormente no tienen acceso a otras áreas de servicio de Azure, como Storage, Web y móvil o Internet de las cosas.
 
 Con las personas que se explican en este diagrama, sería necesario el siguiente control de acceso basado en rol (RBAC):
 
@@ -142,7 +136,7 @@ Cuando el aprovisionamiento automático está habilitado en la directiva de segu
 
 Microsoft Monitoring Agent para Windows requiere el uso del puerto TCP 443. Para más información, consulte el [artículo de solución de problemas](security-center-troubleshooting-guide.md).
 
-Si en algún momento desea deshabilitar la recopilación de datos, puede desactivarla en la directiva de seguridad. Sin embargo, como Microsoft Monitoring Agent se puede usar en otros servicios de administración y supervisión de Azure, el agente no se desinstalará automáticamente cuando desactive la recopilación de datos en  Security Center. En caso necesario, puede desinstalar el agente manualmente.
+Si en algún momento desea deshabilitar la recopilación de datos, puede desactivarla en la directiva de seguridad. Sin embargo, como Microsoft Monitoring Agent se puede usar en otros servicios de administración y supervisión de Azure, el agente no se desinstalará automáticamente cuando desactive la recopilación de datos en Security Center. En caso necesario, puede desinstalar el agente manualmente.
 
 > [!NOTE]
 > Para encontrar una lista de máquinas virtuales admitidas, lea las [preguntas frecuentes sobre Azure Security Center](security-center-faq.md).
@@ -197,21 +191,21 @@ Cuando agregue nuevos recursos (máquinas virtuales, bases de datos SQL) a su en
 1. En máquinas virtuales, haga clic en **Compute**, en la sección **Prevención**. Cualquier problema con la habilitación de los datos o recomendaciones relacionadas aparecerán en la pestaña **Información general** y la sección **Monitoring Recommendations** (Recomendaciones de supervisión).
 2. Vea las **recomendaciones** para comprobar si se identificó algún riesgo de seguridad para el nuevo recurso.
 3. Es muy habitual que cuando se agregan nuevas máquinas virtuales a su entorno, al principio solo esté instalado el sistema operativo. Es posible que el propietario del recurso tarde un tiempo en implementar otras aplicaciones que se usarán en estas máquinas virtuales.  Idealmente, debe conocer el objetivo final de esta carga de trabajo. ¿Va a ser un servidor de aplicaciones? En función de lo que vaya a ser esta nueva carga de trabajo, puede habilitar la **directiva de seguridad**correspondiente, lo cual es el tercer paso de este flujo de trabajo.
-4. A medida que se agreguen nuevos recursos a su entorno de Azure, es posible que aparezcan nuevas alertas en el icono **Alertas de seguridad** . Compruebe siempre si hay nuevas alertas en este icono y actúe según las recomendaciones de Security Center.
+4. A medida que se agreguen nuevos recursos al entorno de Azure, es posible que aparezcan nuevas alertas en el icono **Alertas de seguridad**. Busque nuevas alertas en este icono y siga las recomendaciones.
 
-También debería supervisar periódicamente el estado de los recursos existentes para identificar los cambios de configuración que hayan creado riesgos de seguridad, la separación respecto a las líneas base recomendadas y las alertas de seguridad. Comience en el panel de Security Center. Desde allí deberá revisar tres áreas principales de forma periódica.
+También debería supervisar periódicamente los recursos existentes en busca de cambios de configuración que podrían haber creado riesgos de seguridad, desviaciones de las bases de referencia recomendadas y alertas de seguridad. Comience en el panel de Security Center. Ahí, deberá revisar tres áreas principales de forma periódica.
 
 ![Operaciones](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. En el panel de la sección **Prevención** se proporciona acceso rápido a los recursos principales. Use esta opción para supervisar los recursos Compute, Redes, Almacenamiento y datos y Aplicación.
-2. El panel **Recomendaciones** permite revisar las recomendaciones de Security Center. Durante la supervisión continuada, es posible que no vea recomendaciones todos los días, lo cual es normal ya que procesó todas las recomendaciones durante la configuración inicial de Security Center. Por este motivo, es posible que no aparezca en esta sección información nueva todos los días y solo tenga que acceder a ella cuando sea necesario.
+2. El panel **Recomendaciones** permite revisar las recomendaciones de Security Center. Durante la supervisión continuada, es posible que no vea recomendaciones todos los días, lo cual es normal ya que todas las recomendaciones se abordaron durante la configuración inicial de Security Center. Por este motivo, es posible que no aparezca en esta sección información nueva todos los días y solo tenga que acceder a ella cuando sea necesario.
 3. La sección **Detección** podría cambiar con mucha frecuencia o con muy poca. Revise siempre las alertas de seguridad y tome medidas basadas en las recomendaciones de Security Center.
 
 ### <a name="hardening-access-and-applications"></a>Protección de acceso y aplicaciones
 
 Como parte de las operaciones de seguridad, también debe adoptar medidas preventivas para restringir el acceso a las máquinas virtuales y controlar las aplicaciones que se ejecutan en ellas. Si bloquea el tráfico entrante a las máquinas virtuales de Azure, reduce la exposición a los ataques y, al mismo tiempo, proporciona un acceso fácil para conectarse a ellas cuando es necesario. Use la característica [Acceso a VM Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para proteger el acceso a las máquinas virtuales.
 
-Puede usar [controles de aplicación adaptables](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) como ayuda para controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales que se encuentran en Azure y, entre otras ventajas, le ayudan a proteger las máquinas virtuales frente a malware. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
+Puede usar [controles de aplicación adaptables](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar las aplicaciones que se pueden ejecutar en las máquinas virtuales que se encuentran en Azure. Entre otras ventajas, esto ayuda a proteger las máquinas virtuales frente al malware. Con el aprendizaje automático, Security Center analiza los procesos que se ejecutan en la máquina virtual para ayudarle a crear reglas de inclusión en la lista de permitidos.
 
 
 ## <a name="incident-response"></a>Respuesta a los incidentes

@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983079"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811663"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 
@@ -229,10 +229,10 @@ Siga los pasos siguientes para crear un ejemplo del conector de Hive Warehouse e
 1. Aplique una directiva de enmascaramiento de columnas que solo muestre los últimos cuatro caracteres de la columna.  
     1. Abra la interfaz de usuario de administrador de Ranger en `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Haga clic en el servicio de Hive de su clúster en **Hive**.
-        ![tabla de demostración antes de aplicar la directiva de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Haga clic en la pestaña **Enmascaramiento** y, a continuación, **Agregar nueva directiva** ![lista de directivas](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png).
+        ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+    1. Haga clic en la pestaña **Masking** (Enmascaramiento) y, luego, en **Add New Policy** (Agregar nueva directiva). ![lista de directivas de hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png).
     1. Proporcione el nombre que quiera para la directiva y seleccione las opciones siguientes. Para la base de datos: **valor predeterminado**; tabla de Hive: **demostración**; columna de Hive: **nombre**; usuario: **rsadmin2**; tipos de acceso: **select** (determinados) y, en el menú **Select Masking Option** (Seleccionar opción de enmascaramiento), **Partial mask: show last 4** (Máscara parcial: mostrar últimos 4). Haga clic en **Agregar**.
-                ![lista de directivas](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                ![crear directiva](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Vuelva a consultar el contenido de la tabla. Después de aplicar la directiva de Ranger, solo podemos ver los cuatro últimos caracteres de la columna.
 
     ![tabla de demostración antes de aplicar la directiva de Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

@@ -2,31 +2,25 @@
 title: Acceso a máquina virtual Just-In-Time en Azure Security Center | Microsoft Docs
 description: En este documento se explica la forma en que el acceso a máquina virtual del tipo Just-In-Time en Azure Security Center le ayuda a controlar el acceso a máquinas virtuales de Azure.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: 671930b1-fc84-4ae2-bf7c-d34ea37ec5c7
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: f3e6cc0464c8f395db7cac0ebf8a16230f5ebcbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872926"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910602"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
 El acceso a máquina virtual (VM) Just-In-Time (JIT) se puede usar para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, se proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.
 
 > [!NOTE]
-> La característica Just-In-Time está disponible en el nivel Estándar de Security Center.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+> La característica Just-In-Time está disponible en el nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
 
 
 > [!NOTE]
@@ -61,7 +55,7 @@ Cuando un usuario solicita acceso a una máquina virtual, Security Center compru
 
 ## <a name="configure-jit-on-a-vm"></a>Configurar JIT en una VM
 
-Existen tres maneras de configurar una directiva JIT en una VM:
+Existen tres maneras de configurar una directiva JIT en una máquina virtual:
 
 - [Configurar el acceso JIT en Azure Security Center](#jit-asc)
 - [Configurar el acceso JIT en una hoja de VM de Azure](#jit-vm)
@@ -72,11 +66,11 @@ Existen tres maneras de configurar una directiva JIT en una VM:
 Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM mediante una directiva JIT
 
 
-### Configurar el acceso JIT en una VM en ASC<a name="jit-asc"></a>
+### Configurar el acceso JIT en una máquina virtual en ASC <a name="jit-asc"></a>
 
 1. Abra el panel **Security Center**.
 
-2. En el panel izquierdo, seleccione **Acceso a VM Just-In-Time**.
+2. En el panel izquierdo, seleccione **Just-in-time VM access** (Acceso a máquina virtual del tipo Just-In-Time).
 
     ![Icono de acceso a máquina virtual del tipo Just-In-Time](./media/security-center-just-in-time/just-in-time.png)
 
@@ -87,7 +81,7 @@ Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM medi
     **Just-in-time VM access** (Acceso a máquina virtual del tipo Just-In-Time) proporciona información acerca del estado de las máquinas virtuales:
 
     - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time. Los datos que se muestran son de la última semana e incluyen, para cada máquina virtual, el número de solicitudes aprobadas, la fecha y hora del último acceso y el último usuario.
-    - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time, pero que no se han configurado para ello. Se recomienda habilitar el control de acceso a máquina virtual Just-In-Time para estas máquinas virtuales. 
+    - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time, pero que no se han configurado para ello. Se recomienda habilitar el control de acceso a máquina virtual Just-In-Time para estas máquinas virtuales.
     - **Ninguna recomendación**: una máquina virtual podría no recomendarse por diversas razones:
       - Falta grupo de seguridad de red: la solución Just-In-Time requiere que exista un grupo de seguridad de red.
       - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales implementadas mediante Azure Resource Manager. La solución Just-In-Time no admite las implementaciones clásicas. 
@@ -117,7 +111,7 @@ Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM medi
 1. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
->Cuando el acceso a la VM JIT se habilita en una VM, Azure Security Center crea reglas para denegar todo el tráfico entrante para los puertos seleccionados en los grupos de seguridad de red asociados y en Azure Firewall. Si no se habían creado otras reglas para los puertos seleccionados, las reglas existentes tienen prioridad sobre las nuevas reglas para "denegar todo el tráfico entrante". Si no hay ninguna regla existente en los puertos seleccionados, las nuevas reglas de "denegar todo el tráfico entrante" tienen prioridad principal en grupos de seguridad de red y Azure Firewall.
+>Cuando el acceso a la VM JIT se habilita en una VM, Azure Security Center crea reglas para denegar todo el tráfico entrante para los puertos seleccionados en los grupos de seguridad de red asociados y en Azure Firewall. Si no se habían creado otras reglas para los puertos seleccionados, las reglas existentes tienen prioridad sobre las nuevas reglas para “denegar todo el tráfico entrante”. Si no hay ninguna regla existente en los puertos seleccionados, las nuevas reglas de "denegar todo el tráfico entrante" tienen prioridad principal en grupos de seguridad de red y Azure Firewall.
 
 
 ## <a name="request-jit-access-via-asc"></a>Solicitar acceso JIT a través de ASC
@@ -131,7 +125,7 @@ Para solicitar acceso a una VM a través de ASC:
 
     - El icono de la columna **Detalles de la conexión** indica si JIT está habilitado en el NSG o firewall. Si está habilitado en ambos, solo aparece el icono de firewall.
 
-    - En la columna **Detalles de la conexión** se proporciona la información correcta necesaria para conectarse a la VM y se indican los puertos abiertos.
+    - En la columna **Detalles de la conexión** se proporciona la información necesaria para conectarse a la máquina virtual y sus puertos abiertos.
 
       ![Solicitud de acceso Just-In-Time](./media/security-center-just-in-time/request-just-in-time-access.png)
 
@@ -213,7 +207,7 @@ En Azure Portal, al intentar conectarse a una máquina virtual, Azure comprueba 
   Se solicita el acceso con los parámetros predeterminados siguientes:
 
   - **source IP**: "Cualquiera" (*) (no se puede modificar)
-  - **time range**: 3 horas (o se puede modificar)  <!--Isn't this set in the policy-->
+  - **time range**: Tres horas (o se puede modificar) <!--Isn't this set in the policy-->
   - **port number**: puerto RDP 3389 para Windows; puerto 22 para Linux (se puede cambiar)
 
     > [!NOTE]
@@ -223,7 +217,7 @@ En Azure Portal, al intentar conectarse a una máquina virtual, Azure comprueba 
 
   ![solicitud de jit](./media/security-center-just-in-time/jit-prompt.png)
 
-## Configurar una directiva JIT en una VM mediante programación<a name="jit-program"></a>
+## Configurar una directiva JIT en una VM mediante programación <a name="jit-program"></a>
 
 Just-In-Time se puede configurar y usar tanto a través de las API REST como de PowerShell.
 

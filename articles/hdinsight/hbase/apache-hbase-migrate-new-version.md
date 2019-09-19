@@ -1,6 +1,6 @@
 ---
 title: 'Migración de un clúster de HBase a una versión nueva: Azure HDInsight'
-description: Migración de clústeres de HBase a una versión nueva.
+description: Migración de clústeres de Apache HBase a una versión más reciente en Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143323"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917438"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migración de un clúster de Apache HBase a una versión nueva
 
@@ -180,7 +180,7 @@ Para actualizar el clúster de Apache HBase en Azure HDInsight, realice los paso
 5. Para asegurarse de que se vacían todos los datos recientes del almacén memstore, vuelva a ejecutar el script anterior.
 6. Inicie sesión en [Apache Ambari](https://ambari.apache.org/) en el clúster antiguo (https://OLDCLUSTERNAME.azurehdidnsight.net) y detenga los servicios de HBase. Cuando se le pida confirmar que quiere detener los servicios, active la casilla para habilitar el modo de mantenimiento para HBase. Para más información sobre la conexión y el uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-    ![En Ambari, haga clic en Services > HBase > Stop (Servicios > HBase > Detener) en Service Actions (Acciones de servicio)](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![En Ambari, haga clic en Services > HBase > Stop (Servicios > HBase > Detener) en Service Actions (Acciones de servicio)](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![Active la casilla de verificación para habilitar el modo de mantenimiento para HBase y confirme](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 

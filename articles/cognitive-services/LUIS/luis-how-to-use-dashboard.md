@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932714"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735053"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el Panel para mejorar la aplicación
 
@@ -78,9 +78,9 @@ El método principal para corregir la aplicación es agregar o editar las expres
 
 La adición de expresiones de ejemplo la debe realizar alguien que:
 
-* tenga un alto grado de conocimiento de las expresiones que hay en las distintas intenciones
-* sepa cómo se podrían confundir las expresiones de una intención con otra intención
-* pueda decidir si dos intenciones que se confunden con frecuencia se deberían contraer en una única intención y extraer los datos diferentes con entidades
+* Tenga un alto grado de conocimiento de las expresiones que hay en las distintas intenciones.
+* Sepa cómo se podrían confundir las expresiones de una intención con otra intención.
+* Pueda decidir si dos intenciones que se confunden con frecuencia se deberían contraer en una única intención. Si este es el caso, los distintos datos deben extraerse con entidades.
 
 ### <a name="patterns-and-phrase-lists"></a>Patrones y listas de frases
 
