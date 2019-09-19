@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321846"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090781"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante Python API
 
@@ -123,7 +123,7 @@ En las secciones siguientes se desglosan los pasos que lleva a cabo la aplicaci�
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticación de los clientes de Blob y Batch
 
-Para interactuar con una cuenta de almacenamiento, la aplicación usa el paquete [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para crear un objeto [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice).
+Para interactuar con una cuenta de almacenamiento, la aplicación usa el paquete [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) para crear un objeto [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice).
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Carga de archivos de entrada
 
-La aplicación usa la referencia a `blob_client` para crear un contenedor de almacenamiento para los archivos MP4 de entrada y uno para la salida de la tarea. A continuación, llama a la función `upload_file_to_container` para cargar los archivos MP4 del directorio `InputFiles` local en el contenedor. Los archivos de almacenamiento se definen como objetos [ResourceFile](/python/api/azure.batch.models.resourcefile) de Batch para que el servicio los descargue después en nodos de proceso.
+La aplicación usa la referencia a `blob_client` para crear un contenedor de almacenamiento para los archivos MP4 de entrada y uno para la salida de la tarea. A continuación, llama a la función `upload_file_to_container` para cargar los archivos MP4 del directorio `InputFiles` local en el contenedor. Los archivos de almacenamiento se definen como objetos [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) de Batch para que el servicio los descargue después en nodos de proceso.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -165,13 +165,13 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Creación de un grupo de nodos de proceso
 
-Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Batch con una llamada a `create_pool`. Esta función definida usa la clase [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) de Batch para establecer el número de nodos, el tamaño de la máquina virtual y una configuración de grupo. En este caso, un objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica un valor de [ImageReference](/python/api/azure.batch.models.imagereference) a una imagen de Ubuntu Server 18.04 LTS publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de máquina virtual de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
+Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Batch con una llamada a `create_pool`. Esta función definida usa la clase [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) de Batch para establecer el número de nodos, el tamaño de la máquina virtual y una configuración de grupo. En este caso, un objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica un valor de [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) a una imagen de Ubuntu Server 18.04 LTS publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de máquina virtual de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
 
 El número de nodos y el tamaño de la máquina virtual se establecen mediante constantes definidas. Batch admite nodos especializados y [nodos de prioridad baja](batch-low-pri-vms.md), y en los grupos puede utilizar ambos. Los nodos dedicados están reservados para el grupo. Los nodos de prioridad baja se ofrecen a precio reducido por la capacidad sobrante de las máquinas virtuales de Azure. Los nodos de prioridad baja dejan de estar disponibles si Azure no tiene capacidad suficiente. En el ejemplo, de forma predeterminada se crea un grupo que contiene solo 5 nodos de baja prioridad con el tamaño *Standard_A1_v2*. 
 
-Además de las propiedades de nodo físico, esta configuración de grupo incluye un objeto [StartTask](/python/api/azure.batch.models.starttask). StartTask se ejecutará en cada nodo cuando este se una al grupo, así como cada vez que se reinicie. En este ejemplo, StartTask ejecuta comandos de shell de Bash para instalar el paquete de ffmpeg y las dependencias en los nodos.
+Además de las propiedades de nodo físico, esta configuración de grupo incluye un objeto [StartTask](/python/api/azure-batch/azure.batch.models.starttask). StartTask se ejecutará en cada nodo cuando este se una al grupo, así como cada vez que se reinicie. En este ejemplo, StartTask ejecuta comandos de shell de Bash para instalar el paquete de ffmpeg y las dependencias en los nodos.
 
-El método [pool.add](/python/api/azure.batch.operations.pooloperations) envía el grupo al servicio Batch.
+El método [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) envía el grupo al servicio Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -201,7 +201,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
-Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `create_job`. Esta función definida usa la clase [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para crear un trabajo en el grupo. El método [job.add](/python/api/azure.batch.operations.joboperations) envía el grupo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
+Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `create_job`. Esta función definida usa la clase [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para crear un trabajo en el grupo. El método [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) envía el grupo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -213,11 +213,11 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Creación de tareas
 
-La aplicación crea tareas en el trabajo con una llamada a `add_tasks`. Esta función definida crea una lista de objetos de tarea mediante la clase [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Las tareas ejecutan ffmpeg para procesar un objeto `resource_files` de entrada con un parámetro `command_line`. Al crear el grupo, ffmpeg se instaló previamente en todos los nodos. En este caso, la línea de comandos ejecuta ffmpeg para convertir los archivos MP4 de entrada (vídeo) en archivos MP3 (audio).
+La aplicación crea tareas en el trabajo con una llamada a `add_tasks`. Esta función definida crea una lista de objetos de tarea mediante la clase [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Las tareas ejecutan ffmpeg para procesar un objeto `resource_files` de entrada con un parámetro `command_line`. Al crear el grupo, ffmpeg se instaló previamente en todos los nodos. En este caso, la línea de comandos ejecuta ffmpeg para convertir los archivos MP4 de entrada (vídeo) en archivos MP3 (audio).
 
-En el ejemplo se crea un objeto [OutputFile](/python/api/azure.batch.models.outputfile) para el archivo MP3 después de ejecutar la línea de comandos. Los archivos de salida de la tarea (en este caso, uno) se cargan en un contenedor en la cuenta de Storage vinculada mediante la propiedad `output_files` de la tarea.
+En el ejemplo se crea un objeto [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) para el archivo MP3 después de ejecutar la línea de comandos. Los archivos de salida de la tarea (en este caso, uno) se cargan en un contenedor en la cuenta de Storage vinculada mediante la propiedad `output_files` de la tarea.
 
-A continuación, la aplicación agrega tareas al trabajo con el método [task.add_collection](/python/api/azure.batch.operations.taskoperations), que las pone en cola para que se ejecuten en los nodos de proceso. 
+A continuación, la aplicación agrega tareas al trabajo con el método [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), que las pone en cola para que se ejecuten en los nodos de proceso. 
 
 ```python
 tasks = list()
@@ -247,7 +247,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 Al agregar tareas a un trabajo, Batch las pone en cola automáticamente y las programa para que se ejecuten en nodos de proceso del grupo asociado. Según la configuración que especifique, Batch controla la administración de las colas, la programación, los reintentos y otras labores de administración de tareas. 
 
-Existen varios enfoques para supervisar la ejecución de tareas. La función `wait_for_tasks_to_complete` de este ejemplo usa el objeto [TaskState](/python/api/azure.batch.models.taskstate) para supervisar un estado concreto de las tareas, en este caso, el estado completado, en un tiempo determinado.
+Existen varios enfoques para supervisar la ejecución de tareas. La función `wait_for_tasks_to_complete` de este ejemplo usa el objeto [TaskState](/python/api/azure-batch/azure.batch.models.taskstate) para supervisar un estado concreto de las tareas, en este caso, el estado completado, en un tiempo determinado.
 
 ```python
 while datetime.datetime.now() < timeout_expiration:
@@ -267,7 +267,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de ejecutar las tareas, la aplicación elimina automáticamente el contenedor de almacenamiento de entrada que creó y ofrece la opción de eliminar el grupo y el trabajo de Batch. Las clases [JobOperations](/python/api/azure.batch.operations.joboperations) y [Pool Operations](/python/api/azure.batch.operations.pooloperations) tienen sus métodos de eliminación correspondientes, a los que se llama si el usuario confirma la eliminación. Aunque no se cobran los trabajos y las tareas, sí se cobran los nodos de proceso. Por consiguiente, se recomienda asignar solo los grupos necesarios. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de entrada y salida permanecen en la cuenta de Storage.
+Después de ejecutar las tareas, la aplicación elimina automáticamente el contenedor de almacenamiento de entrada que creó y ofrece la opción de eliminar el grupo y el trabajo de Batch. Las clases [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) y [Pool Operations](/python/api/azure-batch/azure.batch.operations.pooloperations) tienen sus métodos de eliminación correspondientes, a los que se llama si el usuario confirma la eliminación. Aunque no se cobran los trabajos y las tareas, sí se cobran los nodos de proceso. Por consiguiente, se recomienda asignar solo los grupos necesarios. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de entrada y salida permanecen en la cuenta de Storage.
 
 Cuando ya no los necesite, elimine el grupo de recursos, la cuenta de Batch y la de Storage. Para hacerlo desde Azure Portal, seleccione el grupo de recursos de la cuenta de Batch y haga clic en **Eliminar grupo de recursos**.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c5583f38f7a7f5a3654bfdd27620593175cf58
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 44121b959d13a92ca1f4cca0e5a0c00341d1ac18
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562663"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073743"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Inicio rápido: Extracción de datos de recibos mediante la API REST Form Recognizer con Python
 
@@ -36,7 +36,7 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 Para empezar a analizar un recibo, llame a la API **Analyze Receipt** mediante el siguiente script de Python. Antes de ejecutar el script, realice estos cambios:
 
-1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
 1. Reemplace `<your receipt URL>` por la dirección URL de una imagen del recibo.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
 

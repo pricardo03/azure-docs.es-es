@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c4c6348c0af478ae3df160c4c50cb344456177b0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899888"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984660"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
@@ -49,7 +49,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
 2. En la pantalla de bienvenida, vaya a **Configure** > **Plugins** (Configurar > Complementos) para abrir la ventana **Plugins** (Complementos).
 
-    ![Habilitar complemento de Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
+    ![Habilitar complemento de Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
 
 3. Seleccione **Install** (Instalar) para el complemento de Scala que se presenta en la nueva ventana.  
 
@@ -82,7 +82,7 @@ Para instalar el complemento Scala, siga estos pasos:
   	|Project SDK (SDK del proyecto)| Se queda en blanco la primera vez que se usa IDEA.  Seleccione **New...** (Nuevo...) y vaya a su JDK.|
   	|Versión de Spark|El asistente de creación integra la versión adecuada de los SDK de Spark y Scala. Si la versión del clúster de Spark es inferior a la 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. En este ejemplo se usa **Spark 2.3.0 (Scala 2.11.8)** .|
 
-    ![Selección del SDK de Spark](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+    ![Selección del SDK de Spark](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
 7. Seleccione **Finalizar**.
 
@@ -125,7 +125,7 @@ Para instalar el complemento Scala, siga estos pasos:
 
 16. Seleccione **Aplicar** y luego **Aceptar**.  Volverá a la ventana del proyecto.
 
-    ![Configurar Maven para descargas automáticas](./media/apache-spark-create-standalone-application/configure-maven.png)
+    ![Configurar Maven para descargas automáticas](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
 
 17. En el panel izquierdo, vaya a **src** > **main** > **scala** > **com.microsoft.spark.example**y haga doble clic en **App** para abrir App.scala.
@@ -177,21 +177,21 @@ Para instalar el complemento Scala, siga estos pasos:
 
     2. En la ventana **Project Structure** (Estructura de proyecto), vaya a **Artifacts** > **the plus symbol +**  > **JAR** > **From modules with dependencies...** (Artefactos > el símbolo + > JAR > Desde módulos con dependencias).
 
-        ![Crear JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Crear JAR1](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
 
     3. En la ventana **Create JAR from Modules** (Crear JAR a partir de módulos), seleccione el icono de carpeta en el cuadro de texto **Main Class** (Clase principal).
 
     4. En el cuadro de diálogo **Select Main Class** (Seleccionar clase principal), seleccione la clase que aparece de forma predeterminada y, luego, seleccione **OK** (Aceptar).
 
-        ![Crear JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Crear JAR2](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
 
     5. En la ventana **Create JAR from Modules** (Crear JAR desde módulos), asegúrese de que está seleccionada la opción **Extract to the target JAR** (Extraer al archivo JAR de destino) y, después, seleccione **OK** (Aceptar).  Este valor crea un archivo JAR único con todas las dependencias.
 
-        ![Crear JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Crear JAR3](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
     6. La pestaña **Output Layout** (Diseño de salida) enumera todos los archivos JAR que forman parte del proyecto Maven. Puede seleccionar y eliminar aquellos de los que la aplicación de Scala no tenga ninguna dependencia directa. Para la aplicación que va a crear aquí puede quitar todos, salvo el último (**SparkSimpleApp compile output**). Seleccione los archivos JAR que va a eliminar y, después, seleccione símbolo negativo **-** .
 
-        ![Crear JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Crear JAR4](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
         Asegúrese de que la casilla **Include in project build** (Incluir en compilación del proyecto) esté activada para garantizar que el archivo JAR se crea cada vez que el proyecto se compila o actualiza. Seleccione **Apply** (Aplicar) y, después, **OK** (Aceptar).
 
