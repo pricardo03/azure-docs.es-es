@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087004"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutorial: Integración de Azure Active Directory con Workable
 
@@ -142,7 +142,7 @@ Para habilitar el inicio de sesión único en Workable, póngase en contacto con
 
 3. URL de cierre de sesión
 
-Una vez que habilite el inicio de sesión único, el administrador de cuentas de Workable se lo informará y podrá usar la [página de inicio de sesión único de Workable](https://id.workable.com/sso/signin) para iniciar sesión con el subdominio de su cuenta de Workable.
+Una vez que habilite el inicio de sesión único, el administrador de cuentas de Workable se lo informará y podrá usar la [página de inicio de sesión único de Workable](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) para iniciar sesión con el subdominio de su cuenta de Workable.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
