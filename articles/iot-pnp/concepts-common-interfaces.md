@@ -3,16 +3,16 @@ title: 'Interfaces comunes: IoT Plug and Play (versión preliminar) | Microsoft 
 description: Descripción de las interfaces comunes para desarrolladores de Plug and Play de IoT
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/16/2019
+ms.date: 09/08/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114262"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935322"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comunes de IoT Plug and Play (versión preliminar)
 
@@ -38,11 +38,11 @@ Se espera que todos los dispositivos IoT Plug and Play implementen algunas inter
 Puede usar la extensión de Azure IoT para la CLI de Azure para recuperar las interfaces comunes del repositorio de modelos público.
 
 ```cmd/sh
-az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface show --interface {InterfaceID}
 ```
 
 ```cmd/sh
-az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp capability-model show --model {ModelID}
 ```
 
 ### <a name="vs-code"></a>Código de VS

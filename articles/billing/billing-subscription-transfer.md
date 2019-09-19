@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e4496e2b5d2b21fd878ef68665b8e5b06fa6cc5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70012541"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103748"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -38,7 +38,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
 1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones** o **Suscripciones de Azure**.
 
-1. Seleccione **Transferir propiedad de la facturación** para la suscripción que quiera transferir. 
+1. Seleccione **Transferir propiedad de la facturación** para la suscripción que quiera transferir.
 
    ![Seleccione la suscripción que va a transferir.](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
@@ -49,7 +49,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
     > [!IMPORTANT]
     >
     > Si opta por mover la suscripción al inquilino de Azure AD de la nueva cuenta, todas las asignaciones de [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) para administrar los recursos de la suscripción se quitan de forma permanente. Solo el usuario de la nueva cuenta que acepte la solicitud de transferencia tendrá acceso para administrar los recursos de la suscripción. Para obtener más información, consulte [Transferencia de la suscripción a un usuario en otro inquilino de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md). También puede desactivar la casilla Subscription Azure AD tenant (Inquilino de Azure AD de la suscripción) para transferir la propiedad de facturación sin mover la suscripción al inquilino de la nueva cuenta. Si lo hace así, se mantendrán los permisos RBAC existentes para administrar los recursos de Azure.
-  
+
     ![Envío de la página de transferencia](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
 1. Seleccione **Enviar solicitud de transferencia**.
@@ -58,7 +58,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
    ![Correo electrónico de transferencia de suscripción enviado al destinatario](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones. El usuario debería que seleccionar un método de pago que se usará para pagar la suscripción. Además, si el usuario no tiene una cuenta de Azure, deberá registrarse para obtener una cuenta nueva. 
+1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones. El usuario debería que seleccionar un método de pago que se usará para pagar la suscripción. Además, si el usuario no tiene una cuenta de Azure, deberá registrarse para obtener una cuenta nueva.
 
    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
 
@@ -79,7 +79,7 @@ Cuando transfiere la propiedad de facturación de la suscripción a una cuenta e
 
 ## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Transferencia de suscripciones de Visual Studio, MPN y Desarrollo/pruebas - Pago por uso
 
-Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito de Azure periódico mensual asociado. Al transferir estas suscripciones, el crédito no está disponible en la cuenta de facturación de destino. La suscripción usa el crédito de la cuenta de facturación de destino. Por ejemplo, si Roberto transfiere una suscripción de Visual Studio Enterprise a la cuenta de Julia el 9 de septiembre y Julia acepta a la transferencia. Una vez completada la transferencia, la suscripción empieza a usar el crédito de la cuenta de Jane. El crédito se restablecerá el día 9 de cada mes. 
+Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito de Azure periódico mensual asociado. Al transferir estas suscripciones, el crédito no está disponible en la cuenta de facturación de destino. La suscripción usa el crédito de la cuenta de facturación de destino. Por ejemplo, si Roberto transfiere una suscripción de Visual Studio Enterprise a la cuenta de Julia el 9 de septiembre y Julia acepta a la transferencia. Una vez completada la transferencia, la suscripción empieza a usar el crédito de la cuenta de Jane. El crédito se restablecerá el día 9 de cada mes.
 
 
 <a id="EA"></a>
@@ -107,9 +107,9 @@ La transferencia de suscripciones en Azure Portal está disponible para los tipo
 
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
-- [Suscriptores de Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) 
+- [Suscriptores de Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/)
 - [Plataformas de MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)  
-- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) 
+- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
@@ -119,7 +119,7 @@ La transferencia de suscripciones en Azure Portal está disponible para los tipo
 
 \* [A través del portal de EA](#EA).
 
-\*\* Solo se admite para las cuentas que se crean durante el registro en el sitio web de Azure. 
+\*\* Solo se admite para las cuentas que se crean durante el registro en el sitio web de Azure.
 
 <a id="faq"></a>
 
@@ -134,8 +134,14 @@ Un administrador de facturación es una persona que tiene permiso para administr
 Para identificar las cuentas de las que es administrador de facturación, siga estos pasos:
 
 1. Visite la [página Administración de costos + facturación en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
-1. Seleccione **Todos los ámbitos de facturación** en el panel izquierdo. 
+1. Seleccione **Todos los ámbitos de facturación** en el panel izquierdo.
 1. La página de suscripciones enumera todas las suscripciones de las que es administrador de facturación.
+
+Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
+
+1. Visite la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
+1. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>¿Se transfiere todo? ¿Incluidos los grupos de recursos, las máquinas virtuales, los discos y otros servicios en ejecución?
 
@@ -201,13 +207,13 @@ Sí. Al aceptar la solicitud de transferencia, puede seleccionar un método de p
 
 ### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 
-La transferencia de suscripción de autoservicio no está disponible para su cuenta de facturación. Actualmente, no se admite la transferencia de la propiedad de facturación de suscripciones en cuentas de Contrato Enterprise (EA) en Azure Portal. Tampoco admiten la transferencia de la propiedad de facturación las cuentas de Contrato de cliente de Microsoft que se crean mientras trabaja con un representante de Microsoft. 
+La transferencia de suscripción de autoservicio no está disponible para su cuenta de facturación. Actualmente, no se admite la transferencia de la propiedad de facturación de suscripciones en cuentas de Contrato Enterprise (EA) en Azure Portal. Tampoco admiten la transferencia de la propiedad de facturación las cuentas de Contrato de cliente de Microsoft que se crean mientras trabaja con un representante de Microsoft.
 
-### <a id="no-button"></a> ¿Por qué mi tipo de suscripción no admite la transferencia? 
+### <a id="no-button"></a> ¿Por qué mi tipo de suscripción no admite la transferencia?
 
 No todos los tipos de suscripciones admiten la transferencia de la propiedad de facturación. Para ver la lista de tipos de suscripción que admiten transferencias, consulte [Tipos de suscripción admitidos](#supported-subscription-types).
 
-### <a id="no-button"></a> ¿Por qué recibo un error de acceso denegado al intentar transferir la propiedad de facturación de una suscripción? 
+### <a id="no-button"></a> ¿Por qué recibo un error de acceso denegado al intentar transferir la propiedad de facturación de una suscripción?
 
 Verá este error si intenta transferir una suscripción de un plan de Microsoft Azure y no tiene el permiso necesario. Para transferir una suscripción de un plan de Microsoft Azure, debe ser propietario o colaborador en la sección de la factura en la que se factura la suscripción. Para más información, consulte [Administrar las suscripciones para la sección de factura](billing-understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

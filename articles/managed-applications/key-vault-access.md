@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a87066425845a7f1043576a858a361e601ba9cc8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588301"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003426"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acceso al secreto de Key Vault al implementar Azure Managed Applications
 
-Cuando tiene que pasar un valor seguro (por ejemplo, una contraseña) como un parámetro durante la implementación, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md). Para acceder a Key Vault cuando se implementa Managed Applications, debe conceder acceso a la entidad de servicio del **proveedor de recursos de dispositivos**. El servicio Managed Applications utiliza esta identidad para ejecutar operaciones. Para recuperar correctamente un valor de un almacén de claves durante la implementación, es necesario que la entidad de servicio pueda obtener acceso al almacén de claves.
+Cuando tiene que pasar un valor seguro (por ejemplo, una contraseña) como un parámetro durante la implementación, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-overview.md). Para acceder a Key Vault cuando se implementa Managed Applications, debe conceder acceso a la entidad de servicio del **proveedor de recursos de dispositivos**. El servicio Managed Applications utiliza esta identidad para ejecutar operaciones. Para recuperar correctamente un valor de un almacén de claves durante la implementación, es necesario que la entidad de servicio pueda obtener acceso al almacén de claves.
 
 En este artículo se describe cómo configurar Key Vault para que funcione con Managed Applications.
 

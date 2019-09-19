@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67186707"
 ---
 Azure Data Lake Analytics facilita la compleja tarea de administrar infraestructuras distribuidas y códigos complicados. Además, aprovisiona los recursos de forma dinámica y se puede usar para realizar análisis sobre exabytes de datos. Cuando finaliza el trabajo, los recursos se reducen automáticamente. Solo se paga por la capacidad de procesamiento empleada. Conforme aumenta o disminuye el tamaño de los datos almacenados o la cantidad de proceso utilizado, no tiene que reescribir código. Para elevar los límites predeterminados de la suscripción, póngase en contacto con el soporte técnico.

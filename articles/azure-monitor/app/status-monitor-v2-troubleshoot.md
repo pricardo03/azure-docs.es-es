@@ -3,7 +3,7 @@ title: Problemas conocidos y soluciones del Monitor de estado de Azure v2 | Mic
 description: Problemas conocidos del Monitor de estado v2 y ejemplos de su solución. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424105"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058292"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Solución de problemas del Monitor de estado v2
 

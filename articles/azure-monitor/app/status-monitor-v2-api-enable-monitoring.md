@@ -3,7 +3,7 @@ title: 'Referencia de la API del Monitor de estado de Azure v2: Habilitación d
 description: Referencia de la API del Monitor de estado de Azure v2. Enable-ApplicationInsightsMonitoring. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d3963889e3604fb67cb526b992e7ca27b1212b59
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8742316697e6d6c8178bb02c8e7288499c655b6b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326353"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033130"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring"></a>API del Monitor de estado v2: Enable-ApplicationInsightsMonitoring.
 

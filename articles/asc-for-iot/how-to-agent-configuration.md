@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596324"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933879"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -87,28 +87,28 @@ Para usar un valor de propiedad predeterminado, quite la propiedad del objeto de
 
 1. En su IoT Hub, busque y seleccione el dispositivo que quiera cambiar.
 
-2. Haga clic en el dispositivo y, después, en el módulo **azureiotsecurity**.
+1. Haga clic en el dispositivo y, después, en el módulo **azureiotsecurity**.
 
-3. Haga clic en **Identidad de módulo gemela**.
+1. Haga clic en **Identidad de módulo gemela**.
 
-4. Edite las propiedades que desea cambiar en el módulo de seguridad.
+1. Edite las propiedades que desea cambiar en el módulo de seguridad.
    
    Por ejemplo, use la siguiente configuración para configurar eventos de conexión como de prioridad alta y recopilar eventos de prioridad alta cada 7 minutos.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="using-a-default-value"></a>Usar un valor predeterminado
 

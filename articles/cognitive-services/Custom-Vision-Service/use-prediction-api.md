@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883979"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966935"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Uso del modelo con Prediction API
 
@@ -44,8 +44,6 @@ Una vez que se ha publicado el modelo, puede recuperar la información necesaria
 
 ![La pestaña de rendimiento se muestra con un rectángulo rojo que rodea la dirección URL de predicción para el uso de un archivo de imagen y el valor de la clave de predicción.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> La __clave de predicción__ también puede encontrarse en la página de [Azure Portal](https://portal.azure.com) correspondiente al recurso de Azure de Custom Vision asociado con el proyecto, en la hoja __Claves__.
 
 En esta guía, se usará una imagen local, así que copie la dirección URL que aparece en **If you have an image file** (Si tiene un archivo de imagen) en una ubicación temporal. Copie también el valor correspondiente de __Prediction-Key__ (Clave de predicción).
 

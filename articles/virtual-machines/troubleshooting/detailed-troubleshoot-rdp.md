@@ -4,7 +4,7 @@ description: Revise los pasos detallados de solución de problemas para errores 
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: no se puede conectar a un escritorio remoto, solucionar problemas de escritorio remoto, no puede conectarse a escritorio remoto, errores de escritorio remotos, solución de problemas de escritorio remoto, problemas de escritorio remoto
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0f4c4172661b0f041a30df2d4d63ba58f203e89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 053a209829f30ea92d76b29f24d028d77ca732e7
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080535"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058899"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.

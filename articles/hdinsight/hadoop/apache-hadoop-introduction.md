@@ -4,16 +4,17 @@ description: Una introducción a HDInsight y la pila de tecnología y los compon
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introducción, pila de tecnología de hadoop, intro de hadoop, introducción a hadoop, qué es un clúster de hadoop, qué es clúster hadoop, para qué se utiliza hadoop
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899559"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088196"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>¿Qué es Apache Hadoop en Azure HDInsight?
 
@@ -30,6 +31,10 @@ MapReduce de Apache Hadoop es un marco de software para escribir trabajos que pr
 * **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor).
 
 * **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador.
+
+En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:   
+
+ ![HDI.ProgramaRecuentoPalabras](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 La salida de este trabajo es un recuento de las veces que aparece cada palabra en el texto.
 
@@ -55,5 +60,3 @@ Para obtener ejemplos del uso del streaming de Hadoop con HDInsight, consulte el
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md) (Creación de un clúster de Apache Hadoop en HDInsight)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

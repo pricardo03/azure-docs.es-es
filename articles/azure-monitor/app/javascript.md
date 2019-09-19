@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 09/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035233"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933771"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -143,14 +143,14 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 
 De forma predeterminada, este SDK **no** controlará el cambio de ruta basado en el estado que se produce en las aplicaciones de página única. Para habilitar el seguimiento automático de cambios de ruta para una aplicación de página única, puede agregar `enableAutoRouteTracking: true` a la configuración de instalación.
 
-Actualmente, ofrecemos un [complemento React](#react-extensions) independiente que puede inicializarse con este SDK. También llevará a cabo el seguimiento de cambios de ruta, así como la recopilación de [otros datos de telemetría específicos de React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js).
+Actualmente, ofrecemos un [complemento React](#react-extensions) independiente que puede inicializarse con este SDK. También llevará a cabo el seguimiento de cambios de ruta, así como la recopilación de [otros datos de telemetría específicos de React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
 
 ## <a name="react-extensions"></a>Extensiones de React
 
 | Extensiones |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Exploración de datos del explorador o del lado cliente
 

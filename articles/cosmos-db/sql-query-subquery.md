@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 4181a44e87d59d35d424a51c8fedc89523223f90
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343170"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003494"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Ejemplos de subconsultas SQL para Azure Cosmos DB
 
@@ -30,9 +30,9 @@ Existen dos tipos principales de subconsultas:
 > Azure Cosmos DB admite solo subconsultas correlacionadas.
 
 Las subconsultas se pueden clasificar aún más en función del número de filas y columnas que devuelven. Existen tres tipos:
-* **Tabla**: Devuelve varias filas y varias columnas.
-* **Multivalor**: Devuelve varias filas y una sola columna.
-* **Escalar**: Devuelve una sola fila y una sola columna.
+* **Tabla**: devuelve varias filas y varias columnas.
+* **Multivalor**: devuelve varias filas y una sola columna.
+* **Escalar**: devuelve una sola fila y una sola columna.
 
 Las consultas SQL en Azure Cosmos DB siempre devuelven una sola columna (ya sea un valor simple o un documento complejo). Por lo tanto, solo las subconsultas escalares y multivalor se aplican en Azure Cosmos DB. Puede usar una subconsulta multivalor solo en la cláusula FROM como expresión relacional. Puede usar una subconsulta escalar como expresión escalar en la cláusula SELECT o WHERE, o como expresión relacional en la cláusula FROM.
 
@@ -134,12 +134,12 @@ Por ejemplo, considere este conjunto de datos de referencia:
 | Mg       | Megagramo            | 1,00E+06       | Gramo          |
 | Gg       | Gigagramo            | 1,00E+09       | Gramo          |
 | nJ       | Nanojulio           | 1,00E-09       | Joule         |
-| µJ       | Microjulio          | 1,00E-06       | Julio         |
-| mJ       | Milijulio          | 1,00E-03       | Julio         |
-| J        | Julio               | 1,00E+00       | Julio         |
-| kJ       | Kilojulio           | 1,00E+03       | Julio         |
-| MJ       | Megajulio           | 1,00E+06       | Julio         |
-| GJ       | Gigajulio           | 1,00E+09       | Julio         |
+| µJ       | Microjulio          | 1,00E-06       | Joule         |
+| mJ       | Milijulio          | 1,00E-03       | Joule         |
+| J        | Joule               | 1,00E+00       | Joule         |
+| kJ       | Kilojulio           | 1,00E+03       | Joule         |
+| MJ       | Megajulio           | 1,00E+06       | Joule         |
+| GJ       | Gigajulio           | 1,00E+09       | Joule         |
 | cal      | Caloría             | 1,00E+00       | Caloría       |
 | kcal     | Caloría             | 1,00E+03       | Caloría       |
 | UI       | Unidades internacionales |                |               |
@@ -368,7 +368,7 @@ SELECT EXISTS (SELECT undefined)
 
 La subconsulta enmarcará la lista de valores en la lista seleccionada en un objeto. Si la lista seleccionada no tiene valores, la subconsulta devolverá el valor único "{}". Este valor está definido, por lo que EXISTS se evalúa como true.
 
-### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Ejemplo: Reescribir ARRAY_CONTAINS y JOIN como EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Ejemplo: Reescribir ARRAY_CONTAINS y JOIN como EXISTS
 
 Un caso de uso común de ARRAY_CONTAINS es para filtrar un documento por la existencia de un elemento en una matriz. En este caso, vamos a ver si la matriz tags contiene un elemento denominado "orange".
 
@@ -519,5 +519,5 @@ Resultado de la consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Modelado de datos de documentos](modeling-data.md)

@@ -10,19 +10,19 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4e9b95cb226aeec686816d0ed7160062e110c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc953d5c6109fbc6eacbd946ecd112db4639fa5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511819"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064589"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Adición de una aplicación cliente nativa en su inquilino de Azure Active Directory B2C
 
 Los recursos del cliente nativo se deben registrar en el inquilino antes de que la aplicación pueda comunicarse con Azure Active Directory B2C.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Aplicaciones** y **Agregar**.
 2. Escriba un nombre para la aplicación. Por ejemplo, *nativeapp1*.

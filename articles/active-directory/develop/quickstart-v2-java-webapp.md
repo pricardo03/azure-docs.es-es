@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 22d65d20220bfda821fe255e08dd056b761a828d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211875"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086988"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -32,10 +32,11 @@ Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesió
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-> ## <a name="prerequisites"></a>Requisitos previos
-> Para ejecutar este ejemplo, necesitará lo siguiente: 
-> - Kit de desarrollo de Java (JDK) 8 o una versión posterior y Maven.
->
+## <a name="prerequisites"></a>Requisitos previos
+
+Para ejecutar este ejemplo, necesitará lo siguiente: 
+- Kit de desarrollo de Java (JDK) 8 o una versión posterior y Maven.
+
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
 > Tiene dos opciones para comenzar con la aplicación de inicio rápido: Rápido (opción 1) y Manual (opción 2)

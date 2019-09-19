@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 3ff9cfbd312e672fb89afb4838ad9f8aa6574370
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d31eb9ccb5df9137bebb877cce169cf657113d30
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900028"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967748"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá a administrar un clúster de ML Services en Azure 
 
 Para habilitar varios usuarios simultáneos para un clúster de ML Services en HDInsight agregando más usuarios al nodo perimetral en el que se ejecuta la versión de comunidad de RStudio. Al crear un clúster de HDInsight, es preciso especificar dos usuarios, un usuario HTTP y un usuario SSH:
 
-![Usuario simultáneo 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
+![Usuario simultáneo 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Apache Ambari, a la interfaz de usuario de Apache Hadoop YARN y a otros componentes de la interfaz de usuario.
 - **Nombre de usuario de Secure Shell (SSH)** : un usuario SSH para acceder al clúster a través de Secure Shell. Este es un usuario del sistema Linux para todos los nodos principales, nodos de trabajo y nodos perimetrales. Por consiguiente, puede usar Secure Shell para acceder a cualquiera de los nodos de un clúster remoto.
@@ -66,7 +66,7 @@ Para agregar un usuario al nodo perimetral, ejecute los comandos:
 
 En la captura de pantalla siguiente se muestra el resultado.
 
-![Usuario simultáneo 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
+![Usuario simultáneo 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 Cuando se le pida la "contraseña actual de Kerberos", presione **Entrar** para ignorarlo. La opción `-m` del comando `useradd` indica que el sistema creará una carpeta particular para el usuario, que se requiere para la versión de comunidad de RStudio.
 

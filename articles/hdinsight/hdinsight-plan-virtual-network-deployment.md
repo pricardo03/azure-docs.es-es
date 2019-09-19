@@ -3,16 +3,17 @@ title: Planeamiento de una red virtual para Azure HDInsight
 description: Aprenda a planear la implementación de una red virtual de Azure para conectar HDInsight con otros recursos en la nube o con recursos de su centro de datos.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779540"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077022"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeamiento de una red virtual para Azure HDInsight
 
@@ -212,7 +213,7 @@ El tráfico de red en instancias de Azure Virtual Network se puede controlar med
 
 Como un servicio administrado, HDInsight requiere acceso sin restricciones a los servicios de administración y mantenimiento de HDInsight para el tráfico entrante y saliente de la red virtual. Al usar grupos de seguridad de red, debe asegurarse de que estos servicios pueden seguir comunicándose con el clúster de HDInsight.
 
-![Diagrama de entidades de HDInsight creadas en una red virtual personalizada de Azure](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagrama de entidades de HDInsight creadas en una red virtual personalizada de Azure](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
 ### <a name="hdinsight-with-network-security-groups"></a>HDInsight con grupos de seguridad de red
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8fc7c931f31e1ff58f41faa9a29f7e77e9655fd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 60a7afb6e610294ccaa535eaa7371ff8d5015db3
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917307"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077204"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
 Aprenda a crear clústeres de Apache HBase de Azure HDInsight en [Azure Virtual Network][1].
@@ -47,10 +47,10 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 >
 > &lt;Nombre del clúster&gt; se reemplaza con el nombre de clúster que proporcione al utilizar la plantilla.
 
-
 1. Haga clic en la imagen siguiente para abrir la plantilla en el Portal de Azure. La plantilla se encuentra en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+
 2. En la hoja **Implementación personalizada**, escriba las propiedades siguientes:
 
    * **Suscripción**: seleccione una suscripción de Azure usada para crear el clúster de HDInsight, la cuenta de Storage dependiente y Azure Virtual Network.

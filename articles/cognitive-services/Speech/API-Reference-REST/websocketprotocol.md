@@ -3,20 +3,20 @@ title: Protocolo WebSocket de Bing Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Documentación del protocolo de Bing Speech basado en WebSocket
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7f51d49624d5019bec058a2d12f6ca2f1366938
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515319"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966883"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de Bing Speech
 
@@ -61,7 +61,7 @@ Todas las solicitudes de voz necesitan el cifrado [TLS](https://en.wikipedia.org
 
 Servicio de voz requiere que todos los clientes incluyen un identificador único para identificar la conexión. Los clientes *deben* incluir el encabezado *X-ConnectionId* cuando inician un protocolo de enlace de WebSocket. El encabezado *X-ConnectionId* debe ser un valor de [identificador único universal](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID). Las solicitudes de actualización de WebSocket que no incluyen *X-ConnectionId* no especifican un valor para el encabezado *X-ConnectionId*, o que no incluyen un valor UUID válido son rechazados por el servicio con una respuesta `400 Bad Request` HTTP.
 
-### <a name="authorization"></a>Autorización
+### <a name="authorization"></a>Authorization
 
 Además de los encabezados de protocolo de enlace de WebSocket estándar, las solicitudes de voz requieren un encabezado *Authorization*. El servicio rechaza las solicitudes de conexión sin este encabezado con una respuesta `403 Forbidden` HTTP.
 
@@ -510,7 +510,7 @@ La métrica `Connection` especifica los detalles sobre los intentos de conexión
 | ----- | ----------- | ----- |
 | NOMBRE | `Connection` | Obligatorio |
 | Id | El valor de identificador de conexión que se utilizó en el encabezado *X-ConnectionId* para esta solicitud de conexión | Obligatorio |
-| Iniciar | La hora en que el cliente envió la solicitud de conexión | Obligatorio |
+| Start | La hora en que el cliente envió la solicitud de conexión | Obligatorio |
 | End | La hora en que el cliente recibió la notificación de que la conexión se estableció correctamente o, en casos de error, se rechazó, negó o falló | Obligatorio |
 | Error | Una descripción del error producido, si lo hay. Si la conexión se estableció correctamente, los clientes deben omitir este campo. La longitud máxima de este campo es de 50 caracteres. | Obligatorio para los casos de error; en caso contrario, se omite |
 
@@ -549,7 +549,7 @@ El valor de hora *End* para la métrica `Microphone` registra la hora cuando la 
 | Campo | DESCRIPCIÓN | Uso |
 | ----- | ----------- | ----- |
 | NOMBRE | Micrófono | Obligatorio |
-| Iniciar | La hora en el cliente se comenzó a usar la entrada de audio del micrófono u otra secuencia de audio, o recibió un desencadenador del observador de palabras clave | Obligatorio |
+| Start | La hora en el cliente se comenzó a usar la entrada de audio del micrófono u otra secuencia de audio, o recibió un desencadenador del observador de palabras clave | Obligatorio |
 | End | La hora en que el cliente dejó de usar el micrófono o la secuencia de audio | Obligatorio |
 | Error | Una descripción del error producido, si lo hay. Si las operaciones de micrófono obtuvieron resultados satisfactorios, los clientes deben omitir este campo. La longitud máxima de este campo es de 50 caracteres. | Obligatorio para los casos de error; en caso contrario, se omite |
 
@@ -569,7 +569,7 @@ Utilice los siguientes ejemplos como guía para los valores de tiempo *Start* y 
 | Campo | DESCRIPCIÓN | Uso |
 | ----- | ----------- | ----- |
 | NOMBRE | ListeningTrigger | Opcional |
-| Iniciar | La hora de inicio del desencadenador de escucha del cliente | Obligatorio |
+| Start | La hora de inicio del desencadenador de escucha del cliente | Obligatorio |
 | End | La hora final del desencadenador de escucha del cliente | Obligatorio |
 | Error | Una descripción del error producido, si lo hay. Si la operación de desencadenador se estableció correctamente, los clientes deben omitir este campo. La longitud máxima de este campo es de 50 caracteres. | Obligatorio para los casos de error; en caso contrario, se omite |
 

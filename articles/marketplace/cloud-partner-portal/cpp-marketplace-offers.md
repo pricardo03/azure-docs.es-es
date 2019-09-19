@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884445"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962854"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -36,7 +36,7 @@ El proceso de creación de una nueva oferta difiere en gran medida de los tipos 
 
 *Versión de prueba* es una característica de Marketplace que proporciona a los clientes una opción de demostración "probar antes de comprar" para determinadas ofertas.  La capacidad de la versión de prueba se limita al siguiente subconjunto de tipos de oferta: [Aplicaciones de Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicaciones SaaS](./saas-app/cpp-saas-offer.md) y [máquinas virtuales](./virtual-machine/cpp-virtual-machine-offer.md).  Esta funcionalidad requiere que el publicador cree una plantilla Versión de prueba personalizada para su oferta.  Para más información, consulte la sección [Versión de prueba](./test-drive/what-is-test-drive.md).
 
-Puede examinar las ofertas de Marketplace existentes que tienen las demostraciones de la Versión de prueba mediante el uso del [filtro de versión de prueba](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+Puede examinar las ofertas de Marketplace existentes que tienen las demostraciones de la Versión de prueba mediante el uso del [filtro de versión de prueba](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Tipos de oferta de Azure Marketplace y AppSource

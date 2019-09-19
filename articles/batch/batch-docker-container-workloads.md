@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c8fc8e7d5888f9a0b080c0ca1d24e53068b543be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095170"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090748"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -89,7 +89,7 @@ Consideraciones adicionales para usar una imagen Linux personalizada:
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuración del contenedor de grupo de Batch
 
-Para habilitar un grupo de Batch para ejecutar cargas de trabajo de contenedor, se debe especificar la opción [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) en el objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del grupo. (Este artículo incluye vínculos a la referencia de la API de .NET de Batch. Puede encontrar la configuración correspondiente en la API [Batch Python](/python/api/azure.batch)).
+Para habilitar un grupo de Batch para ejecutar cargas de trabajo de contenedor, se debe especificar la opción [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) en el objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) del grupo. (Este artículo incluye vínculos a la referencia de la API de .NET de Batch. Puede encontrar la configuración correspondiente en la API [Batch Python](/python/api/overview/azure/batch)).
 
 Puede crear un grupo habilitado para contenedores con o sin imágenes de contenedor capturadas previamente, tal como se muestra en los ejemplos siguientes. El proceso de extracción (o captura previa) permite cargar previamente imágenes de contenedor desde Docker Hub u otro registro de contenedor en Internet. Para obtener el mejor rendimiento, use un [registro de contenedor de Azure](../container-registry/container-registry-intro.md) en la misma región que la cuenta de Batch.
 

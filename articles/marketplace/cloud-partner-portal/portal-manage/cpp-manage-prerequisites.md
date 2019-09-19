@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598671"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087470"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Requisitos previos para administrar cuentas en Cloud Partner Portal 
 
@@ -21,7 +21,7 @@ Para poder usar [Cloud Partner Portal](https://cloudpartner.azure.com/) para cua
 
 ## <a name="account-terms-and-guidelines"></a>Instrucciones y términos de la cuenta
 
-Revise cuidadosamente los derechos y responsabilidades del [Contrato de servicios de Microsoft](https://www.microsoft.com/servicesagreement) y de los [Términos de uso de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) antes de crear una cuenta.  
+Revise cuidadosamente los derechos y responsabilidades del [Contrato de servicios de Microsoft](https://www.microsoft.com/servicesagreement) y de los [Términos de uso de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright) antes de crear una cuenta.  
 
 Elija cuidadosamente el nombre de la cuenta.  Representa la organización, por lo que no debe contener ninguna palabra con derechos de autor ni polémica.  Por ejemplo, Microsoft prohíbe el uso de sus términos con derechos de autor como, por ejemplo, "Azure" y "Microsoft", en los nombres de cuenta.  Para más información, consulte la [Instrucciones de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines).
 

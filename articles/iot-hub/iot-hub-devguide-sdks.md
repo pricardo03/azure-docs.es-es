@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7113914fe8681ca099fc0f3fc1e4a7d064c19480
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400667"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000264"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -77,9 +77,9 @@ SDK de dispositivos Azure IoT Hub para Node.js:
 
 SDK de dispositivos Azure IoT Hub para Python: 
 
-* Se instala desde [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
+* Se instala desde [pip](https://pypi.org/project/azure-iot-device/)
 * [Código fuente](https://github.com/Azure/azure-iot-sdk-python)
-* Referencia de API: consulte [referencia de API de C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [Referencia de API](https://docs.microsoft.com/python/api/azure-iot-device)
 
 SDK de dispositivos Azure IoT Hub para iOS: 
 
@@ -112,7 +112,7 @@ SDK de servicios Azure IoT Hub para Node.js:
 SDK de servicios Azure IoT Hub para Python: 
 
 * Se descarga de [pip](https://pypi.python.org/pypi/azure-iothub-service-client/)
-* [Código fuente](https://github.com/Azure/azure-iot-sdk-python)
+* [Código fuente](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
 
 SDK de servicios Azure IoT Hub para C: 
 
@@ -157,8 +157,8 @@ SDK de aprovisionamiento de dispositivos y servicios de Azure para Node.js:
 
 SDK de aprovisionamiento de dispositivos y servicios de Azure para Python:
 
-* [Código fuente](https://github.com/Azure/azure-iot-sdk-python)
-* Descargue el [SDK de dispositivo](https://pypi.org/project/azure-iot-provisioning-device-client/) y el [SDK del servicio](https://pypi.org/project/azure-iothub-provisioningserviceclient/) de pip
+* [Código fuente](https://github.com/Azure/azure-iot-device)
+* Descargue el [SDK de dispositivo](https://pypi.org/project/azure-iot-device/) y el [SDK del servicio](https://pypi.org/project/azure-iothub-provisioningserviceclient/) de pip
 
 ## <a name="next-steps"></a>Pasos siguientes
 

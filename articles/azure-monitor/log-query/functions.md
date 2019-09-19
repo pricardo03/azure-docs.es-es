@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296067"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076701"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso de funciones en consultas de registros de Azure Monitor
 
@@ -38,8 +38,6 @@ Para crear una función con Log Analytics en Azure Portal, haga clic en **Guar
 > [!NOTE]
 > Una función de Azure Monitor no puede contener otra función.
 
-> [!NOTE]
-> Se puede guardar una función en consultas de registro de Azure Monitor, pero actualmente no se puede para consultas de Application Insights.
 
 
 

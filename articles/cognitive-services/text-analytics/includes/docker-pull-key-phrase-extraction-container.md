@@ -7,28 +7,20 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/20/2019
+ms.date: 09/12/2019
 ms.author: dapine
-ms.openlocfilehash: e71db5455a3d6726cd6567d568a13fcdcf9cb520
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 59313528e4beb343f9ac1103d3f9f2faae5dfc16
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051366"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966726"
 ---
-## <a name="pull-the-key-phrase-extraction-container"></a>Extracción del contenedor de extracción de frases clave
-
-Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Container Registry.
-
-| Contenedor | Container Registry/Repositorio/Nombre de imagen |
-|-----------|------------|
-| Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull para el contenedor de extracción de frases clave
 
 Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de contenedor del Registro de contenedor de Microsoft.
 
 Para obtener una descripción completa de las etiquetas disponibles para los contenedores de Text Analytics, consulte el contenedor [Extracción de frases clave](https://go.microsoft.com/fwlink/?linkid=2018757) en Docker Hub.
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull para el contenedor de extracción de frases clave
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest

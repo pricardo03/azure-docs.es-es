@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086044"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932971"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
 
@@ -52,7 +52,7 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 
 Functions y Logic Apps son servicios de Azure que posibilitan las cargas de trabajo sin servidor. Azure Functions es un servicio de proceso sin servidor, mientras que Azure Logic Apps proporciona flujos de trabajo sin servidor. Ambos pueden crear *orquestaciones* complejas. Una orquestación es una colección de funciones o pasos, llamados *acciones* en Logic Apps, que se ejecutan para realizar una tarea compleja. Por ejemplo, para procesar un lote de pedidos podría ejecutar varias instancias de una función en paralelo, esperar a que todas las instancias terminen y, a continuación, ejecutar una función que calcula un resultado sobre el agregado.
 
-En Azure Functions, las orquestaciones se desarrollan mediante la escritura de código y el uso de la [extensión Durable Functions](durable/durable-functions-concepts.md). En Logic Apps, las orquestaciones se crean mediante una GUI o editando archivos de configuración.
+En Azure Functions, las orquestaciones se desarrollan mediante la escritura de código y el uso de la [extensión Durable Functions](durable/durable-functions-overview.md). En Logic Apps, las orquestaciones se crean mediante una GUI o editando archivos de configuración.
 
 Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a las funciones desde las aplicaciones lógicas y llamar a las aplicaciones lógicas desde las funciones. Elija cómo crear cada orquestación según las funcionalidades de los servicios o sus preferencias personales. En la tabla siguiente se enumeran algunas de las diferencias principales entre estos servicios:
  

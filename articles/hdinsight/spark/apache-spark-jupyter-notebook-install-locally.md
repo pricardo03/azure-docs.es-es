@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 489685485af4e3c8868f7e0281d2f81464a166f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066176"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993760"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
 
@@ -146,7 +146,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
     a. Cree un nuevo notebook. En la esquina de la derecha, seleccione **Nuevo**. Debería ver el kernel predeterminado **Python 2** o **Python 3** y los kernels que ha instalado. Los valores reales pueden variar según las opciones de instalación.  Seleccione **PySpark**.
 
-    ![Kernels de cuadernos de Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels de cuadernos de Jupyter Notebook")
+    ![Kernels de cuadernos de Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels de cuadernos de Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Después de seleccionar **Nuevo**, revise si el shell presenta errores.  Si ve el error `TypeError: __init__() got an unexpected keyword argument 'io_loop'`, es posible que esté experimentando un problema conocido con determinadas versiones de Tornado.  Si es así, detenga el kernel y degrade la versión de la instalación de Tornado con el siguiente comando: `pip install tornado==4.5.3`.

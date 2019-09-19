@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 01358d13d30358a9950cbe35622df065fc5a6de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe7e617ae2263f1388feef3754f6cd16130ed436
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133659"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059814"
 ---
 En este artículo se usan cmdlets de PowerShell. Para ejecutar los cmdlets, puede usar Azure Cloud Shell, un entorno de shell interactivo hospedado en Azure y que se utiliza a través del explorador. Azure Cloud Shell viene con los cmdlets de Azure PowerShell preinstalados.
 
@@ -23,9 +23,9 @@ Puede iniciar Azure Cloud Shell con:
 
 |  |   |
 |-----------------------------------------------|---|
-| Seleccione **Probarlo** en la esquina superior derecha de un bloque de código. Esto __no__ copia automáticamente el texto en Cloud Shell. | ![Ejemplo de Probarlo para Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Abra [shell.azure.com](https://shell.azure.com) en el explorador. | [![Botón Iniciar Cloud Shell](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
-| Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com). | ![Botón Cloud Shell en Azure Portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Seleccione **Probarlo** en la esquina superior derecha de un bloque de código. Esto __no__ copia automáticamente el texto en Cloud Shell. | ![Ejemplo de Probarlo para Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Abra [shell.azure.com](https://shell.azure.com) en el explorador. | [![Botón Iniciar Cloud Shell](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com). | ![Botón Cloud Shell en Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 **Ejecución de PowerShell localmente**
 

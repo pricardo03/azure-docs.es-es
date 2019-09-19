@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901396"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091098"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -58,7 +58,7 @@ Para más información, consulte los [requisitos y restricciones](https://docs.m
 Para configurar el emparejamiento de redes virtuales para redes virtuales en diferentes suscripciones o inquilinos de Active Directory, siga los pasos descritos en [Creación de emparejamiento: CLI de Azure](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Para configurar el emparejamiento de red, debe tener permisos de **colaborador de red** en ambas suscripciones. Para obtener más información, consulte [Permisos de emparejamiento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> Para configurar el emparejamiento de red, debe tener permisos de **colaborador de red** en ambas suscripciones. Para obtener más información, consulte [Permisos de emparejamiento](virtual-network-manage-peering.md#permissions).
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Escenario 2: Configuración del emparejamiento de redes virtuales con una topología de red en estrella tipo hub-and-spoke que usa recursos locales
 
@@ -104,7 +104,7 @@ Para más información acerca de los requisitos y restricciones del emparejamien
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>Escenario 4: Tengo un problema de conectividad entre dos redes virtuales emparejadas
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que disponga de los [roles y permisos](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions) necesarios. Seleccione la red virtual, seleccione **Emparejamiento** y, a continuación, compruebe el campo **Estado**. ¿Cuál es el estado?
+Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que disponga de los [roles y permisos](virtual-network-manage-peering.md#permissions) necesarios. Seleccione la red virtual, seleccione **Emparejamiento** y, a continuación, compruebe el campo **Estado**. ¿Cuál es el estado?
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>Tipo de conexión 1: El estado de emparejamiento muestra "Conectado"
 

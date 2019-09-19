@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726764"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999164"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger las aplicaciones web y móviles PaaS (plataforma como servicio). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
@@ -71,7 +71,7 @@ Para obtener más información sobre RBAC, consulte los siguientes artículos:
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Uso del cifrado del lado cliente para datos de gran valor
 El cifrado del lado cliente permite cifrar datos en tránsito mediante programación antes de cargarlos en Azure Storage y descifrarlos de la misma manera al recuperarlos. De este modo, se cifran tanto los datos en tránsito como los que están en reposo. El cifrado del lado cliente el método más seguro para cifrar los datos, pero hay que realizar cambios mediante programación en la aplicación e implementar procesos de administración de claves.
 
-El cifrado del lado cliente también permite controlar de forma exclusiva las claves de cifrado. Puede generar y administrar sus propias claves de cifrado. Usa una técnica de sobre que consiste en que la biblioteca cliente de Azure Storage genera una clave de cifrado de contenido (CEK) que se encapsula (se cifra) mediante la clave de cifrado de claves (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en [Azure Key Vault](/azure/key-vault/key-vault-whatis).
+El cifrado del lado cliente también permite controlar de forma exclusiva las claves de cifrado. Puede generar y administrar sus propias claves de cifrado. Usa una técnica de sobre que consiste en que la biblioteca cliente de Azure Storage genera una clave de cifrado de contenido (CEK) que se encapsula (se cifra) mediante la clave de cifrado de claves (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET. Vea [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente y cómo generar y administrar claves de cifrado propias.
 

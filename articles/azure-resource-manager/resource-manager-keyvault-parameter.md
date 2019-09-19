@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: de52dbb10d515a2255b5886df5bf0a0faa454f6b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672756"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998901"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
-En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
+En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-overview.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 

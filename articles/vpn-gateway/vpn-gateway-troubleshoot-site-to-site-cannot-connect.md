@@ -4,7 +4,7 @@ description: Obtenga información acerca de cómo solucionar problemas de una co
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688498"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058872"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: una conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 

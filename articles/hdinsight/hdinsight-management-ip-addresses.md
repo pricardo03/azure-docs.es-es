@@ -3,16 +3,17 @@ title: Direcciones IP de administración de HDInsight de Azure
 description: Obtenga información sobre las direcciones IP a las que debe permitir el tráfico de entrada, con el fin de configurar correctamente los grupos de seguridad de red y las rutas definidas por el usuario para la red virtual con Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479198"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076631"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 

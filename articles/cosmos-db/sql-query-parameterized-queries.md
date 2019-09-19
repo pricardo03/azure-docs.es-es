@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 2bfc22346c1dd43d7d3c2937ffc286e48ae774d0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343120"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003606"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Consultas parametrizadas en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Por ejemplo, puede escribir una consulta que tome `lastName` y `address.state` c
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Luego puede enviar esta solicitud a Cosmos DB como consulta JSON parametrizada, como la siguiente:
+Luego puede enviar esta solicitud a Cosmos DB como una consulta JSON parametrizada, similar a la siguiente:
 
 ```sql
     {
@@ -39,7 +39,7 @@ Luego puede enviar esta solicitud a Cosmos DB como consulta JSON parametrizada, 
     }
 ```
 
-En el ejemplo siguiente se establece el argumento TOP con una consulta parametrizada: 
+En el ejemplo siguiente se establece el argumento TOP con una consulta parametrizada: 
 
 ```sql
     {
@@ -55,5 +55,5 @@ Los valores de los parámetros pueden ser cualquier tipo de JSON válido: cadena
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Modelado de datos de documentos](modeling-data.md)

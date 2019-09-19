@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo crear una red virtual (clásica) c
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202866"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059006"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
@@ -51,7 +51,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
     |Espacio de direcciones|10.0.0.0/16|
     |Nombre de subred|Público|
     |Intervalo de direcciones de subred|10.0.0.0/24|
-    |Grupos de recursos|Deje seleccionado **Crear nuevo** y después escriba **myResourceGroup**.|
+    |Resource group|Deje seleccionado **Crear nuevo** y después escriba **myResourceGroup**.|
     |Suscripción y ubicación|Seleccione su suscripción y ubicación.
 
     Si no está familiarizado con Azure, obtenga más información sobre [grupos de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [suscripciones](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) y [ubicaciones](https://azure.microsoft.com/regions) (también denominadas *regiones*).

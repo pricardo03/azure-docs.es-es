@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476851"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993795"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Qué es Apache Spark en Azure HDInsight
 
@@ -25,7 +25,7 @@ Apache Spark es una plataforma de procesamiento paralelo que admite el procesami
 
 Spark proporciona primitivas de computación de clúster en memoria. Un trabajo de Spark puede cargar y almacenar en la memoria caché datos, y repetir consultas sobre ellos. La informática en memoria es mucho más rápida que las aplicaciones basadas en disco, como Hadoop, que comparten datos mediante el sistema de archivos distribuido de Hadoop. Spark también se integra en el lenguaje de programación de Scala para que pueda manipular conjuntos de datos distribuidos, como las colecciones locales. No se necesita estructurar todo como operaciones de asignación y reducción.
 
-![Comparación del tradicional MapReduce y Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![Comparación del tradicional MapReduce y Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 Los clústeres de Spark en HDInsight ofrecen un servicio de Spark completamente administrado. Aquí se enumeran las ventajas de crear un clúster de Spark en HDInsight.
 
@@ -57,7 +57,7 @@ Los clústeres de Spark en HDInsight también ofrecen un [controlador ODBC](http
 
 ## <a name="spark-cluster-architecture"></a>Arquitectura de clúster de Spark
 
-![La arquitectura de HDInsight Spark](./media/apache-spark-overview/spark-architecture.png)
+![La arquitectura de HDInsight Spark](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 Los componentes de Spark son fáciles de entender si se entiende la manera en que Spark se ejecuta en clústeres de HDInsight.
 

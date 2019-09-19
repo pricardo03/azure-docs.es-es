@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815809"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091467"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -71,7 +71,7 @@ Una vez establecidas las propiedades de tabla correctamente, ejecute la herramie
 1. Ejecute el comando siguiente en el shell. Reemplace `${{STACK_VERSION}}` por la cadena de versión del paso anterior:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 Una vez que la herramienta de migración termina, el almacenamiento de Hive estará listo para HDInsight 4.0. 

@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo crear y modificar redes virtuales 
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: c29b9059-22b0-444e-bbfe-3e35f83cde2f
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab4faa0f727469e27eb30af54f24036292ec3118
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108019"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058694"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
 > [!IMPORTANT]

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc4ff5fb528760be8c910f3da7d5691a6aae0d8
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387070"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075287"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adopción del acceso condicional de Azure AD
 
 En un mundo que da prioridad a los dispositivos móviles y la nube, los usuarios pueden acceder a los recursos de su organización mediante diversos dispositivos y aplicaciones desde cualquier parte. Como resultado, ya no es suficiente con centrarse en quién puede acceder a un recurso. Puede controlar quién tiene acceso, identificar dónde está el usuario y qué dispositivo se está usando y mucho más.
 
-Para proporcionar este control, el **acceso condicional de Azure Active Directory (AD)** le permite especificar las condiciones que deben cumplir los usuarios para acceder a una aplicación, como la autenticación multifactor (MFA). Con las directivas de acceso condicional se controla cómo los usuarios autorizados (los usuarios a los que se les ha concedido acceso a una aplicación en la nube) pueden acceder a una aplicación en la nube con condiciones específicas. Para más información, consulte [¿Qué es el acceso condicional en Azure Active Directory?](overview.md#conditional-access-policies)
+Para proporcionar este control, el **acceso condicional de Azure Active Directory (AD)** le permite especificar las condiciones que deben cumplir los usuarios para acceder a una aplicación, como la autenticación multifactor (MFA). Con las directivas de acceso condicional se controla cómo los usuarios autorizados (los usuarios a los que se les ha concedido acceso a una aplicación en la nube) pueden acceder a una aplicación en la nube con condiciones específicas. Para más información, consulte [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
 
 ## <a name="key-benefits"></a>Ventajas principales
 

@@ -4,14 +4,15 @@ description: Obtenga respuestas a las preguntas más comunes sobre cómo trabaja
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573713"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076563"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -33,27 +34,27 @@ En este ejemplo, se cambia la capacidad de las dos colas existentes (**default**
 
 1. Seleccione el icono **Ambari Views** (Vistas de Ambari) y, a continuación, seleccione el patrón de cuadrícula. A continuación, seleccione **YARN Queue Manager** (Administrador de colas de YARN).
 
-    ![Selección del icono Vistas de Ambari](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Selección del icono Vistas de Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Seleccione la cola **default**.
 
-    ![Selección de la cola default (predeterminada)](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Selección de la cola default (predeterminada)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Para la cola **default**, cambie la **capacidad** del 50% al 25%. Para la cola **thriftsvr**, cambie la **capacidad** al 25%.
 
-    ![Cambio de la capacidad al 25 % para las colas default y thriftsvr](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Cambio de la capacidad al 25 % para las colas default y thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Seleccione **Add Queue** (Agregar cola) para crear una nueva cola.
 
-    ![Selección de Agregar cola](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Selección de Agregar cola](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Asigne un nombre a la cola nueva.
 
-    ![Asignación del nombre Spark a la cola](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Asignación del nombre Spark a la cola](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Deje los valores de **Capacity** (Capacidad) en el 50 % y seleccione el botón **Actions** (Acciones).
 
-    ![Selección del botón Actions (Acciones)](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Selección del botón Actions (Acciones)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Seleccione **Save and Refresh Queues** (Guardar y actualizar colas).
 
-    ![Selección de Save and Refresh Queues (Guardar y actualizar colas)](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selección de Save and Refresh Queues (Guardar y actualizar colas)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN Scheduler.
 
@@ -139,6 +140,6 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 - Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 
-- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta conecta a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
+- Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

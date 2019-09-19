@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872903"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934857"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -36,8 +36,7 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 1. Identifique o cree un [almacén de Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
 2. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Asegúrese de que las bases de datos de SQL Server siguen las [directrices de nomenclatura de bases de datos para Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Específicamente para SQL 2008 y 2008 R2, [agregue la clave del Registro](#add-registry-key-to-enable-registration) para habilitar el registro del servidor. Este paso no será necesario cuando la característica está disponible con carácter general.
-5. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
+4. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
 
 > [!NOTE]
 > Puede habilitar Azure Backup para una máquina virtual de Azure y también para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
@@ -98,22 +97,6 @@ Evite el uso de los elementos siguientes en los nombres de las bases de datos:
 
 El establecimiento de alias está permitido para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
-### <a name="add-registry-key-to-enable-registration"></a>Adición de la clave del Registro para habilitar el registro
-
-1. Abra Regedit.
-2. Cree la ruta de acceso del directorio de Registro: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (deberá crear el testHook "Key" bajo WorkloadBackup que a su vez debe crearse bajo Microsoft).
-3. En la ruta de acceso del directorio de Registro, cree un nuevo "valor de cadena" con el nombre de cadena **AzureBackupEnableWin2K8R2SP1** y valor: **True**
-
-    ![RegEdit para habilitar el registro](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-Como alternativa, puede automatizar este paso mediante la ejecución de archivo .reg con el siguiente comando:
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -261,18 +244,6 @@ Para crear una directiva de copia de seguridad:
     - En el back-end, Azure Backup usa la compresión de copia de seguridad nativa de SQL.
 
 14. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**.
-
-
-### <a name="modify-policy"></a>Modificación de directivas
-Modifique la directiva para cambiar la frecuencia de las copias de seguridad o la duración de retención.
-
-> [!NOTE]
-> Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
-
-En el panel del almacén, vaya a **Administrar** > **Directivas de copia de seguridad** y elija la directiva que desea editar.
-
-  ![Administración de directivas de copia de seguridad](./media/backup-azure-sql-database/modify-backup-policy.png)
-
 
 ## <a name="enable-auto-protection"></a>Habilitación de la protección automática  
 

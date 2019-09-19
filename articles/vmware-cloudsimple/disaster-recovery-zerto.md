@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879180"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037420"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configuración de la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware
 
 La nube privada de CloudSimple se puede configurar como un sitio de recuperación de aplicaciones locales para procurar la continuidad empresarial en caso de que se produzca un desastre. La solución de recuperación se basa en Zerto Virtual Replication como plataforma de replicación y orquestación. La infraestructura y las máquinas virtuales de aplicación críticas se pueden replicar continuamente desde la instancia de vCenter local a la nube privada. Puede usar la nube privada para realizar pruebas de conmutación por error y para garantizar la disponibilidad de la aplicación durante un desastre. Se puede seguir un método similar para configurar la nube privada como sitio primario protegido por un sitio de recuperación en otra ubicación.
 
 > [!NOTE]
-> Consulte el documento de Zerto sobre las [consideraciones de tamaño de Zerto Virtual Replication](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) para obtener instrucciones sobre cómo cambiar el tamaño del entorno de recuperación ante desastres.
+> Consulte el documento de Zerto sobre las [consideraciones de tamaño de Zerto Virtual Replication](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) para obtener instrucciones sobre cómo cambiar el tamaño del entorno de recuperación ante desastres.
 
 La solución de CloudSimple:
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873893"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101675"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -56,11 +56,11 @@ En los pasos siguientes se muestra cómo crear una Instancia administrada.
    |**Habilitar el punto de conexión público**   |Seleccione esta opción para habilitar un punto de conexión público   |Para que se pueda acceder a la instancia administrada mediante el punto de conexión de datos público, es preciso seleccionar **Habilitar el punto de conexión público**.| 
    |**Permitir acceso desde**   |Seleccione una de las opciones: <ul> <li>**Servicios de Azure**</li> <li>**Internet**</li> <li>**Sin acceso**</li></ul>   |La experiencia del portal permite configurar un grupo de seguridad con un punto de conexión público. </br> </br> En función del escenario, seleccione una de las siguientes opciones: </br> <ul> <li>Servicios de Azure: se recomienda cuando se establece la conexión desde Power BI u otro servicio multiinquilino. </li> <li> Internet: se usar para realizar pruebas cuando se desee poner en marcha rápidamente una instancia administrada. No es aconsejable su uso en entornos de producción. </li> <li> Sin acceso: esta opción crea una regla de seguridad de denegación. Para que se pueda acceder a la instancia administrada mediante un punto de conexión público, esta regla debe modificarse. </li> </ul> </br> Para más información acerca de la seguridad de los puntos de conexión públicos, consulte [Uso de una instancia administrada de Azure SQL Database de forma segura con puntos de conexión públicos](sql-database-managed-instance-public-endpoint-securely.md).|
    |**Tipo de conexión**|Elija entre el tipo de conexión: Proxy o Redirigir.|Para más información acerca de los tipos de conexión, consulte [Directiva de conexión de Azure SQL](sql-database-connectivity-architecture.md#connection-policy).|
-   |**Grupos de recursos**|un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura).|
+   |**Grupos de recursos**|un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![Formulario de instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Para utilizar la instancia administrada como un grupo de conmutación por error de la instancia secundario, seleccione la restauración y especifique la instancia administrada de DnsAzurePartner. Esta característica está en versión preliminar y no se muestra en la captura de pantalla siguiente.
+5. Para utilizar la instancia administrada como un grupo de conmutación por error de la instancia secundario, seleccione la restauración y especifique la instancia administrada de DnsAzurePartner. 
 6. Seleccione **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. El plan de tarifa de uso general con 32 GB de memoria y 16 núcleos de virtuales es el valor predeterminado.
 7. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales.
 8. Cuando haya terminado, seleccione **Aplicar** para guardar las opciones que haya elegido. 

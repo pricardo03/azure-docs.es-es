@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: bdc393d041bd40fd27493ccc8f3c4f39adfa35b2
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657116"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960238"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -84,7 +84,7 @@ Esta arquitectura contiene dos clústeres en diferentes grupos de recursos y red
     1. Haga clic en **Agregar**.
     1. En la pantalla **Agregar emparejamiento**, escriba los datos tal y como aparecen en la captura de pantalla siguiente.
 
-        ![add vnet peering](./media/apache-kafka-mirroring/add-vnet-peering.png)
+        ![add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Configure la publicidad basada en IP:
     1. Vaya al panel de Ambari del clúster principal: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.

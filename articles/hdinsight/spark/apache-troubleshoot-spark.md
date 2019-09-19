@@ -4,15 +4,16 @@ description: Obtenga respuestas a las preguntas comunes sobre cómo trabajar con
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 143a941b8266734a8415c71daafc07681bc13b80
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8931f9b09836d30f95e25cee245932475c3cf64c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049562"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018390"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solución de problemas de Apache Spark mediante Azure HDInsight
 
@@ -26,49 +27,49 @@ Los valores de configuración de Spark se pueden ajustar para ayudar a evitar un
 
 1. Vaya a **Spark2** > **Configs** (Configuraciones).
 
-    ![Selección de la pestaña Configs (Configuraciones)](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Selección de la pestaña Configs (Configuraciones)](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. En la lista de configuraciones, seleccione y expanda **Custom-spark2-defaults**.
 
 1. Busque el valor de configuración que tiene que ajustar, por ejemplo **spark.executor.memory**. En este caso, el valor de **9728m** es demasiado alto.
 
-    ![Selección de custom-spark-defaults](./media/apache-troubleshoot-spark/update-config-4.png)
+    ![Selección de custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Establezca el valor en la configuración recomendada. Se recomienda el valor de **2048m** para esta configuración.
 
 1. Guarde el valor y, después, guarde la configuración. Seleccione **Guardar**.
 
-    ![Cambiar el valor a 2048m](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![Cambiar el valor a 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     Escriba una nota sobre los cambios de configuración y, después, seleccione **Guardar**.
 
-    ![Escribir una nota sobre los cambios realizados](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![Escribir una nota sobre los cambios realizados](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
     Se le notificará si hay configuraciones que necesiten atención. Tenga en cuenta los elementos y, a continuación, seleccione **Proceed Anyway** (Continuar de todos modos).
 
-    ![Selección de Proceed Anyway (Continuar de todos modos)](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Selección de Proceed Anyway (Continuar de todos modos)](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
 1. Cada vez que se guarda una configuración, se le solicitará que reinicie el servicio. Seleccione **Reiniciar**.
 
-    ![Selección de Reiniciar](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![Selección de Reiniciar](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     Confirme el reinicio.
 
-    ![Selección de Confirm Restart All (Confirmar reinicio de todo)](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Selección de Confirm Restart All (Confirmar reinicio de todo)](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     Puede revisar los procesos en ejecución.
 
-    ![Revisar los procesos en ejecución](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![Revisar los procesos en ejecución](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
 1. Puede agregar configuraciones. En la lista de configuraciones, seleccione **Custom-spark2-defaults** y, a continuación, seleccione **Agregar propiedad**.
 
-    ![Selección de Agregar propiedad](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Selección de Agregar propiedad](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Defina una nueva propiedad. Puede definir una propiedad única mediante un cuadro de diálogo para valores específicos como el tipo de datos. O bien, puede definir varias propiedades mediante una definición por línea.
 
     En este ejemplo, se define la propiedad **spark.driver.memory** con un valor de **4g**.
 
-    ![Definir la nueva propiedad](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![Definir la nueva propiedad](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
 1. Guarde la configuración y, a continuación, reinicie el servicio, como se describe en los pasos 6 y 7.
 

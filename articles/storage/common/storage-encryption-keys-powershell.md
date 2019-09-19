@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6c9adf1c00503ec7f1cbf4a3405c303eea2d2292
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1b94f1686c2893c1c69bc846d3a0d29084975b7a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034876"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002172"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configuración de las claves administradas por el cliente para el cifrado de Azure Storage desde PowerShell
 
@@ -97,4 +97,4 @@ Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de al
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md) 
-- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

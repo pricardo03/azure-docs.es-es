@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d49b8bf9c62813023c1a1e06e0f8fc0d7809f48d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f7154da76b41198c208d02b8c563ba26ff8101a1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232061"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983593"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,7 +31,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 ## <a name="register"></a>Registro de la aplicación con Twitter
 1. Inicie sesión en el [Azure Portal]y vaya a la aplicación. Copie el valor de **Dirección URL**. La usará para configurar la aplicación de Twitter.
 2. Vaya al sitio web para [desarrolladores de Twitter] , inicie sesión con las credenciales de la cuenta de Twitter y haga clic en **Crear nueva aplicación**.
-3. Escriba el **nombre** y una **descripción** de la nueva aplicación. Pegue la **dirección URL** de la aplicación como valor de **Sitio web**. A continuación, para la **dirección URL de devolución de llamada**, escriba la dirección URL de la aplicación App Service y anexe la ruta de acceso `/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Asegúrese de que está utilizando el esquema HTTPS.
+3. Escriba el **nombre** y una **descripción** de la nueva aplicación. Pegue la **dirección URL** de la aplicación como valor de **Sitio web**. A continuación, para la **dirección URL de devolución de llamada**, escriba la dirección URL de la aplicación App Service y anexe la ruta de acceso `/.auth/login/twitter/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 4. En la parte inferior de la página, lea y acepte los términos. A continuación, haga clic en **Crear aplicación de Twitter**. Se muestran los detalles de la aplicación.
 5. Haga clic en la pestaña **Configuración**, seleccione **Allow this application to be used to sign in with Twitte** (Permitir que esta aplicación se use para iniciar sesión en Twitter) y, después, haga clic en **Update Settings** (Actualizar configuración).
 6. Seleccione la pestaña **Claves y tokens de acceso** . Tome nota de los valores de **Consumer Key (API Key)** [Clave de consumidor (clave de API)] y **Consumer secret (API Secret)** [Secreto de consumidor (secreto de API)].

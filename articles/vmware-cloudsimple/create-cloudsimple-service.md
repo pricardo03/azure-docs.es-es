@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f589adf5cbcd04b9642dfe1362fd13d5be1f9aa
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640634"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035718"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Creación de un servicio de la solución de VMware en Azure de CloudSimple
 
@@ -24,7 +24,7 @@ Para empezar a trabajar con la solución de VMware en Azure por CloudSimple, cre
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](http://portal.azure.com).
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Creación del servicio
 
@@ -46,5 +46,5 @@ El servicio se crea y se agrega a la lista de servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo [crear una nube privada](create-private-cloud.md)
-* Obtenga más información sobre cómo [configurar un entorno de nube privada](quickstart-create-private-cloud.md)
+* Obtenga más información sobre cómo [crear una nube privada](create-private-cloud.md).
+* Obtenga más información sobre cómo [configurar un entorno de nube privada](quickstart-create-private-cloud.md).

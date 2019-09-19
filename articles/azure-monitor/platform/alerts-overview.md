@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: ae3e45ece1bd53846ab7728c29c0da1b709fe42c
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915958"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091770"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -202,9 +202,9 @@ La siguiente solicitud a la API de ejemplo devuelve el recuento de alertas de un
   }
 }
 ```
-Las alertas se pueden consultar para sus campos [básicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields).
+Las alertas se pueden consultar para sus campos [básicos](alerts-common-schema-definitions.md#essentials).
 
-Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-api) para obtener más información sobre alertas específicas, incluidos los campos [contexto de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) correspondientes.
+Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-api) para obtener más información sobre alertas específicas, incluidos los campos [contexto de alerta](alerts-common-schema-definitions.md#alert-context) correspondientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

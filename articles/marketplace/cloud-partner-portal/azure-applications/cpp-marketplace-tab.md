@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942966"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962874"
 ---
 # <a name="azure-application-marketplace-tab"></a>Pestaña de Marketplace de aplicación de Azure
 
@@ -32,7 +32,7 @@ En la tabla siguiente se describe la configuración que se usará para la creaci
 | **Resumen\***      | Breve resumen de la oferta. La longitud máxima es de 100 caracteres.           |
 | **Resumen largo\*** | Resumen más largo de la oferta (aunque podría ser igual que el resumen). La longitud máxima es de 256 caracteres.           |
 | **Descripción\***  | Descripción de la oferta. La longitud máxima es de 3000 caracteres. Se permite HTML simple, incluidas las etiquetas &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y header.  |
-| **Identificador de marketing\*** | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres. Elija un identificador de marketing corto y descriptivo para el servicio. Este se usará en las direcciones URL de Marketplace para esta oferta. Por ejemplo, si el identificador de anunciante es "contoso" y el identificador de marketing es "sampleApp", la dirección URL de su oferta en Azure Marketplace será https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp.  
+| **Identificador de marketing\*** | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres. Elija un identificador de marketing corto y descriptivo para el servicio. Este se usará en las direcciones URL de Marketplace para esta oferta. Por ejemplo, si el identificador de anunciante es "contoso" y el identificador de marketing es "sampleApp", la dirección URL de su oferta en Azure Marketplace será https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp.  
 | **Id. de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta mientras está disponible en versión preliminar después de su publicación, antes de su lanzamiento.          |
 | **Vínculos útiles**    | Como opción, puede proporcionar vínculos a varios recursos para los usuarios de su oferta, por ejemplo, soporte técnico, documentación, foros, etc.  Se recomienda agregar al menos un vínculo a la documentación.            |
 | **Categorías sugeridas (5 como máximo)\*** | Seleccione una de cinco categorías. Las categorías seleccionadas se usan para asociar la oferta con las categorías de productos disponibles en Azure Marketplace y Azure Portal. Se muestran en páginas de navegación y en la página de detalles del producto. |

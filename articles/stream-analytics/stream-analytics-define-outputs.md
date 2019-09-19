@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563322"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984872"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -310,7 +310,7 @@ En la tabla siguiente se resume la asistencia de la partición y el número de r
 | Tema de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en el tema de salida.  |
 | Cola de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en la cola de salida. |
 | Azure Cosmos DB | Sí | Se basa en la cláusula PARTITION BY de la consulta. | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
-| Azure Functions | Sin | None | No aplicable. |
+| Azure Functions | Sí | Se basa en la cláusula PARTITION BY de la consulta. | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
 
 También se puede controlar el número de sistemas de escritura de salida mediante la cláusula `INTO <partition count>` (consulte [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) de la consulta, que puede ser útil para lograr la topología de trabajo deseada. Si el adaptador de salida no tiene particiones, la falta de datos de una partición de entrada provocará un retraso hasta la cantidad de llegada tardía de tiempo. En tales casos, la salida se combina en un único sistema de escritura, lo que puede provocar cuellos de botella en la canalización. Para obtener más información sobre la directiva de llegadas tardías, consulte [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 

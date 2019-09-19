@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509013"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065454"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configuración de los requisitos de complejidad de contraseñas de Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Si usa directivas personalizadas, puede ([configurar la complejidad de la contra
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Flujos de usuario**.
 2. Seleccione un flujo de usuario y haga clic en **Propiedades**.

@@ -15,16 +15,16 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074053"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001207"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
-En este tutorial se muestra cómo proteger la [aplicación de App Service](https://docs.microsoft.com/azure/app-service/) o la [aplicación de función](https://docs.microsoft.com/azure/azure-functions/) mediante la creación (compra) de un certificado de App Service en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) y su vinculación a una aplicación de App Service.
+En este tutorial se muestra cómo proteger la [aplicación de App Service](https://docs.microsoft.com/azure/app-service/) o la [aplicación de función](https://docs.microsoft.com/azure/azure-functions/) mediante la creación (compra) de un certificado de App Service en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) y su vinculación a una aplicación de App Service.
 
 > [!TIP]
 > Las instancias de App Service Certificate pueden usarse para cualquier servicio de Azure o que no sea de Azure, y no se limitan a App Services. Para ello, tiene que crear una copia PFX local de un certificado de App Service que pueda usar donde quiera. Para más información, visite nuestra entrada de blog [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/) (Creación de una copia PFX local de una instancia de App Service Certificate).
@@ -64,7 +64,7 @@ Seleccione el certificado en la página [certificados de App Service](https://po
 
 ![insertar imagen de listo para almacenar en KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) es un servicio de Azure que ayuda a proteger claves criptográficas y secretos que emplean servicios y aplicaciones en la nube. Es el almacenamiento preferido para certificados de App Service.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) es un servicio de Azure que ayuda a proteger claves criptográficas y secretos que emplean servicios y aplicaciones en la nube. Es el almacenamiento preferido para certificados de App Service.
 
 En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault** para crear un nuevo almacén o elegir uno existente. Si decide crear un nuevo almacén, use la tabla siguiente para ayudarle a configurarlo y haga clic en Crear para crear un almacén de claves en la misma suscripción y grupo de recursos.
 

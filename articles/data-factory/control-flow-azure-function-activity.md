@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 292fe858b85faef69b9df2dbdf54e7061ed56fa2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a3499637fb5320afe80bf4eefa634173db31f1b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142504"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931860"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 
@@ -62,7 +62,7 @@ La actividad de la función de Azure admite **consultas**. Debe incluirse una co
 
 Azure Functions agota el tiempo de espera después de 230 segundos, independientemente del valor de `functionTimeout` que se haya configurado. Para obtener más información, consulte [este artículo](../azure-functions/functions-versions.md#timeout). Para evitar este comportamiento, siga un patrón asincrónico o use Durable Functions. La ventaja de Durable Functions es que ofrece su propio mecanismo de seguimiento de estado, por lo que no tendrá que implementar el suyo propio.
 
-Obtenga más información sobre Durable Functions en [este artículo](../azure-functions/durable/durable-functions-overview.md). Puede configurar una actividad de la función de Azure para llamar a la función duradera, lo que devolverá una respuesta con un URI diferente, como [en este ejemplo](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Dado que `statusQueryGetUri` devuelve código de estado HTTP 202 mientras la función se ejecuta, puede sondear el estado de la función mediante una actividad web. Solo tiene que configurar una actividad web con el campo `url` establecido en `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Cuando se completa la función duradera, la salida de la función será el resultado de la actividad web.
+Obtenga más información sobre Durable Functions en [este artículo](../azure-functions/durable/durable-functions-overview.md). Puede configurar una actividad de la función de Azure para llamar a la función duradera, lo que devolverá una respuesta con un URI diferente, como [en este ejemplo](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Dado que `statusQueryGetUri` devuelve código de estado HTTP 202 mientras la función se ejecuta, puede sondear el estado de la función mediante una actividad web. Solo tiene que configurar una actividad web con el campo `url` establecido en `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Cuando se completa la función duradera, la salida de la función será el resultado de la actividad web.
 
 
 ## <a name="sample"></a>Muestra

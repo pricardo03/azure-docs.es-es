@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: c12e64fc51eb53aebffbef1ad886b7cc404cf699
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 88d140c4890492b6a53c2e73328ab814293550e6
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051221"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994928"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -57,7 +57,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 |[Speech Service API][sp-containers] |F0, S0|**Texto a voz** |Convierte el texto a una voz que parece natural.<br>[Solicitar acceso](https://aka.ms/speechcontainerspreview/)|
 |[Text Analytics][ta-containers] |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 |[Text Analytics][ta-containers]|F0, S|**Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
-|[Text Analytics][ta-containers]|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para los [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
+|[Text Analytics][ta-containers]|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -98,6 +98,8 @@ Para conocer los principios básicos de Docker y de los contenedores, consulte [
 
 Los contenedores individuales también pueden tener sus propios requisitos, incluidos los requisitos de asignación de memoria y servidor.
 
+[!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
+
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -116,7 +118,6 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
-
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: e14a12543b95f3495e91e4a80880ac586ba911a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 093e990365c2b33a873236f5d0ad6a1395e5e8fc
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088303"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967564"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Windows en Azure
 
@@ -32,7 +32,7 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 | [Proceso optimizado](sizes-compute.md)        | Fsv2           | Uso elevado de la CPU en proporción de memoria. Bueno para servidores web de tráfico medio, aplicaciones de red, procesos por lotes y servidores de aplicaciones.        |
 | [Memoria optimizada](sizes-memory.md)         | Esv3, Ev3, Easv3, Eav3, Mv2, M, DSv2, Dv2  | Memoria alta en proporción de CPU. Excelente para servidores de bases de datos relacionales, memorias caché de capacidad media o grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](sizes-storage.md)        | Lsv2                | Alto rendimiento de disco y de E/S ideales para macrodatos, bases de datos SQL y NoSQL, almacenamiento de datos y bases de datos transaccionales grandes.  |
-| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (versión preliminar), NV, NVv3 (versión preliminar) | Máquinas virtuales especializadas específicas para la representación de gráficos pesados y la edición de vídeo, así como para el entrenamiento e inferencia de modelos (ND) con aprendizaje profundo. Están disponibles con uno o varios GPU.       |
+| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (versión preliminar), NV, NVv3 | Máquinas virtuales especializadas específicas para la representación de gráficos pesados y la edición de vídeo, así como para el entrenamiento e inferencia de modelos (ND) con aprendizaje profundo. Están disponibles con uno o varios GPU.       |
 | [Proceso de alto rendimiento](sizes-hpc.md) | HB, HC, H | Nuestras máquinas virtuales de CPU más rápidas y eficaces con interfaces de red de alto rendimiento opcionales (RDMA). |
 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559093"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962518"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -67,7 +67,7 @@ El modelo más reciente, que se ha entrenado a partir de llamadas a Reward API d
 
 Las frecuencias elevadas de actualización del modelo son útiles en aquellas situaciones en las que se desea hacer un estrecho seguimiento de los cambios en los comportamientos de los usuarios. Algunos ejemplos incluyen sitios que ofrecen noticias en vivo, contenido viral o pujas en vivo. En estos escenarios se puede usar una frecuencia de 15 minutos. Sin embargo, en la mayor parte de los casos una menor frecuencia de actualización resulta muy efectiva. Las frecuencias de actualización de un minuto son útiles cuando se depura el código de una aplicación mediante Personalizer, se realizan demostraciones o se prueban de forma interactiva ciertos aspectos del aprendizaje automático.
 
-![Frecuencia de actualización del modelo establece la frecuencia con la que se vuelve a entrenar un nuevo modelo de Personalizer.](media/settings/configure-model-update-frequency-settings.png)
+![Frecuencia de actualización del modelo establece la frecuencia con la que se vuelve a entrenar un nuevo modelo de Personalizer.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 Después de cambiar este valor asegúrese de seleccionar **Save** (Guardar).
 

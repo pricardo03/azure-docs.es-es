@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84b7fac10374c1c8f23d17ad775d522b4cb261e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b63209c9174867e69356bb6800d70502f2afdaa4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195732"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088828"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ En este artículo, obtendrá información sobre cómo usar el SDK de Python para
 Para trabajar con Data Lake Storage Gen1 mediante Python, debe instalar tres módulos.
 
 * El módulo `azure-mgmt-resource`, que incluye los módulos de Azure para Active Directory, etc.
-* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Data Lake Storage Gen1. Para obtener más información acerca de este módulo, consulte [referencia al módulo de administración de Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Data Lake Storage Gen1. Para obtener más información acerca de este módulo, consulte [referencia al módulo de administración de Azure Data Lake Storage Gen1](/python/api/azure-mgmt-datalake-store/).
 * El módulo `azure-datalake-store`, que incluye las operaciones del sistema de archivos de Data Lake Storage Gen1. Para obtener más información sobre este módulo, consulte la [referencia al módulo de azure-datalake-store Filesystem](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilice el comando siguiente para instalar los módulos.

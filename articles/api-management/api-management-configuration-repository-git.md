@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073759"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104961"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -99,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una aplicación de consola vacía) y elija **Ventanas**, **Inmediato** en el menú **Depurar**.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Utilice la contraseña codificada junto con su nombre de usuario y ubicación de repositorio para construir el comando git.

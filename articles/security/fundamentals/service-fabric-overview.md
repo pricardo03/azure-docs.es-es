@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934572"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998945"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Introducción a la seguridad de Azure Service Fabric
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric aborda los desafíos de desarrollar y administrar aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en la implementación de cargas de trabajo exigentes y críticas que son escalables y confiables.
@@ -132,7 +132,7 @@ La seguridad de cliente a nodo se configura mediante ClientIdentities. Debe conf
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Administración de los secretos en aplicaciones de Service Fabric
 Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
 
-Puede usar [Azure Key Vault](../../key-vault/key-vault-whatis.md) para administrar las claves y los secretos. Sin embargo, el uso de secretos en una aplicación no se basa en una plataforma en la nube concreta. Las aplicaciones se pueden implementar en un clúster que se hospede en cualquier lugar. Hay cuatro pasos principales en este flujo:
+Puede usar [Azure Key Vault](../../key-vault/key-vault-overview.md) para administrar las claves y los secretos. Sin embargo, el uso de secretos en una aplicación no se basa en una plataforma en la nube concreta. Las aplicaciones se pueden implementar en un clúster que se hospede en cualquier lugar. Hay cuatro pasos principales en este flujo:
 
 1.  Obtener un certificado de cifrado de datos.
 2.  Instalar el certificado en el clúster.

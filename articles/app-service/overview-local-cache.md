@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098457"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097661"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -49,7 +49,7 @@ La característica de caché local de Azure App Service proporciona una vista de
 * La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de la memoria caché local para cada aplicación se limita a 300 MB de forma predeterminada, pero se puede aumentar a hasta 2 GB.
 * La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación mueva máquinas virtuales o se reinicie. No use la memoria caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
 * _D:\home\LogFiles_ y _D:\home\Data_ contienen archivos de registro y datos de la aplicación. Las dos subcarpetas se almacenan localmente en la instancia de la VM y se copian periódicamente en el almacén de contenido compartido. Las aplicaciones pueden conservar los archivos de registro y los datos al escribirlos en estas carpetas. Sin embargo, la copia en el almacén de contenido compartido es de mejor esfuerzo, por lo que es posible que los archivos de registro y datos se pierdan debido a un bloqueo repentino de una instancia de la VM.
-* Las [secuencias de registro](troubleshoot-diagnostic-logs.md#streamlogs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.
+* Las [secuencias de registro](troubleshoot-diagnostic-logs.md#stream-logs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.
 * En el almacén de contenido compartido, hay un cambio en la estructura de las carpetas _LogFiles_ y _Data_ para las aplicaciones que usan la memoria caché local. Ahora contienen subcarpetas que siguen el patrón de nomenclatura de "identificador único" + marca de tiempo. Cada una de las subcarpetas corresponde a una instancia de VM en donde la aplicación se está ejecutando o se ha ejecutado.
 * Las demás carpetas en _D:\home_ permanecen en la memoria caché local y no se copian en el almacén de contenido compartido.
 * La implementación de aplicaciones a través de cualquier método admitido publica directamente en el almacén de contenido compartido duradero. Para actualizar las carpetas _D:\home\site_ y _D:\home\siteextensions_ en la memoria caché local, se debe reiniciar la aplicación. Para que el ciclo de vida avance sin problemas, consulte la información que aparece más adelante en este artículo.

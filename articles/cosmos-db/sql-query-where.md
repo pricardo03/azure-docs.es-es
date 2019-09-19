@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6a942e48ffea7785fe971cc2f8fa66e8569ed672
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343228"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003475"
 ---
 # <a name="where-clause"></a>Cláusula WHERE
 
@@ -104,10 +104,10 @@ También puede usar los operadores unarios +, -, ~ y NOT en las consultas, tal c
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-También puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado. 
+Igualmente, puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción](sql-query-getting-started.md)
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula FROM](sql-query-from.md)

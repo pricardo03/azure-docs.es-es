@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845436"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004099"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -185,7 +185,7 @@ Para evitar que otros usuarios cambien o eliminen la aplicación lógica, puede 
 
 Durante la ejecución de una aplicación lógica, todos los datos se cifran en tránsito mediante [Seguridad de la capa de transporte (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) y en [reposo](../security/fundamentals/encryption-atrest.md). Cuando finaliza la ejecución de la aplicación lógica, puede ver el historial de esa ejecución, incluidos los pasos que se ejecutaron junto con el estado, la duración, las entradas y las salidas de cada acción. Este completo detalle proporciona información sobre cómo se ejecuta la aplicación lógica y dónde puede empezar a solucionar los problemas que surjan.
 
-Cuando accede al historial de ejecución de la aplicación lógica, Logic Apps autentica su acceso y proporciona vínculos a las entradas y salidas de las solicitudes y respuestas de la ejecución de la aplicación lógica. Sin embargo, para las acciones que controlan contraseñas, secretos, claves u otra información confidencial, es recomendable evitar que otros usuarios vean los datos y accedan a ellos. Por ejemplo, si la aplicación lógica obtiene un secreto de [Azure Key Vault](../key-vault/key-vault-whatis.md) para usarlo al autenticar una acción HTTP, puede ocultar ese secreto de la vista.
+Cuando accede al historial de ejecución de la aplicación lógica, Logic Apps autentica su acceso y proporciona vínculos a las entradas y salidas de las solicitudes y respuestas de la ejecución de la aplicación lógica. Sin embargo, para las acciones que controlan contraseñas, secretos, claves u otra información confidencial, es recomendable evitar que otros usuarios vean los datos y accedan a ellos. Por ejemplo, si la aplicación lógica obtiene un secreto de [Azure Key Vault](../key-vault/key-vault-overview.md) para usarlo al autenticar una acción HTTP, puede ocultar ese secreto de la vista.
 
 Para controlar el acceso a las entradas y salidas del historial de ejecución de la aplicación lógica, tiene estas opciones:
 
@@ -370,7 +370,7 @@ Para obtener más información, consulte [Parámetros protegidos en las definici
 
 Al automatizar las implementaciones con [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), puede definir parámetros de plantilla protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) independiente.
 
-Por ejemplo, si usa secretos, puede definir y usar parámetros de plantilla protegidos que recuperen dichos secretos de [Azure Key Vault](../key-vault/key-vault-whatis.md) en la implementación. A continuación, puede hacer referencia a Key Vault y al secreto en el archivo de parámetros. Para más información, consulte los temas siguientes:
+Por ejemplo, si usa secretos, puede definir y usar parámetros de plantilla protegidos que recuperen dichos secretos de [Azure Key Vault](../key-vault/key-vault-overview.md) en la implementación. A continuación, puede hacer referencia a Key Vault y al secreto en el archivo de parámetros. Para más información, consulte los temas siguientes:
 
 * [Uso de Azure Key Vault para pasar valores de parámetro seguros durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 * [Parámetros seguros en plantillas de Azure Resource Manager](#secure-parameters-deployment-template) más adelante en este tema
@@ -425,7 +425,7 @@ Para proteger la información confidencial en la definición del flujo de trabaj
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parámetros seguros en plantillas de Azure Resource Manager
 
-Una plantilla de Resource Manager para una aplicación lógica tiene varias secciones `parameters`. Para proteger las contraseñas, las claves, los secretos y otros datos confidenciales, defina parámetros seguros en el nivel de plantilla y de definición de flujo de trabajo mediante el tipo `securestring` o `secureobject`. Después, puede almacenar estos valores en [Azure Key Vault](../key-vault/key-vault-whatis.md) y usar el [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para hacer referencia al almacén de claves y al secreto. A continuación, la plantilla recupera esa información en la implementación. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Una plantilla de Resource Manager para una aplicación lógica tiene varias secciones `parameters`. Para proteger las contraseñas, las claves, los secretos y otros datos confidenciales, defina parámetros seguros en el nivel de plantilla y de definición de flujo de trabajo mediante el tipo `securestring` o `secureobject`. Después, puede almacenar estos valores en [Azure Key Vault](../key-vault/key-vault-overview.md) y usar el [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para hacer referencia al almacén de claves y al secreto. A continuación, la plantilla recupera esa información en la implementación. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 Aquí tiene más información sobre estas secciones `parameters`:
 

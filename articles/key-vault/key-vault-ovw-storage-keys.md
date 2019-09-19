@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 68c9279333e9ee92cbca1034f70801c153b6cdb8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883068"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000548"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Azure Key Vault y la CLI de Azure 
 
@@ -158,7 +158,7 @@ Hay tres formas de autenticarse en Key Vault:
 - Usar una entidad de servicio y un certificado. 
 - Usar una entidad de servicio y una contraseña. Este enfoque no es recomendable.
 
-Para más información, consulte [Azure Key Vault: Conceptos básicos](key-vault-whatis.md#basic-concepts).
+Para más información, consulte [Azure Key Vault: Conceptos básicos](basic-concepts.md).
 
 En el ejemplo siguiente se muestra cómo capturar los tokens de firma de acceso compartido. Los tokens se capturan después de crear una definición de firma de acceso compartido. 
 

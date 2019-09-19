@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827640"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000981"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminación SSL con certificados de Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
 
 > [!IMPORTANT]
 > La integración de Application Gateway con Key Vault está en versión preliminar pública actualmente. Esta versión preliminar se ofrece sin contrato de nivel de servicio (SLA) y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

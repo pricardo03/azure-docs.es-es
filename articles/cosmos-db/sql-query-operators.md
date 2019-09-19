@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: eecc1522f8c260286c7dd7fc4c2e58d5d8caa8fb
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 899355ad7331a3df8cd5d647a573dc15e3a0bb14
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343187"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003389"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores en Azure Cosmos DB
 
@@ -66,29 +66,29 @@ Los operadores lógicos operan en valores booleanos. En las tablas siguientes se
 
 ## <a name="-operator"></a>Operador *
 
-El operador especial * proyecta el elemento completo tal cual. Al usarse, debe ser el único campo proyectado. Una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f` y `SELECT *, f.id FROM Families f` no lo son.
+El operador especial * proyecta el elemento completo tal cual. Al usarse, debe ser el único campo proyectado. Una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f` y `SELECT *, f.id FROM Families f` no lo son.
 
-## <a name="-and--operators"></a>? y ?? Operadores
+## <a name="-and--operators"></a>? y ?? (operadores)
 
-Puede usar el operador ternario (?) y el operador de combinación (??) para crear expresiones condicionales, al igual que en lenguajes de programación populares como C# y JavaScript. 
+Puede usar el operador ternario (?) y el operador de combinación (??) para crear expresiones condicionales, al igual que en lenguajes de programación populares como C# y JavaScript. 
 
-Puede usar el operador ? para construir nuevas propiedades JSON sobre la marcha. Por ejemplo, la siguiente consulta clasifica los niveles de calificación en `elementary` o `other`:
+Puede usar el operador ? para construir nuevas propiedades JSON sobre la marcha. Por ejemplo, la siguiente consulta clasifica los niveles de curso en `elementary` u `other`:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-Además, puede anidar llamadas en el operador ?, como en la consulta siguiente: 
+Además, también puede anidar llamadas al operador ?, como en la consulta siguiente: 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-Al igual que con otros operadores de consulta, el operador ? excluye elementos si faltan las propiedades a las que se hace referencia o si los tipos que se comparan son diferentes.
+Al igual que con otros operadores de consulta, el operador ? excluye elementos si faltan las propiedades a las que se hace referencia o si los tipos que se comparan son diferentes.
 
-Use el operador ?? para comprobar de manera eficaz una propiedad en un elemento al consultar datos semiestructurados o de tipos mixtos. Por ejemplo, la consulta siguiente devuelve `lastName` si está presente, o `surname` si `lastName` no está presente.
+Use el operador ?? para comprobar de manera eficaz una propiedad en un elemento al consultar datos semiestructurados o de tipos mixtos. Por ejemplo, la consulta siguiente devuelve `lastName` si está presente, o `surname` si `lastName` no está presente.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -97,6 +97,6 @@ Use el operador ?? para comprobar de manera eficaz una propiedad en un elemento 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Palabras clave](sql-query-keywords.md)
 - [Cláusula SELECT](sql-query-select.md)

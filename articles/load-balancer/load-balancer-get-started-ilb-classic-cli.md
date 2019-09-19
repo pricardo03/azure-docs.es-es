@@ -5,6 +5,7 @@ description: Obtenga información sobre cómo crear un equilibrador de carga int
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 991e6554df62591dea5c126f8ea82704373d6ffd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b061da308f2e8635cf1722cb6a735624501374
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781246"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090990"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Primeros pasos en la creación de un equilibrador de carga interno mediante la CLI de Azure clásica
 

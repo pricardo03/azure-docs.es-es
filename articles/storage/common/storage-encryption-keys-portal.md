@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030945"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002264"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configuración de las claves administradas del cliente para el cifrado de Azure Storage desde Azure Portal
 
@@ -73,4 +73,4 @@ Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de al
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
-- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

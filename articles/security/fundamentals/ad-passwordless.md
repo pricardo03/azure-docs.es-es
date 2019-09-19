@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899949"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091949"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mundo sin contraseñas con Azure Active Directory
 
@@ -107,7 +107,7 @@ Para examinar más detenidamente el proceso de autenticación en otros escenario
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>El usuario administra sus credenciales de Windows Hello para empresas
 
-El [servicio de restablecimiento del PIN de Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) es una característica de Azure AD que permite a los usuarios restablecer su PIN si es necesario. Mediante la directiva de grupo, Microsoft Intune o una MDM compatible, un administrador puede configurar los dispositivos Windows 10 para usar de forma segura el servicio de restablecimiento de PIN de Microsoft que permite a los usuarios restablecer su PIN olvidado mediante configuración o encima de la pantalla de bloqueo sin necesidad de volver a inscribirse.
+El [servicio de restablecimiento del PIN de Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) es una característica de Azure AD que permite a los usuarios restablecer su PIN si es necesario. Mediante la directiva de grupo, Microsoft Intune o una MDM compatible, un administrador puede configurar los dispositivos Windows 10 para usar de forma segura el servicio de restablecimiento de PIN de Microsoft que permite a los usuarios restablecer su PIN olvidado mediante configuración o encima de la pantalla de bloqueo sin necesidad de volver a inscribirse.
 
 En ocasiones tienen que recurrir al uso de contraseñas. El [autoservicio de restablecimiento de contraseña](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) es otra característica de Azure AD que permite a los usuarios restablecer sus contraseñas sin necesidad de ponerse en contacto con el personal de TI. Los usuarios deben registrarse o ser registrados en este servicio para poder usarlo. Durante el registro, el usuario elige uno o varios métodos de autenticación habilitados por su organización. SSPR permite el desbloqueo rápido de los usuarios para que continúen trabajando con independencia de dónde se encuentren o la hora del día. Al permitir que los usuarios se desbloqueen a sí mismos, su organización puede reducir el tiempo no productivo y los altos costos de soporte técnico para los problemas más comunes relacionados con las contraseñas.
 

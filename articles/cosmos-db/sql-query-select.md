@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343139"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003524"
 ---
 # <a name="select-clause"></a>Cláusula SELECT
 
@@ -99,7 +99,7 @@ Los resultados son:
 ```
 
 ### <a name="quoted-property-accessor"></a>Descriptor de acceso de propiedad entre comillas
-Puede acceder a las propiedades mediante el operador de la propiedad entre comillas []. Por ejemplo, `SELECT c.grade` and `SELECT c["grade"]` son equivalentes. Esta sintaxis es útil para crear una secuencia de escape para una propiedad que contiene espacios en blanco, caracteres especiales, o que tiene el mismo nombre que una palabra clave SQL o una palabra reservada.
+Puede acceder a las propiedades mediante el operador de la propiedad entre comillas []. Por ejemplo, `SELECT c.grade` and `SELECT c["grade"]` son equivalentes. Esta sintaxis es útil para crear una secuencia de escape para una propiedad que contiene espacios en blanco, caracteres especiales o que tiene el mismo nombre que una palabra clave SQL o una palabra reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -147,7 +147,7 @@ Los resultados son:
     }]
 ```
 
-En el ejemplo anterior, la cláusula SELECT tiene que crear un objeto JSON y, puesto que el ejemplo no proporciona ninguna clave, la cláusula usa el nombre de variable de argumentos implícitos `$1`. La consulta siguiente devuelve dos variables de argumentos implícitos: `$1` y `$2`.
+En el ejemplo anterior, la cláusula SELECT tiene que crear un objeto JSON y, puesto que el ejemplo no proporciona ninguna clave, la cláusula usa el nombre de variable del argumento implícito `$1`. La consulta siguiente devuelve dos variables de argumentos implícitos: `$1` y `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -173,5 +173,5 @@ Los resultados son:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción](sql-query-getting-started.md)
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula WHERE](sql-query-where.md)

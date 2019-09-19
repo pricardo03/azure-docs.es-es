@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915406"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002975"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creación de trabajos de Apache Spark Streaming de alta disponibilidad con YARN
 
@@ -21,7 +21,7 @@ ms.locfileid: "70915406"
 
 Spark Streaming crea trabajos de ejecución prolongada durante los cuales se pueden aplicar transformaciones a los datos y después insertar los resultados en sistemas de archivos, bases de datos, paneles y en la consola. Spark Streaming procesa microlotes de datos al recopilar primero un lote de eventos durante un intervalo de tiempo definido. A continuación, ese lote se envía para su procesamiento y salida. Los intervalos de tiempo de los lotes se definen normalmente en fracciones de segundo.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -57,7 +57,7 @@ Para crear una aplicación que procese cada evento una vez (y solo una vez), con
 
 En HDInsight, el trabajo de clústeres se coordina con *Yet Another Resource Negotiator* (YARN). El diseño de alta disponibilidad para Spark Streaming incluye técnicas para Spark Streaming y también para los componentes de YARN.  A continuación se muestra un ejemplo de configuración que utiliza YARN. 
 
-![Arquitectura de YARN](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![Arquitectura de YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 Las secciones siguientes describen las consideraciones de diseño para esta configuración.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098621"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999055"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -88,7 +88,7 @@ Durante décadas, se han encontrado disponibles principios y patrones para el pe
 Aquí tiene unas recomendaciones para administrar el perímetro de identidad.
 
 **Procedimiento recomendado**: proteger las claves y las credenciales para proteger la implementación de PaaS.   
-**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada que permita almacenar claves y secretos en módulos de seguridad de hardware (HSM). [Azure Key Vault](../../key-vault/key-vault-whatis.md) guarda claves y secretos mediante el cifrado de claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .pfx y contraseñas a través del uso de claves protegidas por HSM.
+**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada que permita almacenar claves y secretos en módulos de seguridad de hardware (HSM). [Azure Key Vault](../../key-vault/key-vault-overview.md) guarda claves y secretos mediante el cifrado de claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .pfx y contraseñas a través del uso de claves protegidas por HSM.
 
 **Procedimiento recomendado**: no incluya credenciales ni otros secretos en el código fuente ni en GitHub.   
 **Detalles**: mucho peor que perder las claves y las credenciales es que otra persona no autorizada acceda a ellas. Los atacantes pueden aprovechar las tecnologías de bots para encontrar claves y secretos almacenados en repositorios de código, como GitHub. No guarde claves ni secretos en estos repositorios públicos de código.
@@ -133,7 +133,7 @@ Estas son algunos procedimientos recomendados para usar App Service.
 **Detalles**: La restricción del acceso es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos. Puede usar RBAC para asignar permisos a los usuarios, los grupos y las aplicaciones en un ámbito determinado. Vea [Introducción a la administración de acceso](/azure/role-based-access-control/overview) para aprender más sobre cómo conceder acceso a los usuarios a las aplicaciones.
 
 **Procedimiento recomendado**: Protección de las claves.   
-**Detalles**: Azure Key Vault ayuda a proteger las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube. Con Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM. Vea [Azure Key Vault](/azure/key-vault/key-vault-whatis) para más información. También puede utilizar Key Vault para administrar los certificados TLS con renovación automática.
+**Detalles**: Azure Key Vault ayuda a proteger las claves criptográficas y los secretos que usan los servicios y aplicaciones en la nube. Con Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM. Vea [Azure Key Vault](/azure/key-vault/key-vault-overview) para más información. También puede utilizar Key Vault para administrar los certificados TLS con renovación automática.
 
 **Procedimiento recomendado**: Restricción de las direcciones IP de origen entrantes.   
 **Detalles**: [App Service Environment](/azure/app-service/environment/intro) tiene una característica de integración de la red virtual que ayuda a restringir las direcciones IP de origen entrantes mediante grupos de seguridad de red. Las redes virtuales permiten colocar recursos de Azure en una red que se pueda enrutar distinta de Internet y a la que se controla el acceso. Vea [Integración de su aplicación con una instancia de Azure Virtual Network](/azure/app-service/web-sites-integrate-with-vnet) para más información.

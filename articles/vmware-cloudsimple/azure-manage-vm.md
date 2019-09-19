@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7d09ebd9c6ef04aff4d750024216b51513c3cca
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576059"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037466"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de CloudSimple en Azure
 
-Para administrar las máquinas virtuales que [creó para la nube privada de CloudSimple](azure-create-vm.md), inicie sesión en [Azure Portal](http://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
+Para administrar las máquinas virtuales que [creó para la nube privada de CloudSimple](azure-create-vm.md), inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
 
 ## <a name="control-virtual-machine-operation"></a>Control del funcionamiento de la máquina virtual
 

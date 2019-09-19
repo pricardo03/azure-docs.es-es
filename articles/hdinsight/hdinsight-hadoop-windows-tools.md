@@ -3,16 +3,17 @@ title: 'Uso de un equipo Windows con Hadoop en HDInsight: Azure'
 description: Trabaje desde un equipo Windows en Hadoop en HDInsight. Administre y consulte clústeres con PowerShell, Visual Studio y herramientas de Linux. Desarrolle soluciones de macrodatos con .NET.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
-ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 942ca2fe89441ab7497e98c6ffe1fffb9847da77
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926030"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076584"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabajo en el ecosistema de Apache Hadoop en HDInsight desde un equipo con Windows
 

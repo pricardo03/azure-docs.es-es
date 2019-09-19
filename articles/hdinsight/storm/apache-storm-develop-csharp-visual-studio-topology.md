@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915154"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003832"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
 
@@ -135,7 +135,7 @@ Para obtener una topología de ejemplo que usa este componente y funciona con St
 
 2. En la ventana **Nuevo proyecto**, expanda **Instalado** > **Plantillas** y seleccione **Azure Data Lake**. En la lista de plantillas, seleccione **Aplicación de Storm**. En la parte inferior de la pantalla, escriba **WordCount** como nombre de la aplicación.
 
-    ![Captura de pantalla de la ventana Nuevo proyecto](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Captura de pantalla de la ventana Nuevo proyecto](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. Después de crear el proyecto, debe tener los siguientes archivos:
 
@@ -338,7 +338,7 @@ Para obtener una topología de ejemplo que usa este componente y funciona con St
 
 Los spouts y bolts se organizan en un gráfico, que define cómo fluyen los datos entre componentes. Para esta topología, el gráfico es como sigue:
 
-![Diagrama de cómo se organizan los componentes](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagrama de cómo se organizan los componentes](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Las frases se emiten desde el spout y se distribuyen a las instancias del bolt divisor. El bolt divisor divide las frases en palabras, que se distribuyen en el bolt contador.
 
@@ -461,7 +461,6 @@ Para ver un ejemplo de una topología híbrida, cree un proyecto y seleccione **
   > [!NOTE]  
   > Esta versión también muestra cómo usar código de Clojure desde un archivo de texto como un componente de Java.
 
-
 Para cambiar la topología que se usa cuando se envía el proyecto, mueva la instrucción `[Active(true)]` a la topología que quiere usar antes de enviarla al clúster.
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
    > [!NOTE]
    > No olvide cambiar el **tipo de salida** de nuevo a **Biblioteca de clases** antes de implementar la topología en un clúster.
 
-2. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Clase** y escriba **LocalTest.cs** como nombre de clase. Por último, haga clic en **Agregar**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Clase** y escriba **LocalTest.cs** como nombre de clase. Por último, haga clic en **Agregar**.
 
-3. Abra **LocalTest.cs** y agregue la siguiente instrucción **using** en la parte superior:
+1. Abra **LocalTest.cs** y agregue la siguiente instrucción **using** en la parte superior:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Use el código siguiente como contenido de la clase **LocalTest**:
+1. Use el código siguiente como contenido de la clase **LocalTest**:
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
     Console.ReadKey();
     ```
 
-2. Guarde los cambios y luego haga clic en **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas** , presione cualquier tecla para cerrar la ventana.
+1. Guarde los cambios y luego haga clic en **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas** , presione cualquier tecla para cerrar la ventana.
 
-3. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto. Por ejemplo:  **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
+1. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto. Por ejemplo:  **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
 
    > [!NOTE]  
    > Los datos de cadena se guardan como persistentes como una matriz de valores decimales en estos archivos. Por ejemplo, \[[97,103,111]] en el archivo **splitter.txt** es la palabra *and*.

@@ -3,17 +3,18 @@ title: Preguntas más frecuentes sobre la migración en Azure Storage | Microsof
 description: Respuestas a preguntas habituales sobre la migración en Azure Storage
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985586"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090813"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 

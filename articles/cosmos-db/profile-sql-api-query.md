@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: girobins
-ms.openlocfilehash: b4017666956d0e01ea19781fb4f1ce2dde15fff5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481570"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998366"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtención de métricas de ejecución de consultas SQL y análisis del rendimiento de las consultas mediante el SDK de .NET
 
@@ -244,4 +244,4 @@ Para más información acerca de cómo ajustar el rendimiento de las consultas, 
 
 - [Ajuste del rendimiento de las consultas](sql-api-query-metrics.md)
 - [Introducción a la indexación](index-overview.md)
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252844"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960614"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -22,7 +22,7 @@ En este artículo se explican los recursos que están presentes cuando se implem
 
 Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales o nodos. Cada tipo de nodo desempeña un papel en el funcionamiento del sistema. En la tabla siguiente se resumen estos tipos de nodo y sus roles en el clúster.
 
-| Type | DESCRIPCIÓN |
+| type | DESCRIPCIÓN |
 | --- | --- |
 | Nodo principal |  Para todos los tipos de clúster excepto Apache Storm, los nodos principales hospedan los procesos que administran la ejecución de la aplicación distribuida. El nodo principal es también el nodo al que puede acceder mediante SSH y ejecutar aplicaciones que después se coordinan para ejecutarse en los recursos de clúster. El número de nodos principales se fija en dos para los tipos de clúster. |
 | Nodo de ZooKeeper | ZooKeeper coordina las tareas entre los nodos que realizan el procesamiento de datos. También realiza la elección de líder del nodo principal y realiza un seguimiento de qué nodo principal ejecuta un servicio maestro específico. El número de nodos de ZooKeeper se fija en tres. |
@@ -36,7 +36,7 @@ Los clústeres de Azure HDInsight tienen distintos tipos de máquinas virtuales 
 
 El siguiente diagrama muestra la colocación de los nodos de HDInsight y los recursos de red en Azure.
 
-![Diagrama de entidades de HDInsight creadas en una red virtual personalizada de Azure](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagrama de entidades de HDInsight creadas en una red virtual personalizada de Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
 Los recursos predeterminados presentes cuando HDInsight se implementa en una red virtual de Azure incluyen los tipos de nodo de clúster que se han mencionado en la tabla anterior, así como los dispositivos de red que admiten la comunicación entre la red virtual y las redes externas.
 

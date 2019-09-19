@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de interfaz visual n.° 3: regresión de precios y comparación de algoritmos'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: En este artículo se muestra cómo compilar un experimento de aprendizaje automático complejo sin necesidad de escribir una sola línea de código mediante la interfaz visual. Aprenda a entrenar y comparar varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990002"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997097"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos
 

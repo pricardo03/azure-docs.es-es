@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ea7fc5a318775b05c03166df3d9b457ec004273
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773123"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000580"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -25,7 +25,7 @@ Azure Key Vault permite a las aplicaciones y los usuarios de Microsoft Azure alm
 - Certificados: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
 - Azure Storage: puede administrar automáticamente las claves de una cuenta de Azure Storage. Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (rotar) las claves periódicamente. 
 
-Para más información sobre Key Vault, vea [¿Qué es Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+Para más información sobre Key Vault, vea [¿Qué es Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

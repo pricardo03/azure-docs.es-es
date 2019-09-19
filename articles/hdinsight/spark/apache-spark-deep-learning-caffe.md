@@ -3,16 +3,17 @@ title: Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distri
 description: Uso de Caffe en Apache Spark para el aprendizaje profundo distribuido en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814202"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995625"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido
 
@@ -65,7 +66,7 @@ El segundo paso es descargar, compilar e instalar protobuf 2.5.0 para Caffe dura
 
 Para empezar, puede ejecutar esta acción de script en el clúster para todos los nodos de trabajo y los nodos principales (para HDInsight 3.5). Puede ejecutar las acciones de script en un clúster existente, o puede usar acciones de script durante la creación del clúster. Para obtener más información acerca de las acciones de script, consulte la documentación [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-![Acciones de script para instalar dependencias](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![Acciones de script para instalar dependencias](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Paso 2: Compilar Caffe en Apache Spark para HDInsight en el nodo principal
@@ -175,7 +176,8 @@ En este ejemplo, dado que se va a usar la CPU, en lugar de la GPU, es preciso ca
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Configuración 1 de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Configuración 1 de Caffe](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 Puede cambiar otras líneas si fuera necesario.
 
@@ -184,7 +186,7 @@ El segundo archivo (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) def
 - cambie "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" a "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - cambie "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" a "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Configuración 2 de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Configuración 2 de Caffe](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 Para obtener más información acerca de cómo definir la red, consulte la [documentación de Caffe en el conjunto de datos MNIST](https://caffe.berkeleyvision.org/gathered/examples/mnist.html).
 
@@ -204,15 +206,15 @@ Si desea saber lo que ha ocurrido, lo habitual es que tenga que acceder al regis
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![IU de YARN](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![IU de YARN](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 Puede echar un vistazo al número de recursos que se asignan a esta aplicación concreta. Puede hacer clic en el vínculo "Scheduler" (Programador) y vera que en la aplicación hay nueve contenedores en ejecución. Se pide a YARN que proporcione ocho ejecutores, mientras que el otro contenedor es para el proceso del controlador. 
 
-![Programador de YARN](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![Programador de YARN](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 Si aparecen errores, se pueden comprobar los registros del controlador o los registros del contenedor. En el caso de los registros del controlador, puede haga clic en el identificador de la aplicación en la interfaz de usuario de YARN y, después, hacer clic en el botón "Logs" (Registros). Los registros de controlador se escriben en stderr.
 
-![UI de YARN 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![UI de YARN 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 Por ejemplo, a continuación puede ver una parte del error de los registros de controlador, que indica que se asignan demasiados ejecutores.
 

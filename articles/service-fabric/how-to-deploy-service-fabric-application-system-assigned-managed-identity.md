@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640699"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968240"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema (versión preliminar)
 
@@ -93,15 +93,9 @@ Esta propiedad declara (para Azure Resource Manager y los proveedores de recurso
     Esta es la asignación equivalente de una identidad a un servicio, tal como se ha descrito anteriormente, pero desde la perspectiva de la definición del servicio. Aquí se hace referencia a la identidad mediante su nombre descriptivo (`WebAdmin`), como se declaró en el manifiesto de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 * Revisión de la [compatibilidad con la identidad administrada](./concepts-managed-identity.md) en Azure Service Fabric
-
 * [Implementación de un nuevo](./configure-new-azure-service-fabric-enable-managed-identity.md) clúster de Azure Service Fabric con compatibilidad con la identidad administrada 
-
 * [Habilitación de la identidad administrada](./configure-existing-cluster-enable-managed-identity-token-service.md) en un clúster de Azure Service Fabric existente
-
 * Aprovechamiento de la [identidad administrada de una aplicación de Service Fabric desde el código fuente](./how-to-managed-identity-service-fabric-app-code.md)
-
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
 * [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)

@@ -4,7 +4,7 @@ description: Use estos pasos detallados de solución de problemas para aislar pr
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: no se puede iniciar la aplicación, el programa no se abre, puerto de escucha bloqueado, no se puede iniciar el programa, puerto de escucha bloqueado
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fd79e04cdd8f9d01131c016031d696c1583eb55d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080394"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058118"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Solución de problemas de conectividad de aplicaciones en una máquina virtual en Azure
 

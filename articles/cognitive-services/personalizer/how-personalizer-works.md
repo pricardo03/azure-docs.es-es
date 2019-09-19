@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034370"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002887"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 
@@ -89,31 +89,6 @@ Personalizer se basa en una ciencia e investigación vanguardistas en el área d
 * Rasgos y tono del: Para los bots que pueden variar el tono, el nivel de detalle y el estilo de escritura, piensa en la posibilidad de variar estos rasgos de maneras personalizadas.
 * Contenido de notificaciones y alertas: Decide qué texto usar para las alertas con el fin de llamar más la atención de los usuarios.
 * Tiempos de notificaciones y alertas: Haz un aprendizaje personalizado de cuándo enviar notificaciones a los usuarios para atraerlos más.
-
-## <a name="checklist-for-applying-personalizer"></a>Lista de comprobación para aplicar Personalizer
-
-Puede aplicar Personalizer en situaciones donde:
-
-* Tiene un objetivo de negocio o de usabilidad para la aplicación.
-* Tiene un lugar en la aplicación donde tomar una decisión contextual sobre qué mostrar a los usuarios para mejorar ese objetivo.
-* La mejor opción puede y debe aprenderse del comportamiento colectivo de los usuarios y de la puntuación total de recompensa.
-* El uso del aprendizaje automático para la personalización sigue las [directrices de uso responsable](ethics-responsible-use.md) y las opciones para tu equipo.
-* La decisión puede expresarse como la clasificación de la mejor opción ([acción](concepts-features.md#actions-represent-a-list-of-options)) de un conjunto limitado de opciones.
-* Cuán bien funcione esa opción puede calcularse mediante la lógica de negocios, al medir algún aspecto del comportamiento del usuario, y expresarla en un número comprendido entre -1 y 1.
-* La puntuación de recompensa no aporta demasiados factores de confusión o externos, específicamente la duración del experimento es lo suficientemente baja como para que la puntuación de recompensa pueda calcularse mientras sea pertinente.
-* Puedes expresar el contexto para la clasificación como un diccionario de al menos 5 características que, en tu opinión, ayudarían a tomar la decisión correcta, y que no incluya información de identificación personal.
-* Tienes información sobre cada acción como un diccionario de al menos 5 atributos o características que, en tu opinión, ayudarán a Personalizer a tomar la decisión correcta.
-* Puedes retener datos durante el tiempo suficiente para acumular un historial de al menos 100 000 interacciones.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Consideraciones de aprendizaje automático para aplicar Personalizer
-
-Personalizer se basa en el aprendizaje de refuerzo, un enfoque del aprendizaje automático que se enseña mediante los comentarios que le haces. 
-
-Personalizer aprenderá mejor en situaciones en las que:
-* Hay suficientes eventos para estar al tanto de la personalización óptima si el problema se desvía con el tiempo (como las preferencias en las noticias o la moda). Personalizer se adaptará al cambio continuo en el mundo real, pero los resultados no serán óptimos si no hay suficientes eventos y datos de los que aprender para detectar y establecer nuevos patrones. Debe elegir un caso de uso que ocurra con suficiente frecuencia. Considere la posibilidad de buscar casos de uso que ocurran al menos 500 veces al día.
-* El contexto y las acciones tienen características suficientes para facilitar el aprendizaje.
-* Hay menos de 50 acciones para clasificar por llamada.
-* La configuración de retención de datos permite a Personalizer recopilar suficientes datos para realizar evaluaciones sin conexión y optimizar las directivas. Por lo general, se trata de al menos 50 000 puntos de datos.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Cómo usar Personalizer en una aplicación web
 

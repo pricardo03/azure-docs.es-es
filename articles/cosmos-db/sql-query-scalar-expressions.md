@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343183"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003531"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expresiones escalares en consultas SQL de Azure Cosmos DB
 
@@ -142,5 +142,5 @@ Los resultados son:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a Azure Cosmos DB](introduction.md)
-- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Subconsultas](sql-query-subquery.md)

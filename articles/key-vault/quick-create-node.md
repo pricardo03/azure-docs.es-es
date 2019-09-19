@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2010
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259244"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003505"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node 
 
@@ -27,7 +27,7 @@ En este inicio rápido se muestra cómo almacenar un secreto en Azure Key Vault 
 * Habilite una [identidad administrada](../active-directory/managed-service-identity/overview.md) para la aplicación web.
 * Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
 
-Antes de continuar, asegúrese de que está familiarizado con los [conceptos básicos sobre Key Vault](key-vault-whatis.md#basic-concepts).
+Antes de continuar, asegúrese de que está familiarizado con los [conceptos básicos sobre Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad, debe cambiar este secreto periódicamente. 

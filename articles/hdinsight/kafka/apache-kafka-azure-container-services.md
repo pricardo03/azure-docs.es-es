@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446455"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960576"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar Azure Kubernetes Service con Apache Kafka en HDInsight
 
@@ -113,7 +113,7 @@ Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en l
 
 3. Para ver la configuración de Kafka, seleccione __Configs__ (Configuraciones) en la parte superior central.
 
-    ![Vínculos de configuraciones de Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
+    ![Vínculos de configuraciones de Kafka](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. Para encontrar la configuración __kafka-env__, escriba `kafka-env` en el campo __Filtrar__ que se encuentra en la esquina superior derecha.
 
@@ -135,7 +135,7 @@ Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en l
 
 8. Use el botón __Guardar__ para guardar los cambios en la configuración. Escriba un mensaje de texto para describir los cambios. Seleccione __Aceptar__ una vez que se guarden los cambios.
 
-    ![Botón Guardar configuración](./media/apache-kafka-azure-container-services/save-button.png)
+    ![Botón Guardar configuración](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. Para evitar errores al reiniciar Kafka, use el botón __Acciones de servicio__ y seleccione __Activar el modo de mantenimiento__. Seleccione Aceptar para completar esta operación.
 
@@ -143,7 +143,7 @@ Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en l
 
 10. Para reiniciar Kafka, use el botón __Reiniciar__ y seleccione __Restart All Affected__ (Reiniciar todos los elementos afectados). Confirme el reinicio y use el botón __Aceptar__ una vez que se complete la operación.
 
-    ![Botón Reiniciar con la opción Restart All Affected resaltada](./media/apache-kafka-azure-container-services/restart-button.png)
+    ![Botón Reiniciar con la opción Restart All Affected resaltada](./media/apache-kafka-azure-container-services/restart-required-button.png)
 
 11. Para deshabilitar el modo de mantenimiento, use el botón __Acciones de servicio__ y seleccione __Desactivar el modo de mantenimiento__. Seleccione **Aceptar** para completar esta operación.
 
@@ -212,7 +212,7 @@ En este momento, Kafka y Azure Kubernetes Service se están comunicando a travé
 
 11. Abra un explorador web y escriba la dirección IP externa del servicio. Llegará a una página similar a la siguiente imagen:
 
-    ![Imagen de la página web](./media/apache-kafka-azure-container-services/test-web-page.png)
+    ![Imagen de la página web](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. Escriba texto en el campo y, a continuación, seleccione el botón __Enviar__. Los datos se envían a Kafka. A continuación, el consumidor de Kafka en la aplicación lee el mensaje y lo agrega a la sección __Messages from Kafka__ (Mensajes de Kafka).
 

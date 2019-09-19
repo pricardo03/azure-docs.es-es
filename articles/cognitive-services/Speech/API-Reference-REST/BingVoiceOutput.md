@@ -3,20 +3,20 @@ title: Text to Speech API de Servicio de voz de Microsoft | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Use la API de texto a voz para proporcionar una conversión de texto a voz en tiempo real en una variedad de idiomas y voces
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515419"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966872"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech API
 

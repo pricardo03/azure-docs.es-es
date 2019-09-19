@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883646"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087669"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -354,7 +354,7 @@ Al instrumentar la eliminación de mensajes, asegúrese de establecer los identi
 
 ### <a name="dependency-types"></a>Tipos de dependencia
 
-Application Insights usa el tipo de dependencia para personalizar las experiencias de la interfaz de usuario. En el caso de las colas, reconoce los siguientes tipos de `DependencyTelemetry` que mejoran la [experiencia de diagnósticos de transacción](/azure-monitor/app/transaction-diagnostics):
+Application Insights usa el tipo de dependencia para personalizar las experiencias de la interfaz de usuario. En el caso de las colas, reconoce los siguientes tipos de `DependencyTelemetry` que mejoran la [experiencia de diagnósticos de transacción](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue` para colas de Azure Storage
 - `Azure Event Hubs` para Azure Event Hubs
 - `Azure Service Bus` para Azure Service Bus
@@ -486,7 +486,7 @@ Cada operación de Application Insights (solicitud o dependencia) implica `Activ
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga los conceptos básicos de la [correlación de telemetría](correlation.md) en Application Insights.
-- Consulte cómo los datos correlacionados alimentan la [experiencia de diagnósticos de transacción](/azure-monitor/app/transaction-diagnostics) y el [mapa de aplicación](/azure-monitor/app/app-map).
+- Consulte cómo los datos correlacionados alimentan la [experiencia de diagnósticos de transacción](../../azure-monitor/app/transaction-diagnostics.md) y el [mapa de aplicación](../../azure-monitor/app/app-map.md).
 - Vea el [modelo de datos](../../azure-monitor/app/data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Notifique [eventos y métricas](../../azure-monitor/app/api-custom-events-metrics.md) personalizados a Application Insights.
 - Compruebe la [configuración](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades de contexto.

@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: 5f5123624b5b9388baf799b48127b5b796eec21b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2fd6cb73428c69fbb27cb93377f851a4e06221d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568218"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959134"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Restricciones de las características de Azure SQL Database
 
@@ -66,7 +66,7 @@ La vista `sys.sql_feature_restrictions` presenta todas las restricciones de cara
 | Nombre de la columna | Tipo de datos | DESCRIPCIÓN |
 |-------------|-----------|-------------|
 | class       | nvarchar(128) | Clase de objeto al que se aplica la restricción. |
-| objeto      | nvarchar(256) | Nombre del objeto al que se aplica la restricción. |
+| object      | nvarchar(256) | Nombre del objeto al que se aplica la restricción. |
 | feature     | nvarchar(128) | Característica restringida. |
 
 ## <a name="feature-restrictions"></a>Restricciones de características

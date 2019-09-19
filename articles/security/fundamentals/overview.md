@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129346"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999203"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -307,7 +307,7 @@ En esta sección se proporciona información adicional acerca de característica
 Con IaaS de Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro, McAfee y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas. [Microsoft Antimalware](antimalware.md) para Azure Cloud Services y Virtual Machines es una funcionalidad de protección que permite identificar y eliminar virus, spyware y otro software malintencionado. Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. Microsoft Antimalware también puede implementarse mediante Azure Security Center.
 
 ### <a name="hardware-security-module"></a>Módulo de seguridad de hardware
-La autenticación y el cifrado no mejoran la seguridad a menos que las propias claves estén protegidas. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en [Azure Key Vault](../../key-vault/key-vault-whatis.md). Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+La autenticación y el cifrado no mejoran la seguridad a menos que las propias claves estén protegidas. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
 [Azure Backup](../../backup/backup-overview.md) es una solución que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones que conlleven problemas de seguridad. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
