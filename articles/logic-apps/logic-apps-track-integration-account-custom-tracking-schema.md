@@ -60,14 +60,14 @@ En este artículo se proporciona un código personalizado que puede usar en las 
 | --- | --- | --- | --- |
 | sourceType | Sí |   | Tipo del origen de ejecución. Los valores permitidos son **Microsoft.Logic/workflows** y **custom**. |
 | source | Sí |   | Si el tipo de origen es **Microsoft.Logic/workflows**, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es **custom**, el esquema es un JToken |
-| systemId | Sí | Cadena | Id. de sistema de aplicación lógica. |
-| runId | Sí | Cadena | Id. de ejecución de aplicación lógica. |
-| operationName | Sí | Cadena | Nombre de la operación (por ejemplo, acción o desencadenador). |
-| repeatItemScopeName | Sí | Cadena | Repita el nombre del elemento si la acción se encuentra dentro de un bucle `foreach`/`until`. |
-| repeatItemIndex | Sí | Entero | Si la acción se encuentra dentro de un bucle `foreach`/`until`. Indica el índice del elemento repetido. |
-| trackingId | Sin | Cadena | Id. de seguimiento para correlacionar los mensajes. |
-| correlationId | Sin | Cadena | Id. de correlación para correlacionar los mensajes. |
-| clientRequestId | Sin | Cadena | El cliente puede rellenarlo para correlacionar mensajes. |
+| systemId | Sí | String | Id. de sistema de aplicación lógica. |
+| runId | Sí | String | Id. de ejecución de aplicación lógica. |
+| operationName | Sí | String | Nombre de la operación (por ejemplo, acción o desencadenador). |
+| repeatItemScopeName | Sí | String | Repita el nombre del elemento si la acción se encuentra dentro de un bucle `foreach`/`until`. |
+| repeatItemIndex | Sí | Integer | Si la acción se encuentra dentro de un bucle `foreach`/`until`. Indica el índice del elemento repetido. |
+| trackingId | Sin | String | Id. de seguimiento para correlacionar los mensajes. |
+| correlationId | Sin | String | Id. de correlación para correlacionar los mensajes. |
+| clientRequestId | Sin | String | El cliente puede rellenarlo para correlacionar mensajes. |
 | eventLevel | Sí |   | Nivel del evento. |
 | eventTime | Sí |   | Hora del evento, en formato UTC: AAAA-MM-DDTHH:MM:SS.00000Z. |
 | recordType | Sí |   | Tipo del registro. El valor permitido es **custom**. |
