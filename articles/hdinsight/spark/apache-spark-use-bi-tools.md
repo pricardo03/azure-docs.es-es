@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885180"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003678"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Análisis de datos de Apache Spark mediante Power BI en HDInsight
 
@@ -46,7 +46,7 @@ La instancia de [Jupyter Notebook](https://jupyter.org/) que creó en el [tutori
 
     El resultado tendrá una apariencia similar a la siguiente:
 
-    ![Se muestran tablas en Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Se muestran tablas en Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     Si ha cerrado el bloc de notas antes de iniciar este tutorial, `hvactemptable` se limpia, por lo que no se incluye en los resultados.  Desde las herramientas de BI, solo se puede acceder a las tablas de Hive almacenadas en Metastore (indicadas como **False** en la columna **isTemporary**). En este tutorial, se conecta a la tabla **hvac** que ha creado.
 
@@ -59,7 +59,7 @@ La instancia de [Jupyter Notebook](https://jupyter.org/) que creó en el [tutori
 
     El resultado tendrá una apariencia similar a la siguiente:
 
-    ![Se muestran las filas de la tabla hvac en Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Se muestran las filas de la tabla hvac en Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. En el menú **File** (Archivo) del cuaderno, seleccione **Close and Halt** (Cerrar y detener). Cierre el cuaderno para liberar los recursos.
 
@@ -127,31 +127,32 @@ Los primeros pasos para trabajar con Spark pasan por conectarse al clúster de P
 El servicio Power BI le permite compartir informes y paneles a través de su organización. En esta sección, primero publica el conjunto de datos y el informe. A continuación, puede anclar el informe a un panel. Normalmente los paneles se usan para centrarse en un subconjunto de datos de un informe. En el informe solo tiene una visualización, pero sigue siendo útil para seguir los pasos.
 
 1. Abra Power BI Desktop.
-2. Desde la pestaña **Inicio**, haga clic en **Publicar**.
+
+1. Desde la pestaña **Inicio**, haga clic en **Publicar**.
 
     ![Publicar en Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar en Power BI Desktop")
 
-2. Seleccione el área de trabajo en la que publicar el conjunto de datos y el informe, y haga clic en **Seleccionar**. En la siguiente imagen, está seleccionado el valor predeterminado **Mi área de trabajo**.
+1. Seleccione el área de trabajo en la que publicar el conjunto de datos y el informe, y haga clic en **Seleccionar**. En la siguiente imagen, está seleccionado el valor predeterminado **Mi área de trabajo**.
 
     ![Seleccionar el área de trabajo en la que va a publicar el conjunto de datos y el informe](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Seleccionar el área de trabajo en la que va a publicar el conjunto de datos y el informe") 
 
-3. Después de que la publicación se haya realizado correctamente, haga clic en **Abrir 'BuildingTemperature.pbix' en Power BI**.
+1. Después de que la publicación se haya realizado correctamente, haga clic en **Abrir 'BuildingTemperature.pbix' en Power BI**.
 
     ![Publicación correcta; haga clic para introducir las credenciales](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicación correcta; haga clic para introducir las credenciales") 
 
-4. En el servicio Power BI, haga clic en **Escribir credenciales**.
+1. En el servicio Power BI, haga clic en **Escribir credenciales**.
 
     ![Escribir credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Escribir credenciales en el servicio Power BI")
 
-5. Haga clic en **Editar credenciales**.
+1. Haga clic en **Editar credenciales**.
 
     ![Editar credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Editar credenciales en el servicio Power BI")
 
-6. Escriba la información de la cuenta de inicio de sesión de HDInsight y haga clic en **Conectar**. El nombre de cuenta predeterminado es *admin*.
+1. Escriba la información de la cuenta de inicio de sesión de HDInsight y haga clic en **Conectar**. El nombre de cuenta predeterminado es *admin*.
 
     ![Iniciar sesión en el clúster de Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Iniciar sesión en el clúster de Spark")
 
-7. En el panel izquierdo, vaya a **Áreas de trabajo** > **Mi área de trabajo** > **INFORMES** y haga clic en **BuildingTemperature**.
+1. En el panel izquierdo, vaya a **Áreas de trabajo** > **Mi área de trabajo** > **INFORMES** y haga clic en **BuildingTemperature**.
 
     ![Informe que aparece en el panel izquierdo, debajo de Informes](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Informe que aparece en el panel izquierdo, debajo de Informes")
 
@@ -159,15 +160,15 @@ El servicio Power BI le permite compartir informes y paneles a través de su org
 
     Ahora el objeto visual creado en Power BI Desktop está disponible en el servicio Power BI. 
 
-8. Mantenga el cursor sobre la visualización y haga clic en el icono de anclaje en la esquina superior derecha.
+1. Mantenga el cursor sobre la visualización y haga clic en el icono de anclaje en la esquina superior derecha.
 
     ![Informe del servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Informe del servicio Power BI")
 
-9. Seleccione "Nuevo panel", escriba el nombre `Building temperature` y después haga clic en **Anclar**.
+1. Seleccione "Nuevo panel", escriba el nombre `Building temperature` y después haga clic en **Anclar**.
 
     ![Anclar al nuevo panel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Anclar al nuevo panel")
 
-10. En el informe, haga clic en **Ir al panel**. 
+1. En el informe, haga clic en **Ir al panel**.
 
 El objeto visual se ancla al panel. Puede agregar otros elementos visuales al informe y anclarlos al mismo panel. Para más información acerca de los informes y paneles, consulte [Informes de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) y [Paneles de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

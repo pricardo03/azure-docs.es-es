@@ -1,115 +1,238 @@
 ---
-title: Uso de acciones de solicitud y respuesta | Microsoft Docs
-description: Información general del desencadenador y la acción de solicitud y respuesta en una aplicación lógica de Azure
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+title: 'Responder a solicitudes HTTP: Azure Logic Apps'
+description: Responder a eventos en tiempo real a través de HTTP mediante Azure Logic Apps
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewers: klam, LADocs
+manager: carmonm
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/06/2019
+tags: connectors
+ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538149"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914328"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>Introducción a los componentes de solicitud y respuesta
-Con los componentes de solicitud y respuesta de una aplicación lógica, puede responder en tiempo real a eventos.
+# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Responder a solicitudes HTTP mediante Azure Logic Apps
 
-Por ejemplo, puede:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitudes integrado o la acción de respuesta, puede crear tareas automatizadas y flujos de trabajo que reciban las solicitudes HTTP y respondan a ellas en tiempo real. Por ejemplo, puede hacer que la aplicación lógica:
 
-* Responder a una solicitud HTTP con datos de una base de datos local a través de una aplicación lógica.
-* Desencadenar una aplicación lógica desde un evento webhook externo.
-* Llamar a una aplicación lógica con una acción de solicitud y respuesta desde otra aplicación lógica.
+* Responda a una solicitud HTTP de datos en una base de datos local.
+* Desencadene un flujo de trabajo cuando se produzca un evento de webhook externo.
+* Llame a una aplicación lógica desde otra aplicación lógica.
 
-Para empezar a usar las acciones de solicitud y respuesta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="use-the-http-request-trigger"></a>Uso del desencadenador de solicitud HTTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. 
-[Más información sobre los desencadenadores](../connectors/apis-list.md).
+* Una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-Esta es una secuencia de ejemplo de cómo configurar una solicitud HTTP en el diseñador de aplicaciones lógicas.
+* Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Agregue el desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica. También puede proporcionar un esquema JSON (mediante una herramienta como [JSONSchema.net](https://jsonschema.net)) para el cuerpo de solicitud. Esto permite al diseñador generar tokens para las propiedades de la solicitud HTTP.
-2. Agregue otra acción para que pueda guardar la aplicación lógica.
-3. Después de guardarla, puede obtener la dirección URL de la solicitud HTTP de la tarjeta de solicitud.
-4. Una solicitud HTTP POST (puede utilizar una herramienta como [Postman](https://www.getpostman.com/)) a la dirección URL activará la aplicación lógica.
+<a name="add-request"></a>
 
-> [!NOTE]
-> Si no define una acción de respuesta, se devolverá una respuesta `202 ACCEPTED` inmediatamente al llamador. Puede utilizar la acción de respuesta para personalizar una respuesta.
-> 
-> 
+## <a name="add-a-request-trigger"></a>Adición de un desencadenador de solicitud
 
-![Desencadenador de respuesta](./media/connectors-native-reqres/using-trigger.png)
+Este desencadenador integrado crea un punto de conexión invocable manualmente que puede recibir una solicitud HTTP entrante. Cuando se produce este evento, el desencadenador se activa y ejecuta la aplicación lógica. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, consulte el [tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y los [flujos de trabajo de llamada, desencadenador o anidamiento con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-## <a name="use-the-http-response-action"></a>Uso de la acción de respuesta HTTP
-La acción de respuesta HTTP solo es válida cuando se usa en un flujo de trabajo desencadenado por una solicitud HTTP. Si no define una acción de respuesta, se devolverá una respuesta `202 ACCEPTED` inmediatamente al llamador.  Se puede agregar una acción de respuesta en cualquier paso del flujo de trabajo. La aplicación lógica solo mantiene la solicitud entrante abierta durante un minuto para una respuesta.  Después de un minuto, si no se envía respuesta desde el flujo de trabajo (y existe una acción de respuesta en la definición), se devuelve una respuesta `504 GATEWAY TIMEOUT` al llamador.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
-A continuación se explica cómo agregar una acción de respuesta HTTP:
+1. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "http request". En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**, que es el primer paso del flujo de trabajo de la aplicación lógica.
 
-1. Seleccione el botón **Nuevo paso** .
-2. Elija **Add an action**(Agregar una acción).
-3. En el cuadro de búsqueda de acciones, escriba **Response** para mostrar la acción de respuesta.
-   
-    ![Seleccionar la acción de respuesta](./media/connectors-native-reqres/using-action-1.png)
-4. Agregue cualquier parámetro necesario para el mensaje de respuesta HTTP.
-   
-    ![Completar la acción de respuesta](./media/connectors-native-reqres/using-action-2.png)
-5. Haga clic en la esquina superior izquierda de la barra de herramientas para guardarla; la aplicación lógica se guardará y se publicará (activará).
+   ![Selección del desencadenador de solicitud HTTP](./media/connectors-native-reqres/select-request-trigger.png)
 
-## <a name="request-trigger"></a>Desencadenador de solicitud
-Aquí se muestran los detalles del desencadenador que admite este conector. Solo existe un único desencadenador de solicitud.
+   El desencadenador de solicitud muestra estas propiedades:
 
-| Desencadenador | DESCRIPCIÓN |
-| --- | --- |
-| Solicitud |Se produce cuando se recibe una solicitud HTTP. |
+   ![Desencadenador de solicitud](./media/connectors-native-reqres/request-trigger.png)
 
-## <a name="response-action"></a>Acción de respuesta
-Aquí se muestran los detalles de la acción que admite este conector. Hay una única de acción de respuesta que solo puede usarse acompañada de un desencadenador de solicitud.
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   |---------------|--------------------|----------|-------------|
+   | **URL de HTTP POST** | {none} | Sí | URL del punto de conexión que se genera después de guardar la aplicación lógica y se usa para llamar a la aplicación lógica. |
+   | **Esquema JSON del cuerpo de la solicitud** | `schema` | Sin | Esquema JSON que describe las propiedades y los valores del cuerpo de la solicitud HTTP de entrada. |
+   |||||
 
-| . | DESCRIPCIÓN |
-| --- | --- |
-| Response |Devuelve una respuesta a la solicitud HTTP correlacionada. |
+1. En el cuadro **Esquema JSON del cuerpo de la solicitud**, también puede escribir un esquema JSON que describa el cuerpo de la solicitud HTTP en la solicitud entrante, por ejemplo:
 
-### <a name="trigger-and-action-details"></a>Detalles de los desencadenadores y las acciones
-En las tablas siguientes se describen los campos de entrada para el desencadenador y la acción, así como los detalles de salida correspondientes.
+   ![Ejemplo de esquema JSON](./media/connectors-native-reqres/provide-json-schema.png)
 
-#### <a name="request-trigger"></a>Desencadenador de solicitud
-El siguiente es un campo de entrada para el desencadenador de una solicitud HTTP entrante.
+   El diseñador usa este esquema para generar tokens para las propiedades de la solicitud. De este modo, la aplicación lógica puede analizar, usar y pasar los datos de la solicitud a través del desencadenador al flujo de trabajo.
 
-| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
-| --- | --- | --- |
-| Esquema JSON |schema |Esquema JSON del cuerpo de la solicitud HTTP |
+   A continuación, le mostramos un esquema de ejemplo:
 
-<br>
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-**Detalles de salida**
+   Al escribir un esquema JSON, el diseñador muestra un recordatorio para incluir el encabezado en la solicitud y establecer el valor del encabezado en . Para obtener más información, consulte [Control de tipos de contenido](../logic-apps/logic-apps-content-type.md).
 
-Los detalles del resultado de la solicitud son los siguientes:
+   ![Recordatorio para incluir el encabezado "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
-| Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
-| --- | --- | --- |
-| encabezados |objeto |Encabezados de solicitud |
-| Cuerpo |objeto |Objeto de solicitud |
+   Este es el aspecto de este encabezado en formato JSON:
 
-#### <a name="response-action"></a>Acción de respuesta
-A continuación se muestran los campos de entrada para la acción de respuesta HTTP. Un * significa que es un campo obligatorio.
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
 
-| Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
-| --- | --- | --- |
-| Código de estado* |statusCode |Código de estado HTTP |
-| encabezados |encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
-| Cuerpo |Cuerpo |Cuerpo de la respuesta |
+   Para generar un esquema JSON basado en la carga esperada (datos), puede usar una herramienta como [JSONSchema.net](https://jsonschema.net) o puede seguir estos pasos:
+
+   1. En el desencadenador de solicitud, seleccione **Use sample payload to generate schema** (Usar una carga de ejemplo para generar el esquema).
+
+      ![Generar un esquema a partir de la carga](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. Escriba la carga de ejemplo y seleccione **Listo**.
+
+      ![Generar un esquema a partir de la carga](./media/connectors-native-reqres/enter-payload.png)
+
+      Este es el ejemplo de la carga:
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. Para especificar propiedades adicionales, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
+
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   |---------------|--------------------|----------|-------------|
+   | **Método** | `method` | Sin | Método que la solicitud entrante debe usar para llamar a la aplicación lógica |
+   | **Ruta de acceso relativa** | `relativePath` | Sin | Ruta de acceso relativa del parámetro que la URL del punto de conexión de la aplicación lógica puede aceptar |
+   |||||
+
+   En este ejemplo, se agrega la propiedad **Method**:
+
+   ![Agregar el parámetro Method](./media/connectors-native-reqres/add-parameters.png)
+
+   La propiedad **Method** aparece en el desencadenador para que pueda seleccionar un método de la lista.
+
+   ![Selección del método](./media/connectors-native-reqres/select-method.png)
+
+1. Ahora, agregue otra acción como paso siguiente en el flujo de trabajo. En el desencadenador, seleccione **Paso siguiente** para poder buscar la acción que quiere agregar.
+
+   Por ejemplo, puede responder a la solicitud [agregando una acción de respuesta](#add-response), que puede usar para devolver una respuesta personalizada y se describe más adelante en este tema.
+
+   La aplicación lógica solo mantiene la solicitud entrante abierta durante un minuto. Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
+
+1. Cuando haya terminado, guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar). 
+
+   Este paso genera la URL que se usará para enviar la solicitud que desencadena la aplicación lógica. Para copiar esta URL, seleccione el icono de copia que se encuentra junto a la URL.
+
+   ![URL que se usa para desencadenar la aplicación lógica](./media/connectors-native-reqres/generated-url.png)
+
+1. Para desencadenar la aplicación lógica, envíe una solicitud HTTP POST a la URL generada. Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/).
+
+### <a name="trigger-outputs"></a>Salidas del desencadenador
+
+Aquí encontrará más información sobre las salidas del desencadenador de solicitud:
+
+| Nombre de la propiedad JSON | Tipo de datos | DESCRIPCIÓN |
+|--------------------|-----------|-------------|
+| `headers` | Object | Objeto JSON que describe los encabezados de la solicitud |
+| `body` | Object | Objeto JSON que describe el contenido del cuerpo de la solicitud |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>Adición de una acción de respuesta
+
+Puede usar la acción de respuesta para responder con una carga (datos) a una solicitud HTTP entrante, pero solo en una aplicación lógica que se desencadene mediante una solicitud HTTP. Puede agregar la acción de respuesta en cualquier punto del flujo de trabajo. Para obtener más información sobre la definición JSON subyacente de este desencadenador, consulte la sección [Tipo de acción de respuesta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+
+La aplicación lógica solo mantiene la solicitud entrante abierta durante un minuto. Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
+
+1. En el Diseñador de aplicación lógica, vaya al paso en que debe agregar una acción de respuesta y seleccione **Nuevo paso**.
+
+   Por ejemplo, mediante el desencadenador de solicitud anterior:
+
+   ![Adición de un nuevo paso](./media/connectors-native-reqres/add-response.png)
+
+   Para agregar una acción entre un paso y otro, mueva el puntero por encima de la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
+
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "respuesta" como filtro y seleccione la acción **Respuesta**.
+
+   ![Seleccionar la acción Respuesta](./media/connectors-native-reqres/select-response-action.png)
+
+   El desencadenador de solicitud se contrae en este ejemplo por motivos de simplicidad.
+
+1. Agregue los valores necesarios para el mensaje de respuesta. 
+
+   En algunos campos, al hacer clic dentro de los cuadros, se abre la lista de contenido dinámico. A continuación, puede seleccionar los tokens que representan las salidas disponibles de los pasos anteriores del flujo de trabajo. Las propiedades del esquema especificado en el ejemplo anterior ahora aparecen en la lista de contenido dinámico.
+
+   Por ejemplo, para el cuadro **Encabezados**, incluya `Content-Type` como nombre de clave y establezca el valor de clave en `application/json` como se mencionó anteriormente en este tema. Para el cuadro **Cuerpo**, puede seleccionar la salida del cuerpo del desencadenador en la lista de contenido dinámico.
+
+   ![Detalles de la acción de respuesta](./media/connectors-native-reqres/response-details.png)
+
+   Para ver los encabezados en formato JSON, seleccione Switch to text view (Cambiar a la vista de texto).
+
+   ![Encabezados: cambiar a la vista de texto](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   Aquí encontrará más información sobre las propiedades que puede establecer en la acción Respuesta. 
+
+   | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
+   |---------------|--------------------|----------|-------------|
+   | **Código de estado** | `statusCode` | Sí | Código de estado HTTP que se devolverá en la respuesta |
+   | **Encabezados** | `headers` | Sin | Objeto JSON que describe uno o más encabezados que se incluirán en la respuesta |
+   | **Cuerpo** | `body` | Sin | Cuerpo de la respuesta |
+   |||||
+
+1. Para especificar propiedades adicionales, como un esquema JSON para el cuerpo de respuesta, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
+
+1. Cuando haya terminado, guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
+* [Conectores de Logic Apps](../connectors/apis-list.md)

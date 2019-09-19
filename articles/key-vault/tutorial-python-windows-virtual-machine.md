@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: ae9aaea91f62a7e79835e65a5a9f9c76017afdb1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934387"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003863"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows en Python
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Habilite una entidad administrada.
 > * Asigne permisos a la identidad de máquina virtual.
 
-Antes de empezar, lea los [conceptos básicos de Key Vault](key-vault-whatis.md#basic-concepts). 
+Antes de empezar, lea los [conceptos básicos de Key Vault](basic-concepts.md). 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -46,7 +46,7 @@ Para Windows, Mac y Linux:
 
 Azure Key Vault almacena las credenciales de forma segura, de modo que no se muestran en el código. Sin embargo, debe autenticarse en Azure Key Vault para recuperar las claves. Para autenticarse en Key Vault, necesita una credencial. Se trata de un dilema de arranque clásico. Managed Service Identity (MSI) soluciona este problema al proporcionar una _identidad de arranque_ que simplifica el proceso.
 
-Al habilitar MSI para un servicio de Azure, como Azure Virtual Machines, Azure App Service o Azure Functions, Azure crea una [entidad de servicio](key-vault-whatis.md#basic-concepts). MSI hace esto para la instancia del servicio en Azure Active Directory (Azure AD) e inserta las credenciales de la entidad de servicio en esa instancia. 
+Al habilitar MSI para un servicio de Azure, como Azure Virtual Machines, Azure App Service o Azure Functions, Azure crea una [entidad de servicio](basic-concepts.md). MSI hace esto para la instancia del servicio en Azure Active Directory (Azure AD) e inserta las credenciales de la entidad de servicio en esa instancia. 
 
 ![MSI](media/MSI.png)
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Este secreto almacena el valor **MySecret**.
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 Puede crear una máquina virtual mediante uno de los métodos siguientes:
 
 * [La CLI de Azure](../virtual-machines/windows/quick-create-cli.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723570"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735139"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 
@@ -30,7 +30,7 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 * `expiredTime` es la fecha y hora de expiración de los datos de la geovalla. Si el valor de `userTime` en la solicitud es posterior a este valor, los datos de la geovalla correspondiente se consideran como datos expirados y no se realizarán consultas en ellos. El identificador geometryId de estos datos de geovalla se incluirá en la matriz `expiredGeofenceGeometryId` dentro de la respuesta de la geovalla.
 * `validityPeriod` es una lista de los períodos de tiempo de validez de la geovalla. Si el valor de `userTime` en la solicitud se encuentra fuera del período de validez, los datos correspondientes de la geovalla se considerarán como no válidos y no se realizarán consultas en ellos. El identificador geometryId de estos datos de geovalla se incluye en la matriz `invalidPeriodGeofenceGeometryId` dentro de la respuesta de la geovalla. En la tabla siguiente se muestran las propiedades del elemento validityPeriod.
 
-| NOMBRE | Type | Obligatorio  | DESCRIPCIÓN |
+| NOMBRE | type | Obligatorio  | DESCRIPCIÓN |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Fecha y hora de inicio del período de tiempo de validez. |
 | endTime   | Datetime  | true |  Fecha y hora de finalización del período de tiempo de validez. |
@@ -38,7 +38,7 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 | businessDayOnly | Boolean | false |  Indica si los datos solo son válidos durante los días laborables. El valor predeterminado es `false`.|
 
 
-* Todos los valores de las coordenadas se representan como [latitud, longitud] que se define en `WGS84`.
+* Todos los valores de las coordenadas se representan como [longitud, latitud] que se define en `WGS84`.
 * Para cada característica, que contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, las propiedades se aplican a todos los elementos. Por ejemplo: Todos los puntos de `MultiPoint` usarán el mismo radio para formar una geovalla de varios círculos.
 * En un escenario de punto-círculo, se puede representar una geometría de círculo mediante un objeto de geometría `Point` con las propiedades que se elaboran en [Extender las geometrías GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186478"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858866"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Creación y prueba de un modelo de funcionalidad del dispositivo mediante Visual Studio Code
 
@@ -35,10 +35,10 @@ En este tutorial, aprenderá a:
 Para trabajar con el modelo de funcionalidad del dispositivo en este tutorial, necesita lo siguiente:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code está disponible para varias plataformas
-* Extensión Azure IoT Device Workbench en VS Code. Siga estos pasos para instalar la extensión Azure IoT Device Workbench en VS Code:
+* Paquete de extensiones [Azure IoT Tools para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). Siga estos pasos para instalar el paquete de extensiones en VS Code:
 
     1. En VS Code, seleccione la pestaña **Extensions** (Extensiones).
-    1. Busque **Azure IoT Device Workbench**.
+    1. Busque **Azure IoT Tools**.
     1. Seleccione **Instalar**.
 
 Para compilar el código C generado en Windows en este tutorial, necesitará lo siguiente:
@@ -61,7 +61,7 @@ Para probar el código del dispositivo en este tutorial, necesitará lo siguient
 
 ## <a name="model-your-device"></a>Modelado del dispositivo
 
-Para crear un modelo de funcionalidad del dispositivo, se usará el _lenguaje de definición de gemelos digitales_. Un modelo normalmente se compone de varios archivos de definición de _interfaz_ y un único archivo de modelo. La **extensión Azure IoT Device Workbench para VS Code** incluye herramientas que le ayudan a crear y editar estos archivos JSON.
+Para crear un modelo de funcionalidad del dispositivo, se usará el _lenguaje de definición de gemelos digitales_. Un modelo normalmente se compone de varios archivos de definición de _interfaz_ y un único archivo de modelo. **Azure IoT Tools para VS Code** incluye herramientas que le ayudan a crear y editar estos archivos JSON.
 
 ### <a name="create-the-interface-file"></a>Creación del archivo de interfaz
 
@@ -298,7 +298,7 @@ Los archivos se almacenan ahora en el repositorio de la empresa.
 
 ## <a name="generate-code"></a>Generación de código
 
-Puede usar la **extensión Azure IoT Device Workbench para VS Code** para generar código de C básico a partir del modelo. Para generar el código básico en VS Code, siga estos pasos:
+**Azure IoT Tools para VS Code** se puede usar para generar código de C básico a partir de un modelo. Para generar el código básico en VS Code, siga estos pasos:
 
 1. Use **Ctrl+Mayús+P** para abrir la paleta de comandos.
 
