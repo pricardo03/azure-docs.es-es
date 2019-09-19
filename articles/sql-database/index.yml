@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>Use la base de datos única que administra el servidor de SQL Database para las aplicaciones SaaS y microservicios que necesitan una base de datos única con rendimiento predecible.</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: Instancia administrada
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Use grupos de instancias administradas como una solución sencilla y rentable para implementar varias instancias administradas que comparten recursos y se escalan rápidamente.</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: Grupo de instancias
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: Crear un grupo de instancias
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: Tutoriales detallados y materiales de aprendizaje
     items:
       - type: paragraph

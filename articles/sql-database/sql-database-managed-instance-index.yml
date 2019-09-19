@@ -44,6 +44,9 @@ sections:
           - title: Integración con red virtual
             href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
             html: <p>Servicio seguro que se coloca en la red virtual privada de Azure con direcciones IP privadas.</p>
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Solución rentable para implementar varias instancias administradas que comparten los recursos.</p>
+            title: Grupos de instancias
           - title: Migración sencilla
             href: /azure/sql-database/sql-database-managed-instance-get-started-restore
             html: <p>Migre fácilmente sus bases de datos locales a la nube de Azure mediante la restauración nativa.</p>
@@ -59,9 +62,6 @@ sections:
           - title: Niveles de servicio
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: <p>Elija entre los niveles de servicio de Uso general y Crítico para la empresa según sus necesidades empresariales.</p>
-          - title: Seguridad avanzada
-            href: /azure/sql-database/sql-database-security-index
-            html: <p>Proteja su instancia y las bases de datos con las características de seguridad integradas en Azure SQL Database.<p>
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
@@ -93,6 +93,12 @@ sections:
               - href: null
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/set-azsqlinstance#examples'
+              - href: null
+          - title: Creación de un nuevo grupo de instancias
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
               - href: null
           - title: Configuración del entorno de red de Azure
             values:

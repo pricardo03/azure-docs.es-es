@@ -19,10 +19,10 @@
 - name: Conceptos
   expanded: false
   items:
-    - name: Adopción del acceso condicional
-      href: howto-conditional-access-adoption-kit.md
     - name: Directivas de acceso condicional habituales
       href: concept-conditional-access-policy-common.md
+    - name: Componentes de la directiva de acceso condicional
+      href: concept-conditional-access-policies.md
     - name: Condiciones
       href: conditions.md
     - name: Condiciones de ubicación

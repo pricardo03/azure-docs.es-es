@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04802b8b25ca21cc0099874e5a9ea69748868f6e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103087"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103207"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -31,7 +31,7 @@ Agregue una instancia administrada de SQL Database a un grupo de conmutación po
   > [!NOTE]
   > - Al completar este tutorial, asegúrese de que está configurando los recursos con los [requisitos previos para configurar grupos de conmutación por error para la instancia administrada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de instancia administrada](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > - El uso de grupos de conmutación por error con instancias administradas actualmente se encuentra en versión preliminar. 
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -43,8 +43,8 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 ## <a name="1---create-resource-group-and-primary-managed-instance"></a>1\. Creación de un grupo de recursos y una instancia administrada principal
 En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal. 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
@@ -100,8 +100,8 @@ La segunda instancia administrada debe:
 
 Para crear la instancia administrada secundaria, siga estos pasos: 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información sobre las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Selección de la instancia administrada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)

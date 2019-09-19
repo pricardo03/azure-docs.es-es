@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a3f9768043c9acef9640b8e286611de94e44a7ff
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910487"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036402"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -55,7 +55,7 @@ Tampoco se permite la eliminación de contenedores y cuentas si no hay ningún b
 > [!IMPORTANT]
 > Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Se recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. El estado inicial de una directiva de retención con duración definida es *desbloqueada*, lo que permite probar la característica y realizar cambios en la directiva antes de bloquearla. Aunque el estado *desbloqueada* proporciona protección de inmutabilidad, no se recomienda su uso para otros fines que no sean las evaluaciones de la característica a corto plazo. 
 
-Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs existentes es igual a la diferencia entre la hora de modificación del blob y el intervalo de retención especificado por el usuario.
+Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs existentes es igual a la diferencia entre la hora de creación de blob y el intervalo de retención especificado por el usuario.
 
 Para los nuevos blobs, el período de retención efectivo es igual al intervalo de retención especificado por el usuario. Como los usuarios pueden ampliar el intervalo de retención, el almacenamiento inmutable utiliza el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 

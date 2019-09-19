@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d0a12bde119e9dae3f950603fac4bce060bb5f91
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172271"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057745"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Depuración de problemas con las aplicaciones de Application Proxy 
 
@@ -42,7 +42,7 @@ Este diagrama de flujo lo guía a través de los pasos para depurar algunos de l
 |  | . | DESCRIPCIÓN | 
 |---------|---------|---------|
 |1 | Abra un explorador, acceda a la aplicación y escriba sus credenciales | Trate de usar sus credenciales para iniciar sesión en la aplicación y revise por si hay algún error relacionado con el usuario, como [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md) ("No se puede acceder a esta aplicación empresarial"). |
-|2 | Compruebe la asignación de un usuario a la aplicación | Asegúrese de que la cuenta de usuario tiene permiso para acceder a la aplicación desde dentro de la red corporativa y, luego, intente iniciar sesión en la aplicación siguiendo los pasos que aparecen en [Prueba de la aplicación](application-proxy-add-on-premises-application.md#test-the-application). Si los problemas de inicio de sesión continúan, consulte [Solución de errores de inicio de sesión](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors).  |
+|2 | Compruebe la asignación de un usuario a la aplicación | Asegúrese de que la cuenta de usuario tiene permiso para acceder a la aplicación desde dentro de la red corporativa y, luego, intente iniciar sesión en la aplicación siguiendo los pasos que aparecen en [Prueba de la aplicación](application-proxy-add-on-premises-application.md#test-the-application). Si los problemas de inicio de sesión continúan, consulte [Solución de errores de inicio de sesión](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
 |3 | Abra un explorador e intente acceder a la aplicación | Si se produce inmediatamente un error, revise si Application Proxy está configurado correctamente. Para información detallada sobre mensajes de error específicos, consulte [Solución de problemas y mensajes de error de Application Proxy](application-proxy-troubleshoot.md).  |
 |4 | Compruebe la configuración del dominio personalizado o solucione el error | Si no aparece la página, asegúrese de que el dominio personalizado esté configurado correctamente. Para ello, revise [Uso de dominios personalizados](application-proxy-configure-custom-domain.md).<br></br>Si la página no se carga y aparece un mensaje de error, consulte [Solución de problemas y mensajes de error de Application Proxy](application-proxy-troubleshoot.md) para solucionar el error. <br></br>Si los mensajes de error tardan más de 20 segundos en aparecer, es porque podría haber un problema de conectividad. Vaya al artículo de solución de problemas [Depuración de los conectores de Application Proxy](application-proxy-debug-connectors.md).  |
 |5 | Si siguen los problemas, vaya a la depuración de conectores | Es posible que haya un problema de conectividad entre el proxy y el conector o entre el conector y el back-end. Vaya al artículo de solución de problemas [Depuración de los conectores de Application Proxy](application-proxy-debug-connectors.md). |

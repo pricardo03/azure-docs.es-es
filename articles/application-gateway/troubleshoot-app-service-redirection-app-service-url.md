@@ -99,7 +99,7 @@ Debe tener un dominio personalizado y seguir este proceso:
 
 - Su instancia de App Service está lista para aceptar el nombre de host www.contoso.com. Cambie la entrada CNAME en DNS para que apunte de nuevo al FQDN de Application Gateway, como appgw.eastus.cloudapp.azure.com.
 
-- Asegúrese de que el dominio "www.contoso.com" se resuelve en el FQDN de Application Gateway al realizar una consulta de DNS.
+- Asegúrese de que el dominio www.contoso.com se resuelve en el FQDN de Application Gateway al realizar una consulta de DNS.
 
 - Establezca el sondeo personalizado para deshabilitar **Seleccionar el nombre de host de la configuración de HTTP de back-end**. En Azure Portal, desactive la casilla de la configuración del sondeo. En PowerShell, no use el conmutador **-PickHostNameFromBackendHttpSettings** en el comando **Set-AzApplicationGatewayProbeConfig**. En el campo de nombre de host del sondeo, escriba el FQDN de App Service, como example.azurewebsites.net. Las solicitudes de sondeo enviadas desde la puerta de enlace de aplicaciones llevan este FQDN en el encabezado de host.
 

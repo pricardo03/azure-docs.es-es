@@ -152,6 +152,9 @@
         - name: Adición y registro de conjuntos de datos
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Entrenamiento con conjuntos de datos
+          displayName: 'data, dataset'
+          href: how-to-train-with-datasets.md
     - name: Entrenamiento de modelos
       items:
         - name: Configuración de entornos de entrenamiento

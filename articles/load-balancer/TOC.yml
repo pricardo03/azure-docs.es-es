@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: Configuración de puertos de alta disponibilidad para Load Balancer interno
       href: load-balancer-configure-ha-ports.md
+    - name: Traslado entre regiones
+      items:
+        - name: 'Equilibrador de carga externo: Portal'
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: 'Equilibrador de carga externo: PowerShell'
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: 'Equilibrador de carga interno: PowerShell'
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de Azure Load Balancer

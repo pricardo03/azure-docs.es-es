@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943154"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962895"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -71,7 +71,7 @@ Este es un ejemplo:
     2.  Dirección URL de la página de aterrizaje = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. El usuario hace clic en el vínculo para \"probar el producto\" y llega a AppSource.
     1. Dirección URL de referencia = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Dirección URL de la página de aterrizaje (**Asegúrese de que se agregó utm\_campaign y utm\_source a esta dirección URL**) =  [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. Dirección URL de la página de aterrizaje (**Asegúrese de que se agregó utm\_campaign y utm\_source a esta dirección URL**) =  [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Evaluación de los resultados de una campaña
 -----------------------------------------

@@ -3,20 +3,20 @@ title: Introducción a Bing Speech Recognition API en JavaScript | Microsoft Doc
 titlesuffix: Azure Cognitive Services
 description: Utilice Bing Speech Recognition API en Cognitive Services para desarrollar aplicaciones que conviertan continuamente el audio hablado en texto.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eef1a4885b77ae94f11d3d5bda5ded9b70ed63a4
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515214"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965808"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introducción a Speech Recognition API en JavaScript
 
@@ -33,7 +33,7 @@ Speech API forma parte de Cognitive Services. Puede obtener claves de suscripci�
 > [!IMPORTANT]
 > Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de Speech, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 En esta sección se le guiará por los pasos necesarios para cargar una página HTML de ejemplo. El ejemplo se encuentra en nuestro [repositorio de Github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Puede **abrir directamente el ejemplo** desde el repositorio o **abrir el ejemplo desde una copia local** del repositorio.
 

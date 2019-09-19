@@ -1,45 +1,77 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Azure Portal
+summary: Azure Portal es una consola unificada basada en web que proporciona una alternativa a las herramientas de línea de comandos. Puede administrar su suscripción de Azure con Azure Portal. Compile, administre y supervise todo, desde aplicaciones web sencillas hasta complejas implementaciones en la nube. Cree paneles personalizados para una vista organizada de los recursos y configure las opciones de accesibilidad para obtener la mejor experiencia.
 metadata:
-  description: Aprenda a usar Azure Portal y a crear paneles personalizados.
-  services: azure portal
-  documentationcenter: ''
-  author: kfollis
-  manager: mtillman
-  editor: ''
-  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  title: Documentación de Azure Portal
+  description: Aprenda a administrar la suscripción y los recursos de Azure mediante la consola basada en web de Azure Portal.
+  services: Azure portal
   ms.service: azure-portal
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 10/08/2018
+  ms.collection: collection
+  author: kfollis
   ms.author: kfollis
-abstract:
-  description: 'Azure Portal es la consola unificada basada en web que le permite compilar, administrar y supervisar todo desde aplicaciones web sencillas a aplicaciones complejas en la nube. Incluye un panel personalizable y opciones de accesibilidad.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/azure-preview-portal-supported-browsers-devices
-            html: '<p>Ejecute Azure Portal en todos los escritorios, los dispositivos de tableta y los exploradores modernos.</p>'
-            title: Exploradores y dispositivos compatibles
-          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-            html: <p>Cambie el contraste o el esquema de color en Azure Portal.</p>
-            title: Activación del contraste alto
-          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-            html: <p>Información acerca de los métodos abreviados de teclado que funcionan en Azure Portal.</p>
-            title: Métodos abreviados de teclado
-          - href: /azure/azure-portal/azure-portal-dashboards
-            html: <p>Cree varios paneles y compártalos con otras personas que tengan acceso a sus suscripciones de Azure.</p>
-            title: Creación y uso compartido de paneles de Azure
-          - href: /azure/azure-portal/azure-portal-dashboard-share-access
-            html: <p>Publique y comparta un panel con otros usuarios de su organización.</p>
-            title: Uso compartido de paneles mediante el uso de RBAC
-          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-            html: <p>Creación y publicación de paneles para su organización mediante programación</p>
-            title: Creación mediante programación de paneles de Azure
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076652"
+landingContent:
+- title: Acerca de Azure Portal
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Portal?
+      url: azure-portal-overview.md
+    - text: Exploradores y dispositivos compatibles
+      url: azure-portal-supported-browsers-devices.md
+- title: Personalización de Azure Portal
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación y uso compartido de paneles personalizados
+      url: azure-portal-dashboards.md
+    - text: Administración de favoritos
+      url: azure-portal-add-remove-sort-favorites.md
+- title: Administración del acceso a Azure Portal
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Guarde en la lista de direcciones IP seguras las URL de Azure Portal
+      url: azure-portal-safelist-urls.md
+    - text: Control de acceso basado en rol para paneles
+      url: azure-portal-dashboard-share-access.md
+  - linkListType: learn
+    links:
+    - text: Administración de recursos en Azure
+      url: /learn/paths/manage-resources-in-azure/
+    - text: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
+      url: /learn//modules/secure-azure-resources-with-rbac/
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Incorporación del Centro de inicio rápido de Azure
+      url: azure-portal-quickstart-center.md
+  - linkListType: how-to-guide
+    links:
+    - text: Serie de vídeos sobre "procedimientos" de Azure Portal
+      url: azure-portal-video-series.md
+  - linkListType: learn
+    links:
+    - text: Aspectos básicos de Azure
+      url: /learn/paths/azure-fundamentals/
+    - text: 'Conceptos de la nube: Principios de informática en la nube'
+      url: /learn/modules/principles-cloud-computing/
+- title: Uso de opciones de accesibilidad
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Métodos abreviados de teclado
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Activación del contraste alto
+      url: azure-portal-change-theme-high-contrast.md
