@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976977"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000663"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -35,7 +35,7 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro de Az
 > En este artículo se ofrecen instrucciones de Azure PowerShell para actualizar el registro de diagnóstico. También puede actualizar el registro de diagnóstico mediante el uso de Azure Monitor en la sección **Registros de diagnóstico** de Azure Portal. 
 >
 
-Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-whatis.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/).
+Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967225"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104377"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>Tutorial: Integración de Apptio con Azure Active Directory
 
@@ -85,14 +85,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     En el cuadro de texto **Identificador**, escriba el valor `urn:federation:apptio`
 
-5. La aplicación Apptio espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+5. La aplicación Apptio espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 
     > [!NOTE]
     > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber cómo configurar el valor **Role** en Azure AD.
 
-6. Además de lo anterior, la aplicación Apptio espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
+6. Además de lo anterior, la aplicación Apptio espera que se usen algunos atributos más en la respuesta de SAML. En la sección Notificaciones del usuario del cuadro de diálogo Atributos de usuario, haga lo siguiente para agregar el atributo Token SAML como se muestra en la tabla siguiente: 
 
     | NOMBRE |  Atributo de origen|
     | -------------- | -------------------- |
@@ -156,7 +156,7 @@ Para configurar el inicio de sesión único en **Apptio**, es preciso enviar el 
 
 ### <a name="create-apptio-test-user"></a>Creación del usuario de prueba de Apptio
 
-En esta sección, creará un usuario llamado B. Simon en Apptio. Colabore con el [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact) para agregar los usuarios a la plataforma de Apptio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Apptio. Colabore con el [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact) para agregar los usuarios a la plataforma de Apptio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
