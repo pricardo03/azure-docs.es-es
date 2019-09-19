@@ -1,6 +1,6 @@
 ---
 title: Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
-description: Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure.
+description: Aprenda a crear y administrar clústeres de Azure HDInsight mediante Azure Portal.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8bb6ca0483a7bc0a5af63a1fae7e5e5a5415abba
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460631"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810315"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -34,7 +34,7 @@ En la página de **clústeres de HDInsight** se muestran los clústeres existent
 2. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
 
 ## <a name="homePage"></a> Página principal del clúster 
-Seleccione el nombre del clúster en la página [Clústeres de HDInsight **** ](#showClusters).  Se abrirá la vista de **Información general**, que se parece a la siguiente imagen:
+Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#showClusters).  Se abrirá la vista de **Información general**, que se parece a la siguiente imagen:
 
 ![Azure Portal: aspectos básicos del clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
 

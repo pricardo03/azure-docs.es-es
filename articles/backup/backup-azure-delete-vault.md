@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d6d374b6e516180ec488fe4de1317a3c99a7f7c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a49449f799696ce6962afea6bdc212f658c660bd
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050117"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860371"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -99,8 +99,6 @@ En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para
 4. Seleccione la casilla de consentimiento y seleccione **Eliminar**.
 
 
-
-
 5. Active el icono de **notificación** ![eliminación de datos de copia de seguridad](./media/backup-azure-delete-vault/messages.png). Una vez finalizada la operación, el servicio muestra el mensaje: *Deteniendo copia de seguridad y eliminando datos de copia de seguridad para "elemento de copia de seguridad".* *La operación se completó correctamente*.
 6. Seleccione **Actualizar** en el menú **Elementos de copia de seguridad** para comprobar si se ha eliminado el elemento de copia de seguridad.
 
@@ -175,6 +173,148 @@ Después de eliminar los elementos de copia de seguridad locales, siga los pasos
 
 4. Para verificar que desea eliminar el almacén, seleccione **Sí**. El almacén se elimina. El portal vuelve al menú **Nuevo** servicio.
 
+## <a name="delete-the-recovery-services-vault-by-using-powershell"></a>Eliminación del almacén de Recovery Services mediante PowerShell
+
+En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para comprender el proceso de eliminación de dependencias y almacenes.
+
+Para detener la protección y eliminar los datos de copia de seguridad:
+
+- Si usa SQL la copia de seguridad de las máquinas virtuales de Azure y ha habilitado la protección automática para las instancias de SQL, deshabilite primero la protección automática.
+
+    ```PowerShell
+        Disable-AzRecoveryServicesBackupAutoProtection 
+           [-InputItem] <ProtectableItemBase> 
+           [-BackupManagementType] <BackupManagementType> 
+           [-WorkloadType] <WorkloadType> 
+           [-PassThru] 
+           [-VaultId <String>] 
+           [-DefaultProfile <IAzureContextContainer>] 
+           [-WhatIf] 
+           [-Confirm] 
+           [<CommonParameters>] 
+    ```
+
+  [Más información](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre cómo deshabilitar la protección de los elementos protegidos de Azure Backup 
+
+- Detenga la protección y elimine los datos de todos los elementos protegidos de copia de seguridad en la nube (p. ej., máquina virtual laaS, Azure File Share, etc.):
+
+    ```PowerShell
+       Disable-AzRecoveryServicesBackupProtection 
+       [-Item] <ItemBase> 
+       [-RemoveRecoveryPoints] 
+       [-Force] 
+       [-VaultId <String>] 
+       [-DefaultProfile <IAzureContextContainer>] 
+       [-WhatIf] 
+       [-Confirm] 
+       [<CommonParameters>] 
+    ```
+    [Más información](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) acerca de cómo deshabilitar la protección de un elemento protegido de Backup. 
+
+- En el caso de los archivos y carpetas locales protegidos mediante la copia de seguridad de Azure Backup Agent (MARS) en Azure, use el siguiente comando de PowerShell para eliminar los datos de la copia de seguridad de todos los módulos de PowerShell de MARS:
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Aparecerá el siguiente aviso:
+     
+    *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted.<ph id="ph1">&lt;br/&gt;</ph> [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):<ept id="p1">*</ept> [Microsoft Azure Backup. ¿Seguro que desea eliminar esta directiva de copia de seguridad? Los datos de copia de seguridad eliminados se conservarán durante 14 días. Después de ese tiempo se eliminarán de forma permanente. [Y] Sí  [A] Sí a todo  [N] No  [L] No a todo  [S] Suspender  [?] Ayuda (el valor predeterminado es "Y"):]
+
+
+- En el caso de los equipos locales protegidos mediante MABS (Microsoft Azure Backup Server) o DPM en Azure (System Center Data Protection Manager), use el siguiente comando para eliminar los datos de la copia de seguridad en Azure.
+
+    ```
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```
+
+    Aparecerá el siguiente aviso: 
+         
+   *Microsoft Azure Backup ¿Seguro que desea eliminar esta directiva de copia de seguridad? Deleted backup data will be retained for 14 days. Después de ese tiempo se eliminarán de forma permanente. <br/> [Y] Sí  [A] Sí a todo  [N] No  [L] No a todo  [S] Suspender  [?] Ayuda (el valor predeterminado es "Y"):*
+
+Después de eliminar los datos de la copia de seguridad, anule el registro de los contenedores locales y de los servidores de administración. 
+
+- En el caso de los archivos y carpetas locales protegidos mediante la copia de seguridad del agente de Azure Backup (MARS) en Azure:
+
+    ```PowerShell
+    Unregister-AzRecoveryServicesBackupContainer 
+              [-Container] <ContainerBase> 
+              [-PassThru] 
+              [-VaultId <String>] 
+              [-DefaultProfile <IAzureContextContainer>] 
+              [-WhatIf] 
+              [-Confirm] 
+              [<CommonParameters>] 
+    ```
+    [Más información](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre cómo anular el registro de un servidor de Windows Server o de otro contenedor del almacén. 
+
+- En el caso de equipos locales protegidos mediante MABS (Microsoft Azure Backup Server) o DPM en Azure (System Center Data Protection Manager):
+
+    ```PowerShell
+        Unregister-AzRecoveryServicesBackupManagementServer
+          [-AzureRmBackupManagementServer] <BackupEngineBase>
+          [-PassThru]
+          [-VaultId <String>]
+          [-DefaultProfile <IAzureContextContainer>]
+          [-WhatIf]
+          [-Confirm]
+          [<CommonParameters>]
+    ```
+
+    [Más información](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre la anulación del registro de un contenedor de administración de Backup del almacén.
+
+Después de eliminar permanentemente los datos de copia de seguridad y anular el registro de todos los contenedores, proceda a eliminar el almacén. 
+
+Para eliminar un almacén de Recovery Services: 
+
+   ```PowerShell
+       Remove-AzRecoveryServicesVault 
+      -Vault <ARSVault> 
+      [-DefaultProfile <IAzureContextContainer>] 
+      [-WhatIf] 
+      [-Confirm] 
+      [<CommonParameters>]        
+   ```
+
+[Más información](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre cómo eliminar un almacén de Recovery Services. 
+
+## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Eliminación del almacén de Recovery Services mediante CLI
+
+En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para comprender el proceso de eliminación de dependencias y almacenes.
+
+> [!NOTE]
+> Actualmente, la CLI de Azure Backup solo admite la administración de copias de seguridad de máquinas virtuales de Azure, por lo que el siguiente comando para eliminar el almacén solo funciona si contiene copias de seguridad de máquinas virtuales de Azure. No se puede eliminar un almacén mediante la CLI de Azure Backup si contiene cualquier elemento de copia de seguridad de un tipo que no sea máquinas virtuales de Azure. 
+
+Para eliminar el almacén de Recovery Services existente, realice las siguientes operaciones: 
+
+- Para detener la protección y eliminar los datos de copia de seguridad 
+
+    ```CLI
+    az backup protection disable --container-name 
+                             --item-name 
+                             [--delete-backup-data {false, true}] 
+                             [--ids] 
+                             [--resource-group] 
+                             [--subscription] 
+                             [--vault-name] 
+                             [--yes] 
+    ```
+
+    Para más información, consulte este [artículo](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable.). 
+
+- Elimine un almacén de Recovery Services existente: 
+
+    ```CLI
+    az backup vault delete [--force] 
+                       [--ids] 
+                       [--name] 
+                       [--resource-group] 
+                       [--subscription] 
+                       [--yes] 
+    ```
+
+    Para más información, consulte este [artículo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) 
+
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Eliminación del almacén de Recovery Services mediante Azure Resource Manager
 
 Esta opción para eliminar el almacén de Recovery Services solo se recomienda cuando se quitan todas las dependencias y sigue apareciendo el *error de eliminación del almacén*. Pruebe alguna de las recomendaciones siguientes, o todas ellas:
@@ -182,8 +322,6 @@ Esta opción para eliminar el almacén de Recovery Services solo se recomienda c
 - En el panel **Información esencial** del menú del almacén, compruebe que no aparecen elementos de copia de seguridad, servidores de administración de copias de seguridad ni elementos replicados. Si hay elementos de copia de seguridad, consulte la sección [Antes de comenzar](#before-you-start).
 - Vuelva a intentar [eliminar el almacén desde el portal](#delete-the-recovery-services-vault).
 - Si se quitan todas las dependencias y sigue apareciendo el *error de eliminación del almacén*, use la herramienta ARMClient para realizar los pasos indicados a continuación (después de la nota).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Vaya a [chocolatey.org](https://chocolatey.org/) para descargar e instalar Chocolatey. Luego, instale ARMClient ejecutando el siguiente comando:
 

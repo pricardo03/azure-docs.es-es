@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 912a063a5a831f2eade4678719723a56548b57ee
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 98c13287e6e549f1fbcab710adc12cdf5416e814
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967525"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813169"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -122,12 +122,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de FTP:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
-- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
+- Para otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en el **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para FTP en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos desde el **formato binario, de texto delimitado, Parquet o Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y configuraciones admitidas. Las propiedades siguientes se admiten para FTP en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -166,7 +166,7 @@ Para copiar datos en el **formato binario, de texto delimitado o Parquet**, cons
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos de FTP en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes:
+Para copiar datos de FTP en **formato ORC**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -217,12 +217,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="ftp-as-source"></a>FTP como origen
 
-- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
-- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
+- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para FTP en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos desde el **formato de texto binario, de texto delimitado, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para FTP en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -281,7 +281,7 @@ Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos de FTP en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
+Para copiar datos de FTP en **formato ORC**, se admiten las propiedades siguientes en la sección **origen** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

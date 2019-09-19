@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736022"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003153"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 
@@ -44,11 +44,11 @@ Apache Spark cuenta con tres ubicaciones de configuración del sistema:
 Al seleccionar una versión concreta de Spark, el clúster incluye las opciones de configuración predeterminadas.  Para los valores predeterminados de la configuración de Spark, utilice un archivo de configuración personalizado de Spark.  A continuación se muestra un ejemplo.
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco parámetros de configuración de Spark.  Estos son el códec de compresión, el tamaño mínimo de división de Apache Hadoop MapReduce y los tamaños de bloques de Parquet, así como la partición Spar SQL y los valores predeterminados de los tamaños de los archivos abiertos.  Estos cambios de configuración se eligen porque los datos y trabajos asociados (en este ejemplo, los datos genómicos) tienen características concretas que se ejecutarán mejor con estos valores de configuración personalizados.
@@ -63,7 +63,7 @@ Aparece la interfaz de usuario web de Apache Ambari, con una vista del panel de 
 
 Para ver los valores de configuración de Apache Spark, seleccione **Config History** (Historial de configuración) y, después, seleccione **Spark2**.  Seleccione la pestaña **Configs** (Configuraciones) y, después, seleccione el vínculo `Spark` (o `Spark2`, dependiendo de la versión) en la lista de servicios.  Verá una lista de valores de configuración para el clúster:
 
-![Configuraciones de Spark](./media/apache-spark-settings/spark-config.png)
+![Configuraciones de Spark](./media/apache-spark-settings/spark-configurations.png)
 
 Para ver y cambiar los valores de configuración individuales de Spark, seleccione cualquier vínculo con la palabra "spark" en el título del vínculo.  Las configuraciones para Spark incluyen tanto valores de configuración personalizados como avanzados en estas categorías:
 
@@ -82,7 +82,7 @@ Si crea un conjunto de valores de configuración no predeterminados, también pu
 
 El diagrama siguiente muestra los principales objetos de Spark: el programa del controlador y su contexto de Spark asociado, y el administrador del clúster y sus *n* nodos de trabajo.  Cada uno de estos nodos incluye un Ejecutor, una cache y *n* instancias de tarea.
 
-![Objetos de clúster](./media/apache-spark-settings/spark-arch.png)
+![Objetos de clúster](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 Los trabajos de Spark utilizan los recursos del nodo de trabajo, en particular la memoria, por lo que es común ajustar los valores de configuración de Spark para los ejecutores de los nodos de trabajo.
 
@@ -93,7 +93,7 @@ Tres parámetros clave que a menudo se ajustan para optimizar las configuracione
 
 Otra fuente de información sobre los recursos que están utilizando los ejecutores de Spark es la interfaz de usuario de la aplicación de Spark.  En la interfaz de usuario de Spark, seleccione la pestaña **Executors** (Ejecutores) para mostrar vistas de resumen y de detalle de la configuración, así como los recursos utilizados por el ejecutor.  Estas vistas pueden ayudarle a determinar si desea cambiar los valores predeterminados de los ejecutores de Spark para todo el clúster o un conjunto particular de ejecuciones de trabajos.
 
-![Ejecutores de Spark](./media/apache-spark-settings/spark-executors.png)
+![Ejecutores de Spark](./media/apache-spark-settings/apache-spark-executors.png)
 
 Como alternativa, puede usar la API de REST de Ambari para comprobar mediante programación los valores de configuración del clúster de HDInsight y Spark.  Hay disponible más información en la [referencia de la API de Apache Ambari en GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -105,7 +105,7 @@ En función de la carga de trabajo de Spark, puede determinar que una configurac
 
 Este es un ejemplo de dos nodos de trabajo con diferentes valores de configuración:
 
-![Configuraciones de dos nodos](./media/apache-spark-settings/executor-config.png)
+![Configuraciones de dos nodos](./media/apache-spark-settings/executor-configuration.png)
 
 La siguiente lista muestra los parámetros clave de la memoria del ejecutor de Spark.
 
@@ -116,7 +116,7 @@ La siguiente lista muestra los parámetros clave de la memoria del ejecutor de S
 
 YARN controla la suma máxima de memoria que usan los contenedores en cada nodo de Spark. En el siguiente diagrama se muestran las relaciones por nodos entre objetos de configuración de YARN y objetos de Spark.
 
-![Administración de memoria de Spark para YARN](./media/apache-spark-settings/yarn-spark-memory.png)
+![Administración de memoria de Spark para YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Cambio de los parámetros de una aplicación que se ejecuta en un cuaderno de Jupyter Notebook
 
@@ -136,8 +136,8 @@ Para las aplicaciones que se ejecutan en un cuaderno de Jupyter Notebook, puede 
 El código siguiente muestra cómo cambiar la configuración de una aplicación que se ejecuta en un cuaderno de Jupyter Notebook.
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>Conclusión
