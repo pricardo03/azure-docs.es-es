@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424219"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844691"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Conceptos de Azure Data Share (versión preliminar) 
 
@@ -53,7 +53,9 @@ Un consumidor de datos tiene la opción de participar en esta programación de i
 
 Un proveedor de datos puede invitar a varios destinatarios a sus recursos compartidos de datos. Para ello deben agregar los destinatarios al recurso compartido de datos. Las invitaciones también se pueden agregar una vez creado un recurso compartido de datos. 
 
-Un proveedor de datos puede eliminar una invitación después de haberla enviado. Tenga en cuenta que si un proveedor de datos elimina una invitación después de que esta se haya aceptado, el consumidor de datos puede seguir teniendo una suscripción activa al recurso compartido. Si el proveedor de datos elimina una invitación y esta todavía no se había aceptado, el consumidor ya no podrá aceptarla. 
+Los proveedores de datos pueden eliminar cualquier invitación después de haberla enviado, siempre que no se haya aceptado. Si el proveedor de datos elimina una invitación y esta todavía no se había aceptado, el consumidor ya no podrá aceptarla. 
+
+Las invitaciones se pueden volver a enviar cinco veces diarias. 
 
 ## <a name="recipient"></a>Recipient
 

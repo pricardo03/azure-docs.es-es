@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946069"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390271"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
-En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  
+En este artículo se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una entidad de lista 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 > [!Tip]
 > Si aún no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-Todo el código de este tutorial está disponible en el [repositorio Azure-Samples de GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Todo el código de este artículo está disponible en el [repositorio Azure-Samples de GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usar la aplicación HomeAutomation
 La aplicación HomeAutomation le ofrece el control de dispositivos como luces, sistemas de entretenimiento y del entorno, como la calefacción y la refrigeración. Estos sistemas tienen nombres diferentes que pueden incluir nombres de fabricantes, alias, acrónimos y jerga. 
@@ -59,7 +59,7 @@ La entidad HomeAutomation.Device es muy útil para un pequeño número de dispos
 
 Una **entidad de lista** es una buena elección para este escenario porque el conjunto de términos para un dispositivo de un edificio o campus es un conjunto conocido, incluso si es un conjunto de gran tamaño. Mediante el uso de una entidad de lista, LUIS puede recibir cualquier valor posible del conjunto para termostato y resolverlo hasta un único dispositivo "thermostat". 
 
-En este tutorial se va a crear una lista de entidades con termostato. Los nombres alternativos para un termostato en este tutorial son: 
+En este artículo se va a crear una lista de entidades con termostato. Los nombres alternativos para un termostato en este artículo son: 
 
 |Nombres alternativos para termostato|
 |--|

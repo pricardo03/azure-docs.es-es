@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b716cbf3efb044da68d4dd1dcb724369855d1ed1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174435"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843861"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -44,7 +44,7 @@ Use la ingesta clásica (masiva) en lugar de la ingesta de streaming cuando la c
     > [!TIP]
     > Si la directiva está definida en el nivel de base de datos, todas las tablas de la base de datos están habilitadas para la ingesta de streaming.
 
-## <a name="supported-streaming-ingestion-types"></a>Tipos de ingesta de streaming admitidos
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Uso de la ingesta de streaming para ingerir datos en un clúster
 
 Hay dos tipos de ingesta de streaming admitidos:
 
@@ -72,7 +72,7 @@ Hay dos tipos de ingesta de streaming admitidos:
 
 ## <a name="limitations"></a>Limitaciones
 
-* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. En el caso de un nodo D11, la carga recomendada es de hasta 20 solicitudes por segundo. Para un nodo D14, la carga recomendada es de hasta 150 solicitudes por segundo.
+* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Para un nodo D14, la carga recomendada es de hasta 150 solicitudes por segundo.
 * Actualmente, solo existe compatibilidad con las SKU de 8 y 16 núcleos (D13, D14, L8 y L16).
 * El límite de tamaño de datos por solicitud de ingesta es de 4 MB.
 * Las actualizaciones de esquema, como la creación y modificación de tablas y asignaciones de ingesta, pueden tardar hasta cinco minutos en el servicio de ingesta de streaming.

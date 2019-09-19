@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952138"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376093"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de Hyper-V
 
@@ -37,7 +37,7 @@ La migración de servidores de Hyper-V administrados con System Center Virtual M
 --- | ---
 Permisos de Azure | Necesita permisos de Colaborador o Propietario en la suscripción para crear un proyecto de Azure Migrate.
 Máquinas virtuales de Hyper-V | Evalúe hasta 35 000 máquinas virtuales de Hyper-V en un único proyecto. Puede tener varios proyectos en una suscripción a Azure. Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
-Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas. Aunque puede crear proyectos en geografías específicas, puede migrar máquinas, u obtener acceso a ellas, para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas. Aunque puede crear proyectos en geografías específicas, puede migrar máquinas o acceder a ellas, para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
 
   **Geografía** | **Ubicación de almacenamiento de metadatos**
   --- | ---
@@ -82,8 +82,13 @@ Para la evaluación, Azure Migrate ejecuta un dispositivo ligero que detecta VM 
 
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
-| **Proyecto de Azure Migrate**  |  Un dispositivo se puede asociar a un único proyecto.<br/> Puede detectar hasta 5000 VM de Hyper-V con un único dispositivo.
-| **Hyper-V**    |  El dispositivo se implementa como VM de Hyper-V.<br/> La VM del dispositivo proporcionada es una VM de Hyper-V, versión 5.0.<br/> El host de la VM debe ejecutarse en Windows Server 2012 R2 o posterior.<br/> Necesita espacio suficiente para asignar 16 GB de RAM, 8 vCPU y 1 conmutador externo para la máquina virtual del dispositivo.<br/> El dispositivo requiere una dirección IP estática o dinámica, y acceso a Internet.
+| **Implementación del dispositivo**   |  El dispositivo se implementa como VM de Hyper-V.<br/> La máquina virtual del dispositivo proporcionada por Azure Migrate es la versión 5.0 de la máquina virtual de Hyper-V.<br/> El host de Hyper-V debe ejecutarse en Windows Server 2012 R2 o posterior.<br/> El host necesita espacio suficiente para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y conmutador externo para la máquina virtual del dispositivo.<br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
+| **Proyecto de Azure Migrate**  |  Un dispositivo solo puede estar asociado a un proyecto.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Puede evaluar hasta 35 000 VM en un proyecto.
+| **Hosts de Hyper-V**          | Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
+| **Detección**              | Un solo dispositivo puede detectar hasta 5000 máquinas virtuales.
+| **Grupo de evaluación**       | Puede agregar hasta 35 000 máquinas en un solo grupo.
+| **Valoración**             | Puede acceder hasta a 35 000 máquinas virtuales en una única evaluación.
+
 
 
 ## <a name="assessment-appliance-url-access"></a>Evaluación: acceso a la dirección URL del dispositivo
@@ -116,6 +121,9 @@ En la tabla siguiente se resumen los requisitos de los puertos para la evaluaci�
 --- | ---
 **Dispositivo** | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexiones salientes en los puertos 443, 5671 y 5672 para enviar los metadatos de detección y rendimiento a Azure Migrate.
 **Host o clúster de Hyper-V** | Conexiones entrantes en los puertos de WinRM 5985 (HTTP) y 5986 (HTTPS) para extraer los metadatos de configuración y rendimiento de las VM de Hyper-V mediante una sesión de Modelo de información común (CIM).
+
+## <a name="migration-limitations"></a>Migración: limitaciones
+Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10.
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migración: requisitos del host de Hyper-V
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314914"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910370"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -96,7 +96,7 @@ Puede editar directivas de seguridad mediante el portal de Azure Policy, la API 
 
 ## <a name="disable-security-policies"></a>Deshabilitar las directivas de seguridad
 Si la directiva de seguridad predeterminada genera una recomendación que no es pertinente para su entorno, puede deshabilitar la definición de directiva que envía la recomendación para detenerla.
-Para obtener más información sobre las recomendaciones, consulte [Administración de recomendaciones de seguridad](security-center-recommendations.md).
+Para más información sobre las recomendaciones, consulte [Administración de las recomendaciones de seguridad](security-center-recommendations.md).
 
 1. En Security Center, en **DIRECTIVA Y CUMPLIMIENTO**, seleccione **Directiva de seguridad**.
 
@@ -131,7 +131,7 @@ Conceptos importantes de Azure Policy:
 
 - Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otros). 
 
-Security Center tiene una iniciativa incorporada que incluye todas las directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que desee evaluar.  
+Security Center tiene una iniciativa incorporada que incluye todas las directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que desee evaluar.
 
 De forma predeterminada, lºa iniciativa integrada tiene todas las directivas de Security Center habilitadas. Puede elegir deshabilitar ciertas directivas de la iniciativa integrada; por ejemplo, puede aplicar todas las directivas de Security Center excepto **firewall de aplicación web**, cambiando el valor del parámetro de efecto de la directiva a **Deshabilitado**. 
 

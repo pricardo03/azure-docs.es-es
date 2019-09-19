@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114671"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801377"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -36,7 +36,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | Rol integrado | DESCRIPCIÓN |
 | --- | --- |
 | [Propietario](#owner) | Permite administrarlo todo, incluso el acceso a los recursos. |
-| [Colaborador](#contributor) | Permite administrarlo todo excepto el acceso a los recursos. |
+| [Colaborador](#contributor) | Permite administrarlo todo excepto la concesión de acceso a los recursos. |
 | [Lector](#reader) | Permite ver todo el contenido, pero no realizar cambios. |
 | [AcrDelete](#acrdelete) | Eliminar artefacto |
 | [AcrImageSigner](#acrimagesigner) | Firmante de imagen de ACR |

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279592"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375313"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -73,7 +73,7 @@ Azure Migrate ejecuta un dispositivo ligero que detecta VM de VMware y envía lo
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**Implementación del dispositivo** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior. 
+**Implementación del dispositivo** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior. 
 **Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Evalúe hasta 35 000 VM en un proyecto.
 **Detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
 **Grupo de evaluación** | Puede agregar hasta 35 000 máquinas en un solo grupo.

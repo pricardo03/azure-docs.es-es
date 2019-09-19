@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970451"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743800"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -24,7 +24,7 @@ En la imagen siguiente se muestra esta funcionalidad:
 
 ![Introducción a Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
 
-Cada Trabajo híbrido de runbook es miembro de un grupo de Trabajos híbridos de runbook que especifica cuando instala el agente. Un grupo puede incluir solo un agente, pero puede instalar varios agentes en un grupo para contar con alta disponibilidad.
+Cada Trabajo híbrido de runbook es miembro de un grupo de Trabajos híbridos de runbook que especifica cuando instala el agente. Un grupo puede incluir solo un agente, pero puede instalar varios agentes en un grupo para contar con alta disponibilidad. Cada máquina puede hospedar una instancia de Hybrid Worker que informe a una cuenta de Automation.
 
 Cuando se inicia un runbook en Hybrid Runbook Worker, se especifica el grupo en el que se ejecuta. Cada rol de trabajo del grupo sondea Azure Automation para ver si hay trabajos disponibles. Si un trabajo está disponible, el primer rol trabajo en obtener el trabajo lo toma. El tiempo de procesamiento de la cola de trabajos depende de la carga y del perfil de hardware de Hybrid Worker. No se puede especificar un trabajo determinado. Las instancias de Hybrid Runbook Worker no comparten muchos de los límites que tienen los espacios aislados de Azure. No tienen los mismos límites de espacio en disco, memoria o sockets de red. Las instancias de Hybrid Runbook Worker solo se ven limitadas por los recursos de Hybrid Runbook Worker propiamente dicho. Además, las instancias de Hybrid Runbook Worker no comparten el límite de tiempo de 180 minutos de [distribución equilibrada](automation-runbook-execution.md#fair-share) que comparten los espacios aislados de Azure. Para conocer mejor los límites de servicio de espacios aislados de Azure y las instancias de Hybrid Runbook Worker, vea la página [límites](../azure-subscription-service-limits.md#automation-limits) del trabajo.
 

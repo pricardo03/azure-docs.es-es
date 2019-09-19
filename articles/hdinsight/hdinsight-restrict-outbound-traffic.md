@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 63e23275a68ddde9385bb252dcb872d02c5cea08
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405977"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811945"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante el uso de un firewall (Versión preliminar)
 
@@ -81,7 +81,7 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
    | **Nombre** | **Protocolo** | **Dirección de origen** | **Dirección de destino** | **Puerto de destino** | **Notas** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Servicio de hora |
-   | Rule_2 | Cualquiera | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación con AAD-DS para los clústeres de ESP. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación con AAD-DS para los clústeres de ESP. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. | 
    | Rule_3 | TCP | * | Dirección IP de la cuenta de Data Lake Storage | `*` | Si usa Azure Data Lake Storage, puede agregar una regla de red en la sección Direcciones IP para solucionar una incidencia de SNI con ADLS Gen1 y Gen2. Esta opción enrutará el tráfico al firewall, lo que podría ocasionar mayores costos para grandes cargas de datos pero se registrará el tráfico y será auditable en los registros del firewall. Determine la dirección IP de la cuenta de Data Lake Storage. Puede usar un comando de Powershell, como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`, para resolver el nombre de dominio completo en una dirección IP.|
    | Rule_4 | TCP | * | * | `12000` | (Opcional) Si usa Log Analytics, cree una regla de red en la sección Direcciones IP para habilitar la comunicación con el área de trabajo de Log Analytics. |
 
@@ -93,7 +93,7 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
 1. Haga clic en **Agregar** para finalizar la creación de la colección de reglas de red.
 
-   ![Título: Escribir los detalles de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Título: Especificación de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>Creación y configuración de una tabla de rutas
 

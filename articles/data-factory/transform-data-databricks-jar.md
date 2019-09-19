@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860996"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812780"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Jar en Azure Databricks
 
@@ -58,13 +58,16 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 |Propiedad|DESCRIPCIÓN|Obligatorio|
 |:--|---|:-:|
-|Nombre|Nombre de la actividad en la canalización.|Sí|
+|name|Nombre de la actividad en la canalización.|Sí|
 |description|Texto que describe para qué se usa la actividad.|Sin|
 |Tipo|En el caso de la actividad de Jar en Databricks, el tipo de actividad es DatabricksSparkJar.|Sí|
 |linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Jar. Para más información sobre este servicio vinculado, consulte el artículo  [Compute linked services](compute-linked-services.md)  (Servicios vinculados de procesos).|Sí|
 |mainClassName|Nombre completo de la clase que incluye el método principal que se va a ejecutar. Esta clase debe estar contenida en un archivo JAR que se proporciona como una biblioteca.|Sí|
 |parameters|Parámetros que se pasarán al método principal.  Se trata de una matriz de cadenas.|Sin|
 |libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una cadena de <cadena, objeto>|Sí (al menos una con el método mainClassName)|
+
+> [!NOTE]
+> **Problema conocido**: cuando se usa el mismo [clúster interactivo](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) para ejecutar actividades simultáneas de Jar en Databricks (sin reiniciar el clúster), se produce un problema conocido en Databricks por el que los parámetros "in" de la primera actividad se utilizarán también en las siguientes actividades. El resultado son parámetros incorrectos que se pasan a los trabajos posteriores. Para mitigar esto, use un [clúster de trabajo](compute-linked-services.md#example---using-new-job-cluster-in-databricks) en su lugar. 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks
 

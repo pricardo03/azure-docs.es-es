@@ -1,6 +1,6 @@
 ---
 title: Supervisión de factorías de datos mediante Azure Monitor | Microsoft Docs
-description: Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de factorías de datos mediante la habilitación de registros de diagnóstico con la información de Azure Data Factory.
+description: Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de Azure Data Factory mediante la habilitación de registros de diagnóstico con la información de Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,58 +11,68 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 0614de8bbb1429c84bf5f2e55c1765f3e4863f3a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141129"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910184"
 ---
-# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
-Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
+# <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 
-Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Para más información, consulte la [introducción a la supervisión](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Los registros de diagnóstico de Azure son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. Data Factory da como resultado registros de diagnóstico en Azure Monitor.
+Las aplicaciones en la nube son complejas y tienen muchas partes en movimiento. Los supervisores proporcionan datos para garantizar que las aplicaciones permanecen en funcionamiento en un estado correcto. Los supervisores también ayudan a evitar posibles problemas y a solucionar los problemas anteriores.
 
-## <a name="persist-data-factory-data"></a>Conservación de los datos de Data Factory
-Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Si desea conservar los datos de ejecución de canalización durante más de 45 días, con Azure Monitor puede, además de enrutar los registros de diagnóstico para su análisis, conservarlos en una cuenta de almacenamiento para tener información de Data Factory durante el tiempo que elija.
+Puede usar datos de supervisión para extraer conclusiones detalladas sobre las aplicaciones. Este conocimiento le ayuda a mejorar el rendimiento y el mantenimiento de las aplicaciones. También le ayuda a automatizar acciones que, de otro modo, requieren intervención manual.
+
+Azure Monitor ofrece métricas y registros de las infraestructuras a nivel básico para la mayoría de los servicios de Azure. Un recurso emite registros de diagnóstico de Azure que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. Y Azure Data Factory escribe registros de diagnóstico en Monitor.
+
+Para más información, consulte [Introducción a Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
+
+## <a name="keeping-azure-data-factory-data"></a>Mantenimiento de datos de Azure Data Factory
+
+Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Use Monitor si desea conservar los datos durante más tiempo. Con Monitor, puede enrutar los registros de diagnóstico para su análisis. También puede mantenerlos en una cuenta de almacenamiento para que tenga información de la factoría para la duración seleccionada.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-* Guardarlos en una **cuenta de almacenamiento** para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
-* Transmitirlos a **Event Hubs** para la ingesta en un servicio de terceros o una solución de análisis personalizado como Power BI.
-* Analícelos con **Log Analytics**.
+* Guarde los registro de diagnóstico en una cuenta de almacenamiento para auditarlos o para inspeccionarlos manualmente. Puede usar la configuración de diagnóstico para especificar el tiempo de retención en días.
+* Transmita los registros a Azure Event Hubs. Los registros se convierten en la entrada de un servicio del asociado o en una solución de análisis personalizada como Power BI.
+* Analice los registros con Log Analytics.
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el recurso que emite los registros. El usuario que configura los ajustes debe tener el control de acceso basado en rol (RBAC) adecuado a ambas suscripciones.
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
 
 ### <a name="diagnostic-settings"></a>Configuración de diagnóstico
-Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. Configuración de diagnóstico para un control de recurso:
 
-* Dónde se envían los registros de diagnóstico (cuenta de Storage, Event Hubs o registros de Azure Monitor).
-* Qué categorías de registro se envían.
-* Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento.
-* Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
-* Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o de registros de Azure Monitor), las directivas de retención no surten ningún efecto.
-* Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
+Use la configuración de diagnóstico para configurar los registros de diagnóstico de los recursos que no son de proceso. La configuración de un control de recursos tiene las siguientes características:
 
-### <a name="enable-diagnostic-logs-via-rest-apis"></a>Habilitación de los registros de diagnóstico mediante las API de REST
+* Especifican dónde se envían los registros de diagnóstico. Entre los ejemplos se incluyen una cuenta de almacenamiento de Azure, un centro de eventos de Azure o registros de Monitor.
+* Especifican las categorías de registro que se envían.
+* Especifican cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento.
+* Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2 147 483 647.
+* Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado, las directivas de retención no surten ningún efecto. Por ejemplo, esta condición puede ocurrir cuando solo se seleccionan las opciones de registros de Event Hubs o de Monitor.
+* Las directivas de retención se aplican por día. El límite entre los días se produce a la medianoche de la hora universal coordinada (UTC). Al final del día, se eliminan los registros de los días que superan la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
-Creación o actualización de una configuración de diagnóstico en la API de REST de Azure Monitor
+### <a name="enable-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Habilitación de registros de diagnóstico mediante la API REST de Azure Monitor
 
-**Solicitud**
+#### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Creación o actualización de una configuración de diagnóstico en la API REST de Monitor
+
+##### <a name="request"></a>Solicitud
+
 ```
 PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Encabezados**
-* Reemplace `{api-version}` por `2016-09-01`.
-* Reemplace `{resource-id}` por el identificador del recurso para el que desea editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/manage-resource-groups-portal.md).
-* Establezca el encabezado `Content-Type` en `application/json`.
-* Establezca el encabezado de autorización en un token web de JSON que se obtiene de Azure Active Directory. Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-scenarios.md).
+##### <a name="headers"></a>encabezados
 
-**Cuerpo**
+* Reemplace `{api-version}` por `2016-09-01`.
+* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+* Establezca el encabezado `Content-Type` en `application/json`.
+* Establezca el encabezado de autorización en un token web de JSON que se obtiene de Azure Active Directory (AAD). Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-scenarios.md).
+
+##### <a name="body"></a>Body
+
 ```json
 {
     "properties": {
@@ -104,20 +114,20 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| storageAccountId |Cadena | El identificador de recurso de la cuenta de almacenamiento en la que le gustaría enviar los registros de diagnóstico |
-| serviceBusRuleId |Cadena | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen las instancias de Event Hub creadas por los registros de diagnóstico de streaming. El identificador de regla tiene el formato: "{Identificador de recurso de Service Bus}/authorizationrules/{nombre de clave}".|
-| workspaceId | Tipo complejo | Matriz de intervalos de agregación de métricas y sus directivas de retención. Actualmente, esta propiedad está vacía. |
-|Métricas| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento |
-| logs| Tipo complejo| Nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice primero una operación de configuración de diagnóstico GET. |
-| category| Cadena| Matriz de las categorías de registro y sus directivas de retención |
-| timeGrain | Cadena | La granularidad de las métricas que se capturan en formato de duración ISO 8601. Debe ser PT1M (un minuto).|
-| enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
-| retentionPolicy| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Se utiliza solamente para la opción de cuenta de almacenamiento.|
-| days| Int| Número de días para retener las métricas o registros. Con el valor cero, se retienen los registros indefinidamente. Se utiliza solamente para la opción de cuenta de almacenamiento. |
+| **storageAccountId** |Cadena | El identificador de recurso de la cuenta de almacenamiento en la que quiere enviar los registros de diagnóstico. |
+| **serviceBusRuleId** |Cadena | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde quiere tener los centros de eventos creados para la transmisión de los registros de diagnóstico. El identificador de la regla tiene el formato `{service bus resource ID}/authorizationrules/{key name}`.|
+| **workspaceId** | Tipo complejo | Una matriz de intervalos de agregación de métricas y sus directivas de retención. El valor de esta propiedad está vacío. |
+|**métricas**| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Objeto JSON que asigna nombres de parámetro a los valores de argumento. |
+| **logs**| Tipo complejo| El nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice una operación de configuración de diagnóstico GET. |
+| **category**| Cadena| Una matriz de las categorías de registro y sus directivas de retención. |
+| **timeGrain** | Cadena | La granularidad de las métricas que se capturan en formato de duración ISO 8601. El valor de propiedad debe ser `PT1M`, que especifica un minuto. |
+| **enabled**| Boolean | Especifica si la colección de la categoría de métrica o registro está habilitada para este recurso. |
+| **retentionPolicy**| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Esta propiedad se usa solo para las cuentas de almacenamiento. |
+|**days**| Int| El número de días para retener las métricas o registros. Si el valor de propiedad es 0, los registros se mantienen indefinidamente. Esta propiedad se usa solo para las cuentas de almacenamiento. |
 
-**Respuesta**
+##### <a name="response"></a>Response
 
-200 OK
+200 CORRECTO.
 
 
 ```json
@@ -166,23 +176,25 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-Permite obtener información sobre la configuración de diagnóstico en la API de REST de Azure Monitor.
+#### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Permite obtener información sobre la configuración de diagnóstico en la API REST de Monitor.
 
-**Solicitud**
+##### <a name="request"></a>Solicitud
+
 ```
 GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Encabezados**
+##### <a name="headers"></a>encabezados
+
 * Reemplace `{api-version}` por `2016-09-01`.
-* Reemplace `{resource-id}` por el identificador del recurso para el que desea editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el uso de grupos de recursos para administrar los recursos de Azure.
+* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 * Establezca el encabezado `Content-Type` en `application/json`.
-* Establezca el encabezado de autorización en un token web de JSON que se obtiene de Azure Active Directory. Para más información, consulte Solicitudes de autenticación.
+* Establezca el encabezado de autorización en un token web de JSON que obtuvo de Azure AD. Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-scenarios.md).
 
-**Respuesta**
+##### <a name="response"></a>Response
 
-200 OK
+200 CORRECTO.
 
 ```json
 {
@@ -228,14 +240,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     },
     "identity": null
 }
+
 ```
-[Consulte más información aquí](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
+Para más información, consulte [Configuración de diagnóstico](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
-## <a name="schema-of-logs--events"></a>Esquema de registros y eventos
+## <a name="schema-of-logs-and-events"></a>Esquema de registros y eventos
 
-### <a name="azure-monitor-schema"></a>Esquema de Azure Monitor
+### <a name="monitor-schema"></a>Esquema de Monitor
 
-#### <a name="activity-run-logs-attributes"></a>Atributos de registros de ejecución de actividad
+#### <a name="activity-run-log-attributes"></a>Atributos de registro de la ejecución de actividad
 
 ```json
 {
@@ -276,21 +289,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- | --- |
-| Nivel |Cadena | Nivel de los registros de diagnóstico. El nivel 4 siempre es el caso de los registros de ejecución de actividad. | `4`  |
-| correlationId |Cadena | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Cadena | Hora del evento de intervalo de tiempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|activityRunId| Cadena| Identificador de la ejecución de la actividad | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| Cadena| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadena | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| Cadena | Categoría de los registros de diagnóstico. Establezca esta propiedad en "ActivityRuns". | `ActivityRuns` |
-|level| Cadena | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
-|operationName| Cadena |Nombre de la actividad con estado. Si el estado es el latido de inicio, es `MyActivity -`. Si el estado es el latido final, es `MyActivity - Succeeded` con estado final | `MyActivity - Succeeded` |
-|pipelineName| Cadena | Nombre de la canalización | `MyPipeline` |
-|activityName| Cadena | Nombre de la actividad | `MyActivity` |
-|start| Cadena | Inicio de la ejecución de la actividad en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| Cadena | Finaliza la ejecución de la actividad en el intervalo de tiempo, formato UTC. Si la actividad no ha finalizado todavía (registro de diagnóstico para una actividad de inicio), se establece un valor predeterminado de `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
+| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| Cadena| El identificador de la ejecución de actividad. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| Cadena| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `ActivityRuns`. | `ActivityRuns` |
+|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| Cadena | El nombre de la actividad con su estado. Si la actividad es el latido de inicio, el valor de propiedad es `MyActivity -`. Si la actividad es el latido final, el valor de propiedad es `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
+|**pipelineName**| Cadena | El nombre de la canalización. | `MyPipeline` |
+|**activityName**| Cadena | El nombre de la actividad. | `MyActivity` |
+|**start**| Cadena | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
+|**end**| Cadena | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
-#### <a name="pipeline-run-logs-attributes"></a>Atributos de registros de ejecución de canalización
+#### <a name="pipeline-run-log-attributes"></a>Atributos de registro de la ejecución de la canalización
 
 ```json
 {
@@ -322,20 +335,20 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- | --- |
-| Nivel |Cadena | Nivel de los registros de diagnóstico. El nivel 4 es el caso de los registros de ejecución de actividad. | `4`  |
-| correlationId |Cadena | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Cadena | Hora del evento de intervalo de tiempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| Cadena| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadena | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| Cadena | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
-|level| Cadena | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
-|operationName| Cadena |Nombre de la canalización con estado. "Pipeline - Succeeded" (Canalización - Correcto) con estado final cuando se ha completado la ejecución de canalización| `MyPipeline - Succeeded` |
-|pipelineName| Cadena | Nombre de la canalización | `MyPipeline` |
-|start| Cadena | Inicio de la ejecución de la actividad en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| Cadena | Final de las ejecuciones de la actividad en el intervalo de tiempo, formato UTC. Si la actividad no ha finalizado todavía (registro de diagnóstico para una actividad de inicio), se establece un valor predeterminado de `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-|status| Cadena | Estado final de la ejecución de canalización (correcto o erróneo) | `Succeeded`|
+| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| Cadena| El identificador de la ejecución de canalización. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
+|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| Cadena | El nombre de la canalización junto con su estado. Una vez finalizada la ejecución de la canalización, el valor de propiedad es `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
+|**pipelineName**| Cadena | El nombre de la canalización. | `MyPipeline` |
+|**start**| Cadena | La hora de inicio de las ejecuciones de actividad en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`. |
+|**end**| Cadena | La hora de finalización de las ejecuciones de actividad en formato UTC del intervalo de tiempo. Si el registro de diagnóstico muestra que una actividad se ha iniciado pero aún no ha finalizado, el valor de propiedad es `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
+|**status**| Cadena | El estado final de la ejecución de canalización. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
 
-#### <a name="trigger-run-logs-attributes"></a>Atributos de registros de ejecución de desencadenador
+#### <a name="trigger-run-log-attributes"></a>Atributos de registro de la ejecución del desencadenador
 
 ```json
 {
@@ -366,27 +379,27 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propiedad | Escriba | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- | --- |
-| Nivel |Cadena | Nivel de los registros de diagnóstico. Se establece en el nivel 4 para registros de ejecución de actividad. | `4`  |
-| correlationId |Cadena | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Cadena | Hora del evento de intervalo de tiempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| Cadena| Identificador de la ejecución del desencadenador | `08587023010602533858661257311` |
-|resourceId| Cadena | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| Cadena | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
-|level| Cadena | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
-|operationName| Cadena |Nombre del desencadenador con estado final si activa correctamente. "MyTrigger - Succeeded" (MyTrigger - Correcto) si el latido se realizó correctamente.| `MyTrigger - Succeeded` |
-|triggerName| Cadena | Nombre del desencadenador | `MyTrigger` |
-|triggerType| Cadena | Tipo del desencadenador (desencadenador manual o desencadenador de programación) | `ScheduleTrigger` |
-|triggerEvent| Cadena | Evento del desencadenador | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| Cadena | Inicio de la activación del desencadenador en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|status| Cadena | Estado final de si el desencadenador se ha activado correctamente (correcto o erróneo) | `Succeeded`|
+| **Level** |Cadena | El nivel de los registros de diagnóstico. En el caso de los registros de ejecución de actividad, establezca el valor de la propiedad en 4. | `4` |
+| **correlationId** |Cadena | El identificador único para realizar el seguimiento de una solicitud determinada. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | Cadena | La hora del evento en formato UTC de intervalo de tiempo`YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| Cadena| El identificador de la ejecución del desencadenador. | `08587023010602533858661257311` |
+|**resourceId**| Cadena | El identificador asociado con el recurso de la fábrica de datos. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| Cadena | La categoría de los registros de diagnóstico. Establezca el valor de propiedad en `PipelineRuns`. | `PipelineRuns` |
+|**level**| Cadena | El nivel de los registros de diagnóstico. Establezca el valor de propiedad en `Informational`. | `Informational` |
+|**operationName**| Cadena | El nombre del desencadenador con su estado final, que indica si el desencadenador se activó correctamente. Si el latido se realizó correctamente, el valor de la propiedad es `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
+|**triggerName**| Cadena | El nombre del desencadenador. | `MyTrigger` |
+|**triggerType**| Cadena | Tipo de desencadenador. Los valores de propiedad posibles son `Manual Trigger` y `Schedule Trigger`. | `ScheduleTrigger` |
+|**triggerEvent**| Cadena | El evento del desencadenador. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**start**| Cadena | La hora de inicio del desencadenador que se activa en formato UTC del intervalo de tiempo. | `2017-06-26T20:55:29.5007959Z`|
+|**status**| Cadena | El estado final que indica si el desencadenador se activó correctamente. Los valores de propiedad posibles son `Succeeded` y `Failed`. | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Esquema de Log Analytics
 
-Log Analytics hereda el esquema de Azure Monitor con las excepciones siguientes:
+Log Analytics hereda el esquema de Monitor con las excepciones siguientes:
 
-* La primera letra de cada nombre de columna se escribirá en mayúsculas, por ejemplo, *correlationId* en Azure Monitor será *CorrelationId* en Log Analytics.
-* Se quitará la columna *Level* (Nivel).
-* Las *propiedades* de columnas dinámicas se conservarán como el tipo de blob de JSON dinámico siguiente:
+* La primera letra de cada nombre de columna se escribe en mayúsculas. Por ejemplo, el nombre de columna "correlationId" en Monitor es "CorrelationId" en Log Analytics.
+* No hay ninguna columna "Level".
+* La columna de "propiedades" dinámicas se conservará como el tipo de blob de JSON dinámico siguiente.
 
     | Columna de Azure Monitor | Columna de Log Analytics | type |
     | --- | --- | --- |
@@ -404,28 +417,28 @@ Log Analytics hereda el esquema de Azure Monitor con las excepciones siguientes:
     
 ## <a name="metrics"></a>Métricas
 
-Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
+Con Monitor, puede obtener visibilidad sobre el rendimiento y el estado de las cargas de trabajo de Azure. El tipo más importante de datos de Monitor es la métrica, que también se denomina contador de rendimiento. La mayoría de los recursos de Azure emiten métricas. Monitor proporciona varias maneras de configurar y consumir estas métricas para supervisar y solucionar problemas.
 
-ADFV2 emite las métricas siguientes:
+La versión 2 de Azure Data Factory emite las siguientes métricas.
 
 | **Métrica**           | **Nombre de métrica para mostrar**         | **Unidad** | **Tipo de agregación** | **Descripción**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | Las métricas de ejecuciones de canalización se realizaron correctamente | Count    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
-| PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Count    | Total                | Total de ejecuciones de canalizaciones erróneas dentro de una ventana de minutos    |
-| ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Count    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
-| ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Count    | Total                | Total de ejecuciones de actividad erróneas dentro de una ventana de minutos     |
-| TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Count    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
-| TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Count    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
+| PipelineSucceededRuns | Las métricas de ejecuciones de canalización se realizaron correctamente | Count    | Total                | El número total de ejecuciones de canalización realizadas correctamente dentro de un período de minutos. |
+| PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Count    | Total                | El número total de ejecuciones de canalización con error dentro de una período de minutos.    |
+| ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Count    | Total                | El número total de ejecuciones de actividad realizadas correctamente dentro de un período de minutos.  |
+| ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Count    | Total                | El número total de ejecuciones de actividad en las que se produjo un error en período de minutos.     |
+| TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Count    | Total                | El número total de ejecuciones de desencadenador realizadas correctamente dentro de un período de minutos.   |
+| TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Count    | Total                | El número total de ejecuciones de desencadenador en las que se produjo un error dentro de un período de minutos.      |
 
 Para acceder a las métricas, complete las instrucciones que aparecen en la [plataforma de datos de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Supervisión de las métricas de Data Factory con Azure Monitor
 
-Puede usar la integración de Azure Data Factory con Azure Monitor para enrutar datos a Azure Monitor. Esta integración resulta útil en los escenarios siguientes:
+Puede usar la integración de Data Factory con Monitor para enrutar datos a Monitor. Esta integración resulta útil en los escenarios siguientes:
 
-1.  Quiere escribir consultas complejas en un amplio conjunto de métricas que se publican mediante Data Factory en Azure Monitor. También puede crear alertas personalizadas sobre estas consultas a través de Azure Monitor.
+* Quiere escribir consultas complejas en un amplio conjunto de métricas que se publican mediante Data Factory en Monitor. Puede crear alertas personalizadas sobre estas consultas mediante Monitor.
 
-2.  Quiere realizar la supervisión entre fábricas de datos. Puede enrutar datos desde varias fábricas de datos a una sola área de trabajo de Azure Monitor.
+* Quiere realizar la supervisión entre fábricas de datos. Puede enrutar datos desde varias factorías de datos a una única área de trabajo de Monitor.
 
 Si desea una demostración y una introducción de siete minutos de esta característica, vea el siguiente vídeo:
 
@@ -433,56 +446,56 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 ### <a name="configure-diagnostic-settings-and-workspace"></a>Configuración de las opciones de diagnóstico y el área de trabajo
 
-Habilite la configuración de diagnóstico de su fábrica de datos.
+Cree o agregue la configuración de diagnóstico de su factoría de datos.
 
-1. En el portal, desplácese a Azure Monitor y haga clic en **Configuración de diagnóstico** en el menú **Configuración**.
+1. En el portal, vaya a Monitor. Seleccione **Configuración** > **Configuración de diagnóstico**.
 
-2. Seleccione la factoría de datos para la que quiere establecer una configuración de diagnóstico.
-    
-3. Si no existe ninguna configuración en la factoría de datos que seleccionó, se le pedirá crear una. Haga clic en "Activar diagnóstico".
+1. Seleccione la factoría de datos para la que quiere establecer una configuración de diagnóstico.
 
-   ![Agregar configuración de diagnóstico: sin configuración actual](media/data-factory-monitor-oms/monitor-oms-image1.png)
+1. Si no existe ninguna configuración en la factoría de datos seleccionada, se le pedirá que cree una. Seleccione **Activar diagnósticos**.
 
-   Si hay una configuración existente en la factoría de datos, verá una lista de configuraciones ya establecidas en esta factoría de datos. Haga clic en "Agregar configuración de diagnóstico".
+   ![Creación de una configuración de diagnóstico si no existe ninguna configuración](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   ![Agregar configuración de diagnóstico: configuración actual](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+   Si hay una configuración existente en la factoría de datos, verá una lista de configuraciones ya establecidas en la factoría de datos. Seleccione **Agregar configuración de diagnóstico**.
 
-4. Asigne un nombre de su configuración y active la casilla **Enviar a Log Analytics** y, después, seleccione un área de trabajo de Log Analytics.
+   ![Adición de una configuración de diagnóstico si existe ninguna configuración](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+1. Asigne un nombre de la configuración, seleccione **Enviar a Log Analytics** y, después, seleccione un área de trabajo en **Área de trabajo de Log Analytics**.
 
-5. Haga clic en **Save**(Guardar).
+    ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-Transcurridos unos instantes, la nueva opción de configuración aparece en la lista de opciones para esta factoría de datos y los registros de diagnóstico se transmiten en esa área de trabajo en cuanto se generan nuevos datos de eventos. Pueden pasar hasta quince minutos entre el momento en que se emite un evento y el momento en que aparece en Log Analytics.
+1. Seleccione **Guardar**.
+
+Transcurridos unos instantes, el nuevo valor de configuración aparece en la lista de configuraciones para esta factoría de datos. Los registros de diagnóstico se transmiten en esa área de trabajo en cuanto se generan nuevos datos de evento. Pueden pasar hasta 15 minutos entre el momento en que se emite un evento y cuando aparece en Log Analytics.
 
 > [!NOTE]
-> Debido a un límite explícito de cualquier tabla de registros de Azure determinada de no tener más de 500 columnas, **se recomienda usar el modo Resource Specific (Específico del recurso)** . Para más información, consulte las [limitaciones conocidas de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Como una tabla de registro de Azure no puede tener más de 500 columnas, se recomienda encarecidamente seleccionar el modo específico de recursos. Para más información, consulte las [limitaciones conocidas de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instale Azure Data Factory Analytics desde Azure Marketplace
 
-![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+![Vaya a "Azure Marketplace", escriba "Filtro de Analytics" y seleccione "Azure Data Factory Analytics (versión preliminar)".](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
-![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+![Detalles sobre "Azure Data Factory Analytics (versión preliminar)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-Haga clic en **Crear** y seleccione el área de trabajo y su configuración.
+Seleccione **Crear** y, después, seleccione **Área de trabajo de OMS** y **Configuración del área de trabajo de OMS**.
 
-![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+![Creación de una solución](media/data-factory-monitor-oms/monitor-oms-image5.png)
 
-### <a name="monitor-data-factory-metrics"></a>Métricas de Data Factory
+### <a name="monitor-data-factory-metrics"></a>Supervisión de métricas de Data Factory
 
-Con la instalación de **Azure Data Factory Analytics** se crea un conjunto de vistas predeterminado que habilita las métricas siguientes:
+La instalación de Azure Data Factory Analytics crea un conjunto de vistas predeterminado para que se habiliten las métricas siguientes:
 
 - Ejecuciones de ADF: 1) Ejecuciones de canalización por Data Factory
-
+ 
 - Ejecuciones de ADF: 2) Ejecuciones de actividad por Data Factory
 
 - Ejecuciones de ADF: 3) Ejecuciones de desencadenador por Data Factory
 
-- Errores de ADF: 1) Principales errores de canalización por Data Factory
+- Errores de ADF: 1) 10 errores de canalización principales por Data Factory
 
-- Errores de ADF: 2) Principales errores de actividad por Data Factory
+- Errores de ADF: 2) 10 ejecuciones de actividad principales por Data Factory
 
-- Errores de ADF: 3) Principales errores de desencadenador por Data Factory
+- Errores de ADF: 3) 10 errores de desencadenador principales por Data Factory
 
 - Estadísticas de ADF: 1) Ejecuciones de actividad por tipo
 
@@ -490,51 +503,50 @@ Con la instalación de **Azure Data Factory Analytics** se crea un conjunto de v
 
 - Estadísticas de ADF: 3) Duración máxima de las ejecuciones de canalización
 
-![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+![Ventana con "Libros (vista previa)" y "AzureDataFactoryAnalytics" resaltados](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
-![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+![Representación gráfica de ejecuciones y errores](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
-Puede visualizar las métricas anteriores, examinar las consultas detrás de estas métricas, editar las consultas, crear alertas, etc.
+Puede visualizar las métricas anteriores, examinar las consultas detrás de estas métricas, editar las consultas, crear alertas y realizar otras acciones.
 
-![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
+![Representación gráfica de las ejecuciones de canalización por factoría de datos"](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertas
 
-Inicie sesión en Azure Portal y haga clic en **Supervisión** > **Alertas** para crear alertas.
+Inicie sesión en Azure Portal y haga clic en **Monitor** > **Alertas** para crear alertas.
 
 ![Alertas en el menú del portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
 ### <a name="create-alerts"></a>Creación de alertas
 
-1.  Haga clic en **+ Nueva regla de alertas** para crear una nueva alerta.
+1. Haga clic en **+Nueva regla de alertas** para crear una nueva alerta.
 
     ![Nueva alerta de reglas](media/monitor-using-azure-monitor/alerts_image4.png)
 
-2.  Defina **Alert condition** (Condición de la alerta).
+1. Defina la condición de la alerta.
 
     > [!NOTE]
-    > Asegúrese de seleccionar **Todo** en **Filter by resource type** (Filtrar por tipo de recurso).
+    > Asegúrese de seleccionar **Todo** en **Filtrar por tipo de recurso**.
 
-    ![Condición de alerta, pantalla 1 de 3](media/monitor-using-azure-monitor/alerts_image5.png)
+    !["Definir condición de la alerta" > "Seleccionar destino", que abre el panel "Seleccionar un recurso" ](media/monitor-using-azure-monitor/alerts_image5.png)
 
-    ![Condición de alerta, pantalla 2 de 3](media/monitor-using-azure-monitor/alerts_image6.png)
+    !["Definir condición de la alerta" > "Agregar criterios", que abre el panel "Configurar lógica de señal"](media/monitor-using-azure-monitor/alerts_image6.png)
 
-    ![Condición de alerta, pantalla 3 de 3](media/monitor-using-azure-monitor/alerts_image7.png)
+    ![Panel "Configurar tipo de señal"](media/monitor-using-azure-monitor/alerts_image7.png)
 
-3.  Defina los **Detalles de alertas**.
+1. Defina los detalles de la alerta.
 
     ![Detalles de alertas](media/monitor-using-azure-monitor/alerts_image8.png)
 
-4.  Defina el **Grupo de acciones**.
+1. Defina el grupo de acciones.
 
-    ![Grupo de acciones, pantalla 1 de 4](media/monitor-using-azure-monitor/alerts_image9.png)
+    ![Creación de una regla, con "Nuevo grupo de acciones" resaltado](media/monitor-using-azure-monitor/alerts_image9.png)
 
-    ![Grupo de acciones, pantalla 2 de 4](media/monitor-using-azure-monitor/alerts_image10.png)
+    ![Creación de un nuevo grupo de acciones](media/monitor-using-azure-monitor/alerts_image10.png)
 
-    ![Grupo de acciones, pantalla 3 de 4](media/monitor-using-azure-monitor/alerts_image11.png)
+    ![Configuración del correo electrónico, SMS, inserciones y voz](media/monitor-using-azure-monitor/alerts_image11.png)
 
-    ![Grupo de acciones, pantalla 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
+    ![Definición de un grupo de acciones](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Consulte el artículo [Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones con código.
+[Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md)

@@ -1,25 +1,20 @@
 ---
 title: Introducción al enrutamiento de contenido basado en la dirección URL con Azure Application Gateway
-description: En este artículo se proporciona una introducción al enrutamiento de contenido basado en la dirección URL con Application Gateway, la configuración de UrlPathMap y la regla PathBasedRouting.
-documentationcenter: na
+description: En este artículo se ofrece una introducción general al enrutamiento de contenido basado en la dirección URL con Azure Application Gateway, la configuración de UrlPathMap y la regla PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 4/23/2018
+ms.date: 09/10/2019
 ms.author: victorh
-ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61361965"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910019"
 ---
-# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Introducción al enrutamiento basado en la ruta de acceso URL con Azure Application Gateway
+# <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
 El enrutamiento basado en URL le permite enrutar el tráfico a los grupos de servidores back-end en función de las direcciones URL de la solicitud. 
 
@@ -27,9 +22,9 @@ Por ejemplo, puede enrutar las solicitudes de diferentes tipos de contenido a di
 
 En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com desde tres grupos de servidores back-end: VideoServerPool, ImageServerPool y DefaultServerPool.
 
-![imageURLroute](./media/url-route-overview/figure1.png)
+![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Las solicitudes de <http://contoso.com/video/*> se redirigen a VideoServerPool, y las de <http://contoso.com/images/*>, a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+Las solicitudes de http\://contoso.com/video/* se enrutan a VideoServerPool y las de http\://contoso.com/images/* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
 > Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.
@@ -67,8 +62,37 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 }]
 ```
 
-> [!NOTE]
-> PathPattern: esta opción es una lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern es la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. En caso contrario, todos los caracteres admitidos en una dirección URL se permiten en PathPattern.
+
+Los patrones admitidos dependen de si se implementa Application Gateway v1 o v2:
+
+#### <a name="v1"></a>v1
+
+Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
+
+|Patrón de ruta de acceso de v1  |¿Se admite?  |
+|---------|---------|
+|`/images/*`     |Sí|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sí|
+
+#### <a name="v2"></a>v2
+
+Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
+
+|Patrón de ruta de acceso de v2  |¿Se admite?  |
+|---------|---------|
+|`/images/*`     |Sí|
+|`/images*`     |Sí|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sí|
 
 Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 
@@ -99,4 +123,4 @@ Fragmento de código de la regla PathBasedRouting:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](tutorial-url-route-powershell.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
+Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](create-url-route-portal.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.

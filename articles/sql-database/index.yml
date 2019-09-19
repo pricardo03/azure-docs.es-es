@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>Use grupos de instancias administradas como una solución sencilla y rentable para implementar varias instancias administradas que comparten recursos y se escalan rápidamente.</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: Grupo de instancias
   - title: Inicio rápido en 5 minutos
     items:

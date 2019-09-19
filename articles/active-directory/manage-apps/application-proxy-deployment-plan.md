@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879912"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812837"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -85,7 +85,7 @@ Para obtener más información sobre el tema, consulte [KCD para el inicio de se
 
    * La **publicación y administración de aplicaciones** requiere el rol *Administrador de la aplicación*. Los administradores de aplicaciones pueden administrar todas las aplicaciones del directorio, incluidos los registros, configuraciones de SSO, asignaciones y configuración de licencias de usuario y de grupo, configuración del proxy de aplicación y consentimiento. No concede la capacidad de administrar el acceso condicional. El rol *Administrador de aplicaciones en la nube* tiene todas las funcionalidades del administrador de la aplicación, excepto en que no permite la administración de la configuración de Application Proxy.
 
-* **Licencia**: Application Proxy está disponible mediante la suscripción a Azure AD Basic. Consulte la [página precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para obtener una lista completa de características y opciones de licencia.  
+* **Licencia**: Application Proxy está disponible mediante una suscripción a Azure AD Premium. Consulte la [página precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para obtener una lista completa de características y opciones de licencia.  
 
 ### <a name="application-discovery"></a>Detección de aplicaciones
 

@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 04af3f211674458c51bbb5cdbc6012833a790584
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 6311ae7e89cab67611396c607d38fd0f00f99dad
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190966"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811620"
 ---
-# <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante DirectQuery en Azure HDInsight
+# <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante consulta directa en HDInsight
 
 En este artículo se describe cómo conectar Microsoft Power BI a clústeres de Interactive Query de Azure HDInsight y cómo visualizar los datos de Apache Hive mediante DirectQuery. En el ejemplo proporcionado se cargan los datos de una tabla de Hive `hivesampletable` en Power BI. La tabla de Hive `hivesampletable` contiene algunos datos de uso de teléfonos móviles. Luego se trazan los datos de uso en un mapamundi:
 

@@ -1,6 +1,6 @@
 ---
 title: Optimización de las configuraciones de clúster con Apache Ambari en Azure HDInsight
-description: Use la interfaz de usuario web de Apache Ambari para configurar y optimizar clústeres de HDInsight.
+description: Use la interfaz de usuario web de Apache Ambari para configurar y optimizar clústeres de Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60698991"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880278"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
 
@@ -49,11 +49,11 @@ Para modificar el tamaño del montón de Java NameNode:
 
 1. Escriba el nuevo valor en el cuadro de texto y, a continuación, presione **ENTRAR** para guardar el cambio.
 
-    ![Editar el tamaño del montón de Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Editar el tamaño del montón de Java NameNode 1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
 1. El tamaño del montón de Java NameNode ha cambiado de 1 GB a 2 GB.
 
-    ![Tamaño del montón de Java NameNode editado](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Tamaño del montón de Java NameNode editado 2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
 1. Para guardar los cambios, haga clic en el botón **Guardar** verde de la parte superior de la pantalla de configuración.
 
@@ -146,7 +146,7 @@ De forma predeterminada, Hive sigue un conjunto de reglas para buscar un plan de
 
 Para habilitar CBO, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y busque `parameter hive.cbo.enable`; a continuación, cambie el botón de alternancia a **Activado**.
 
-![Configuración de CBO](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![Configuración de CBO](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 Los siguientes parámetros de configuración adicionales aumentan el rendimiento de las consulta de Hive cuando CBO está habilitado:
 
@@ -365,7 +365,7 @@ El número de reductores se calcula en función del parámetro `pig.exec.reducer
 
 La configuración de **Apache HBase** se modifica desde la pestaña [HBase Configs](https://hbase.apache.org/) (Configuraciones de HBase). En las secciones siguientes se describen algunas de las opciones de configuración importantes que afectan al rendimiento de HBase.
 
-### <a name="set-hbaseheapsize"></a>Establecer HBASE_HEAPSIZE
+### <a name="set-hbase_heapsize"></a>Establecer HBASE_HEAPSIZE
 
 El tamaño del montón de HBase especifica la cantidad máxima del montón que se usará en megabytes en los servidores de *regiones* y *maestro*. El valor predeterminado es de 1000 MB. Debe optimizarse para la carga de trabajo del clúster.
 

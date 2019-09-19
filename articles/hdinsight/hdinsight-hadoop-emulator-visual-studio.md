@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605453"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885517"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
@@ -45,13 +45,13 @@ Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, s
 
 3. En el cuadro de diálogo **Conectar al emulador de HDInsight**, escriba la contraseña que ha configurado para Ambari.
 
-    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña de Ambari resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Seleccione **Next** (Siguiente) para continuar.
 
 4. Use el campo **Contraseña** para escribir la contraseña configurada para la cuenta `root`. Deje los demás campos con los valores predeterminados.
 
-    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña de Ambari resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Seleccione **Next** (Siguiente) para continuar.
 
@@ -90,7 +90,7 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
     También puede usar el menú desplegable junto a **Enviar** para seleccionar **Avanzadas**. Las opciones avanzadas permiten proporcionar opciones adicionales al enviar el trabajo.
 
-    ![Captura de pantalla del cuadro de diálogo Enviar script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Captura de pantalla del cuadro de diálogo Enviar script de Hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
 3. Una vez enviada la consulta, aparece el estado del trabajo. El estado del trabajo muestra información sobre el trabajo mientras lo procesa Hadoop. En **Estado del trabajo** se proporciona el estado actual del trabajo. El estado se actualiza periódicamente, aunque también se puede usar el icono de actualización para actualizarlo manualmente.
 
@@ -149,7 +149,7 @@ Aunque Hive proporciona un lenguaje similar a SQL para trabajar con datos estruc
 
     Aunque Pig usa un lenguaje diferente que Hive, la forma de ejecutar los trabajos es la misma en ambos lenguajes mediante el botón **Enviar**. La selección de la lista desplegable situada junto a **Enviar** muestra un cuadro de diálogo de envío avanzado para Pig.
 
-    ![Captura de pantalla del cuadro de diálogo Enviar script](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Captura de pantalla del cuadro de diálogo Enviar script de Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
 3. El estado y la salida de trabajo también se muestran del mismo modo que en una consulta de Hive.
 
@@ -185,7 +185,7 @@ Las herramientas de Data Lake también le permiten ver fácilmente la informaci�
 
 Puede ver las propiedades de una base de datos o de una tabla. Al seleccionar **Propiedades** se muestran los detalles del elemento seleccionado en la ventana de propiedades. Por ejemplo, puede ver la información que se muestra en la siguiente captura de pantalla:
 
-![Captura de pantalla de la ventana Propiedades](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Captura de pantalla de la ventana Propiedades](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>Creación de una tabla
 

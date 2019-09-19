@@ -1,18 +1,18 @@
 ---
 title: Análisis para Marketplace comercial en el Centro de partners
 description: Obtenga información sobre cómo obtener acceso a los informes de análisis para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace.
-author: mattwojo
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 09/09/2019
+ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619686"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880184"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis para Marketplace comercial en el Centro de partners
 
@@ -26,6 +26,7 @@ Para obtener acceso a las herramientas de análisis del Centro de partners, abra
 |[Pedidos](#orders-dashboard)|Información sobre pedidos en formato gráfico y descargable|
 |[Clientes](#customer-dashboard)|Información acerca de los clientes, incluidas las tendencias de crecimiento, presentadas en un formato gráfico y descargable|
 |[Descargas](#downloads-dashboard)|Lista de las solicitudes de descarga de los últimos 30 días|
+|[Calificaciones y reseñas](#ratings-and-reviews)| Información de las calificaciones y reseñas que los clientes han realizado acerca de las ofertas que han adquirido.
 
 ## <a name="summary-dashboard"></a>Panel Resumen
 
@@ -56,11 +57,11 @@ La sección **Totales** muestra un recuento de todos los pedidos creados, o clie
 
 ### <a name="customers-by-geography"></a>Clientes por geografía
 
-El mapa térmico **Clientes por geografía** muestra un recuento de los clientes en un mapa del mundo. 
+El mapa térmico **Clientes por geografía** muestra un recuento de los clientes en un mapa del mundo.
 
-- Puede mover el mapa para ver la ubicación exacta. 
-- Puede hacer zoom en una ubicación específica. 
-- El mapa térmico tiene una cuadrícula complementaria para ver los detalles del recuento de clientes (o del [recuento de pedidos](#orders-by-geography)) en la ubicación específica. 
+- Puede mover el mapa para ver la ubicación exacta.
+- Puede hacer zoom en una ubicación específica.
+- El mapa térmico tiene una cuadrícula complementaria para ver los detalles del recuento de clientes (o del [recuento de pedidos](#orders-by-geography)) en la ubicación específica.
 - Puede buscar y seleccionar un país en la cuadrícula para ampliar la ubicación en el mapa. Revierta a la vista original presionando el botón **Inicio** en el mapa.
 - Un **nuevo** cliente ha comprado una de sus ofertas por primera vez durante el mes dentro del intervalo de fechas seleccionado.
 
@@ -122,7 +123,7 @@ El mapa térmico de **pedidos por geografía** muestra el recuento de los pedido
 
 El gráfico de anillos **Pedidos activos por ofertas** organiza todos los pedidos activos según sus nombres de oferta.
 
-- Las cuatro ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todo el resto).
+- Las cuatro ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todas las demás).
 - Puede seleccionar las ofertas específicas de la leyenda para mostrar solo esas ofertas en el gráfico. 
 - Al mantener el puntero sobre un sector del gráfico aparecerá el número de pedidos y el porcentaje de esa oferta en comparación con el número total de pedidos de todas las demás ofertas.
 - La **tendencia de pedidos por ofertas** muestra las tendencias de crecimiento mes a mes. La columna de mes representa el número de pedidos por nombre de la oferta. El gráfico de líneas muestra la tendencia del porcentaje de crecimiento trazada en un eje z.
@@ -285,3 +286,38 @@ Recibirá una notificación emergente y un correo con un vínculo al panel **Des
 | Nombre del proveedor| Cliente| Nombre del proveedor que participa en la relación entre Microsoft y el cliente final. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP.|
 | SKU| Orden| Nombre de la SKU tal como se definió durante la publicación. Una oferta puede tener muchas SKU, pero una SKU solo puede asociarse a una única oferta.||
 | Trial End Date (Fecha de fin de la prueba)| Orden| La fecha del período de prueba de este pedido va a finalizar o ha finalizado.||
+
+## <a name="ratings-and-reviews"></a>Calificaciones y reseñas
+
+Cuando los clientes examinan, buscan y compran ofertas en los dos catálogos de soluciones, pueden dejar calificaciones y reseñas de las ofertas que han adquirido. Pueden enviar nuevas calificaciones o reseñas, así como actualizar o eliminar las calificaciones o reseñas que ya han enviado. Las reseñas se publican en Azure Marketplace o AppSource en la pestaña Reviews (Reseñas) de la página de presentación del producto de la oferta. Los clientes pueden incluir sus nombres en las calificaciones o reseñas, o bien pueden publicarlas de forma anónima.  
+
+> [!NOTE]
+> Los clientes solo pueden realizar cambios en las calificaciones y reseñas que poseen.
+
+El  **panel de calificaciones y reseñas** muestra las tendencias y los detalles de las actividades de los clientes. Proporciona representaciones gráficas de:
+
+- Calificaciones y reseñas  
+- Revisar comentarios
+
+### <a name="marketplace-storefront-tabs"></a>Pestaña de escaparate de Marketplace
+
+Los anunciantes pueden ver las métricas de la oferta por separado en las pestañas AppSource y Azure Marketplace. Para ver métricas de ofertas específicas, seleccione **Oferta** en el menú desplegable:
+
+![Menú desplegable de ofertas de análisis del Centro de partners](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Resumen de calificaciones y reseñas
+
+La sección del resumen de calificaciones y reseñas muestra las métricas siguientes de un intervalo de fechas seleccionado:
+
+- **Calificación media:** Media ponderada de la clasificación por estrellas de todas las calificaciones que han enviado por clientes de la oferta seleccionada.
+- **Desglose de calificación:** Desglose de la clasificación por estrellas por el número de clientes que han enviado sus calificaciones. El gráfico de barras se apila con las calificaciones reales y revisadas (recuento de clasificación actualizado).
+- **Total de calificaciones:** Recuento total de las clasificaciones enviadas. Este recuento incluye las clasificaciones con y sin reseñas.
+- **Calificaciones con reseñas:** Número de reseñas enviadas.
+
+![Resumen de reseñas y calificaciones de análisis del Centro de partners](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Revisar comentarios
+
+Las revisiones se muestran en orden cronológico y se usará el momento en que se publicaron. La vista predeterminada muestra todas las reseñas. Las reseñas se pueden filtrar por clasificación por estrellas desde la opción **Filtro** del menú desplegable. También puede buscar palabras clave que aparecen en la reseña.  
+
+![Comentario de revisión de análisis del Centro de partners](./media/analyze-reviews.png)

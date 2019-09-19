@@ -1,5 +1,5 @@
 ---
-title: Creación de un blob en Azure Storage mediante la biblioteca cliente de Node.js v2
+title: Creación de un blob en Azure Storage para Node.js
 description: Cree una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de Azure Storage para Node.js V2 a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,12 +7,13 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 8fada27f82fea557d7d078f06b5c05e7d1db906d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721964"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861241"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Carga, descarga y enumeración de blobs mediante la biblioteca cliente de Node.js v2
 

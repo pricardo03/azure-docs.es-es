@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7efffd416cd6768cc8fdd18c224fd42dd97b53e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b7672ff83dac31968dff7ef7a66ff40b36b69d59
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072715"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845196"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -95,7 +95,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **Chief Telecom** |Compatible |Compatible |Hong Kong, Taipéi |
 | **China Telecom Global** |Compatible |Compatible |RAE de Hong Kong |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Compatible |Compatible |Chicago, Dallas, Montreal, Toronto, Washington DC |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Compatible |Compatible |Ámsterdam, Dublín, Londres, Newport, Osaka, París, Singapur2, Tokio |
+| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Dublín, Londres, Newport, Osaka, París, Singapur2, Tokio |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Compatible |Compatible |Chicago, Denver, Los Ángeles, Nueva York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Compatible |Compatible |Ámsterdam2, Fráncfort, Marsella|
@@ -137,6 +137,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, RAE de Hong Kong, Londres |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Compatible |Compatible |Seúl |
+| **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Compatible |Compatible | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Compatible |Compatible |Chennai (Madrás), Mumbai (Bombay)2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Compatible |Compatible |Singapur, Singapur2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Compatible |Compatible |Osaka, Tokyo |
@@ -156,10 +157,11 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Compatible |Compatible |Dallas, +Los Ángeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Compatible |Compatible |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, RAE de Hong Kong, Londres, Mumbai, Silicon Valley, Singapur, Sídney, Tokio, Toronto, Washington DC |
+| **Viasat** | Compatible | Compatible | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Compatible | Compatible | Auckland, Sídney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Compatible |Compatible |Ámsterdam2, Londres, Singapur |
 | **Vodafone Idea** | Compatible | Compatible | Bombay, Bombay2 |
-| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Denver, Londres, Los Ángeles, Montreal, Nueva York, París, Seattle, Silicon Valley, Toronto, Washington DC |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Denver, Londres, Los Ángeles, Montreal, Nueva York, París, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** indica próximamente
 
@@ -214,7 +216,14 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 * Solicitar un circuito ExpressRoute con el intercambio como proveedor de conectividad para conectarse a Microsoft.
   * Siga los pasos de la sección [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md) para configurar la conectividad.
 
-## <a name="connectivity-through-additional-service-providers"></a>Conectividad a través de proveedores de servicios adicionales
+## <a name="connectivity-through-satellite-operators"></a>Conectividad a través de operadores satelitales
+Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otras opciones de conectividad, puede comprobar los siguientes operadores satelitales. 
+
+* Intelsat
+* [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
+* Viasat
+
+## <a name="connectivity-through-additional-service-providers"></a>Conectividad mediante proveedores de servicios adicionales
 
 | **Proveedor de conectividad** | **Exchange** | **Ubicaciones** |
 | --- | --- | --- |
@@ -276,7 +285,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **[Zertia](https://www.zertia.es)**| Nivel 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix y Equinix | Montreal, Toronto |
 
-## <a name="connectivity-through-datacenter-providers"></a>Conectividad a través de proveedores de centro de datos
+## <a name="connectivity-through-datacenter-providers"></a>Conectividad mediante proveedores de centro de datos
 
 | **Proveedor** | **Exchange** |
 | --- | --- |
@@ -293,7 +302,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 | **[Centros de datos de T5](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividad a través de redes nacionales de investigación y educación (NREN)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Conectividad mediante redes nacionales de investigación y educación (NREN)
 
 | **Proveedor**|
 | --- |

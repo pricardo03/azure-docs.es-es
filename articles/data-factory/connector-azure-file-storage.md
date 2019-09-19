@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4922f863802524b8abc85581ae3c3acea8fabe48
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9aa9caca103efb138ca6e188f8dcb6a377e06f3a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839847"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813257"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
@@ -85,12 +85,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Fi
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para el **formato binario, de texto delimitado o Parquet**, consulte la sección [Conjunto de datos con formato binario, de texto delimitado o Parquet](#format-based-dataset).
-- Para otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
+- En el caso de otros formatos como **ORC**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="format-based-dataset"></a> Conjunto de datos con formato binario, de texto delimitado o Parquet
+### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos como origen y destino de **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `location` del conjunto de datos basado en formato:
+Para copiar datos desde y hacia el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en el formato y configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Para copiar datos como origen y destino de **formato binario, de texto delimitad
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos con Azure File Storage como origen y destino en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes:
+Para copiar datos con Azure File Storage como origen y destino en el **formato ORC**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -184,12 +184,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="azure-file-storage-as-source"></a>Azure File Storage como origen
 
-- Para copiar desde el **formato binario, de texto delimitado o Parquet**, consulte la sección [Origen de formato binario, de texto delimitado o Parquet](#format-based-source).
-- Para copiar desde otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro origen de formato](#other-format-source).
+- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
+- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del origen de copia basado en formato:
+Para copiar datos desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -247,7 +247,7 @@ Para copiar datos en **formato de texto binario, de texto delimitado o Parquet**
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos de Azure File Storage en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
+Para copiar datos de Azure File Storage en **formato ORC**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -289,12 +289,12 @@ Para copiar datos de Azure File Storage en **formato ORC, Avro o JSON**, se admi
 
 ### <a name="azure-file-storage-as-sink"></a>Azure File Storage como destino
 
-- Para copiar en el **formato binario, de texto delimitado o Parquet**, consulte la sección [Receptor de formato binario, de texto delimitado o Parquet](#format-based-sink).
-- Para copiar en otros formatos como **ORC, Avro o JSON**, consulte la sección [Otro receptor de formato](#other-format-sink).
+- Para copiar en **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-sink).
+- Para copiar en otros formatos como **ORC**, consulte la sección [Otro receptor de formato](#other-format-sink).
 
-#### <a name="format-based-sink"></a> Receptor de formato binario, de texto delimitado o Parquet
+#### <a name="format-based-sink"></a> Receptor de formato binario, de texto delimitado, JSON, Parquet y Avro
 
-Para copiar datos en el **formato binario, de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md) y [Formato binario](format-binary.md) sobre el receptor de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del receptor de copia basado en formato:
+Para copiar datos en el **formato binario, de texto delimitado, JSON, Avro o Parquet**, consulte el [formato Parquet](format-parquet.md), el [formato de texto delimitado](format-delimited-text.md), el [formato Avro](format-avro.md) y el [formato binario](format-binary.md) sobre el receptor de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure File Storage en la configuración `storeSettings` del receptor de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -342,7 +342,7 @@ Para copiar datos en el **formato binario, de texto delimitado o Parquet**, cons
 
 #### <a name="other-format-sink"></a>Otro receptor de formato
 
-Para copiar datos en Azure File Storage en **formato ORC, Avro o JSON**, se admiten las propiedades siguientes en la sección **sink** (receptor):
+Para copiar datos en Azure File Storage en el **formato ORC**, se admiten las propiedades siguientes en la sección **sink** (receptor):
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

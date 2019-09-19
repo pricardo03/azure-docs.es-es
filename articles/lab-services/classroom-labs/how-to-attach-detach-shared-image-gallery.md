@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: de4e9fb4b15f4c346926fe46f23255c668204c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f16baccd3a4980ee9dbe410cb2a95878b346d4
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413889"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390021"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
 Los profesores y administradores del laboratorio pueden guardar una imagen de máquina virtual de plantilla en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure para que otros usuarios puedan reutilizarla. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 
 
 En este artículo se muestra cómo asociar o desasociar una galería de imágenes compartidas en una cuenta de laboratorio. 
+
+> [!NOTE]
+> Para más información sobre los costos asociados al servicio Shared Image Gallery, consulte [Facturación para Shared Image Gallery](../../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configuración al crear la cuenta de laboratorio
 Al crear una cuenta de laboratorio, puede asociarle una galería de imágenes compartidas. Puede seleccionar una galería de imágenes compartidas existente en la lista desplegable o bien crear una. Para crear y adjuntar una galería de imágenes compartidas a la cuenta de laboratorio, seleccione **Crear nuevo**, escriba un nombre para la galería y seleccione **Aceptar**. 
@@ -76,12 +79,6 @@ En el procedimiento siguiente se muestra cómo asociar una galería de imágenes
     La identidad de Azure Lab Services se agrega como colaborador a la galería de imágenes compartidas asociada al laboratorio. Permite a profesores y administradores de TI guardar imágenes de máquina virtual en la galería de imágenes compartidas. Todos los laboratorios creados en esta cuenta de laboratorio tienen acceso a la galería de imágenes compartidas adjunta. 
 
     Todas las imágenes de la galería de imágenes compartidas adjunta están habilitadas de forma predeterminada. Puede habilitar o deshabilitar imágenes concretas si las selecciona en la lista y usa el botón **Enable selected images** (Habilitar imágenes seleccionadas) o **Disable selected images** (Deshabilitar imágenes seleccionadas). 
-
-## <a name="save-an-image-to-the-shared-image-gallery"></a>Guardado de una imagen en la galería de imágenes compartidas
-Una vez que se ha asociado una galería de imágenes compartidas, un administrador de cuenta de laboratorio o un profesor puede guardar o cargar una imagen a la galería de imágenes compartidas para que otros profesores la puedan reutilizar. Para obtener instrucciones sobre cómo cargar una imagen en la galería de imágenes compartidas, vea [Información general de la galería de imágenes compartidas](../../virtual-machines/windows/shared-images.md). 
-
-> [!NOTE]
-> Actualmente, la interfaz de usuario (IU) de Laboratorios educativos no permite que se guarde una imagen de laboratorio en la galería de imágenes compartidas. 
 
 ## <a name="detach-a-shared-image-gallery"></a>Desasociación de una galería de imágenes compartidas
 Solo se puede asociar una galería de imágenes compartidas a un laboratorio. Si quiere asociar otra galería de imágenes compartidas, desasocie la actual antes de asociar la nueva. Para desasociar una galería de imágenes compartidas del laboratorio, seleccione **Desasociar** en la barra de herramientas y confirme la operación de desasociación. 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164887"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801264"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -85,7 +85,7 @@ En Visual Studio, puede encontrar todas las aplicaciones lógicas que están aso
 
 ## <a name="open-in-visual-studio"></a>Apertura en Visual Studio
 
-En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e implementadas de manera directa a través de Azure Portal o como proyectos de Azure Resource Manager con Visual Studio.
+En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e implementadas de manera directa mediante Azure Portal o como proyectos de grupo de recursos de Azure con Visual Studio.
 
 1. Abra Cloud Explorer y busque su aplicación lógica. 
 
@@ -123,7 +123,34 @@ Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.
 
 4. Cuando se le pida una ubicación, vaya a esa ubicación y guarde la plantilla de Resource Manager para la definición de aplicaciones lógicas en formato de archivo JSON (.json). 
 
-La definición de aplicaciones lógicas aparece en la subsección `resources` de la plantilla de Resource Manager. Ahora puede editar la definición de aplicaciones lógicas y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un proyecto de Azure Resource Manager en una solución de Visual Studio. Obtenga más información sobre los [proyectos de Resource Manager para las aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+La definición de aplicaciones lógicas aparece en la subsección `resources` de la plantilla de Resource Manager. Ahora puede editar la definición de aplicaciones lógicas y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a una solución de Visual Studio. Aprenda sobre los [proyectos de grupo de recursos de Azure para aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>Vínculo a la cuenta de integración
+
+Para crear aplicaciones lógicas en escenarios de integración empresarial de negocio a negocio (B2B), puede vincular la aplicación lógica a una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) creada anteriormente que exista en la misma región que la aplicación lógica. Una cuenta de integración contiene artefactos B2B, como entidades, acuerdos, esquemas y asignaciones, y permite que la aplicación lógica use conectores B2B para la validación de XML y la codificación o descodificación de archivos sin formato. Aunque puede [crear este vínculo mediante Azure Portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), también puede usar Visual Studio después de cumplir los [requisitos previos](#requirements), y la aplicación lógica existirá como un archivo JSON (.json) dentro de un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Aprenda sobre los [proyectos de grupo de recursos de Azure para aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+
+1. En Visual Studio, abra el proyecto de grupo de recursos de Azure que contiene la aplicación lógica.
+
+1. En el Explorador de soluciones, abra el menú contextual del archivo **<nombre de la aplicación lógica>.json** y seleccione **Open With Logic App Designer** (Abrir con el Diseñador de aplicación lógica). (Teclado: Ctrl+L)
+
+   ![Abrir el archivo .json de la aplicación lógica con el Diseñador de aplicación lógica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Si no tiene este comando en Visual Studio 2019, compruebe que tiene las actualizaciones más recientes de Visual Studio.
+
+1. Para asegurarse de que el Diseñador de aplicación lógica tiene el foco, seleccione la pestaña o la superficie del diseñador para que el panel Propiedades muestre la propiedad **Cuenta de integración** de la aplicación lógica.
+
+   ![Panel Propiedades que muestra la propiedad "Cuenta de integración"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. Abra la lista **Cuenta de integración** y seleccione la cuenta de integración que quiere vincular a la aplicación lógica, por ejemplo:
+
+   ![Abrir la lista de propiedades "Cuenta de integración"](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. Cuando haya terminado, no olvide guardar la solución de Visual Studio.
+
+Cuando se establece la propiedad **Cuenta de integración** en Visual Studio y se guarda la aplicación lógica como una plantilla de Azure Resource Manager, esa plantilla también incluye una declaración de parámetros para la cuenta de integración seleccionada. Para más información sobre los parámetros de plantilla y las aplicaciones lógicas, consulte [Introducción: Automatización de la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
 
 <a name="refresh"></a>
 

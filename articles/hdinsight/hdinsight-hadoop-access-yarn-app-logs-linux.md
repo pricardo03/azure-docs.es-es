@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0c5ecfba97c61288d08681006645eab0bdd23f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b230f91b9d6b169b89b125bdd0394c2c7ecd96f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059463"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879866"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux
 
@@ -42,7 +42,7 @@ Los registros de aplicación (y los registros de contenedor asociados) son funda
 
 En la ruta de acceso, `user` es el nombre del usuario que inició la aplicación. `applicationId` es el identificador único asignado a una aplicación mediante el RM de YARN.
 
-Los registros agregados no son legibles directamente tal como se escriben en un [TFile][T-file], [formato binario][binary-format] indexado por el contenedor. Use los registros de ResourceManager de YARN o las herramientas de la CLI para ver estos registros como texto sin formato para aplicaciones o contenedores de interés.
+Los registros agregados no son legibles directamente, ya que se escriben en [TFile][T-file], un [formato binario ][binary-format] que indexa el contenedor. Use los registros de ResourceManager de YARN o las herramientas de la CLI para ver estos registros como texto sin formato para aplicaciones o contenedores de interés.
 
 ## <a name="yarn-cli-tools"></a>Herramientas de la CLI de YARN
 
@@ -62,10 +62,11 @@ La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principa
 1. Abra el explorador y vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 2. En la lista de servicios de la izquierda de la página, seleccione **YARN**.
 
-    ![Servicio de YARN seleccionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
+    ![Servicio de YARN seleccionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+
 3. En la lista desplegable **Vínculos rápidos**, seleccione uno de los nodos del clúster principal y elija **Registro de ResourceManager**.
 
-    ![Vínculos rápidos de YARN](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
+    ![Vínculos rápidos de YARN](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     Aparece una lista de vínculos a los registros de YARN.
 

@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950136"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383374"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer (versión preliminar)
 
@@ -50,6 +50,7 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
     > * Con una creación de particiones más pormenorizada, se espera un aumento del rendimiento. Por ejemplo, las consultas en tablas externas con particiones diarias tendrán un mejor rendimiento que las consultas con tablas con particiones mensuales.
     > * Cuando se define una tabla externa con particiones, se espera que la estructura de almacenamiento sea idéntica.
 Por ejemplo, si la tabla se define con una partición DateTime en formato aaaa/MM/dd (valor predeterminado), la ruta de acceso del archivo de almacenamiento de URI debe ser *container1/aaaa/MM/dd/all_exported_blobs*. 
+    > * Si la tabla externa tiene particiones de una columna DateTime, incluya siempre un filtro de tiempo para un intervalo cerrado en la consulta (por ejemplo, la consulta `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` debe ofrecer un mejor rendimiento que `ArchivedProducts | where Timestamp > ago(1h)` [intervalo abierto]). 
 
 1. La tabla externa está visible en el panel izquierdo de la interfaz de usuario web.
 

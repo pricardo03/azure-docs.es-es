@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061812"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743839"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -75,8 +75,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite evaluaciones de actualización.         |
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)|Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)|**Valoraciones de las actualizaciones**: Compatible<br><br>**Revisiones**: requiere Hybrid Runbook Worker. Consulte los [requisitos de Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere "yum" para devolver los datos de seguridad que CentOS no tiene de forma nativa. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](#linux-2).          |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
@@ -138,7 +137,7 @@ Si el grupo de administración de System Center Operations Manager está conecta
 * Módulo de administración de Update Deployment
 
 > [!NOTE]
-> Si tiene un grupo de administración de Operations Manager 1807 con agentes configurados en el nivel de grupo de administración que se va a asociar a un área de trabajo, la solución actual para conseguir que se muestren es reemplazar **IsAutoRegistrationEnabled** por **True** en la regla **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
+> Si tiene un grupo de administración de Operations Manager 1807 o 2019 con agentes que estén configurados en el nivel del grupo de administración que se va a asociar con un área de trabajo, la solución actual para conseguir que se muestren consiste en reemplazar **IsAutoRegistrationEnabled** por **True** en la regla **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
 
 Para más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con registros de Azure Monitor](../azure-monitor/platform/om-agents.md).
 

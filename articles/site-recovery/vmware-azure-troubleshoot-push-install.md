@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/27/2019
-ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2019
+ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925573"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910637"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
@@ -240,6 +240,8 @@ Este error se produce cuando el servicio de proveedor de VSS para Azure Site Rec
 Este error se produce cuando la base de datos de servicio de proveedor de VSS para Azure Site Recovery está [bloqueada](https://msdn.microsoft.com/library/ms833798.aspx). Pruebe a instalar VSS manualmente en la máquina de origen mediante la ejecución de la siguiente línea de comandos.
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+En caso de error, compruebe si algún programa antivirus u otros servicios están bloqueados en el estado "Iniciando". Esto podría mantener el bloqueo en los servicios de base de datos. Además, dará lugar a errores en la instalación del proveedor de VSS. Asegúrese de que ningún servicio se encuentra en un estado "Iniciando" y luego vuelva a intentar la operación anterior.
 
 ### <a name="vss-exit-code-806"></a>Código de salida VSS 806
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 09/06/2019
 ms.author: dapine
-ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 752613becb92711866d520e6fcd46ed3a320353f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564106"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860276"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -139,7 +139,9 @@ Reemplace {_argument_name_} por sus propios valores:
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
 |{API_KEY} | La clave de punto de conexión del recurso de Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Valor de punto de conexión, incluido el enrutamiento de Face y la región.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{ENDPOINT_URI} | El valor de la dirección URL del punto de conexión.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](face-how-to-install-containers.md#billing).

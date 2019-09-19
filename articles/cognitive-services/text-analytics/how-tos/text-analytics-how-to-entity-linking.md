@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697839"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390258"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -98,7 +98,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 + Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
++ Establezca el punto de conexión de HTTP para la extracción de frases clave mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir `/text/analytics/v2.1/entities`. Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 
 + Establezca un encabezado de solicitud para incluir la [clave de acceso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para las operaciones de Text Analytics.
 

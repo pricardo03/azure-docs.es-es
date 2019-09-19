@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Solución de problemas relacionados con la configuración del grupo de seguridad de red | Microsoft Docs'
-description: Solución de problemas de configuración de NSG para Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Solución de problemas de los grupos de seguridad de red | Microsoft Docs'
+description: Solución de problemas de configuración de grupos de seguridad de red en Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 08875ec23740eab7787c4a919566df521deba9a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473923"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "70743421"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de red no válida para el dominio administrado
 Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la red que generan el mensaje de alerta siguiente:
@@ -28,14 +28,14 @@ Este artículo le ayuda a solucionar problemas y resolver errores de configuraci
 ## <a name="alert-aadds104-network-error"></a>Alerta AADDS104: Error de red
 **Mensaje de alerta:** *Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.*
 
-Las configuraciones de NSG no válidas son la causa más común de los errores de red en Azure AD Domain Services. El grupo de seguridad de red (NSG) configurado para la red virtual debe permitir el acceso a [puertos específicos](network-considerations.md#ports-required-for-azure-ad-domain-services). Si estos puertos están bloqueados, Microsoft no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado. Al crear el NSG, mantenga abiertos estos puertos para evitar la interrupción del servicio.
+Las configuraciones de NSG no válidas son la causa más común de los errores de red en Azure AD Domain Services. El grupo de seguridad de red (NSG) configurado para la red virtual debe permitir el acceso a [puertos específicos](network-considerations.md#network-security-groups-and-required-ports). Si estos puertos están bloqueados, Microsoft no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado. Al crear el NSG, mantenga abiertos estos puertos para evitar la interrupción del servicio.
 
 ### <a name="checking-your-nsg-for-compliance"></a>Comprobación del cumplimiento del grupo de seguridad de red
 
 1. Vaya a la página [Grupos de seguridad de red](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) en Azure Portal.
 2. En la tabla, elija el NSG asociado con la subred en que está habilitado el dominio administrado.
 3. En **Configuración** en el panel de la izquierda, haga clic en **Reglas de seguridad de entrada**.
-4. Revise las reglas vigentes e identifique las que bloquean el acceso a [estos puertos](network-considerations.md#ports-required-for-azure-ad-domain-services)
+4. Revise las reglas vigentes e identifique las que bloquean el acceso a [estos puertos](network-considerations.md#network-security-groups-and-required-ports)
 5. Edite el grupo de seguridad de red para garantizar su cumplimiento mediante la eliminación de la regla, la incorporación de otra o la creación de un grupo de seguridad de red totalmente nuevo. Los pasos para [agregar una regla](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o crear un grupo de seguridad de red conforme se encuentran a continuación.
 
 ## <a name="sample-nsg"></a>NSG de ejemplo

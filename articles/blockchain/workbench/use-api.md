@@ -1,25 +1,25 @@
 ---
-title: Usar la API de REST de Azure Blockchain Workbench
-description: Escenarios para saber cómo usar la API de REST de Azure Blockchain Workbench
+title: Uso de la API REST de Azure Blockchain Workbench, versión preliminar
+description: Escenarios de uso de la API REST de Azure Blockchain Workbench, versión preliminar
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60896059"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843816"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Usar la API de REST de Azure Blockchain Workbench
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso de la API REST de Azure Blockchain Workbench, versión preliminar
 
-La API de REST de Azure Blockchain Workbench proporciona a los desarrolladores y trabajadores de la información una forma de crear integraciones enriquecidas para aplicaciones de cadenas de bloques. Este documento los guía por varios métodos clave de la API de REST de Workbench. Por ejemplo, suponga que un programador quiere crear un cliente de cadena de bloques personalizado. Este cliente de cadena de bloques permite que los usuarios con sesión iniciada vean e interactúen con sus aplicaciones de cadena de bloques asignadas. El cliente permite a los usuarios ver las instancias del contrato y tomar medidas en los contratos inteligentes. El cliente usa la API REST de Workbench en el contexto del usuario que ha iniciado sesión para hacer las acciones siguientes:
+La API REST de Azure Blockchain Workbench, versión preliminar, proporciona a los desarrolladores y trabajadores de la información una forma de crear integraciones enriquecidas para aplicaciones de cadenas de bloques. Este documento los guía por varios métodos clave de la API de REST de Workbench. Por ejemplo, suponga que un programador quiere crear un cliente de cadena de bloques personalizado. Este cliente de cadena de bloques permite que los usuarios con sesión iniciada vean e interactúen con sus aplicaciones de cadena de bloques asignadas. El cliente permite a los usuarios ver las instancias del contrato y tomar medidas en los contratos inteligentes. El cliente usa la API REST de Workbench en el contexto del usuario que ha iniciado sesión para hacer las acciones siguientes:
 
 * Enumerar aplicaciones
 * Enumerar flujos de trabajo para una aplicación

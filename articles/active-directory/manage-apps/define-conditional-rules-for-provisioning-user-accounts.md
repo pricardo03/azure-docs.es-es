@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c831fc7ab1a646d41c0dc08d0e1a66380fe1232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824733"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812691"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -108,7 +108,7 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 13. Seleccione **Guardar** en la pantalla **Asignación de atributos**. 
 
 >[!IMPORTANT] 
-> Si guarda un nuevo filtro de ámbito, se realizará una sincronización completa de la aplicación y todos los usuarios del sistema de origen volverán a ser evaluados mediante el nuevo filtro de ámbito. Si un usuario de la aplicación que estaba en el ámbito de aprovisionamiento se encuentra ahora fuera del mismo, su cuenta se deshabilita o se desaprovisiona de la aplicación.
+> Si guarda un nuevo filtro de ámbito, se realizará una sincronización completa de la aplicación y todos los usuarios del sistema de origen volverán a ser evaluados mediante el nuevo filtro de ámbito. Si un usuario de la aplicación que estaba en el ámbito de aprovisionamiento se encuentra ahora fuera del mismo, su cuenta se deshabilita o se desaprovisiona de la aplicación. Para invalidar este comportamiento predeterminado, consulte [Omisión de la eliminación de usuarios fuera del ámbito](skip-out-of-scope-deletions.md).
 
 
 ## <a name="related-articles"></a>Artículos relacionados

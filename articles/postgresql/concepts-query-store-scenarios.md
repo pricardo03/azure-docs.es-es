@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cdb0d4e00e667b0369cdf612662830f18dc5fb8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067315"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764271"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Escenarios de uso de Almacén de consultas
 
-**Se aplica a:** Azure Database for PostgreSQL con un único servidor 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL: Versiones de servidor único 9.6, 10, 11
 
 Puede usar Almacén de consultas en una amplia variedad de escenarios en los que sea crítico realizar y un seguimiento y mantener un rendimiento predecible de la carga de trabajo. Considere los ejemplos siguientes: 
 - Identificación y optimización de las consultas más costosas 

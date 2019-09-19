@@ -11,12 +11,12 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982927"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801289"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Creación y administración de cuentas de integración para soluciones B2B mediante Azure Logic Apps
 
@@ -80,7 +80,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, [A
 
 ## <a name="link-to-logic-app"></a>Vincular a la aplicación lógica
 
-Para que las aplicaciones lógicas accedan a una cuenta de integración que contiene los artefactos B2B, primero debe vincular la cuenta de integración a la aplicación lógica. La cuenta de integración y la aplicación lógica deben estar en la misma región. Para esta tarea, puede seguir los pasos de esta sección para usar Azure Portal.
+Para que las aplicaciones lógicas accedan a una cuenta de integración que contiene los artefactos B2B, primero debe vincular la cuenta de integración a la aplicación lógica. La cuenta de integración y la aplicación lógica deben estar en la misma región. Para completar esta tarea, puede utilizar Azure Portal. Si usa Visual Studio y la aplicación lógica está en un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), puede [vincular la aplicación lógica a una cuenta de integración mediante Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. En Azure Portal, busque y abra la aplicación lógica.
 

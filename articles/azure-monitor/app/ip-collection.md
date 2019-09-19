@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694285"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916160"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -36,10 +36,9 @@ Este comportamiento es así de forma predeterminada, ya que le ayudará a evitar
 
 Aunque el comportamiento predeterminado debe minimizar la recopilación de datos personales, todavía ofrecemos la opción para recopilar y almacenar datos de direcciones IP. Antes de decidir si quiere almacenar datos personales como direcciones IP, le recomendamos que compruebe que esta acción no infrinja los requisitos de cumplimiento o la normativa local a los que pueda estar sujeto. Para obtener más información sobre la administración de datos personales en Application Insights, consulte la [guía de datos personales](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## <a name="storing-partial-ip-address-data"></a>Almacenar datos de direcciones IP parciales
+## <a name="storing-ip-address-data"></a>Almacenamiento de datos de direcciones IP
 
-Para habilitar la recopilación y el almacenamiento de direcciones IP parciales, la propiedad `DisableIpMasking` del componente de Application Insights debe establecerse en `true`. Esta propiedad se puede establecer a través de las plantillas de Azure Resource Manager o llamando a la API de REST. Las direcciones IP se registrarán con el último octeto establecido en cero.
-
+Para habilitar la recopilación y el almacenamiento de direcciones IP, la propiedad `DisableIpMasking` del componente de Application Insights debe establecerse en `true`. Esta propiedad se puede establecer a través de las plantillas de Azure Resource Manager o llamando a la API de REST. 
 
 ### <a name="azure-resource-manager-template"></a>Plantilla de Azure Resource Manager
 
@@ -92,7 +91,7 @@ Si solo necesita modificar el comportamiento de un solo recurso de Application I
 
     En este caso no se compra nada nuevo, simplemente estamos actualizando la configuración del recurso de Application Insights existente.
 
-6. Una vez completada la implementación, se registrarán nuevos datos de telemetría en los que los tres primeros octetos contendrán la IP y el último tendrá ceros.
+6. Una vez completada la implementación, se registrarán los nuevos datos de telemetría.
 
     Si tuviera que seleccionar y editar la plantilla nuevamente, solo vería la plantilla predeterminada y no la propiedad recién agregada y su valor asociado. Si no ve los datos de la dirección IP y quiere confirmar que `"DisableIpMasking": true` está configurado. Ejecute el siguiente código de PowerShell: (Reemplace `Fabrikam-dev` con el recurso apropiado y el nombre del grupo de recursos).
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetría
 
-Si necesita registrar la dirección IP completa en lugar que solo tenga los primeros tres octetos, puede usar un [inicializador de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar la dirección IP en un campo personalizado que no se enmascarará.
+Si necesita una alternativa más flexible que `DisableIpMasking` para registrar todo o parte de las direcciones IP, puede usar un [inicializador de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar todo o parte de la dirección IP en un campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837923"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844302"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configuración de la directiva de expiración de grupos de Office 365
 
@@ -35,7 +35,7 @@ Una vez establecido un grupo para establecer la expiración:
 Actualmente, solo se puede configurar una directiva de expiración para grupos de Office 365 en un inquilino.
 
 > [!NOTE]
-> Para configurar y usar la directiva de expiración en grupos de Office 365, es necesario poseer las licencias de Azure AD Premium de todos los miembros de los grupos a los que se aplica la directiva de expiración.
+> Para configurar y usar la directiva de expiración en grupos de Office 365, es preciso poseer las licencias de Azure AD Premium de todos los miembros de los grupos a los que se aplica la directiva de expiración, pero no necesariamente asignarlas.
 
 Para más información sobre cómo descargar e instalar los cmdlets de PowerShell de Azure AD, consulte [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell para Graph 2.0.0.137).
 
@@ -69,8 +69,11 @@ Si necesita más información sobre los permisos para restaurar los grupos elimi
   - Guardar la configuración cuando haya terminado seleccionando **Guardar**.
 
 > [!NOTE]
-> Cuando se configura por primera vez la expiración, todos los grupos que sean más antiguos que el intervalo de expiración se establecen en 30 días hasta la expiración. El primer correo de notificación de renovación se envía en un día. Por ejemplo, el grupo A se creó hace 400 días y el intervalo de expiración se ha establecido en 180 días. Cuando se aplica la directiva de expiración, el grupo A tiene 30 días antes de que se elimine, salvo que el propietario lo renueve.
+> La primera vez que se configura la expiración, todos los grupos cuya antigüedad supere el intervalo de expiración se establecen en 30 días hasta la expiración, salvo que el propietario lo renueve. El primer correo de notificación de renovación se envía en un día.
+>
 > Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
+>
+> Los avisos de expiración de los grupos usados en Teams aparecen en la fuente Teams Owners (Propietarios de Teams).
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 

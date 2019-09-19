@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856211"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860503"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning Service?
 
@@ -36,7 +36,7 @@ En el diagrama se muestran los siguientes componentes de un área de trabajo:
 + Al crear el área de trabajo, los [recursos asociados](#resources) también se crean automáticamente.
 + Los [experimentos](concept-azure-machine-learning-architecture.md#experiments) son ejecuciones de entrenamiento que usa para entrenar sus modelos.  Puede crear y ejecutar experimentos con
     + El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + La sección sobre [experimentos de aprendizaje automático automatizado (versión preliminar)](how-to-create-portal-experiments.md) en Azure Portal.
+    + La sección de [experimentos de aprendizaje automático automatizados (versión preliminar)](how-to-create-portal-experiments.md) de Azure Portal o de la página de aterrizaje del área de trabajo (versión preliminar).
     + La [interfaz visual (versión preliminar)](ui-concept-visual-interface.md).
 + Las [canalizaciones](concept-azure-machine-learning-architecture.md#ml-pipelines) son flujos de trabajo reutilizables para entrenar el modelo y repetir dicho proceso.
 + Los [conjuntos de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores) ayudan en la administración de los datos que usa para el entrenamiento del modelo y la creación de canalizaciones.
@@ -49,6 +49,7 @@ Puede interactuar con el área de trabajo de las siguientes formas:
 
 + En la Web:
     + [Azure Portal](https://portal.azure.com)
+    + La [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com)
     + La [interfaz visual (versión preliminar)](ui-concept-visual-interface.md)
 + En Python con el [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning
 + En la línea de comandos con la [extensión de la CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) de Azure Machine Learning

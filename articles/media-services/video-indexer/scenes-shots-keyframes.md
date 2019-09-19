@@ -1,6 +1,6 @@
 ---
-title: 'Escenas, cortes y fotogramas clave de Video Indexer: Azure'
-titlesuffix: Azure Media Services
+title: Escenas, tomas y fotogramas clave de Video Indexer
+titleSuffix: Azure Media Services
 description: En este tema se proporciona información general sobre las escenas, los cortes y los fotogramas clave de Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815654"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860234"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
@@ -39,6 +39,30 @@ Video Indexer determina cuándo cambia un corte en el vídeo según indicaciones
 Selecciona los fotogramas que mejor representan el corte. Los fotogramas clave son los fotogramas representativos seleccionados de todo el vídeo según propiedades estéticas (por ejemplo, el contraste y la estabilidad). Video Indexer recupera una lista de identificadores de fotograma clave como parte de los metadatos del corte, en función de los cuales los clientes pueden extraer la miniatura del fotograma clave. 
 
 Los fotogramas clave están asociados con cortes del archivo JSON de salida. 
+
+## <a name="editorial-shot-type-detection"></a>Detección del tipo de toma editorial
+
+El tipo de toma asociado a una toma individual en el JSON de las conclusiones representa su tipo editorial. Las características de estos tipos de toma son útiles al editar vídeos en clips, avances o al buscar un estilo concreto de fotograma clave para fines artísticos. Los diferentes tipos se determinan en función del análisis del primer fotograma clave de cada toma. Las capturas se identifican por la escala, el tamaño y la ubicación de las caras que aparecen en su primer fotograma clave. 
+
+El tamaño y la escala de la toma se determinan en función de la distancia entre la cámara y las caras que aparecen en el fotograma. Con estas propiedades, Video Indexer detecta los siguientes tipos de toma:
+
+* Plano general: muestra todo el cuerpo de una persona.
+* Plano medio: muestra la cara y la parte superior del cuerpo de una persona.
+* Primer plano: muestra principalmente la cara de una persona.
+* Primerísimo primer plano: muestra la cara de una persona que rellena la pantalla. 
+
+Los tipos de capturas también pueden determinarse por la ubicación de los personajes del sujeto con respecto al centro del fotograma. Esta propiedad define los siguientes tipos de toma de Video Indexer:
+
+* Cara en la izquierda: una persona aparece en el lado izquierdo del fotograma.
+* Cara en el centro: una persona aparece en el área central del fotograma.
+* Cara en la derecha: una persona aparece en el lado derecho del fotograma.
+* Exterior: una persona aparece en un entorno exterior.
+* Interior: una persona aparece en un entorno interior.
+
+Características adicionales:
+
+* Dos tomas: muestra las caras de dos personas en tamaño medio.
+* Varias caras: más de dos personas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

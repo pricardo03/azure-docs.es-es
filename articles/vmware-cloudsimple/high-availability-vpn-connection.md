@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972772"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845325"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configuración de una conexión de alta disponibilidad desde la ubicación local a la puerta de enlace VPN de CloudSimple
 
@@ -50,7 +50,7 @@ De forma predeterminada, las puertas de enlace VPN de CloudSimple se configuran 
 
 Complete las tareas siguientes antes de configurar el firewall local.
 
-1. Compruebe que la organización ha [adquirido](create-nodes.md) los nodos necesarios y ha creado al menos una nube privada de CloudSimple.
+1. Compruebe que la organización ha [aprovisionado](create-nodes.md) los nodos necesarios y ha creado al menos una nube privada de CloudSimple.
 2. [Configure una puerta de enlace VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre la red local y la nube privada de CloudSimple.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Configuración del firewall de Cisco ASA local

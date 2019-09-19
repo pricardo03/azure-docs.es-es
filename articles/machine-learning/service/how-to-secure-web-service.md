@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897317"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772521"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Use SSL para proteger un servicio web con Azure Machine Learning
 
@@ -77,7 +77,7 @@ Para implementar (o volver a implementar) el servicio con el protocolo SSL habil
   > [!NOTE]
   > La información de esta sección también se aplica al implementar un servicio web seguro para la interfaz visual. Si no está familiarizado con el uso del SDK para Python, consulte [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) (¿Qué es el SDK de Azure Machine Learning para Python?).
 
-Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno existente.
+Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno existente. Para más información sobre cómo crear o adjuntar un clúster, consulte [Implementación de un modelo en un clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
   
 -  Si crea un nuevo clúster, se usa  **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** .
 - Si se conecta a un clúster existente, se usa **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos devuelven un objeto de configuración que tiene un método **enable_ssl**.

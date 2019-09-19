@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562194"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812400"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Aplicación web que permite iniciar sesión a los usuarios (inicio de sesión)
 
@@ -28,7 +28,8 @@ Obtenga información sobre cómo agregar el inicio de sesión al código de una 
 
 ## <a name="sign-in"></a>Inicio de sesión
 
-El código incluido en el artículo anterior [configuración del código de aplicación](scenario-web-app-sign-user-app-configuration.md) es todo lo que necesita para implementar el cierre de sesión. Una vez que el usuario ha iniciado sesión en la aplicación, probablemente quiera permitirle cerrar la sesión. ASP.NET Core controla cierre de sesión automáticamente.
+El código que se ha revisado en el artículo anterior sobre [configuración del código de aplicación](scenario-web-app-sign-user-app-configuration.md) es todo lo que necesita para implementar el inicio de sesión.
+Una vez que el usuario ha iniciado sesión en la aplicación, probablemente quiera permitirle cerrar la sesión. ASP.NET Core controla cierre de sesión automáticamente.
 
 ## <a name="what-sign-out-involves"></a>Qué implica cerrar sesión
 

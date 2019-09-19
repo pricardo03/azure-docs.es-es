@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062137"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860565"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
 
@@ -30,10 +30,10 @@ Más información sobre:
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Cree un experimento de aprendizaje automático automatizado con el SDK o en Azure Portal.
+* Cree un experimento de Machine Learning automatizado con el SDK, en Azure Portal o en la página de aterrizaje del área de trabajo (versión preliminar).
 
     * Use el SDK para crear un [modelo de clasificación](how-to-auto-train-remote.md) o un [modelo de regresión](tutorial-auto-train-models.md).
-    * Use [Azure Portal](how-to-create-portal-experiments.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.
+    * Use [Azure Portal o la página de aterrizaje del área de trabajo (versión preliminar)](how-to-create-portal-experiments.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.
 
 ## <a name="view-the-run"></a>Visualización de la ejecución
 
@@ -102,7 +102,7 @@ weighted_accuracy|La precisión ponderada es la precisión donde el peso asignad
 
 Una matriz de confusión se usa para describir el rendimiento de un modelo de clasificación. Cada fila muestra las instancias de la clase verdadera, y cada columna representa las instancias de la clase prevista. La matriz de confusión muestra las etiquetas clasificadas correctamente y las etiquetas clasificadas incorrectamente para un modelo determinado.
 
-Por problemas de clasificación, Azure Machine Learning proporciona automáticamente una matriz de confusión para cada modelo que se crea. Para cada matriz de confusión, ML automatizado mostrará las etiquetas clasificadas correctamente en verde, y las clasificadas incorrectamente en rojo. El tamaño del círculo representa el número de muestras en esa ubicación. Además, el recuento de frecuencia de cada etiqueta predicha y cada etiqueta verdadera se proporciona en los gráficos de barras adyacentes. 
+Por problemas de clasificación, Azure Machine Learning proporciona automáticamente una matriz de confusión para cada modelo que se crea. Para cada matriz de confusión, ML automatizado mostrará la frecuencia de cada etiqueta de predicción y cada intersección de etiqueta verdadera. Cuanto más oscuro sea el color, mayor será el número de la parte concreta de la matriz. Idealmente, los colores más oscuros estarán a lo largo de la diagonal de la matriz. 
 
 Ejemplo 1: Modelo de clasificación con baja precisión ![Modelo de clasificación con baja precisión](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

@@ -8,33 +8,38 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf45d45481712e30d40bacec9a3c4d80d1ed56b6
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707433"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772383"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualización de asignación de roles personalizados en Azure Active Directory
 
-En este artículo se describe cómo ver los roles personalizados que ha asignado en Azure Active Directory (Azure AD). En Azure Active Directory (Azure AD), los roles se pueden asignar en el nivel de directorio o con un ámbito de una sola aplicación. Las asignaciones de roles en el ámbito de directorio se agregan a la lista de asignaciones de roles de aplicación individuales, pero las asignaciones de roles en el ámbito de aplicación única no se agregan a la lista de asignaciones de nivel de directorio.
+En este artículo se describe cómo ver los roles personalizados que ha asignado en Azure Active Directory (Azure AD). En Azure Active Directory (Azure AD), los roles se pueden asignar a un ámbito de toda la organización o con un ámbito de aplicación única.
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-the-azure-ad-portal"></a>Visualización de las asignaciones de un rol con ámbito de directorio mediante el portal de Azure AD
+- Las asignaciones de roles en el ámbito de toda la organización se agregan y pueden verse en la lista de asignaciones de roles de aplicación únicas.
+- Las asignaciones de roles en el ámbito de aplicación única no se agregan y no se pueden ver en la lista de asignaciones con un ámbito de toda la organización.
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+## <a name="view-role-assignments-in-the-azure-portal"></a>Visualización de asignaciones de roles en Azure Portal
+
+En este procedimiento se describe cómo ver las asignaciones de un rol con ámbito de toda la organización.
+
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
 1. Seleccione **Azure Active Directory**, elija  **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
 1. Seleccione **Asignaciones** para ver las asignaciones del rol.
 
     ![Visualización de asignaciones de roles y permisos al abrir un rol de la lista](./media/roles-view-assignments/role-assignments.png)
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-azure-ad-powershell"></a>Visualización de las asignaciones de un rol con ámbito de directorio mediante Azure AD PowerShell
+## <a name="view-role-assignments-using-azure-ad-powershell"></a>Visualización de las asignaciones de roles con Azure AD PowerShell
 
-Puede automatizar cómo asignar roles de administración de Azure AD a los usuarios mediante Azure PowerShell. Este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
+En esta sección se describe cómo ver las asignaciones de un rol con ámbito de toda la organización. Este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles). Para ver las asignaciones con un ámbito de aplicación única con PowerShell, puede usar los cmdlets de [Asignación de roles personalizados con PowerShell](roles-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Preparación para PowerShell
 
@@ -71,9 +76,11 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="view-the-assignments-of-a-role-with-directory-scope-using-microsoft-graph-api"></a>Visualización de las asignaciones de un rol con ámbito de directorio mediante Microsoft Graph API
+## <a name="view-role-assignments-using-microsoft-graph-api"></a>Visualización de las asignaciones de roles mediante Microsoft Graph API
 
-Solicitud HTTP para obtener una asignación de roles para una definición de rol determinada.
+En esta sección se describe cómo ver las asignaciones de un rol con ámbito de toda la organización.  Para ver las asignaciones con un ámbito de aplicación única mediante Graph API, puede usar las operaciones de [Asignación de roles personalizados con Graph API](roles-assign-graph.md).
+
+La solicitud HTTP para obtener una asignación de roles para una definición de roles determinada.
 
 GET
 
@@ -93,18 +100,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview"></a>Visualización de las asignaciones de un rol con ámbito de directorio de aplicación individual mediante el portal de Azure AD (versión preliminar)
+## <a name="view-assignments-of-single-application-scope"></a>Visualización de las asignaciones con un ámbito de aplicación única
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione Azure Active Directory, elija **Registros de aplicaciones** y, luego, seleccione el registro de aplicación para ver sus propiedades. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
+En esta sección se describe cómo ver las asignaciones de un rol con un ámbito de aplicación única. Esta característica actualmente está en su versión preliminar pública.
+
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
+1. Seleccione **Registros de aplicaciones** y, luego, seleccione el registro de aplicación para ver sus propiedades. Es posible que tenga que seleccionar **Todas las aplicaciones** para ver la lista completa de los registros de aplicaciones de la organización de Azure AD.
 
     ![Creación o edición de registros de aplicaciones desde la página Registros de aplicaciones](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Seleccione **Roles y administradores** y elija un rol para ver sus propiedades.
+1. En el registro de la aplicación, seleccione  **Roles y administradores** y elija un rol para ver sus propiedades.
 
     ![Visualización de las asignaciones de roles de registro de aplicaciones desde la página Registros de aplicaciones](./media/roles-view-assignments/appreg-assignments.png)
 
-1. Seleccione **Asignaciones** para ver las asignaciones del rol.
+1. Seleccione **Asignaciones** para ver las asignaciones del rol. Al abrir la vista de asignaciones desde el registro de la aplicación, se muestran las asignaciones que se limitan a este recurso de Azure AD.
 
     ![Visualización de las asignaciones de roles de registro de aplicaciones desde las propiedades de un registro de aplicaciones](./media/roles-view-assignments/appreg-assignments-2.png)
 

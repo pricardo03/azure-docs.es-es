@@ -9,52 +9,53 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: c7db2b4d49e3b9297c32d2e11ffe7c7702c17544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274671"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743846"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
-Use este inicio rápido para crear un recurso de Azure Cognitive Services con Azure Portal. Después de crear correctamente un recurso de Cognitive Services, obtendrá un punto de conexión y una clave que puede usar para autenticar las aplicaciones.
+Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. Después de crear un recurso de Cognitive Services en Azure Portal, obtendrá un punto de conexión y una clave para autenticar las aplicaciones.
+
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Creación de un nuevo recurso de Azure Cognitive Services
 
-Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos de Azure que contenga el recurso. Al crear un nuevo recurso, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **+Crear un recurso**.
-
-    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. Como se explicó anteriormente, puede crear un recurso de Cognitive Services de dos maneras: mediante un recurso de varios servicios o un recurso de servicio único.
+1. Crea un recurso.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
-
-    Para crear un recurso de varios servicios, escriba **Cognitive Services** en la barra de búsqueda.
-
-    ![Búsqueda de Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    En la página Cognitive Services, seleccione **Crear**.
-
-    ![Creación de una cuenta de Cognitive Services](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
-
+    
+    El recurso multiservicio se denomina **Cognitive Services** en el portal. [Cree un recurso de Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    
+    En este momento, el recurso multiservicio permite el acceso a los siguientes servicios de Cognitive Services:
+    
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Computer Vision  | Content Moderator                                    | Caras               | Language Understanding (LUIS) | Text Analytics   |
+    | Translator Text  | Bing Search versión 7 <br>(Web, imágenes, noticias, vídeos, contenido visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
+    | Bing Spell Check |                                                      |                    |                               |                  |
+    
     #### <a name="single-service-resourcetabsingleservice"></a>[Recurso de servicio único](#tab/singleservice)
 
-    Para ver todos los Cognitive Services disponibles, seleccione **IA y Machine Learning** en **Azure Marketplace**. Si no ve el servicio que le interesa, haga clic en **Ver todo** y desplácese hasta **Cognitive Services**. Haga clic en **Ver más** para ver el catálogo completo de Cognitive Services.
+    Use los vínculos siguientes si desea crear un recurso para los servicios de Cognitive Services disponibles:
 
-    Una vez que esté en el servicio que le interesa, haga clic en **Crear**.
-    
-    ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
+    | Visión                      | Voz                  | Idioma                          | Decisión             | Search                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servicios de Voz](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lector inmersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Servicio Custom Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Speaker Recognition](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
+
 3. En la página **Crear**, proporcione la siguiente información:
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Recurso de varios servicios](#tab/multiservice)
@@ -89,32 +90,23 @@ Antes de crear un recurso de Cognitive Services, debe tener un grupo de recursos
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtención de las claves del recurso
 
-Una vez que el recurso se haya creado correctamente, aparecerá una notificación emergente en la parte superior derecha de la pantalla. En la notificación, haga clic en **Ir al recurso** para ver el recurso de Cognitive Services que creó. 
+1. Una vez que el recurso se haya implementado correctamente, en **Pasos siguientes**, haga clic en **Ir al recurso**.
 
-![Ir al recurso de Cognitive Services](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+    ![Búsqueda de Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-En el panel de inicio rápido que se abre, puede acceder al punto de conexión y a la clave.
+2. En el panel de inicio rápido que se abre, puede acceder a la clave y al punto de conexión.
 
-![Obtención de una clave y un punto de conexión](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Obtención de una clave y un punto de conexión](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
-
-## <a name="pricing-tiers-and-billing"></a>Planes de tarifas y facturación
-
-Los planes de tarifas (y la cantidad que se factura) se basan en el número de transacciones que se envían con la información de autenticación. Cada plan de tarifa especifica lo siguiente:
-* el número máximo de transacciones permitidas por segundo (TPS).
-* las características de servicio habilitadas en el plan de tarifa.
-* El costo de una cantidad predefinida de transacciones. Por encima de esta cantidad se producirá un cargo adicional, tal como se especifica en los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) del servicio.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos también se eliminan los demás recursos incluidos en el grupo.
 
-Para quitar un grupo de recursos desde Azure Portal:
-
 1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Grupos de recursos** para ver una lista con sus grupos de recursos.
-2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en el botón Más (... ) situado en la parte derecha de la lista.
-3. Seleccione **Eliminar grupo de recursos** y confirme.
+2. Busque el grupo de recursos que contiene el recurso que quiere eliminar.
+3. Haga clic con el botón derecho en la lista de grupos de recursos. Seleccione **Eliminar grupo de recursos** y confirme.
 
 ## <a name="see-also"></a>Otras referencias
 

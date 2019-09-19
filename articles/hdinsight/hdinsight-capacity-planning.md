@@ -1,6 +1,6 @@
 ---
 title: Planificación de la capacidad del clúster en Azure HDInsight
-description: Se describe cómo especificar la capacidad y el rendimiento de un clúster de HDInsight.
+description: Identifique las principales preguntas para planear la capacidad y el rendimiento de un clúster de Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207163"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916571"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -96,9 +96,6 @@ Se le cobra en función de la duración del clúster. Si solo necesita que el cl
 
 A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo de trabajo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *Custom (size,settings,apps)* (Personalizar [tamaño, configuración, aplicaciones]) y use un valor de 1 en *Number of Worker nodes* (Número de nodos de trabajo) en la sección **Tamaño de grupo** al aprovisionar un nuevo clúster en el portal.
 
-También puede instalar un entorno de desarrollo de un solo nodo en el equipo local y probar ahí la solución. Hortonworks proporciona un entorno de desarrollo local de un solo nodo para soluciones basadas en Hadoop que resulta útil para el desarrollo inicial, la prueba de concepto y las pruebas. Para más información, vea [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Para identificar el problema en un clúster local de un solo nodo, puede volver a ejecutar los trabajos con errores y ajustar los datos de entrada, o bien usar conjuntos de datos más pequeños. La forma de ejecutar tales trabajos depende de la plataforma y del tipo de aplicación.
 
 ## <a name="quotas"></a>Cuotas
 

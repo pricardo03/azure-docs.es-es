@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533522"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844263"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -132,3 +132,12 @@ En función de la salida del estado del clúster:
 * Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere que se termine la operación (*Actualización/Creación/Escalado/Eliminación/Migración*). Cuando finalice la operación anterior, vuelva a intentar la operación de clúster más reciente.
 
 * Si el clúster presenta errores de actualización, siga los pasos que se describen en [Recibo errores que indican que mi clúster presenta errores y que la actualización o el escalado no funcionarán hasta que se corrija](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Recibo errores que indican que mi entidad de servicio no se encuentra al intentar crear un clúster sin pasar uno existente.
+
+Al crear un clúster de AKS, se requiere una entidad de servicio que cree recursos en su nombre. AKS ofrece la posibilidad de crear una en el momento de la creación del clúster, pero esto requiere que Azure Active Directory propague totalmente la nueva entidad de servicio en un momento razonable para que el clúster se cree correctamente. Si esta propagación tarda demasiado, se producirá un error al crear el clúster, ya que no puede encontrar ninguna entidad de servicio disponible para hacerlo. 
+
+Para ello, use las siguientes soluciones alternativas:
+1. Use una entidad de servicio existente que ya se haya propagado entre distintas regiones y existe para pasarla a AKS en el momento de creación del clúster.
+2. Si se usan scripts de automatización, agregue demoras entre la creación de la entidad de servicio y la creación del clúster de AKS.
+3. Si se usa Azure Portal, vuelva a la configuración del clúster durante la creación y reintente la página de validación pocos minutos después.

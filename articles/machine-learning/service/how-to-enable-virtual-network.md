@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 6e5ae4966a62c24594ec6efa9454d5e03f75c25b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: fcd47cdf3968e8c8a204cb15f10dd41c4eaab641
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971538"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885677"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
 
@@ -39,9 +39,9 @@ En este artículo también se proporciona información detallada acerca de la *c
 
 Para usar una cuenta de Azure Storage para el área de trabajo en una red virtual, siga estos pasos:
 
-1. Cree una instancia de un proceso de experimentación (por ejemplo, una instancia de Proceso de Machine Learning) detrás de una red virtual o vincule una instancia de un proceso de experimentación al área de trabajo (por ejemplo, un clúster de HDInsight o una máquina virtual).
+1. Cree una instancia de proceso (por ejemplo, una instancia de Proceso de Machine Learning) detrás de una red virtual o vincule una instancia de proceso al área de trabajo (por ejemplo, un clúster de HDInsight, una máquina virtual o un clúster de Azure Kubernetes Service). La instancia de proceso puede ser para experimentación o implementación de modelo.
 
-   Para más información, consulte las secciones "Uso de una instancia de Proceso de Machine Learning" y "Uso de una máquina virtual o un clúster de HDInsight" de este artículo.
+   Para más información, consulte las secciones [Uso de una instancia de Proceso de Machine Learning](#amlcompute), [Uso de una máquina virtual o un clúster de HDInsight](#vmorhdi) y [Uso de Azure Kubernetes Service](#aksvnet) de este artículo.
 
 1. En Azure Portal, vaya al almacenamiento que está vinculado al área de trabajo.
 
@@ -53,7 +53,11 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
 1. En la página __Firewalls y redes virtuales__, realice estas acciones:
     - Seleccione __Redes seleccionadas__.
-    - En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside la instancia del proceso de experimentación (consulte el paso 1).
+    - En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside la instancia de proceso (consulte el paso 1).
+
+        > [!IMPORTANT]
+        > La cuenta de almacenamiento debe estar en la misma red virtual que las instancias de proceso usadas para entrenamiento o inferencia.
+
     - Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__.
 
     > [!IMPORTANT]
@@ -63,20 +67,18 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    [![Panel "Firewalls y redes virtuales" de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-1. Al ejecutar el experimento, en el código de la experimentación, cambie la configuración de ejecución para usar Azure Blob Storage:
+1. Al __ejecutar los experimentos__, en el código de la experimentación, cambie la configuración de ejecución para usar Azure Blob Storage:
 
     ```python
     run_config.source_directory_data_store = "workspaceblobstore"
     ```
 
 > [!IMPORTANT]
-> La _cuenta de almacenamiento predeterminada_ para Azure Machine Learning Service se puede colocar en una red virtual _solo para la realización de experimentos_. La cuenta de almacenamiento predeterminada se aprovisiona automáticamente al crear un área de trabajo.
+> Se puede colocar tanto la _cuenta de almacenamiento predeterminada_ para Azure Machine Learning Service o las _cuentas de almacenamiento no predeterminadas_ en una red virtual.
 >
-> Las _cuentas de almacenamiento no predeterminadas_  se pueden colocar en una red virtual _solo para la realización de experimentos_. El parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
+> La cuenta de almacenamiento predeterminada se aprovisiona automáticamente al crear un área de trabajo.
 >
-> Tanto las cuentas de almacenamiento predeterminadas como las no predeterminadas que se usan para la _inferencia_ deben tener _acceso sin restricciones a la cuenta de almacenamiento_.
->
-> Si no está seguro de si ha modificado la configuración, consulte la sección "Modificación de la regla de acceso de red predeterminada" del artículo [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security). Siga las instrucciones para permitir el acceso desde todas las redes durante la inferencia, o puntuación de modelos.
+> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Uso de una instancia de Key Vault con el área de trabajo
 
@@ -101,6 +103,8 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
    [![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
+<a id="amlcompute"></a>
+
 ## <a name="use-a-machine-learning-compute-instance"></a>Uso de una instancia de Proceso de Machine Learning
 
 Para usar una instancia de Proceso de Azure Machine Learning en una red virtual, deben cumplirse los siguientes requisitos de red:
@@ -110,6 +114,7 @@ Para usar una instancia de Proceso de Azure Machine Learning en una red virtual,
 > * La subred que se especifique para el clúster de proceso debe tener suficientes direcciones IP sin asignar para alojar el número de máquinas virtuales que estén destinadas al clúster. Si la subred no tiene suficientes direcciones IP sin asignar, el clúster se asignará parcialmente.
 > * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. Si va a proteger la red virtual mediante la restricción del tráfico, deje abiertos algunos puertos para el servicio de proceso. Para más información, consulte la sección [Puertos necesarios](#mlcports).
 > * Si va a colocar varios clústeres de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
+> * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que la instancia de Proceso de Azure Machine Learning.
 
 La instancia de Proceso de Machine Learning asigna automáticamente recursos de red adicionales al grupo de recursos que contiene la red virtual. Para cada clúster de proceso, el servicio asigna los recursos siguientes:
 
@@ -238,6 +243,8 @@ except ComputeTargetException:
 
 Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúster en un experimento. Para más información, consulte [Selección y uso de un destino de proceso para entrenamiento](how-to-set-up-training-targets.md).
 
+<a id="vmorhdi"></a>
+
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Uso de una máquina virtual o un clúster de HDInsight
 
 > [!IMPORTANT]
@@ -283,7 +290,7 @@ Para agregar Azure Kubernetes Service de una red virtual a su área de trabajo, 
 > [!IMPORTANT]
 > Antes de comenzar el siguiente procedimiento, debe cumplir los requisitos previos indicados en el procedimiento de [configuración de redes avanzadas en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) y planear el direccionamiento IP para el clúster.
 >
-> La instancia de AKS y la instancia de Azure Virtual Network deben estar en la misma región.
+> La instancia de AKS y la instancia de Azure Virtual Network deben estar en la misma región. Si protege las cuentas de Azure Storage usadas por el área de trabajo de una red virtual, deben estar en la misma red virtual que la instancia de AKS.
 
 1. En [Azure Portal](https://portal.azure.com), asegúrese de que el grupo de seguridad de red que controla la red virtual tiene una regla de entrada que se ha habilitado para Azure Machine Learning Service mediante __AzureMachineLearning__ como **SOURCE**.
 

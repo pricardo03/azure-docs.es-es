@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872985"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744589"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores
 Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Azure Kubernetes Service (AKS) desde dos perspectivas. Puede supervisar directamente desde un clúster de AKS, o desde todos los clústeres de AKS de una suscripción desde Azure Monitor. La visualización de Azure Container Instances también es posible cuando se supervisa un clúster de AKS concreto.
@@ -118,18 +118,18 @@ Azure Monitor para contenedores también es compatible con el [Explorador de mé
 
 En el Explorador de métricas se pueden ver el nodo agregado y las métricas de utilización de pods de Azure Monitor para contenedores. En la tabla siguiente se resumen los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
 
-|Espacio de nombres | Métrica |
-|----------|--------|
+|Espacio de nombres | Métrica | DESCRIPCIÓN | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Medida agregada del uso de CPU en el clúster. Se trata de un núcleo de CPU dividido en 1000 unidades (mili equivale a 1000). Se usa para determinar el uso de los núcleos de un contenedor en el que muchas aplicaciones podrían estar utilizando un solo núcleo.| 
+| | cpuUsagePercentage | Uso medio agregado de la CPU del clúster en porcentaje.|
+| | memoryRssBytes | Memoria RSS del contenedor utilizada, en bytes.| 
+| | memoryRssPercentage | Memoria RSS del contenedor utilizada, en porcentaje.|
+| | memoryWorkingSetBytes | Memoria del espacio de trabajo del contenedor utilizada.| 
+| | memoryWorkingSetPercentage | Memoria del espacio de trabajo del contenedor utilizada, en porcentaje. | 
+| | nodesCount | Número de nodos de Kubernetes.|
 | insights.container/pods | |
-| | PodCount |
+| | PodCount | Número de pods de Kubernetes.|
 
 Puede [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) una métrica para verla por dimensión y visualizar la comparación de unos segmentos con otros. Para un nodo, puede segmentar el gráfico según la dimensión *host*. Para un pod, puede segmentar el gráfico según las dimensiones siguientes:
 
@@ -170,7 +170,7 @@ En un nodo expandido, puede explorar en profundidad desde el pod o contenedor qu
 
 Seleccione los controladores o los contenedores en la parte superior de la página para revisar el estado y el uso de recursos de dichos objetos. Para revisar el uso de memoria, en la lista desplegable **Métrica**, seleccione **RSS de memoria** o **Espacio de trabajo de memoria**. **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
 
-El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. **RSS de memoria** muestra solo la memoria principal, que es la memoria residente. Esta métrica muestra la capacidad real de la memoria disponible.
+El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. En **RSS de memoria**, solo se indica la memoria principal (en otras palabras, la memoria residente). Esta métrica muestra la capacidad real de la memoria disponible.
 
 ![Vista de rendimiento de los nodos del contenedor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 

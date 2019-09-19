@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 09/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 039a4db11adf66e0c28826106df5845b42fedef5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bd4016d91000ee23023eaa64872bff9a057058d1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688245"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916063"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitación de Azure Monitor para VM (versión preliminar)
 
@@ -33,7 +33,10 @@ Para configurar Azure Monitor para VM:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, asegúrese de conocer la información de los apartados siguientes.
+Antes de empezar, asegúrese de conocer la información de los apartados siguientes. 
+
+>[!NOTE]
+>La siguiente información que se describe en esta sección también se aplica a la [solución Service Map](service-map.md).  
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -46,8 +49,8 @@ Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguien
 - Sur de Reino Unido 2
 - Europa occidental
 - Sudeste asiático
-- Este de Australia
-- Sudeste de Australia
+- Este de Australia<sup>1</sup>
+- Sudeste de Australia<sup>1</sup>
 
 <sup>1</sup> Actualmente, esta región no admite la característica de estado de Azure Monitor para VM.
 
@@ -90,10 +93,10 @@ La siguiente es una lista de los sistemas operativos Windows y Linux que son com
 |Windows 8 | X | X | |
 |Windows 7 SP1 | X | X | |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 14.04, 16.04, 18.04 | X | X | X |
-|CentOS Linux 6, 7 | X | X | X |
+|Ubuntu 18.04, 16.04 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
 |SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 8, 9.4 | X<sup>1</sup> | | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
 <sup>1</sup> La característica Rendimiento de Azure Monitor para VM solo está disponible desde Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
 
@@ -107,51 +110,60 @@ La siguiente es una lista de los sistemas operativos Windows y Linux que son com
 > - Las versiones de kernel no estándar, como Physical Address Extension (PAE) y Xen, no son compatibles con ninguna distribución de Linux. Por ejemplo, un sistema con la cadena de versión *2.6.16.21-0.8-xen* no es compatible.
 > - No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
 > - Se admite el kernel de CentOSPlus.
+> - El kernel de Linux debe revisarse para la vulnerabilidad de Spectre. Consulte al proveedor de distribución de Linux para más información.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Versión del SO | Versión del kernel |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
+| 7.5 | 3.10.0-862 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
 | Versión del SO | Versión del kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
+
 | Versión del SO | Versión del kernel |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versión del SO | Versión del kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
-| Ubuntu 16.04.3 | kernel 4.15.* |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
+| 18,04 | 5.0 (incluye kernel optimizado para Azure)<br>4.18 *<br>4.15* |
+| 16.04.3 | 4.15.* |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Versión del SO | Versión del kernel
+| Versión del SO | Versión del kernel |
 |:--|:--|
-|12 SP2 | 4.4.* |
+|12 SP4 | 4.12.* (incluye kernel optimizado para Azure) |
 |12 SP3 | 4.4.* |
-|12 SP4 | 4.4.* |
-|12 SP4 | Kernel optimizado para Azure |
+|12 SP2 | 4.4.* |
+
+#### <a name="debian"></a>Debian 
+
+| Versión del SO | Versión del kernel |
+|:--|:--|
+| 9 | 4,9 | 
 
 ### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 
 La característica de asignación de Azure Monitor para VM obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depende del agente de Log Analytics en lo que respecta a sus conexiones a Log Analytics. Por tanto, el sistema debe tener instalado y configurado el agente de Log Analytics con Dependency Agent.
 
 Cuando se habilita Azure Monitor para VM para una sola máquina virtual de Azure o cuando se usa el método de implementación a escala, use la extensión Dependency Agent de Azure VM para instalar el agente como parte de la experiencia.
+
+>[!NOTE]
+>La siguiente información que se describe en esta sección también se aplica a la [solución Service Map](service-map.md).  
 
 En un entorno híbrido, puede descargar e instalar Dependency Agent manualmente: Si las máquinas virtuales se hospedan fuera de Azure, use un método de implementación automatizado.
 
@@ -167,8 +179,8 @@ Puede descargar Dependency Agent desde estas ubicaciones:
 
 | Archivo | OS | Versión | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
@@ -203,7 +215,7 @@ Azure Monitor para VM configura un área de trabajo de Log Analytics para recopi
 |LogicalDisk |Bytes de lectura de disco/s |
 |LogicalDisk |Lecturas de disco/s |
 |LogicalDisk |Transferencias de disco/s |
-|LogicalDisk | Bytes de escritura en disco/s |
+|LogicalDisk |Bytes de escritura en disco/s |
 |LogicalDisk |Escrituras en disco/s |
 |LogicalDisk |Megabytes libres |
 |Memoria |MB disponibles |
@@ -219,7 +231,7 @@ Azure Monitor para VM configura un área de trabajo de Log Analytics para recopi
 |Disco lógico |Bytes de lectura de disco/s |
 |Disco lógico |Lecturas de disco/s |
 |Disco lógico |Transferencias de disco/s |
-|Disco lógico | Bytes de escritura en disco/s |
+|Disco lógico |Bytes de escritura en disco/s |
 |Disco lógico |Escrituras en disco/s |
 |Disco lógico |Megabytes libres |
 |Disco lógico |Bytes de disco lógico/s |
@@ -232,7 +244,7 @@ Azure Monitor para VM configura un área de trabajo de Log Analytics para recopi
 
 Cuando Azure Monitor para VM está habilitado y configurado con un área de trabajo de Log Analytics, se reenvía un módulo de administración a todos los equipos de Windows que informan a esa área de trabajo. Si ha [integrado el grupo de administración de System Center Operations Manager](../../azure-monitor/platform/om-agents.md) con el área de trabajo de Log Analytics, el módulo de administración de Service Map se implementa desde el grupo de administración en los equipos Windows que informan al grupo de administración.  
 
-El módulo de administración se denomina *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Se escribe en la carpeta %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. El origen de datos que el módulo de administración usa es %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+El módulo de administración se denomina *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Se escribe en la carpeta `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\`. El origen de datos que utiliza el módulo de administración es `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 

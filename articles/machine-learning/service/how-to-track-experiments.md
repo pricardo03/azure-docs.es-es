@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946381"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858724"
 ---
-# <a name="log-metrics-during-training-runs"></a>Métricas de registro durante las ejecuciones de entrenamiento
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Seguimiento de las métricas de entrenamiento del aprendizaje automático con Azure Machine Learning
 
-Realice el seguimiento de sus experimentos y supervise las métricas para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar el registro a su script de entrenamiento, enviar una ejecución de experimento, supervisar la ejecución y ver los resultados de una ejecución en Azure Machine Learning Service.
+Realice el seguimiento de sus experimentos y supervise las métricas para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar código de registro a un script de entrenamiento, enviar una ejecución de experimento, supervisar dicha ejecución y comprobar los resultados en Azure Machine Learning Service.
 
 > [!NOTE]
-> Azure Machine Learning Service también puede registrar información de otros orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
+> Azure Machine Learning Service también puede registrar información de otros orígenes durante el entrenamiento, como las ejecuciones de Machine Learning automatizado o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
 
-## <a name="list-of-training-metrics"></a>Lista de métricas de entrenamiento 
+## <a name="available-metrics-to-track"></a>Métricas disponibles de las que se realiza seguimiento
 
 Las siguientes métricas se pueden agregar a una ejecución durante el entrenamiento de un experimento. Para ver una lista más detallada de aquello de lo que puede realizar el seguimiento en una ejecución, consulte la [documentación de referencia de la clase Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -43,7 +43,7 @@ Las siguientes métricas se pueden agregar a una ejecución durante el entrenami
 > [!NOTE]
 > Las métricas de valores escalares, listas, filas y tablas pueden tener el tipo: float, integer o string.
 
-## <a name="start-logging-metrics"></a>Inicio de las métricas de registro
+## <a name="choose-a-logging-option"></a>Elección de una opción de registro
 
 Si quiere realizar un seguimiento del experimento o supervisarlo, debe agregar código para iniciar el registro al enviar la ejecución. Las siguientes son formas de desencadenar el envío de ejecución:
 * __Run.start_logging__: agrega funciones de registro al script de entrenamiento e inicia una sesión de registro interactiva en el experimento especificado. **start_logging** crea una ejecución interactiva para su uso en escenarios como los cuadernos. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución en el experimento.
@@ -273,7 +273,7 @@ El entrenamiento y la supervisión de modelos tienen lugar en segundo plano, de 
 Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Ahora puede obtener todas las métricas que se registraron en el ejemplo anterior para determinar el mejor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Visualización del experimento en Azure Portal
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Visualización del experimento en Azure Portal o en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com) propia
 
 Cuando un experimento ha terminado de ejecutarse, puede ir al registro de ejecución del experimento grabado. Puede acceder al historial de dos maneras:
 

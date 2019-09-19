@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69cc625500af60a753ad8e7db0363954088f3307
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 637adba89445e6974e83486f0641576225ccd268
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659450"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812617"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Crear un inquilino de Azure para una aplicación multiinquilino  
 
@@ -25,7 +25,7 @@ Para proporcionar acceso a la aplicación multiinquilino, debe crear un inquilin
 
 ## <a name="costs-of-hosting-a-multi-tenant-application"></a>Costos de hospedaje de una aplicación multiinquilino
 
-Azure Active Directory se ofrece en tres planes de tarifa: Gratis, Básico y Premium. [Vea la comparación de características detallada](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory está disponible en varias ediciones. [Vea la comparación de características detallada](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Puede crear la suscripción de Azure y Azure Active Directory de forma gratuita y usar características básicas.
 

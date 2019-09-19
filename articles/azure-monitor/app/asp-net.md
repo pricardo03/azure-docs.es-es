@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73f62ff8c95fae694a43df48aa99b696fb05d131
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256619"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916277"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -58,6 +58,8 @@ Si desea establecer el grupo de recursos o la ubicación en que se almacenan los
  Seleccione **Registrar**.
 
 ![Captura de pantalla de la página Registre la aplicación en Application Insights](./media/asp-net/00005-register-ed.png)
+
+ Seleccione **Proyecto** > **Administrar paquetes NuGet** > **Origen de paquete: nuget.org** > Confirme que tiene la versión estable más reciente del SDK de Application Insights.
 
  La telemetría se enviará a [Azure Portal](https://portal.azure.com), durante la depuración y después de que se haya publicado la aplicación.
 > [!NOTE]

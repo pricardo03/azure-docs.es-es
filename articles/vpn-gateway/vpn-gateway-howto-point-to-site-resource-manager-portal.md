@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de un equipo a una instancia de Azure Virtual Network mediante la conectividad de punto a sitio y la autenticación de certificados de Azure nativa: Azure Portal| Microsoft Docs'
+title: 'Conexión a una red virtual de Azure desde un equipo mediante una VPN de punto a sitio y la autenticación nativa de los certificados de Azure: Azure Portal| Microsoft Docs'
 description: Conecte de forma segura los clientes de Windows, Mac OS X y Linux a una red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa Azure Portal.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: fc8c2ff72da49d8542508443eb9423f028da0d39
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706759"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843667"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Portal de Azure
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación nativa de los certificados de Azure: Portal de Azure
 
 Este artículo le ayudará con la conexión segura de clientes que ejecuten Windows, Linux o Mac OS X a una red virtual de Azure. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. También puede usar P2S en lugar de una VPN de sitio a sitio cuando son pocos los clientes que necesitan conectarse a una red virtual. Las conexiones de punto a sitio no requieren un dispositivo VPN ni una dirección IP de acceso público. P2S crea la conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros) o IKEv2. Para más información sobre las conexiones VPN de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
 

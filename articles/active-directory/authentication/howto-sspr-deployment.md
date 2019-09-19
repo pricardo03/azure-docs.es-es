@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879226"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743239"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -37,7 +37,7 @@ Antes de implementar SSPR, las organizaciones pueden querer determinar cuántas 
 
 ## <a name="licensing-considerations"></a>Consideraciones acerca de las licencias
 
-Las licencias de Azure Active Directory se otorgan por usuario, es decir, cada usuario tiene que tener una licencia adecuada para las características que usa.
+Las licencias de Azure Active Directory se otorgan por usuario; es decir, cada usuario debe tener una licencia adecuada para las características que usa.
 
 Para más información sobre las licencias, consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

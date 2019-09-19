@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87897c031ff717fb67830cb8fa3bc5fced336418
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278854"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858776"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -410,19 +410,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Ver los resultados de una canalización publicada
 
 Vea la lista de todas las canalizaciones publicadas y sus detalles de ejecución:
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
  ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Seleccione una canalización específica para ver los resultados de la ejecución.
 
+Los resultados también están disponibles en su [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+
 ### <a name="disable-a-published-pipeline"></a>Deshabilitar una canalización publicada
 
 Para ocultar una canalización de la lista de canalizaciones publicadas, hay que deshabilitarla:
 
 ```
-# Get the pipeline by using its ID in the Azure portal
+# Get the pipeline by using its ID from the Azure portal
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

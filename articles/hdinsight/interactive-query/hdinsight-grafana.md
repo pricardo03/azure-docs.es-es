@@ -1,18 +1,18 @@
 ---
 title: Uso de Grafana en Azure HDInsight
-description: Obtenga información sobre cómo acceder a Grafana en Azure HDInsight.
+description: Descubra cómo acceder al panel de Grafana con clústeres de Apache Hadoop en Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: a8d79e15a0c967c4b00f337928f00e76f6d296fd
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458823"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733210"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acceso a Grafana en Azure HDInsight
 

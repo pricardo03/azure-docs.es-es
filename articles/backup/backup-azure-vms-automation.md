@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872676"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909833"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -716,6 +716,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
     ```
 
 7. Inserte la extensión ADE.
+   Si no se insertan las extensiones ADE, los discos de datos se marcarán como no cifrados, por lo que es obligatorio que se ejecuten los pasos siguientes:
 
    * **Para máquinas virtuales con Azure AD**: Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.  
 
@@ -746,6 +747,8 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Asegúrese de eliminar manualmente los archivos JASON creados como parte del proceso de disco de restauración de máquinas virtuales cifradas.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restauración de archivos desde una copia de seguridad de la máquina virtual de Azure

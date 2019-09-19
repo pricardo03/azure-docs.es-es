@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065941"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886034"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -87,7 +87,7 @@ Las siguientes etiquetas de servicio están disponibles para su uso en las [regl
 * **Sql*** (solo Resource Manager): Esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL y Azure SQL Data Warehouse. Si especifica *Sql* como valor, el tráfico a Sql se permite o se deniega. Si solo desea permitir el acceso a Sql en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: Sql.[nombre de región]. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de un servidor o base de datos SQL específicos. Esta etiqueta se recomienda para la regla de seguridad de salida. 
 * **SqlManagement*** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del tráfico de administración para las implementaciones dedicadas de SQL. Si especifica *SqlManagement* como valor, el tráfico a SqlManagement se permite o se deniega. Esta etiqueta se recomienda para la regla de seguridad de entrada/salida. 
 * **Storage*** (solo Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso a Storage en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: Storage.[nombre de región]. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. Esta etiqueta se recomienda para la regla de seguridad de salida. 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): Esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados y las redes virtuales [del mismo nivel](virtual-network-peering-overview.md) o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) y los prefijos de dirección usados en las [rutas definidas por el usuario](virtual-networks-udr-overview.md). Tenga en cuenta que esta etiqueta puede contener la ruta predeterminada. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): Esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados, las redes virtuales [del mismo nivel](virtual-network-peering-overview.md) o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) y los prefijos de dirección usados en las [rutas definidas por el usuario](virtual-networks-udr-overview.md). Tenga en cuenta que esta etiqueta puede contener la ruta predeterminada. 
 
 > [!NOTE]
 > Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. 

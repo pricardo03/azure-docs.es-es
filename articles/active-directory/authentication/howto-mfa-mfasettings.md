@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68948887"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860288"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -274,7 +274,7 @@ Azure AD admite la federación, o el inicio de sesión único (SSO), con Active 
 De forma predeterminada, los usuarios no pueden crear contraseñas de aplicación. Debe habilitarse la característica de las contraseñas de aplicación. Para dar a los usuarios la posibilidad de crear contraseñas de aplicación, use el procedimiento siguiente:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la izquierda, seleccione **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
 5. En la página **Configuración del servicio**, seleccione la opción **Permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones sin explorador**.
@@ -314,7 +314,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Habilitación de las ubicaciones con nombre mediante el acceso condicional
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
+2. En el lado izquierdo, seleccione **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Nueva ubicación**.
 4. Escriba un nombre para la ubicación.
 5. Seleccione **Marcar como ubicación de confianza**.
@@ -324,7 +324,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilite la característica de direcciones IP de confianza mediante el acceso condicional
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el lado izquierdo, seleccione **Azure Active Directory** > **Acceso condicional** > **Ubicaciones con nombre**.
+2. En el lado izquierdo, seleccione **Azure Active Directory** > **Seguridad** >  **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Configurar IP de confianza de MFA**.
 4. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
 
@@ -374,7 +374,7 @@ Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, 
 ### <a name="enable-and-disable-verification-methods"></a>Habilitar y deshabilitar los métodos de verificación
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la izquierda, seleccione **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
 5. En la página **Configuración del servicio**, en **Opciones de verificación**, active o desactive los métodos para proporcionar a los usuarios.
@@ -408,7 +408,7 @@ La característica reduce el número de autenticaciones en las aplicaciones web,
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitación de Recordar Multi-Factor Authentication
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En la izquierda, seleccione **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
 5. En la página **Configuración del servicio**, **administre Recordar Multi-Factor Authentication** y seleccione la opción **Permitir que los usuarios recuerden la autenticación multifactor en dispositivos de confianza**.

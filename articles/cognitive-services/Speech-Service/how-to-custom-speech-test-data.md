@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663595"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802515"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
 
@@ -35,7 +35,7 @@ Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un
 
 ## <a name="upload-data"></a>Carga de datos
 
-Cuando esté listo para cargar los datos, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
+Cuando esté listo para cargar los datos, vaya al [portal de Custom Speech](https://speech.microsoft.com/customspeech) y haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
 
 ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -96,7 +96,7 @@ Para abordar problemas como la eliminación o sustitución de palabras, se neces
 
 Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Sin embargo, hay algunas normalizaciones importantes que debe hacer el usuario _antes_ para cargar los datos a Custom Speech Service. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
 
-Cuando haya reunido los archivos de audio y las transcripciones correspondientes, deben empaquetarse como un único archivo .zip antes de cargarlos en el portal de Custom Speech. Este es un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
+Cuando haya reunido los archivos de audio y las transcripciones correspondientes, deben empaquetarse como un único archivo .zip antes de cargarlos en el [portal de Custom Speech](https://speech.microsoft.com/customspeech). Este es un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
 
 ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Si tiene nombres de productos o características que son únicos y desea asegura
 | Expresiones o frases | Los datos pueden mejorar la precisión al reconocer nombres de productos o vocabulario específico del sector dentro del contexto de una frase. |
 | Pronunciaciones | Los datos pueden mejorar la pronunciación de términos poco comunes, acrónimos u otras palabras con pronunciaciones indefinidas. |
 
-Las expresiones se pueden proporcionar como archivos de texto individuales o múltiples. Cuanto más cerca se encuentren los datos de texto de lo que se va a decir, mayor será la probabilidad de que se mejore la precisión. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en el portal de Custom Speech.
+Las expresiones se pueden proporcionar como archivos de texto individuales o múltiples. Cuanto más cerca se encuentren los datos de texto de lo que se va a decir, mayor será la probabilidad de que se mejore la precisión. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>Directrices para crear un archivo de expresiones
 

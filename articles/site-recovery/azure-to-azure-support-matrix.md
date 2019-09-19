@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dc98a0ab47e269aa99f21d3f10952cdabe2c897f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884101"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736035"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure de una región a otra
 
@@ -53,6 +53,7 @@ Australia   | Este de Australia, Sudeste de Australia, Centro de Australia, Cent
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central 
 Alemania | Centro de Alemania y Noreste de Alemania
 China | Este de China, Norte de China, Norte de China 2 y Este de China 2
+Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Norte de Alemania está reservada para Centro-oeste de Alemania, la región Oeste de Suiza está reservada para Norte de Suiza y la región Sur de Francia está reservada para los clientes de Centro de Francia. 
 
 >[!NOTE]
 >

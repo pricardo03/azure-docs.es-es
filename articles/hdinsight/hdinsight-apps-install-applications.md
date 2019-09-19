@@ -1,6 +1,6 @@
 ---
 title: Instalación de aplicaciones de terceros en Azure HDInsight
-description: Aprenda a instalar aplicaciones de Hadoop de terceros en Azure HDInsight.
+description: Aprenda a instalar aplicaciones de Apache Hadoop de terceros en Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873368"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916996"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 
@@ -59,7 +59,7 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
     ![Menú del portal de aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Seleccione **+Agregar** en el menú. Verá una lista de las aplicaciones disponibles.  Si **+Agregar** está atenuado, significa que no hay aplicaciones para esta versión del clúster de HDInsight.
    
-    ![Aplicaciones disponibles para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![Aplicaciones disponibles para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. Seleccione una de las aplicaciones disponibles y siga las instrucciones para aceptar los términos legales.
 
 En las notificaciones del portal puede ver el estado de la instalación (seleccione el icono de campana de la parte superior del portal). Una vez instalada la aplicación, aparece en la lista Aplicaciones instaladas.

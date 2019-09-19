@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e31f3dc166177ce36289b97d85d90a9582c9cae5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377375"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375995"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -71,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>Uso de dependencias insertadas
 
-ASP.NET Core usa la inserción de constructores para que las dependencias estén disponibles para la función. El ejemplo siguiente muestra cómo las dependencias `IMyService` y `HttpClient` se insertan en una función desencadenada por HTTP.
+ASP.NET Core usa la inserción de constructores para que las dependencias estén disponibles para la función. El ejemplo siguiente muestra cómo las dependencias `IMyService` y `HttpClient` se insertan en una función desencadenada por HTTP. 
 
 ```csharp
 using System;
@@ -112,7 +112,7 @@ namespace MyNamespace
 }
 ```
 
-El uso de la inserción de constructores significa que no debe usar funciones estáticas si quiere aprovechar las ventajas de la inserción de dependencias.
+El uso de la inserción de constructores significa que no debe usar funciones estáticas si quiere aprovechar las ventajas de la inserción de dependencias. Para el cliente de cosmos, consulte [esto](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs).
 
 ## <a name="service-lifetimes"></a>Vigencia de los servicios
 

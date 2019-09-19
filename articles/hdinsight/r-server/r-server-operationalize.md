@@ -1,6 +1,6 @@
 ---
 title: 'Puesta en funcionamiento de ML Services en HDInsight: Azure'
-description: Aprenda a poner en funcionamiento ML Services en Azure HDInsight.
+description: Aprenda a poner en funcionamiento un modelo de datos para realizar predicciones con ML Services en Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448982"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879496"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -50,31 +50,31 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
 
-    ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![un cuadro op1](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
 
-    ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![un cuadro op2](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Cuando se le solicite, escriba dos veces la contraseña de un usuario administrador local.
 
 1. Debería ver resultados que indican que la operación se realizó correctamente. También se le pedirá que seleccione otra opción del menú. Seleccione E para volver al menú principal.
 
-    ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![un cuadro op3](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
 
     a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
 
-    ![operacionalización one box](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. En el menú de pruebas de diagnóstico, seleccione **A**. Cuando se le solicite, escriba la contraseña que ha proporcionado para el usuario administrador local.
 
-    ![operacionalización one box](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. Compruebe que el resultado muestra que el estado general es Pass (Aprobado).
 
-    ![operacionalización one box](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. En las opciones de menú que se muestran, escriba **E** para volver al menú principal y, luego, escriba **8** para salir de la utilidad de administración.
 

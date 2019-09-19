@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677982"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860407"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>¿Qué es la interfaz visual de Azure Machine Learning Service? 
 
@@ -81,7 +81,7 @@ Use los recursos de proceso del área de trabajo para ejecutar el experimento u 
 | Proceso de Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Los destinos de proceso están conectados a su [área de trabajo](concept-workspace.md) de Machine Learning. Los destinos de proceso del área de trabajo se administran en [Azure Portal](https://portal.azure.com).
+Los destinos de proceso están conectados a su [área de trabajo](concept-workspace.md) de Machine Learning. Los destinos de proceso del área de trabajo se administran en [Azure Portal](https://portal.azure.com) o en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
 
 ## <a name="deployment"></a>Implementación
 

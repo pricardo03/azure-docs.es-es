@@ -5,21 +5,21 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/17/2019
+ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0486b595bffd18b06d54e8377b24deab04e2aa93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186383"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737498"
 ---
 ## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Error ConditionHeadersNotSupported de una aplicación web al usar Azure Files desde el explorador
 
-Al acceder a contenido hospedado en Azure Files a través de una aplicación en la que se usan encabezados condicionales, como un explorador web, se produce un error en el acceso, y se muestra un error ConditionHeadersNotSupported.
+El error ConditionHeadersNotSupported se produce cuando se accede a contenido hospedado en Azure Files utilizando una aplicación que emplea encabezados condicionales, como un explorador web. Este error indica que no se admiten encabezados condicionales.
 
-![Error ConditionHeaderNotSupported](media/storage-files-condition-headers/conditionalerror.png)
+![Error en los encabezados condicionales de Azure Files](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>Causa
 
@@ -29,4 +29,4 @@ Los encabezados condicionales todavía no se admiten. Las aplicaciones que los i
 
 Cuando se carga un archivo nuevo, la propiedad cache-control predeterminada es "no-cache". Para forzar que la aplicación solicite el archivo cada vez, la propiedad cache-control del archivo se debe actualizar de "no-cache" a "no-cache, no-store, must-revalidate". Esto se puede lograr mediante el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
-![Modificación de la caché de contenido en el Explorador de Storage](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Modificación de la memoria caché de contenido del explorador de almacenamiento para los encabezados condicionales de Azure Files](media/storage-files-condition-headers/storage-explorer-cache.png)

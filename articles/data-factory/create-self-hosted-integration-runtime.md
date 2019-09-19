@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446216"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383352"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -80,6 +80,9 @@ A continuación se muestra un flujo de datos de alto nivel y el resumen de los p
 - Si la máquina host está en hibernación, el entorno de ejecución de integración autohospedado no responde a las solicitudes de datos. Configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración autohospedado. Si la máquina está configurada para hibernar, se mostrará un mensaje durante la instalación del entorno Integration Runtime autohospedado.
 - Debe ser administrador del equipo para instalar y configurar correctamente el entorno de ejecución de integración autohospedado.
 - Las ejecuciones de la actividad de copia se producen con una frecuencia concreta. El uso de los recursos (CPU, memoria) en el equipo sigue el mismo patrón en los momentos de máxima actividad y en los de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
+- Las tareas pueden generar errores si se extraen datos en los formatos Parquet, ORC o Avro. La creación de archivos se ejecuta en la máquina de integración autohospedada y requiere los siguientes requisitos previos para funcionar según lo esperado (consulte [Formato Parquet en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+    - Paquete [redistribuible de Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) (x64)
+    - Java Runtime (JRE) versión 8 de un proveedor de JRE, como [Adopt OpenJDK](https://adoptopenjdk.net/), para garantizar que la variable de entorno `JAVA_HOME` esté definida.
 
 ## <a name="installation-best-practices"></a>Procedimientos recomendados de instalación
 Para instalar el entorno de ejecución de integración autohospedado, descargue un paquete de instalación MSI del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](tutorial-hybrid-copy-powershell.md) para obtener instrucciones detalladas.

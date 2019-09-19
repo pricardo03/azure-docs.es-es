@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dca329ce598a9ecbc7da71cc1c24bf7731a4c994
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703974"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885379"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
@@ -356,7 +356,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 
 6. También puede usar los puntos suspensivos ( **...** ) de la derecha de las entradas de la sección Acciones de script para realizar acciones.
 
-    ![Acciones de script, puntos suspensivos](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![Acciones de script, puntos suspensivos](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -442,7 +442,7 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 
 3. Busque las entradas que tienen **run\_customscriptaction** en la columna **Operaciones**. Estas entradas se crean al ejecutarse las acciones de script.
 
-    ![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Para ver la salida **STDOUT** y **STDERR**, seleccione la entrada **run\customscriptaction** y profundice mediante los vínculos. Esta salida se genera cuando se ejecuta el script y puede contener información útil.
 
@@ -452,7 +452,7 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
 * Los registros de almacenamiento están disponibles en `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Registros de acción de script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     En este directorio, los registros se organizan por separado para el **nodo principal**, el **nodo de trabajo** y el **nodo de Zookeeper**. Consulte los siguientes ejemplos:
 

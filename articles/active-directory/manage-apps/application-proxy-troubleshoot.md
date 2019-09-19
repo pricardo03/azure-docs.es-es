@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cf5b6d4cadf4592fbaa19c89a969b20e9eb69b6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424276"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812732"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
@@ -82,7 +82,7 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 | El sitio web no puede mostrar la página. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó esta es una aplicación OWA. Esto puede deberse a uno de los motivos siguientes:<br><li>El SPN definido para esta aplicación es incorrecto. Asegúrese de que el SPN configurado para esta aplicación es correcto.</li><li>El usuario que intentó obtener acceso a la aplicación usa una cuenta Microsoft en lugar de la cuenta corporativa adecuada para iniciar sesión, o bien el usuario es un usuario invitado. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada. Los usuarios de cuenta Microsoft y los invitados no pueden tener acceso a aplicaciones IWA.</li><li>El usuario que intentó acceder a la aplicación no está correctamente definido para esta aplicación a nivel local. Asegúrese de que este usuario tiene los permisos adecuados como se define para esta aplicación back-end en el equipo local. |
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de asignar el usuario con acceso a esta aplicación. | El usuario puede recibir este error al intentar acceder a la aplicación que publicó si para iniciar sesión usa cuentas de Microsoft, en lugar de su cuenta corporativa. Los usuarios invitados también pueden recibir este error. Los usuarios y los invitados de la Cuenta Microsoft no pueden tener acceso a aplicaciones IWA. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada.<br><br>Puede que no haya asignado el usuario para esta aplicación. Vaya a la pestaña **Aplicación** y, en **Usuarios y grupos**, asigne este usuario o grupo de usuarios a esta aplicación. |
 | No se puede tener acceso a esta aplicación corporativa en este momento. Inténtelo de nuevo más tarde... Se agotó el tiempo de espera del conector. | El usuario puede recibir este error al intentar acceder a la aplicación que publicó si no está definido correctamente para esta aplicación a nivel local. Asegúrese de que los usuarios tengan los permisos adecuados definidos para esta aplicación back-end en el equipo local. |
-| No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de que el usuario tiene una licencia de Azure Active Directory Premium o Basic. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el administrador del suscriptor no les asignó explícitamente una licencia Premium o Basic. Vaya a la pestaña **Licencias** de Active Directory del suscriptor y asegúrese de que se asigne a este usuario o grupo de usuarios una licencia Premium o Básica. |
+| No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de que el usuario tiene una licencia de Azure Active Directory Premium. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el administrador del suscriptor no les asignó explícitamente una licencia Premium. Vaya a la pestaña **Licencias** de Active Directory del suscriptor y asegúrese de que se asigne a este usuario o grupo de usuarios una licencia Premium. |
 | No se encontró un servidor con el nombre de host especificado. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el dominio personalizado de la aplicación no está configurado correctamente. Asegúrese de haber cargado un certificado para el dominio y haber configurado correctamente el registro DNS siguiendo los pasos descritos en [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](application-proxy-configure-custom-domain.md) |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mi error no aparece aquí.

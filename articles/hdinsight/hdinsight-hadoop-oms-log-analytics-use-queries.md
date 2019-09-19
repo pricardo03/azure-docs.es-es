@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: cbaaed3fff99778bfab1feeacdab02bf8245a85a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 031879ac1d0d2dd1148c0c37ee72c60d093f8a7d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714714"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809385"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta a los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -81,15 +81,15 @@ Aprenda a buscar mensajes de error durante una ventana de tiempo específica. Es
 
     - Para ver los mensajes de error de un nodo de trabajo específico:
 
-        ![Salida de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Search for specific errors output")
+        ![Salida1 de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Search for specific errors output1")
 
     - Para ver que un error producido en un momento determinado:
 
-        ![Salida de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output")
+        ![Salida2 de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Search for specific errors output2")
 
 6. Para ver el error específico: Puede seleccionar **[+] Mostrar más** para examinar el mensaje de error real.
 
-    ![Salida de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output")
+    ![Salida3 de búsqueda de errores específicos](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Search for specific errors output3")
 
 ## <a name="create-alerts-for-tracking-events"></a>Creación de alertas para el seguimiento de eventos
 
@@ -105,11 +105,11 @@ El primer paso para crear una alerta es llegar a una consulta en función de la 
 
 4. Seleccione **Nueva regla de alertas** en la parte superior de la página.
 
-    ![Escribir una consulta para crear una alerta](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert")
+    ![Escribir una consulta para crear una alerta1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert1")
 
 5. En la ventana **Crear regla**, escriba la consulta y otros detalles para crear una alerta; a continuación, haga clic en **Crear regla de alertas**.
 
-    ![Escribir una consulta para crear una alerta](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert")
+    ![Escribir una consulta para crear una alerta2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert2")
 
 Para editar o eliminar una alerta existente:
 

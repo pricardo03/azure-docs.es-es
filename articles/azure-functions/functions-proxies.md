@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096049"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773055"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -65,7 +65,7 @@ Puede utilizar `localhost` para hacer referencia a una función dentro de la mis
 
  
 >[!Note]  
->Si la función usa los niveles de autorización de *función, administrador o sistema*, deberá proporcionar el código y el valor de clientId, según la URL de la función original. En este caso, la referencia tendría el siguiente aspecto: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>Si la función usa los niveles de autorización de *función, administrador o sistema*, deberá proporcionar el código y el valor de clientId, según la URL de la función original. En este caso, la referencia tendría el siguiente aspecto: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Se recomienda almacenar estas claves en la [configuración de la aplicación] y hacer referencia a ellas en los servidores proxy. De esta forma, se evita tener que almacenar los secretos en el código fuente. 
 
 ### <a name="request-parameters"></a>Referencia a los parámetros de solicitud
 

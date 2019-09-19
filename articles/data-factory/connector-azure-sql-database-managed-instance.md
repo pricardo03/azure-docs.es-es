@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: f664e0419396eaf60c037c2adfde70df0034cc5b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 34a701c6d99f7b773a06e316fa9a29cd8b070303
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275994"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813252"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copia de datos hacia y desde Instancia administrada de Azure SQL Database mediante Azure Data Factory
 
@@ -388,6 +388,7 @@ Para copiar datos a la instancia administrada de Azure SQL Database, se admiten 
 | storedProcedureTableTypeParameterName |Nombre del parámetro del tipo de tabla especificado en el procedimiento almacenado.  |Sin |
 | sqlWriterTableType |Nombre del tipo de tabla que se usará en el procedimiento almacenado. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Sin |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre y valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin |
+| tableOption | Especifica si se crea automáticamente la tabla de receptores según el esquema de origen, si no existe. No se admite la creación automática de tablas cuando el receptor especifica un procedimiento almacenado o hay una copia preconfigurada en la actividad de copia. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |Sin |
 
 **Ejemplo 1: Anexión de datos**
 
@@ -414,7 +415,8 @@ Para copiar datos a la instancia administrada de Azure SQL Database, se admiten 
             },
             "sink": {
                 "type": "SqlMISink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }

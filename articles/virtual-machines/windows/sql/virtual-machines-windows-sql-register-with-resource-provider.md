@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208328"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743915"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -338,7 +338,7 @@ Sí. La actualización del modo de administración de ligero a completo se admit
 
 No. No se admite cambiar a una versión inferior del modo de administración de la extensión IaaS de SQL Server. El modo de administración no se puede cambiar a una versión inferior, del modo completo al modo ligero o sin agente, ni del modo ligero al modo sin agente. 
 
-Para cambiar el modo de administración completa, quite la extensión IaaS de SQL Server. A continuación, quite el recurso Micorsoft.SqlVirtualMachine y vuelva a registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL.
+Para cambiar el modo de administración completa, quite la extensión IaaS de SQL Server. A continuación, quite el recurso Microsoft.SqlVirtualMachine y vuelva a registrar la máquina virtual con SQL Server utilizando el proveedor de recursos de máquinas virtuales con SQL.
 
 **¿Puedo registrarme en un proveedor de recursos de máquina virtual con SQL desde Azure Portal?**
 
@@ -346,7 +346,7 @@ No. El registro en un proveedor de recursos de máquina virtual con SQL no está
 
 **¿Puedo registrar una máquina virtual con el proveedor de recursos de máquina virtual con SQL antes de instalar SQL Server?**
 
-No. Una máquina virtual debe tener al menos una instancia de SQL Server para registrarse correctamente con el proveedor de recursos de máquina virtual con SQL. Si no hay ninguna instancia de SQL Server en la máquina virtual, el nuevo recurso Microsoft.SqlVirtualMachine tendrá el estado de error.
+No. Una máquina virtual debe tener al menos una instancia de SQL Server para registrarse correctamente con el proveedor de recursos de máquina virtual con SQL. Si no hay ninguna instancia de SQL Server en la máquina virtual, el nuevo recurso Microsoft.SqlVirtualMachine tendrá un estado de error.
 
 **¿Puedo registrar una máquina virtual en un proveedor de recursos de máquina virtual con SQL si hay varias instancias de SQL Server?**
 

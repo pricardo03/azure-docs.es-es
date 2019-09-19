@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703876"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389801"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 
@@ -59,7 +59,7 @@ Verá la **respuesta** con la información sobre las direcciones URL del recurso
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Carga de un archivo a Blob Storage mediante la dirección URL de carga
 
-Use los SDK o API de Azure Storage (por ejemplo, la [API REST de Azure Storage](../../storage/common/storage-rest-api-auth.md), el [SDK para JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md) o el [SDK para .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Use los SDK o API de Azure Storage (por ejemplo, la [API REST de Azure Storage](../../storage/common/storage-rest-api-auth.md) o el [SDK para .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

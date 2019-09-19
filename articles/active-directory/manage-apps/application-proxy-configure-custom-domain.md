@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8a1914b7cf79287831e0e94c19c50107c2ac216d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851719"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390791"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Uso de dominios personalizados en el proxy de la aplicación de Azure AD
 
@@ -40,7 +40,7 @@ Se recomienda que configure dominios personalizados para las aplicaciones siempr
 
 Antes de configurar un dominio personalizado, asegúrese de que tener preparados los siguientes requisitos: 
 - Un [dominio comprobado agregado a Azure Active Directory](../fundamentals/add-custom-domain.md).
-- Un certificado personalizado para el dominio, en forma de un archivo PFX. 
+- Un certificado personalizado para el dominio, en forma de un archivo PFX.
 - Una aplicación local [publicada a través del proxy de la aplicación](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Configuración de un dominio personalizado
@@ -72,6 +72,8 @@ Cuando tenga listos estos tres requisitos, siga estos pasos para configurar el d
 No hay ninguna restricción sobre los métodos de firma del certificado. Se admiten todos los tipos de certificado habituales como, por ejemplo, la criptografía de curva elíptica (ECC) y el nombre alternativo del firmante (SAN). 
 
 Puede usar un certificado comodín siempre y cuando este coincida con la dirección URL externa deseada.
+
+El certificado debe incluir la clave privada.
 
 Los certificados emitidos por su propia infraestructura de clave pública (PKI) se pueden usar si la cadena de certificados está instalada en los dispositivos cliente. Intune se puede usar para implementar estos certificados en dispositivos administrados. En el caso de los dispositivos no administrados, estos certificados deben instalarse manualmente.
 

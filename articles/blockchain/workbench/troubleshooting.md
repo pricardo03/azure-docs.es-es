@@ -1,23 +1,23 @@
 ---
-title: Solución de problemas de Azure Blockchain Workbench
-description: Procedimientos para la solución de problemas de una aplicación de Azure Blockchain Workbench.
+title: Solución de problemas de Azure Blockchain Workbench, versión preliminar
+description: Procedimientos para la solución de problemas de una aplicación de Azure Blockchain Workbench, versión preliminar.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510088"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844018"
 ---
-# <a name="azure-blockchain-workbench-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench, versión preliminar
 
 Está disponible un script de PowerShell para ayudar con la depuración del desarrollo y soporte técnico. El script genera un resumen y recopila registros detallados para solucionar el problema. Los registros recopilados incluyen:
 
@@ -27,6 +27,8 @@ Está disponible un script de PowerShell para ayudar con la depuración del desa
 * Supervisión de Azure (registros de Azure Monitor)
 
 Puede usar la información para determinar los próximos pasos y determinar la causa raíz de los problemas.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="troubleshooting-script"></a>Script de solución de problemas
 

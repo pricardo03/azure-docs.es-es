@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516861"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859167"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
-En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Azure Cognitive Services Face API distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup mediante una suscripción de evaluación gratuita y ahora desea migrarlo a su suscripción de pago. O bien, es posible que deba sincronizar datos de caras entre regiones para una operación empresarial de gran tamaño.
+En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Azure Cognitive Services Face API distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup mediante una suscripción de evaluación gratuita y ahora desea migrarlo a su suscripción de pago. O bien, puede que deba sincronizar datos de caras entre regiones para una operación empresarial a gran escala.
 
 Esta misma estrategia de migración también se aplica a los objetos LargePersonGroup y LargeFaceList. Si no está familiarizado con los conceptos que aparecen en esta guía, consulte sus definiciones en la guía [Conceptos del reconocimiento facial](../concepts/face-recognition.md). Esta guía usa la biblioteca cliente .NET de Face API con C#.
 
@@ -41,7 +41,9 @@ Esta guía utiliza una aplicación de consola sencilla para ejecutar la migraci�
 
 ## <a name="create-face-clients"></a>Creación de clientes de Face
 
-En el método **Main** de *Program.cs*, cree dos instancias de [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Asia Oriental como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. Si las suscripciones están en distintas regiones, cambie las cadenas `Endpoint`.
+En el método **Main** de *Program.cs*, cree dos instancias de [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Asia Oriental como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

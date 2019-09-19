@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70392892"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -51,8 +51,7 @@ ms.locfileid: "67305332"
 
 | Categoría | límites | Comentarios |
 |:---|:---|:---|
-| Número máximo de registros devueltos para los datos no agregados | 5\.000 | |
-| Número máximo de registros para los datos agregados | 500.000 | Los datos agregados consisten en una búsqueda que incluye el comando `summarize`. |
+| Número máximo de registros devueltos por una única consulta | 500.000 | |
 | Tamaño máximo de los datos devueltos | 64 000 000 bytes (~61 MiB)| |
 | Tiempo máximo de ejecución de la consulta | 10 minutos | Consulte [Tiempos de espera](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obtener más detalles.  |
 | Velocidad máxima de solicitud | 200 solicitudes cada 30 segundos por usuario AAD o dirección IP de cliente | Consulte [Límites de velocidad](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obtener más detalles. |
@@ -63,7 +62,7 @@ ms.locfileid: "67305332"
 |:---|:---|:---|
 | Número máximo de columnas en una tabla         | 500 | |
 | Número máximo de caracteres para el nombre de columna | 500 | |
-| Regiones a capacidad | Centro occidental de EE.UU. | Actualmente, no se puede crear una nueva área de trabajo en esta región, ya que está al límite de la capacidad temporal. Se espera que se solucionará este límite a finales de septiembre de 2019. |
+| Regiones a capacidad | Centro occidental de EE.UU. | Actualmente, no se puede crear una nueva área de trabajo en esta región, ya que está al límite de la capacidad temporal. Se espera que se solucione este límite a finales de octubre de 2019. |
 | Exportación de datos | No está disponible actualmente | Use Azure Function o Logic App para agregar y exportar datos. | 
 
 >[!NOTE]

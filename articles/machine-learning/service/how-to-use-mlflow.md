@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900199"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860458"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Seguimiento de métricas e implementación de modelos con MLflow y el servicio Azure Machine Learning (versión preliminar)
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Seguimiento de métricas e implementación de modelos con MLflow y Azure Machine Learning Service (versión preliminar)
 
 En este artículo se muestra cómo habilitar el URI de seguimiento de MLflow y la API de registro, que en conjunto se conocen como [Seguimiento de MLflow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), con el servicio Azure Machine Learning Service. Esto le permite:
 
@@ -39,7 +39,7 @@ En el siguiente diagrama se ilustra que el seguimiento de MLflow permite llevar 
  El Seguimiento de MLflow ofrece funciones de registro de métricas y almacenamiento de artefactos que de otra manera solo están disponibles a través del [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Implementación y seguimiento de MLflow | SDK de Python de Azure Machine Learning |  CLI de Azure Machine Learning | Portal de Azure|
+| | Implementación y seguimiento de MLflow | SDK de Python de Azure Machine Learning |  CLI de Azure Machine Learning | Azure Portal o página de aterrizaje del área de trabajo (versión preliminar)|
 |---|---|---|---|---|
 | Administración del área de trabajo |   | ✓ | ✓ | ✓ |
 | Uso de almacenes de datos  |   | ✓ | ✓ | |
@@ -203,7 +203,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visualización de las métricas y los artefactos en el área de trabajo
 
-Las métricas y los artefactos procedentes del registro de MLflow se conservan en el área de trabajo. Para verlos en cualquier momento, vaya al área de trabajo y busque el experimento por su nombre en [Azure Portal](https://portal.azure.com) o mediante la ejecución del código siguiente. 
+Las métricas y los artefactos procedentes del registro de MLflow se conservan en el área de trabajo. Para verlos en cualquier momento, vaya al área de trabajo y busque el experimento por su nombre en [Azure Portal](https://portal.azure.com) o en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).  O bien, ejecute el código siguiente: 
 
 ```python
 run.get_metrics()

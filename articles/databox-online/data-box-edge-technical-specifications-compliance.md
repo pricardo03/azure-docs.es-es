@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 09/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755141"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910135"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificaciones técnicas de Azure Data Box Edge
 
@@ -36,7 +36,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 
-Los dispositivos de Data Box Edge tienen unidades de estado sólido (SSD) de NVMe de 10 X 2.5”, cada una de ellas con una capacidad de 1,6 TB. De estas unidades SSD, 2 son discos del sistema operativo y las otras 8 son discos de datos. La capacidad total utilizable para el dispositivo es de aproximadamente 12,5 TB. La tabla siguiente contiene los detalles de la capacidad de almacenamiento del dispositivo.
+Los dispositivos de Data Box Edge tienen unidades de estado sólido (SSD) de NVMe de 9 X 2,5”, cada una de ellas con una capacidad de 1,6 TB. De estas unidades SSD, una es un disco del sistema operativo y las otras 8 son discos de datos. La capacidad total utilizable para el dispositivo es de aproximadamente 12,5 TB. La tabla siguiente contiene los detalles de la capacidad de almacenamiento del dispositivo.
 
 |     Especificación                          |     Valor             |
 |--------------------------------------------|-----------------------|

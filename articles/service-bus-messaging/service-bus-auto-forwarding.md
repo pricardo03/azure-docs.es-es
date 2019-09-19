@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686130"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390128"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadenamiento de entidades de Service Bus con reenvío automático
 
@@ -48,8 +48,10 @@ También puede usarlo para desacoplar los remitentes de los destinatarios. Por e
 Si Alice se va de vacaciones, se llena su cola personal, en lugar del tema de ERP. En este escenario, como un representante de ventas no ha recibido ningún mensaje, ninguno de los temas de ERP alcanza la cuota.
 
 > [!NOTE]
-> Cuando el reenvío automático está configurado, el valor de AutoDeleteOnIdle en el destino se establece automáticamente en el valor máximo del tipo de datos.
-> Esto se hace para garantizar que siempre haya un destino al que reenviar el mensaje.
+> Cuando el reenvío automático está configurado, el valor de AutoDeleteOnIdle en **el origen y el destino** se establece automáticamente en el valor máximo del tipo de datos.
+> 
+>   - En el lado de origen, el reenvío automático actúa como una operación de recepción. Por lo tanto, el origen que tiene configurado el reenvío automático nunca está realmente "inactivo".
+>   - En el lado de destino, esto se hace para garantizar que siempre haya un destino al que reenviar el mensaje.
 
 ## <a name="autoforwarding-considerations"></a>Consideraciones del reenvío automático
 

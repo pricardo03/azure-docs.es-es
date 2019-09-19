@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e0c1419e5656f184d27dce8d185a86bea71d173
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941817"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389949"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configuración de una galería de imágenes compartidas en Azure DevTest Labs
 DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Esta característica permite que los usuarios de laboratorios accedan a imágenes de una ubicación compartida cuando crean recursos de laboratorio. También facilita la estructuración y la organización de las imágenes de máquina virtual administradas y personalizadas. La característica Shared Image Gallery admite lo siguiente:
@@ -32,6 +32,9 @@ DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-m
 Para más información, consulte la [documentación de Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). 
  
 Si tiene un gran número de imágenes administradas que se deben mantener y quiere que estén disponibles en toda la empresa, puede usar una galería de imágenes compartidas como repositorio que facilite la tarea de actualizar y compartir las imágenes. Como propietario de un laboratorio, puede asociar al laboratorio una galería de imágenes compartidas que ya exista. Una vez asociada la galería, los usuarios del laboratorio pueden crear máquinas con estas últimas imágenes. Una ventaja fundamental de esta característica es que ahora DevTest Labs puede aprovechar el uso compartido de imágenes entre laboratorios, suscripciones y regiones. 
+
+> [!NOTE]
+> Para más información sobre los costos asociados al servicio Shared Image Gallery, consulte [Facturación para Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Consideraciones
 - Solo es posible asociar una galería de imágenes compartidas a un laboratorio cada vez. Si quiere asociar otra galería, deberá desasociar la existente y asociar otra. 

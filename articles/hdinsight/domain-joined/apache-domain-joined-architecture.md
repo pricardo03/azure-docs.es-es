@@ -1,6 +1,6 @@
 ---
 title: Arquitectura de Azure HDInsight con Enterprise Security Package
-description: Aprenda a planear la seguridad de HDInsight con Enterprise Security Package.
+description: Aprenda a planear la seguridad de Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720437"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810943"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso de Enterprise Security Package en HDInsight
 

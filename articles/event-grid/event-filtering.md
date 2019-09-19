@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305055"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390176"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -61,26 +61,43 @@ Para filtrar por valores en los campos de datos y especificar el operador de com
 * clave: el campo de datos de evento que se usa para filtrar. Puede ser un número, un booleano o una cadena.
 * valor o valores: el valor o los valores que se compararán con la clave.
 
-La sintaxis JSON para el uso de filtros avanzados es:
+Si especifica un único filtro con varios valores, se realiza una operación **OR**, por lo que el valor del campo de clave debe ser uno de estos valores. Este es un ejemplo:
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
-    },
-    {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
-### <a name="operator"></a>Operador
+Si especifica varios filtros diferentes, se realiza una operación **AND**, por lo que se debe cumplir cada condición de filtro. Este es un ejemplo: 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
+    },
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+### <a name="operator"></a>Operator
 
 Los operadores disponibles para los números son:
 
@@ -107,7 +124,7 @@ Ninguna comparación de cadenas distingue mayúsculas de minúsculas.
 
 Para los eventos en el esquema de Event Grid, use los siguientes valores para la clave:
 
-* Id
+* id
 * Tema
 * Asunto
 * EventType
@@ -117,7 +134,7 @@ Para los eventos en el esquema de Event Grid, use los siguientes valores para la
 Para los eventos en el esquema de Cloud Events, use los siguientes valores para la clave:
 
 * EventId
-* Origen
+* Source
 * EventType
 * EventTypeVersion
 * Datos del evento (por ejemplo, Data.key1)

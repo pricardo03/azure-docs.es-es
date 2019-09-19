@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128277"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858707"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Con Azure Machine Learning Service, puede supervisar las entradas en un modelo i
 + Enviar alertas del desfase de datos por correo electrónico.
 
 > [!Note]
-> Este servicio está en versión preliminar y dispone de opciones de configuración limitadas. Consulte la [documentación de API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) y las [notas de la versión](azure-machine-learning-release-notes.md) para obtener detalles y actualizaciones. 
+> Este servicio está en versión preliminar y sus opciones de configuración están limitadas. Consulte la [documentación de API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) y las [notas de la versión](azure-machine-learning-release-notes.md) para obtener detalles y actualizaciones. 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Cómo se supervisa el desfase de datos en Azure Machine Learning Service
 
@@ -134,6 +134,7 @@ Existen varias formas de ver las métricas de desfase:
 * Usar el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Usar la función [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) en cualquier objeto de ejecución de `datadrift`.
 * Ver las métricas en Azure Portal en su modelo.
+* Vea las métricas en la sección **Modelos** de su [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
 
 En el siguiente ejemplo de Python se muestra cómo trazar métricas pertinentes para el desfase de datos. Puede usar las métricas devueltas para crear visualizaciones personalizadas:
 
@@ -158,15 +159,17 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configuración del detector de desfase de datos puede consultarse en la página de detalles del modelo en Azure Portal.
+La configuración del detector de desfase de datos puede consultarse en la página de detalles del modelo en Azure Portal o en su página de aterrizaje del área de trabajo (versión preliminar).
 
 ![Configuración del desfase de datos en Azure Portal](media/how-to-monitor-data-drift/drift_config.png)
 
 ## <a name="view-results-in-azure-portal"></a>Visualización de resultados en Azure Portal
 
-Para ver los resultados en el área de trabajo en [Azure Portal](https://portal.azure.com), vaya a la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña "Data Drift (Preview)" (Desfase de datos (versión preliminar)) con las métricas del desfase de datos. 
+Para ver los resultados en el área de trabajo en [Azure Portal](https://portal.azure.com), vaya a la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña "Data Drift (Preview)" [Desfase de datos (versión preliminar)] con las métricas del desfase de datos. 
 
 ![Desfase de datos en Azure Portal](media/how-to-monitor-data-drift/drift_ui.png)
+
+Los resultados también están disponibles en los detalles del modelo en la [página de aterrizaje de su área de trabajo (versión preliminar)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Recepción de alertas del desfase
 

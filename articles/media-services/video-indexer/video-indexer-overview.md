@@ -1,25 +1,25 @@
 ---
-title: ¿Qué es Video Indexer?
-titlesuffix: Azure Media Services
-description: En este tema se proporciona información general del servicio Video Indexer.
+title: ¿Qué es Video Indexer de Azure Media Services?
+titleSuffix: Azure Media Services
+description: En este tema se proporciona información general del servicio Video Indexer de Azure Media Services.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e3f60b5fb0693e40c9db040f7b14f487fce8f68e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422969"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860245"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 
-Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytics, Azure Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y Custom Speech Service). Permite extraer la información de los vídeos con los modelos de vídeo y audio de Video Indexer que se describen a continuación:
+Video Indexer de Azure Media Services es una aplicación en la nube creada en Azure Media Analytics, Azure Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y Custom Speech Service). Permite extraer la información de los vídeos con los modelos de vídeo y audio de Video Indexer que se describen a continuación:
   
 ## <a name="video-insights"></a>Información de los vídeos
 
@@ -35,10 +35,13 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 - **Detección de fotogramas negros**: identifica los fotogramas negros presentados en el vídeo.
 - **Extracción de fotogramas clave**: detecta los fotogramas clave estables en un vídeo.
 - **Créditos de rodaje**: identifica el principio y el final de los créditos del final de las series de televisión y las películas.
+- **Detección de personajes animados** (versión preliminar): detección, agrupación y reconocimiento de personajes en contenido animado a través de la integración con la [visión personalizada de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Para más información, consulte [Detección de personajes animados](animated-characters-recognition.md).
+- **Detección del tipo de toma editorial**: etiquetado de capturas basado en su tipo (como plano general, plano medio, primer plano, primerísimo primer plano, dos capturas, varias personas, exterior e interior, etc.). Para más información, consulte [Detección del tipo de toma editorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ## <a name="audio-insights"></a>Información de audio
 
 - **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (brasileño) y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
+- **Identificación y transcripción de voz en varios idiomas** (versión preliminar): identifica automáticamente el idioma que se habla en los diferentes segmentos del audio, el envío de cada segmento del archivo multimedia que se va a transcribir y la combinación de la transcripción para tener una transcripción unificada. Para más información, consulte [Identificación y transcripción automáticas del contenido de varios idiomas](multi-language-identification-transcription.md).
 - **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués brasileño y ruso.
 - **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.
 - **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
@@ -56,7 +59,7 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 Al indexar por un canal, puede haber resultados parciales para esos modelos disponibles
 
 - **Extracción de palabras clave**: extrae palabras clave a partir de voz y texto visual.
-- **Extracción de marcas**: extrae marcas a partir de voz y texto visual.
+- **Extracción de entidades con nombre**: extrae marcas, ubicaciones y personas del lenguaje hablado y del texto visual mediante el procesamiento de lenguaje natural (NLP).
 - **Inferencia de tema**: saca conclusiones de los temas principales a partir de las transcripciones. Se incluye la taxonomía IPTC de primer nivel.
 - **Artefactos**: extrae una amplia variedad de artefactos de "detalles de siguiente nivel" para cada uno de los modelos.
 - **Análisis de opiniones**: identifica opiniones positivas, negativas y neutras a partir de voz y texto visual.

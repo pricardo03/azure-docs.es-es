@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559671"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802524"
 ---
 # <a name="deploy-a-custom-model"></a>Implementación de un modelo personalizado
 
-Después de haber cargado e inspeccionar los datos y de haber evaluado y entrenado un modelo personalizado, puede implementar un punto de conexión personalizado para usar con sus productos, herramientas y aplicaciones. En este documento, aprenderá a crear e implementar un punto de conexión mediante el portal de Custom Speech.
+Después de haber cargado e inspeccionar los datos y de haber evaluado y entrenado un modelo personalizado, puede implementar un punto de conexión personalizado para usar con sus productos, herramientas y aplicaciones. En este documento, aprenderá a crear e implementar un punto de conexión mediante el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
 
 ## <a name="create-a-custom-endpoint"></a>Creación de un punto de conexión personalizado
 
-Para crear un punto de conexión personalizado, seleccione **Implementaciones** en el menú Custom Speech de la parte superior de la página. Si se trata de la primera ejecución, observará que no aparece ningún punto de conexión en la tabla. Después de crear un punto de conexión, usará esta página para realizar el seguimiento de cada punto de conexión implementado.
+Para crear un punto de conexión personalizado, inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech) y seleccione **Implementaciones** en el menú Custom Speech de la parte superior de la página. Si se trata de la primera ejecución, observará que no aparece ningún punto de conexión en la tabla. Después de crear un punto de conexión, usará esta página para realizar el seguimiento de cada punto de conexión implementado.
 
 A continuación, seleccione **Agregar punto de conexión** y escriba un **nombre** y una **descripción** para el punto de conexión personalizado. Luego, seleccione el modelo personalizado que le gustaría asociar a este punto de conexión. Desde esta página, también puede habilitar el registro. El registro le permite supervisar el tráfico del punto de conexión. Si está deshabilitado, no se almacenará el tráfico.
 

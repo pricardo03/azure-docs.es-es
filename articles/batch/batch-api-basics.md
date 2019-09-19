@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 12/18/2018
+ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 605b3fd49408381f3148aef5fe7d62bac157644b
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141486"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390467"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -33,6 +33,7 @@ Utilizará muchos de los recursos y las características que se describen en est
 >
 
 ## <a name="batch-service-workflow"></a>Flujo de trabajo del servicio Batch
+
 El siguiente flujo de trabajo de alto nivel es típico de casi todas las aplicaciones y los servicios que usan el servicio Batch para procesar cargas de trabajo paralelas:
 
 1. Cargue los **archivos de datos** que quiera procesar en una cuenta de [Azure Storage][azure_storage]. Batch incluye compatibilidad integrada con el acceso a Azure Blob Storage y, cuando se ejecutan, las tareas pueden descargar estos archivos a [nodos de proceso](#compute-node) .
@@ -42,14 +43,15 @@ El siguiente flujo de trabajo de alto nivel es típico de casi todas las aplicac
 5. Agregue [tareas](#task) al trabajo. Cada tarea ejecuta la aplicación o el script que haya cargado para procesar los archivos de datos que descarga de la cuenta de almacenamiento. A medida que se complete cada tarea, puede cargar su resultado a Azure Storage.
 6. Supervise el progreso del trabajo y recupere el resultado de la tarea de Azure Storage.
 
-Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
+Las secciones siguientes tratan los recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
 
 > [!NOTE]
-> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. La mayoría de las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] asociada para el almacenamiento y la recuperación de archivos. 
+> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. La mayoría de las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] asociada para el almacenamiento y la recuperación de archivos.
 >
 >
 
 ## <a name="batch-service-resources"></a>Recursos del servicio Batch
+
 Algunos de los siguientes recursos son necesarios para todas las soluciones que usan el servicio Batch: cuentas, nodos de proceso, grupos, trabajos, tareas. Otros, como las programaciones de los trabajos y los paquetes de aplicación, son características útiles, pero opcionales.
 
 * [Cuenta](#account)
@@ -66,6 +68,7 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 * [Paquetes de aplicación](#application-packages)
 
 ## <a name="account"></a>Cuenta
+
 Una cuenta de Batch es una entidad identificada de forma exclusiva en el servicio Batch. Todo el procesamiento se asocia con una cuenta de Batch.
 
 Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca Batch Management .NET](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
@@ -89,9 +92,10 @@ Para más información sobre las cuentas de almacenamiento, vea [Introducción a
 Puede asociar una cuenta de almacenamiento con su cuenta de Batch cuando crea la cuenta de Batch o en otro momento. Al elegir una cuenta de almacenamiento, tenga en cuenta los requisitos de costo y rendimiento. Por ejemplo, las opciones de cuenta GPv2 y de Blob Storage admiten mayores [límites de capacidad y escalabilidad](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) si se compara con GPv1. (Póngase en contacto con el servicio de soporte técnico de Azure para solicitar un aumento en el límite de almacenamiento). Estas opciones de cuenta pueden mejorar el rendimiento de las soluciones de Batch que contienen un gran número de tareas en paralelo que se leen o escriben en la cuenta de almacenamiento.
 
 ## <a name="compute-node"></a>Nodo de ejecución
+
 Un nodo de proceso es una máquina virtual de Azure o una máquina virtual de servicio en la nube dedicada al proceso de una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Azure Cloud Services, imágenes de [Azure Virtual Machines Marketplace][vm_marketplace] o imágenes personalizadas que prepare. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
 
-Los nodos pueden ejecutar cualquier archivo ejecutable o script compatible con el entorno de sistema operativo del nodo. Esto incluye scripts \*.exe, \*.cmd, \*.bat y de PowerShell para Windows, además de archivos binarios y scripts de shell y de Python para Linux.
+Los nodos pueden ejecutar cualquier archivo ejecutable o script compatible con el entorno de sistema operativo del nodo. Los archivos ejecutables o scripts incluyen scripts \*.exe, \*.cmd, \*.bat y de PowerShell para Windows, además de archivos binarios y scripts de shell y de Python para Linux.
 
 Todos los nodos de proceso en Batch también incluyen:
 
@@ -100,6 +104,7 @@ Todos los nodos de proceso en Batch también incluyen:
 * [Acceso remoto](#connecting-to-compute-nodes) a nodos de Windows (Protocolo de escritorio remoto (RDP)) y nodos de Linux (Secure Shell (SSH)).
 
 ## <a name="pool"></a>grupo
+
 Un grupo es una colección de nodos en la que se ejecuta la aplicación. El usuario lo puede crear manualmente, o bien el servicio Batch lo crea automáticamente cuando se especifica el trabajo que se debe realizar. Puede crear y administrar un grupo que satisfaga los requisitos de recursos de su aplicación. Un grupo solo se puede usar con la cuenta de Batch en la que se creó. Una cuenta de Batch puede tener más de un grupo.
 
 Los grupos de Azure Batch se basan en la plataforma de proceso principal de Azure. y proporcionan asignación a gran escala, instalación de aplicaciones, distribución de datos, supervisión de estado y ajuste flexible del número de nodos de proceso en un grupo ([escalado](#scaling-compute-resources)).
@@ -108,15 +113,15 @@ A cada nodo que se agrega a un grupo se le asigna un nombre y una dirección IP 
 
 Cuando se crea un grupo, puede especificar los siguientes atributos:
 
-- Sistema operativo y versión de nodo de proceso
-- Tipo de nodo de proceso y número de nodos de destino
-- Tamaño de los nodos de proceso
-- Directiva de escalado
-- Directiva de programación de tareas
-- Estado de comunicación para nodos de proceso
-- Tareas de inicio para nodos de proceso
-- paquetes de aplicación
-- Network configuration (Configuración de red)
+* Sistema operativo y versión de nodo de proceso
+* Tipo de nodo de proceso y número de nodos de destino
+* Tamaño de los nodos de proceso
+* Directiva de escalado
+* Directiva de programación de tareas
+* Estado de comunicación para nodos de proceso
+* Tareas de inicio para nodos de proceso
+* paquetes de aplicación
+* Network configuration (Configuración de red)
 
 Cada uno de estos valores se describe con más detalle en las secciones siguientes.
 
@@ -124,16 +129,15 @@ Cada uno de estos valores se describe con más detalle en las secciones siguient
 > Las cuentas de Batch tienen una cuota predeterminada que limita el número de núcleos en ellas. El número de núcleos corresponde al número de nodos de proceso. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) se pueden encontrar en [Límites y cuotas del servicio de Batch de Azure](batch-quota-limit.md). Si el grupo no está consiguiendo su número de nodos de destino, la causa podría ser la cuota básica.
 >
 
-
 ### <a name="compute-node-operating-system-and-version"></a>Sistema operativo y versión de nodo de proceso
 
 Al crear un grupo de Batch, puede especificar la configuración de máquina virtual de Azure y el tipo de sistema operativo que desea ejecutar en cada nodo de proceso del grupo. Los dos tipos de configuraciones disponibles en Batch son:
 
-- La **configuración de máquina virtual**, que especifica que el grupo está formado por máquinas virtuales de Azure. Estas máquinas virtuales pueden crearse a partir de imágenes de Linux o Windows. 
+* La **Configuración de máquina virtual**, que especifica que el grupo está formado por máquinas virtuales de Azure. Estas máquinas virtuales pueden crearse a partir de imágenes de Linux o Windows.
 
     Cuando crea un grupo basado en la configuración de máquina virtual, debe especificar no solo el tamaño de los nodos y el origen de las imágenes utilizadas para crearlos, sino también la **referencia de la imagen de máquina virtual** y la **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md). También puede asociar uno o más discos de datos vacíos a las máquinas virtuales del grupo creadas con imágenes de Marketplace, o bien incluir discos de datos en imágenes personalizadas usadas para crear las máquinas virtuales. Al incluir discos de datos, deberá montar y dar formato a los discos desde una máquina virtual para usarlos.
 
-- La **configuración de Cloud Services**, que especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona *solo* nodos de proceso Windows.
+* La **Configuración de Cloud Services**, que especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona *solo* nodos de ejecución Windows.
 
     La lista de los sistemas operativos disponibles para los grupos de configuración de Cloud Services aparece en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando crea un grupo que contiene nodos de Cloud Services, debe especificar el tamaño del nodo y su *familia de sistema operativo*. Cloud Services se implementa en Azure de forma más rápida que las máquinas virtuales que ejecutan Windows. Si desea grupos de nodos de proceso Windows, es posible que Cloud Services proporcione una mejora en el rendimiento en términos de tiempo de implementación.
 
@@ -142,7 +146,6 @@ Al crear un grupo de Batch, puede especificar la configuración de máquina virt
     * Como con los roles de trabajo, se recomienda que se especifique `*` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
 
 Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, en función del sistema operativo de la imagen base de su VHD. Puede obtener una asignación de identificadores de SKU de agentes de nodos disponibles a sus referencias de imágenes del sistema operativo mediante una llamada a la operación [List supported node agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Lista de SKU admitidas de agentes de nodos).
-
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imágenes personalizadas de grupos de máquinas virtuales
 
@@ -160,15 +163,14 @@ Para más información, vea [Ejecución de aplicaciones de contenedor de Docker 
 
 Al crear un grupo, puede especificar los tipos de nodos de proceso que le interesan y un número de destino para cada uno. Los dos tipos de nodos de proceso son los siguientes:
 
-- **Nodos de proceso dedicados.** Los nodos de proceso dedicados están reservados para las cargas de trabajo que usted tenga. Son más caros que los nodos de prioridad baja, pero se garantiza que nunca se verán reemplazados.
+* **Nodos de proceso dedicados.** Los nodos de proceso dedicados están reservados para las cargas de trabajo que usted tenga. Son más caros que los nodos de prioridad baja, pero se garantiza que nunca se verán reemplazados.
 
-- **Nodos de proceso de prioridad baja.** Los nodos de prioridad baja aprovechan la capacidad sobrante en Azure para ejecutar las cargas de trabajo de Batch. Los nodos de prioridad baja son menos costosos por hora que los nodos dedicados y habilitan las cargas de trabajo que requieren una gran potencia de proceso. Para obtener más información, vea [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Usar máquinas virtuales de prioridad baja con Batch).
+* **Nodos de proceso de prioridad baja.** Los nodos de prioridad baja aprovechan la capacidad sobrante en Azure para ejecutar las cargas de trabajo de Batch. Los nodos de prioridad baja son menos costosos por hora que los nodos dedicados y habilitan las cargas de trabajo que requieren una considerable potencia de proceso. Para obtener más información, vea [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Usar máquinas virtuales de prioridad baja con Batch).
 
     Los nodos de proceso de prioridad baja pueden verse reemplazados cuando Azure no tiene una capacidad sobrante suficiente. Si se reemplaza un nodo mientras ejecuta tareas, las tareas se vuelven a poner en cola y se ejecutan de nuevo en cuanto está disponible un nodo de proceso. Los nodos de prioridad baja son una buena opción para las cargas de trabajo en las que el tiempo de finalización del trabajo es flexible y el trabajo se distribuye entre muchos nodos. Antes de decidirse a usar nodos de prioridad baja para un escenario, asegúrese de que los trabajos perdidos debido a la preferencia sean mínimos y fáciles de volver a crear.
 
-    
-Puede tener nodos de proceso de prioridad baja y dedicados en el mismo grupo. Cada tipo de nodo (prioridad baja y dedicado) tiene su propia configuración de destino, para la que puede especificar el número deseado de nodos. 
-    
+Puede tener nodos de proceso de prioridad baja y dedicados en el mismo grupo. Cada tipo de nodo (prioridad baja y dedicado) tiene su propia configuración de destino, para la que puede especificar el número deseado de nodos.
+
 El número de nodos de proceso se conoce como *destino* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Por ejemplo, un grupo podría no alcanzar el destino si alcanza primero la [cuota de núcleos](batch-quota-limit.md) de la cuenta de Batch. O bien, el grupo podría no alcanzar el destino si ha aplicado una fórmula de escalado automático al grupo que limita el número máximo de nodos.
 
 Para obtener información sobre los precios de los nodos de proceso de prioridad baja y dedicados, vea [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
@@ -197,7 +199,7 @@ En la mayoría de los escenarios, las tareas funcionan de forma independiente y 
 
 Puede configurar un grupo que permita la **comunicación entre nodos**, de manera que los nodos de un grupo se puedan comunicar en tiempo de ejecución. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Cloud Services pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
 
-Tenga en cuenta que habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y puede limitar el número máximo de nodos en un grupo a causa de las restricciones de implementación. Si la aplicación no requiere comunicación entre los nodos, el servicio Batch puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
+Habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y puede limitar el número máximo de nodos en un grupo a causa de las restricciones de implementación. Si la aplicación no requiere comunicación entre los nodos, el servicio Batch puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
 
 ### <a name="start-tasks-for-compute-nodes"></a>Tareas de inicio para nodos de proceso
 
@@ -216,8 +218,8 @@ Puede especificar los [paquetes de aplicación](#application-packages) que se im
 
 Puede especificar la subred de una [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo. Consulte la sección Configuración de la red del grupo para más información.
 
-
 ## <a name="job"></a>Trabajo
+
 Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas realizan el cálculo en los nodos de proceso de un grupo.
 
 * El trabajo especifica el **grupo** en el que se va a ejecutar el trabajo. Puede crear un grupo para cada trabajo o usar uno solo para muchos de ellos. Puede crear un grupo para cada trabajo asociado con una programación de trabajo o para todos los trabajos asociados con ella.
@@ -227,12 +229,14 @@ Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas r
     Puede establecer un **tiempo de reloj máximo**, de modo que si un trabajo lleva más tiempo que el especificado, el trabajo y todas sus tareas se finalizarán.
 
     Batch puede detectar tareas con errores y después volver a intentarlas. Puede especificar el **número máximo de reintentos de tarea** como restricción. Puede incluso especificar si una tarea se debe reintentar *siempre* o no se debe reintentar *nunca*. Volver a intentar una tarea significa que la tarea se vuelve a poner en cola para ejecutarse de nuevo.
+
 * La aplicación cliente puede agregar tareas a un trabajo o puede especificar una [tarea del administrador de trabajos](#job-manager-task). Una tarea del administrador de trabajos contiene la información necesaria para crear las tareas que se requieren para un trabajo. Estas tareas se ejecutan en uno de los nodos de proceso del grupo. El servicio Batch controla específicamente las tareas del administrador de trabajos: las pone en cola en cuanto se crea el trabajo y las reinicia si se produce un error. Se *requiere* una tarea del administrador de trabajos para los trabajos creados mediante una [programación de trabajo](#scheduled-jobs), ya que es la única manera de definir las tareas antes de que se cree una instancia del trabajo.
 * De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] en .NET de Batch) en *terminatejob* para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
 
-    Tenga en cuenta que el servicio Batch considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si desea usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete** de cada trabajo nuevo en *noaction* y, después, establecerla en *terminatejob*, pero solo después de que haya terminado de agregar tareas al trabajo.
+    El servicio Batch considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si desea usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete** de cada trabajo nuevo en *noaction* y, después, establecerla en *terminatejob*, pero solo después de que haya terminado de agregar tareas al trabajo.
 
 ### <a name="job-priority"></a>prioridad del trabajo
+
 Puede asignar una prioridad a los trabajos que cree en Batch. El servicio Batch usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Para actualizar la prioridad de un trabajo, llame a la operación [Actualizar las propiedades de un trabajo][rest_update_job] (REST de Batch) o modifique la propiedad [CloudJob.Priority][net_cloudjob_priority] (Batch para .NET).
 
 Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad mayor en una cuenta no tiene precedencia de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente.
@@ -240,16 +244,18 @@ Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de
 La programación de trabajos entre los grupos es independiente. Entre grupos diferentes, no se garantiza que un trabajo con una prioridad más alta se programe antes si el grupo asociado tiene pocos nodos inactivos. En el mismo grupo, los trabajos con el mismo nivel de prioridad tienen la misma probabilidad de ser programados.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
+
 Las [programaciones de trabajos][rest_job_schedules] permiten crear trabajos recurrentes dentro del servicio Batch. Una programación de trabajo especifica cuándo se deben ejecutar los trabajos e incluye las especificaciones de los trabajos que se van a ejecutar. Puede especificar la duración de la programación (cuánto dura y cuándo está vigente), y con qué frecuencia se crean trabajos durante el período programado.
 
 ## <a name="task"></a>Tarea
+
 Una tarea es una unidad de cálculo que está asociada con un trabajo. Se ejecuta en un nodo. Las tareas se asignan a un nodo para su ejecución o se ponen en cola hasta que quede libre un nodo. Es decir, una tarea ejecuta uno o más programas o scripts en un nodo de proceso para llevar a cabo el trabajo necesario.
 
 Cuando crea una tarea, puede especificar:
 
 * La **línea de comandos** de la tarea. Se trata de la línea de comandos que ejecuta la aplicación o el script en el nodo de proceso.
 
-    Es importante comprobar que la línea de comandos no se ejecute realmente en un shell. Por tanto, no se podrá beneficiar de forma nativa de las características de shell como la expansión de [variables de entorno](#environment-settings-for-tasks) (esto incluye `PATH`). Para beneficiarse de estas características, debe invocar el shell en la línea de comandos, por ejemplo, iniciando `cmd.exe` en nodos de Windows o `/bin/sh` en Linux:
+    Es importante comprobar que la línea de comandos no se ejecute en un shell. Por tanto, no se podrá beneficiar de forma nativa de las características de shell como la expansión de [variables de entorno](#environment-settings-for-tasks) (esto incluye `PATH`). Para beneficiarse de estas características, debe invocar el shell en la línea de comandos, por ejemplo, iniciando `cmd.exe` en nodos de Windows o `/bin/sh` en Linux:
 
     `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
@@ -274,6 +280,7 @@ Además de las tareas que se definen para realizar cálculos en un nodo, el serv
 * [Dependencias de las tareas](#task-dependencies)
 
 ### <a name="start-task"></a>Tarea de inicio
+
 Al asociar una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos. Por ejemplo, puede realizar acciones como instalar las aplicaciones que las tareas ejecutan o iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
 
 Una de las principales ventajas de la tarea de inicio es que puede contener toda la información necesaria para configurar un nodo de proceso e instalar las aplicaciones necesarias para ejecutar tareas. Por lo tanto, aumentar el número de nodos en un grupo es tan simple como especificar el nuevo número de nodos de destino. La tarea de inicio proporciona al servicio Batch la información necesaria para configurar los nuevos nodos y prepararlos para aceptar tareas.
@@ -299,6 +306,7 @@ Si agrega una tarea de inicio a un grupo existente o la actualiza, debe reinicia
 >
 
 ### <a name="job-manager-task"></a>Tareas del Administrador de trabajos
+
 Normalmente, se utiliza una **tarea del administrador de trabajos** para controlar y supervisar la ejecución del trabajo: por ejemplo, para crear y enviar las tareas de un trabajo, determinar las tareas adicionales que se deben ejecutar y determinar si el trabajo ha finalizado. Sin embargo, una tarea del administrador de trabajos no se limita a estas actividades. Es una tarea completa que puede realizar todas las acciones que se requieren para el trabajo. Por ejemplo, una tarea del administrador de trabajos podría descargar un archivo especificado como un parámetro, analizar el contenido de ese archivo y enviar tareas adicionales en función de ese contenido.
 
 Una tarea del administrador de trabajos se inicia antes que cualquier otra. Ofrece las siguientes características:
@@ -311,6 +319,7 @@ Una tarea del administrador de trabajos se inicia antes que cualquier otra. Ofre
 * Una tarea del Administrador de trabajos de un trabajo no tiene prioridad sobre las tareas de otros trabajos. Entre trabajos, solo se tienen en cuenta las prioridades de nivel de trabajo.
 
 ### <a name="job-preparation-and-release-tasks"></a>Tareas de preparación y liberación de trabajos
+
 El servicio Batch proporciona la tarea de preparación del trabajo para la configuración de ejecución previa al trabajo. Tareas de liberación del trabajo para el mantenimiento o la limpieza posteriores al trabajo.
 
 * **Tarea de preparación del trabajo**: una tarea de preparación del trabajo se ejecuta en todos los nodos de proceso programados para ejecutar tareas, antes de que se ejecute ninguna otra tarea del trabajo. Por ejemplo, puede usar una tarea de preparación del trabajo para copiar los datos compartidos por todas las tareas, pero que sean únicos para el trabajo.
@@ -321,11 +330,13 @@ Tanto para la tarea de preparación del trabajo como para las de liberación, pu
 Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de proceso de Azure Batch](batch-job-prep-release.md).
 
 ### <a name="multi-instance-task"></a>Tarea de instancias múltiples
+
 Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento que requieren tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única como, por ejemplo, la interfaz de paso de mensajes (MPI).
 
 Para ver una explicación detallada sobre la ejecución de trabajos de MPI en el servicio Batch mediante la biblioteca .NET de Batch, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Azure Batch](batch-mpi.md).
 
 ### <a name="task-dependencies"></a>Dependencias de las tareas
+
 Las [dependencias de tareas](batch-task-dependencies.md), como el propio nombre implica, permiten especificar que una tarea depende de que se completen otras tareas antes de su ejecución. Esta característica proporciona compatibilidad con aquellas situaciones en las que una tarea "de bajada" consume el resultado de una tarea "del canal de subida", o cuando una tarea del canal de subida realiza alguna inicialización requerida por una tarea de bajada. Para utilizar esta característica, primero debe habilitar las dependencias de tareas en su trabajo de Batch. Luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende dicha tarea.
 
 Con las dependencias de tareas, se pueden configurar escenarios como los siguientes:
@@ -337,6 +348,7 @@ Con las dependencias de tareas, se pueden configurar escenarios como los siguien
 Consulte [Dependencias de tareas en Azure Batch](batch-task-dependencies.md) y el código de ejemplo de [TaskDependencies][github_sample_taskdeps] en el repositorio de ejemplos de GitHub [azure-batch-samples][github_samples] para información más detallada acerca de esta característica.
 
 ## <a name="environment-settings-for-tasks"></a>Configuración del entorno para las tareas
+
 Cada tarea que ejecuta el servicio Batch tiene acceso a las variables de entorno que establece en los nodos de proceso. Esto incluye las variables de entorno definidas por el servicio Batch ([definidas por el servicio][msdn_env_vars]) y las variables de entorno personalizadas que se pueden definir para las tareas. Las aplicaciones y los scripts que ejecutan las tareas tienen acceso a estas variables de entorno durante la ejecución.
 
 Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Add a task to a job][rest_add_task] (Incorporación de una tarea a un trabajo) (API REST de Batch) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en Batch para .NET.
@@ -346,6 +358,7 @@ La aplicación cliente o el servicio pueden obtener las variables de entorno de 
 Puede encontrar una lista completa de las variables de entorno definidas por el servicio en [Compute node environment variables][msdn_env_vars] (Variables de entorno en los nodos de proceso).
 
 ## <a name="files-and-directories"></a>Archivos y directorios
+
 Cada tarea tiene un *directorio de trabajo* en el que se crean ninguno o más archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
 
 El servicio Batch expone parte del sistema de archivos en un nodo como *directorio raíz*. Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR` . Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](#environment-settings-for-tasks).
@@ -354,9 +367,19 @@ El directorio raíz contiene la siguiente estructura de directorio:
 
 ![Estructura de directorio de nodo de proceso][1]
 
+* **applications**: contiene información acerca de los detalles de los paquetes de aplicación instalados en el nodo de ejecución. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_APP_PACKAGE` .
+
+* **fsmounts**: el directorio contiene cualquier sistema de archivos montado en un nodo de ejecución. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_MOUNTS_DIR` . Para más información, consulte [Montaje de un sistema de archivos virtual en un grupo de Batch](virtual-file-mount.md).
+
 * **shared**: este directorio proporciona acceso de lectura y escritura a *todas* las tareas que se ejecutan en un nodo. Toda tarea que se ejecute en el nodo puede crear, leer, actualizar y eliminar archivos en este directorio. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_SHARED_DIR` .
+
 * **startup**: una tarea de inicio usa este directorio como directorio de trabajo. Aquí se almacenan todos los archivos que la tarea de inicio descarga en el nodo. La tarea de inicio puede crear, leer, actualizar y eliminar archivos en este directorio. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_STARTUP_DIR` .
-* **Tareas**: se crea un directorio para cada tarea que se ejecuta en el nodo. Se puede acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR` .
+
+* **volatile**: este directorio es para fines internos. No hay ninguna garantía de que los archivos de este directorio o el propio directorio existan en el futuro.
+
+* **workitems**: este directorio contiene los directorios de los trabajos y sus tareas en el nodo de ejecución.
+
+* **Tareas**: en el directorio **workitems**, se crea un directorio para cada tarea que se ejecuta en el nodo. Se puede acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR`.
 
     Dentro de cada directorio de la tarea, el servicio Batch crea un directorio de trabajo (`wd`) cuya ruta de acceso único se especifica con la variable de entorno `AZ_BATCH_TASK_WORKING_DIR`. Este directorio proporciona acceso de lectura y escritura a la tarea. La tarea puede crear, leer, actualizar y eliminar archivos en este directorio. Este directorio se conserva en función de la restricción *RetentionTime* especificada para la tarea.
 
@@ -368,6 +391,7 @@ El directorio raíz contiene la siguiente estructura de directorio:
 >
 
 ## <a name="application-packages"></a>paquetes de aplicación
+
 La característica de [paquetes de aplicación](batch-application-packages.md) permite administrar e implementar fácilmente aplicaciones en los nodos de proceso de los grupos. Puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos sus archivos binarios y auxiliares. A continuación, se pueden implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
 
 Los paquetes de aplicaciones se pueden especificar a nivel de grupo y de tarea. Si se especifican paquetes de aplicación de grupo, la aplicación se implementa en todos los nodos del grupo. Si se especifican paquetes de aplicación de tarea, la aplicación se implementa solo en los nodos que tienen programado ejecutar al menos una de las tareas del trabajo, inmediatamente antes que se ejecute la línea de comandos de la tarea.
@@ -382,6 +406,7 @@ Para más información sobre la característica de paquete de aplicación, consu
 >
 
 ## <a name="pool-and-compute-node-lifetime"></a>Vigencia de grupo y nodo de proceso
+
 Al diseñar la solución de Azure Batch, se debe tomar una decisión de diseño con respecto a cómo y cuándo se crean los grupos y cuánto tiempo se mantendrán disponibles los nodos de proceso dentro de esos grupos.
 
 Por una parte, puede crear un grupo para cada trabajo que envíe el trabajo y eliminarlo a medida que se terminen de ejecutar las tareas. De esta manera, se maximiza su uso dado que los nodos solo se asignan cuando es necesario y se apagan en cuanto se vuelven inactivos. Aunque esto significa que el trabajo debe esperar a que se asignen los nodos, es importante tener en cuenta que las tareas se programarán para su ejecución tan pronto como los nodos estén disponibles de forma individual, se asignen y se haya completado la tarea de inicio. Batch *no* espera a que todos los nodos de un grupo estén disponibles antes de asignarles tareas. Esto garantiza la utilización máxima de todos los nodos disponibles.
@@ -395,11 +420,13 @@ Normalmente, se utiliza un enfoque combinado para controlar una carga variable, 
 Al aprovisionar un grupo de nodos de proceso en Batch, dicho grupo se puede asociar a una subred de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).  
 
 ### <a name="vnet-requirements"></a>Requisitos de la red virtual
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Para más información sobre cómo configurar un grupo de Batch en una red virtual, consulte [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Creación de un grupo de máquinas virtuales con la red virtual).
 
 ## <a name="scaling-compute-resources"></a>Escalado de recursos de proceso
+
 Con el [escalado automático](batch-automatic-scaling.md), el servicio Batch puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos en el escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no.
 
 Para habilitar el escalado automático, escriba una [fórmula de escalado automático](batch-automatic-scaling.md#automatic-scaling-formulas) y asóciela con un grupo. El servicio Batch usa la fórmula para determinar el número objetivo de nodos del grupo para el siguiente intervalo de escalado (un intervalo que puede configurar). Puede especificar la configuración de escalado automático para un grupo cuando lo cree o habilitar el escalado en un grupo más adelante. También puede actualizar la configuración de escalado en un grupo habilitado para el escalado.
@@ -422,6 +449,7 @@ Para obtener más información sobre cómo escalar automáticamente una aplicaci
 >
 
 ## <a name="security-with-certificates"></a>Seguridad con certificados
+
 Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Azure Storage][azure_storage]. Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
 Use la operación [Agregar certificado][rest_add_cert] (REST de Batch) o el método [CertificateOperations.CreateCertificate][net_create_cert] (Batch para .NET) para agregar un certificado a una cuenta de Batch. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Batch instala el certificado en cada nodo del grupo. El servicio Batch instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del administrador de trabajos).
@@ -429,9 +457,11 @@ Use la operación [Agregar certificado][rest_add_cert] (REST de Batch) o el mét
 Si se agregan certificados a un grupo *existente* , es preciso reiniciar los nodos de proceso de los certificados que se van a aplicar a los nodos.
 
 ## <a name="error-handling"></a>Control de errores
+
 Esta operación puede ser necesaria para controlar los errores de las tareas y las aplicaciones en la solución de Batch.
 
 ### <a name="task-failure-handling"></a>Control de errores de tareas
+
 Los errores de las tareas se incluyen en estas categorías:
 
 * **Errores de procesamiento previo**
@@ -459,6 +489,7 @@ Los errores de las tareas se incluyen en estas categorías:
     Cuando se supere la cantidad máxima de tiempo, la tarea se marcará como *completada* pero el código de salida se establecerá en `0xC000013A` y el campo *schedulingError* se marcará como `{ category:"ServerError", code="TaskEnded"}`.
 
 ### <a name="debugging-application-failures"></a>Depuración de errores de aplicación
+
 * `stderr` y `stdout`
 
     Durante la ejecución, una aplicación produce resultados de diagnóstico que se pueden usar para la solución de problemas. Como se mencionó en la sección anterior llamada [Archivos y directorios](#files-and-directories), el servicio Batch escribe resultados de salida estándar y error estándar en los archivos `stdout.txt` y `stderr.txt` ubicados en el directorio de la tarea en el nodo de proceso. Para descargar estos archivos, puede usar Azure Portal, o bien uno de los SDK de Batch. Por ejemplo, puede recuperar estos y otros archivos para solucionar problemas con [ComputeNode.GetNodeFile][net_getfile_node] y [CloudTask.GetNodeFile][net_getfile_task] en la biblioteca de Batch para .NET.
@@ -468,11 +499,13 @@ Los errores de las tareas se incluyen en estas categorías:
     Como ya se mencionó anteriormente, el servicio Batch marcará una tarea como con errores si el proceso ejecutado por la tarea devuelve un código de salida distinto de cero. Cuando una tarea ejecuta un proceso, Batch rellena la propiedad de código de salida de la tarea con el *código de retorno del proceso*. Es importante tener en cuenta que el código de salida de una tarea **no** lo determina el servicio Batch. El código de salida de una tarea lo determina el proceso en sí o el sistema operativo en que se ejecuta el proceso.
 
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Consideraciones sobre errores o interrupciones
+
 En ocasiones, las tareas pueden presentar errores o interrumpirse. Se podría producir un error en la propia aplicación de la tarea, se podría reiniciar el nodo donde se ejecuta la tarea o se podría quitar el nodo del grupo durante una operación de cambio de tamaño si la directiva de desasignación del grupo está configurada para quitar los nodos de inmediato, sin esperar a que finalicen las tareas. En todos los casos, el servicio Batch puede volver a poner la tarea automáticamente en la cola para ejecutarla en otro nodo.
 
 También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el intervalo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpe la aplicación de la tarea.
 
 ### <a name="connecting-to-compute-nodes"></a>Conexión a los nodos de proceso
+
 Puede realizar tareas adicionales de depuración y solución de problemas si se inicia una sesión remota en un nodo de proceso. Puede usar Azure Portal para descargar un protocolo de escritorio remoto (RDP) para los nodos de Windows y obtener información de conexión de Secure Shell (SSH) para los nodos de Linux. También puede hacer esto con las API de Batch, como [.NET de Batch][net_rdpfile] o [Python de Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
@@ -483,11 +516,12 @@ Puede realizar tareas adicionales de depuración y solución de problemas si se 
 Si debe restringir o deshabilitar el acceso de los protocolos RDP o SSH a los nodos de proceso, consulte [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md) (Configuración o deshabilitación del acceso remoto a los nodos de proceso de un grupo de Azure Batch).
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Solución de problemas de nodos de proceso problemáticos
+
 Si algunas de las tareas producen errores, el servicio o la aplicación de cliente de Batch pueden examinar los metadatos de las tareas con errores para identificar un nodo con un comportamiento incorrecto. Cada nodo de un grupo recibe un identificador único y el nodo en el que se ejecuta una tarea se incluye en los metadatos de la tarea. Una vez que haya identificado un "nodo problemático", puede llevar a cabo varias acciones con él:
 
 * **Reiniciar el nodo** ([REST][rest_reboot] | [.NET][net_reboot])
 
-    Algunas veces, reiniciar el nodo puede solucionar problemas latentes tales como los procesos bloqueados. Tenga en cuenta que si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
+    Algunas veces, reiniciar el nodo puede solucionar problemas latentes tales como los procesos bloqueados. Si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
 * **Restablecer la imagen inicial del nodo** ([REST][rest_reimage] | [.NET][net_reimage])
 
     Esto reinstala el sistema operativo en el nodo. Al igual que al reiniciar un nodo, las tareas de inicio y las tareas de preparación del trabajo se vuelven a ejecutar después de restablecer la imagen inicial del nodo.
@@ -504,6 +538,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](quick-run-dotnet.md) o [Python](quick-run-python.md). Estas guías de inicio rápido le guían a través de una aplicación de ejemplo que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 * Descargue e instale la utilidad [Batch Explorer][batch_labs] para usarla durante el desarrollo de sus soluciones de Batch. Use Batch Explorer para crear, depurar y supervisar aplicaciones de Azure Batch. 

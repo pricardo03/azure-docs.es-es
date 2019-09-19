@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050912"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859242"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Administración de datos de Excel Online con Azure Logic Apps
 
@@ -53,6 +53,9 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 1. En el desencadenador, elija **New step** (Nuevo paso).
 
 1. En el cuadro de búsqueda, escriba "excel" como filtro. En la lista de acciones, seleccione la que desee.
+
+   > [!NOTE]
+   > El diseñador de aplicaciones lógicas no puede cargar tablas que tienen cien columnas, o más. Si es posible, reduzca el número de columnas de la tabla seleccionada para que el diseñador pueda cargarla.
 
 1. Si se le pide, inicie sesión en la cuenta de Office 365.
 

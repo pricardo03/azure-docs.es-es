@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231089"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860538"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 
 Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
-Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
+Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la página de aterrizaje de su área de trabajo, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
  
 En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
@@ -45,7 +45,7 @@ Azure Machine Learning Service tiene distintas modalidades de soporte técnico e
 
 ## <a name="whats-a-run-configuration"></a>¿En qué consiste una configuración de ejecución?
 
-Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script. 
+Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script.
 
 Todo lo que debe hacer es definir el entorno de cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso. Para obtener más información sobre cómo especificar un entorno y enlazarlo a la configuración de ejecución, consulte [Creación y administración de entornos para el aprendizaje y la implementación](how-to-use-environments.md).
 
@@ -278,6 +278,7 @@ Desde Azure Portal, puede acceder a destinos de proceso que están asociados con
 * [Crear un destino de proceso](#portal-create) en el área de trabajo
 * [Adjuntar un destino de proceso](#portal-reuse) que se creó fuera del área de trabajo
 
+
 Después de crear un destino y de adjuntarlo al área de trabajo, lo utilizará en la configuración de ejecución con un objeto `ComputeTarget`: 
 
 ```python
@@ -290,7 +291,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Para ver los destinos de proceso del área de trabajo, use los pasos siguientes:
 
-1. Navegue hasta [Azure Portal](https://portal.azure.com) y abra el área de trabajo. 
+1. Navegue hasta [Azure Portal](https://portal.azure.com) y abra el área de trabajo. También puede tener acceso a estos mismos pasos en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com), aunque en las imágenes siguientes se muestra Azure Portal.
+ 
 1. En __Aplicaciones__, seleccione __Proceso__.
 
     [![Visualización de la pestaña Proceso](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
@@ -403,11 +405,20 @@ Cambie el mismo experimento para que se ejecute en un destino de proceso diferen
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> De forma predeterminada, en este ejemplo solo se usa un nodo del destino de proceso para el entrenamiento. Para usar más de un nodo, establezca el `node_count` de la configuración de ejecución en el número deseado de nodos. Por ejemplo, el código siguiente establece el número de nodos que se usan para el entrenamiento en cuatro:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 También puede:
 
 * Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
 * Envíe una ejecución de HyperDrive para el [ajuste de hiperparámetros](how-to-tune-hyperparameters.md).
 * Enviar un experimento mediante la [extensión de VS Code](how-to-vscode-tools.md#train-and-tune-models).
+
+Para obtener más información, consulte la documentación de [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) y [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py).
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Creación de una configuración de ejecución y envío de la ejecución mediante la CLI de Azure Machine Learning
 

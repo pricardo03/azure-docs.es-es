@@ -14,12 +14,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: b69488c971d6ab10e0a95e3825be097f8713016d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070439"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801151"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -66,6 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+El punto de conexión anterior no funciona en este momento con App Services de Linux. Considere la posibilidad de usar en su lugar FTP o la [API de implementación de ZIP](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment).
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implementación del archivo ZIP con la CLI de Azure
 

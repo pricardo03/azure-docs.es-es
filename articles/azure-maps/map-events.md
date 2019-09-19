@@ -1,22 +1,22 @@
 ---
-title: Control de los eventos del mouse con Azure Maps | Microsoft Docs
+title: Control de los eventos con Azure Maps | Microsoft Docs
 description: Procedimiento para crear un mapa interactivo de Web SDK con eventos de mapa
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 37a3fc3178fe5caeacedfd355a6065ee189a5890
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c5b4ed73d7bc4d89a67280a0bb183f374ae093d8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976541"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899428"
 ---
-# <a name="interact-with-the-map---mouse-events"></a>Interacción con el mapa: eventos del mouse
+# <a name="interact-with-the-map"></a>Interacción con el mapa
 
 En este artículo se muestra cómo usar la propiedad de [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) para resaltar eventos en el mapa y en distintas capas de este. También se muestra cómo usar la propiedad de eventos clase Map para resaltar los eventos cuando se interactúa con un marcador HTML.
 
@@ -46,6 +46,61 @@ El código siguiente agrega eventos de mapa JavaScript a un marcador HTML. Tambi
 
 <iframe height='500' scrolling='no' title='Interacción con el mapa: eventos del marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacción con el mapa: eventos del marcador HTML</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+En la siguiente tabla se muestran todos los eventos de clase de mapa admitidos.
+
+| Evento             | DESCRIPCIÓN |
+|-------------------|-------------|
+| boxzoomend        | Se genera cuando finaliza una interacción "zoom del cuadro".|
+| boxzoomstart      | Se genera cuando se inicia una interacción "zoom del cuadro".|
+| click             | Se genera cuando se presiona un dispositivo señalador y se libera en el mismo punto del mapa.|
+| close             | Se genera cuando se cierra manualmente o mediante programación el elemento emergente.|
+| contextmenu       | Se genera cuando se hace clic en el botón derecho del mouse.|
+| dataadded         | Se genera cuando se agregan formas a DataSource.|
+| dataremoved       | Se genera cuando se quitan formas de DataSource.|
+| datasourceupdated | Se genera cuando se actualiza el objeto DataSource.|
+| dblclick          | Se genera cuando se hace doble clic en un dispositivo señalador en el mismo punto del mapa.|
+| drag              | Se genera repetidamente durante una interacción "arrastrar para obtener panorámica" en el mapa, elemento emergente o marcador HTML.|
+| dragend           | Se genera cuando finaliza una interacción "arrastrar para obtener panorámica" en el mapa, elemento emergente o marcador HTML.|
+| dragstart         | Se genera cuando se inicia una interacción "arrastrar para obtener panorámica" en el mapa, elemento emergente o marcador HTML.|
+| error             | Se genera cuando se produce un error.|
+| keydown           | Se genera cuando se presiona una tecla.|
+| keypress          | Se genera cuando se presiona una tecla que produce un carácter que se puede escribir (una tecla ANSI).|
+| keyup             | Se genera cuando se libera una tecla.|
+| layeradded        | Se genera cuando se agrega una capa al mapa.|
+| load              | Se genera inmediatamente después de que se hayan descargado todos los recursos necesarios y de que se haya producido la primera representación visualmente completa del mapa.|
+| mousedown         | Se genera cuando se presiona un dispositivo señalador en el mapa.|
+| mousemove         | Se genera cuando se mueve un dispositivo señalador en el mapa.|
+| mouseout          | Se genera cuando un dispositivo señalador deja el lienzo del mapa.|
+| mouseover         | Se genera cuando se mueve un dispositivo señalador en el mapa.|
+| mouseup           | Se genera cuando se libera un dispositivo señalador en el mapa.|
+| mover              | Se genera repetidamente durante una transición animada desde una vista a otra, como resultado de la interacción del usuario o los métodos.|
+| moveend           | Se genera justo después de que el mapa complete una transición desde una vista a otra, como resultado de la interacción del usuario o los métodos.|
+| movestart         | Se genera justo antes de que el mapa inicie una transición desde una vista a otra, como resultado de la interacción del usuario o los métodos.|
+| abierto              | Se genera cuando se abre manualmente o mediante programación el elemento emergente.|
+| pitch             | Se genera cuando el evento pitch (inclinación) del mapa cambia como resultado de la interacción del usuario o los métodos.|
+| pitchend          | Se genera inmediatamente después de que el evento pitch (inclinación) del mapa termine de cambiar como resultado de la interacción del usuario o los métodos.|
+| pitchstart        | Se genera si el evento pitch (inclinación) del mapa inicia un cambio como resultado de la interacción del usuario o los métodos.|
+| ready             | Se genera cuando se cargan los recursos de asignación necesarios mínimos antes de que el mapa esté listo para que se interactúe con él mediante programación.|
+| render            | <p> Se genera siempre que se dibuje el mapa en la pantalla, como resultado de:<ul><li>Un cambio en la posición, el zoom, el evento pitch o el rumbo del mapa.</li><li>Un cambio en el estilo del mapa.</li><li>Un cambio en un origen DataSource.</li><li>La carga de un corte vectorial, un archivo GeoJSON, un glifo o un sprite.</li></ul></p>|
+| resize            | Se genera inmediatamente después de que se haya cambiado el tamaño del mapa.|
+| rotate            | Se genera repetidamente durante una interacción "arrastrar para girar".|
+| rotateend         | Se genera cuando finaliza una interacción "arrastrar para girar".|
+| rotatestart       | Se genera cuando se inicia una interacción "arrastrar para girar".|
+| shapechanged      | Se genera cuando se cambia una propiedad del objeto de forma.|
+| sourceadded       | Se genera cuando se agrega al mapa DataSource o VectorTileSource.|
+| sourceremoved     | Se genera cuando se quita del mapa DataSource o VectorTileSource.|
+| styledata         | Se genera cuando se carga o cambia el estilo del mapa.|
+| tokenacquired     | Se genera cuando se obtiene un token de acceso de AAD.|
+| touchcancel       | Se genera cuando se produce un evento touchcancel en el mapa.|
+| touchend          | Se genera cuando se produce un evento touchend en el mapa.|
+| touchmove         | Se genera cuando se produce un evento touchmove en el mapa.|
+| touchstart        | Se genera cuando se produce un evento touchstart en el mapa.|
+| wheel             | Se genera cuando se produce un evento wheel del mouse en el mapa.|
+| zoom              | Se genera repetidamente durante una transición animada desde un nivel de zoom a otro, como resultado de la interacción del usuario o los métodos.|
+| zoomend           | Se genera justo después de que el mapa complete una transición desde un nivel de zoom a otro, como resultado de la interacción del usuario o los métodos.|
+| zoomstart         | Se genera justo antes de que el mapa inicie una transición desde un nivel de zoom a otro, como resultado de la interacción del usuario o los métodos.|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

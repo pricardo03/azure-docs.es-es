@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 74d345249e1cbaeb45a1a35d3c3d2f61a4c0b9cf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032966"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858694"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -140,7 +140,7 @@ Si ve directamente el área de trabajo desde un vínculo de recurso compartido d
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Portal](https://portal.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.
+A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Portal](https://portal.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.  Esta información también se puede encontrar en la sección **Experimentos** de la [página de aterrizaje de su área de trabajo (versión preliminar)](https://ml.azure.com).
 
 > [!NOTE]
 > Azure Machine Learning Service registra información de varios orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Muchos de estos registros no están documentados. Si encuentra problemas y se pone en contacto con el soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.

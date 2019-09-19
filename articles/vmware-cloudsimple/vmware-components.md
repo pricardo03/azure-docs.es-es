@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972356"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814574"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nube privada
 
@@ -30,10 +30,10 @@ Una pila de VMware de nube privada se implementa con la versión de software sig
 
 | Componente | Versión | Versión con licencia |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise Plus |
-| vCenter | 6.7U1 | vCenter estándar |
+| ESXi | 6.7U2 | Enterprise Plus |
+| vCenter | 6.7U2 | vCenter estándar |
 | vSAN | 6.7 | Enterprise |
-| NSX Data Center | 2.3 | Avanzado |
+| NSX Data Center | 2.4.1 | Avanzado |
 
 ## <a name="esxi"></a>ESXi
 

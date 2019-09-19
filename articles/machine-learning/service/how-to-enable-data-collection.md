@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227945"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860524"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
@@ -144,6 +144,8 @@ Puede dejar de recopilar datos en cualquier momento. Use el código de Python o 
 
   1. Seleccione **Actualizar** para aplicar el cambio.
 
+  También puede acceder a esta configuración en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+
 + Opción 2: uso de Python para deshabilitar la recopilación de datos:
 
   ```python 
@@ -172,7 +174,7 @@ Para acceder rápidamente a los datos del blob:
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Análisis de los datos del modelo con Power BI
 
-1. Descargue y abra [Power BI Desktop](https://www.powerbi.com).
+1. Descargue y abra [Power BI Desktop](https://www.powerbi.com).
 
 1. Seleccione **Obtener datos** y haga clic en [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 

@@ -7,17 +7,17 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, procesamiento de eventos, proceso, arquitectura sin servidor, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5aa0763206289305e98960b6e03ad903eb4547ae
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342248"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70744030"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creación de la primera función de Azure con Java e IntelliJ
 
@@ -52,8 +52,8 @@ Para desarrollar una función con Java e IntelliJ, instale el software siguiente
 1. En la ventana **Add Archetype** (Agregar arquetipo), complete los campos como se indica a continuación:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Versión_: use la versión más reciente del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Creación de un proyecto de Maven a partir de arquetipo en IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png).  
+    - _Versión_: utilice la versión más reciente, **1.22**, del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Creación de un proyecto de Maven a partir de un arquetipo de IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Seleccione **Aceptar** y después **Siguiente**.
 1. Especifique los detalles del proyecto actual y seleccione **Finish** (Finalizar).
 
@@ -87,13 +87,13 @@ Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre qu
 1. Complete los campos _Name_ (Nombre) y _Settings_ (Configuración) y, a continuación, seleccione **OK** para guardar la configuración.
 1. Después de la configuración, seleccione **Debug < Remote Configuration Name >** (Depurar <Nombre de configuración remota>) o presione MAYÚS + F9 en el teclado para iniciar la depuración.
 
-   ![Depuración de funciones en IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+   ![Depuración de funciones en IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Cuando termine, detenga el depurador y el proceso en ejecución. Solo puede haber un host de función activo y en ejecución en el entorno local a la vez.
 
 ## <a name="deploy-the-function-to-azure"></a>Implementación de la función en Azure
 
-1. Antes de poder implementar su función en Azure, debe [iniciar sesión mediante la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Para poder implementar su función en Azure, debe [iniciar sesión mediante la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login

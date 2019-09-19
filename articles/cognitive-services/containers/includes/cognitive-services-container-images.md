@@ -1,18 +1,27 @@
 ---
-ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+title: Repositorios e imágenes de contenedor
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/06/2019
+ms.author: dapine
+ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051238"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775897"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
 Las tablas siguientes son una lista completa de las imágenes de contenedor disponibles que ofrece Azure Cognitive Services.
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>Público (registro de contenedor: `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>"No validado" público (registro de contenedor: `mcr.microsoft.com`)
 
-Microsoft Container Registry hospeda todos los contenedores de disponibilidad general (GA) para Cognitive Services.
+Microsoft Container Registry hospeda todos los contenedores "no validados" con disponibilidad general (GA) para Cognitive Services.
 
 | Servicio | Contenedor | Container Registry/repositorio/nombre de imagen |
 |--|--|--|
@@ -21,9 +30,9 @@ Microsoft Container Registry hospeda todos los contenedores de disponibilidad g
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análisis de sentimiento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>Versión preliminar pública (registro de contenedor: `containerpreview.azurecr.io`)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Versión preliminar pública "validada" (registro de contenedor: `containerpreview.azurecr.io`)
 
-El registro de la versión preliminar del contenedor hospeda todos los contenedores de "versión preliminar pública" para Cognitive Services que aún no hayan cambiado a disponibilidad general (GA). Estos contenedores requieren una solicitud formal de acceso para poder consumirlos.
+La versión preliminar del registro de contenedor hospeda todos los contenedores "validados" con disponibilidad general para Cognitive Services. Estos contenedores requieren una solicitud formal de acceso para poder consumirlos.
 
 | Servicio | Contenedor | Container Registry/repositorio/nombre de imagen |
 |--|--|--|

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: 7fe35edfbfc8f50aa9428e41e7d807a0838417ec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259624"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844775"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
@@ -43,7 +43,7 @@ El propietario no puede elegir un subconjunto de las aplicaciones que se van a m
 La migración no es: 
 
 * Un proceso que recopila colaboradores y que se mueve o agrega automáticamente al recurso de creación de Azure. Como propietario de la aplicación, usted debe completar este paso. Este paso requiere permisos para el recurso adecuado.
-* Proceso para crear y asignar un recurso de predicción en tiempo de ejecución. Si necesita un recurso de predicción en tiempo de ejecución, se trata de [un proceso independiente](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal) que no se modifica. 
+* Proceso para crear y asignar un recurso de predicción en tiempo de ejecución. Si necesita un recurso de predicción en tiempo de ejecución, se trata de [un proceso independiente](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) que no se modifica. 
 
 ## <a name="how-are-the-apps-migrating"></a>¿Cómo se migran las aplicaciones?
 
@@ -62,7 +62,9 @@ Puede retrasar el proceso de migración si cancela la ventana. Se le pedirá per
 
 * **De manera opcional**, haga una copia de seguridad de las aplicaciones desde la lista de aplicaciones del portal de LUIS; para ello, exporte cada aplicación o use la [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) de exportación.
 * **Opcionalmente**, guarde la lista del colaborador de cada aplicación. Esta lista de correo electrónico se proporciona como parte del proceso de migración.
-* **Obligatorio**, debe tener una [suscripción a Azure](https://azure.microsoft.com/free/). Una parte del proceso de suscripción requiere información de facturación. Sin embargo, puede usar los planes de tarifa gratis (F0) cuando use LUIS. Es posible que necesite encontrar un nivel de pago a medida que aumente su uso. 
+* **Obligatorio**, debe tener una [suscripción a Azure](https://azure.microsoft.com/free/). Una parte del proceso de suscripción requiere información de facturación. Sin embargo, puede usar el plan de tarifa gratis (`F0`) cuando use LUIS. 
+
+**La creación de la aplicación de LUIS es gratuita**, lo que viene indicado por el nivel `F0`. [Más información sobre planes de tarifa](luis-boundaries.md#key-limits).
 
 Si no tiene una suscripción a Azure, [suscríbase](https://azure.microsoft.com/free/). 
 
@@ -91,7 +93,7 @@ Puede optar por exportar una aplicación en la que sea colaborador y, a continua
 
 ### <a name="after-the-app-is-migrated"></a>Después de migrar la aplicación
 
-Después del proceso de migración, es necesario que el propietario de la aplicación lo agregue al recurso de creación de Azure.  
+Después del proceso de migración, si necesita acceso a la aplicación original, es necesario que el propietario de la aplicación lo agregue al recurso de creación de Azure como colaborador.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

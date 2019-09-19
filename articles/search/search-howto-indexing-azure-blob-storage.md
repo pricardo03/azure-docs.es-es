@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 902887c2a765fa50c7075cbdcb835f53e84f583f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208273"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842533"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -337,7 +337,7 @@ La indización de blobs puede ser un proceso lento. En los casos donde hay millo
 
 Es posible que quiera "ensamblar" documentos de varios orígenes en el índice. Por ejemplo, puede que quiera combinar texto de blobs con otros metadatos almacenados en Cosmos DB. Incluso puede usar la API de indexación de inserción junto con varios indexadores para crear documentos de búsqueda a partir de varias partes. 
 
-Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, consulte este artículo externo: [Combine documents with other data in Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinación de documentos con otros datos en Azure Search).
+Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para más información sobre este tema, consulte [Indexación de varios orígenes datos de Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Para obtener un tutorial detallado, consulte este artículo externo: [Combine documents with other data in Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinación de documentos con otros datos en Azure Search).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexación de texto sin formato 

@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5ae12742c2ad50d5bf1caaf14ae2f6d34bd6d3a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716766"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880790"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C
 
-La capacidad para marcar y personalizar la interfaz de usuario (UI) que Azure Active Directory (Azure AD) B2C ofrece a sus aplicaciones es importante para poder proporcionar una experiencia sin problemas a su cliente. Estas experiencias incluyen las opciones de registro, inicio de sesión, edición de perfiles y restablecimiento de contraseñas. En este artículo se proporciona información que le ayudará a personalizar la interfaz de usuario de sus aplicaciones.
+La capacidad de personalización de la interfaz de usuario que Azure Active Directory B2C (Azure AD B2C) sirve a sus aplicaciones es importante para proporcionar una experiencia sin problemas a los clientes. Estas experiencias incluyen las opciones de registro, inicio de sesión, edición de perfiles y restablecimiento de contraseñas. En este artículo se proporciona información que le ayudará a personalizar la interfaz de usuario de sus aplicaciones.
 
 Dependiendo de sus necesidades en lo que a estas experiencias se refiere, puede personalizar la interfaz de usuario de su aplicación de diferentes maneras. Por ejemplo:
 
@@ -134,6 +134,9 @@ Para obtener ejemplos de personalización, descargue y revise estos [archivos de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si usa flujos de usuario, puede empezar a personalizar la interfaz de usuario con el tutorial: [Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C](tutorial-customize-ui.md).
-- Si va a usar directivas personalizadas, puede empezar a personalizar la interfaz de usuario con el artículo: [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Si utiliza **flujos de usuario**, puede empezar a personalizar la interfaz de usuario con el tutorial:
 
+    [Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C](tutorial-customize-ui.md).
+- Si usa **directivas personalizadas**, puede empezar a personalizar la interfaz de usuario con el artículo:
+
+    [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

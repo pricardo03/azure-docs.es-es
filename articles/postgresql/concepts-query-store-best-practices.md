@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 798a7a3edbf11c8421848871d26ba55b5bada0b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067248"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764235"
 ---
 # <a name="best-practices-for-query-store"></a>Procedimientos recomendados para usar Almacén de consultas
 
-**Se aplica a:** Azure Database for PostgreSQL con un único servidor 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL: Versiones de servidor único 9.6, 10, 11
 
 En este artículo se describen los procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL.
 

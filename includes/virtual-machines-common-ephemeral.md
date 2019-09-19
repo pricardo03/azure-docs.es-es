@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669838"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775895"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
@@ -175,7 +175,7 @@ Puede implementar una máquina virtual con un disco del sistema operativo efíme
 
 
 ## <a name="reimage-a-vm-using-rest"></a>Restablecimiento de la imagen inicial de una máquina virtual mediante REST
-Actualmente, el único método para restablecer la imagen inicial de una instancia de máquina virtual con el disco del sistema operativo efímero consiste en usar la API REST. Para los conjuntos de escalado, el restablecimiento de la imagen inicial ya está disponible mediante PowerShell, la CLI y el portal.
+Puede restablecer la imagen inicial de una instancia de máquina virtual con un disco de sistema operativo efímero mediante la API REST, como se describe a continuación y mediante Azure Portal en el panel Información general de la máquina virtual. Para los conjuntos de escalado, el restablecimiento de la imagen inicial ya está disponible mediante PowerShell, la CLI y el portal.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

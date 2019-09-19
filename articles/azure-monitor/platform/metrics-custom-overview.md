@@ -5,15 +5,15 @@ author: ancav
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254063"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844666"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
@@ -168,15 +168,31 @@ Una vez que las métricas personalizadas se envían a Azure Monitor, puede exami
 ## <a name="supported-regions"></a>Regiones admitidas
 Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. En la tabla siguiente se enumera el conjunto de regiones de Azure admitidas para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:
 
-|Región de Azure|Prefijo del punto de conexión regional|
+|Región de Azure |Prefijo del punto de conexión regional|
 |---|---|
-|Este de EE. UU| https:\//eastus.monitoring.azure.com/ |
+| **EE. UU. y Canadá** | |
+|Centro occidental de EE.UU. | https:\//westcentralus.monitoring.azure.com/ |
+|Oeste de EE. UU. 2       | https:\//westus2.monitoring.azure.com/ |
+|Centro-Norte de EE. UU | https:\//northcentralus.monitoring.azure.com
 |Centro-Sur de EE. UU| https:\//southcentralus.monitoring.azure.com/ |
-|Centro occidental de EE.UU.| https:\//westcentralus.monitoring.azure.com/ |
-|Oeste de EE. UU. 2| https:\//westus2.monitoring.azure.com/ |
-|Sudeste asiático| https:\//southeastasia.monitoring.azure.com/ |
-|Europa del Norte| https:\//northeurope.monitoring.azure.com/ |
-|Europa occidental| https:\//westeurope.monitoring.azure.com/ |
+|Centro de EE. UU.      | https:\//centralus.monitoring.azure.com |
+|Centro de Canadá | https:\//canadacentral.monitoring.azure.comc
+|East US| https:\//eastus.monitoring.azure.com/ |
+| **Europa** | |
+|Europa del Norte    | https:\//northeurope.monitoring.azure.com/ |
+|Europa occidental     | https:\//westeurope.monitoring.azure.com/ |
+|Sur de Reino Unido 2 | https:\//uksouth.monitoring.azure.com
+|Centro de Francia | https:\//francecentral.monitoring.azure.com |
+| **África** | |
+|Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com
+| **Asia** | |
+|India Central | https:\//centralindia.monitoring.azure.com
+|Este de Australia | https:\//australiaeast.monitoring.azure.com
+|Este de Japón | https:\//japaneast.monitoring.azure.com
+|Sudeste asiático  | https:\//southeastasia.monitoring.azure.com |
+|Asia oriental | https:\//eastasia.monitoring.azure.com
+|Corea Central   | https:\//koreacentral.monitoring.azure.com
+
 
 ## <a name="quotas-and-limits"></a>Cuotas y límites
 Azure Monitor impone los siguientes límites de uso a las métricas personalizadas:

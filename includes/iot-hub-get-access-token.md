@@ -4,19 +4,19 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186969"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70803013"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Obtención de un token de Azure Resource Manager
 Azure Active Directory debe autenticar todas las tareas que se realizan en los recursos mediante el Administrador de recursos de Azure. En este ejemplo se usa la autenticación de contraseña; para otros métodos, consulte [Autenticación de solicitudes de Azure Resource Manager][lnk-authenticate-arm].
 
 1. Agregue el código siguiente al método **Main** en Program.cs para recuperar un token de Azure AD mediante el identificador y la contraseña de la aplicación.
    
-    ```
+    ```csharp
     var authContext = new AuthenticationContext(string.Format  
       ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
@@ -31,14 +31,14 @@ Azure Active Directory debe autenticar todas las tareas que se realizan en los r
     ```
 2. Cree un objeto **ResourceManagementClient** que use el token, agregando el código siguiente al final del método **Main**:
    
-    ```
+    ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
 3. Cree u obtenga una referencia al grupo de recursos que está usando:
    
-    ```
+    ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
         new ResourceGroup("East US"));
     if (rgResponse.Properties.ProvisioningState != "Succeeded")

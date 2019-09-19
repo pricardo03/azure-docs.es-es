@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694815"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390045"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configuración de una red virtual en Azure DevTest Labs
 Como se explica en el artículo [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada. Por ejemplo, puede que necesite acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio.
 
 En este artículo se explica cómo agregar la red virtual existente a la configuración de Virtual Network del laboratorio de modo que esté disponible para seleccionarse al crear las máquinas virtuales.
+
+> [!NOTE]
+> Para obtener información sobre los costos asociados al servicio Azure Virtual Network, consulte [Precios de Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
 
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configuración de una red virtual para un laboratorio mediante el Portal de Azure
 Los pasos siguientes le guiarán en el proceso de agregar una red virtual existente (y la subred) a un laboratorio para que esta se pueda utilizar al crear una máquina virtual en el mismo laboratorio. 
