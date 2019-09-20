@@ -66,7 +66,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | Cadena | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | Cadena | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | Cadena | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | Cadena | Número de control de intercambio. (Opcional) |
 | functionalGroupControlNumber | Cadena | Número de control funcional. (Opcional) |
 | transactionSetControlNumber | Cadena | Número de control de conjuntos de transacciones. (Opcional) |
