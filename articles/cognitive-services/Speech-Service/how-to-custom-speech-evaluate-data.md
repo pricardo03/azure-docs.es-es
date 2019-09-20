@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562858"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801548"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de la voz personalizada
 
@@ -51,11 +51,12 @@ Si quiere probar la calidad del modelo de línea de base de texto a voz de Micro
 
 Para evaluar los modelos en paralelo:
 
-1. Vaya a **Speech-to-text > Custom Speech > Testing** (Conversión de voz a texto > Custom Speech > Pruebas).
-2. Haga clic en **Add test** (Agregar prueba).
-3. Seleccione **Evaluate accuracy** (Evaluar precisión). Proporcione a la prueba un nombre y una descripción, y seleccione el conjunto de datos de transcripción con la etiqueta audio + humano.
-4. Puede seleccionar hasta dos modelos para probar.
-5. Haga clic en **Create**(Crear).
+1. Inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
+2. Vaya a **Speech-to-text > Custom Speech > Testing** (Conversión de voz a texto > Custom Speech > Pruebas).
+3. Haga clic en **Add test** (Agregar prueba).
+4. Seleccione **Evaluate accuracy** (Evaluar precisión). Proporcione a la prueba un nombre y una descripción, y seleccione el conjunto de datos de transcripción con la etiqueta audio + humano.
+5. Puede seleccionar hasta dos modelos para probar.
+6. Haga clic en **Create**(Crear).
 
 Después de que la prueba se ha creado correctamente, puede comparar los resultados en paralelo.
 

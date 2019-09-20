@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b3bd9b800da4f096639d02c78b718216441621a9
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657532"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70803986"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copia de datos a Azure Data Explorer mediante Azure Data Factory 
 
@@ -117,6 +117,8 @@ Hay dos formas de cargar datos en Azure Data Explorer mediante Azure Data Factor
 
 Se ha creado el nuevo servicio vinculado de Azure Data Explorer para copiar los datos en la tabla de destino de Azure Data Explorer (receptor) especificada a continuación.
 
+#### <a name="create-the-azure-data-explorer-linked-service"></a>Creación del servicio vinculado de Azure Data Explorer
+
 1. En la página **Destination data store** (Almacén de datos de destino), puede usar conexión del almacén de datos existente o especificar un nuevo almacén de datos haciendo clic en **+ Crear nueva conexión**.
 
     ![Página Destination data store (Almacén de datos de destino)](media/data-factory-load-data/destination-create-connection.png)
@@ -142,6 +144,8 @@ Se ha creado el nuevo servicio vinculado de Azure Data Explorer para copiar los 
 
     > [!NOTE]
     > Azure Data Factory usa la entidad de servicio para acceder al servicio de Azure Data Explorer. Para la entidad de servicio, [cree una entidad de servicio de Azure Active Directory (Azure AD)](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). No utilice el método de **Azure Key Vault**.
+
+#### <a name="configure-the-azure-data-explorer-data-connection"></a>Configuración de la conexión de datos de Azure Data Explorer
 
 1. Se abrirá el **almacén de datos de destino**. La conexión de datos de Azure Data Explorer que creó está disponible para su uso. Seleccione **Siguiente** para configurar la conexión.
 

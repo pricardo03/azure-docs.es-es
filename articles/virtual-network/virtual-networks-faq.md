@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892018"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389704"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -42,7 +42,7 @@ Para comenzar, consulte [Documentación de Virtual Network](https://docs.microso
 Sí. Puede usar una red virtual sin necesidad de conectarse a su entorno local. Por ejemplo, podría ejecutar controladores de dominio de Active Directory para Microsoft Windows Server y granjas de servidores de SharePoint únicamente en una red virtual de Azure.
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>¿Se puede realizar la optimización de una WAN entre redes virtuales o entre una red virtual y un centro de datos local?
-Sí. A través de Azure Marketplace es posible implementar una [aplicación virtual de red de optimización de la WAN](https://azure.microsoft.com/marketplace/?term=wan+optimization) de varios proveedores.
+Sí. A través de Azure Marketplace es posible implementar una [aplicación virtual de red de optimización de la WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) de varios proveedores.
 
 ## <a name="configuration"></a>Configuración
 
@@ -241,7 +241,7 @@ El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar
 Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. Emparejamiento de VNET global está disponible en todas las regiones públicas de Azure, en las regiones de nube de China y en regiones de nube gubernamentales. No se puede emparejar globalmente desde las regiones públicas de Azure a las regiones de nube nacionales.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>¿Cuáles son las restricciones relacionadas con Emparejamiento de VNET Global y los equilibradores de carga?
-Si las dos redes virtuales están en otra región (Emparejamiento de VNET global), no podrá conectarse a los recursos que usan un equilibrador de carga básico. Sí podrá conectarse a los recursos que usan un equilibrador de carga estándar.
+Si las dos redes virtuales están en regiones distintas (Emparejamiento de VNET global), no podrá conectarse a los recursos que usan un equilibrador de carga básico. Sí podrá conectarse a los recursos que usan un equilibrador de carga estándar.
 Los siguientes recursos usan equilibradores de carga básicos, lo que significa que no se puede comunicar con ellos a través de Emparejamiento de VNET global:
 - Máquinas virtuales detrás de equilibradores de carga básicos
 - Conjuntos de escalado de máquinas virtuales con equilibradores de carga básicos 
@@ -263,10 +263,10 @@ Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a 
 Sí. No es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory. Puede hacerlo a través de PowerShell o CLI. Aún no se admite el Portal.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado*, ¿por qué no puedo conectarme?
-Si la conexión de emparejamiento está en estado Iniciado, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
+Si la conexión de emparejamiento está en estado *Iniciado*, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mi conexión de emparejamiento de VNet se encuentra en estado *Desconectado*, ¿por qué no puedo crear una conexión de emparejamiento?
-Si la conexión de emparejamiento de Vnet está en estado Desconectado, significa que se ha eliminado uno de los vínculos creados. Para volver a establecer una conexión de emparejamiento, deberá eliminar el vínculo y volverlo a crear.
+Si la conexión de emparejamiento de VNet está en estado *Desconectado*, significa que se ha eliminado uno de los vínculos creados. Para volver a establecer una conexión de emparejamiento, deberá eliminar el vínculo y volverlo a crear.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>¿Puedo emparejar mi red virtual con otra en una suscripción diferente?
 Sí. Puede emparejar redes virtuales entre suscripciones y entre regiones.
@@ -280,7 +280,7 @@ La creación de una conexión de emparejamiento VNET es gratuita. Se cobra la tr
 ### <a name="is-vnet-peering-traffic-encrypted"></a>¿Está cifrado el tráfico de emparejamiento de VNET?
 No. El tráfico entre recursos en redes virtuales emparejadas es privado y aislado. Sigue estando en la columna vertebral de Microsoft.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>¿Por qué mi conexión de emparejamiento está en estado desconectado?
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>¿Por qué mi conexión de emparejamiento está en estado *Desconectado*?
 Las conexiones de emparejamiento de redes virtuales pasan a un estado *Desconectado* cuando se elimina un vínculo de emparejamiento de red virtual. Debe eliminar ambos vínculos para restablecer una conexión de emparejamiento correcta.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si se empareja VNETA con VNETB y se empareja VNETB con VNETC, ¿significa que VNETA y VNETC están emparejadas?
@@ -301,7 +301,7 @@ La versión preliminar de TAP de red virtual está disponible en todas las regio
 Las funcionalidades de filtrado no son compatibles con la versión preliminar de TAP de la red virtual. Cuando se agrega una configuración de TAP a una interfaz de red, se transmite una copia en profundidad de todo el tráfico de entrada y salida de la interfaz de red al destino de TAP.
 
 ### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>¿Se pueden agregar varias configuraciones de TAP a una interfaz de red supervisada?
-Una interfaz de red supervisada puede tener solo una configuración de TAP. Compruebe con cada una de las [soluciones de asociados](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) la funcionalidad de transmitir varias copias del tráfico de TAP a las herramientas de análisis de su elección.
+Una interfaz de red supervisada puede tener solo una configuración de TAP. Compruebe con la [solución de asociados](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) individual la funcionalidad de transmitir varias copias del tráfico de TAP a las herramientas de análisis de su elección.
 
 ### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>¿Puede el mismo recurso TAP de red virtual agregar tráfico desde las interfaces de red supervisadas en más de una red virtual?
 Sí. El mismo recurso de TAP de red virtual se puede utilizar para agregar tráfico reflejado desde las interfaces de red supervisadas en redes virtuales emparejadas en la misma suscripción o en otra. El recurso TAP de red virtual y el equilibrador de carga de destino o la interfaz de red de destino deben estar en la misma suscripción. Todas las suscripciones deben estar bajo el mismo inquilino de Azure Active Directory.
@@ -317,7 +317,7 @@ Podrá agregar una configuración de TAP en una interfaz de red asociada a una m
 ## <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>¿Cuál es la secuencia correcta de operaciones para configurar los puntos de conexión de servicio en un servicio de Azure?
-Existen dos pasos para asegurar un recurso de servicio de Azure mediante de puntos de conexión de servicio:
+Existen dos pasos para asegurar un recurso de servicio de Azure mediante puntos de conexión de servicio:
 1. Active los puntos de conexión de servicio para el servicio de Azure.
 2. Configure las ACL de red virtual en el servicio de Azure.
 
@@ -326,11 +326,11 @@ El primer paso es realizar una operación del lado de red y, el segundo, es real
 >[!NOTE]
 > Debe completar las dos operaciones descritas anteriormente antes de poder limitar el acceso del servicio de Azure a la red virtual y a la subred permitidas. Si solo activa los puntos de conexión de servicio del servicio de Azure en el lado de red no obtendrá el acceso limitado. Asimismo, también debe configurar las ACL de red virtual en el lado del servicio de Azure.
 
-Ciertos servicios (como SQL y CosmosDB) permiten excepciones en la secuencia anterior si usa la marca **IgnoreMissingVnetServiceEndpoint**. Una vez que el indicador se establece en **True**, las ACL de la red virtual pueden establecerse en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red. Los servicios de Azure proporcionan esta marca para ayudar a los clientes en los casos en que los firewalls de IP específicos estén configurados en los servicios de Azure y la activación de los puntos de conexión de servicio en el lado de la red pueda provocar una caída de la conectividad, ya que la IP de origen cambia de una dirección IPv4 pública a una dirección privada. La configuración de las ACL de la red virtual en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red puede ayudarle a evitar que la conectividad se vea afectada.
+Ciertos servicios (como SQL y CosmosDB) permiten excepciones en la secuencia anterior si usa la marca **IgnoreMissingVnetServiceEndpoint**. Una vez que la marca se establece en **True**, las ACL de la red virtual pueden establecerse en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red. Los servicios de Azure proporcionan esta marca para ayudar a los clientes en los casos en que los firewalls de IP específicos estén configurados en los servicios de Azure y la activación de los puntos de conexión de servicio en el lado de la red pueda provocar una caída de la conectividad, ya que la IP de origen cambia de una dirección IPv4 pública a una dirección privada. La configuración de las ACL de la red virtual en el lado del servicio de Azure antes de configurar los puntos de conexión de servicio en el lado de red puede ayudarle a evitar que la conectividad se vea afectada.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>¿Todos los servicios de Azure residen en la red virtual de Azure que proporciona el cliente? ¿Cómo funciona el punto de conexión de servicio de la red virtual con los servicios de Azure?
 
-No, no todos los servicios de Azure residen en la red virtual del cliente. La mayoría de los servicios de datos de Azure, como Azure Storage, Azure SQL y Azure Cosmos DB, son servicios de varios inquilinos a los que se puede obtener acceso a través de direcciones IP públicas. Puede obtener más información sobre la integración de redes virtuales para los servicios de Azure [aquí](virtual-network-for-azure-services.md). 
+No, no todos los servicios de Azure residen en la red virtual del cliente. La mayoría de los servicios de datos de Azure, como Azure Storage, Azure SQL y Azure Cosmos DB, son servicios de varios inquilinos a los que se puede obtener acceso a través de direcciones IP públicas. Puede obtener más información sobre la integración de redes virtuales para los servicios de Azure [aquí](virtual-network-for-azure-services.md). 
 
 Cuando usa la característica de puntos de conexión de servicio de la red virtual (debe activar el punto de conexión de servicio de la red virtual en el lado de la red y configurar las ACL de red virtual adecuadas en el lado del servicio de Azure), el acceso a un servicio de Azure está restringido desde una red y una subred permitidas.
 
@@ -352,35 +352,35 @@ Sí, es posible. Las redes virtuales y los recursos del servicio de Azure pueden
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>¿Puedo activar los puntos de conexión de servicio de la red virtual y configurar las ACL de red virtual si esta y los recursos del servicio de Azure pertenecen a diferentes inquilinos de AD?
 No, los puntos de conexión de servicio de la red virtual y las ACL de red virtual no son compatibles con los inquilinos de AD.
 
-### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>¿La dirección IP de un dispositivo local que está conectada mediante la puerta de enlace de Azure Virtual Network (VPN) o la puerta de enlace de ExpressRoute puede obtener acceso al servicio de Azure PaaS mediante los puntos de conexión de servicio de la red virtual?
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>¿La dirección IP de un dispositivo local que está conectada mediante la puerta de enlace de Azure Virtual Network (VPN) o la puerta de enlace de ExpressRoute puede obtener acceso al servicio de Azure PaaS mediante los puntos de conexión de servicio de la red virtual?
 De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si quiere permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
 
-### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>¿Puedo usar la característica de punto de conexión de servicio de la red virtual para proteger el servicio de Azure en varias subredes de una o varias redes virtuales?
+### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-within-a-virtual-network-or-across-multiple-virtual-networks"></a>¿Puedo usar la característica de punto de conexión de servicio de la red virtual para proteger el servicio de Azure en varias subredes de una o varias redes virtuales?
 Para proteger los servicios de Azure en varias subredes que se encuentren en una o varias redes virtuales, habilite los puntos de conexión de servicio en el lado de red en cada una de las subredes de manera independiente y, a continuación, proteja los recursos del servicio de Azure en todas las subredes mediante la configuración de las ACL de red virtual adecuadas en el lado del servicio de Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>¿Cómo puedo filtrar el tráfico saliente de una red virtual a los servicios de Azure y seguir usando los puntos de conexión de servicio?
 Si quiere inspeccionar o filtrar el tráfico destinado a un servicio de Azure desde una red virtual, puede implementar una aplicación virtual de red dentro de la red virtual. Después, puede aplicar los puntos de conexión de servicio a la subred donde se implementa la aplicación virtual de red y se protegen los recursos de servicio de Azure solo para esta subred mediante las ACL de red virtual. Este escenario también puede resultar útil si quiere restringir el acceso de servicio de Azure desde la red virtual solo a recursos específicos de Azure, mediante el filtrado de la aplicación virtual de red. Para más información, consulte el artículo sobre la [salida con las aplicaciones de redes virtuales](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
-### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>¿Qué ocurre si accede a una cuenta de servicio de Azure que tiene habilitada la lista de control de acceso (ACL) de una red virtual que está fuera de la misma red virtual?
+### <a name="what-happens-when-you-access-an-azure-service-account-that-has-a-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>¿Qué ocurre si accede a una cuenta de servicio de Azure que tiene habilitada la lista de control de acceso (ACL) de una red virtual que está fuera de la misma red virtual?
 Se devuelve el error HTTP 403 o 404.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>¿Las subredes de una máquina virtual creada en regiones distintas pueden obtener acceso a una cuenta de servicio de Azure en otra región? 
 Sí, para la mayoría de los servicios de Azure, las redes virtuales creadas en diferentes regiones pueden obtener acceso a los servicios de Azure en otra región a través de los puntos de conexión de servicio de la red virtual. Por ejemplo, si una cuenta de Azure Cosmos DB está en el Oeste de EE. UU. o el Este de EE. UU. y las redes virtuales están en varias regiones, la red virtual puede obtener acceso a Azure Cosmos DB. Storage y SQL son excepciones que son de naturaleza regional, y tanto la red virtual como el servicio de Azure deben estar en la misma región.
   
-### <a name="can-an-azure-service-have-both-vnet-acl-and-an-ip-firewall"></a>¿Puede un servicio de Azure tener una ACL de red virtual y un firewall de IP?
-Sí, las ACL de red virtual y el firewall de IP pueden coexistir. Ambas características se complementan entre sí para garantizar el aislamiento y la seguridad.
+### <a name="can-an-azure-service-have-both-a-vnet-acl-and-an-ip-firewall"></a>¿Puede un servicio de Azure tener una ACL de red virtual y un firewall de IP?
+Sí, una ACL de red virtual y el firewall de IP pueden coexistir. Ambas características se complementan entre sí para garantizar el aislamiento y la seguridad.
  
 ### <a name="what-happens-if-you-delete-a-virtual-network-or-subnet-that-has-service-endpoint-turned-on-for-azure-service"></a>¿Qué sucede si se elimina una red virtual o subred que tiene el punto de conexión de servicio activado para el servicio de Azure?
 La eliminación de redes virtuales y subredes son operaciones independientes y se admiten incluso cuando los puntos de conexión de servicio están activados para los servicios de Azure. En los casos en que los servicios de Azure tienen configuradas las ACL de red virtual, para esas redes virtuales y subredes, la información de las ACL de la red virtual asociada con ese servicio de Azure se desactiva cuando se elimina una red virtual o subred que tiene el punto de conexión de servicio de la red virtual activado.
  
-### <a name="what-happens-if-azure-service-account-that-has-vnet-service-endpoint-enabled-is-deleted"></a>¿Qué sucede si se elimina la cuenta de servicio de Azure que tiene el punto de conexión de servicio de la red virtual habilitado?
-La eliminación de la cuenta del servicio de Azure es una operación independiente y se admite incluso cuando el punto de conexión de servicio está habilitado en el lado de la red y las ACL de la red virtual se configuran en el lado del servicio de Azure. 
+### <a name="what-happens-if-an-azure-service-account-that-has-a-vnet-service-endpoint-enabled-is-deleted"></a>¿Qué sucede si se elimina una cuenta de servicio de Azure que tiene un punto de conexión de servicio de la red virtual habilitado?
+La eliminación de una cuenta de servicio de Azure es una operación independiente y se admite incluso cuando el punto de conexión de servicio está habilitado en el lado de la red y las ACL de la red virtual se configuran en el lado del servicio de Azure. 
 
 ### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>¿Qué sucede con la dirección IP de origen de un recurso (como una máquina virtual en una subred) que tiene habilitado el punto de conexión de servicio de la red virtual?
-Si los puntos de conexión de servicio de red virtual están habilitados, las direcciones IP de los recursos de la subred de la red virtual pasarán de usar las direcciones IPV4 públicas a usar las direcciones IP privadas de Azure Virtual Network para el tráfico que fluye hacia el servicio de Azure. Tenga en cuenta que esto puede provocar un error en el firewall de IP específico que se configura en una dirección IPV4 pública que estaba anteriormente en los servicios de Azure. 
+Si los puntos de conexión de servicio de red virtual están habilitados, las direcciones IP de los recursos de la subred de la red virtual pasarán de usar las direcciones IPV4 públicas a usar las direcciones IP privadas de Azure Virtual Network para el tráfico que fluye hacia el servicio de Azure. Tenga en cuenta que esto puede provocar un error en los firewalls de IP específicos que se configuran en una dirección IPV4 pública que estaba anteriormente en los servicios de Azure. 
 
-### <a name="does-service-endpoint-route-always-take-precedence"></a>¿La ruta del punto de conexión de servicio siempre tiene prioridad?
-Los puntos de conexión de servicio agregan una ruta de sistema que tiene prioridad sobre las rutas BGP y que proporcionan un enrutamiento óptimo para el tráfico del punto de conexión de servicio. Los puntos de conexión de servicio siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Para más información sobre cómo Azure selecciona una ruta, vea [Enrutamiento del tráfico de Azure Virtual Network](virtual-networks-udr-overview.md).
+### <a name="does-the-service-endpoint-route-always-take-precedence"></a>¿La ruta del punto de conexión de servicio siempre tiene prioridad?
+Los puntos de conexión de servicio agregan una ruta de sistema que tiene prioridad sobre las rutas BGP y que proporciona un enrutamiento óptimo para el tráfico del punto de conexión de servicio. Los puntos de conexión de servicio siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Para más información sobre cómo Azure selecciona una ruta, vea [Enrutamiento del tráfico de Azure Virtual Network](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>¿Cómo funciona NSG en una subred con puntos de conexión de servicio?
 Para alcanzar el servicio de Azure, los NSG deben permitir la conectividad de salida. Si los NSG están abiertos a todo el tráfico saliente de Internet, entonces el tráfico del punto de conexión de servicio debería funcionar. También puede limitar el tráfico saliente a las IP de servicio mediante las etiquetas de servicio.  
