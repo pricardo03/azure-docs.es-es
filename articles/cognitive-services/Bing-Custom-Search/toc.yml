@@ -31,6 +31,8 @@
               href: sdk-csharp-quick-start.md
             - name: Usar Python
               href: sdk-python-quickstart.md
+            - name: Usar Java
+              href: sdk-java-quickstart.md
 - name: Tutoriales
   items:
     - name: Creación de una página web de Custom Search
