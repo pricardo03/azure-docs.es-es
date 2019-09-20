@@ -79,10 +79,10 @@ Esta es la estructura general de una definición de parámetro:
 
 | Atributo | Obligatorio | type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
-| <*parameter-name*> | Sí | Cadena | Nombre del parámetro que desea definir |
+| <*parameter-name*> | Sí | String | Nombre del parámetro que desea definir |
 | <*parameter-type*> | Sí | int, float, string, bool, array, object, securestring, secureobject <p><p>**Nota**: En todas las contraseñas, claves y secretos use los tipos `securestring` o `secureobject` porque la operación `GET` no los devuelve. Para más información acerca de la protección de parámetros, consulte [Recomendaciones de seguridad para los parámetros de acción y de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | El tipo del parámetro. |
 | <*default-parameter-value*> | Sí | Igual que `type`. | El valor de parámetro predeterminado que se usa si no se especifica ningún valor al crear una instancia del flujo de trabajo. El atributo `defaultValue` es necesario para que el Diseñador de aplicación lógica pueda mostrar correctamente el parámetro, pero puede especificar un valor vacío. |
-| <*matriz_con_valores_de_parámetro_permitidos*> | Sin | Array | Una matriz con valores que puede aceptar el parámetro. |
+| <*array-with-permitted-parameter-values*> | Sin | Array | Una matriz con valores que puede aceptar el parámetro. |
 | <*parameter-description*> | Sin | Objeto JSON | Cualquier otro detalle del parámetro, como una descripción del parámetro |
 ||||
 
