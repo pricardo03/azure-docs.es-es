@@ -52,10 +52,10 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*trigger-name*> | Cadena | El nombre del desencadenador | 
-| <*trigger-type*> | Cadena | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
+| <*trigger-name*> | String | El nombre del desencadenador | 
+| <*trigger-type*> | String | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
 | <*trigger-inputs*> | Objeto JSON | Las entradas que definen el comportamiento del desencadenador | 
-| <*time-unit*> | Cadena | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
