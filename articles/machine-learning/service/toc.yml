@@ -31,7 +31,7 @@
             - name: Entrenamiento automático de un modelo de Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Puntuación por lotes con canalizaciones (avanzado)
+        - name: Canalizaciones de Machine Learning (avanzado)
           items:
             - name: Puntuación por lotes de un modelo de clasificación
               displayName: pipelines

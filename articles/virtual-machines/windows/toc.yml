@@ -102,6 +102,8 @@
         - name: Generaciones anteriores
           href: sizes-previous-gen.md
           displayName: D-series Ds-series A-series Basic
+        - name: Tamaños aislados
+          href: isolation.md
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
         - name: Puntuaciones de pruebas comparativas

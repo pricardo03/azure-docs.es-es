@@ -271,6 +271,14 @@
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: Creación de una aplicación de Apache Spark en IntelliJ
           href: ./spark/apache-spark-create-standalone-application.md
+    - name: Conceptos
+      items:
+        - name: Procedimientos recomendados de Spark en HDInsight
+          href: ./spark/spark-best-practices.md
+        - name: Configuración de opciones de Apache Spark
+          href: ./spark/apache-spark-settings.md
+        - name: Optimización de trabajos de Apache Spark
+          href: ./spark/apache-spark-perf.md
     - name: Procedimientos
       items:
         - name: Uso de herramientas
@@ -323,10 +331,6 @@
               href: ./spark/apache-spark-resource-manager.md
             - name: Administración de aplicaciones de Apache Spark mediante el servidor de historial
               href: ./spark/apache-azure-spark-history-server.md
-            - name: Configuración de opciones de Apache Spark
-              href: ./spark/apache-spark-settings.md
-            - name: Optimización de trabajos de Apache Spark
-              href: ./spark/apache-spark-perf.md
             - name: Habilitación del almacenamiento en caché con la memoria caché de E/S
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Uso de cuadernos con Apache Spark

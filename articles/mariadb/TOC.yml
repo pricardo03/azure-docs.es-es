@@ -151,7 +151,7 @@
           href: howto-data-in-replication.md
         - name: Creación de réplicas de lectura en Azure Portal
           href: howto-read-replicas-portal.md
-        - name: Creación de réplicas de lectura en la CLI de Azure
+        - name: Creación de réplicas de lectura en la CLI de Azure o API REST
           href: howto-read-replicas-cli.md
     - name: Solución de problemas
       items:

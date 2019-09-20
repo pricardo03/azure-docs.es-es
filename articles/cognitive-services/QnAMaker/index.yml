@@ -1,91 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de QnA Maker
+summary: Aprenda sobre el servicio QnA Maker y cómo funcionan las bases de conocimiento de este servicio con sus preguntas y respuestas.
 metadata:
-  title: 'Documentación de QnA Maker: Microsoft Cognitive Services | Microsoft Docs'
-  description: Aprenda sobre el servicio QnA Maker y cómo funcionan las bases de conocimiento de este servicio con sus preguntas y respuestas.
-  services: cognitive-services
-  author: diberry
-  manager: nitinme
+  ms.topic: landing-page
+  ms.date: 09/18/2019
+  ms.author: nitinme
+  author: nitinme
   ms.service: cognitive-services
   ms.subservice: qna-maker
-  ms.topic: landing-page
-  ms.date: 12/18/2018
-  ms.author: diberry
-abstract:
-  description: 'QnA Maker es un servicio de API basado en la nube que crea una capa de conversación, preguntas y respuestas mediante los datos. QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos. El servicio QnA Maker responde a preguntas en el lenguaje natural de los usuarios, para lo que las hace coincidir con la mejor respuesta posible de los QnA de su base de conocimiento.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/qnamaker-landing-page-video.png
-      width: 250
-    title: 'Compile un bot en cuestión de minutos con QnA Maker (8:54)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/qnamaker/overview/overview
-            html: <p>Más información sobre QnA Maker.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: ¿Qué es QnA Maker?
-          - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
-            html: '<p>Aprenda a crear, entrenar y publicar una base de conocimiento.</p>'
-            image:
-              src: ../media/index/i_tasks.svg
-            title: 'Creación, entrenamiento y publicación de una base de conocimiento'
-          - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
-            html: <p>Aprenda a publicar una base de conocimiento.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Orígenes de datos
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Creación de una base de conocimiento para el contenido de preguntas y respuestas:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: Quickstarts/create-new-kb-csharp
-          - image:
-              src: media/index/Go-Logo_Blue.svg
-            text: Go
-            href: Quickstarts/create-new-kb-go
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: Quickstarts/create-new-kb-java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: Quickstarts/create-new-kb-nodejs
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: Quickstarts/create-new-kb-python
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a desarrollar aplicaciones mediante QnA Maker:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Creación de una base de conocimiento y respuestas a preguntas</a></li>
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Creación de un bot de QnA Maker</a></li>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092179">QnA Maker API</a></p>'
+  services: cognitive-services
+  title: Documentación de QnA Maker
+  description: QnA Maker es un servicio de API basado en la nube que crea una capa de conversación, preguntas y respuestas mediante los datos. QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos. El servicio QnA Maker responde a preguntas en el lenguaje natural de los usuarios, para lo que las hace coincidir con la mejor respuesta posible de los QnA de su base de conocimiento.
+  ms.openlocfilehash: 36b1c69ba1b94afadd105117ee5ac9dabcdd64a7
+  ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71123001"
+landingContent:
+- title: Acerca de QnA Maker
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es QnA Maker?
+      url: overview/overview.md
+  - linkListType: concept
+    links:
+    - text: Ciclo de vida del desarrollo
+      url: concepts/development-lifecycle-knowledge-base.md
+    - text: Orígenes de datos
+      url: concepts/data-sources-supported.md
+  - linkListType: video
+    links:
+    - text: Creación de un bot en un momento
+      url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+- title: Creación y edición de una base de conocimiento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es una base de conocimiento?
+      url: concepts/knowledge-base.md
+  - linkListType: get-started
+    links:
+    - text: 'Inicio rápido: Crear una base de conocimiento'
+      url: how-to/create-knowledge-base.md
+    - text: 'Inicio rápido: Adición de preguntas y respuestas'
+      url: quickstarts/add-question-metadata-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de avisos de seguimiento para crear múltiples turnos de una conversación
+      url: how-to/multiturn-conversation.md
+    - text: Adición de una charla
+      url: how-to/chit-chat-knowledge-base.md
+    - text: Adición de un origen de datos protegido de SharePoint
+      url: how-to/add-sharepoint-datasources.md
+- title: Prueba y publicación
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Prueba de la base de conocimiento de forma interactiva
+      url: how-to/test-knowledge-base.md
+    - text: Publicación de una base de conocimientos
+      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+- title: Obtener respuesta de Knowledge Base
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Inicio rápido: Uso de Postman'
+      url: quickstarts/get-answer-from-kb-using-postman.md
+    - text: 'Inicio rápido: Uso de cURL'
+      url: quickstarts/get-answer-from-kb-using-curl.md
+    - text: 'Inicio rápido: Uso de REST y C#'
+      url: quickstarts/get-answer-from-knowledge-base-csharp.md
+    - text: 'Inicio rápido: Uso de NuGet y C#'
+      url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base
+  - linkListType: how-to-guide
+    links:
+    - text: Obtención de una respuesta con metadatos
+      url: how-to/metadata-generateanswer-usage.md
+- title: Mejora de una base de conocimiento
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso del aprendizaje activo para mejorar la base de conocimiento
+      url: how-to/improve-knowledge-base.md
+    - text: Obtener análisis en la base de conocimiento
+      url: how-to/get-analytics-knowledge-base.md
+- title: Bots de QnA Maker
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Portal: Crear un bot de QnA'
+      url: tutorials/create-qna-bot.md
+    - text: '.Net: Creación de un bot con QnA Maker y Language Understanding'
+      url: tutorials/integrate-qnamaker-luis.md
+    - text: Otros ejemplos de bot
+      url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Límites de la base de conocimiento
+      url: limits.md
+    - text: Creación de API
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - text: Generación de API de respuestas
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+    - text: Documentación de referencia del SDK de .Net
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+    - text: Interfaz de la línea de comandos (CLI) de Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

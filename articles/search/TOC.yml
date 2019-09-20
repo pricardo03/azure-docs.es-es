@@ -239,17 +239,17 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Vínculos de documentación
           href: cognitive-search-resources-documentation.md
-    - name: Knowledge Store (versión preliminar)
-      items:
-        - name: Creación de un almacén de conocimiento en Azure Portal
-          href: knowledge-store-create-portal.md
-        - name: Creación mediante REST y Postman
-          href: knowledge-store-howto.md
-        - name: Visualización con el Explorador de Storage
-          href: knowledge-store-view-storage-explorer.md
-        - name: Conexión con Power BI
-          href: knowledge-store-connect-power-bi.md
-    - name: Datos de consulta
+        - name: Knowledge Store (versión preliminar)
+          items:
+            - name: Creación de un almacén de conocimiento en Azure Portal
+              href: knowledge-store-create-portal.md
+            - name: Creación mediante REST y Postman
+              href: knowledge-store-howto.md
+            - name: Visualización con el Explorador de Storage
+              href: knowledge-store-view-storage-explorer.md
+            - name: Conexión con Power BI
+              href: knowledge-store-connect-power-bi.md
+    - name: Consulta de documentos
       items:
         - name: Creación de una consulta básica
           href: search-query-overview.md
@@ -265,7 +265,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (versión preliminar)
           href: search-more-like-this.md
-    - name: Uso de filtros
+    - name: Aplicación de filtros
       items:
         - name: Introducción sobre los filtros
           href: search-filters.md
@@ -283,18 +283,14 @@
       items:
         - name: Características relacionadas con la página
           href: search-pagination-page-layout.md
-    - name: Ajuste de relevancia
-      items:
-        - name: Adición de perfiles de puntuación
+        - name: Ajuste de la relevancia (perfiles de puntuación)
           href: index-add-scoring-profiles.md
-    - name: Administración
+    - name: Administración y supervisión
       items:
         - name: Administración con Azure Portal
           href: search-manage.md
         - name: Administración con PowerShell
           href: search-manage-powershell.md
-    - name: Supervisión
-      items:
         - name: Supervisión de la actividad y el registro
           href: search-monitor-usage.md
         - name: Búsqueda de análisis de tráfico

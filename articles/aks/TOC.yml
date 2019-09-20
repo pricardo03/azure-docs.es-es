@@ -118,7 +118,7 @@
         - name: Eliminación de un clúster de AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Creación de un registro de control de acceso con un clúster de AKS
+        - name: Integración de ACR con un clúster de AKS
           href: cluster-container-registry-integration.md
         - name: Creación de nodos virtuales
           items:

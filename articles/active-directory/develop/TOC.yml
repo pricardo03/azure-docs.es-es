@@ -89,6 +89,8 @@
           href: authentication-scenarios.md
         - name: Flujos de autenticación y escenarios de aplicaciones
           href: authentication-flows-app-scenarios.md
+        - name: Procedimientos recomendados de la plataforma de identidad
+          href: identity-platform-integration-checklist.md
         - name: Escenarios de aplicación
           items:
             - name: Inicio de sesión de la audiencia
@@ -217,8 +219,6 @@
                   href: scenario-mobile-call-api.md
                 - name: Paso a producción
                   href: scenario-mobile-production.md
-            - name: Lista de comprobación de la integración
-              href: identity-platform-integration-checklist.md
         - name: Biblioteca de autenticación de Microsoft (MSAL)
           items:
             - name: Información general

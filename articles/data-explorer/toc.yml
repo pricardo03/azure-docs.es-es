@@ -128,12 +128,18 @@
           href: dealing-with-duplicates.md
     - name: Supervisión
       items:
+        - name: Uso de registros de diagnóstico para supervisar la ingesta
+          href: using-diagnostic-logs.md
         - name: Uso de métricas para supervisar el estado del clúster
           href: using-metrics.md
     - name: Integración con otras herramientas
       items:
-        - name: Copia de datos en masa mediante una plantilla de Azure Data Factory
-          href: data-factory-template.md
+        - name: Azure Data Factory
+          items:
+            - name: Copia de datos en masa mediante una plantilla de Azure Data Factory
+              href: data-factory-template.md
+            - name: Ejecución de comandos de control mediante Azure Data Factory
+              href: data-factory-command-activity.md
         - name: Conector de Apache Spark
           href: spark-connector.md
         - name: Conexión desde Databricks con Python
