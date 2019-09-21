@@ -240,7 +240,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Esta es una captura de pantalla que muestra la consulta de Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
+    En esta captura de pantalla se muestra la consulta Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
