@@ -42,9 +42,9 @@ Puede usar los siguientes parámetros:
 
 | NOMBRE | Opciones | DESCRIPCIÓN | Valor predeterminado |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadena: 'bajo', 'medio', 'alto' |Establece el nivel de sensibilidad que se usa para notificar los movimientos. Es necesario ajustarlo bien para controlar el número de falsos positivos. |'medio' |
+| sensitivityLevel |String: 'bajo', 'medio', 'alto' |Establece el nivel de sensibilidad que se usa para notificar los movimientos. Es necesario ajustarlo bien para controlar el número de falsos positivos. |'medio' |
 | frameSamplingValue |Un número entero positivo |Establece la frecuencia con la que se ejecuta el algoritmo. 1 es en cada fotograma, 2 significa en uno de cada dos fotogramas y así sucesivamente. |1 |
-| detectLightChange |Valor booleano: 'true', 'false' |Establece si se notifican los cambios de luz en los resultados |'False' |
+| detectLightChange |Boolean: 'true', 'false' |Establece si se notifican los cambios de luz en los resultados |'False' |
 | mergeTimeThreshold |Xs-time: hh:mm:ss<br/>Ejemplo: 00:00:03 |Especifica el período de tiempo entre eventos de movimiento donde 2 eventos se combinan y se notifican como 1. |00:00:00 |
 | detectionZones |Una matriz de zonas de detección:<br/>-La zona de detección es un array de 3 o más puntos<br/>-Punto es una coordenada x e y de 0 a 1. |Describe la lista de zonas de detección poligonal que se usan.<br/>Los resultados aparecerán con las zonas como un identificador, siendo el primero 'id': 0 |Zona única, que abarca todo el marco. |
 
