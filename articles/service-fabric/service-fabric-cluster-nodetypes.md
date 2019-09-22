@@ -78,16 +78,16 @@ Estas son las descripciones de la propiedad:
 | **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | name | string | --- | nombre único para la extensión |
-| Tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
+| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
 | autoUpgradeMinorVersion | true o false | --- | Habilita la actualización automática de las versiones secundarias del tiempo de ejecución de SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nombre del editor de la extensión de Service Fabric |
 | clusterEndpont | string | --- | URI:PUERTO al punto de conexión de administración |
 | nodeTypeRef | string | --- | Nombre de nodeType |
-| durabilityLevel | bronze, silver, gold o platinum | --- | Tiempo permitido para pausar la infraestructura inmutable de Azure |
+| durabilityLevel | bronze, silver, gold, platinum | --- | Tiempo permitido para pausar la infraestructura inmutable de Azure |
 | enableParallelJobs | true o false | --- | Habilita los trabajos paralelos del proceso, como quitar la VM y reiniciarla en el mismo conjunto de escalado en paralelo |
 | nicPrefixOverride | string | --- | Prefijo de la subred, como "10.0.0.0/24" |
 | commonNames | string[] | --- | Nombres comunes de los certificados de clúster instalados |
-| X509StoreName | string | --- | Nombre del almacén donde se encuentra el certificado de clúster instalado |
+| x509StoreName | string | --- | Nombre del almacén donde se encuentra el certificado de clúster instalado |
 | typeHandlerVersion | 1.1 | --- | Versión de la extensión. Se recomienda actualizar la versión clásica 1.0 de la extensión a 1.1. |
 | dataPath | string | --- | Ruta de acceso a la unidad que se usa para guardar el estado de datos de aplicaciones y servicios del sistema de Service Fabric. 
 
