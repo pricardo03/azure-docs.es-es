@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227166"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065704"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C es un servicio de administración de identidad de negocio a consumidor. Este servicio le permite personalizar y controlar el modo en que los usuarios interactúan de forma segura con aplicaciones web, de escritorio, móviles o de página única. Con Azure AD B2C, los usuarios pueden registrarse, iniciar sesión, restablecer contraseñas y editar perfiles. Azure AD B2C implementa un formulario de los protocolos OpenID Connect y OAuth 2.0. La clave importante en la implementación de estos protocolos son los tokens de seguridad y sus notificaciones que le permiten proporcionar acceso seguro a recursos.
+Azure Active Directory B2C (Azure AD b2C) es un servicio de administración de identidad de negocio a consumidor. Este servicio le permite personalizar y controlar el modo en que los usuarios interactúan de forma segura con aplicaciones web, de escritorio, móviles o de página única. Con Azure AD B2C, los usuarios pueden registrarse, iniciar sesión, restablecer contraseñas y editar perfiles. Azure AD B2C implementa un formulario de los protocolos OpenID Connect y OAuth 2.0. La clave importante en la implementación de estos protocolos son los tokens de seguridad y sus notificaciones que le permiten proporcionar acceso seguro a recursos.
 
 Un *recorrido del usuario* es una solicitud que especifica una directiva, la cual controla el comportamiento de cómo interactúan el usuario y la aplicación con Azure AD B2C. Existen dos rutas de acceso para definir los recorridos del usuario en Azure AD B2C.
 

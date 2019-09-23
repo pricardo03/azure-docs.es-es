@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227800"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934101"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
 
@@ -185,6 +185,9 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ad
         }
     }
     ```
+    > [!IMPORTANT]
+    > Escriba el **nombre** y elemento **DefaultFullSharedAccessSignature** del centro antes de continuar. 
+    
 7. A continuación, cree un controlador denominado **RegisterController**. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Controladores**, y seleccione **Agregar** y **Controlador**.
 
 8. Seleccione **Controlador de Web API 2 - en blanco** y **Agregar**.

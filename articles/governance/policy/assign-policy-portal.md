@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 805f9178cb77241b8332fb78687a8409206e5c05
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231579"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000908"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles
 
@@ -64,7 +64,7 @@ En esta guía de inicio rápido, creará una asignación de directiva y asignar�
 
 1. Haga clic en **Asignar**.
 
-Ahora ya está listo para identificar los recursos no compatibles para saber el estado de cumplimiento de su entorno.
+Ahora ya está listo para identificar los recursos no compatibles a fin de conocer el estado de cumplimiento de su entorno.
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
 

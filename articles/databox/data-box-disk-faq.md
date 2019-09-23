@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076895"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098819"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas frecuentes
 
@@ -88,6 +88,24 @@ A.  El seguimiento del estado del pedido de Data Box Disk se puede realizar desd
 
 ### <a name="q-how-do-i-return-the-disks"></a>P: ¿Cómo se devuelven los discos? 
 A.  Microsoft incluye una etiqueta de envío con los discos de Data Box en el paquete en que estos se envían. Pegue dicha etiqueta en la caja de envío y lleve el paquete precintado a las instalaciones de la empresa que va a realizar el envío. Si la etiqueta se daña o se pierde, vaya a **Información general > Descargar la etiqueta de envío** y descargue una nueva etiqueta de envío de devolución.
+
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>¿Puedo seleccionar mi pedido de Data Box Disk? ¿Puedo usar el transportista que prefiera para devolver los discos?
+A. Sí. Microsoft también ofrece el envío autoadministrado, pero solo en la región US Gov. Al realizar el pedido de Data Box Disk, puede elegir la opción de envío autoadministrado. Para recoger el pedido de Data Box Disk, siga estos pasos:
+    
+1. Después de haber realizado el pedido, este se procesa y se preparan los discos. Se le enviará por correo electrónico una notificación cuando el pedido se pueda recoger. 
+2. Una vez que el pedido esté listo para su recogida, vaya a él en Azure Portal y. después, a la hoja **Información general**. 
+3. Verá una notificación con un código en Azure Portal. Envíe un correo electrónico al [equipo de operaciones de Azure Data Box](mailto:adbops@microsoft.com), en el que les indicará el código. El equipo proporcionará la ubicación y programará una fecha y hora de recogida. Debe llamar al equipo en un plazo máximo de cinco días laborables después de recibir la notificación por correo electrónico.
+
+Una vez que completan la copia y la validación de los datos, siga estos pasos siguientes para devolver el disco:
+
+1. Una vez completada la validación de datos, desconecte los discos. Quite los cables de conexión.
+2. Envuelva todos los discos y los cables de conexión en un envoltorio de burbujas y colóquelos en la caja de envío. La falta de accesorios puede acarrear un costo.
+
+    - Utilice el empaquetado que se usó en el envío inicial. Es aconsejable usar un envoltorio de burbujas bien protegido para empaquetar los discos.
+    - Asegúrese de que todo encaja perfectamente para reducir los movimientos dentro de la caja.
+3. Vaya a la **hoja Información general** del pedido en Azure Portal. Debería ver una notificación con un código.
+4. Use ese código y envíe al [equipo de operaciones de Azure Data Box](mailto:adbops@microsoft.com) un correo electrónico con el código. El equipo le indicará dónde y cuándo puede dejar los discos.
+
 
 ## <a name="migrate-data"></a>Migración de los datos
 

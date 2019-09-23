@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242735"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984903"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red mediante Azure Portal
 
@@ -51,7 +51,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     | Espacio de direcciones           | 10.0.0.0/16                                        |
     | Subscription            | Seleccione su suscripción.                          |
     | Grupos de recursos          | Haga clic en **Crear nuevo** y escriba *myResourceGroup*. |
-    | Ubicación                | Seleccione **Este de EE. UU**.                                |
+    | Location                | Seleccione **Este de EE. UU**.                                |
     | Nombre de subred            | mySubnet                                           |
     | Subred: intervalo de direcciones  | 10.0.0.0/24                                        |
 
@@ -67,8 +67,8 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     | ---            | ---                                                           |
     | NOMBRE           | myAsgWebServers                                               |
     | Subscription   | Seleccione su suscripción.                                     |
-    | Grupos de recursos | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
-    | Ubicación       | Este de EE. UU                                                       |
+    | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 4. Complete el paso 3 de nuevo, especificando los valores siguientes:
 
@@ -76,8 +76,8 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     | ---            | ---                                                           |
     | NOMBRE           | myAsgMgmtServers                                              |
     | Subscription   | Seleccione su suscripción.                                     |
-    | Grupos de recursos | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
-    | Ubicación       | Este de EE. UU                                                       |
+    | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
@@ -90,7 +90,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     |NOMBRE|myNsg|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos | Seleccione **Usar existente** y después seleccione *myResourceGroup*.|
-    |Ubicación|Este de EE. UU|
+    |Location|East US|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Asociación del grupo de seguridad de red a la subred
 
@@ -123,7 +123,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     | Destino             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgMgmtServers** para **Grupo de seguridad de la aplicación**. |
     | Intervalos de puertos de destino | Escriba 3389                                                                                                      |
     | Protocolo                | Selección de TCP                                                                                                      |
-    | Prioridad                | Escriba 110                                                                                                       |
+    | Priority                | Escriba 110                                                                                                       |
     | NOMBRE                    | Allow-RDP-All (Permitir-RDP-Todo)                                                                                                   |
 
     En este tutorial, se expone RDP (puerto 3389) a Internet para la máquina virtual que se asigna al grupo de seguridad de la aplicación *myAsgMgmtServers*. En entornos de producción, en lugar de exponer el puerto 3389 a Internet, se recomienda conectarse a los recursos de Azure que desee administrar mediante una VPN o una conexión de red privada.
@@ -140,27 +140,29 @@ Cree dos máquinas virtuales en la red virtual.
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
-3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
+3. Escriba o seleccione la siguiente información y acepte los valores predeterminados para el resto de la configuración:
 
     |Configuración|Valor|
     |---|---|
+    |Subscription| Seleccione su suscripción.|
+    |Resource group| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
     |NOMBRE|myVmWeb|
+    |Location| Seleccione **Este de EE. UU**.|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+
+   
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
-5. En **Configuración**, seleccione los valores siguientes, acepte los valores predeterminados restantes y, después, seleccione **Aceptar**:
+5. En **Redes**, seleccione los valores siguientes y acepte los valores predeterminados restantes:
 
     |Configuración|Valor|
     |---|---|
-    |Virtual network |Seleccione **myVirtualNetwork**|
-    |Grupo de seguridad de red (NSG) | Seleccione **Advanced** (Avanzadas).|
-    |Grupo de seguridad de red (firewall)| Seleccione **(nuevo) myVmWeb-nsg** y, a continuación, en **Elegir grupo de seguridad de red**, seleccione **Ninguno**. |
+    |Virtual network |Seleccione **myVirtualNetwork**.|
+    |Grupo de seguridad de red de NIC |Seleccione **Advanced** (Avanzadas).|
+    |Puertos de entrada públicos|Seleccione **Ninguno**. |
 
-6. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual.
+6. Seleccione **Revisar y crear** en la esquina inferior izquierda y seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
 ### <a name="create-the-second-vm"></a>Creación de la segunda máquina virtual
 

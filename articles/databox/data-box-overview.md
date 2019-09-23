@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551519"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067000"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -111,14 +111,7 @@ Durante este proceso, se le notificará por correo electrónico de todos los cam
 
 Data Box puede transferir datos en función de la región en la que se implementa el servicio, del país o región al que se envía el dispositivo y de la cuenta de Azure Storage en la que transfiere los datos. 
 
-- **Disponibilidad del servicio**: para esta versión, el servicio Data Box está disponible en las siguientes regiones:
-    - Todas las regiones de Estados Unidos: Centro occidental de EE. UU., Oeste de EE. UU. 2, Oeste de EE. UU., Centro-Sur de EE. UU, Centro de EE. UU., Centro-Norte de EE. UU., Este de EE. UU. y Este de EE. UU. 2.
-    - Unión Europea: Europa Occidental y Europa del Norte.
-    - Reino Unido: Sur de Reino Unido y Oeste de Reino Unido.
-    - Francia: Centro de Francia y Sur de Francia.
-    - Japón: Este de Japón y Oeste de Japón.
-    - Australia: Este de Australia y Sudeste de Australia.
-    - Canadá: Este de Canadá y Centro de Canadá.
+- **Disponibilidad del servicio**: para más información acerca de la disponibilidad regional, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure donde está disponible el servicio.  
 

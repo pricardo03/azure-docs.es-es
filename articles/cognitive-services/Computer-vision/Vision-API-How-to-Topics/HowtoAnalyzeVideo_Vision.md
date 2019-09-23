@@ -1,7 +1,7 @@
 ---
-title: 'Ejemplo: Análisis de vídeo en tiempo real - Computer Vision'
+title: 'Análisis de vídeos casi en tiempo real: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo realizar análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo a través de Computer Vision API.
+description: Aprenda a realizar análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo mediante la API Computer Vision.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 25aed0f042050ebadbc6054fcbf0c68dbf782e5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f4410d9cab5677327d2950dfdc1a093140f31708
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859078"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102276"
 ---
-# <a name="how-to-analyze-videos-in-real-time"></a>Análisis de vídeos en tiempo real
+# <a name="analyze-videos-in-near-real-time"></a>Análisis de vídeo casi en tiempo real
 
-En esta guía se demostrará cómo realizar el análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo. Los componentes básicos en un sistema de este tipo son:
+En este artículo se muestra cómo realizar análisis casi en tiempo real de fotogramas procedentes de una secuencia de vídeo en directo mediante la API Computer Vision. Los elementos básicos de este análisis son:
 
-- Adquirir fotogramas desde un origen de vídeo
-- Seleccionar los fotogramas que se van a analizar
-- Enviar estos fotogramas a la API
-- Consumir cada resultado del análisis que se devuelve de la llamada API
+- Obtención de fotogramas desde un origen de vídeo.
+- Selección de los fotogramas que se van a analizar.
+- Envío de estos fotogramas a la API.
+- Consumo de todos los resultados del análisis que se devuelven de la llamada API.
 
-Estos ejemplos están escritos en C#, y el código puede encontrarse en GitHub aquí: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+Los ejemplos de este artículo están escritos en C#. Para acceder al código, vaya a la página [Ejemplo de análisis de fotogramas de vídeo](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) en GitHub.
 
-## <a name="the-approach"></a>El enfoque
+## <a name="approaches-to-running-near-real-time-analysis"></a>Enfoques para ejecutar análisis casi en tiempo real
 
-Hay varias formas de solucionar el problema de la ejecución del análisis casi en tiempo real en secuencias de vídeo. Empezaremos por esbozar estos tres enfoques en niveles cada vez mayores de sofisticación.
+Se pueden usar varios enfoques para solucionar el problema de la ejecución de análisis casi en tiempo real en secuencias de vídeo. En este artículo se describen tres de ellos, de menos a más sofisticado.
 
-### <a name="a-simple-approach"></a>Un enfoque sencillo
+### <a name="design-an-infinite-loop"></a>Diseño de un bucle infinito
 
-El diseño más sencillo para un sistema de análisis casi en tiempo real es un bucle infinito, donde en cada iteración se toma un fotograma, se analiza y, a continuación, se consume el resultado:
+El diseño más sencillo para el análisis casi en tiempo real es un bucle infinito. En cada iteración de este bucle, se obtiene un fotograma, se analiza y, después, se consume el resultado:
 
 ```csharp
 while (true)
@@ -49,11 +49,11 @@ while (true)
 }
 ```
 
-Si nuestro análisis consistió en un algoritmo de cliente ligero, este enfoque sería adecuado. Sin embargo, cuando el análisis tiene lugar en la nube, la latencia que conlleva significa que una llamada API puede tardar varios segundos, durante los cuales no se capturan imágenes y el subproceso básicamente no hace nada. La velocidad de fotogramas máxima está limitada por la latencia de las llamadas API.
+Si su análisis tuviera que consistir en un algoritmo de cliente ligero, este enfoque sería adecuado. Sin embargo, cuando el análisis se produce en la nube, la latencia resultante implica que una llamada API podría tardar varios segundos. Durante este tiempo no se capturan imágenes y el subproceso básicamente no realiza ninguna acción. La velocidad de fotogramas máxima está limitada por la latencia de las llamadas API.
 
-### <a name="parallelizing-api-calls"></a>Paralelización de llamadas API
+### <a name="allow-the-api-calls-to-run-in-parallel"></a>Permitir la ejecución en paralelo de las llamadas API
 
-Si bien un bucle simple de un único subproceso tiene sentido para un algoritmo de cliente ligero, no se ajusta bien a la latencia involucrada en las llamadas API de la nube. La solución a este problema es permitir que las llamadas API de larga ejecución se ejecuten en paralelo con la captura de fotogramas. En C#, se podría lograr esto usando paralelismo basado en tareas, por ejemplo:
+Aunque se puede usar un bucle simple de un único subproceso en un algoritmo de cliente ligero, no se ajusta bien a la latencia de una llamada API en la nube. La solución a este problema es permitir que la llamada API de ejecución prolongada se ejecute en paralelo con la captura de los fotogramas. En C#, esto se puede hacer mediante un paralelismo basado en tareas. Por ejemplo, puede ejecutar el siguiente código:
 
 ```csharp
 while (true)
@@ -70,11 +70,14 @@ while (true)
 }
 ```
 
-Este método inicia cada análisis en una tarea independiente, que se puede ejecutar en segundo plano mientras se siguen capturando fotogramas nuevos. Esto evita bloquear el subproceso principal mientras se espera que se devuelva una llamada API; sin embargo, se han perdido algunas de las garantías que proporcionaba la versión sencilla: pueden producirse varias llamadas API en paralelo y los resultados podrían devolverse en el orden equivocado. Además, este método podría provocar que varios subprocesos ingresaran en la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecerán de manera silenciosa. Por lo tanto, el ingrediente final que se debe agregar es un subproceso de "consumidor" que realice un seguimiento de las tareas de análisis, produzca excepciones, elimine tareas de larga duración y asegure que los resultados se consuman en el orden correcto, uno a la vez.
+Con este enfoque, cada análisis se inicia en una tarea independiente. La tarea puede ejecutarse en segundo plano mientras se siguen capturando nuevos fotogramas. El enfoque evita el bloqueo del subproceso principal mientras se espera la devolución de una llamada API. Sin embargo, el enfoque puede presentar ciertas desventajas:
+* Desaparecen algunas de las garantías que proporcionaba la versión simple. En otras palabras, se pueden producir varias llamadas API en paralelo y los resultados pueden devolverse en el orden equivocado. 
+* También podría suceder que varios subprocesos especificaran la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. 
+* Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecen de manera silenciosa. Por consiguiente, es preciso agregar un subproceso "consumidor" que realice un seguimiento de las tareas del análisis, genere excepciones, termine tareas de larga duración y garantice que los resultados se consumen en el orden correcto y de uno en uno.
 
-### <a name="a-producer-consumer-design"></a>Un diseño de productor-consumidor
+### <a name="design-a-producer-consumer-system"></a>Diseño de un sistema productor-consumidor
 
-En el sistema final de "productor-consumidor", se cuenta con un subproceso productor que es similar al bucle infinito anterior. No obstante, en lugar de consumir los resultados del análisis en cuanto están disponibles, el productor simplemente coloca las tareas en una cola para realizarles un seguimiento.
+Para el enfoque final, el diseño de un sistema "productor-consumidor", se crea un subproceso de productor que es similar al bucle infinito mencionado anteriormente. Sin embargo, en lugar de consumir los resultados del análisis en cuanto están disponibles, el productor simplemente coloca las tareas en una cola para hacer un seguimiento de ellas.
 
 ```csharp
 // Queue that will contain the API call tasks.
@@ -111,7 +114,7 @@ while (true)
 }
 ```
 
-También se tiene un subproceso consumidor, que toma tareas de la cola, esperando a finalicen, y muestra el resultado, o bien genera la excepción que se produjo. Mediante el uso de la cola, es posible garantizar que resultados se consuman uno a la vez, en el orden correcto, sin limitar la velocidad de fotogramas máxima del sistema.
+También se crea un subproceso de consumidor, que saca las tareas de la cola, espera a que finalicen y muestra el resultado, o bien genera la excepción que se ha iniciado. El uso de la cola permite garantizar que los resultados se consumen uno a uno, en el orden correcto y sin limitar la velocidad de fotogramas máxima del sistema.
 
 ```csharp
 // Consumer thread.
@@ -120,7 +123,7 @@ while (true)
     // Get the oldest task.
     Task<ResultWrapper> analysisTask = taskQueue.Take();
  
-    // Await until the task is completed.
+    // Wait until the task is completed.
     var output = await analysisTask;
 
     // Consume the exception or result.
@@ -135,15 +138,17 @@ while (true)
 }
 ```
 
-## <a name="implementing-the-solution"></a>Implementación de la solución
+## <a name="implement-the-solution"></a>Implementación de la solución
 
-### <a name="getting-started"></a>Introducción
+### <a name="get-started-quickly"></a>Introducción rápida
 
-Para que la aplicación esté en funcionamiento lo más rápido posible, se ha implementado el sistema descrito anteriormente, con la intención de que sea lo suficientemente flexible como para implementar muchos escenarios, a la vez de que sea fácil de usar. Para obtener acceso al código, vaya a [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
+Para ayudarle a poner en marcha su aplicación lo antes posible, hemos implementado el sistema que se describe en la sección anterior. Se pretende que tenga la flexibilidad suficiente para albergar muchos escenarios, aunque es fácil de usar. Para acceder al código, vaya a la página [Ejemplo de análisis de fotogramas de vídeo](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) en GitHub.
 
-La biblioteca contiene la clase FrameGrabber, que implementa el sistema productor-consumidor descrito anteriormente para procesar fotogramas de vídeo desde una cámara web. El usuario puede especificar la forma exacta de la llamada API, y la clase utiliza eventos para comunicar al código de llamada cuándo se adquiere un nuevo fotograma, o cuándo hay disponible un resultado del análisis.
+La biblioteca contiene la clase `FrameGrabber`, que implementa el sistema productor-consumidor que se ha descrito anteriormente para procesar los fotogramas de vídeo de una cámara web. Los usuarios pueden especificar la forma exacta de la llamada API y la clase usa eventos para que el código de la llamada sepa cuándo se adquiere un nuevo fotograma o cuándo hay disponible un nuevo resultado del análisis.
 
-Para ilustrar algunas de las posibilidades, hay dos aplicaciones de ejemplo que utilizan la biblioteca. La primera es una aplicación de consola simple; una versión simplificada de esta se reproduce a continuación. Toma fotogramas de la cámara web predeterminada y los envía a Face API para la detección de caras.
+Para ilustrar algunas de las posibilidades, se proporcionan dos aplicaciones de ejemplo que utilizan la biblioteca. 
+
+La primera es una aplicación de consola sencilla que captura fotogramas de la cámara web predeterminada y los envía a Face API para la detección de caras. En el código siguiente se reproduce una versión simplificada de la aplicación:
 
 ```csharp
 using System;
@@ -176,7 +181,7 @@ namespace BasicConsoleSample
                 Console.WriteLine($"New frame acquired at {e.Frame.Metadata.Timestamp}");
             };
 
-            // Set up Face API call.
+            // Set up a Face API call.
             grabber.AnalysisFunction = async frame =>
             {
                 Console.WriteLine($"Submitting frame acquired at {frame.Metadata.Timestamp}");
@@ -195,7 +200,7 @@ namespace BasicConsoleSample
                     Console.WriteLine($"New result received for frame acquired at {e.Frame.Metadata.Timestamp}. {e.Analysis.Length} faces detected");
             };
 
-            // Tell grabber when to call API.
+            // Tell grabber when to call the API.
             // See also TriggerAnalysisOnPredicate
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
@@ -213,32 +218,34 @@ namespace BasicConsoleSample
 }
 ```
 
-La segunda aplicación de ejemplo es un poco más interesante y le permite elegir a qué API llamar en los fotogramas de vídeo. En el lado izquierdo, la aplicación muestra una vista previa del vídeo en directo; en el lado derecho, muestra el resultado más reciente de la API superpuesto con el fotograma correspondiente.
+La segunda aplicación de ejemplo es algo más interesante. Permite elegir la API a la que se llama en los fotogramas de vídeo. A la izquierda, la aplicación muestra una vista previa del vídeo en directo. A la derecha, superpone el resultado de la API más reciente en el fotograma correspondiente.
 
-En la mayoría de los modos, habrá un retraso visible entre el vídeo en directo a la izquierda y el análisis visualizado a la derecha. Este retraso es el tiempo necesario para realizar la llamada API. La excepción a esto es el modo "EmotionsWithClientFaceDetect", que realiza la detección de caras localmente en el equipo cliente utilizando OpenCV, antes de enviar las imágenes a Cognitive Services. Al hacerlo, se posible visualizar la cara detectada inmediatamente y, a continuación, actualizar las emociones posteriormente una vez que se devuelve la llamada API. Esto demuestra la posibilidad de un enfoque "híbrido", donde se puede realizar un procesamiento simple en el cliente y, a continuación, puede usarse Cognitive Services APIs para intensificar esto con un análisis más avanzado, cuando sea necesario.
+En la mayoría de los modos, hay retraso visible entre el vídeo en directo de la izquierda y el análisis que se ve a la derecha. Este retraso es el tiempo que tarda en realizarse la llamada API. Una excepción es el modo "EmotionsWithClientFaceDetect", que realiza la detección de caras localmente en el equipo cliente mediante OpenCV antes de enviar las imágenes a Azure Cognitive Services. 
 
-![Captura de pantalla de la aplicación LiveCameraSample que muestra una imagen con etiquetas](../../Video/Images/FramebyFrame.jpg)
+Con este enfoque, puede visualizar la cara detectada de inmediato. Luego, puede actualizar las emociones, después de que se devuelva la llamada API. Esto demuestra la posibilidad de un enfoque "híbrido", es decir, se puede realizar un procesamiento simple en el cliente y, después, pueden usarse Cognitive Services APIs para intensificar este procesamiento con un análisis más avanzado si es necesario.
 
-### <a name="integrating-into-your-codebase"></a>Integración en el código base
+![La aplicación LiveCameraSample muestra una imagen con etiquetas](../../Video/Images/FramebyFrame.jpg)
 
-Para empezar a trabajar con este ejemplo, siga estos pasos:
+### <a name="integrate-the-samples-into-your-codebase"></a>Integración de los ejemplos en el código base
+
+Para empezar con este ejemplo, realice estas acciones:
 
 1. Obtenga las claves de la API de Vision API de [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). Para el análisis de fotogramas de vídeo, las API correspondientes son:
-    - [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
+    - [API Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+    - [API Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clone el repositorio [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) de GitHub.
 
-3. Abra el ejemplo en Visual Studio 2015, o cualquier versión posterior, y compile y ejecute las aplicaciones de ejemplo:
+3. Abra el ejemplo en Visual Studio 2015, o cualquier versión posterior, y después, compile y ejecute las aplicaciones de ejemplo:
     - Para BasicConsoleSample, la clave de Face API está codificado de forma rígida directamente en [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
-    - Para LiveCameraSample, las claves se deben escribir en el panel de configuración de la aplicación. Se conservarán de una sesión a otra como datos de usuario.
+    - En el caso de LiveCameraSample, escriba las claves en el panel **Configuración** de la aplicación. Las claves se mantienen de una sesión a otra como datos de usuario.
 
-Cuando esté listo para la integración, **simplemente haga referencia a la biblioteca VideoFrameAnalyzer desde sus propios proyectos**.
+Cuando esté listo para integrar los ejemplos, haga referencia a la biblioteca VideoFrameAnalyzer desde sus propios proyectos.
 
-Las funcionalidades de comprensión de imágenes, voces, vídeos o texto de VideoFrameAnalyzer emplean Microsoft Cognitive Services. Microsoft recibirá las imágenes, el audio, el vídeo y otros datos que usted cargue (a través de esta aplicación) y podrá usarlos para fines de mejora del servicio. Pedimos su ayuda para proteger a las personas cuyos datos envíe la aplicación a Azure Cognitive Services.
+Las funcionalidades de comprensión de imágenes, voces, vídeo y texto de VideoFrameAnalyzer utilizan Azure Cognitive Services. Microsoft recibirá las imágenes, el audio, el vídeo y los demás datos que cargue (a través de esta aplicación) y puede usarlos para mejorar el servicio. Pedimos su ayuda para proteger a las personas cuyos datos envíe la aplicación a Azure Cognitive Services.
 
 ## <a name="summary"></a>Resumen
 
-En esta guía, ha aprendido a ejecutar análisis casi en tiempo real en las secuencias de vídeo en directo mediante Face API y Computer Vision API, así como a utilizar el código de ejemplo para empezar a trabajar. Puede empezar a compilar su aplicación con las claves de API gratuitas disponibles en la [página de registro de Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+En este artículo, ha aprendido a ejecutar análisis casi en tiempo real de secuencias de vídeo en directo mediante API Face y API Computer Vision. También ha aprendido a usar el código de ejemplo para empezar. Para empezar a compilar su aplicación mediante las claves de API gratuitas, vaya a la [página de registro de Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-No dude en enviar comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro [sitio de UserVoice](https://cognitive.uservoice.com/).
+No dude en realizar comentarios y sugerencias en el [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Para proporcionar comentarios de API más amplios, visite nuestro [sitio de UserVoice](https://cognitive.uservoice.com/).
 

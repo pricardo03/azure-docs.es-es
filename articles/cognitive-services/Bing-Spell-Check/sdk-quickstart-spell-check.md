@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d98d00275cbd89702e4bae0c93aa262805617e59
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 74697d69fbeb9072f839f0b6d49c010c5a7a7a05
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500779"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996704"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Inicio rápido: Revisión ortográfica con el SDK de Bing Spell Check para C#
 
@@ -80,7 +80,7 @@ Para agregar el SDK de Bing Spell Check, seleccione **Administración de paquete
     }
     ```
 
-3. Obtenga la primera corrección sugerida, si la hay. Imprima la puntuación de la sugerencia y la palabra sugerida. 
+3. Obtenga la primera corrección sugerida, si hay alguna. Imprima la puntuación de la sugerencia y la palabra sugerida. 
 
     ```csharp
             var suggestions = firstspellCheckResult.Suggestions;

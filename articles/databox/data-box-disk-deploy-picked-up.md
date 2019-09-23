@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910115"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128687"
 ---
 ::: zone target="chromeless"
 
@@ -89,11 +89,7 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 3. Pegue la etiqueta en la caja. 
 4. Utilice el vínculo https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference para reservar en línea una recogida. 
 
-### <a name="in-japan-koreatabin-japan-korea"></a>[En Japón, Corea](#tab/in-japan-korea)
-
-Estas son las instrucciones de recogida de Japón y Corea.
-
-#### <a name="pick-up-in-japan"></a>Recogida en Japón
+### <a name="in-japantabin-japan"></a>[En Japón](#tab/in-japan)
 
 1. Escriba el nombre y la dirección de la empresa en la nota de entrega como información del remitente.
 2. Envíe un correo electrónico a Quantium Solutions mediante la plantilla de correo electrónico que tiene a continuación.
@@ -120,7 +116,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 - Correo electrónico: Customerservice.JP@quantiumsolutions.com 
 - Teléfono：03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Recogida en Corea
+### <a name="in-koreatabin-korea"></a>[En Corea](#tab/in-korea)
 
 1. Asegúrese de incluir la nota de entrega de la devolución.
 2. Para solicitar la recogida con la nota de entrega:

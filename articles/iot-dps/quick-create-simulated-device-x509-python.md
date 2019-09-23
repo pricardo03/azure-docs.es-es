@@ -10,14 +10,15 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 12ccff3676cb35ac27126360dbcf5a1b9b3e131f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3474d30d051e88d0e9150ea649958caa460932c7
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914153"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001290"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 En estos pasos se muestra cómo simular un dispositivo X.509 en la máquina de desarrollo que ejecuta el sistema operativo Windows, y usar un código de ejemplo de Python para conectar este dispositivo simulado con el servicio Device Provisioning e IoT Hub. 
@@ -31,6 +32,9 @@ Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 En este artículo se mostrarán las inscripciones individuales.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
+
+> [!NOTE]
+> Esta guía solo se aplica al SDK de Python v1 ya en desuso. Los dispositivos X.509 simulados aún no se admiten en v2. El equipo está actualmente intentado incorporar la versión 2 a la paridad de características.
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno 
 

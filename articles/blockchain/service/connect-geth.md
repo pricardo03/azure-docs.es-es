@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0716a9326a54ae31d4f355fe5f4c88488339b390
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a26899e291c4f44d3c9d91032b2ee191ba03133a
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029983"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931770"
 ---
 # <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Inicio rápido: Uso de Geth para conectarse a un nodo de transacción
 
@@ -26,7 +26,7 @@ Geth es un cliente de Go Ethereum que se puede usar para conectarse a una instan
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Instalar [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* [Crear un miembro de Azure Blockchain](create-member.md)
+* Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
 
 ## <a name="get-the-geth-connection-string"></a>Obtención de la cadena de conexión de Geth
 
@@ -67,7 +67,7 @@ Puede encontrar la cadena de conexión de Geth en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, usó el cliente de Geth para conectarse a una instancia de Geth en un nodo de transacción de Azure Blockchain Service. Pruebe el siguiente tutorial para implementar y enviar una transacción con Truffle.
+En este tutorial, usó el cliente de Geth para conectarse a una instancia de Geth en un nodo de transacción de Azure Blockchain Service. Pruebe el siguiente tutorial para usar el kit de desarrollo de Azure Blockchain para Ethereum y Truffle a fin de crear, compilar, implementar y ejecutar una función de contrato inteligente mediante una transacción.
 
 > [!div class="nextstepaction"]
-> [Envío de una transacción](send-transaction.md)
+> [Uso de Visual Studio Code para crear, compilar e implementar contratos inteligentes](send-transaction.md)

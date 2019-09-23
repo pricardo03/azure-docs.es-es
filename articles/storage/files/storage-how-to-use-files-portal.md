@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d7618d2542b1c1d83ed7328c8a32d80f2d0e66a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699530"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984881"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con Azure Portal 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/).
@@ -46,7 +46,7 @@ Para montar un recurso compartido de archivos con SMB, consulte el siguiente doc
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Uso de un recurso compartido de archivos de Azure desde Azure Portal
 Todas las solicitudes efectuadas a través de Azure Portal se realizan con la API REST de File, lo que le permite crear, modificar y eliminar archivos y directorios en los clientes sin acceso a SMB. Se puede trabajar directamente con el protocolo REST de archivo (es decir, escribir a mano las llamadas a HTTP de REST), pero la manera más habitual de usar este protocolo (que no sea con Azure Portal) es mediante el [módulo de AzureRM PowerShell](storage-how-to-use-files-powershell.md), la [CLI de Azure](storage-how-to-use-files-cli.md) o un SDK de Azure Storage; todos ellos proporcionan un buen contenedor para el protocolo REST de archivo en el lenguaje de programación o script de su elección. 
 
-Es esperable que en la mayoría de casos de uso de Azure Files se trabajará con el recurso compartido de archivos de Azure a través del protocolo SMB, dado que permite usar las aplicaciones y herramientas existentes que se desean usar; sin embargo, existen varias razones por las que es beneficioso usar la API REST de archivo en lugar de SMB, como por ejemplo:
+Cabe esperar que la mayoría de los usuarios de Azure Files deseen trabajar con el recurso compartido de archivos de Azure a través del protocolo SMB, dado que permite usar las aplicaciones y herramientas existentes que se desean usar; sin embargo, existen varias razones por las que es beneficioso usar la API REST de archivo en lugar de SMB, como por ejemplo:
 
 - Debe realizar un cambio rápido en el recurso compartido de archivos de Azure sobre la marcha, por ejemplo, desde un portátil sin acceso a SMB, una tableta o un dispositivo móvil.
 - Debe ejecutar un script o una aplicación desde un cliente que no puede montar recursos compartidos de SMB, como los clientes locales que no tienen desbloqueado el puerto 445.

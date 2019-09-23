@@ -1,5 +1,5 @@
 ---
-title: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (Node.js) | Microsoft Docs
+title: 'Inicio rápido: control de un dispositivo desde Azure IoT (Node.js)'
 description: En este inicio rápido, ejecuta dos aplicaciones Node.js de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ba49709e6cab2d3e6a752fb7b529da7edb9f642e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ab064798d21dd6d6ba87f2f2d093dfc0849c1cb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877147"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967181"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Inicio rápido: Control de un dispositivo conectado a IoT Hub (Node.js)
 

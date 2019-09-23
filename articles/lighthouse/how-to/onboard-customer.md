@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo incorporar un cliente a la adminis
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165045"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105274"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -20,7 +20,7 @@ En este artículo se explica cómo, como proveedor de servicios, puede incorpora
 
 Puede repetir este proceso si está administrando recursos para varios clientes. A continuación, cuando un usuario autorizado inicia sesión en el inquilino, se puede autorizar al usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos los inquilinos de cliente individuales.
 
-Puede asociar el identificador de Microsoft Partner Network (MPN) con las suscripciones incorporadas para realizar un seguimiento de su impacto en las involucraciones de clientes y recibir el reconocimiento correspondiente. Para más información, consulte [Vinculación de un Id. de partner a cuentas de Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Tenga en cuenta que deberá realizar esta asociación por separado para cada inquilino de cliente cuyos recursos esté administrando. 
+Puede asociar el identificador de Microsoft Partner Network (MPN) con las suscripciones incorporadas para realizar un seguimiento de su impacto en las involucraciones de clientes y recibir el reconocimiento correspondiente. Para más información, consulte [Vinculación de un Id. de partner a cuentas de Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Tenga en cuenta que deberá realizar esta asociación en el inquilino del proveedor de servicios.
 
 > [!NOTE]
 > Los clientes se pueden incorporar automáticamente cuando compran una oferta de servicios administrados (pública o privada) publicada en Azure Marketplace. Para obtener más información, consulte [Publicar ofertas de servicios administrados en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.

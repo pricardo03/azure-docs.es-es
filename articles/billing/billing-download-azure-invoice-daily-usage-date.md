@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491402"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057678"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
 En la mayoría de las suscripciones, puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Si es cliente de Azure con un Contrato Enterprise (cliente de EA), no puede descargar las facturas de su organización. Las facturas se envían a la persona que se configuró para recibir las facturas de la inscripción.
 
-Si es usted un cliente de EA o tiene un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement), puede descargar el uso en [Azure Portal](https://portal.azure.com/). Si se trata de otras suscripciones, vaya al [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) para descargar el uso.
+Si es usted un cliente de EA o tiene un [contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement), puede descargar el uso en [Azure Portal](https://portal.azure.com/).
 
 Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta o el administrador de Enterprise. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
@@ -46,11 +46,13 @@ En la mayoría de las suscripciones, puede descargar la factura desde Azure Por
 
     ![Captura de pantalla que muestra la opción Facturación y uso](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Haga clic en **Descargar factura** para ver una copia de la factura en PDF. Si muestra **No disponible**, vea [¿Por qué no veo una factura para el último período de facturación?](#noinvoice)
+3. Haga clic en el botón Descargar para descargar una copia de la factura en PDF y, después, seleccione **Descargar factura**. Si muestra **No disponible**, vea [¿Por qué no veo una factura para el último período de facturación?](#noinvoice)
 
-    ![Captura de pantalla que muestra los períodos de facturación, la opción de descarga y los cargos totales para cada período de facturación](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+    ![Captura de pantalla que muestra los períodos de facturación, la opción de descarga y los cargos totales para cada período de facturación](./media/billing-download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. También puede ver el uso diario si hace clic en el período de facturación.
+4. También puede descargar un desglose diario de las cantidades consumidas y los gastos estimados haciendo clic en **Descargar CSV**.
+
+    ![Captura de pantalla que muestra la página Descargar factura y uso](./media/billing-download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
 Para más información sobre la factura, consulte [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md). Para ayudar a administrar los costos, consulte [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
 
@@ -62,7 +64,7 @@ Las facturas se generan para cada [perfil de facturación](billing-mca-overview.
 2. Seleccione un perfil de facturación.
 3. Seleccione **Facturas**.
 4. En la cuadrícula de la factura, busque la fila de la factura que desea descargar.
-5. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
+5. Haga clic en el botón Descargar al final de la fila.
 6. En el menú contextual de descarga, seleccione **Factura**.
 
 Si no ve una factura del último período de facturación, consulte **Información adicional**. <!-- Fix this -->
@@ -119,37 +121,19 @@ Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura
 
 Puede optar por dejar de recibir la factura por correo electrónico; para ello, siga los pasos anteriores y haga clic en **Deshabilitar envío**. Todos los propietarios, colaboradores, lectores y administradores de facturación dejarán también de recibir la factura por correo electrónico. Si es lector, no puede cambiar la preferencia de factura por correo electrónico.
 
-## <a name="download-usage"></a>Descarga del uso
+## <a name="download-usage-in-azure-portal"></a>Descarga del uso en Azure Portal
 
- Para la mayoría de las suscripciones, busque el archivo de uso diario en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). Si es usted un cliente de EA o tiene un contrato de cliente de Microsoft, puede descargar el uso en [Azure Portal](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
+ En la mayoría de las suscripciones, debe seguir estos pasos para encontrar el uso diario:
 
-### <a name="download-usage-from-the-account-center-csv"></a>Descarga del uso desde el centro de cuentas (.csv)
+1. Seleccione su suscripción en la [página Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal como [un usuario con acceso a las facturas](billing-manage-access.md).
 
-1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) como administrador de la cuenta.
+2. Seleccione **Facturas**.
 
-2. Seleccione la suscripción para la que quiere la información de factura y uso.
+    ![Captura de pantalla que muestra la opción Facturación y uso](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Seleccione **HISTORIAL DE FACTURACIÓN**.
+3. Haga clic en el botón Descargar del período de facturación que desee comprobar.
 
-    ![Captura de pantalla que muestra la opción del historial de facturación](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. Puede ver sus extractos de los últimos seis períodos de facturación y el período actual sin facturar.
-
-    ![Captura de pantalla que muestra los períodos de facturación, las opciones para descargar la factura y uso diario, y los cargos totales para cada período de facturación](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. Seleccione **Ver extracto actual** para ver una estimación de los cargos en el momento en que se generó la estimación. Esta información solo se actualiza diariamente y es posible que no incluya todo el uso. La factura mensual puede ser distinta a esta estimación.
-
-    ![Captura de pantalla que muestra la opción Ver extracto actual](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![Captura de pantalla que muestra la estimación de los cargos actuales](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. Seleccione **Descargar uso** para descargar los datos de uso diario como un archivo CSV. Si ve dos versiones disponibles, descargue la versión 2.
-
-    ![Captura de pantalla que muestra la opción Descargar uso](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-Solo el administrador de la cuenta puede tener acceso al Centro de cuentas de Azure. Otros administradores de facturación, como un propietario, pueden obtener información de uso mediante las [API de facturación](billing-usage-rate-card-overview.md).
-
-Para más información sobre el uso diario, consulte [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md). Para ayudar a administrar los costos, consulte [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
+4. Descargue un desglose diario de las cantidades consumidas y los gastos estimados haciendo clic en **Descargar CSV**.  La preparación del CSV puede tardar varios minutos en finalizar.
 
 ### <a name="download-usage-for-ea-customers"></a>Descarga del uso para los clientes de EA
 

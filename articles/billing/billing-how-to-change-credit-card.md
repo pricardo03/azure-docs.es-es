@@ -11,14 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: 7719ae83525883a6d3f014dbb99877b7319f2ccd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 05b1fe3d061e735322e6eb6c65e60f63d8adb4d6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68383666"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933863"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito para Azure
+
+Este documento se aplica a los clientes que se han suscrito a Azure online con una tarjeta de crédito.
 
 En Azure Portal, puede agregar una nueva tarjeta de crédito, actualizar una existente o eliminar una que no se use. Debe ser [administrador de la cuenta](billing-subscription-transfer.md#whoisaa) para realizar estos cambios.
 

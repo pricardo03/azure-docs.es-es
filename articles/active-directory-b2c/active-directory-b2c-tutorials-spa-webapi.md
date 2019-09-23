@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369312"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064691"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C
 
-En este tutorial se muestra cómo llamar a un recurso de API web ASP.NET Core protegido con Azure Active Directory (Azure AD) B2C desde una aplicación de página única.
+En este tutorial se muestra cómo llamar a un recurso de API web ASP.NET Core protegido mediante Azure Active Directory B2C (Azure AD B2C) desde una aplicación de página única.
 
 En este tutorial, aprenderá a:
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a solicitudes de recursos protegidos por aplicaciones cliente que presenten un token de acceso.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Aplicaciones** y **Agregar**.
 1. Escriba un nombre para la aplicación. Por ejemplo, *webapi1*.

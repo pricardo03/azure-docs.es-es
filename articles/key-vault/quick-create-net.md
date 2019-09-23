@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914878"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996641"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET
 
@@ -26,7 +26,6 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
 [Documentación de referencia de la API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -118,26 +117,14 @@ Esta operación devolverá una serie de pares clave-valor.
 }
 ```
 
-Tome nota de los valores de clientId, clientSecret, subscriptionId y tenantId, ya que los usaremos en el paso [Autenticación en el almacén de claves](#authenticate-to-your-key-vault) que se indica a continuación.
-
-También necesita el identificador de la aplicación de la entidad de servicio. Puede encontrarlo mediante la ejecución de [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) con el parámetro `--show-mine`:
-
-```azurecli
-az ad sp list --show-mine
-```
-
-`appID` aparece en el JSON devuelto:
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+Tome nota de los valores de clientId y clientSecret, ya que los usaremos en el paso [Autenticación en el almacén de claves](#authenticate-to-your-key-vault) que se indica a continuación.
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Acceso de la entidad de servicio al almacén de claves
 
-Cree una directiva de acceso para el almacén de claves que conceda permiso a la entidad de servicio. Puede hacerlo con el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Vamos a proporcionar a la entidad de servicio los permisos get, list y set para las claves y los secretos.
+Cree una directiva de acceso para el almacén de claves que conceda permiso a la entidad de servicio pasando clientId al comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Proporcione a la entidad de servicio los permisos get, list y set para las claves y los secretos.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>Modelo de objetos
@@ -164,10 +151,6 @@ Antes de crear y ejecutar la aplicación, use el comando `setx` para establecer 
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Cada vez que llame a `setx`, debería obtener una respuesta de "CORRECTO: se guardó el valor especificado".

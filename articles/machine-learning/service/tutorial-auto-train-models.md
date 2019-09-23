@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial del modelo de regresión: Machine Learning Automatizado'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a generar un modelo de ML mediante el aprendizaje automático automatizado. Azure Machine Learning puede realizar automáticamente el procesamiento previo de los datos, y la selección del algoritmo y de los hiperparámetros. Después, el modelo final se implementa con Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Aprenda a generar un modelo de ML mediante el aprendizaje automático automatizado. Azure Machine Learning puede realizar automáticamente el procesamiento previo de los datos, y la selección del algoritmo y de los hiperparámetros. Después, el modelo final se implementa con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036243"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003981"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
 
-En este tutorial, utilizará el aprendizaje automático automatizado en Azure Machine Learning Service para crear un modelo de regresión y predecir los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
+En este tutorial, usará el aprendizaje automático automatizado de Azure Machine Learning para crear un modelo de regresión y predecir los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
 
 ![Diagrama de flujo](./media/tutorial-auto-train-models/flow2.png)
 
@@ -30,11 +30,11 @@ En este tutorial, aprenderá a realizar las tareas siguientes:
 > * Entrenar un modelo de regresión con aprendizaje automático automatizado
 > * Calcular la precisión del modelo
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning Service.
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago](https://aka.ms/AMLFree) de Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning Service o una máquina virtual de cuadernos.
+* Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
 * Después de completar el tutorial de instalación, abra el cuaderno **tutorials/regression-automated-ml.ipynb** con el mismo servidor de cuadernos.
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Ejecute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obtener los paquetes requeridos.
@@ -1057,7 +1057,7 @@ El proceso tradicional de desarrollo de modelos de aprendizaje automático consu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-No complete esta sección si planea ejecutar otros tutoriales de Azure Machine Learning Service.
+No complete esta sección si planea ejecutar otros tutoriales de Azure Machine Learning.
 
 ### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
 
@@ -1088,4 +1088,4 @@ En este tutorial de aprendizaje automático, ha realizado las tareas siguientes:
 > * Ha realizado un entrenamiento mediante un modelo de regresión automatizado localmente con parámetros personalizados.
 > * Ha explorado y revisado los resultados del entrenamiento.
 
-[Implemente el modelo](tutorial-deploy-models-with-aml.md) con Azure Machine Learning Service.
+[Implemente el modelo](tutorial-deploy-models-with-aml.md) con Azure Machine Learning.

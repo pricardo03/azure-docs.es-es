@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56d41d92b77ea6ef536f1e371a825b775a780bef
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901598"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993883"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C# para el servicio Azure IoT Hub Device Provisioning
 
@@ -27,6 +27,7 @@ El código de ejemplo utiliza el simulador de TPM de Windows como [módulo de se
 Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
+
 - [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
 - [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
 
@@ -42,18 +43,16 @@ En este artículo se mostrarán las inscripciones individuales.
 1. Asegúrese de que `git` está instalado en su máquina y se agrega a las variables de entorno accesibles para la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash**, la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
 
 1. Abra un símbolo del sistema o Git Bash. Clone el repositorio de GitHub de los ejemplos de Azure IoT para C#:
-    
+
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Aprovisionamiento del dispositivo simulado
 
-
-1. Inicie sesión en el Portal de Azure. Haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning. Desde la hoja **Información general**, anote el valor de **_Identificador de ámbito_**.
+1. Inicie sesión en el Portal de Azure. Haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning. Desde la hoja **Información general**, anote el valor de **_Identificador de ámbito_** .
 
     ![Copie el id. de ámbito del servicio de aprovisionamiento de la hoja del portal](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
-
 
 2. En un símbolo del sistema, cambie los directorios al directorio del proyecto del ejemplo de aprovisionamiento de dispositivo de TPM.
 
@@ -67,9 +66,9 @@ En este artículo se mostrarán las inscripciones individuales.
     dotnet run <IDScope>
     ```
 
-    Este comando iniciará el simulador de chip de TPM en un símbolo del sistema independiente.  
+    Este comando iniciará el simulador de chip de TPM en un símbolo del sistema independiente. En Windows, es posible que encuentre una alerta de seguridad de Windows que le pregunte si desea permitir que Simulator. exe se comunique en redes públicas. Para los fines de este ejemplo, puede cancelar la solicitud.
 
-1. La ventana de comandos muestra la **_clave de aprobación_**, el **_id. de registro_** y un **_id. de dispositivo_** sugerido necesarios para la inscripción del dispositivo. Anote estos valores. Usará estos valores para crear una inscripción individual en la instancia del servicio Device Provisioning. 
+1. La ventana de comandos muestra la **_clave de aprobación_** , el **_id. de registro_** y un **_id. de dispositivo_** sugerido necesarios para la inscripción del dispositivo. Anote estos valores. Usará estos valores para crear una inscripción individual en la instancia del servicio Device Provisioning. 
    > [!NOTE]
    > No confunda la ventana que contiene la salida del comando con la ventana que contiene la salida desde el simulador de TPM. Es posible que tenga que hacer clic en la ventana de comandos para pasarla al primer plano.
 
@@ -89,14 +88,13 @@ En este artículo se mostrarán las inscripciones individuales.
 
    Al inscribir el dispositivo correctamente, el *id. del registro* del dispositivo aparecerá en la lista de la pestaña *Individual Enrollments* (Inscripciones individuales). 
 
-6. Presione Entrar en la ventana de comandos (que muestra la **_clave de aprobación_**, el **_identificador de registro_** y un **_identificador de dispositivo_**) para la inscripción del dispositivo simulado. Tenga en cuenta los mensajes que simulan el arranque del dispositivo y la conexión al servicio Device Provisioning para obtener la información del centro de IoT. 
+6. Presione Entrar en la ventana de comandos (que muestra la **_clave de aprobación_** , el **_identificador de registro_** y un **_identificador de dispositivo_** ) para la inscripción del dispositivo simulado. Tenga en cuenta los mensajes que simulan el arranque del dispositivo y la conexión al servicio Device Provisioning para obtener la información del centro de IoT. 
 
 1. Compruebe que el dispositivo se haya aprovisionado. Si se aprovisiona correctamente el dispositivo simulado para la instancia de IoT Hub vinculada con el servicio de aprovisionamiento, el id. de dispositivo se muestra en la hoja **IoT Devices** (Dispositivos IoT) del centro. 
 
     ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Si ha cambiado el valor predeterminado de *Estado inicial del dispositivo gemelo* en la entrada de inscripción para el dispositivo, el dispositivo puede extraer el estado gemelo deseado desde el centro y actuar en consecuencia. Para más información, consulte [Información y uso de dispositivos gemelos en IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

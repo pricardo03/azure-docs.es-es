@@ -1,7 +1,7 @@
 ---
 title: Cuadernos de Jupyter Notebook de ejemplo
-titleSuffix: Azure Machine Learning service
-description: Busque y use cuadernos de Jupyter de ejemplo para explorar el SDK de Python para Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Busque y use cuadernos de Jupyter de ejemplo para explorar el SDK de Python para Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860381"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997058"
 ---
-# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Exploración de Azure Machine Learning Service con cuadernos de Jupyter
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Exploración de Azure Machine Learning con cuadernos de Jupyter
 
 El repositorio de [cuadernos de Azure Machine Learning](https://github.com/azure/machinelearningnotebooks) incluye los ejemplos más recientes del SDK de Python para Azure Machine Learning. Estos cuadernos de Juypter Notebook están diseñados para ayudarle a explorar el SDK y para servir como modelos para sus propios proyectos de aprendizaje automático.
 
@@ -55,7 +55,7 @@ Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personaliz
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore los [cuadernos de ejemplo](https://aka.ms/aml-notebooks) para descubrir lo que Azure Machine Learning Service puede hacer o pruebe estos tutoriales:
+Explore los [cuadernos de ejemplo](https://aka.ms/aml-notebooks) para descubrir lo que Azure Machine Learning puede hacer o pruebe estos tutoriales:
 
 - [Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning](tutorial-train-models-with-aml.md)
 

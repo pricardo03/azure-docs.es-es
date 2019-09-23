@@ -3,16 +3,16 @@ title: 'Ejemplo: plano técnico de Canada Federal PBMM (asignación de controles
 description: Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM para Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918764"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002907"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM
 
@@ -21,7 +21,7 @@ En el siguiente artículo se explica detalladamente la forma en que el ejemplo d
 Las siguientes asignaciones son para los controles de **Canada Federal PBMM**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: controles de Audit Canada Federal PBMM** de la iniciativa de directivas integradas.
 
 > [!IMPORTANT]
-> Cada control siguiente está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) del control; sin embargo, a menudo no hay una coincidencia 1:1 o completa entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
+> Cada control siguiente está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) del control; sin embargo, a menudo no hay una coincidencia 1:1 o completa entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
 
 ## <a name="location-constraints"></a>Restricciones de ubicación
 
@@ -32,7 +32,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 
 ## <a name="ac-2-account-management"></a>Administración de cuentas AC-2
 
-Este proyecto le ayudará a revisar las cuentas que pueda que no cumplan los requisitos de administración de cuentas de su organización. Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) que auditan las cuentas externas con permisos de lectura, escritura y propietario en una suscripción y en las cuentas en desuso. Al revisar las cuentas auditadas por estas directivas, puede tomar las medidas adecuadas para garantizar que se cumplen los requisitos de administración de cuentas.
+Este plano técnico le ayudará a revisar aquellas cuentas que es posible que no cumplan los requisitos de administración de cuentas de su organización. Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) que auditan las cuentas externas con permisos de lectura, escritura y propietario en una suscripción y en las cuentas en desuso. Al revisar las cuentas auditadas por estas directivas, puede tomar las medidas adecuadas para garantizar que se cumplen los requisitos de administración de cuentas.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
@@ -310,6 +310,12 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 > La disponibilidad de definiciones específicas de Azure Policy puede variar tanto en Azure Government como en otras nubes nacionales. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Ya ha revisado la asignación de control del ejemplo de plano técnico de Canada Federal PBMM. Ahora, consulte los siguientes artículos para ver una introducción y aprender a implementar este ejemplo:
+
+> [!div class="nextstepaction"]
+> [Plano técnico de Canada Federal PBMM: Introducción](./control-mapping.md)
+> [Plano técnico de Canada Federal PBMM: Pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

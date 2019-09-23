@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Análisis de imágenes remotas (REST, Node.js)'
+title: 'Inicio rápido: Análisis de una imagen remota con la API REST y Node.js'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con Node.js.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: bf14af7a9edd0418217b61ceb26c35237a103de0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seodec18, seo-javascript-september2018
+ms.openlocfilehash: c9d2c28a1faa2bceafb2b45f1dac76356e0e8753
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137758"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933945"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Inicio rápido: Análisis de imágenes remotas mediante la API REST Computer Vision con Node.js
 

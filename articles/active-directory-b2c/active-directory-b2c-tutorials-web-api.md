@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C | Microsoft Docs'
+title: 'Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C'
 description: Tutorial sobre cómo usar Active Directory B2C para proteger una API web de ASP.NET y llamarla desde una aplicación web para ASP.NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/19/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347127"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103397"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C
 
-Este tutorial muestra cómo llamar a un recurso de API web protegido de Azure Active Directory (Azure AD) B2C desde una aplicación web para ASP.NET.
+En este tutorial se muestra cómo llamar a un recurso de API web protegido de Azure Active Directory B2C (Azure AD B2C) desde una aplicación web para ASP.NET.
 
 En este tutorial, aprenderá a:
 
@@ -40,7 +40,7 @@ Complete los pasos y requisitos previos en [Tutorial: Habilitación de la autent
 Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a solicitudes de recursos protegidos por aplicaciones cliente que presenten un token de acceso.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Aplicaciones** y **Agregar**.
 5. Escriba un nombre para la aplicación. Por ejemplo, *webapi1*.
@@ -82,20 +82,20 @@ Hay dos proyectos en la solución de ejemplo:
 
 Los dos proyectos siguientes están en la solución de ejemplo:
 
-- **TaskWebApp**: para crear y editar una lista de tareas. El ejemplo utiliza el flujo de usuario de **registro o de inicio de sesión** para que los usuarios se registren o inicien sesión.
-- **TaskService**: admite la funcionalidad para crear, leer, actualizar y eliminar la lista de tareas. Azure AD B2C protege la API y TaskWebApp la llama.
+* **TaskWebApp**: para crear y editar una lista de tareas. El ejemplo utiliza el flujo de usuario de **registro o de inicio de sesión** para que los usuarios se registren o inicien sesión.
+* **TaskService**: admite la funcionalidad para crear, leer, actualizar y eliminar la lista de tareas. Azure AD B2C protege la API y TaskWebApp la llama.
 
 ### <a name="configure-the-web-application"></a>Configuración de la aplicación web
 
 1. Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
-2. Abra **Web.config** en el proyecto **TaskWebApp**.
-3. Para ejecutar la API localmente, utilice la configuración de localhost para **api:TaskServiceUrl**. Cambie el archivo Web.config de la manera siguiente: 
+1. En el proyecto **TaskWebApp**, abra **Web.config**.
+1. Para ejecutar la API localmente, utilice la configuración de localhost para **api:TaskServiceUrl**. Cambie el archivo Web.config de la manera siguiente:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Configure el identificador URI de la API. Es el URI que utiliza la aplicación web para realizar la solicitud de API. Configure además los permisos solicitados.
+1. Configure el identificador URI de la API. Es el URI que utiliza la aplicación web para realizar la solicitud de API. Configure además los permisos solicitados.
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
@@ -105,26 +105,27 @@ Los dos proyectos siguientes están en la solución de ejemplo:
 
 ### <a name="configure-the-web-api"></a>Configuración de la API web
 
-1. Abra **Web.config** en el proyecto **TaskService**.
-2. Configure la API para usar el inquilino.
+1. En el proyecto **TaskService**, abra **Web.config**.
+1. Configure la API para usar el inquilino.
 
     ```csharp
+    <add key="ida:AadInstance" value="https://<Your tenant name>.b2clogin.com/{0}/{1}/v2.0/.well-known/openid-configuration" />
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. Establezca el identificador de cliente en el identificador de aplicación registrado para la API.
+1. Establezca el identificador de cliente en el identificador de la aplicación de la API web registrada, *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Actualice la configuración del flujo de usuario con el nombre del flujo de usuario de registro y de inicio de sesión.
+1. Actualice la configuración del flujo de usuario con el nombre de su flujo de usuario de registro y de inicio de sesión, *B2C_1_signupsignin1*.
 
     ```csharp
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-5. Defina la configuración de los ámbitos para que coincida con lo que ha creado en el portal.
+1. Configure los ámbitos para que coincidan con lo que ha creado en el portal.
 
     ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
@@ -133,19 +134,20 @@ Los dos proyectos siguientes están en la solución de ejemplo:
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-Debe ejecutar tanto el proyecto **TaskWebApp** como el de **TaskService**. 
+Debe ejecutar tanto el proyecto **TaskWebApp** como el de **TaskService**.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. 
-2. Seleccione **Proyectos de inicio múltiples**.
-3. Cambie la **Acción** de ambos proyectos a **Iniciar**.
-4. Haga clic en **Aceptar** para guardar la configuración.
-5. Presione **F5** para ejecutar las dos aplicaciones. Cada aplicación se abre en su propia pestaña del explorador. `https://localhost:44316/` es la aplicación web.
-    `https://localhost:44332/` es la API web.
+1. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**.
+1. Seleccione **Proyectos de inicio múltiples**.
+1. Cambie la **Acción** de ambos proyectos a **Iniciar**.
+1. Haga clic en **Aceptar** para guardar la configuración.
+1. Presione **F5** para ejecutar las dos aplicaciones. Cada aplicación se abre en su propia ventana del explorador.
+    * `https://localhost:44316/` es la aplicación web.
+    * `https://localhost:44332/` es la API web.
 
-6. En la aplicación web, haga clic en **Registrar o en Iniciar sesión** para iniciar sesión en la aplicación web. Use la cuenta que creó anteriormente. 
-7. Después de iniciar sesión, haga clic en **Lista de tareas pendientes** y cree el elemento de lista correspondiente.
+1. En la aplicación web, haga clic en **sign-up / sign-in** (registrar o iniciar sesión) para iniciar sesión en la aplicación web. Use la cuenta que creó anteriormente.
+1. Después de iniciar sesión, seleccione **Lista de tareas pendientes** y cree un elemento de dicha lista.
 
-Al crear un elemento de lista de tareas pendientes, la aplicación web realiza una solicitud a la API web para generar este elemento. Su aplicación web protegida está llamando a la API web protegida en el inquilino de Azure AD B2C.
+Al crear un elemento de lista de tareas pendientes, la aplicación web realiza una solicitud a la API web para generar este elemento. Su aplicación web protegida llama a la API web protegida por Azure AD B2C.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443846"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074137"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -38,7 +38,7 @@ En primer lugar, necesitará un conjunto de datos de entrenamiento de un contene
 
 Para entrenar un modelo de Form Recognizer mediante los documentos del contenedor de blobs de Azure, llame a la API **Train** mediante la ejecución del siguiente código Python. Antes de ejecutar el código, realice estos cambios:
 
-1. Reemplace `<Endpoint>` por la dirección URL del punto de conexión del recurso de Form Recognizer en la región de Azure en la que obtuvo las claves de suscripción.
+1. Reemplace `<Endpoint>` por la dirección URL del punto de conexión del recurso de Form Recognizer.
 1. Reemplace `<Subscription key>` con la clave de suscripción que copió en el paso anterior.
 1. Reemplace `<SAS URL>` por la dirección URL de la firma de acceso compartido (SAS) del contenedor de almacenamiento de blobs de Azure. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 

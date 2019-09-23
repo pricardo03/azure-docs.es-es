@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565761"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967053"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -75,6 +75,6 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 Introducción a Computer Vision, con una guía de inicio rápido:
 
-- [Inicio rápido: Análisis de una imagen](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Inicio rápido: Extracción de texto manuscrito](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Inicio rápido: Generación de miniaturas](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Inicio rápido: SDK de .NET para Computer Vision](quickstarts-sdk/csharp-sdk.md)
+- [Inicio rápido: SDK de Python para Computer Vision](quickstarts-sdk/python-sdk.md)
+- [Inicio rápido: SDK de Java para Computer Vision](quickstarts-sdk/java-sdk.md)

@@ -4,16 +4,16 @@ description: En este artículo se describen las API REST que se usan para la ins
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900869"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105452"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST de Azure Enterprise
 
@@ -31,7 +31,7 @@ Los clientes de Microsoft Enterprise Azure pueden obtener información acerca de
 
 **Marketplace Store Charge**: [Marketplace Store Charge API](billing-enterprise-api-marketplace-storecharge.md) devuelve el desglose de los gastos de Marketplace basado en el uso por día para el período de facturación o las fechas de inicio y finalización especificadas. Para más información, consulte [API de informes para clientes de Enterprise: Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Price Sheet**: [Price Sheet API](/billing-enterprise-api-pricesheet.md) proporciona el tipo aplicable a cada medidor en los periodos de inscripción y facturación. Para más información, consulte [API de informes para clientes de Enterprise: Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Price Sheet**: [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) proporciona el tipo aplicable a cada medidor en los periodos de inscripción y facturación. Para más información, consulte [API de informes para clientes de Enterprise: Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Billing Periods**: [Billing Periods API](billing-enterprise-api-billing-periods.md) devuelve una lista de períodos de facturación que tienen datos de consumo para una inscripción en orden cronológico inverso. Cada período contiene una propiedad que apunta a la ruta de la API de los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y PriceSheet. Para más información, consulte [API de informes para clientes de Enterprise: Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -109,7 +109,7 @@ La siguiente información describe las propiedades de los informes de la API.
 
 El formato JSON se genera a partir del informe CSV. En consecuencia, el formato es el mismo que el formato CSV de resumen. El nombre de la columna se puede controlar, por lo que debe deserializarlo en una tabla de datos cuando consuma los datos del resumen de JSON.
 
-| Nombre de columna de CSV | Nombre de columna de JSON | Nueva columna de JSON | Comentario |
+| Nombre de columna CSV | Nombre de columna JSON | Nueva columna JSON | Comentario |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Nombre de cuenta | AccountName | AccountName |   |
@@ -145,7 +145,7 @@ El formato JSON se genera a partir del informe CSV. En consecuencia, el formato 
 
 #### <a name="azure-marketplace-report"></a>Informe de Azure Marketplace
 
-| Nombre de columna de CSV | Nombre de columna de JSON | Nueva columna de JSON |
+| Nombre de columna CSV | Nombre de columna JSON | Nueva columna JSON |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Nombre de cuenta | AccountName | AccountName |
@@ -174,7 +174,7 @@ El formato JSON se genera a partir del informe CSV. En consecuencia, el formato 
 
 #### <a name="price-sheet"></a>Hoja de precios
 
-| Nombre de columna de CSV | Nombre de columna de JSON | Comentario |
+| Nombre de columna CSV | Nombre de columna JSON | Comentario |
 | --- | --- | --- |
 | Servicio | Servicio |  Sin cambio de precio |
 | Unidad de medida | UnitOfMeasure |   |

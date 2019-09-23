@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310452"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057492"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -75,7 +75,7 @@ Los comandos de esta serie de tutoriales están formateados para el shell de Bas
 
 Ahora que ha extraído el código fuente en su máquina, siga estos pasos para crear un registro de contenedor y compilar la imagen de contenedor con ACR Tasks.
 
-Para facilitar la ejecución de comandos de ejemplo, los tutoriales de esta serie usan variables de entorno de shell. Ejecute el siguiente comando para establecer la variable `ACR_NAME`. Reemplace **\<registry-name\>** por un nombre único para el nuevo registro de contenedor. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Los demás recursos que cree en el tutorial se basan en este nombre con lo cual solo tendría que modificar esta primera variable.
+Para facilitar la ejecución de comandos de ejemplo, los tutoriales de esta serie usan variables de entorno de shell. Ejecute el siguiente comando para establecer la variable `ACR_NAME`. Reemplace **\<registry-name\>** por un nombre único para el nuevo registro de contenedor. El nombre del registro debe ser único en Azure y contener solo minúsculas, y entre 5 y 50 caracteres alfanuméricos. Los demás recursos que cree en el tutorial se basan en este nombre con lo cual solo tendría que modificar esta primera variable.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>

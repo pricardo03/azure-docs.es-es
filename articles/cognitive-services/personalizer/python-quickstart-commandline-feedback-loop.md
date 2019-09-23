@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882880"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067695"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Inicio rápido: Personalización de la biblioteca de cliente para Python
 
@@ -37,7 +37,7 @@ Introducción a la biblioteca de cliente de Personalizer para Python Siga estos 
 
 ### <a name="create-a-personalizer-azure-resource"></a>Creación de un recurso de Azure para Personalizer
 
-Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Personalizer mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
+Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Personalizer mediante [Azure Portal](https://portal.azure.com/) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. Para más información, consulte [Creación de un recurso de Cognitive Services con Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). También puede:
 
 * Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)

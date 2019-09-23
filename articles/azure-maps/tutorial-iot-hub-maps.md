@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916407"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933200"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -167,7 +167,7 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla mediante 
     
     El valor "geojson" del parámetro `dataFormat` de la ruta de acceso de la dirección URL representa el formato de datos de los datos que se cargan.
 
-3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción de Azure Maps.
+3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción principal de Azure Maps.
    
     ![Parámetros de clave-valor de Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions es un servicio de proceso sin servidor que permite ejecutar cód
 6. Copie el [código de C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) en la función y haga clic en **Guardar**.
  
 7. En el script de C#, reemplace los siguientes parámetros:
-    * Reemplace **SUBSCRIPTION_KEY** por la clave de suscripción de su cuenta de Azure Maps.
+    * Reemplace **SUBSCRIPTION_KEY** por la clave de suscripción principal de su cuenta de Azure Maps.
     * Reemplace **UDID** por el UDID de la geovalla que cargó. 
     * La función **CreateBlobAsync** del script crea un blob por evento en la cuenta de almacenamiento de datos. Reemplace **ACCESS_KEY**, **ACCOUNT_NAME** y **STORAGE_CONTAINER_NAME** por la clave de acceso de su cuenta de almacenamiento, el nombre de cuenta y el contenedor de almacenamiento de datos.
 

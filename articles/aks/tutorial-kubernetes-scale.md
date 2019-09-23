@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019185"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965132"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación*azure-vote-front*. Si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods hasta un máximo de *10* instancias. Luego se define un mínimo de *3* instancias para la implementación:
+En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación*azure-vote-front*. Si el uso medio de la CPU en todos los pods supera el 50 % del uso solicitado, la escalabilidad automática aumenta el valor de los pods hasta un máximo de *10* instancias. Luego se define un mínimo de *3* instancias para la implementación:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

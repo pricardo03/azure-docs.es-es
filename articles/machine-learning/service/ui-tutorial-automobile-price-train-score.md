@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Predicción del precio de un automóvil con la interfaz visual'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar, puntuar e implementar un modelo de Machine Learning mediante una interfaz visual de arrastrar y colocar. Este tutorial es la primera de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891631"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996773"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Predicción del precio de un automóvil con la interfaz visual
 
-En este tutorial de dos partes aprenderá a usar la interfaz visual de Azure Machine Learning Service para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil. 
+En este tutorial de dos partes aprenderá a usar la interfaz visual de Azure Machine Learning para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -27,9 +27,9 @@ En la parte uno estableceremos el entorno, arrastraremos y colocaremos conjuntos
 En la primera parte del tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear un experimento
+> * Creación de un nuevo experimento
 > * Importar datos
-> * Preparar los datos
+> * Preparación de los datos
 > * Entrenar un modelo de Machine Learning
 > * Evaluar un modelo de Machine Learning
 
@@ -45,7 +45,7 @@ Para crear un experimento de interfaz visual, en primero lugar se necesita un á
 
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
-Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la siguiente sección.
+Si tiene un área de trabajo de Azure Machine Learning, vaya a la siguiente sección.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -245,7 +245,7 @@ Se muestran las siguientes estadísticas de su modelo:
 * **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
 * **Coeficiente de determinación**: también se conoce como valor R cuadrado y es una métrica estadística que indica cómo se ajusta un modelo a los datos.
 
-Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se adaptan más estrechamente a los valores reales. En Coefficient of Determination (Coeficiente de determinación), cuanto más cerca esté el valor de uno (1,0), mejores son las predicciones.
+Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones se ajustan más a los valores reales. En Coefficient of Determination (Coeficiente de determinación), cuanto más cerca esté el valor de uno (1,0), mejores son las predicciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

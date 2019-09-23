@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 019b2ba0fd87610195ca9e6c7cb749be9542bd72
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858856"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932675"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Creación de un dispositivo IoT Plug and Play (versión preliminar) que esté listo para la certificación
 
@@ -84,6 +84,18 @@ Para ver la interfaz de **información del dispositivo** en VS Code:
 1. En el repositorio de modelos público, seleccione la pestaña **Interfaces**, seleccione el icono de filtro y escriba **información del dispositivo** en el campo de filtro.
 
 1. Para crear una copia local de la interfaz de **información del dispositivo**, selecciónela la lista filtrada y, después, seleccione **Download** (Descargar). VS Code muestra el archivo de la interfaz.
+
+Para ver la interfaz de **información del dispositivo** en la CLI de Azure:
+
+1. [Instale la extensión de la CLI de Azure IoT](howto-install-pnp-cli.md).
+
+1. Use el siguiente comando de la CLI de Azure para mostrar una interfaz con el identificador de la interfaz de información del dispositivo:
+
+    ```cmd/sh
+    az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
+    ```
+
+Para más información, consulte [Instalación y uso de la extensión de Azure IoT para la CLI de Azure](howto-install-pnp-cli.md).
 
 ## <a name="update-device-code"></a>Actualización del código de dispositivo
 

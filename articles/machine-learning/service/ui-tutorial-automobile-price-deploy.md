@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implementación de un modelo de Machine Learning con la interfaz visual'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a cómo crear una solución de análisis predictivo en la interfaz visual de Azure Machine Learning Service. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar. Este tutorial es la segunda de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
+titleSuffix: Azure Machine Learning
+description: Aprenda a crear una solución de análisis predictivo en la interfaz visual de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar. Este tutorial es la segunda de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858640"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997006"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementación de un modelo de Machine Learning con la interfaz visual
 
@@ -105,7 +105,7 @@ Vaya a la pestaña **API Doc** (Documentación de la API) para buscar más detal
 
 ## <a name="manage-models-and-deployments"></a>Administración de modelos e implementaciones
 
-Los modelos y las implementaciones de servicios web que cree en la interfaz visual se pueden administrar también desde el área de trabajo de Azure Machine Learning Service.
+Los modelos y las implementaciones de servicios web que cree en la interfaz visual se pueden administrar también desde el área de trabajo de Azure Machine Learning.
 
 1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com/).  
 

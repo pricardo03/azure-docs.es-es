@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566893"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037445"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Plantillas de Azure Resource Manager para Azure SQL Database
 
 Las plantillas de Azure Resource Manager permiten definir la infraestructura como código e implementar soluciones en la nube de Azure.
 
-## <a name="single-database--elastic-pool"></a>Base de datos única y grupo de bases de datos elásticas
+## <a name="single-database--elastic-pooltabsingle-database"></a>[Base de datos única y grupo elástico](#tab/single-database)
 
 En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manager para Azure SQL Database.
 
@@ -41,7 +41,7 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Clúster de HDInsight con SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esta plantilla permite crear un clúster de HDInsight, un servidor de SQL Database, una instancia SQL Database y dos tablas. Esta plantilla se usa en el artículo [Uso de Apache Sqoop con Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Aplicación de lógica de Azure que ejecuta un procedimiento almacenado de SQL según una programación](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Esta plantilla permite crear una aplicación lógica que ejecutará un procedimiento almacenado de SQL de forma programada. Los argumentos para el procedimiento se pueden colocar en la sección del cuerpo de la plantilla.|
 
-## <a name="managed-instance"></a>Instancia administrada
+## <a name="managed-instancetabmanaged-instance"></a>[Instancia administrada](#tab/managed-instance)
 
 En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manager para Azure SQL Database - Instancia administrada.
 
@@ -51,3 +51,5 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Entorno de red para Instancia administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementación creará una red virtual de Azure con dos subredes: una que se dedicará a las instancias administradas y otra en la que se pueden colocar otros recursos (por ejemplo, máquinas virtuales, entornos de App Service, etc.). Esta plantilla creará un entorno de red configurado correctamente en el que puede implementar instancias administradas. |
 | [Instancia administrada con conexión P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Esta implementación creará una red virtual de Azure con dos subredes, `ManagedInstance` y `GatewaySubnet`. Instancia administrada se implementará en la subred ManagedInstance. Se creará una puerta de enlace de red virtual en la subred `GatewaySubnet` y se configurará para la conexión VPN de punto a sitio. |
 | [Instancia administrada con máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Esta implementación creará una red virtual de Azure con dos subredes, `ManagedInstance` y `Management`. Instancia administrada se implementará en la subred `ManagedInstance`. La máquina virtual con la versión más reciente de SQL Server Management Studio (SSMS) se implementarán en la subred `Management`. |
+
+---

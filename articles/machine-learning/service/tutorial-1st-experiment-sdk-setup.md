@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de su primer experimento de Machine Learning: Configuración'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: En esta serie de tutoriales, realizará los pasos completos para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  La primera parte cubre la creación de un entorno de servidor de cuaderno en la nube, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860425"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004054"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 
@@ -27,11 +27,11 @@ En este tutorial, hizo lo siguiente:
 > * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en el siguiente tutorial.
 > * Cree una VM de Jupyter Notebook basada en la nube que tenga instalado y preconfigurado el SDK de Python de Azure Machine Learning.
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del SDK. Si ya tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#azure). En caso contrario, créela ahora.
+Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del SDK. Si ya tiene un área de trabajo de Azure Machine Learning, vaya a la [siguiente sección](#azure). En caso contrario, créela ahora.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -39,7 +39,7 @@ Un área de trabajo de Azure Machine Learning es un recurso básico de la nube q
 
 En este ejemplo se usa el servidor de cuadernos en la nube en el área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
 
-En el área de trabajo puede crear un recurso en la nube para empezar a trabajar con cuadernos de Jupyter Notebook. Este recurso es una máquina virtual Linux basada en la nube configurada previamente con todo lo necesario para ejecutar Azure Machine Learning Service.
+En el área de trabajo puede crear un recurso en la nube para empezar a trabajar con cuadernos de Jupyter Notebook. Este recurso es una máquina virtual Linux basada en la nube configurada previamente con todo lo necesario para ejecutar Azure Machine Learning.
 
 1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com/).  Si no está seguro de cómo localizar el área de trabajo en el portal, consulte cómo [encontrar el área de trabajo](how-to-manage-workspace.md#view).
 
@@ -69,7 +69,7 @@ En el área de trabajo puede crear un recurso en la nube para empezar a trabajar
 
 En este tutorial ha completado estas tareas:
 
-* Ha creado un área de trabajo de Azure Machine Learning Service.
+* Ha creado un área de trabajo de Azure Machine Learning.
 * Ha creado y configurado un servidor de cuadernos en la nube en el área de trabajo.
 
 En la **segunda parte** del tutorial, se ejecuta el código en `tutorial-1st-experiment-sdk-train.ipynb` para entrenar un modelo de Machine Learning. 

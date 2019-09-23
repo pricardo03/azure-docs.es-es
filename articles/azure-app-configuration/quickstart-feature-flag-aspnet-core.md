@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347917"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076338"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -36,9 +36,9 @@ Las bibliotecas de administración de características de .NET Core amplían la 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Feature Manager** (Administrador de características)  >  **+ Crear** para agregar las siguientes marcas de características:
+6. Seleccione **Administrador de características** >  **+ Agregar** para agregar las siguientes marcas de características:
 
-    | Clave | Estado |
+    | Clave | State |
     |---|---|
     | Versión beta | Off |
 
@@ -81,10 +81,11 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
-1. Para agregar una referencia al paquete NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, ejecute el comando siguiente:
+1. Agregue una referencia a los paquetes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` y `Microsoft.FeatureManagement.AspNetCore`, para lo que debe ejecutar los siguientes comandos:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
@@ -262,9 +263,11 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Seleccione **Feature Manager** (Administrador de características) y cambie el estado de la clave **Beta** a **On** (Activado):
 
-    | Clave | Estado |
+    | Clave | State |
     |---|---|
     | Versión beta | Por |
+
+1. Reinicie la aplicación. Para ello, vuelva al símbolo del sistema y presione `Ctrl-C` para cancelar el proceso `dotnet` en ejecución y vuelva a ejecutar `dotnet run`.
 
 1. Actualice la página del explorador para ver los nuevos valores de configuración.
 
@@ -281,3 +284,4 @@ En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado
 - Más información sobre la [administración de características](./concept-feature-management.md).
 - [Administración de marcas de características](./manage-feature-flags.md).
 - [Uso de marcas de características en una aplicación de ASP.NET Core](./use-feature-flags-dotnet-core.md).
+- [Uso de la configuración dinámica en una aplicación de ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916456"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934188"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
 
@@ -56,7 +56,7 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla del sitio
     
     El parámetro GEOJSON en la ruta de acceso de la dirección URL representa el formato de datos de los datos que se cargan.
 
-3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción de Azure Maps.
+3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción principal de Azure Maps.
    
     ![Parámetros de clave-valor de Postman](./media/tutorial-geofence/postman-key-vals.png)
 
