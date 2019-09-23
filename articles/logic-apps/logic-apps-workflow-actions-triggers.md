@@ -65,8 +65,8 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
 | <*runtime-config-options*> | Objeto JSON | Puede cambiar el comportamiento del entorno en tiempo de ejecución del desencadenador estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
-| <*splitOn-expression*> | Cadena | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que [divide o *desagrupa*](#split-on-debatch) los elementos de matriz en varias instancias de flujo de trabajo para su procesamiento. | 
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*splitOn-expression*> | String | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que [divide o *desagrupa*](#split-on-debatch) los elementos de matriz en varias instancias de flujo de trabajo para su procesamiento. | 
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 ## <a name="trigger-types-list"></a>Lista de tipos de desencadenador
@@ -132,11 +132,11 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | Cadena | El nombre del desencadenador | 
-| <*connection-name*> | Cadena | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
-| <*method-type*> | Cadena | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | Cadena | La operación de API a la que llamar | 
-| <*time-unit*> | Cadena | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*APIConnection_trigger_name*> | String | El nombre del desencadenador | 
+| <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
+| <*method-type*> | String | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*api-operation*> | String | La operación de API a la que llamar | 
+| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
@@ -148,8 +148,8 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API. Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
 | <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*splitOn-expression*> | Cadena | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
+| <*splitOn-expression*> | String | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
 ||||
 
 *Outputs*
@@ -226,7 +226,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*connection-name*> | Cadena | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
+| <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje para enviar como carga a la API administrada | 
 |||| 
 
@@ -238,8 +238,8 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
 | <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*splitOn-expression*> | Cadena | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*splitOn-expression*> | String | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Ejemplo*
@@ -305,9 +305,9 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | Cadena | El método HTTP que se usará para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | Cadena | La dirección URL HTTP o HTTPS que va a sondear el punto de conexión <p>Tamaño máximo de la cadena: 2 KB | 
-| <*time-unit*> | Cadena | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*method-type*> | String | El método HTTP que se usará para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*endpoint-URL*> | String | La dirección URL HTTP o HTTPS que va a sondear el punto de conexión <p>Tamaño máximo de la cadena: 2 KB | 
+| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
@@ -316,13 +316,13 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Los encabezados que se envían con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo de una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Cadena | El contenido del mensaje que se va a enviar como carga con la solicitud | 
+| <*body-content*> | String | El contenido del mensaje que se va a enviar como carga con la solicitud | 
 | <*authentication-method*> | Objeto JSON | El método que usa la solicitud para la autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). Más allá de Scheduler, se admite la propiedad `authority`. Cuando no se especifica, el valor predeterminado es `https://login.windows.net`, pero puede usar otro valor, como`https://login.windows\-ppe.net`. |
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la solicitud <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la solicitud. | 
 | <*max-runs*> | Integer | De forma predeterminada, las instancias del flujo se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Outputs*
@@ -402,22 +402,22 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | Cadena | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*endpoint-subscribe-URL*> | Cadena | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
+| <*method-type*> | String | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*endpoint-subscribe-URL*> | String | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
 |||| 
 
 *Opcional*
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | Cadena | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*endpoint-unsubscribe-URL*> | Cadena | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
-| <*body-content*> | Cadena | Cualquier contenido de mensaje para enviar en la solicitud de suscripción o de cancelación | 
+| <*method-type*> | String | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*endpoint-unsubscribe-URL*> | String | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
+| <*body-content*> | String | Cualquier contenido de mensaje para enviar en la solicitud de suscripción o de cancelación | 
 | <*authentication-method*> | Objeto JSON | El método que usa la solicitud para la autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Outputs* 
@@ -496,7 +496,7 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*time-unit*> | Cadena | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*time-unit*> | String | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
@@ -504,14 +504,14 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadena | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
-| <*time-zone*> | Cadena | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
+| <*time-zone*> | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
 | <*one-or-more-hour-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
 | <*one-or-more-minute-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
 | weekDays | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando quiera ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
 | <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Ejemplo 1*
@@ -605,20 +605,20 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*property-name*> | Cadena | El nombre de una propiedad en el esquema JSON que describe la carga | 
-| <*property-type*> | Cadena | El tipo de propiedad | 
+| <*property-name*> | String | El nombre de una propiedad en el esquema JSON que describe la carga | 
+| <*property-type*> | String | El tipo de propiedad | 
 |||| 
 
 *Opcional*
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | Cadena | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
-| <*relative-path-for-accepted-parameter*> | Cadena | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
+| <*method-type*> | String | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*relative-path-for-accepted-parameter*> | String | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
 | <*required-properties*> | Array | Una o más propiedades que requieren valores | 
 | <*max-runs*> | Integer | De forma predeterminada, todas las instancias del flujo se ejecutan al mismo tiempo, o bien en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*operation-option*> | Cadena | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 *Ejemplo*
@@ -778,9 +778,9 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|
-| <*action-name*> | Cadena | El nombre de la acción | 
-| <*action-type*> | Cadena | El tipo de acción, por ejemplo, "Http" o "ApiConnection"| 
-| <*input-name*> | Cadena | El nombre de una entrada que define el comportamiento de la acción | 
+| <*action-name*> | String | El nombre de la acción | 
+| <*action-type*> | String | El tipo de acción, por ejemplo, "Http" o "ApiConnection"| 
+| <*input-name*> | String | El nombre de una entrada que define el comportamiento de la acción | 
 | <*input-value*> | Varios | El valor de entrada, que puede ser una cadena, un número entero, un objeto JSON, etc. | 
 | <*previous-trigger-or-action-status*> | Objeto JSON | El nombre y el estado resultante del desencadenador o acción que se debe ejecutar inmediatamente antes de que se pueda ejecutar esta acción actual | 
 |||| 
@@ -791,7 +791,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 |-------|------|-------------|
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para obtener más información, consulte Directivas de reintentos. | 
 | <*runtime-config-options*> | Objeto JSON | Para algunas acciones, puede cambiar el comportamiento de la acción en el tiempo de ejecución estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
-| <*operation-option*> | Cadena | Para algunas acciones, puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | String | Para algunas acciones, puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Lista de tipos de acción
@@ -894,10 +894,10 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*action-name*> | Cadena | El nombre de la acción proporcionada por el conector | 
-| <*api-name*> | Cadena | El nombre de la API administrada por Microsoft que se usa para la conexión | 
-| <*method-type*> | Cadena | El método HTTP para llamar a la API: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*api-operation*> | Cadena | La operación de API a la que llamar | 
+| <*action-name*> | String | El nombre de la acción proporcionada por el conector | 
+| <*api-name*> | String | El nombre de la API administrada por Microsoft que se usa para la conexión | 
+| <*method-type*> | String | El método HTTP para llamar a la API: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*api-operation*> | String | La operación de API a la que llamar | 
 |||| 
 
 *Opcional*
@@ -974,16 +974,16 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*action-name*> | Cadena | El nombre de la acción proporcionada por el conector | 
-| <*method-type*> | Cadena | El método HTTP que se usará para suscribirse o cancelar la suscripción desde un punto de conexión: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*api-subscribe-URL*> | Cadena | El identificador URI que se utiliza para suscribirse a la API | 
+| <*action-name*> | String | El nombre de la acción proporcionada por el conector | 
+| <*method-type*> | String | El método HTTP que se usará para suscribirse o cancelar la suscripción desde un punto de conexión: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*api-subscribe-URL*> | String | El identificador URI que se utiliza para suscribirse a la API | 
 |||| 
 
 *Opcional*
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*api-unsubscribe-URL*> | Cadena | El identificador URI que se utiliza para cancelar la suscripción desde la API | 
+| <*api-unsubscribe-URL*> | String | El identificador URI que se utiliza para cancelar la suscripción desde la API | 
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar en la solicitud <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
 | <*authentication-method*> | Objeto JSON | El método que usa la solicitud para la autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -1152,8 +1152,8 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | Cadena | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | Cadena | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
+| <*Azure-function-ID*> | String | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*method-type*> | String | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
 ||||
 
 *Opcional*
@@ -1223,8 +1223,8 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | Cadena | El método que se usará para enviar la solicitud: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | Cadena | El punto de conexión HTTP o HTTPS al que se llama. Tamaño máximo de la cadena: 2 KB | 
+| <*method-type*> | String | El método que se usará para enviar la solicitud: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | String | El punto de conexión HTTP o HTTPS al que se llama. Tamaño máximo de la cadena: 2 KB | 
 |||| 
 
 *Opcional*
@@ -1421,7 +1421,7 @@ Esta acción crea una matriz a partir de elementos de otra matriz basándose en 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. |
-| <*condition-or-filter*> | Cadena | La condición usada para filtrar elementos en la matriz de origen <p>**Nota**: Si ningún valor satisface la condición, la acción crea una matriz vacía. |
+| <*condition-or-filter*> | String | La condición usada para filtrar elementos en la matriz de origen <p>**Nota**: Si ningún valor satisface la condición, la acción crea una matriz vacía. |
 |||| 
 
 *Ejemplo*
@@ -1537,8 +1537,8 @@ Esta acción crea una matriz con objetos JSON mediante la transformación de los
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
-| <*key-name*> | Cadena | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
-| <*expresión*> | Cadena | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
+| <*key-name*> | String | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
+| <*expresión*> | String | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
 |||| 
 
 La acción **Seleccionar** crea una matriz como salida, por lo que cualquier acción que desee usar esta salida debe aceptar una matriz, o debe convertir la matriz en un tipo que acepte la acción del consumidor. Por ejemplo, para convertir la matriz de salida en una cadena, puede pasar esa matriz a la acción **Redactar** y, a continuación, hacer referencia a la salida de la acción **Redactar** en las demás acciones.
@@ -1634,7 +1634,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| \<CSV *o* HTML>| Cadena | El formato de la tabla que desea crear | 
+| \<CSV *o* HTML>| String | El formato de la tabla que desea crear | 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
 |||| 
 
@@ -1644,7 +1644,7 @@ Para especificar o personalizar los encabezados y los valores de columna, use la
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*column-name*> | Cadena | El nombre del encabezado de una columna | 
+| <*column-name*> | String | El nombre del encabezado de una columna | 
 | <*column-value*> | Any | El valor de esa columna | 
 |||| 
 
@@ -1747,7 +1747,7 @@ Esta acción detiene la ejecución de una instancia del flujo de trabajo, cancel
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*status*> | Cadena | El estado que se devolverá para la ejecución: "Erróneo", "Cancelado" o "Correcto" |
+| <*status*> | String | El estado que se devolverá para la ejecución: "Erróneo", "Cancelado" o "Correcto" |
 |||| 
 
 *Opcional*
@@ -1756,8 +1756,8 @@ Las propiedades del objeto "runStatus" se aplican solo cuando se establece la pr
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*error-code-or-name*> | Cadena | El código o nombre del error |
-| <*error-message*> | Cadena | El mensaje o el texto que describe el error y las acciones que el usuario de la aplicación puede realizar | 
+| <*error-code-or-name*> | String | El código o nombre del error |
+| <*error-message*> | String | El mensaje o el texto que describe el error y las acciones que el usuario de la aplicación puede realizar | 
 |||| 
 
 *Ejemplo*
@@ -1818,8 +1818,8 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*number-of-units*> | Integer | Para la acción **Delay** es el número de unidades que debe esperar | 
-| <*intervalo*> | Cadena | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*date-time-stamp*> | Cadena | Para la acción **Delay Until**, la fecha y hora en la que se reanudará la ejecución. Este valor debe usar el [formato UTC de fecha y hora](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+| <*intervalo*> | String | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*date-time-stamp*> | String | Para la acción **Delay Until**, la fecha y hora en la que se reanudará la ejecución. Este valor debe usar el [formato UTC de fecha y hora](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
 *Ejemplo 1*
@@ -1890,11 +1890,11 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*nested-logic-app-name*> | Cadena | El nombre de la aplicación lógica a la que desea llamar | 
-| <*trigger-name*> | Cadena | El nombre del desencadenador de la aplicación lógica anidada a la que desea llamar | 
-| <*Azure-subscription-ID*> | Cadena | El identificador de suscripción de Azure para la aplicación lógica anidada |
-| <*Azure-resource-group*> | Cadena | El nombre del grupo de recursos de Azure para la aplicación lógica anidada |
-| <*nested-logic-app-name*> | Cadena | El nombre de la aplicación lógica a la que desea llamar |
+| <*nested-logic-app-name*> | String | El nombre de la aplicación lógica a la que desea llamar | 
+| <*trigger-name*> | String | El nombre del desencadenador de la aplicación lógica anidada a la que desea llamar | 
+| <*Azure-subscription-ID*> | String | El identificador de suscripción de Azure para la aplicación lógica anidada |
+| <*Azure-resource-group*> | String | El nombre del grupo de recursos de Azure para la aplicación lógica anidada |
+| <*nested-logic-app-name*> | String | El nombre de la aplicación lógica a la que desea llamar |
 ||||
 
 *Opcional*
@@ -1967,9 +1967,9 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*action-1...n*> | Cadena | Los nombres de las acciones que se ejecutan en cada elemento de la matriz | 
+| <*action-1...n*> | String | Los nombres de las acciones que se ejecutan en cada elemento de la matriz | 
 | <*action-definition-1...n*> | Objeto JSON | Las definiciones de las acciones que se ejecutan | 
-| <*for-each-expression*> | Cadena | La expresión que hace referencia a cada elemento de la matriz especificada | 
+| <*for-each-expression*> | String | La expresión que hace referencia a cada elemento de la matriz especificada | 
 |||| 
 
 *Opcional*
@@ -1977,7 +1977,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*recuento*> | Integer | De forma predeterminada, las iteraciones de bucles "for each" se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio de la simultaneidad del bucle "for each"](#change-for-each-concurrency). | 
-| <*operation-option*> | Cadena | Para ejecutar un bucle "for each" secuencialmente, en lugar de en paralelo, establezca <*operation-option*> en `Sequential` o <*count*> en `1`, pero no ambas opciones a la vez. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each). | 
+| <*operation-option*> | String | Para ejecutar un bucle "for each" secuencialmente, en lugar de en paralelo, establezca <*operation-option*> en `Sequential` o <*count*> en `1`, pero no ambas opciones a la vez. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each). | 
 |||| 
 
 *Ejemplo*
@@ -2172,7 +2172,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varía | La expresión, objeto JSON o token que se va a evaluar | 
-| <*action-name*> | Cadena | El nombre de la acción que se va a ejecutar para el caso coincidente | 
+| <*action-name*> | String | El nombre de la acción que se va a ejecutar para el caso coincidente | 
 | <*action-definition*> | Objeto JSON | La definición de la acción que se va a ejecutar para el caso coincidente | 
 | <*matching-value*> | Varía | El valor que se compara con el resultado evaluado | 
 |||| 
@@ -2181,7 +2181,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*default-action-name*> | Cadena | El nombre de la acción predeterminada que se va a ejecutar si no hay ningún caso coincidente | 
+| <*default-action-name*> | String | El nombre de la acción predeterminada que se va a ejecutar si no hay ningún caso coincidente | 
 | <*default-action-definition*> | Objeto JSON | La definición de la acción que se va a ejecutar si no hay ningún caso coincidente | 
 |||| 
 
@@ -2297,12 +2297,12 @@ Esta acción de bucle contiene acciones que se ejecutan hasta que la condición 
 
 | Valor | type | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*action-name*> | Cadena | El nombre de la acción que desea ejecutar dentro del bucle | 
-| <*action-type*> | Cadena | El tipo de acción que desea ejecutar | 
+| <*action-name*> | String | El nombre de la acción que desea ejecutar dentro del bucle | 
+| <*action-type*> | String | El tipo de acción que desea ejecutar | 
 | <*action-inputs*> | Varios | Las entradas para que la acción se ejecute | 
-| <*condition*> | Cadena | La condición o expresión que va a evaluar una vez finalizada la ejecución de todas las acciones del bucle | 
+| <*condition*> | String | La condición o expresión que va a evaluar una vez finalizada la ejecución de todas las acciones del bucle | 
 | <*loop-count*> | Integer | El límite en el mayor número de bucles que puede ejecutar la acción. El valor predeterminado de `count` es 60. | 
-| <*loop-timeout*> | Cadena | El límite en el tiempo más largo que puede ejecutar el bucle. El valor predeterminado de `timeout` es `PT1H`, que es el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obligatorio. |
+| <*loop-timeout*> | String | El límite en el tiempo más largo que puede ejecutar el bucle. El valor predeterminado de `timeout` es `PT1H`, que es el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obligatorio. |
 |||| 
 
 *Ejemplo*
@@ -2392,10 +2392,10 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 | Opción de operación | type | DESCRIPCIÓN | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | Cadena | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
-| `OptimizedForHighThroughput` | Cadena | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
-| `Sequential` | Cadena | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | Cadena | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
+| `DisableAsyncPattern` | String | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
+| `OptimizedForHighThroughput` | String | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
+| `Sequential` | String | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | String | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

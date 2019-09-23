@@ -117,11 +117,11 @@ En el atributo `staticResults`, defina los valores ficticios `outputs` y `status
 
 | Atributo | Obligatorio | type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | Sí | Cadena | El nombre de una definición de resultado estático a la que una definición de acción puede hacer referencia a través de un objeto `runtimeConfiguration.staticResult`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Puede usar el nombre único que quiera. De forma predeterminada, este nombre único se anexa con un número, que se incrementa según sea necesario. |
+| <*static-result-definition-name*> | Sí | String | El nombre de una definición de resultado estático a la que una definición de acción puede hacer referencia a través de un objeto `runtimeConfiguration.staticResult`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Puede usar el nombre único que quiera. De forma predeterminada, este nombre único se anexa con un número, que se incrementa según sea necesario. |
 | <*output-attributes-and-values-returned*> | Sí | Varía | Los requisitos para estos atributos varían en función de diferentes condiciones. Por ejemplo, cuando `status` es `Succeeded`, el atributo `outputs` incluye los atributos y valores devueltos como salidas ficticias por la acción. Si `status` es `Failed`, el atributo `outputs` incluye el atributo `errors`, que es una matriz con uno o varios objetos `message` de error que tienen información del error. |
 | <*header-values*> | Sin | JSON | Los valores de encabezado devueltos por la acción. |
-| <*status-code-returned*> | Sí | Cadena | Código de estado devuelto por la acción. |
-| <*action-status*> | Sí | Cadena | Estado de la acción, por ejemplo, `Succeeded` o `Failed`. |
+| <*status-code-returned*> | Sí | String | Código de estado devuelto por la acción. |
+| <*action-status*> | Sí | String | Estado de la acción, por ejemplo, `Succeeded` o `Failed`. |
 |||||
 
 Por ejemplo, en esta definición de acción HTTP, el atributo `runtimeConfiguration.staticResult.name` hace referencia a `HTTP0` dentro del atributo `staticResults` donde se definen las salidas ficticias para la acción. El atributo `runtimeConfiguration.staticResult.staticResultOptions` especifica que la configuración de resultado estático es `Enabled` en la acción HTTP.
@@ -280,7 +280,7 @@ Esta es la estructura general de una definición de salida:
 
 | Atributo | Obligatorio | type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
-| <*key-name*> | Sí | Cadena | El nombre de clave del valor devuelto de salida. |
+| <*key-name*> | Sí | String | El nombre de clave del valor devuelto de salida. |
 | <*key-type*> | Sí | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. |
 | <*key-value*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
 |||||
