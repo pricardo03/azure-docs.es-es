@@ -46,13 +46,13 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI de recurso |
-| Recurso | Nombre del servidor |
-| Categoría | `PostgreSQLLogs` |
-| nombreOperación | `LogEvent` |
+| Resource | Nombre del servidor |
+| Category | `PostgreSQLLogs` |
+| OperationName | `LogEvent` |
 | errorLevel | Ejemplo de nivel de registro: LOG, ERROR, NOTICE |
 | Message | Mensaje de registro principal | 
-| Dominio | Versión del servidor, ejemplo: postgres-10 |
-| Detalles | Mensaje de registro secundario (si procede) |
+| Domain | Versión del servidor, ejemplo: postgres-10 |
+| Detail | Mensaje de registro secundario (si procede) |
 | ColumnName | Nombre de la columna (si procede) |
 | SchemaName | Nombre del esquema (si procede) |
 | DatatypeName | Nombre del tipo de datos (si procede) |
