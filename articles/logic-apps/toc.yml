@@ -17,9 +17,9 @@
   items:
     - name: Creación de flujos de trabajo basados en programación
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: Administrar solicitudes de lista de distribución de correo
+    - name: Creación de flujos de trabajo basados en aprobación
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: Procesamiento de archivos adjuntos de correo electrónico
+    - name: Creación de un flujo de trabajo de Azure Storage y Azure Functions
       href: tutorial-process-email-attachments-workflow.md
 - name: Ejemplos
   items:
@@ -31,7 +31,7 @@
   items:
     - name: Conectores de Logic Apps
       href: ../connectors/apis-list.md
-    - name: Programación de los flujos de trabajo recurrentes automatizados
+    - name: Programación de flujos de trabajo repetitivos
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sin servidor con Azure
       href: logic-apps-serverless-overview.md
@@ -111,6 +111,12 @@
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratos
           href: logic-apps-enterprise-integration-agreements.md
+        - name: Esquemas para validación XML
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Mapas para transformación XML
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Certificados
+          href: logic-apps-enterprise-integration-certificates.md
         - name: Metadatos de artefacto
           href: logic-apps-enterprise-integration-metadata.md
         - name: Recepción de mensajes B2B
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: Procesamiento de archivos planos
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: Transformación de XML
+          href: logic-apps-enterprise-integration-transform.md
         - name: Procesamiento de XML
           href: logic-apps-enterprise-integration-xml.md
         - name: Validación de XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Adición de esquemas para la validación XML
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: Transformación de XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Incorporación de mapas para la transformación XML
-          href: logic-apps-enterprise-integration-maps.md
         - name: Transformación de JSON
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: Adición de certificados de seguridad
-          href: logic-apps-enterprise-integration-certificates.md
         - name: Solución de problemas B2B
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Creación de un plan de recuperación ante desastres

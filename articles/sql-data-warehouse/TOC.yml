@@ -140,7 +140,11 @@
             - name: Guía para el ajuste del rendimiento
               href: performance-tuning-ordered-CCI.md
         - name: Reglas de almacenamiento en caché
-          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+          items:
+            - name: Configuración de una base de datos
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
+            - name: Configuración de una sesión
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tablas
           items:
             - name: Información general

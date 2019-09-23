@@ -229,8 +229,8 @@
       href: /rest/api/mysql
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: Procedimientos almacenados de replicación de datos internos
-      href: reference-data-in-stored-procedures.md
+    - name: Procedimientos almacenados de Azure
+      href: reference-stored-procedures.md
 - name: Recursos
   items:
     - name: Plantillas de implementación

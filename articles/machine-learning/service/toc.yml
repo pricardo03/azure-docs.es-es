@@ -54,26 +54,6 @@
     - name: Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Experimentos de la interfaz visual
-      items:
-        - name: Predicción del precio
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-basic.md
-        - name: Predicción del precio (avanzado)
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-        - name: Predicción del riesgo de crédito
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-basic.md
-        - name: Predicción del riesgo crediticio (avanzado)
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-        - name: Predicción de la renovación
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-churn.md
-        - name: Predicción de retrasos en los vuelos
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-flight-delay.md
     - name: Conjuntos de datos abiertos de Azure
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceptos
@@ -174,6 +154,27 @@
               href: how-to-train-pytorch.md
             - name: Uso de Chainer
               href: how-to-train-chainer.md
+        - name: Uso de una interfaz visual
+          displayName: sample visual interface experiments
+          items:
+            - name: Predicción del precio
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-basic.md
+            - name: Predicción del precio (avanzado)
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+            - name: Predicción del riesgo de crédito
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-basic.md
+            - name: Predicción del riesgo crediticio (avanzado)
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+            - name: Predicción de la renovación
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-churn.md
+            - name: Predicción de retrasos en los vuelos
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-flight-delay.md
         - name: Ajuste de hiperparámetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
