@@ -77,7 +77,7 @@ El siguiente JSON muestra el esquema de la extensión de Dependency Agent de Azu
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| Tipo | DependencyAgentLinux |
+| type | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Implementación de plantilla
