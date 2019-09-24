@@ -44,6 +44,8 @@
           href: go-tutorial-object-detection.md
 - name: Tutoriales
   items:
+    - name: Aplicación de alertas de IoT para Visual Studio
+      href: iot-visual-alerts-tutorial.md
     - name: Detector de logotipo para dispositivos móviles
       href: logo-detector-mobile.md
 - name: Guías de procedimientos

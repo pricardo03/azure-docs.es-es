@@ -1,72 +1,117 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentación del servicio Azure Policy
+### YamlMime:Landing
+title: Documentación de Azure Policy
+summary: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos.
 metadata:
-  title: 'Documentación sobre Azure Policy: tutoriales y referencia de API'
-  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.'
-  author: DCtheGeek
-  manager: carmonm
+  title: Documentación de Azure Policy
+  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 03/16/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Portal
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: ./assign-policy-portal
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              alt: Azure CLI
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-          - image:
-              alt: Plantilla de Resource Manager
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Plantilla de Resource Manager
-            href: ./assign-policy-template
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creación y administración de Azure Policy</a>
-          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creación de una definición de directiva personalizada</a>
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Revise los ejemplos disponibles para ayudarle a crear definiciones de directivas en Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Índice de ejemplos</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: '<p><a href="/cli/azure/policy">CLI de Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (directiva)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (información de directiva)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configuración de invitado)</a></p>'
-          - title: Plantillas de Resource Manager
-            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Asignaciones</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definiciones de directiva</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definiciones de iniciativas</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Asignaciones</a></p><p><a href="/rest/api/resources/policydefinitions">Definiciones de directiva</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definiciones de iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos con seguimiento de directiva</a></p><p><a href="/rest/api/policy-insights/remediations">Correcciones</a></p><p><a href="/rest/api/guestconfiguration/">Configuración de invitado</a></p>
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 43deed57090cd2f64bc9ee96f6f0c6f5286b0dca
+  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/23/2019
+  ms.locfileid: "71203980"
+landingContent:
+- title: Acerca de Azure Policy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Policy?
+      url: ./overview.md
+    - text: Efectos de Policy
+      url: ./concepts/effects.md
+    - text: Estructura de definición
+      url: ./concepts/definition-structure.md
+    - text: Estructura de asignación
+      url: ./concepts/assignment-structure.md
+  - linkListType: video
+    links:
+    - text: Azure Policy, compilación 2018
+      url: https://channel9.msdn.com/events/Build/2018/THR2030
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Asignación de una directiva (portal)
+      url: ./assign-policy-portal.md
+    - text: Asignación de una directiva (PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Asignación de una directiva (CLI de Azure)
+      url: ./assign-policy-azurecli.md
+    - text: Asignación de una directiva (plantilla)
+      url: ./assign-policy-template.md
+  - linkListType: tutorial
+    links:
+    - text: Creación y administración de directivas
+      url: ./tutorials/create-and-manage.md
+  - linkListType: deploy
+    links:
+    - text: Índice de ejemplos de Azure Policy
+      url: ./samples/index.md
+- title: Creación de directivas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación de una directiva personalizada
+      url: ./tutorials/create-custom-policy-definition.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una directiva con SDK
+      url: ./how-to/programmatically-create.md
+    - text: Creación de directivas para matrices
+      url: ./how-to/author-policies-for-arrays.md
+  - linkListType: concept
+    links:
+    - text: Directiva de AKS
+      url: ./concepts/rego-for-aks.md
+    - text: Directiva para máquinas virtuales
+      url: ./concepts/guest-configuration.md
+- title: Revisión y corrección de recursos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Obtención de datos de cumplimiento
+      url: ./how-to/get-compliance-data.md
+    - text: Determinación de las causas de incumplimiento
+      url: ./how-to/determine-non-compliance.md
+    - text: Corrección de recursos no compatibles
+      url: ./how-to/remediate-resources.md
+- title: Participación
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Canal de YouTube de gobernanza de Azure
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Solicitud de característica del producto
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Tech Community para gobernanza de Azure
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI de Azure
+      url: /cli/azure/policy
+    - text: Azure PowerShell (directiva)
+      url: /powershell/module/az.resources/#policies
+    - text: Azure PowerShell (información de directiva)
+      url: /powershell/module/az.policyinsights#policy_insights
+    - text: SDK de Azure para .NET (asignaciones)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - text: SDK de Azure para .NET (definiciones de directiva)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - text: REST (información de directiva)
+      url: /rest/api/policy-insights/
+    - text: REST (asignaciones)
+      url: /rest/api/resources/policyassignments
+    - text: REST (definiciones)
+      url: /rest/api/resources/policydefinitions
+    - text: REST (iniciativas)
+      url: /rest/api/resources/policysetdefinitions
+    - text: Plantillas de Resource Manager
+      url: /azure/templates/microsoft.authorization

@@ -26,7 +26,7 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Implementar un modelo
               href: tutorial-deploy-models-with-aml.md
-        - name: Regresión (datos de taxis de Nueva York)
+        - name: Regresión con aprendizaje automático automatizado (datos de taxis de Nueva York)
           items:
             - name: Entrenamiento automático de un modelo de Machine Learning
               displayName: 'automl, automated, auto ml,'
@@ -44,7 +44,7 @@
         - name: 2. Implementación del modelo de regresión
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
-    - name: Automated Machine Learning
+    - name: Aprendizaje automático automatizado (interfaz)
       items:
         - name: Clasificación (datos bancarios)
           displayName: 'automl, automated, auto ml, portal, ui'
@@ -107,13 +107,13 @@
         - name: Uso de plantillas de Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Configuración del entorno de desarrollo
+    - name: Configuración del entorno
       items:
         - name: Configuración de entornos de desarrollo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Administración del entorno de software
-          displayName: 'pip, Conda'
+        - name: Configuración de entornos de software
+          displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
         - name: Habilitación del registro
           displayName: 'troubleshoot, log, files, tracing'

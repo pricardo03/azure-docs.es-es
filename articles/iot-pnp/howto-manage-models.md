@@ -8,12 +8,12 @@ services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: yahajiza
-ms.openlocfilehash: ec36bef9c2b65a5c88a52621bbf3a1db708c235c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1b71d8bd0f0417c7dc408c580a1c73ac654743ce
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879216"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932868"
 ---
 # <a name="manage-models-in-the-repository"></a>Administración de modelos en el repositorio
 
@@ -41,7 +41,7 @@ En el [portal de Azure Certified for IoT](https://preview.catalog.azureiotsoluti
 
 ## <a name="azure-cli"></a>CLI de Azure
 
-La CLI de Azure pone a disposición comandos para administrar interfaces y modelos de funcionalidad del dispositivo en los repositorios de modelo público y de empresa de IoT Plug and Play.
+La CLI de Azure pone a disposición comandos para administrar interfaces y modelos de funcionalidad del dispositivo en los repositorios de modelo público y de empresa de IoT Plug and Play. Para obtener más información, consulte la guía paso a paso [Instalación y uso de la extensión de Azure IoT para la CLI de Azure](./howto-install-pnp-cli.md).
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 

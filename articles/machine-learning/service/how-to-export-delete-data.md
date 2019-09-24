@@ -1,6 +1,6 @@
 ---
 title: Exportación o eliminación de los datos del área de trabajo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda a exportar o eliminar el área de trabajo con Azure Portal, la CLI, el SDK y las API REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: ph-com
 ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023974"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002837"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service 
 
@@ -27,9 +27,9 @@ En Azure Machine Learning, puede exportar o eliminar los datos del área de trab
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Control de los datos del área de trabajo
-Los datos del producto almacenados por Azure Machine Learning Services están disponibles para su exportación y eliminación por medio de Azure Portal, la CLI, el SDK y las API REST autenticadas. Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
+Los datos del producto almacenados por Azure Machine Learning están disponibles para su exportación y eliminación por medio de Azure Portal, la CLI, el SDK y las API REST autenticadas. Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
 
-En Azure Machine Learning Services, los datos personales constan de información del usuario de documentos de historial de ejecución y registros de telemetría de algunas interacciones del usuario con el servicio.
+En Azure Machine Learning, los datos personales constan de información del usuario de documentos de historial de ejecución y registros de telemetría de algunas interacciones del usuario con el servicio.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Eliminación de datos del área de trabajo con la API REST 
 

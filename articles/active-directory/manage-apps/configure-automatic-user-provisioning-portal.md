@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996721"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056132"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -81,7 +81,7 @@ Las personalizaciones compatibles incluyen:
 
 Puede iniciar y detener el servicio de aprovisionamiento de Azure AD para la aplicación seleccionada en el área **Configuración** de la pantalla **Aprovisionamiento**. También puede borrar la caché de aprovisionamiento y reiniciar el servicio.
 
-Si el aprovisionamiento se habilita por primera vez para una aplicación, active el servicio mediante el cambio de **Estado de aprovisionamiento** a **Activado**. Este cambio hace que el servicio de aprovisionamiento de AD Azure ejecute una sincronización inicial. Lee los usuarios asignados en la sección **Usuarios y grupos**, consulta la aplicación de destino para ellos y, después, ejecuta las acciones de aprovisionamiento definidas en la sección **Asignaciones** de Azure AD. Durante este proceso, el servicio de aprovisionamiento almacena datos en caché sobre las cuentas de usuario que administra, para que las cuentas no administradas dentro de las aplicaciones de destino que nunca han estado en el ámbito de asignación no se vean afectadas por las operaciones de desaprovisionamiento. Después de la sincronización inicial, el servicio de aprovisionamiento sincroniza automáticamente los objetos de grupo y usuario en un intervalo de diez minutos.
+Si el aprovisionamiento se habilita por primera vez para una aplicación, active el servicio mediante el cambio de **Estado de aprovisionamiento** a **Activado**. Este cambio hace que el servicio de aprovisionamiento de Azure AD ejecute un ciclo inicial. Lee los usuarios asignados en la sección **Usuarios y grupos**, consulta la aplicación de destino para ellos y, después, ejecuta las acciones de aprovisionamiento definidas en la sección **Asignaciones** de Azure AD. Durante este proceso, el servicio de aprovisionamiento almacena datos en caché sobre las cuentas de usuario que administra, para que las cuentas no administradas dentro de las aplicaciones de destino que nunca han estado en el ámbito de asignación no se vean afectadas por las operaciones de desaprovisionamiento. Después del ciclo inicial, el servicio de aprovisionamiento sincroniza automáticamente los objetos de grupo y usuario con un intervalo de diez minutos.
 
 Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio de aprovisionamiento. En este estado, Azure no crea, actualiza ni quita ningún objeto de grupo o usuario en la aplicación. Cambie el estado de nuevo a **Activado** y el servicio vuelve adonde lo dejó.
 
@@ -89,6 +89,6 @@ Seleccione la casilla **Borrar el estado actual y reiniciar la sincronización**
 
 * Detener el servicio de aprovisionamiento
 * Volcar los datos almacenados en caché sobre las cuentas que Azure AD administra
-* Reiniciar los servicios y ejecutar de nuevo la sincronización inicial
+* Reiniciar los servicios y ejecutar de nuevo el ciclo inicial
 
 Esta opción permite a los administradores iniciar el proceso de implementación de aprovisionamiento de nuevo.

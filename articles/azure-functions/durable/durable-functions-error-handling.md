@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734304"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933425"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Control de errores con Durable Functions (Azure Functions)
 
-Las orquestaciones de Durable Functions se implementan en el código y pueden utilizar las funciones de control de errores del lenguaje de programación. Así, realmente no hay ningún concepto nuevo que deba conocer sobre cómo incorporar el control de errores y la compensación en las orquestaciones. No obstante, hay algunos comportamientos que deben tenerse en cuenta.
+Las orquestaciones de Durable Functions se implementan en código y pueden utilizar las características de control de errores integradas en el lenguaje de programación. Realmente no hay ningún concepto nuevo que deba conocer para agregar el control de errores y la compensación en las orquestaciones. No obstante, hay algunos comportamientos que deben tenerse en cuenta.
 
 ## <a name="errors-in-activity-functions"></a>Errores en funciones de actividad
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Si se produce un error en la llamada a la función **CreditAccount** para la cuenta de destino, la función de orquestador lo compensa al devolver los fondos a la cuenta de origen.
+Si se produce un error en la primera llamada a la función **CreditAccount**, la función de orquestador lo compensa al devolver los fondos a la cuenta de origen.
 
 ## <a name="automatic-retry-on-failure"></a>Reintento automático en caso de error
 
@@ -192,14 +192,14 @@ module.exports = df.orchestrator(function*(context) {
 
 La API `CallActivityWithRetryAsync` (. NET) o `callActivityWithRetry` (JavaScript) toma un parámetro `RetryOptions`. Las llamadas de suborquestación mediante la API `CallSubOrchestratorWithRetryAsync` (.NET) o `callSubOrchestratorWithRetry` (JavaScript) pueden usar estas mismas directivas de reintentos.
 
-Existen varias opciones para personalizar la directiva de reintentos automáticos. Entre estas se incluyen las siguientes:
+Existen varias opciones para personalizar la directiva de reintentos automáticos:
 
 * **Número máximo de intentos**: Número máximo de reintentos.
 * **Intervalo para el primer reintento**: cantidad de tiempo de espera antes del primer reintento.
 * **Backoff coefficient** (Coeficiente de retroceso): coeficiente que se usa para determinar la tasa de incremento del retroceso. De manera predeterminada, su valor es 1.
 * **Max retry interval** (Intervalo de reintento máximo): cantidad máxima de tiempo de espera entre reintentos.
 * **Retry timeout** (Tiempo de espera de reintento): cantidad máxima de tiempo durante el que realizar reintentos. El comportamiento predeterminado es realizar reintentos de manera indefinida.
-* **Manipulador**: se puede especificar una devolución de llamada definida por el usuario que determina si se debe reintentar una llamada de función.
+* **Manipulador**: se puede especificar una devolución de llamada definida por el usuario para determinar si se debe reintentar función.
 
 ## <a name="function-timeouts"></a>Tiempos de espera de función
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 Si se produce un error en una función de orquestador con una excepción no controlada, se registran los detalles de la excepción y la instancia se completa con el estado `Failed`.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Más información sobre las orquestaciones infinitas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Cómo diagnosticar problemas](durable-functions-diagnostics.md)

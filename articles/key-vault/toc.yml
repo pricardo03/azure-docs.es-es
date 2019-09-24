@@ -42,10 +42,12 @@
               href: tutorial-python-windows-virtual-machine.md
     - name: Claves de cuenta de almacenamiento
       items:
-        - name: Claves de cuenta de almacenamiento administrada mediante la CLI de Azure
+        - name: Administración de las claves de cuentas de almacenamiento con la CLI de Azure
           href: key-vault-ovw-storage-keys.md
-        - name: Claves de cuenta de almacenamiento administrada mediante PowerShell
+        - name: Administración de las claves de cuentas de almacenamiento con PowerShell
           href: key-vault-overview-storage-keys-powershell.md
+        - name: Captura de tokens de firma de acceso compartido en el código
+          href: storage-keys-sas-tokens-code.md
     - name: Contenedores de Azure
       href: ../container-instances/container-instances-managed-identity.md
     - name: Plantilla de Azure Resource Manager

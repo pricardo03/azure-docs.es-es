@@ -538,6 +538,8 @@
       items:
         - name: Ejecución de paquetes SSIS en Azure
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: Ejecución de paquetes SSIS con dtexec habilitado para Azure
+          href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Ejecución de paquetes SSIS con una actividad de procedimiento almacenado
