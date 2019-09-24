@@ -78,7 +78,7 @@ Estas son las descripciones de la propiedad:
 | **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | name | string | --- | nombre único para la extensión |
-| Tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
+| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
 | autoUpgradeMinorVersion | true o false | --- | Habilita la actualización automática de las versiones secundarias del tiempo de ejecución de SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nombre del editor de la extensión de Service Fabric |
 | clusterEndpont | string | --- | URI:PUERTO al punto de conexión de administración |
