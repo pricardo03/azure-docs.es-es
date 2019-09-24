@@ -79,7 +79,7 @@ Establezca Set Authentication methods required to register en al menos uno más 
 
 Establezca **Número de métodos requeridos para el restablecimiento** en un nivel apropiado para su organización. Uno requiere la menor fricción, mientras que Dos puede aumentar la posición de seguridad.
 
-Consulte [Qué son los métodos de autenticación](concept-authentication-methods.md) para información detallada sobre qué método de autenticación están disponibles para SSPR, preguntas de seguridad predefinidas y cómo crear preguntas de seguridad personalizadas.
+Consulte [Qué son los métodos de autenticación](concept-authentication-methods.md) para información detallada sobre qué métodos de autenticación están disponibles para SSPR.
 
 ### <a name="registration-settings"></a>Configuración de registro
 

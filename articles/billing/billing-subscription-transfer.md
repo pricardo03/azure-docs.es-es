@@ -66,7 +66,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 
-1. ¡Éxito! La suscripción ya está transferida.
+1. ¡Hecho! La suscripción ya está transferida.
 
 ## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Transferencia de una suscripción a una cuenta en otro inquilino de Azure AD
 
@@ -79,7 +79,7 @@ Cuando transfiere la propiedad de facturación de la suscripción a una cuenta e
 
 ## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Transferencia de suscripciones de Visual Studio, MPN y Desarrollo/pruebas - Pago por uso
 
-Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito de Azure periódico mensual asociado. Al transferir estas suscripciones, el crédito no está disponible en la cuenta de facturación de destino. La suscripción usa el crédito de la cuenta de facturación de destino. Por ejemplo, si Roberto transfiere una suscripción de Visual Studio Enterprise a la cuenta de Julia el 9 de septiembre y Julia acepta a la transferencia. Una vez completada la transferencia, la suscripción empieza a usar el crédito de la cuenta de Jane. El crédito se restablecerá el día 9 de cada mes.
+Las suscripciones de Visual Studio y Microsoft Partner Network tienen crédito de Azure periódico mensual asociado. Al transferir estas suscripciones, el crédito no está disponible en la cuenta de facturación de destino. La suscripción usa el crédito de la cuenta de facturación de destino. Por ejemplo, si Roberto transfiere una suscripción de Visual Studio Enterprise a la cuenta de Julia el 9 de septiembre y Julia acepta a la transferencia. Una vez completada la transferencia, la suscripción empieza a usar el crédito de la cuenta de Julia. El crédito se restablecerá el día 9 de cada mes.
 
 
 <a id="EA"></a>
