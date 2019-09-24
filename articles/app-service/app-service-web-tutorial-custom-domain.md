@@ -197,7 +197,7 @@ En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la ta
 
 | Tipo de registro | Host | Valor |
 | - | - | - |
-| Una | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+| Una | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -205,7 +205,7 @@ En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la ta
 >
 > | Tipo de registro | Host | Valor |
 > | - | - | - |
-> | Una | `www` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | Una | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 

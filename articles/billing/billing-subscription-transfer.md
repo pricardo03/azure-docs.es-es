@@ -58,7 +58,7 @@ Si es un cliente de Contrato Enterprise (EA), los administradores de la empresa 
 
    ![Correo electrónico de transferencia de suscripción enviado al destinatario](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones. El usuario debería que seleccionar un método de pago que se usará para pagar la suscripción. Además, si el usuario no tiene una cuenta de Azure, deberá registrarse para obtener una cuenta nueva.
+1. Para aprobar la solicitud de transferencia, el usuario selecciona el vínculo en el correo electrónico y sigue las instrucciones. El usuario tendría que seleccionar un método de pago que se usará para pagar la suscripción. Además, si el usuario no tiene una cuenta de Azure, deberá registrarse para obtener una cuenta nueva.
 
    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
 
