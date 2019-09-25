@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369403"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066159"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C admite la autenticación para una diversas arquitecturas de aplicaciones modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0](active-directory-b2c-reference-protocols.md) u [OpenID Connect](active-directory-b2c-reference-protocols.md). Este artículo describe los tipos de aplicaciones que puede compilar, independientemente del lenguaje o la plataforma que prefiera. También ayuda a entender los escenarios de alto nivel antes de empezar a compilar aplicaciones.
+Azure Active Directory B2C (Azure AD B2C) admite la autenticación en diversas arquitecturas de aplicaciones modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0](active-directory-b2c-reference-protocols.md) u [OpenID Connect](active-directory-b2c-reference-protocols.md). Este artículo describe los tipos de aplicaciones que puede compilar, independientemente del lenguaje o la plataforma que prefiera. También ayuda a entender los escenarios de alto nivel antes de empezar a compilar aplicaciones.
 
 Toda aplicación que use Azure AD B2C debe estar registrada en su [inquilino de Azure AD B2C](active-directory-b2c-get-started.md) que use [Azure Portal](https://portal.azure.com/). El proceso de registro de la aplicación recopila y asigna valores, tales como:
 
@@ -132,12 +132,12 @@ Este escenario de API web encadenadas puede admitirse mediante la concesión de 
 
 No edite las aplicaciones de Azure AD B2C de ninguna de estas maneras:
 
-- En otros portales de administración de aplicaciones, como el  [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/).
+- En otros portales de administración de aplicaciones, como el  [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Con Graph API o PowerShell.
 
 Si edita la aplicación de Azure AD B2C fuera de Azure Portal, se convierte en una aplicación con errores y ya no se puede usar con Azure AD B2C. Elimine la aplicación y vuelva a crearla.
 
-Para eliminar la aplicación, vaya al [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/) y elimínela desde allí. Para que la aplicación esté visible, debe ser el propietario de la misma (y no solo un administrador del inquilino).
+Para eliminar la aplicación, vaya al [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) y elimínela desde allí. Para que la aplicación esté visible, debe ser el propietario de la misma (y no solo un administrador del inquilino).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 506967fc4cecd322c694d31789cf09bec22ad3d4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617324"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086579"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Consideraciones de diseño y opciones de configuración de redes virtuales para Azure AD Domain Services
 
@@ -36,7 +36,7 @@ Al diseñar la red virtual para Azure AD DS, debe tener en cuenta las siguient
     * Para minimizar la latencia, mantenga las aplicaciones principales cerca de la subred de la red virtual para el dominio administrado de Azure AD DS, o en la misma región que esta. Puede usar el emparejamiento de redes virtuales o conexiones de red privada virtual (VPN) entre las redes virtuales de Azure.
 * La red virtual no puede basarse en servicios DNS que no sean los que proporciona Azure AD DS.
     * Azure AD DS proporciona su propio servicio DNS. La red virtual debe estar configurada para usar las direcciones de este servicio DNS. La resolución de nombres para los espacios de nombres adicionales puede realizarse mediante reenviadores condicionales.
-    * No se puede usar una configuración personalizada del servidor DNS para dirigir consultas a otros servidores DNS, incluidos los que se encuentran en máquinas virtuales. Los recursos de la red virtual deben usar el servicio DNS que proporciona Azure AD DS.
+    * No se puede usar una configuración personalizada del servidor DNS para dirigir consultas de otros servidores DNS, incluidos los que se encuentran en máquinas virtuales. Los recursos de la red virtual deben usar el servicio DNS que proporciona Azure AD DS.
 
 > [!IMPORTANT]
 > No se puede mover Azure AD DS a otra red virtual después de haber habilitado el servicio.

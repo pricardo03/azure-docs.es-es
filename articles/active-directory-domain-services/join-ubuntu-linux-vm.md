@@ -1,240 +1,286 @@
 ---
-title: 'Azure Active Directory Domain Services: Unión de una VM de Ubuntu a un dominio administrado | Microsoft Docs'
-description: Unión de una máquina virtual Linux Ubuntu a Azure AD Domain Services
+title: Unión de una máquina virtual Ubuntu a Azure AD Domain Services | Microsoft Docs
+description: Aprenda a configurar y unir una máquina virtual Ubuntu Linux a un dominio administrado de Azure AD Domain Services.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e92327323f632f6b922e3eb948df75bb3666e2a9
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990588"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075379"
 ---
-# <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
-Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.
+# <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual Ubuntu Linux a un dominio administrado de Azure AD Domain Services
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+Para que los usuarios puedan iniciar sesión en máquinas virtuales (VM) en Azure con un único conjunto de credenciales, puede unir máquinas virtuales a un dominio administrado de Azure Active Directory Domain Services (AD DS). Al unir una máquina virtual a un dominio administrado de Azure AD DS, se pueden usar las cuentas de usuario y las credenciales del dominio para iniciar sesión y administrar servidores. También se aplican las pertenencias a grupos del dominio administrado de Azure AD DS para permitirle controlar el acceso a los archivos o servicios de la máquina virtual.
 
-## <a name="before-you-begin"></a>Antes de empezar
-Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:  
-1. Una **suscripción de Azure**válida.
-2. Un **directorio de Azure AD** : sincronizado con un directorio local o solo en la nube.
-3. **Servicios de dominio de Azure AD** deben estar habilitado en el directorio de Azure AD. Si no lo ha hecho, siga todas las tareas descritas en [Servicios de dominio de Azure AD (vista previa): introducción](tutorial-create-instance.md).
-4. Asegúrese de que ha configurado las direcciones IP del dominio administrado como servidores DNS de la red virtual. Para más información, consulte [cómo actualizar la configuración de DNS para la red virtual de Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. Complete los pasos necesarios para [sincronizar contraseñas para el dominio administrado de Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
+Este artículo muestra cómo unir una máquina virtual Ubuntu Linux a un dominio administrado de Azure AD Domain Services.
 
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Aprovisionamiento de una máquina virtual Linux Ubuntu
-Aprovisione una máquina virtual Linux Ubuntu en Azure mediante cualquiera de los métodos siguientes:
+Para completar este tutorial, necesitará los siguientes recursos y privilegios:
+
+* Una suscripción de Azure activa.
+    * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
+    * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+    * Si es necesario, el primer tutorial [crea y configura una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
+
+## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Creación y conexión a una máquina virtual Ubuntu Linux
+
+Si ya tiene una máquina virtual Ubuntu Linux en Azure, conéctese a ella mediante SSH y luego continúe con el paso siguiente para [empezar a configurar la máquina virtual](#configure-the-hosts-file).
+
+Si necesita crear una máquina virtual Ubuntu Linux o desea crear una máquina virtual de prueba para usarla con este artículo, puede utilizar uno de los métodos siguientes:
+
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI de Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-> [!IMPORTANT]
-> * Implemente la máquina virtual en la **misma red virtual en la que ha habilitado Azure AD Domain Services**.
-> * Elija una **subred diferente** de aquella en la que ha habilitado Azure AD Domain Services.
->
+Al crear la máquina virtual, preste atención a la configuración de la red virtual para asegurarse de que la máquina virtual puede comunicarse con el dominio administrado de Azure AD DS:
 
+* Implemente la máquina virtual en la misma red virtual, o en otra emparejada, en la que haya habilitado Azure AD Domain Services.
+* Implemente la máquina virtual en una subred diferente a la de la instancia de Azure AD Domain Services.
 
-## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Conexión remota a la máquina virtual Linux Ubuntu
-Se ha aprovisionado la máquina virtual Ubuntu en Azure. La siguiente tarea consiste en conectar de forma remota a la máquina virtual mediante la cuenta de administrador local creada al aprovisionar la máquina virtual.
+Una vez implementada la máquina virtual, siga los pasos para conectarse a la máquina virtual mediante SSH.
 
-Siga las instrucciones que aparecen en el artículo sobre [cómo iniciar sesión en una máquina virtual con Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="configure-the-hosts-file"></a>Configuración del archivo hosts
 
-
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configuración del archivo hosts en la máquina virtual Linux
-En el terminal SSH, edite el archivo /etc/hosts y actualice la dirección IP y el nombre de host de la máquina.
+Para asegurarse de que el nombre de host de la máquina virtual está configurado correctamente para el dominio administrado, edite el archivo */etc/hosts* y establezca el nombre de host:
 
 ```console
 sudo vi /etc/hosts
 ```
 
-En el archivo hosts, escriba el siguiente valor:
+En el archivo *hosts*, actualice la dirección *localhost*. En el ejemplo siguiente:
+
+* *contoso.com* es el nombre de dominio DNS del dominio administrado de Azure AD DS.
+* *ubuntu* es el nombre de host de la máquina virtual Ubuntu que se va a unir al dominio administrado.
+
+Actualice estos nombres con sus propios valores:
 
 ```console
-127.0.0.1 contoso-ubuntu.contoso.com contoso-ubuntu
+127.0.0.1 ubuntu.contoso.com ubuntu
 ```
 
-En este caso, "contoso.com" es el nombre de dominio DNS del dominio administrado. "contoso-ubuntu" es el nombre de host de la máquina virtual Ubuntu que va a unir al dominio administrado.
+Cuando haya terminado, guarde y salga del archivo *hosts* mediante el comando `:wq` del editor.
 
+## <a name="install-required-packages"></a>Instalación de los paquetes requeridos
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalación de los paquetes necesarios en la máquina virtual de Linux
-A continuación, instale los paquetes necesarios para unirse a un dominio en la máquina virtual. Lleve a cabo los siguiente pasos:
+La máquina virtual necesita algunos paquetes adicionales para unir la máquina virtual al dominio administrado de Azure AD DS. Para instalar y configurar estos paquetes, actualice e instale las herramientas de unión a dominio mediante `apt-get`
 
-1.  En el terminal SSH, escriba el siguiente comando para descargar las listas de paquetes de los repositorios. Este comando actualiza las listas de paquetes para obtener información sobre las versiones más recientes de los paquetes y sus dependencias.
+Durante la instalación de Kerberos, el paquete *krb5-user* solicita el nombre de dominio kerberos CON TODAS LAS LETRAS MAYÚSCULAS. Por ejemplo, si el nombre del dominio administrado de Azure AD DS es *contoso.com*, escriba *CONTOSO.COM* como dominio kerberos. La instalación escribe las secciones `[realm]` y `[domain_realm]` en el archivo de configuración */etc/krb5.conf*. Asegúrese de especificar el dominio kerberos CON TODAS LAS LETRAS EN MAYÚSCULAS:
+
+```console
+sudo apt-get update
+sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
+```
+
+## <a name="configure-network-time-protocol-ntp"></a>Configuración del protocolo de tiempo de red (NTP)
+
+Para que la comunicación del dominio funcione correctamente, la fecha y la hora de la máquina virtual Ubuntu deben sincronizarse con el dominio administrado de Azure AD DS. Agregue el nombre de host NTP del dominio administrado de Azure AD DS en el archivo */etc/ntp.conf*.
+
+1. Abra el archivo *ntp.conf* con un editor:
 
     ```console
-    sudo apt-get update
+    sudo vi /etc/ntp.conf
     ```
 
-2. Escriba el siguiente comando para instalar los paquetes necesarios.
+1. En el archivo *ntp.conf*, cree una línea para agregar el nombre DNS del dominio administrado de Azure AD DS. En el ejemplo siguiente, se agrega una entrada para *contoso.com*. Use su propio nombre DNS:
 
     ```console
-      sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
+    server contoso.com
     ```
 
-3. Durante la instalación de Kerberos, verá una pantalla de color rosa. La instalación del paquete "krb5-user" pide el nombre de dominio Kerberos (con todas las letras mayúsculas). La instalación escribe las secciones [realm] y [domain_realm] en /etc/krb5.conf.
+    Cuando haya terminado, guarde y salga del archivo *ntp.conf* mediante el comando `:wq` del editor.
 
-    > [!TIP]
-    > Si el nombre del dominio administrado es contoso.com, escriba CONTOSO.COM como dominio kerberos. Recuerde que el nombre del dominio kerberos debe especificarse en mayúsculas.
+1. Para asegurarse de que la máquina virtual está sincronizada con el dominio administrado de Azure AD DS, se necesitan los siguientes pasos:
 
+    * Detener el servidor NTP
+    * Actualizar fecha y hora del dominio administrado
+    * Iniciar el servicio NTP
 
-## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configuración de las opciones de NTP (Protocolo de hora de red) en la máquina virtual Linux
-La fecha y hora de la máquina virtual Ubuntu deben sincronizar con el dominio administrado. Agregue el nombre de host NTP del dominio administrado en el archivo /etc/ntp.conf.
+    Ejecute los siguientes comandos para completar estos pasos. Use su propio nombre DNS con el comando `ntpdate`:
 
-```console
-sudo vi /etc/ntp.conf
-```
+    ```console
+    sudo systemctl stop ntp
+    sudo ntpdate contoso.com
+    sudo systemctl start ntp
+    ```
 
-En el archivo ntp.conf, escriba el siguiente valor y guarde el archivo:
+## <a name="join-vm-to-the-managed-domain"></a>Unión de una máquina virtual al dominio administrado
 
-```console
-server contoso.com
-```
+Ahora que los paquetes necesarios están instalados en la máquina virtual y NTP está configurado, una la máquina virtual al dominio administrado de Azure AD DS.
 
-En este caso, "contoso.com" es el nombre de dominio DNS del dominio administrado.
-
-Sincronice ahora la fecha y hora de la máquina virtual Ubuntu con el servidor NTP y, a continuación, inicie el servicio NTP:
-
-```console
-sudo systemctl stop ntp
-sudo ntpdate contoso.com
-sudo systemctl start ntp
-```
-
-
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Unión de la máquina virtual de Linux al dominio administrado
-Ahora que los paquetes necesarios están instalados en la máquina virtual de Linux, la siguiente tarea es unir la máquina virtual al dominio administrado.
-
-1. Detecte el dominio administrado con Servicios de dominio de AAD. En el terminal SSH, escriba el siguiente comando:
+1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   > [!NOTE]
-   > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
-   >   * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
-   >   * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
-   >   * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
+   Si el comando `realm discover` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
 
-2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando:
+    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping contoso.com` para ver si se devuelve una respuesta positiva.
+    * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
+    * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
 
-    > [!TIP]
-    > * Asegúrese de especificar un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
-    > * Especifique el nombre de dominio en mayúsculas o kinit generará un error.
-    >
+1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que pertenezca al grupo *Administradores del controlador de dominio de AAD*. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@contoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*:
 
     ```console
-    kinit bob@CONTOSO.COM
+    kinit contosoadmin@CONTOSO.COM
     ```
 
-3. Una la máquina al dominio. En el terminal SSH, escriba el siguiente comando:
-
-    > [!TIP]
-    > Utilice la misma cuenta de usuario que ha especificado el paso anterior ("kinit").
-    >
-    > Si la máquina virtual no puede unirse al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
+1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD* que especificó en el comando `kinit` anterior, como `contosoadmin@CONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
     ```
 
-Debe obtener un mensaje (Máquina inscrita correctamente en el dominio kerberos) cuando la máquina está unida correctamente al dominio administrado.
+La máquina virtual tarda unos segundos en unirse al dominio administrado de Azure AD DS. La siguiente salida de ejemplo muestra que la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS:
 
+```output
+Successfully enrolled machine in realm
+```
 
-## <a name="update-the-sssd-configuration-and-restart-the-service"></a>Actualización de la configuración de SSSD y reinicio del servicio
-1. En el terminal SSH, escriba el siguiente comando. Abra el archivo sssd.conf y realice el siguiente cambio
-    
+Si la máquina virtual no puede finalizar correctamente el proceso de unión al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
+
+## <a name="update-the-sssd-configuration"></a>Actualización de la configuración de SSSD
+
+Uno de los paquetes instalados en un paso anterior era de System Security Services Daemon (SSSD). Si un usuario intenta iniciar sesión en una máquina virtual con las credenciales de dominio, SSSD retransmite la solicitud a un proveedor de autenticación. En este escenario, SSSD usa Azure AD DS para autenticar la solicitud.
+
+1. Abra el archivo *sssd.conf* con un editor:
+
     ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
-2. Convierta en comentario la línea **use_fully_qualified_names = True** y guarde el archivo.
-    
+1. Convierta en comentario la línea *use_fully_qualified_names* de la siguiente manera:
+
     ```console
     # use_fully_qualified_names = True
     ```
 
-3. Reinicie el servicio SSSD.
-    
+    Cuando haya terminado, guarde y salga del archivo *sssd.conf* mediante el comando `:wq` del editor.
+
+1. Reinicie el servicio SSSD para aplicar el cambio:
+
     ```console
     sudo service sssd restart
     ```
 
+## <a name="configure-user-account-and-group-settings"></a>Configuración de la cuenta de usuario y de los valores del grupo
 
-## <a name="configure-automatic-home-directory-creation"></a>Configuración de la creación automática del directorio principal
-Para habilitar la creación automática del directorio principal después de iniciar sesión los usuarios, escriba los siguientes comandos en el terminal PuTTY:
+Una vez que la máquina virtual se ha unido al dominio administrado de Azure AD DS y está configurada para la autenticación, se deben completar varias opciones de configuración del usuario. Estos cambios de configuración incluyen permitir la autenticación basada en contraseña y crear automáticamente directorios particulares en la máquina virtual local cuando los usuarios del dominio inician sesión por primera vez.
 
-```console
-sudo vi /etc/pam.d/common-session
-```
+### <a name="allow-password-authentication-for-ssh"></a>Permitir autenticación de contraseña para SSH
 
-Agregue la siguiente línea en este archivo debajo de la línea "session optional pam_sss.so" y guárdelo:
+De forma predeterminada, los usuarios solo pueden iniciar sesión en una máquina virtual mediante la autenticación basada en clave pública de SSH. La autenticación basada en contraseñas produce un error. Cuando une la máquina virtual a un dominio administrado de Azure AD DS, esas cuentas de dominio deben usar la autenticación basada en contraseñas. Actualice la configuración de SSH para permitir la autenticación basada en contraseñas como se indica a continuación.
 
-```console
-session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
-```
+1. Abra el archivo *sshd_conf* con un editor:
 
-
-## <a name="verify-domain-join"></a>Verificación de la unión a un dominio
-Verifique si la máquina se ha unido correctamente al dominio administrado. Conéctese a la máquina virtual Ubuntu unida al dominio con otra conexión SSH. Utilice una cuenta de usuario del dominio y, a continuación, compruebe si la cuenta de usuario se ha resuelto correctamente.
-
-1. En el terminal SSH, escriba el comando siguiente para conectarse a la máquina virtual Ubuntu unida al dominio con SSH. Use una cuenta de dominio que pertenezca al dominio administrado (por ejemplo, "bob@CONTOSO.COM" en este caso).
-    
     ```console
-    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
+    sudo vi /etc/ssh/sshd_config
     ```
 
-2. En el terminal SSH, escriba el comando siguiente para ver si el directorio principal se ha inicializado correctamente.
-    
+1. Actualice la línea de *PasswordAuthentication* a *yes* (sí):
+
     ```console
-    pwd
+    PasswordAuthentication yes
     ```
 
-3. En el terminal SSH, escriba el comando siguiente para ver si los miembros del grupo se están resolviendo correctamente.
-    
+    Cuando haya terminado, guarde y salga del archivo *sshd_conf* mediante el comando `:wq` del editor.
+
+1. Para aplicar los cambios y permitir que los usuarios inicien sesión con una contraseña, reinicie el servicio SSH:
+
     ```console
-    id
+    sudo systemctl restart ssh
     ```
 
+### <a name="configure-automatic-home-directory-creation"></a>Configuración de la creación automática del directorio principal
 
-## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda privilegios de sudo al grupo "Administradores de controlador de dominio de AAD"
-Puede conceder privilegios administrativos a los miembros del grupo "Administradores de controlador de dominio de AAD" en la máquina virtual Ubuntu. El archivo sudo se encuentra en /etc/sudoers. Los miembros de los grupos de AD que agregó en sudoers pueden realizar sudo.
+Para habilitar la creación automática del directorio particular cuando un usuario inicia sesión por primera vez, realice los pasos siguientes:
 
-1. En el terminal SSH, asegúrese de que ha iniciado sesión con privilegios de superusuario. Puede usar la cuenta de administrador local que especificó al crear la máquina virtual. Ejecute el comando siguiente:
-    
+1. Abra el archivo */etc/pam.d/common-session* en un editor:
+
     ```console
-    sudo vi /etc/sudoers
+    sudo vi /etc/pam.d/common-session
     ```
 
-2. Agregue la siguiente entrada al archivo /etc/sudoers y guárdelo:
-    
+1. Agregue la siguiente línea a este archivo debajo de la línea `session optional pam_sss.so`:
+
+    ```console
+    session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
+    ```
+
+    Cuando haya terminado, guarde y salga del archivo *common-session* mediante el comando `:wq` del editor.
+
+### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda privilegios de sudo al grupo "Administradores de controlador de dominio de AAD"
+
+Para conceder privilegios administrativos a los miembros del grupo *Administradores del controlador de dominio de AAD* en la máquina virtual Ubuntu, puede agregar una entrada a */etc/sudoers*. Una vez agregada, los miembros del grupo *Administradores del controlador de dominio de AAD* pueden usar el comando `sudo` en la máquina virtual Ubuntu.
+
+1. Abra el archivo *sudoers* para editarlo:
+
+    ```console
+    sudo visudo
+    ```
+
+1. Agregue la siguiente entrada al final del archivo */etc/sudoers*:
+
     ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. Ahora puede iniciar sesión como miembro del grupo "Administradores del controlador de dominio de AAD" y debe tener privilegios administrativos en la máquina virtual.
+    Cuando haya terminado, guarde y salga del editor mediante el comando `Ctrl-X`.
 
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Inicio de sesión en la máquina virtual mediante una cuenta de dominio
 
-## <a name="troubleshooting-domain-join"></a>Solución de problemas de unión al dominio
-Consulte el artículo [Solución de problemas de unión al dominio](join-windows-vm.md#troubleshoot-domain-join-issues) .
+Para comprobar que la máquina virtual se ha unido correctamente al dominio administrado de Azure AD DS, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
 
+1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@contoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *ubuntu.contoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
 
-## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)
-* [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Cómo iniciar sesión en una máquina virtual con Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+    ```console
+    ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
+    ```
+
+1. Cuando se haya conectado correctamente a la máquina virtual, compruebe que el directorio particular se ha inicializado correctamente:
+
+    ```console
+    pwd
+    ```
+
+    Debe estar en el directorio */home* con su propio directorio que coincide con la cuenta de usuario.
+
+1. Ahora, compruebe que las pertenencias a grupos se están resolviendo correctamente:
+
+    ```console
+    id
+    ```
+
+    Debería ver las pertenencias a grupos del dominio administrado de Azure AD DS.
+
+1. Si ha iniciado sesión en la máquina virtual como miembro del grupo *Administradores del controlador de dominio de AAD*, compruebe que puede usar correctamente el comando `sudo`:
+
+    ```console
+    sudo apt-get update
+    ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Si tiene problemas para conectar la máquina virtual al dominio administrado de Azure AD DS o al iniciar sesión con una cuenta de dominio, consulte [Solución de problemas de unión al dominio](join-windows-vm.md#troubleshoot-domain-join-issues).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

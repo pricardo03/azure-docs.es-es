@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514094"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009394"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde y hacia Microsoft Dynamics 365 o Microsoft Dynamics CRM. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
+
+Este conector es compatible con las actividades siguientes:
+
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
 
 Puede copiar datos de Dynamics 365 (Common Data Service) o Dynamics CRM en cualquier almacén de datos receptor compatible. También puede copiar datos de cualquier almacén de datos de origen compatible en Dynamics 365 (Common Data Service) o Dynamics CRM. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -115,7 +120,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
 | hostName | El nombre de host del servidor local de Dynamics. | Sí |
-| puerto | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
+| port | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí |
 | authenticationType | Tipo de autenticación para conectarse al servidor de Dynamics. Especifique **"Ifd"** para Dynamics local con IFD. | Sí |
 | username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
@@ -351,6 +356,10 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 
 > [!NOTE]
 > No se admiten los tipos de datos de AttributeType.CalendarRules, AttributeType.MultiSelectPicklist y AttributeType.PartyList.
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

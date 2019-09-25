@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a660fe0f7663ac87b82038a3bd3d4c4fbf18544
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937985"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962762"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
@@ -53,7 +53,7 @@ Al agregar estos parámetros a la dirección URL de AppSource, puede revisar la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los servicios GTM de Marketplace, visite [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
+Más información acerca de las [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com) para crear y configurar la oferta
 

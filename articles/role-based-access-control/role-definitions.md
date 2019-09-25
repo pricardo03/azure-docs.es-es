@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142852"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996437"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -213,16 +213,18 @@ El permiso `NotDataActions` especifica las operaciones de datos que se excluyen 
 
 ## <a name="assignablescopes"></a>Ámbitos asignables
 
-La propiedad `AssignableScopes` especifica los ámbitos (suscripciones, grupos de recursos o recursos) en los que la definición de rol está disponible. Puede permitir que el rol esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
+La propiedad `AssignableScopes` especifica los ámbitos (grupos de administración, suscripciones, grupos de recursos o recursos) en los que la definición de rol está disponible. Puede hacer que el rol esté disponible para su asignación solo en los grupos de administración, las suscripciones o los grupos de recursos que lo necesiten. Tiene que utilizar al menos un grupo de administración, una suscripción, un grupo de recursos o un identificador de recurso.
 
 Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (`"/"`). El ámbito raíz indica que el rol está disponible para la asignación en todos los ámbitos. Ejemplos de ámbitos asignables válidos son:
 
-| Escenario | Ejemplo |
+| Rol disponible para su asignación | Ejemplo |
 |----------|---------|
-| El rol está disponible para la asignación en una única suscripción. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| El rol está disponible para la asignación en dos suscripciones. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| El rol está disponible para la asignación solo en el grupo de recursos de red. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| El rol está disponible para la asignación en todos los ámbitos (se aplica solo a roles integrados) | `"/"` |
+| Una suscripción | `"/subscriptions/{subscriptionId1}"` |
+| Dos suscripciones | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| Grupo de recursos de red | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| Un grupo de administración | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Grupo de administración y suscripción | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| Todos los ámbitos (se aplica solo a los roles integrados) | `"/"` |
 
 Para obtener información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados en los recursos de Azure](custom-roles.md).
 

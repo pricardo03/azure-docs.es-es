@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4bb82665ecd9d04c097a127f46814bb7198f393
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f7f2217677b81c6f3e87eaa2612880adf3b499c2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227189"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064935"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Presentación de solicitudes de soporte técnico
-Puede presentar solicitudes de soporte técnico para Azure Active Directory (Azure AD) B2C en el Portal de Azure mediante estos pasos:
+Puede presentar solicitudes de soporte técnico para Azure Active Directory B2C (Azure AD B2C) en Azure Portal mediante estos pasos:
 
 1. Cambie del inquilino B2C a otro inquilino que tenga asociada una suscripción de Azure. Normalmente, es el inquilino del empleado o el inquilino predeterminado que se creó cuando se registró para una suscripción de Azure. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

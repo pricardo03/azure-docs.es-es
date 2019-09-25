@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 16660fbed465cc70f16cde430024f33b8aa4350e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f3d0037bcf0fd33ae23c298679e3157046247cb
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495353"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983539"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo registrar un nuevo dispositivo IoT Edge media
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Uno gratis para el [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
+Un [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) gratuito o estándar en la suscripción de Azure.
 
 ## <a name="create-a-device"></a>Crear un dispositivo
 

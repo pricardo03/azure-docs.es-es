@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 950294094584958e83f6a16630a6e1f897785e46
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 09/12/2019
+ms.openlocfilehash: e5d1dbc8c212d4cdefb12fb740a454324d3adfa1
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897285"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962916"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Versiones de servidores de Azure Database for MariaDB admitidas
 
@@ -26,15 +26,15 @@ Azure Database for MariaDB actualmente admite las siguientes versiones:
 
 ## <a name="mariadb-version-102"></a>MariaDB versión 10.2
 
-Versión de revisión: 10.2.23
+Versión de revisión: 10.2.25
 
-Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/library/mariadb-10223-release-notes/) para más información sobre las mejoras y correcciones de MariaDB 10.2.23.
+Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) para más información sobre las mejoras y correcciones de esta versión.
 
 ## <a name="mariadb-version-103"></a>MariaDB versión 10.3
 
-Versión de revisión: 10.3.14
+Versión de revisión: 10.3.16
 
-Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/library/mariadb-10314-release-notes/) para más información sobre las mejoras y correcciones de MariaDB 10.3.14.
+Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) para más información sobre las mejoras y correcciones de esta versión.
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
 El servicio administra automáticamente las actualizaciones de las actualizaciones de revisión. Por ejemplo, 10.2.21 a 10.2.23.  

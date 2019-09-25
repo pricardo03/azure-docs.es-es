@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061849"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058325"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
@@ -95,22 +95,21 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Directivas predeterminadas de AKS
 
-Al habilitar una directiva de seguridad de pod, AKS crea dos directivas predeterminadas, *privileged* y *restricted*. No modifique ni elimine estas directivas predeterminadas. En su lugar, cree sus propias directivas que definan la configuración que desee controlar. Primero echemos un vistazo a qué son estas directivas predeterminadas y a cómo afectan a la implementación de pods.
+Cuando se habilita la directiva de seguridad pod, AKS crea una directiva predeterminada denominada *privileged*. No modifique ni elimine la directiva predeterminada. En su lugar, cree sus propias directivas que definan la configuración que desee controlar. Primero echemos un vistazo a qué son estas directivas predeterminadas y a cómo afectan a la implementación de pods.
 
-Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo. Como parte de la directiva *restricted* predeterminada, el usuario no tiene permiso *PRIV* para usar el escalado de pods con privilegios y debe ser *MustRunAsNonRoot*.
+Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo.
 
 ```console
 $ kubectl get psp
 
 NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
-privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-La directiva de seguridad de pod *restricted* se aplica a cualquier usuario que se autentique en el clúster de AKS. Esta asignación se controla mediante ClusterRoles y ClusterRoleBindings. Use el comando [kubectl get clusterrolebindings][kubectl-get] y busque el enlace *default:restricted:* como a continuación:
+La directiva de seguridad de pod *provileged* se aplica a cualquier usuario que se autentique en el clúster de AKS. Esta asignación se controla mediante ClusterRoles y ClusterRoleBindings. Use el comando [kubectl get clusterrolebindings][kubectl-get] y busque el enlace *default:priviledged:* :
 
 ```console
-kubectl get clusterrolebindings default:restricted -o yaml
+kubectl get clusterrolebindings default:priviledged -o yaml
 ```
 
 Como se muestra en la siguiente salida reducida, el valor de ClusterRole *psp:restricted* se asigna a cualquier usuario *system:authenticated*. Esta capacidad proporciona un nivel básico de restricciones sin tener directivas propias definidas.
@@ -120,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:restricted
+  name: default:priviledged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:restricted
+  name: psp:priviledged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -387,8 +386,7 @@ $ kubectl get psp
 
 NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-restricted            false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Permiso par que la cuenta de usuario use la directiva de seguridad de pod personalizada

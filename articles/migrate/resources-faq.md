@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279498"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934919"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Preguntas más frecuentes
 
@@ -26,6 +26,37 @@ Consulte la [lista para VMware](https://docs.microsoft.com/azure/migrate/migrate
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>¿Cuál es la diferencia entre Azure Migrate y Azure Site Recovery?
 
 Azure Migrate proporciona un centro principal para iniciar la migración, ejecutar y realizar el seguimiento de la detección y la evaluación de las máquinas y las cargas de trabajo, así como ejecutar y realizar el seguimiento de la migración de las máquinas y las cargas de trabajo a Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) es una herramienta de recuperación ante desastres. Azure Migrate Server Migration utiliza Azure Site Recovery en el back-end para habilitar escenarios de migración para la migración mediante lift-and-shift de máquinas locales.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>¿Cómo puedo eliminar un proyecto de Azure Migrate?
+
+Para eliminar un proyecto de Azure Migrate y sus recursos asociados, incluidos los sitios, almacenes de Recovery Services, almacenes de Migrate, almacenes de claves, proyectos de evaluación, etc., vaya a la página "Grupos de recursos" en Azure Portal, seleccione el grupo de recursos donde se creó el proyecto de migración y seleccione "Mostrar tipos ocultos". Después, seleccione el proyecto de migración y sus recursos asociados, y elimínelos. Como alternativa, si el grupo de recursos se usa exclusivamente en el proyecto de migración y sus recursos asociados, puede eliminar todo el grupo de recursos. Tenga en cuenta que esta lista es una enumeración exhaustiva de todos los tipos de recursos creados para todos los escenarios (detección, evaluación y migración). Solo encontrará los recursos que se crearon para su escenario en el grupo de recursos.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>Recursos creados para los servidores físicos o de VMware descubiertos, evaluados o migrados [Recurso (tipo)]:
+
+- "Appliancename"kv (Key vault)
+- Sitio "Appliancename"(Microsoft.OffAzure/VMwareSites)
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- Proyecto "ProjectName" (Microsoft.Migrate/assessmentProjects)
+- "ProjectName"rsvault (Recovery Services vault)
+- "ProjectName"-MigrateVault-* (Recovery Services vault)
+- migrateappligwsa* (cuenta de almacenamiento)
+- migrateapplilsa* (cuenta de almacenamiento)
+- migrateapplicsa* (cuenta de almacenamiento)
+- migrateapplikv* (almacén de claves)
+- migrateapplisbns16041 (espacio de nombres de Service Bus)
+
+Nota: elimine las cuentas de almacenamiento y los almacenes de claves con precaución, ya que pueden contener datos de aplicación y claves de seguridad, respectivamente.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Recursos creados para los servidores descubiertos, evaluados o migrados en Hyper-V [Recurso (tipo)]:
+
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- Proyecto "ProjectName" (Microsoft.Migrate/assessmentProjects)
+- HyperV*kv (almacén de claves)
+- HyperV*site (Microsoft.OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (Recovery Services vault) 
+
+Nota: elimine el almacén de claves con precaución, ya que puede contener claves de seguridad.
+
 
 ## <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 

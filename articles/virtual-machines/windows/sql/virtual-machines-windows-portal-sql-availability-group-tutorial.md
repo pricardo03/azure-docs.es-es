@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102360"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036520"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -81,6 +81,9 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
    | Confirmación |Use los valores predeterminados a menos que use Espacios de almacenamiento. Consulte la nota que sigue a esta tabla. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Establecer la dirección IP del clúster de conmutación por error para el servidor Windows
+
+  > [!NOTE]
+  > En Windows Server 2019, el clúster crea un **nombre de servidor distribuido** en lugar del **nombre de la red en clúster**. Si usa Windows Server 2019, omita los pasos que hagan referencia al nombre principal del clúster en este tutorial. Puede crear un nombre de red en clúster mediante [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Consulte el blog [Clúster de conmutación por error: objeto de red en clúster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) para más información. 
 
 1. En **Administrador de clústeres de conmutación por error**, desplácese hacia abajo hasta **Recursos principales de clúster** y expanda los detalles del clúster. Debería de ver los recursos **Nombre** y **Dirección IP** en el estado **Con error**. El recurso de dirección IP no se puede poner en línea porque al clúster se le asigna la misma dirección IP que la de la propia máquina, por lo que es una dirección duplicada.
 

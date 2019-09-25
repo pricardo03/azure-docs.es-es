@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030803"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995114"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de costo de Azure NetApp Files 
 
@@ -73,7 +73,7 @@ En el diagrama siguiente se ilustran estos conceptos:
     * A los volúmenes de 1 a 8 se les asigna una cuota de 60 TiB.  La capacidad total usada es 480 TiB.  
         Cada volumen tiene un límite de QoS de 3,75 GiB/s de rendimiento (60 TiB * 64 MiB/s).  
     * Al volumen 9 se le asigna una cuota de 20 TiB.  
-        El volumen 9 tiene un límite de QoS de 1,25 GiB/s de rendimiento (60 TiB * 64 MiB/s).
+        El volumen 9 tiene un límite de QoS de 1,25 GiB/s de rendimiento (20 TiB * 64 MiB/s).
 * El volumen 9 es un escenario de uso por encima del límite. Tiene 25 TiB de consumo real.  
     * Tras el período de gracia de una hora, el tamaño del grupo de capacidad se ajustará a 505 TiB.  
         Es decir, la capacidad total usada = 8 * la cuota de 60 TiB para los volúmenes de 1 a 8, y 25 TiB de consumo real para el volumen 9.

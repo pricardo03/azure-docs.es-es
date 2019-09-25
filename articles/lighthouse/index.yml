@@ -1,61 +1,99 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Azure Lighthouse
+summary: Azure Lighthouse permite a los proveedores de servicios administrar los recursos de Azure de todos sus clientes con una mayor automatización, escalado y gobernanza mejorada.
 metadata:
   title: Documentación de Azure Lighthouse
   description: Aprenda a administrar los recursos de cliente a escala
-  author: JnHs
-  manager: carmonm
   ms.service: lighthouse
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  ms.collection: collection
+  author: JnHs
   ms.author: jenhayes
-abstract:
-  description: 'Azure Lighthouse ofrece a los proveedores de servicios un plano de control único para ver y administrar Azure a través de todos sus clientes con una mayor automatización, escalado y gobernanza mejorada.'
-sections:
-  - title: Conceptos
-    items:
-      - type: paragraph
-        text: Más información sobre los aspectos clave de Azure Lighthouse.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="concepts/azure-delegated-resource-management">Administración de recursos delegados de Azure</a>
-          - html: <a href="concepts/cross-tenant-management-experience">Experiencias de administración entre inquilinos</a>
-          - html: <a href="concepts/managed-services-offers">Ofertas de servicios administrados en Azure Marketplace</a>
-          - html: <a href="concepts/recommended-security-practices.md">Procedimientos de seguridad recomendados</a>
-          - html: <a href="concepts/cloud-solution-provider.md">Consideraciones del programa de proveedor de soluciones en la nube</a>
-  - title: Guías de procedimientos
-    items:
-      - type: paragraph
-        text: Aprenda a incorporar clientes para la administración de recursos delegados de Azure y cómo administrar sus recursos.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="how-to/onboard-customer">Incorporación de un cliente a la administración de recursos delegados de Azure</a>
-          - html: <a href="how-to/publish-managed-services-offers">Publicación de ofertas de servicios administrados en Azure Marketplace</a>
-          - html: <a href="how-to/view-manage-customers">Visualización y administración de clientes y recursos delegados</a>
-          - html: <a href="how-to/view-manage-service-providers">Visualización y administración de proveedores de servicios</a>
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Revise los ejemplos y plantillas disponibles para ayudarle a usar Azure Lighthouse.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="samples/index">Índice de ejemplos</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest">CLI de Azure</a></p><p><a href="https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services">Azure PowerShell</a></p>'
-          - title: Languages
-            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">SDK de Azure para .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">SDK de Azure para .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">SDK de Azure para Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">SDK de Azure para Python (Pypi)</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">Referencia de API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'
+  ms.date: 09/19/2019
+  ms.openlocfilehash: b0ab72431c0a5f7f22426aa27ece1fb3da5f5a13
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71219781"
+landingContent:
+- title: Acerca de Azure Lighthouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Lighthouse?
+      url: ./overview.md
+  - linkListType: concept
+    links:
+    - text: Administración de recursos delegados de Azure
+      url: ./concepts/azure-delegated-resource-management.md
+    - text: Experiencias de administración entre inquilinos
+      url: ./concepts/cross-tenant-management-experience.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Incorporación de un cliente a la administración de recursos delegados de Azure
+      url: ./how-to/onboard-customer.md
+  - linkListType: concept
+    links:
+    - text: Procedimientos de seguridad recomendados
+      url: ./concepts/recommended-security-practices.md
+    - text: Consideraciones del programa de proveedor de soluciones en la nube
+      url: ./concepts/cloud-solution-provider.md
+- title: Ofertas de Marketplace
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ofertas de servicios administrados en Azure Marketplace
+      url: ./concepts/managed-services-offers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Publicación de ofertas de servicios administrados
+      url: ./how-to/publish-managed-services-offers.md
+- title: Ejemplos y plantillas
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Repositorio de ejemplos de Azure Lighthouse (GitHub)
+      url: https://github.com/Azure/Azure-Lighthouse-samples/
+    - text: Índice de ejemplos de Azure Lighthouse
+      url: ./samples/index.md
+- title: 'Referencia: descargas'
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-06-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+    - text: 'SDK para .NET: NuGet'
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+    - text: SDK para Python (Pypi)
+      url: https://pypi.org/project/azure-mgmt-managedservices/
+- title: 'Referencia: SDK'
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.managedservices/
+    - text: Azure CLI
+      url: /cli/azure/managedservices
+    - text: REST
+      url: /rest/api/managedservices/
+    - text: .NET
+      url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+    - text: Python
+      url: /python/api/azure-mgmt-managedservices
+- title: Experiencias de Azure Portal
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualización y administración de clientes
+      url: ./how-to/view-manage-customers.md
+    - text: Visualización y administración de proveedores de servicios
+      url: ./how-to/view-manage-service-providers.md
+- title: Participación
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Solicitud de características del producto
+      url: https://feedback.azure.com/forums/922753

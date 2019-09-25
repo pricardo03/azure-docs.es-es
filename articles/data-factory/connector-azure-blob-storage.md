@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5ba530a614dd7eb064e1d9b5a59fc00b9280ef0a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814163"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008637"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,6 +33,7 @@ Este conector de Azure Blob es compatible con las actividades siguientes:
 - [Asignación de flujo de datos](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
+- [Actividad de eliminación](delete-activity.md)
 
 En concreto, este conector de Blob Storage admite las siguientes operaciones:
 
@@ -638,6 +639,18 @@ En esta sección se describe el comportamiento resultante de la operación de co
 ## <a name="mapping-data-flow-properties"></a>Asignación de propiedades de Data Flow
 
 Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de instancias de Data Flow.
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propiedades de la actividad GetMetadata
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md). 
+
+## <a name="delete-activity-properties"></a>Propiedades de la actividad de eliminación
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de eliminación](delete-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

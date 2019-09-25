@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fbfc3f48bed5a4772573dcf2ab168cd3498a4cac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114846"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101996"
 ---
 # <a name="install-and-run-face-containers"></a>Instalación y uso de contenedores de Face
 
@@ -33,6 +33,8 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |Motor de Docker| El motor de Docker debe estar instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> En Windows, Docker también debe configurarse para admitir los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor. También necesita conocimientos sobre comandos de `docker` básicos.| 
 |Recurso de Face |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure **Face** y la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de **introducción** y **claves** del recurso. Esto es necesario para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Introducción**.
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
 
@@ -80,16 +82,9 @@ Cuando el contenedor esté en el [equipo host](#the-host-computer), use el sigui
 
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con docker run
 
-Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes.
+Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{ENDPOINT_URI}` y `{API_KEY}`.
 
-| Marcador de posición | Valor |
-|-------------|-------|
-|{API_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página `Cognitive Services`Claves**de Azure**. |
-|{ENDPOINT_URI} | El valor del URI del punto de conexión de facturación está disponible en la página `Cognitive Services`Información general**de Azure**. Un ejemplo es `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
-
-Agregue el enrutamiento `face/v1.0` al URI del punto de conexión, tal como se muestra en el ejemplo anterior de ENDPOINT_URI. 
-
-Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo:
+Hay disponibles [ejemplos](face-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

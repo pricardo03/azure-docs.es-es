@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre la versión preliminar de Azure Sentinel
+title: Documentación de Azure Sentinel
 metadata:
-  title: 'Documentación sobre la versión preliminar de Azure Sentinel: Tutoriales, inicios rápidos | Microsoft Doc'
+  title: 'Documentación de Azure Sentinel: Tutoriales, inicios rápidos | Microsoft Doc'
   meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
   services: sentinel
   author: cmcclister
@@ -15,7 +15,7 @@ metadata:
   ms.date: 02/28/19
   ms.author: cmcclister
 abstract:
-  description: 'La versión preliminar de Azure Sentinel es un conjunto de Administración de eventos e información de seguridad nativo para la nube que proporciona análisis de seguridad inteligente para toda la empresa a escala de nube. Consiga una velocidad y un escalado de la nube sin límites para concentrarse en lo que realmente importa. Recopile fácilmente datos de todos sus recursos locales y en la nube, de Office 365, de los recursos de Azure y de otras nubes. Detecte amenazas eficazmente con el aprendizaje automático integrado desarrollado por los expertos en análisis de seguridad de Microsoft. Automatice la respuesta frente a amenazas mediante los cuadernos de estrategias de orquestación y automatización.'
+  description: 'Azure Sentinel es un conjunto de Administración de eventos e información de seguridad nativo para la nube que proporciona análisis de seguridad inteligente para toda la empresa a escala de nube. Consiga una velocidad y un escalado de la nube sin límites para concentrarse en lo que realmente importa. Recopile fácilmente datos de todos sus recursos locales y en la nube, de Office 365, de los recursos de Azure y de otras nubes. Detecte amenazas eficazmente con el aprendizaje automático integrado desarrollado por los expertos en análisis de seguridad de Microsoft. Automatice la respuesta frente a amenazas mediante los cuadernos de estrategias de orquestación y automatización.'
 sections:
   - title: Inicio rápido en 5 minutos
     items:

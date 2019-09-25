@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532944"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086741"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Directiva de base de referencia: Requerir MFA para la administración de servicios (versión preliminar)
 
@@ -50,15 +50,15 @@ Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una pág
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
-Dado que la directiva **Requerir MFA para la administración de servicios** se aplica a todos los usuarios de Azure Resource Manager, deben realizarse varias consideraciones para garantizar una implementación sin problemas. Estas consideraciones incluyen la identificación de usuarios y entidades de servicio de Azure AD que no pueden o no deben ejecutar MFA, así como aplicaciones y clientes que se usan en la organización y que no admiten la autenticación moderna.
+La directiva **Requerir MFA para la administración de servicios** se aplica a todos los usuarios de Azure Resource Manager.
 
-## <a name="enable-the-baseline-policy"></a>Habilitar la directiva de base de referencia
+## <a name="enable-the-baseline-policy"></a>Habilitación de la directiva de base de referencia
 
 La **Directiva de base de referencia: Requerir MFA para la administración de servicios (versión preliminar)** viene previamente configurada y se mostrará al principio cuando navegue a la hoja Acceso condicional en Azure Portal.
 
 Para habilitar esta directiva y proteger a los administradores:
 
-1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de Acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Directiva de línea base: Requerir MFA para la administración de servicios (versión preliminar)** .
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.

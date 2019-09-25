@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ed1426bea920d1ef30fb28ff4a975d1268c12ff
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846929"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064382"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
-En este artículo, obtendrá información sobre cómo configurar la [duración y la compatibilidad de un token](active-directory-b2c-reference-tokens.md) en Azure Active Directory (Azure AD) B2C.
+En este artículo, aprenderá a configurar la [duración y la compatibilidad de un token](active-directory-b2c-reference-tokens.md) en Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ En este artículo, obtendrá información sobre cómo configurar la [duración y
 Puede configurar la duración de los tokens en cualquier flujo de usuario.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el **filtro Directorio y suscripción** del menú superior y elija el directorio que contiene el inquilino de Azure AD B2C.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Flujos de usuario (directivas)** .
 5. Abra el flujo de usuario que creó anteriormente.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 36f70ebaaf3fe6d841ef700561bbd6a200366c84
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563751"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996242"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage (versión preliminar)
 
@@ -42,6 +42,10 @@ Esta característica no requiere que se habilite ni configure nada; las métrica
 
 >[!NOTE]
 >El acceso a esta característica no se cobra, solo paga por las características básicas de Azure Monitor esenciales que configure o habilite, como se describe en la página de detalles de [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+>[!NOTE]
+>Azure Monitor para Storage no admite [cuentas de uso general v1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>
 
 ## <a name="view-from-azure-monitor"></a>Vista desde Azure Monitor
 

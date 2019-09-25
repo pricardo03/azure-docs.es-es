@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 12ddbe9f43baf68f6c11c9b720a0f684316af46a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644920"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065315"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede agregar interacción con una API de RESTful en sus [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure Active Directory (Azure AD) B2C. En este artículo se muestra cómo crear un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
+Puede agregar interacción con una API de RESTful a sus [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure Active Directory B2C (Azure AD B2C). En este artículo se muestra cómo crear un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
 
 La interacción incluye un intercambio de notificaciones de información entre las notificaciones de la API de REST y Azure AD B2C. El intercambio de notificaciones tiene las siguientes características:
 

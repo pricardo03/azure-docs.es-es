@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835202"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066228"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo, va a agregar una nueva entrada (notificación) que el usuario proporciona durante el recorrido de registro en Azure Active Directory (Azure AD) B2C.  Tendrá que configurar la entrada como una lista desplegable y especificar si es o no necesaria.
+En este artículo, va a agregar una nueva entrada (notificación) que el usuario proporciona durante el recorrido de registro en Azure Active Directory B2C (Azure AD B2C).  Tendrá que configurar la entrada como una lista desplegable y especificar si es o no necesaria.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -261,7 +261,7 @@ Los elementos siguientes se usan para definir la notificación:
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, haga clic en el **filtro de directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 4. Seleccione **Identity Experience Framework (versión preliminar)** .
 5. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de directiva modificados.

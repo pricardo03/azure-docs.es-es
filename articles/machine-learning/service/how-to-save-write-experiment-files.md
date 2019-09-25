@@ -1,6 +1,6 @@
 ---
 title: Dónde se guardan y escriben los archivos de experimentos
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda dónde se guardan los archivos de entrada de los experimentos y dónde se escriben los archivos de salida para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
 services: machine-learning
 author: rastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114512"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034288"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 
@@ -33,7 +33,7 @@ Azure Machine Learning ejecuta los scripts de entrenamiento copiando la carpeta
 
 Por este motivo, se recomienda:
 
-* **Almacenar los archivos en un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning Service. Más información sobre cómo especificar un almacén de datos como el directorio de origen y cómo cargar los archivos en el almacén de datos, en el artículo [Datos de acceso desde almacenes de datos](how-to-access-data.md).
+* **Almacenar los archivos en un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning. Más información sobre cómo especificar un almacén de datos como el directorio de origen y cómo cargar los archivos en el almacén de datos, en el artículo [Datos de acceso desde almacenes de datos](how-to-access-data.md).
 
 * **Si solo necesita dos archivos de datos y scripts de dependencias, y no puede usar un almacén de datos,** coloque los archivos en el mismo directorio de carpetas que el script de entrenamiento. Especifique esta carpeta como su `source_directory` directamente en el script de entrenamiento o en el código que lo llama.
 

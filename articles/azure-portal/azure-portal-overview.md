@@ -9,12 +9,12 @@ ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e176a8b16129cd35fc011e14fcb36038f7c0144
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244196"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000337"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 
@@ -69,6 +69,12 @@ Se han rellenado previamente sus Favoritos en la barra lateral con vínculos a s
 > [!TIP]
 > La forma más rápida de buscar un recurso, servicio o documentación es usar *Search* en el encabezado global. Use los vínculos de la ruta de navegación para volver a las páginas anteriores.
 >
+Vea este vídeo para una demostración del uso de la búsqueda global en Azure Portal.
+
+
+> [!VIDEO https://www.youtube.com/embed/nZ7WwTZcQbo]
+
+[How to use global search in the Azure portal](https://www.youtube.com/watch?v=nZ7WwTZcQbo) (La búsqueda global en Azure Portal)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

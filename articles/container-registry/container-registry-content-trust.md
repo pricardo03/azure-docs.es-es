@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172304"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959177"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -43,7 +43,7 @@ La confianza en el contenido se administra mediante el uso de un conjunto de cla
 
 El primer paso es habilitar la confianza en el contenido en el nivel de registro. Una vez que habilite la confianza en el contenido, los clientes (usuarios o servicios) pueden insertar imágenes firmadas en el registro. Habilitar la confianza en el contenido en el registro no restringe el uso del registro solo a los consumidores con la confianza en el contenido habilitada. Los consumidores sin la confianza en el contenido habilitada pueden seguir usando el registro de la forma habitual. Los consumidores que han habilitado la confianza en el contenido en sus clientes, sin embargo, serán capaces de ver *solo* las imágenes firmadas del registro.
 
-Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Habilitada** > **Guardar**.
+Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Habilitada** > **Guardar**. También puede usar el comando [az acr config content-trust update][az-acr-config-content-trust-update] en la CLI de Azure.
 
 ![Habilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-01-portal]
 
@@ -75,6 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## <a name="grant-image-signing-permissions"></a>Concesión de permisos de firma de imágenes
 
 Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar imágenes de confianza en el registro. Para conceder permiso de inserción de imágenes de confianza a un usuario (o a un sistema con una entidad de servicio), debe conceder a sus identidades de Azure Active Directory el rol `AcrImageSigner`. Esto se agrega al rol `AcrPush` (o equivalente) necesario para insertar imágenes en el registro. Para más información, consulte [Roles y permisos de Azure Container Registry](container-registry-roles.md).
+
+> [!NOTE]
+> No se puede conceder el permiso de inserción de imagen de confianza a la [cuenta de administrador](container-registry-authentication.md#admin-account) de Azure Container Registry.
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
@@ -113,7 +116,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>` puede ser el valor de **appId**, de **objectId** o uno de los valores de **servicePrincipalNames** de la entidad de servicio. Para más información sobre cómo trabajar con entidades de servicio y Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
 
-Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto.
+> [!IMPORTANT]
+> Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto. Para más información sobre la comprobación de roles para una identidad, consulte [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](../role-based-access-control/role-assignments-cli.md) y [Solución de problemas del control de acceso basado en rol para recursos de Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Inserción de una imagen de confianza
 
@@ -214,3 +218,4 @@ Para deshabilitar la confianza en el contenido para el registro, vaya al registr
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

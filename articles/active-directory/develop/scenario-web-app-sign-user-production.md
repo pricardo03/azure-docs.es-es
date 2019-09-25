@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd6717c132d32d54c16e7678695a09e35181a057
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074716"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086548"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>Aplicación web que permite iniciar sesión a los usuarios: paso a producción
 
@@ -37,12 +37,16 @@ Una vez que la aplicación web inicie la sesión de los usuarios, puede llamar a
 > [!div class="nextstepaction"]
 > [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive---web-app-tutorial"></a>Tutorial a fondo para aplicación web
+### <a name="deep-dive---aspnet-core-web-app-tutorial"></a>En profundidad: Tutorial de una aplicación web de ASP.NET Core
 
-Obtenga información sobre otras formas en que los usuarios pueden iniciar sesión con el tutorial de ASP.NET Core: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Este es un tutorial progresivo con código listo para producción para una aplicación web, e incluye la forma de agregar el inicio de sesión.
+Obtenga información sobre otras formas en que los usuarios pueden iniciar sesión con el tutorial de ASP.NET Core: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Este ejemplo es un tutorial progresivo con código listo para producción para una aplicación web, e incluye la forma de agregar el inicio de sesión con cuentas en:
 
-<!--- Removed the diagram as it's already shown in the above link to GitHub
+- su organización,
+- varias organizaciones,
+- cuentas profesionales o educativas o cuentas personales de Microsoft,
+- con [Azure AD B2C](https://aka.ms/aadb2c),
+- o en nubes nacionales.
 
-![Tutorial overview](media/scenarios/aspnetcore-webapp-tutorial.svg)
+### <a name="sample-code---java-web-app"></a>Código de ejemplo: aplicación web de Java
 
---->
+Obtenga más información sobre la aplicación web de Java en el ejemplo de GitHub: [Aplicación web de Java mediante la que los usuarios inician sesión con la plataforma de identidad de Microsoft y que llama a Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

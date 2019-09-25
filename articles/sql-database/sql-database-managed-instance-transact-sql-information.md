@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858547"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018988"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -339,14 +339,14 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 - `ALTER ASSEMBLY` no puede hacer referencia a archivos. Consulte [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Correo electrónico de base de datos: (db_mail)
- - `sp_send_dbmail` no puede enviar datos adjuntos con el parámetro @file_attachments. El sistema de archivos local y los recursos compartidos externos, o Azure Blob Storage, no son accesibles en este procedimiento.
+ - `sp_send_dbmail` no puede enviar datos adjuntos con el parámetro @file_attachments. El sistema de archivos local y los recursos compartidos externos, o Azure Blob Storage, no son accesibles con este procedimiento.
  - Vea los problemas conocidos relacionados con el parámetro `@query` y la autenticación.
  
 ### <a name="dbcc"></a>DBCC
 
 Las instancias administradas no admiten instrucciones DBCC no documentadas que estén habilitadas en SQL Server.
 
-- Solo se admite un número limitado de `Trace flags` globales. No se admiten las `Trace flags` en el nivel de sesión. Consulte [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Solo se admite un número limitado de marcas de seguimiento globales. No se admiten las `Trace flags` en el nivel de sesión. Consulte [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) y [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funcionan con el número limitado de marcas trace-flags globales.
 - No se puede usar [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) con las opciones REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST y REPAIR_REBUILD porque la base de datos no se puede establecer en el modo `SINGLE_USER`. Consulte las [diferencias de ALTER DATABASE](#alter-database-statement). El equipo de soporte técnico de Azure se encarga de los posibles daños en la base de datos. Póngase en contacto con el soporte técnico de Azure si observa daños en la base de datos que se deben corregir.
 
@@ -479,9 +479,12 @@ Limitaciones:
 - La restauración de un archivo `.BAK` de una base de datos que contenga alguna de las limitaciones descritas en este documento (por ejemplo, objetos `FILESTREAM` o `FILETABLE`) no se puede llevar a cabo en la instancia administrada.
 - Los archivos `.BAK` que contienen varios conjuntos de copia de seguridad no se pueden restaurar. 
 - Los archivos `.BAK` que contienen varios archivos de registro no se pueden restaurar.
-- Las copias de seguridad que contienen bases de datos con un tamaño superior a 8 TB, objetos OLTP en memoria activos o más de 280 archivos no se pueden restaurar en una instancia de uso general. 
+- Las copias de seguridad que contienen bases de datos con un tamaño superior a 8 TB, objetos OLTP en memoria activos o una cantidad de archivos superior a 280 por instancia no se pueden restaurar en una instancia de Uso general. 
 - Las copias de seguridad que contienen bases de datos con un tamaño superior a 4 TB u objetos OLTP en memoria con un tamaño total superior al descrito en los [límites de recursos](sql-database-managed-instance-resource-limits.md) no se pueden restaurar en una instancia de tipo Crítico para la empresa.
 Para más información acerca de las instrucciones Restore, consulte [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+
+ > [!IMPORTANT]
+ > Las mismas limitaciones se aplican a una operación de restauración a un momento dado integrada. Por ejemplo, no es posible restaurar una base de datos de Uso general de más de 4 TB en una instancia de tipo Crítico para la empresa. Una base de datos de tipo Crítico para la empresa con archivos OLTP en memoria o más de 280 archivos no se puede restaurar en la instancia de Uso general.
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -541,6 +544,16 @@ Una instancia administrada coloca información detallada en los registros de err
 
 ## <a name="Issues"></a> Problemas conocidos
 
+### <a name="missing-validations-in-restore-process"></a>Faltan validaciones en el proceso de restauración
+
+**Fecha:** Septiembre de 2019
+
+La instrucción `RESTORE`y la restauración a un momento dado integrada no realizan algunas comprobaciones necesarias en la base de datos restaurada:
+- La instrucción **DBCC CHECKDB** - `RESTORE` no realiza `DBCC CHECKDB` en la base de datos restaurada. Si una base de datos original está dañada, o el archivo de copia de seguridad resulta dañado mientras se copia en Azure Blob Storage, no se realizarán copias de seguridad automáticas y el soporte técnico de Azure se pondrá en contacto con el cliente. 
+- El proceso de restauración a un momento dado integrada no comprueba que la copia de seguridad automatizada de la instancia de tipo Crítico para la empresa contenga los [objetos OLTP en memoria](sql-database-in-memory.md#in-memory-oltp). 
+
+**Solución alternativa**: Asegúrese de que está ejecutando `DBCC CHECKDB` en la base de datos de origen antes de realizar una copia de seguridad y de usar la opción `WITH CHECKSUM` en la copia de seguridad para evitar posibles daños que podrían restaurarse en Instancia administrada. Asegúrese de que la base de datos de origen no contenga [objetos OLTP en memoria](sql-database-in-memory.md#in-memory-oltp) si la va a restaurar en el nivel Uso general.
+
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error
 
 **Fecha:** Septiembre de 2019
@@ -549,7 +562,7 @@ La característica [Resource Governor](https://docs.microsoft.com/sql/relational
 
 **Solución alternativa**: Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte del trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>No se puede autenticar en servidores de correo externos mediante una conexión segura (SSL)
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>No se puede autenticar en servidores de correo externos mediante una conexión segura (SSL)
 
 **Fecha:** Agosto de 2019
 
@@ -589,7 +602,7 @@ Si la replicación transaccional se habilita en una base de datos en un grupo de
 
 **Fecha:** Enero de 2019
 
-SQL Server Management Studio y SQL Server Data Tools no son completamente compatibles con los inicios de sesión y usuarios de Azure Active Directory.
+SQL Server Management Studio y SQL Server Data Tools no son completamente compatibles con los inicios de sesión y usuarios de Azure Active Directory.
 - Actualmente no se admite el uso de entidades de seguridad (inicios de sesión) y usuarios(versión preliminar pública) del servidor de Azure AD con SQL Server Data Tools.
 - No se admite la creación de scripts para entidades de seguridad (inicios de sesión) y usuarios (versión preliminar pública) del servidor de Azure AD en SQL Server Management Studio.
 
@@ -609,7 +622,7 @@ Se puede producir un error en las instrucciones `CREATE DATABASE`, `ALTER DATABA
 
 Cada instancia administrada de uso general tiene hasta 35 TB de almacenamiento reservado para el espacio en disco Premium de Azure. Cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
 
-Por ejemplo, una instancia administrada de uso general puede tener un archivo de 1,2 TB de tamaño situado en un disco de 4 TB. También podría tener 248 archivos de 1 GB de tamaño situados cada uno de ellos en discos independientes de 128 GB. En este ejemplo:
+Por ejemplo, una instancia administrada de Uso general puede tener un archivo grande de 1,2 TB situado en un disco de 4 TB. También podría tener 248 archivos de 1 GB cada uno situados en discos independientes de 128 GB. En este ejemplo:
 
 - El tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
 - El espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

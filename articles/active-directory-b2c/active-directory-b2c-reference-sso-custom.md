@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509051"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065394"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Administración de sesión de inicio de sesión único en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La administración de sesión de inicio de sesión único (SSO) en Azure Active Directory (Azure AD) B2C permite a un administrador controlar la interacción con un usuario después de que el usuario se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local. En este artículo se describe cómo establecer la configuración de SSO para Azure AD B2C.
+La administración de sesiones SSO (inicio de sesión único) en Azure Active Directory B2C (Azure AD B2C) permite a los administradores controlar la interacción con el usuario después de que este se haya autenticado. Por ejemplo, el administrador puede controlar si se muestra la selección de proveedores de identidades, o si se tienen que volver a especificar los detalles de la cuenta local. En este artículo se describe cómo establecer la configuración de SSO para Azure AD B2C.
 
 La administración de sesiones SSO tiene dos partes. La primera trata las interacciones del usuario directamente con Azure AD B2C y la otra las interacciones del usuario con partes externas, como Facebook. Azure AD B2C no invalida ni omite las sesiones de SSO que se pueden mantener mediante entidades externas. En su lugar, se "recuerda" la ruta a través de Azure AD B2C para llegar a la entidad externa, lo que hace que no sea necesario volver a solicitar al usuario que seleccione su proveedor de identidades sociales o de empresa. La decisión de SSO definitiva sigue teniéndola la parte externa.
 
@@ -63,7 +63,7 @@ Para agregar notificaciones en la sesión, utilice el elemento `<PersistedClaims
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-Este proveedor se utiliza para suprimir la pantalla "elegir el proveedor de identidades". Normalmente se hace referencia en un perfil técnico configurado para un proveedor de identidades externo, como Facebook. 
+Este proveedor se utiliza para suprimir la pantalla "elegir el proveedor de identidades". Normalmente se hace referencia en un perfil técnico configurado para un proveedor de identidades externo, como Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">

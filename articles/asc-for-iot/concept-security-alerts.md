@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 99ffa49a8e379f6c3a2139c082cd23f95c126e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ccf1c912dbf982fde1eb5cde4cde6556fc88bc1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597248"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933910"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de seguridad de Azure Security Center para IoT
 
@@ -85,8 +85,8 @@ Para más detalles, consulte [Creación de alertas personalizadas](quickstart-cr
 | Mediano   | Certificate deleted from an IoT Hub (Certificado eliminado de una instancia de IoT Hub)                                    | Un certificado con el nombre \'%{DescCertificateName}\' se eliminó de \'%{DescIoTHubName}\' de IoT Hub. Si una entidad no autorizada realizó esta acción, puede indicar una actividad malintencionada.| 1. Asegúrese de que el certificado lo quitó una entidad autorizada. <br> 2. Si el certificado no lo quitó una entidad autorizada, vuelva a agregarlo y escale la alerta al equipo de seguridad de la organización. |
 | Mediano   | Unsuccessful attempt detected to add a certificate to an IoT Hub (Detección de intento fallido de agregar un certificado a una instancia de IoT Hub)     | Se produjo un intento incorrecto de agregar el certificado \'%{DescCertificateName}\' a \'%{DescIoTHubName}\' de IoT Hub. Si una entidad no autorizada realizó esta acción, puede indicar una actividad malintencionada.|   Asegúrese de que los permisos para cambiar certificados solo se conceden a las entidades autorizadas.  |
 | Mediano   | Unsuccessful attempt detected to delete a certificate from an IoT Hub (Detección de intento fallido de eliminar un certificado de una instancia de IoT Hub) | Se produjo un intento incorrecto de eliminar el certificado \'%{DescCertificateName}\' de \'%{DescIoTHubName}\' de IoT Hub. Si una entidad no autorizada realizó esta acción, puede indicar una actividad malintencionada. |Asegúrese de que los permisos para cambiar certificados solo se conceden a una entidad autorizada.
-| Bajo      | Attempt to add or edit a diagnostic setting of an IoT Hub detected (Detección de intento de agregar o editar una configuración de diagnóstico en una instancia de IoT Hub)    | Se ha detectado un intento de agregar o editar una configuración de diagnóstico en una instancia de IoT Hub. La configuración de diagnóstico le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. Si una entidad autorizada no realizó esta acción, puede indicar una actividad malintencionada.  |
-| Bajo      | Attempt to delete a diagnostic setting from an IoT Hub detected (Detección de intento de eliminar una configuración de diagnóstico de una instancia de IoT Hub)       | %{DescAttemptStatusMessage}\' intentó agregar o editar la configuración de diagnóstico \'%{DescDiagnosticSettingName}\' de \'%{DescIoTHubName}\' de IoT Hub. La configuración de diagnóstico le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. Si una entidad autorizada no realizó esta acción, puede indicar una actividad malintencionada. |1. Asegúrese de que el certificado lo quitó una entidad autorizada.<br> 2. Si el certificado no lo quitó una entidad autorizada, vuelva a agregarlo y escale la alerta al equipo de seguridad de información.
+| Bajo      | Attempt to add or edit a diagnostic setting of an IoT Hub detected (Detección de intento de agregar o editar una configuración de diagnóstico en una instancia de IoT Hub)    | Se ha detectado un intento de agregar o editar una configuración de diagnóstico en una instancia de IoT Hub. La configuración de diagnóstico le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. Si una entidad autorizada no realizó esta acción, puede indicar una actividad malintencionada.  |1. Asegúrese de que el certificado lo quitó una entidad autorizada.<br> 2. Si el certificado no lo quitó una entidad autorizada, vuelva a agregarlo y escale la alerta al equipo de seguridad de información.
+| Bajo      | Attempt to delete a diagnostic setting from an IoT Hub detected (Detección de intento de eliminar una configuración de diagnóstico de una instancia de IoT Hub)       | %{DescAttemptStatusMessage}\' intentó agregar o editar la configuración de diagnóstico \'%{DescDiagnosticSettingName}\' de \'%{DescIoTHubName}\' de IoT Hub. La configuración de diagnóstico le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. Si una entidad autorizada no realizó esta acción, puede indicar una actividad malintencionada. |Asegúrese de que los permisos para cambiar certificados solo se conceden a una entidad autorizada.
 |
 
 ## <a name="next-steps"></a>Pasos siguientes

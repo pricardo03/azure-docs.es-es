@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6ad7e305958131c4f544dfa2022e7471e9adac
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147103"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057762"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 
@@ -36,7 +36,7 @@ La primera vez que configure el aprovisionamiento automático, en la sección **
 - Una **barra de progreso** en la que se muestra el porcentaje del ciclo de aprovisionamiento que se ha completado. El porcentaje refleja el número de páginas aprovisionadas. Tenga en cuenta que cada página podría contener varios usuarios o grupos, por lo que el porcentaje no correlaciona directamente con el número de usuarios, grupos o roles aprovisionados.
 - Un botón **Actualizar** que puede usar para mantener la vista actualizada.
 - El número de **usuarios** y **grupos** aprovisionados, así como el número de roles que se crearon. Durante el ciclo inicial, el número de **usuarios** incrementa en 1 cuando se crea o actualiza un usuario y disminuye en 1 cuando se elimina un usuario. Durante un ciclo de incremental, las actualizaciones de usuario no afectan al número de **usuarios**; el número cambia solo cuando se crean o eliminan usuarios.
-- Un vínculo **Ver registros de auditoría**, que abre los registros de auditoría de Azure AD con detalles sobre todas las operaciones que haya ejecutado el servicio de aprovisionamiento de usuarios, como el estado de aprovisionamiento de los usuarios individuales (consulte la sección [Uso de registros de auditoría](#use-audit-logs-to-check-a-users-provisioning-status) más adelante).
+- Un vínculo **Ver registros de auditoría**, que abre los registros de aprovisionamiento de Azure AD con detalles sobre todas las operaciones que haya ejecutado el servicio de aprovisionamiento de usuarios, como el estado de aprovisionamiento de los usuarios individuales (consulte la sección [Uso de registros de aprovisionamiento](#use-provisioning-logs-to-check-a-users-provisioning-status) más adelante).
 
 Una vez completado el ciclo de aprovisionamiento, en la sección **Estadísticas hasta la fecha** se muestran los números acumulativos de los usuarios y grupos que se hayan aprovisionado hasta la fecha, junto con la fecha de finalización y la duración del último ciclo. La opción **Id. de actividad** identifica de forma única el ciclo de aprovisionamiento más reciente. La opción **Id. de trabajo** es un identificador único para el trabajo de aprovisionamiento y es específico de la aplicación en el inquilino.
 
@@ -44,36 +44,34 @@ El progreso de aprovisionamiento se puede ver en Azure Portal, en la pestaña **
 
 ![Barra de progreso de la página de aprovisionamiento](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
-## <a name="use-audit-logs-to-check-a-users-provisioning-status"></a>Uso de registros de auditoría para comprobar el estado de aprovisionamiento de un usuario
+## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Uso de registros de aprovisionamiento para comprobar el estado de aprovisionamiento de un usuario
 
-Para ver el estado de aprovisionamiento de un usuario seleccionado, consulte los registros de auditoría de Azure AD. Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los registros de auditoría de Azure AD. Esto incluye todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación.
+Para ver el estado de aprovisionamiento de un usuario seleccionado, consulte los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los registros de aprovisionamiento de Azure AD. Esto incluye todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación.
 
-Puede acceder a los registros de auditoría de aprovisionamiento en Azure Portal, en la pestaña **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[nombre de la aplicación\] &gt; Registros de auditoría**. Filtre los registros en la categoría **Aprovisionamiento de cuentas** para ver solo los eventos de aprovisionamiento para esa aplicación. Puede buscar usuarios por el "identificador de coincidencia" que se configuró para ellos en las asignaciones de atributos. 
+Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-Por ejemplo, si configuró el "nombre principal de usuario" o la "dirección de correo electrónico" como atributo de coincidencia en el lado de Azure AD y el usuario que no se aprovisiona tiene el valor "audrey@contoso.com", busque "audrey@contoso.com" en los registros de auditoría y revise las entradas devueltas.
-
-Los registros de auditoría de aprovisionamiento registran todas las operaciones realizadas por el servicio de aprovisionamiento, lo que incluye:
+Los registros de aprovisionamiento registran todas las operaciones realizadas por el servicio de aprovisionamiento, lo que incluye:
 
 * Consultar en Azure AD los usuarios asignados que están en el ámbito de aprovisionamiento
 * Consultar en la aplicación de destino la existencia de esos usuarios
 * Comparar los objetos de usuario entre el sistema
 * Agregar, actualizar o deshabilitar la cuenta de usuario en el sistema de destino en función de la comparación
 
-Para más información sobre cómo leer los registros de auditoría en Azure Portal, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
+Para más información sobre cómo leer los registros de aprovisionamiento en Azure Portal, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>¿Cuánto tiempo se tarda en aprovisionar usuarios?
 Cuando se usa el aprovisionamiento automático de usuarios con una aplicación, Azure AD aprovisiona y actualiza automáticamente las cuentas de usuario de una aplicación en función de aspectos tales como la [asignación de usuarios y grupos](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) con un intervalo programado periódicamente, normalmente cada 40 minutos.
 
-El tiempo necesario para que un usuario determinado se aprovisione depende principalmente de si el trabajo de aprovisionamiento se ejecuta en una sincronización inicial o una sincronización incremental.
+El tiempo necesario para que un usuario determinado se aprovisione depende principalmente de si el trabajo de aprovisionamiento se ejecuta en un ciclo inicial o un ciclo incremental.
 
-- Para las **sincronizaciones iniciales**, el tiempo de trabajo depende de muchos factores, entre los que se incluye el número de usuarios y grupos en el ámbito para realizar el aprovisionamiento, y el número total de usuarios y grupos en el sistema de origen. La sincronización inicial entre Azure AD y una aplicación puede tardar desde 20 minutos hasta varias horas, según el tamaño del directorio de Azure AD y el número de usuarios en el ámbito de aprovisionamiento. En esta sección se indica más adelante una lista completa de factores que afectan al rendimiento inicial de la sincronización.
+- Para el **ciclo inicial**, el tiempo de trabajo depende de muchos factores, entre los que se incluyen el número de usuarios y grupos en el ámbito para realizar el aprovisionamiento, y el número total de usuarios y grupos en el sistema de origen. La sincronización inicial entre Azure AD y una aplicación puede tardar desde 20 minutos hasta varias horas, según el tamaño del directorio de Azure AD y el número de usuarios en el ámbito de aprovisionamiento. En esta sección se indica más adelante una lista completa de factores que afectan al rendimiento inicial del ciclo.
 
-- Para las **sincronizaciones incrementales** después de la sincronización inicial, los tiempos de trabajo suelen ser más rápidos (por ejemplo, unos 10 minutos), ya que el servicio de aprovisionamiento almacena marcas de agua que representan el estado de ambos sistemas tras la sincronización inicial, lo cual mejora el rendimiento de las posteriores. El tiempo del trabajo depende del número de cambios detectados en ese ciclo de aprovisionamiento. Si hay menos de 5000 cambios de usuario o pertenencia a un grupo, el trabajo puede finalizar dentro de un solo ciclo de sincronización incremental. 
+- Para los **ciclos incrementales** después del ciclo inicial, los tiempos de trabajo suelen ser más rápidos (por ejemplo, unos 10 minutos), ya que el servicio de aprovisionamiento almacena marcas de agua que representan el estado de ambos sistemas tras el ciclo inicial, lo cual mejora el rendimiento de las sincronizaciones posteriores. El tiempo del trabajo depende del número de cambios detectados en ese ciclo de aprovisionamiento. Si hay menos de 5000 cambios de usuario o pertenencia a un grupo, el trabajo puede finalizar dentro de un solo ciclo de sincronización incremental. 
 
 En la siguiente tabla se resumen los tiempos de sincronización de escenarios comunes de aprovisionamiento. En estos escenarios, el sistema de origen es Azure AD y el sistema de destino es una aplicación SaaS. Los tiempos de sincronización se derivan de un análisis estadístico de trabajos de sincronización para las aplicaciones ServiceNow, Workplace, Salesforce y G Suite.
 
 
-| Configuración de ámbito | Usuarios, grupos y miembros del ámbito | Hora de sincronización inicial | Hora de sincronización incremental |
+| Configuración de ámbito | Usuarios, grupos y miembros del ámbito | Tiempo de ciclo inicial | Tiempo de ciclo incremental |
 | -------- | -------- | -------- | -------- |
 | Sincronizar solo los usuarios y grupos asignados |  < 1000 |  < 30 minutos | < 30 minutos |
 | Sincronizar solo los usuarios y grupos asignados |  1000 - 10.000 | 142 - 708 minutos | < 30 minutos |
@@ -85,12 +83,12 @@ En la siguiente tabla se resumen los tiempos de sincronización de escenarios co
 | Sincronizar todos usuarios en Azure AD | 1000 - 10.000  | 43 - 86 minutos | < 30 minutos |
 
 
-Para la configuración dedicada a **sincronizar únicamente los usuarios y grupos asignados**, puede usar las siguientes fórmulas para determinar aproximadamente las veces que se realiza la **sincronización inicial** mínima y máxima esperada:
+Para la configuración **Sincronizar solo los usuarios y grupos asignados**, puede usar las siguientes fórmulas para determinar aproximadamente el número mínimo y máximo esperado de veces que se realiza el **ciclo inicial**:
 
     Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
     Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
     
-Resumen de los factores que influyen en el tiempo que lleva completar una **sincronización inicial**:
+Resumen de los factores que influyen en el tiempo que lleva completar una **ciclo inicial**:
 
 - El número total de usuarios y grupos del ámbito para el aprovisionamiento.
 
@@ -98,7 +96,7 @@ Resumen de los factores que influyen en el tiempo que lleva completar una **sinc
 
 - Si los usuarios del ámbito de aprovisionamiento se corresponden o no con los usuarios existentes en la aplicación de destino, o si deben crearse por primera vez. Las tareas de sincronización para las cuales se crean todos los usuarios por primera vez llevan aproximadamente el *doble de tiempo* que los trabajos de sincronización para los cuales todos los usuarios se corresponden con usuarios existentes.
 
-- Número de errores en los [registros de auditoría](check-status-user-account-provisioning.md). El rendimiento es también menor si hay muchos errores y si el servicio de aprovisionamiento ha quedado en un estado de "cuarentena".    
+- Número de errores en los [registros de aprovisionamiento](check-status-user-account-provisioning.md). El rendimiento es también menor si hay muchos errores y si el servicio de aprovisionamiento ha quedado en un estado de "cuarentena". 
 
 - Solicitar los límites de velocidad y otras limitaciones que haya implementado el sistema de destino. Algunos sistemas de destino implementan límites de velocidad y otras limitaciones en las solicitudes, que pueden afectar al rendimiento durante operaciones de sincronización grandes. En estos casos, una aplicación que recibe demasiadas solicitudes demasiado rápido puede ralentizar su velocidad de respuesta o cerrar la conexión. Para mejorar el rendimiento, el conector debe ajustarse; para ello, no debe enviar las solicitudes de la aplicación más rápido de lo que la aplicación puede procesarlas. Los conectores de aprovisionamiento que ha compilado Microsoft hacen este ajuste. 
 

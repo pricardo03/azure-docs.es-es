@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 907a698a675a039dfdc852210adecb94c7bfab25
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886543"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087702"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -23,13 +23,16 @@ En este artículo se proporciona una guía sobre cómo personalizar las configur
 
 Obtenga información sobre cómo Site Recovery proporciona recuperación ante desastres para [este escenario](azure-to-azure-architecture.md).
 
-## <a name="support-networking-resources"></a>Compatibilidad con los recursos de red
+## <a name="supported-networking-resources"></a>Compatibilidad con los recursos de red
 
 Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes configuraciones de recursos clave para la máquina virtual de conmutación por error.
 
 - [Equilibrador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [Dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) para la subred y para la NIC
+
+ > [!IMPORTANT]
+  > Esta configuración solo se admite, por el momento, en la operación de conmutación por error y no en la de conmutación por error de prueba.
 
 ## <a name="pre-requisites"></a>Requisitos previos
 

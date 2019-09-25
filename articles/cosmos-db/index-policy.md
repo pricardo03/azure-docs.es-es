@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914168"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000322"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -26,10 +26,13 @@ En algunas situaciones, puede que quiera invalidar este comportamiento automáti
 
 Azure Cosmos DB admite dos modos de indexación:
 
-- **Coherente**: si una directiva de indexación de un contenedor se establece en coherente, el índice se actualiza de forma sincrónica a medida que se crean, actualizan o eliminan elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
-- **Ninguna**: si una directiva de indexación de un contenedor se establece en ninguna, la indexación está deshabilitada de forma efectiva en ese contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También puede ayudar a acelerar las operaciones masivas de inserción.
+- **Coherente**: El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
+- **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) hasta que se complete.
 
-Además, debe establecer la propiedad **automatic** de la directiva de indexación en **true**. Al establecer esta propiedad en "true", se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
+> [!NOTE]
+> Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Además, el uso de la indexación diferida en lugar de "Ninguno" para operaciones masivas tampoco proporciona ninguna ventaja, ya que cualquier cambio en el modo de índice hará que se quite el índice y se vuelva a crear. Por estas razones, no recomendamos su uso a los clientes. Para mejorar el rendimiento de las operaciones masivas, establezca el modo de índice en Ninguno, vuelva al modo Coherente y supervise la propiedad `IndexTransformationProgress` en el contenedor hasta la finalización.
+
+De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
 ## <a name="including-and-excluding-property-paths"></a>Inclusión y exclusión de rutas de acceso de propiedad
 

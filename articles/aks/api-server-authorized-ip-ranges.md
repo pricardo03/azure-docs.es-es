@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 487940bfb5d6e7c5eebf99f804f57c3e17709377
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276496"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058343"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Versión preliminar: protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ En este artículo se muestra como usar los intervalos de direcciones IP autoriza
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se da por hecho que trabaja con clústeres que usan [kubenet] [kubenet].  Con los clústeres basados en [Azure Container Networking Interface (CNI)] [cni-networking], no tendrá la tabla de rutas necesaria para asegurar el acceso.  Tendrá que crear la tabla de rutas manualmente.  Consulte [Administración de tablas de ruta](https://docs.microsoft.com/azure/virtual-network/manage-route-table) para más información.
+En este artículo se da por hecho que trabaja con clústeres que usan [kubenet][kubenet].  Con clústeres basados en [Azure Container Networking Interface (CNI)][cni-networking], no tendrá la tabla de rutas necesaria para asegurar el acceso.  Tendrá que crear la tabla de rutas manualmente.  Consulte [Administración de tablas de ruta](https://docs.microsoft.com/azure/virtual-network/manage-route-table) para más información.
 
 Los intervalos de direcciones IP autorizadas por el servidor de API solo funcionan para los clústeres nuevos de AKS que cree. En este artículo se muestra cómo utilizar la CLI de Azure para crear un clúster de AKS.
 
@@ -256,6 +256,8 @@ Para más información, consulte [Conceptos de seguridad de las aplicaciones y l
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

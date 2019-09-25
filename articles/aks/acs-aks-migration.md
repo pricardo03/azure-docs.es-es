@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: dcee8da943603fb0978caf9992be76347ca197d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66f76a8a706f60df786786cbd1ce00b7eafd8d7e
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977715"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097896"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrar Azure Container Service (ACS) a Azure Kubernetes Service (AKS)
 
@@ -35,10 +35,9 @@ ACS y AKS difieren en algunas áreas clave que afectan a la migración. Antes de
 
 ## <a name="differences-between-kubernetes-versions"></a>Diferencias entre versiones de Kubernetes
 
-Si está migrando a una versión más reciente de Kubernetes (por ejemplo, de 1.7 a 1.9.x), revise los siguientes recursos para comprender algunos cambios en la API de Kubernetes:
+Si va a migrar a una versión más reciente de Kubernetes, examine los siguientes recursos para conocer las estrategias de control de versiones de Kubernetes:
 
-* [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/) (Migrar ThirdPartyResource a CustomResourceDefinition)
-* [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/) (Cambios de la API de cargas de trabajo en las versiones 1.8 y 1.9)
+* [Versión de Kubernetes y directiva de soporte de asimetría de versiones](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
 
 ## <a name="migration-considerations"></a>Consideraciones sobre la migración
 
@@ -48,7 +47,7 @@ Aunque AKS administra el plano de control de Kubernetes, usted define el tamaño
 
 Ejemplo:
 
-| NOMBRE | Recuento | Tamaño de VM | Sistema operativo |
+| NOMBRE | Count | Tamaño de VM | Sistema operativo |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7a6091ac1a0d54d997c40fe284d58426ecadf765
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898858"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935216"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Pasos para migrar al recurso de creación de Azure
 
@@ -94,6 +94,13 @@ El proceso de migración está disponible si es el propietario de cualquier apli
 1. Antes de obtener acceso a las aplicaciones, seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.
 
     ![Seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+
+
+## <a name="app-contributor-begins-the-migration-process"></a>El colaborador de la aplicación comienza el proceso de migración
+
+Siga los mismos pasos que el propietario de la aplicación para la migración. El proceso crea un nuevo recurso de creación de tipo `LUIS.Authoring`. 
+
+Debe migrar la cuenta para ser agregado como colaborador a las aplicaciones migradas que sean propiedad de otros usuarios.  
 
 ## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>Después del proceso de migración, agregue colaboradores al recurso de creación.
 

@@ -1,7 +1,7 @@
 ---
 title: Acceso a los datos en los servicios de almacenamiento de Azure
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar los almacenes de datos para acceder a los servicios de almacenamiento de Azure con Azure Machine Learning Service
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar los almacenes de datos para acceder a los servicios de almacenamiento de Azure durante el entrenamiento con Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191915"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035311"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
 
@@ -232,7 +232,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="access-data-during-scoring"></a>Acceso a los datos durante la puntuación
 
-Azure Machine Learning Service dispone de varios métodos para usar los modelos para puntuación. Algunos de estos métodos no proporcionan acceso a los almacenes de datos. Use la tabla siguiente para saber qué métodos le permiten acceder a los almacenes de datos durante la puntuación:
+Azure Machine Learning dispone de varios métodos para usar los modelos para puntuación. Algunos de estos métodos no proporcionan acceso a los almacenes de datos. Use la tabla siguiente para saber qué métodos le permiten acceder a los almacenes de datos durante la puntuación:
 
 | Método | Acceso a almacén de datos | DESCRIPCIÓN |
 | ----- | :-----: | ----- |

@@ -1,6 +1,6 @@
 ---
 title: Interoperabilidad del modelo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda a explicar los motivos por los que un modelo realiza predicciones mediante el SDK de Azure Machine Learning. Se puede usar durante el entrenamiento y la inferencia para saber cómo realiza las predicciones el modelo.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872398"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002354"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Interpretabilidad del modelo con Azure Machine Learning Service
+# <a name="model-interpretability-with-azure-machine-learning"></a>Interpretabilidad del modelo con Azure Machine Learning
 
 En este artículo, aprenderá a explicar los motivos por los que el modelo realizó las predicciones con los distintos paquetes de interpretabilidad del de SDK de Python de Azure Machine Learning.
 
@@ -219,7 +219,7 @@ El paquete `explain` está diseñado para trabajar con destinos de proceso local
 
 ### <a name="train-and-explain-remotely"></a>Entrenamiento y explicación remotas
 
-Aunque puede entrenar en los distintos destinos de proceso compatibles con Azure Machine Learning Service, el ejemplo de esta sección muestra cómo hacerlo con un destino de Proceso de Azure Machine Learning.
+Aunque puede entrenar en los distintos destinos de proceso compatibles con Azure Machine Learning, el ejemplo de esta sección muestra cómo hacerlo con un destino de Proceso de Azure Machine Learning.
 
 1. Cree un script de entrenamiento en un cuaderno local de Jupyter Notebook (por ejemplo, run_explainer.py).
 
@@ -474,7 +474,7 @@ La explicación se puede implementar junto con el modelo original y se puede uti
 
 1. Implemente la imagen en un destino de proceso:
 
-   1. Crear un archivo de puntuación (antes de este paso, siga los pasos de [Implementación de modelos con Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) para registrar el modelo de predicción original)
+   1. Cree un archivo de puntuación (antes de este paso, siga los de [Implementación de modelos con Azure Machine Learning ](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) para registrar el modelo de predicción original)
 
         ```python
         %%writefile score.py

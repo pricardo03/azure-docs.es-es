@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716688"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063806"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El elemento **RelyingParty** especifica el recorrido del usuario para ejecutar la solicitud actual en Azure Active Directory (Azure AD) B2C. También se especifica la lista de notificaciones que la aplicación del usuario de confianza necesita como parte del token emitido. Una aplicación del usuario de confianza, como una aplicación web, de escritorio o para dispositivos móviles, llama al archivo de la directiva del usuario de confianza. El archivo de la directiva del usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. Hay varias aplicaciones que pueden usar la misma directiva del usuario de confianza y una sola aplicación puede usar varias directivas. Todas las aplicaciones de usuario de confianza reciben el mismo token con notificaciones y el usuario sigue el mismo recorrido del usuario.
+El elemento **RelyingParty** especifica el recorrido del usuario para ejecutar la solicitud actual en Azure Active Directory B2C (Azure AD B2C). También se especifica la lista de notificaciones que la aplicación del usuario de confianza necesita como parte del token emitido. Una aplicación del usuario de confianza, como una aplicación web, de escritorio o para dispositivos móviles, llama al archivo de la directiva del usuario de confianza. El archivo de la directiva del usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. Hay varias aplicaciones que pueden usar la misma directiva del usuario de confianza y una sola aplicación puede usar varias directivas. Todas las aplicaciones de usuario de confianza reciben el mismo token con notificaciones y el usuario sigue el mismo recorrido del usuario.
 
 En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de directiva *B2C_1A_signup_signin*:
 

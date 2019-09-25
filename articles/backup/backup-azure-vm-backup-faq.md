@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e1cfb9bf0e8b17df67b2f7060f665d169a71c8d6
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909798"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098379"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -126,6 +126,10 @@ La funcionalidad [Restauración instantánea](backup-instant-restore-capability.
 Después de cambiar la configuración de Key Vault para la máquina virtual cifrada, las copias de seguridad seguirán funcionando con el nuevo conjunto de detalles, sin embargo, después de realizar la restauración desde un punto de recuperación que no tenga el cambio implementado, tendrá que restaurar los secretos en una instancia de Key Vault para poder crear la máquina virtual a partir de esa. Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
 
 Las operaciones como la sustitución de claves o secretos no requieren este paso y se puede usar la misma instancia de Key Vault después de la restauración.
+
+### <a name="can-i-access-the-vm-once-restored-due-to-an-vm-having-broken-relationship-with-domain-controller"></a>¿Puedo acceder a la máquina virtual una vez que se ha restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio?
+
+Si, puede acceder a la máquina virtual una vez que se haya restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio. Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps).
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

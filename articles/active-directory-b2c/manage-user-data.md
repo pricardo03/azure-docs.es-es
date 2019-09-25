@@ -11,32 +11,32 @@ ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 78726620db119abf617be8a30cf03697b04e382b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204689"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064078"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Administración de los datos de usuarios en Azure Active Directory B2C
 
- En este artículo se describe cómo se pueden administrar los datos de usuario en Azure Active Directory (Azure AD) B2C mediante las operaciones proporcionadas por [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog). La administración de datos de usuario incluye eliminar o exportar datos de registros de auditoría.
+ En este artículo se describe cómo se pueden administrar los datos de usuario en Azure Active Directory B2C (Azure AD B2C) mediante las operaciones proporcionadas por [Graph API de Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog). La administración de datos de usuario incluye eliminar o exportar datos de registros de auditoría.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Eliminación de los datos de usuario
 
-Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 7 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 7 días, puede usar la operación [Eliminar un usuario](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos. 
+Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 7 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 7 días, puede usar la operación [Eliminar un usuario](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos.
 
-A cada usuario en Azure AD B2C se le asigna un identificador de objeto. El identificador de objeto proporciona un identificador inequívoco, que puede usar para eliminar datos de usuario en Azure AD B2C. Según la arquitectura, el identificador de objeto puede ser un identificador de correlación útil a través de otros servicios, como bases de datos de administración de relación con los clientes, finanzas y marketing. 
+A cada usuario en Azure AD B2C se le asigna un identificador de objeto. El identificador de objeto proporciona un identificador inequívoco, que puede usar para eliminar datos de usuario en Azure AD B2C. Según la arquitectura, el identificador de objeto puede ser un identificador de correlación útil a través de otros servicios, como bases de datos de administración de relación con los clientes, finanzas y marketing.
 
-La manera más precisa para obtener el identificador de objeto para un usuario es hacerlo como parte de un proceso de autenticación con Azure AD B2C. Si recibe una solicitud de datos válida de un usuario mediante otros métodos, puede ser necesario un proceso sin conexión, como una búsqueda por parte de un agente de soporte técnico y servicio al cliente, para encontrar al usuario y anotar el id. de objeto asociado. 
+La manera más precisa para obtener el identificador de objeto para un usuario es hacerlo como parte de un proceso de autenticación con Azure AD B2C. Si recibe una solicitud de datos válida de un usuario mediante otros métodos, puede ser necesario un proceso sin conexión, como una búsqueda por parte de un agente de soporte técnico y servicio al cliente, para encontrar al usuario y anotar el id. de objeto asociado.
 
 En el ejemplo siguiente, se muestra un flujo posible de eliminación de datos:
 
 1. El usuario inicia sesión y selecciona **Delete my data** (Eliminar mis datos).
 2. La aplicación ofrece una opción para eliminar los datos dentro de una sección de administración de la aplicación.
-3. La aplicación fuerza una autenticación en Azure AD B2C. Azure AD B2C devuelve a la aplicación un token con el identificador de objeto del usuario. 
+3. La aplicación fuerza una autenticación en Azure AD B2C. Azure AD B2C devuelve a la aplicación un token con el identificador de objeto del usuario.
 4. La aplicación recibe el token y el id. de objeto se usa para eliminar los datos de usuario a través de una llamada a Azure AD Graph API. Azure AD Graph API elimina los datos de usuario y devuelve un código de estado 200 OK.
 5. La aplicación organiza la eliminación de datos de usuario en otros sistemas organizacionales según sea necesario mediante el id. de objeto u otros identificadores.
 6. La aplicación confirma la eliminación de los datos e indica al usuario los pasos siguientes.
@@ -47,7 +47,7 @@ El proceso para exportar los datos del cliente de Azure AD B2C es similar al pr
 
 Los datos de usuario de Azure AD B2C están limitados a:
 
-- **Datos almacenados en Azure Active Directory**: puede recuperar los datos en un recorrido del usuario de autenticación de Azure AD B2C mediante el id. de objeto o cualquier nombre de inicio de sesión, como la dirección de correo electrónico o el nombre de usuario. 
+- **Datos almacenados en Azure Active Directory**: puede recuperar los datos en un recorrido del usuario de autenticación de Azure AD B2C mediante el id. de objeto o cualquier nombre de inicio de sesión, como la dirección de correo electrónico o el nombre de usuario.
 - **Informe de eventos de auditoría específicos del usuario**: los datos se indizan mediante el id. de objeto.
 
 En el siguiente ejemplo de un flujo de datos de exportación, los pasos que se describen como realizados por la aplicación también pueden realizarse mediante un proceso de back-end o por un usuario con un rol de administrador en el directorio:

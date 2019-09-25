@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 87bc87d7d105d581f0143e87044fb0337c0fd7f6
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304804"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067075"
 ---
 # <a name="troubleshooting"></a>solución de problemas
 
@@ -101,7 +101,7 @@ Los dos términos se pueden usar indistintamente. El término "pruebas de dispon
    Hay dos soluciones posibles:
 
    * Configure el firewall para que permita las solicitudes entrantes de las [direcciones IP de los agentes de prueba web](../../azure-monitor/app/ip-addresses.md).
-   * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados no se mostrarán en las hojas de las pruebas web de disponibilidad, pero sí aparecerán como resultados de disponibilidad en Analytics, Search y en el Explorador de métricas.
+   * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados aparecerán en las hojas de pruebas web de disponibilidad, aunque la experiencia se verá ligeramente simplificada con respecto a lo que está disponible para las pruebas creadas mediante el portal. Las pruebas de disponibilidad personalizadas también aparecerán como resultados de disponibilidad en los análisis, las búsquedas y las métricas.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Al cargar una prueba web de varios pasos, se produce un error
 

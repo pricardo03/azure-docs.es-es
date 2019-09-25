@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016429"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036260"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS) para crear aplicaciones de Azure Storage de alta disponibilidad
 
@@ -22,11 +22,11 @@ ms.locfileid: "69016429"
 
 ## <a name="support-coverage-and-regional-availability"></a>Cobertura de soporte técnico y disponibilidad regional
 
-ZRS actualmente admite los tipos de cuenta de uso general v2 estándar. Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md).
+ZRS actualmente admite los tipos de cuenta de uso general v2 estándar y de almacenamiento FileStorage. Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md).
 
 ZRS está disponible para blobs en bloques, blobs en páginas que no son de disco, archivos, tablas y colas.
 
-ZRS está disponible con carácter general en las regiones siguientes:
+Para las cuentas de uso general v2 estándar, ZRS está disponible con carácter general en las regiones siguientes:
 
 - Sudeste de Asia
 - Oeste de Europa
@@ -38,6 +38,10 @@ ZRS está disponible con carácter general en las regiones siguientes:
 - Este de EE. UU.
 - Este de EE. UU. - 2
 - Oeste de EE. UU. 2
+
+Para las cuentas de FileStorage, ZRS está disponible con carácter general en las regiones siguientes:
+
+- Oeste de Europa
 
 Microsoft sigue habilitando ZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones nuevas.
 
@@ -64,6 +68,9 @@ Hay dos opciones principales para la migración a ZRS:
 
 - Copie o mueva los datos de manera manual a una cuenta de ZRS nueva desde una cuenta existente.
 - Solicite una migración en vivo.
+
+> [!IMPORTANT]
+> La migración en vivo no se admite actualmente para recursos compartidos de archivos Prémium. Actualmente solo se admite copiar o mover datos manualmente.
 
 Si necesita que la migración se complete en una fecha determinada, considere la posibilidad de realizar una migración manual. Una migración manual proporciona más flexibilidad que una migración en vivo. Con una migración manual, puede controlar el tiempo.
 
@@ -94,7 +101,7 @@ Puede solicitar la migración en vivo mediante el [Portal de soporte técnico de
 4. Especifique los siguientes valores en la sección **Problema**: 
     - **Gravedad**: deje el valor predeterminado tal cual.
     - **Tipo de problema**: seleccione **Migración de datos**.
-    - **Categoría**: seleccione **Migración a ZRS dentro de una región**.
+    - **Categoría**: seleccione **Migración a ZRS**.
     - **Título**: escriba un título descriptivo, por ejemplo, **migración de cuentas de ZRS**.
     - **Detalles**: escriba información adicional en el cuadro **Detalles**; por ejemplo, me gustaría migrar a ZRS desde [LRS, GRS] en la región \_\_. 
 5. Seleccione **Next** (Siguiente).

@@ -476,6 +476,8 @@
           href: expand-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
+        - name: Creación de una instantánea incremental
+          href: disks-incremental-snapshots.md
         - name: Copia de seguridad de discos no administrados
           href: incremental-snapshots.md
         - name: Migración y conversión

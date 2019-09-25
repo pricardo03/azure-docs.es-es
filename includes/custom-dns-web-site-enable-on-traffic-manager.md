@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186892"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059823"
 ---
 Después de que los registros de su nombre de dominio se han propagado, debería poder utilizar el explorador para comprobar que el nombre de dominio personalizado se puede utilizar para tener acceso a la aplicación web de Servicios de aplicaciones de API.
 
@@ -30,7 +30,7 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. En la hoja **Dominios personalizados**, haga clic en **Agregar nombre de host**.
-4. Utilice los cuadros de texto **Nombre de host** para escribir el nombre de dominio del Administrador de tráfico para realizar la asociación con esta aplicación web.
+4. Use los cuadros de texto **Nombre de host** para escribir el nombre de dominio personalizado que se va a asociar a esta aplicación web.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Haga clic en **Validar** para guardar la configuración del nombre de dominio.

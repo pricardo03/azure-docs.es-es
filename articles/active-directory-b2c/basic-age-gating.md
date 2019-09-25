@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511667"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064454"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 
 >[!IMPORTANT]
->Esta característica está en versión preliminar pública. No use la característica para aplicaciones de producción. 
+>Esta característica está en versión preliminar pública. No use la característica para aplicaciones de producción.
 >
 
-La restricción de acceso por edad en Azure Active Directory (Azure AD) B2C le permite identificar a los menores que quieren usar la aplicación. Puede optar por impedir que los menores inicien sesión en la aplicación. Los usuarios también pueden volver a la aplicación e identificar su grupo de edad y su estado de consentimiento parental. Azure AD B2C puede bloquear a los menores sin consentimiento parental. Azure AD B2C también se puede configurar para permitir que la aplicación decida qué hacer con los menores.
+La restricción de acceso por edad en Azure Active Directory B2C (Azure AD B2C) le permite identificar a los menores que quieren usar la aplicación. Puede optar por impedir que los menores inicien sesión en la aplicación. Los usuarios también pueden volver a la aplicación e identificar su grupo de edad y su estado de consentimiento parental. Azure AD B2C puede bloquear a los menores sin consentimiento parental. Azure AD B2C también se puede configurar para permitir que la aplicación decida qué hacer con los menores.
 
 Después de habilitar la restricción de acceso por edad en el [flujo de usuario](active-directory-b2c-reference-policies.md), se pedirá a los usuarios su fecha de nacimiento y el país o región donde residen. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
 
@@ -70,11 +70,11 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | SK | Eslovaquia | 16 | 18 |
 | TD | Chad | None | 21 |
 | TH | Tailandia | None | 20 |
-| TW | Taiwán | None | 20 | 
+| TW | Taiwán | None | 20 |
 | US | Estados Unidos | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opciones del acceso según la edad
- 
+
 ### <a name="allowing-minors-without-parental-consent"></a>Permitir el acceso a menores sin autorización parental
 
 Para los flujos de usuarios que permitan el registro, el inicio de sesión o ambos, puede optar por permitir el acceso de menores sin autorización a la aplicación. A los menores sin autorización parental se les permite iniciar sesión o registrarse de manera normal, y Azure AD B2C emite un token de identificación con la notificación **legalAgeGroupClassification**. Esta notificación define la experiencia que tienen los usuarios, como la recopilación de consentimiento parental y la actualización del campo **consentProvidedForMinor**.
@@ -90,7 +90,7 @@ Para los flujos de usuarios que permitan el registro, el inicio de sesión o amb
 
 Para poder usar la restricción de acceso por edad en un flujo de usuario, debe configurar el inquilino para que admita propiedades adicionales.
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro Directorio y suscripción** en el menú superior. Elija el directorio que contiene el inquilino. 
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior. Elija el directorio que contiene el inquilino.
 2. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 3. Seleccione la opción **Propiedades** del inquilino en el menú de la izquierda.
 2. En la sección **Restricción de acceso por edad**, haga clic en **Configurar**.
@@ -103,7 +103,7 @@ Una vez que el inquilino esté configurado para usar la restricción de acceso p
 1. Cree un flujo de usuario con la restricción de acceso por edad habilitada.
 2. Después de crear el flujo de usuario, seleccione **Propiedades** en el menú.
 3. En la sección **Restricción de acceso por edad**, seleccione **Habilitado**.
-4. A continuación, elija cómo quiere administrar los usuarios que se identifican como menores. En **Registrarse o Iniciar sesión**, seleccione `Allow minors to access your application` o `Block minors from accessing your application`. Si el bloqueo menores está seleccionado, elija `Send a JSON back to the application` o `Show an error message`. 
+4. A continuación, elija cómo quiere administrar los usuarios que se identifican como menores. En **Registrarse o Iniciar sesión**, seleccione `Allow minors to access your application` o `Block minors from accessing your application`. Si el bloqueo menores está seleccionado, elija `Send a JSON back to the application` o `Show an error message`.
 
 
 

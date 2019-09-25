@@ -3,18 +3,18 @@ title: Validación del rendimiento de la VPN en una red Microsoft Azure Virtual 
 description: El objetivo de este documento es ayudar a un usuario a validar el rendimiento de red de sus recursos locales en una máquina virtual de Azure.
 services: vpn-gateway
 author: cherylmc
-manager: jasmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 1531bbe97c842fbae2ffe7df41f19a3a7be689d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228335"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058798"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -32,7 +32,7 @@ La conexión a la puerta de enlace de la VPN afecta a los siguientes componentes
 * Dispositivo VPN local (vea una lista de [dispositivos VPN validados)](vpn-gateway-about-vpn-devices.md#devicetable).
 * Internet público
 * Azure VPN Gateway
-* MV de Azure
+* Azure VM
 
 El siguiente diagrama muestra la conectividad lógica de una red local en una red virtual de Azure a través de VPN.
 
@@ -258,7 +258,7 @@ Puede comprobar la latencia con las siguientes herramientas:
 
 Si observa un pico de latencia alta en cualquiera de los saltos antes de entrar en la red troncal de Microsoft, es posible que desee realizar más investigaciones con su proveedor de servicios de Internet.
 
-Si se detecta un pico de latencia grande e inusual en los saltos en "msn.net", póngase en contacto con el soporte técnico de Microsoft para obtener más información.
+Si se detecta un pico de latencia grande e inusual en los saltos en "msn.net", póngase en contacto con el soporte técnico de Microsoft para que lo investiguen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

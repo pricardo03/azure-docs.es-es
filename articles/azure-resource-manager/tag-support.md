@@ -4,14 +4,14 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194715"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996824"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos.
@@ -21,7 +21,6 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft.AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
@@ -29,6 +28,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -62,14 +62,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -112,7 +110,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedLab](#microsoftmanagedlab)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -154,6 +151,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
@@ -179,13 +177,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | DomainServices | Sí |Sí |
 > | DomainServices/oucontainer | Sin |Sin |
 > | DomainServices/ReplicaSets | Sí |Sí |
-
-## <a name="microsoftaaddomainservices"></a>Microsoft.AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | domains | Sin |Sin |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -232,7 +223,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | alertsSummary | Sin |Sin |
 > | alertsSummaryList | Sin |Sin |
 > | feedback | Sin |Sin |
-> | smartDetectorAlertRules | Sin |Sin |
+> | smartDetectorAlertRules | Sí |Sí |
 > | smartDetectorRuntimeEnvironments | Sin |Sin |
 > | smartGroups | Sin |Sin |
 
@@ -259,6 +250,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | configurationStores | Sí |Sí |
 > | configurationStores/eventGridFilters | Sin |Sin |
+
+## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | Spring | Sí |Sí |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -328,6 +326,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | hybridDataManagers | Sí |Sí |
+> | postgresInstances | Sí |Sí |
+> | sqlBigDataClusters | Sí |Sí |
+> | sqlInstances | Sí |Sí |
 > | sqlServerRegistrations | Sí |Sí |
 > | sqlServerRegistrations/sqlServers | Sin |Sin |
 
@@ -354,11 +356,28 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | Sin |Sin |
 > | billingAccounts/agreements | Sin |Sin |
+> | billingAccounts/billingPermissions | Sin |Sin |
 > | billingAccounts/billingProfiles | Sin |Sin |
+> | billingAccounts/billingProfiles/billingPermissions | Sin |Sin |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Sin |Sin |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Sin |Sin |
 > | billingAccounts/billingProfiles/billingSubscriptions | Sin |Sin |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Sin |Sin |
+> | billingAccounts/billingProfiles/customers | Sin |Sin |
 > | billingAccounts/billingProfiles/invoices | Sin |Sin |
 > | billingAccounts/billingProfiles/invoices/pricesheet | Sin |Sin |
 > | billingAccounts/billingProfiles/invoiceSections | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/products | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/transactions | Sin |Sin |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Sin |Sin |
 > | billingAccounts/BillingProfiles/patchOperations | Sin |Sin |
 > | billingAccounts/billingProfiles/paymentMethods | Sin |Sin |
 > | billingAccounts/billingProfiles/policies | Sin |Sin |
@@ -366,10 +385,17 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | Sin |Sin |
 > | billingAccounts/billingProfiles/products | Sin |Sin |
 > | billingAccounts/billingProfiles/transactions | Sin |Sin |
+> | billingAccounts/billingRoleAssignments | Sin |Sin |
+> | billingAccounts/billingRoleDefinitions | Sin |Sin |
 > | billingAccounts/billingSubscriptions | Sin |Sin |
+> | billingAccounts/createBillingRoleAssignment | Sin |Sin |
 > | billingAccounts/createInvoiceSectionOperations | Sin |Sin |
 > | billingAccounts/customers | Sin |Sin |
 > | billingAccounts/customers/billingSubscriptions | Sin |Sin |
+> | billingAccounts/customers/initiateTransfer | Sin |Sin |
+> | billingAccounts/customers/products | Sin |Sin |
+> | billingAccounts/customers/transactions | Sin |Sin |
+> | billingAccounts/customers/transfers | Sin |Sin |
 > | billingAccounts/departments | Sin |Sin |
 > | billingAccounts/enrollmentAccounts | Sin |Sin |
 > | billingAccounts/invoices | Sin |Sin |
@@ -404,6 +430,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | transfers/acceptTransfer | Sin |Sin |
 > | transfers/declineTransfer | Sin |Sin |
 > | transfers/operationStatus | Sin |Sin |
+> | transfers/validateTransfer | Sin |Sin |
 > | validateAddress | Sin |Sin |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -570,12 +597,16 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | publicImages | Sin |Sin |
 > | quotas | Sin |Sin |
 > | storageAccounts | Sí |Sí |
+> | storageAccounts/blobServices | Sin |Sin |
+> | storageAccounts/fileServices | Sin |No |
 > | storageAccounts/metricDefinitions | Sin |Sin |
 > | storageAccounts/metrics | Sin |Sin |
+> | storageAccounts/queueServices | Sin |Sin |
 > | storageAccounts/services | Sin |Sin |
 > | storageAccounts/services/diagnosticSettings | Sin |Sin |
 > | storageAccounts/services/metricDefinitions | Sin |Sin |
 > | storageAccounts/services/metrics | Sin |Sin |
+> | storageAccounts/tableServices | Sin |Sin |
 > | storageAccounts/vmImages | Sin |Sin |
 > | vmImages | Sin |Sin |
 
@@ -747,25 +778,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | showbackRules | Sin |Sin |
 > | Vistas | Sin |Sin |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | hubs | Sí |Sí |
-> | hubs/authorizationPolicies | Sin |Sin |
-> | hubs/connectors | Sin |Sin |
-> | hubs/connectors/mappings | Sin |Sin |
-> | hubs/interactions | Sin |Sin |
-> | hubs/kpi | Sin |Sin |
-> | hubs/links | Sin |Sin |
-> | hubs/profiles | Sin |Sin |
-> | hubs/roleAssignments | Sin |Sin |
-> | hubs/roles | Sin |Sin |
-> | hubs/suggestTypeSchema | Sin |Sin |
-> | hubs/views | Sin |Sin |
-> | hubs/widgetTypes | Sin |Sin |
-
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
@@ -810,15 +822,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | catalogs | Sí |Sí |
 > | datacatalogs | Sí |Sí |
+> | datacatalogs/datasources | Sin |Sin |
+> | datacatalogs/datasources/scans | Sin |Sin |
+> | datacatalogs/datasources/scans/datasets | Sin |Sin |
+> | datacatalogs/datasources/scans/triggers | Sin |Sin |
 > | datacatalogs/scantargets | Sin |Sin |
 > | datacatalogs/scantargets/datasets | Sin |Sin |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | connectionManagers | Sí |Sí |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -840,7 +849,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts | Sí |Sí |
 > | accounts/dataLakeStoreAccounts | Sin |Sin |
 > | accounts/storageAccounts | Sin |Sin |
-> | accounts/storageAccounts/containers | Sin |Sin |
+> | accounts/storageAccounts/containers | Sin |No |
 > | accounts/transferAnalyticsUnits | Sin |Sin |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
@@ -936,7 +945,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | Sí |Sí |
 > | applicationgroups/applications | Sin |Sin |
-> | applicationgroups/assignedusers | Sin |Sin |
 > | applicationgroups/startmenuitems | Sin |Sin |
 > | hostpools | Sí |Sí |
 > | hostpools/sessionhosts | Sin |Sin |
@@ -1081,6 +1089,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | Sí |Sí |
 > | guestConfigurationAssignments | Sin |Sin |
 > | software | Sin |Sin |
 > | softwareUpdateProfile | Sin |Sin |
@@ -1207,6 +1216,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | hostingEnvironments | Sí |Sí |
 > | integrationAccounts | Sí |Sí |
 > | integrationServiceEnvironments | Sí |Sí |
+> | integrationServiceEnvironments/managedApis | Sí |Sí |
 > | isolatedEnvironments | Sí |Sí |
 > | workflows | Sí |Sí |
 
@@ -1234,13 +1244,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | Identities | Sin |Sin |
 > | userAssignedIdentities | Sí |Sí |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | labaccounts | Sí |Sí |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1348,8 +1351,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | Sí |Sí |
+> | objectUnderstandingAccounts | Sí |Sí |
 > | remoteRenderingAccounts | Sí |Sí |
 > | spatialAnchorsAccounts | Sí |Sí |
+> | surfaceReconstructionAccounts | Sí |Sí |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1475,6 +1481,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
+> | clusters | Sí |Sí |
 > | devices | Sin |Sin |
 > | linkTargets | Sin |Sin |
 > | storageInsightConfigs | Sin |Sin |
@@ -1501,6 +1508,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | legacyPeerings | Sin |Sin |
 > | peerAsns | Sin |Sin |
 > | peerings | Sí |Sí |
+> | peeringServiceProviders | Sin |Sin |
+> | peeringServices | Sí |Sí |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1596,21 +1605,18 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | deployments | Sin |Sin |
+> | deployments | Sí |Sin |
 > | deployments/operations | Sin |Sin |
 > | links | Sin |Sin |
 > | notifyResourceJobs | Sin |Sin |
 > | providers | Sin |Sin |
-> | resourceGroups | Sin |Sin |
+> | resourceGroups | Sí |Sin |
 > | resources | Sin |Sin |
 > | subscriptions | Sin |Sin |
 > | subscriptions/providers | Sin |Sin |
-> | subscriptions/resourceGroups | Sin |Sin |
-> | subscriptions/resourcegroups/resources | Sin |Sin |
 > | subscriptions/resources | Sin |Sin |
 > | subscriptions/tagnames | Sin |Sin |
 > | subscriptions/tagNames/tagValues | Sin |Sin |
-> | etiquetas | Sin |Sin |
 > | tenants | Sin |Sin |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1626,7 +1632,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | flows | Sí |Sí |
 > | jobcollections | Sí |Sí |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1661,6 +1666,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Sin |Sin |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Sin |Sin |
 > | jitNetworkAccessPolicies | Sin |Sin |
+> | networkData | Sin |Sin |
 > | playbookConfigurations | Sí |Sí |
 > | directivas | Sin |Sin |
 > | pricings | Sin |Sin |
@@ -1693,6 +1699,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | aggregations | Sin |Sin |
 > | alertRules | Sin |Sin |
+> | alertRuleTemplates | Sin |Sin |
 > | bookmarks | Sin |Sin |
 > | cases | Sin |Sin |
 > | dataConnectors | Sin |Sin |
@@ -1814,6 +1821,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/restorableDroppedDatabases | Sin | Sin |
 > | servers/serviceobjectives | Sin | Sin |
 > | servers/tdeCertificates | Sin | Sin |
+> | virtualClusters | Sin | Sin |
 
 <a id="sqlnote" />
 
@@ -1919,6 +1927,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | cancel | Sin |Sin |
 > | CreateSubscription | Sin |Sin |
+> | enable | Sin |Sin |
 > | rename | Sin |Sin |
 > | SubscriptionDefinitions | Sin |Sin |
 > | SubscriptionOperations | Sin |Sin |

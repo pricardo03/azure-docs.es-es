@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852716"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056395"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
@@ -60,7 +60,7 @@ Las aplicaciones que adquieren un token para sus propias identidades:
 Para los desarrolladores, la experiencia total de este escenario tiene los siguientes aspectos:
 
 - Las aplicaciones de demonio solo pueden funcionar en inquilinos de Azure AD. No tendría sentido crear una aplicación de demonio que intentara manipular cuentas personales de Microsoft. Si es desarrollador de aplicaciones de línea de negocio (LOB), creará la aplicación de demonio en el inquilino. Si es ISV, es posible que quiera crear una aplicación de demonio de varios inquilinos. Cada administrador de inquilinos deberá dar su consentimiento.
-- Durante el [registro de la aplicación](./scenario-daemon-app-registration.md), no es necesario el **URI de respuesta**. Tiene que compartir secretos o certificados con Azure AD, y tiene que solicitar permisos de aplicación y conceder el consentimiento del administrador para usar esos permisos de aplicación.
+- Durante el [registro de la aplicación](./scenario-daemon-app-registration.md), no es necesario el **URI de respuesta**. Tiene que compartir secretos o certificados o aserciones firmadas con Azure AD, y tiene que solicitar permisos de aplicación y conceder el consentimiento del administrador para usar esos permisos de aplicación.
 - La [configuración de la aplicación](./scenario-daemon-app-configuration.md) tiene que proporcionar las credenciales de cliente tal cual se comparten con Azure AD durante el registro de la aplicación.
 - El [ámbito](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir un token con el flujo de credenciales del cliente debe ser un ámbito estático.
 

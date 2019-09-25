@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436178"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983679"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso de Azure Batch con administradores de granja de representación
 
@@ -26,9 +26,15 @@ Se admiten los siguientes administradores de representación:
 * [Royal Render](https://www.royalrender.de/)
 * [Fecha límite Thinkbox](https://deadline.thinkboxsoftware.com/)
 
+## <a name="azure-render-hub"></a>Azure Render Hub
+
+Azure Render Hub simplifica la creación y administración de granjas de representación de Azure.  Render Hub tiene compatibilidad nativa con PipelineFx Qube y Deadline 10.  Para más información e instrucciones detalladas, consulte [el repositorio de GitHub](https://github.com/Azure/azure-render-hub).
+
 ## <a name="using-azure-with-pipelinefx-qube"></a>Uso de Azure con PipelineFX Qube
 
-Los scripts y las instrucciones para habilitar las máquinas virtuales de grupos de Azure Batch que se usarán como trabajos de Qube se encuentran en [el repositorio de GitHub](https://github.com/Azure/azure-qube).
+Azure Render Hub es compatible con los administradores de representación más conocidos, incluido Deadline.  Para obtener instrucciones sobre la implementación y el uso de Render Hub, consulte [el repositorio de GitHub](https://github.com/Azure/azure-render-hub).
+
+Los scripts y las instrucciones para habilitar las máquinas virtuales de grupos de Azure Batch que se usarán como trabajos de Qube también están disponibles en [el repositorio de GitHub](https://github.com/Azure/azure-qube).
 
 ## <a name="using-azure-with-royal-render"></a>Uso de Azure con Royal Render
 
@@ -38,7 +44,7 @@ Para un ejemplo de un cliente de Royal Render que usa la integración de Azure, 
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Uso de Azure con Thinkbox Deadline
 
-Los scripts y las instrucciones para habilitar las máquinas virtuales de grupos de Azure Batch que se usarán como esclavos de Deadline se encuentran en [el repositorio de GitHub](https://github.com/Azure/azure-deadline).
+Azure Render Hub es compatible con los administradores de representación más conocidos, incluido Deadline.  Para obtener instrucciones sobre la implementación y el uso de Render Hub, consulte [el repositorio de GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

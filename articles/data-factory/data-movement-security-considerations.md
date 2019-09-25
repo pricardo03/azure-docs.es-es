@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c42e70efc8543e1d255690070ffb51b865e1754f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608584"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931264"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -59,7 +59,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
 
-- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una cuenta de almacenamiento de Azure administrada por los servicios de administración de Azure Data Factory. Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/fundamentals/storage-overview.md).
+- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/fundamentals/storage-overview.md).
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
@@ -108,14 +108,15 @@ Los escenarios híbridos necesitan que el entorno de ejecución de integración 
 El canal del comandos permite la comunicación entre los servicios de movimiento de datos de Data Factory y el entorno de ejecución de integración autohospedado. La comunicación contiene información relacionada con la actividad. El canal de datos se usa para transferir datos entre los almacenes de datos locales y los almacenes de datos en la nube.    
 
 ### <a name="on-premises-data-store-credentials"></a>Credenciales de los almacenes de datos locales
-Las credenciales de los almacenes de datos locales se almacenan y se cifran siempre. Pueden almacenarse localmente en el equipo del entorno de ejecución de integración autohospedado o en el almacenamiento administrado de Azure Data Factory (al igual que las credenciales del almacén en la nube). 
+Las credenciales se pueden almacenar en Data Factory o [Data Factory puede hacer referencia a ellas](store-credentials-in-key-vault.md) durante el tiempo de ejecución desde Azure Key Vault. Si almacena las credenciales en Data Factory, siempre se almacenan cifrada en entorno de ejecución de integración autohospedado. 
+ 
+- **Almacenar credenciales localmente**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el entorno de ejecución de integración autohospedado.  En este caso, las credenciales fluyen en el servicio back-end de Azure, que es muy seguro, a la máquina de integración autohospedado, donde finalmente se cifran y se almacenan. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales.
 
-- **Almacenar credenciales localmente**. Si desea cifrar y almacenar las credenciales localmente en el entorno de ejecución de integración autohospedado, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
+- **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
+
+- **Almacene las credenciales localmente sin transferirlas mediante el back-end de Azure al entorno de ejecución de integración autohospedado**. Si desea cifrar las credenciales y almacenarlas localmente en el entorno de ejecución de integración autohospedado sin hacer que fluyan en el back-end de Data Factory, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
 
    Use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** para cifrar las credenciales del servicio vinculado e información confidencial en el servicio vinculado. Después, puede usar el código JSON devuelto (con el elemento **EncryptedCredential** en la cadena de conexión) para crear un servicio vinculado mediante el cmdlet **Set-AzDataFactoryV2LinkedService**.  
-
-- **Almacenar en almacenamiento administrador de Azure Data Factory**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el almacenamiento administrado de Azure Data Factory. La información confidencial todavía se cifrará por certificado y Microsoft administra dichos certificados.
-
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Puertos utilizados durante el cifrado del servicio vinculado en Integration Runtime autohospedado

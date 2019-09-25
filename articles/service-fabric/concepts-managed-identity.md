@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3e95412675100043eb21f50c8f93aa0ec0b6b7e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964002"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968277"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidad administrada para la aplicación de Service Fabric (versión preliminar)
 
@@ -64,7 +64,6 @@ Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que
 
    - Eliminación o cambio de las identidades asignadas a una aplicación. Si debe realizar cambios, envíe implementaciones independientes para agregar primero una nueva asignación de identidad y, después, quitar una ya asignada. La eliminación de una identidad de una aplicación existente puede tener efectos no deseados, como dejar la aplicación en un estado que no se puede actualizar. Es seguro eliminar la aplicación por completo si es necesario quitar una identidad. Tenga en cuenta que de este modo se eliminará la identidad asignada por el sistema (si se ha definido) asociada a la aplicación y se quitarán todas las asociaciones con las identidades asignadas por el usuario que se han asignado a la aplicación.
 
-   - No se recomienda mezclar identidades asignadas por el sistema e identidades asignadas por el usuario en la misma aplicación.
 >
 > [!NOTE]
 >
@@ -74,6 +73,6 @@ Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que
 * [Implementación de un nuevo clúster de Azure Service Fabric con compatibilidad con la identidad administrada](./configure-new-azure-service-fabric-enable-managed-identity.md) 
 * [Habilitación de la compatibilidad con la identidad administrada en un clúster de Azure Service Fabric existente](./configure-existing-cluster-enable-managed-identity-token-service.md)
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)
+* [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)
 * [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)

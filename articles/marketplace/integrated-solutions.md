@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515612"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993638"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluciones integradas en Azure Marketplace y AppSource
 
@@ -40,5 +40,7 @@ Consulte las siguientes ofertas para descubrir soluciones integradas y contactar
 * [Fin del soporte técnico de Windows Server](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
 
 También puede visitar la sección de servicios de consultoría de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+
+Para más información, consulte el artículo sobre la [publicación de soluciones integradas](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
 
 ---

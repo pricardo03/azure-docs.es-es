@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600335"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933899"
 ---
 # <a name="security-agent-event-aggregation"></a>Agregación de eventos del agente de seguridad
 
@@ -59,6 +59,7 @@ Después del análisis, Azure Security Center para IoT crea alertas de seguridad
 
 La hora de inicio de la agregación, la hora de finalización y el número de llamadas para cada evento se registran en el campo **ExtraDetails** del evento en Log Analytics para su uso durante las investigaciones. 
 
+Cada evento agregado representa un período de 24 horas de alertas recopiladas. Con el menú de opciones de evento de la parte superior izquierda de cada evento, puede **descartar** cada evento agregado individual.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Configuración gemela de agregación de eventos
 Realice cambios en la configuración de la agregación de eventos de Azure Security Center para IoT dentro del [objeto de configuración del agente](how-to-agent-configuration.md) de la identidad gemela del módulo **azureiotsecurity**.

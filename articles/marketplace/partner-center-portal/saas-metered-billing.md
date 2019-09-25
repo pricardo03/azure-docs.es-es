@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141774"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105495"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturación según uso con el servicio de medición de Marketplace
 
@@ -55,7 +55,7 @@ Por ejemplo, Contoso es un editor con un servicio SaaS llamado Contoso Notificat
     * Por encima de 50 000 correos electrónicos, pague 0,5 USD por cada 100 correos electrónicos
     * Por encima de 10 000 mensajes de texto, pague 0,01 USD por cada mensaje de texto
 
-Un cliente de Azure suscrito al servicio CNS podrá enviar la cantidad incluida de mensajes de texto y correos electrónicos al mes en función del plan seleccionado.  Cuando los clientes consumen más de la cantidad incluida, no tienen que cambiar de plan ni hacer nada diferente.  Contoso medirá el exceso sobre la cantidad incluida y comenzará a emitir eventos de uso a Microsoft para determinar el uso adicional mediante la [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md).  Microsoft, a su vez, cobrará al cliente por el uso adicional, según ha especificado por el editor.
+Un cliente de Azure suscrito al servicio CNS podrá enviar la cantidad incluida de mensajes de texto y correos electrónicos al mes en función del plan seleccionado.  Contoso mide el uso hasta la cantidad incluida sin enviar eventos de uso a Microsoft.  Cuando los clientes consumen más de la cantidad incluida, no tienen que cambiar de plan ni hacer nada diferente.  Contoso medirá el exceso sobre la cantidad incluida y comenzará a emitir eventos de uso a Microsoft para determinar el uso adicional mediante la [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md).  Microsoft, a su vez, cobrará al cliente por el uso adicional, según ha especificado por el editor.
 
 ## <a name="billing-dimensions"></a>Dimensiones de facturación
 

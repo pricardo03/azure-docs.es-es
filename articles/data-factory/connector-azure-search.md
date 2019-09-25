@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275931"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962111"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copia de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 
@@ -164,7 +164,7 @@ Azure Search puede crear documentos como lotes. Un lote puede contener entre 1 y
 ]
 ```
 
-### <a name="data-type-support"></a>Compatibilidad con los tipos de datos
+## <a name="data-type-support"></a>Compatibilidad con los tipos de datos
 
 En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Search.
 
@@ -178,6 +178,8 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | DataTimeOffset | Y |
 | Matriz de cadenas | N |
 | GeographyPoint | N |
+
+Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa del tipo de datos compatible con Azure Search, consulte [Tipos de datos admitidos (Azure Search) ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

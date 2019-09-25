@@ -4,23 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186215"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059037"
 ---
 ## <a name="what-is-queue-storage"></a>¿Qué es Queue Storage?
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
-El almacenamiento en cola suele usarse para realizar las siguientes tareas:
+El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Queue Storage se usa normalmente para crear un trabajo pendiente del trabajo que se va a procesar de forma asincrónica.
 
-* Creación de trabajo pendiente para el procesamiento asincrónico
-* Transferencia de mensajes de un rol web de Azure a un rol de trabajo de Azure
+## <a name="queue-service-concepts"></a>Conceptos del servicio Queue
 
-## <a name="queue-service-concepts"></a>Conceptos del servicio Cola
-El servicio Cola contiene los siguientes componentes:
+Azure Queue service contiene los siguientes componentes:
 
 ![Cola1](./media/storage-queue-concepts-include/queue1.png)
 

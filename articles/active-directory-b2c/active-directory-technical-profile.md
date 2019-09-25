@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507442"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064620"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad para la administración de usuarios de Azure Active Directory. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado.
+Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con la administración de usuarios de Azure Active Directory. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -31,7 +31,7 @@ Todos los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Commo
 
 - **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingAlternativeSecurityId-NoError**: buscar una cuenta de redes sociales en el directorio.
 - **AAD-UserWriteUsingAlternativeSecurityId**: crear una cuenta de redes sociales.
-- **AAD-UserReadUsingEmailAddress**: buscar una cuenta local en el directorio. 
+- **AAD-UserReadUsingEmailAddress**: buscar una cuenta local en el directorio.
 - **AAD-UserWriteUsingLogonEmail**: crear una cuenta local.
 - **AAD-UserWritePasswordUsingObjectId**: actualizar una contraseña de una cuenta local.
 - **AAD-UserWriteProfileUsingObjectId**: actualizar un perfil de usuario de una cuenta local o social.
@@ -91,7 +91,7 @@ Por ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-El elemento **PersistedClaims** contiene todos los valores que Azure AD debe conservar con la información de asignaciones posibles entre un tipo de notificación ya definido en la sección ClaimsSchema de la directiva y el nombre de atributo de Azure AD. 
+El elemento **PersistedClaims** contiene todos los valores que Azure AD debe conservar con la información de asignaciones posibles entre un tipo de notificación ya definido en la sección ClaimsSchema de la directiva y el nombre de atributo de Azure AD.
 
 El perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y conserva las notificaciones siguientes:
 
@@ -113,7 +113,7 @@ El nombre de la notificación es el del atributo de Azure AD, a menos que se esp
 
 ## <a name="requirements-of-an-operation"></a>Requisitos de una operación
 
-- Debe haber exactamente un elemento **InputClaim** en el contenedor de notificaciones para todos los perfiles técnicos de Azure AD. 
+- Debe haber exactamente un elemento **InputClaim** en el contenedor de notificaciones para todos los perfiles técnicos de Azure AD.
 - Si la operación es `Write` o `DeleteClaims`, también debe aparecer en un elemento **PersistedClaims**.
 - El valor de la notificación **userPrincipalName** debe tener el formato `user@tenant.onmicrosoft.com`.
 - La notificación **displayName** es necesaria y no puede ser una cadena vacía.
@@ -122,7 +122,7 @@ El nombre de la notificación es el del atributo de Azure AD, a menos que se esp
 
 ### <a name="read"></a>Lectura
 
-La operación **Read** lee los datos sobre una sola cuenta de usuario. Para leer datos del usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames** (cualquier tipo, nombre de usuario y cuenta de correo electrónico) o **alternativeSecurityId**.  
+La operación **Read** lee los datos sobre una sola cuenta de usuario. Para leer datos del usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames** (cualquier tipo, nombre de usuario y cuenta de correo electrónico) o **alternativeSecurityId**.
 
 El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante el valor objectId del usuario:
 
@@ -154,7 +154,7 @@ El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante 
 
 ### <a name="write"></a>Escritura
 
-La operación **Write** crea o actualiza una sola cuenta de usuario. Para escribir una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.  
+La operación **Write** crea o actualiza una sola cuenta de usuario. Para escribir una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
 
 El perfil técnico siguiente crea la cuenta de red social:
 
@@ -196,7 +196,7 @@ El perfil técnico siguiente crea la cuenta de red social:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-La operación **DeleteClaims** borra la información de una lista de notificaciones proporcionada. Para eliminar información de las notificaciones, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.  
+La operación **DeleteClaims** borra la información de una lista de notificaciones proporcionada. Para eliminar información de las notificaciones, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
 
 El perfil técnico siguiente elimina notificaciones:
 
@@ -219,7 +219,7 @@ El perfil técnico siguiente elimina notificaciones:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del directorio. Para eliminar una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.  
+La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del directorio. Para eliminar una cuenta de usuario, hay que proporcionar una clave como una notificación de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** o **alternativeSecurityId**.
 
 El perfil técnico siguiente elimina una cuenta de usuario del directorio mediante el nombre principal de usuario:
 
@@ -254,13 +254,13 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Sin | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).| 
-| ApplicationObjectId | Sin | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Sin | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).|
+| ApplicationObjectId | Sin | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
 
 
 

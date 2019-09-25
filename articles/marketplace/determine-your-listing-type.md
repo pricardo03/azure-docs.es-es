@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6fef64bae6462923da67fc41945871f5dcde3094
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450055"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962819"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta definen cómo interactúan los usuarios con su oferta de Marketplace.
@@ -47,7 +47,7 @@ El escaparate donde se presentará la oferta, Azure Marketplace o AppSource, se 
 
 ## <a name="choose-a-publishing-option"></a>Selección de la opción de publicación
 
-Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de comercialización](https://partner.microsoft.com/reach-customers/gtm). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
+Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).  Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|

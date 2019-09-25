@@ -56,6 +56,8 @@
       href: getting-started-improving-your-classifier.md
     - name: Uso de la API de predicción
       href: use-prediction-api.md
+    - name: Uso de etiquetas sugeridas
+      href: suggested-tags.md
     - name: Exportación de modelos
       items:
         - name: Exportación del modelo al móvil

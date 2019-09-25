@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932267"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959064"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
@@ -67,7 +67,7 @@ Al seleccionar **Motor**, se registran todos los [xEvents](https://docs.microsof
 
 ### <a name="all-metrics"></a>Todas las métricas
 
-La categoría Métricas registra las mismas [métricas de servidor](analysis-services-monitor.md#server-metrics) que se muestran en Métricas.
+La categoría Métricas registra las mismas [métricas de servidor](analysis-services-monitor.md#server-metrics) que se muestran en AzureMetrics. Si usa el [escalado horizontal](analysis-services-scale-out.md) de consultas y necesita separar las métricas de cada réplica de lectura, use la tabla AzureDiagnostics en su lugar, donde **OperationName** (Nombre de operación) es igual a **LogMetric**.
 
 ## <a name="setup-diagnostics-logging"></a>Configuración del registro de diagnósticos
 
@@ -161,27 +161,53 @@ Para ver los datos de diagnóstico, en el área de trabajo de Log Analytics, abr
 
 En el generador de consultas, expanda **LogManagement** > **AzureDiagnostics**. AzureDiagnostics incluye eventos de motor y de servicio. Observe que se crea una consulta sobre la marcha. El campo EventClass\_s contiene los nombres de xEvent, lo que puede resultar familiar si se ha usado xEvents para el registro local. Haga clic en **EventClass\_s** o en uno de los nombres de evento, el área de trabajo de Log Analytics continúa generando una consulta. Asegúrese de guardar las consultas para reutilizarlas más adelante.
 
-### <a name="example-query"></a>Consulta de ejemplo
-Esta consulta calcula y devuelve la CPU para cada evento de fin de consulta/fin de la actualización para una base de datos modelo y el servidor:
+### <a name="example-queries"></a>Consultas de ejemplo
+
+#### <a name="example-1"></a>Ejemplo 1
+
+La consulta siguiente devuelve las duraciones de cada evento de fin o actualización de consulta para una base de datos modelo y el servidor: Si se escala horizontalmente, los resultados se desglosan por réplica porque el número de réplica está incluido en ServerName_s. Al agrupar por RootActivityId_g, se reduce el número de filas recuperadas de la API REST de Azure Diagnostics y se contribuye a mantenerlas dentro de los límites, tal y como se describe en [Límites de velocidad de Log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>Ejemplo 2
+
+La siguiente consulta devuelve el consumo de memoria y QPU para un servidor. Si se escala horizontalmente, los resultados se desglosan por réplica porque el número de réplica está incluido en ServerName_s.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>Ejemplo 3
+
+La siguiente consulta devuelve los contadores de rendimiento de filas leídas/s del motor de Analysis Services para un servidor.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 Existen cientos de consultas que puede utilizar. Para más información acerca de las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 

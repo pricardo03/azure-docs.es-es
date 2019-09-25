@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297571"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995163"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory 
 
@@ -404,6 +404,9 @@ Estos campos indican que el usuario se ha autenticado correctamente en Azure AD 
 - Id. de inicio de sesión alternativo
 - No se ha encontrado el proxy HTTP
 
+## <a name="known-issues"></a>Problemas conocidos
+- En Configuración-> Cuentas-> Access Work or School, Hybrid Azure AD joined devices (Acceder a dispositivos profesionales o educativos, híbridos unidos a Azure AD) se pueden mostrar dos cuentas diferentes, una para Azure AD y otra para AD local, cuando se conecta a zonas activas móviles o a redes Wi-Fi externas. Esto es solo un problema de la interfaz de usuario y no afecta a la funcionalidad. 
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Continúe la [solución de problemas de dispositivos con el comando dsregcmd](troubleshoot-device-dsregcmd.md)

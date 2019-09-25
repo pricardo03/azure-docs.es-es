@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034584"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996213"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -41,6 +41,9 @@ La serie 2.0.0 toma la dependencia de [Microsoft.Azure.Cosmos](https://www.nuget
 
 ## <a name="release-notes-for-100-series"></a>Notas de la versión de la serie 1.0.0
 La serie 1.0.0 toma la dependencia de [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="a-name105105"></a><a name="1.0.5"/>1.0.5
+* Presenta una nueva configuración en TableClientConfiguration para usar el ejecutor de REST para comunicarse con Table API de Cosmos DB
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-preview
 * Corrección de errores
@@ -92,6 +95,7 @@ Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table]
 ### <a name="100-series"></a>Serie 1.0.0
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.0.5](#1.0.5) |13 de septiembre de 2019 |--- |
 | [1.0.5-preview](#1.0.5-preview) |20 de agosto de 2019 |--- |
 | [1.0.4](#1.0.4) |12 de agosto de 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |26 de julio de 2019 |--- |

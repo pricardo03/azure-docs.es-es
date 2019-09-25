@@ -2,19 +2,19 @@
 title: 'Orquestaciones infinitas en Durable Functions: Azure'
 description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 788693698e75a24269e29c54e03af35c1853f1f6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735201"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933381"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Las *orquestaciones infinitas* son funciones de orquestador que nunca terminan. 
 
 ## <a name="orchestration-history"></a>Historial de orquestación
 
-Como se explica en [Puntos de control y reproducción](durable-functions-checkpointing-and-replay.md), Durable Task Framework realiza un seguimiento del historial de cada función de orquestación. Este historial crecerá continuamente siempre y cuando la función de orquestador siga programando nuevo trabajo. Si la función de orquestador entra en un bucle infinito y programa trabajo continuamente, este historial podría alcanzar un tamaño crítico y provocar problemas de rendimiento considerables. El concepto de *orquestación infinita* se diseñó para mitigar este tipo de problemas en aplicaciones que necesitan bucles infinitos.
+Como se explica en el tema del [historial de orquestación](durable-functions-orchestrations.md#orchestration-history), Durable Task Framework realiza un seguimiento del historial de cada función de orquestación. Este historial crecerá continuamente siempre y cuando la función de orquestador siga programando nuevo trabajo. Si la función de orquestador entra en un bucle infinito y programa trabajo continuamente, este historial podría alcanzar un tamaño crítico y provocar problemas de rendimiento considerables. El concepto de *orquestación infinita* se diseñó para mitigar este tipo de problemas en aplicaciones que necesitan bucles infinitos.
 
 ## <a name="resetting-and-restarting"></a>Restablecimiento y reinicio
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 54677dc0771f65b7636b4d1cac77f53f9c04a09d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08da04a8bf167c99ef2384a9714034ae1865bec1
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508933"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065366"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flujos de usuario en Azure Active Directory B2C
 
-El marco de directiva extensible de Azure Active Directory (Azure AD) B2C es la fortaleza esencial del servicio. Las directivas describen totalmente las experiencias de identidad tales como el registro, el inicio de sesión y la edición de perfil. Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**. 
+El marco de directiva extensible de Azure Active Directory B2C (Azure AD B2C) es la fortaleza esencial del servicio. Las directivas describen totalmente las experiencias de identidad tales como el registro, el inicio de sesión y la edición de perfil. Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**.
 
 ## <a name="what-are-user-flows"></a>¿Qué son los flujos de usuario?
 
@@ -29,9 +29,9 @@ Un flujo de usuario le permite controlar los comportamientos en sus aplicaciones
 - Atributos que se recopilarán del consumidor durante el registro, como el nombre, código postal y número de calzado
 - Azure Multi-Factor Authentication
 - Personalización de la interfaz de usuario
-- Información que la aplicación recibe como notificaciones en un token 
+- Información que la aplicación recibe como notificaciones en un token
 
-Puede crear muchos flujos de usuario de diferentes tipos en su inquilino y usarlos en sus aplicaciones según sea necesario. Los flujos de usuario se pueden volver a usar en todas las aplicaciones. Esta flexibilidad le permite definir y modificar las experiencias de identidad con cambios mínimos o ningún cambio en el código. La aplicación desencadena un flujo de usuario mediante una solicitud de autenticación HTTP estándar que incluye un parámetro de flujo de usuario. Se recibe un [token](active-directory-b2c-reference-tokens.md) personalizado como respuesta. 
+Puede crear muchos flujos de usuario de diferentes tipos en su inquilino y usarlos en sus aplicaciones según sea necesario. Los flujos de usuario se pueden volver a usar en todas las aplicaciones. Esta flexibilidad le permite definir y modificar las experiencias de identidad con cambios mínimos o ningún cambio en el código. La aplicación desencadena un flujo de usuario mediante una solicitud de autenticación HTTP estándar que incluye un parámetro de flujo de usuario. Se recibe un [token](active-directory-b2c-reference-tokens.md) personalizado como respuesta.
 
 En los ejemplos siguientes se muestra el parámetro de cadena de consulta "p" que especifica el flujo de usuario que se usará:
 
@@ -71,16 +71,16 @@ Actualmente, se recomiendan los siguientes flujos de usuario:
 
 ## <a name="linking-user-flows"></a>Vinculación de los flujos de usuario
 
-Un flujo de usuario de **inicio de sesión o de registro** con cuentas locales incluye el vínculo **¿Olvidó la contraseña?** en la primera página de la experiencia. Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña, 
+Un flujo de usuario de **inicio de sesión o de registro** con cuentas locales incluye el vínculo **¿Olvidó la contraseña?** en la primera página de la experiencia. Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
 
 sino que se devuelve a la aplicación el código de error `AADB2C90118`. La aplicación debe controlar este código de error mediante la ejecución de un flujo de usuario específico que restablezca la contraseña. Para ver un ejemplo, eche un vistazo a un [ejemplo sencillo de ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) que muestra la vinculación de flujos de usuario.
 
 ## <a name="email-address-storage"></a>Almacenamiento de la dirección de correo electrónico
 
 Es posible que se necesite una dirección de correo electrónico como parte de un flujo de usuario. Si el usuario se autentica con un proveedor de identidades de redes sociales, la dirección de correo electrónico se almacena en la propiedad **otherMails**. Si una cuenta local se basa en un nombre de usuario, la dirección de correo electrónico se almacena en una propiedad de detalles de autenticación sólida. Si una cuenta local se basa en una dirección de correo electrónico, dicha dirección se almacena en la propiedad **signInNames**.
- 
+
 No se garantiza que la dirección de correo electrónico pueda comprobarse en cualquiera de estos casos. Un administrador de inquilinos puede deshabilitar la comprobación de correo electrónico en las directivas básicas para las cuentas locales. Incluso si la comprobación de la dirección de correo electrónico está habilitada, las direcciones no se comprueban si provienen de un proveedor de identidades de redes sociales y aún no se cambian.
- 
+
 Solo las propiedades **otherMails** y **signInNames** se exponen a través de Graph API de Active Directory. La dirección de correo electrónico en la propiedad de detalles de autenticación sólida no está disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes

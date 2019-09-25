@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512585"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063453"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de cadena del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para obtener más información, vea [ClaimsTransformations](claimstransformations.md).
+En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de cadena del esquema Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual 
+## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
 Comparar dos notificaciones y emitir una excepción si no son iguales según la comparación especificada inputClaim1, inputClaim2 y stringComparison.
 
@@ -37,7 +37,7 @@ La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se e
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
-Puede usar esta transformación de notificaciones para asegurarse de que dos argumentos ClaimType tienen el mismo valor. Si no es así, se emite un mensaje de error. En el ejemplo siguiente se comprueba que los argumentos ClaimType **strongAuthenticationEmailAddress** e **email** son iguales. De lo contrario, se emite un mensaje de error. 
+Puede usar esta transformación de notificaciones para asegurarse de que dos argumentos ClaimType tienen el mismo valor. Si no es así, se emite un mensaje de error. En el ejemplo siguiente se comprueba que los argumentos ClaimType **strongAuthenticationEmailAddress** e **email** son iguales. De lo contrario, se emite un mensaje de error.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -84,7 +84,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
   - **stringComparison**: ordinalIgnoreCase
 - Resultado: aparece un error
 
-## <a name="changecase"></a>ChangeCase 
+## <a name="changecase"></a>ChangeCase
 
 Cambia el uso de mayúsculas y minúsculas en la notificación proporcionada, dependiendo del operador.
 
@@ -94,7 +94,7 @@ Cambia el uso de mayúsculas y minúsculas en la notificación proporcionada, de
 | InputParameter | toCase | string | Puede ser uno de los siguientes valores: `LOWER` o `UPPER`. |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
-Use esta transformación de notificaciones para cambiar cualquier ClaimType de cadena a minúsculas o mayúsculas.  
+Use esta transformación de notificaciones para cambiar cualquier ClaimType de cadena a minúsculas o mayúsculas.
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -119,7 +119,7 @@ Use esta transformación de notificaciones para cambiar cualquier ClaimType de c
 - Notificaciones de salida:
   - **email**: someone@contoso.com
 
-## <a name="createstringclaim"></a>CreateStringClaim 
+## <a name="createstringclaim"></a>CreateStringClaim
 
 Crea una notificación de cadena a partir del parámetro de entrada proporcionado en la directiva.
 
@@ -224,7 +224,7 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
     - **inputClaim1**: v1
 - Parámetros de entrada:
     - **compareTo**: V1
-    - **operator**: EQUAL 
+    - **operator**: EQUAL
     - **ignoreCase**: true
 - Notificaciones de salida:
     - **outputClaim**: true
@@ -258,7 +258,7 @@ El ejemplo siguiente genera un identificador único global. Esta transformación
 
 - Parámetros de entrada:
     - **randomGeneratorType**: GUID
-- Notificaciones de salida: 
+- Notificaciones de salida:
     - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor pasa a tener el formato OTP_ {valor_aleatorio}.
@@ -284,7 +284,7 @@ El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor p
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: false
-- Notificaciones de salida: 
+- Notificaciones de salida:
     - **outputClaim**: OTP_853
 
 
@@ -298,7 +298,7 @@ Da formato a una notificación de acuerdo con la cadena de formato proporcionada
 | InputParameter | stringFormat | string | El formato de cadena, incluido el parámetro {0}. |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
-Use esta transformación de notificaciones para dar formato a cualquier cadena con un parámetro {0}. El ejemplo siguiente crea un **userPrincipalName**. Todos los perfiles técnicos de proveedores de las identidades de redes sociales, como `Facebook-OAUTH` llaman a **CreateUserPrincipalName** para generar un **userPrincipalName**.   
+Use esta transformación de notificaciones para dar formato a cualquier cadena con un parámetro {0}. El ejemplo siguiente crea un **userPrincipalName**. Todos los perfiles técnicos de proveedores de las identidades de redes sociales, como `Facebook-OAUTH` llaman a **CreateUserPrincipalName** para generar un **userPrincipalName**.
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -392,7 +392,7 @@ La transformación de notificaciones busca el texto del elemento y devuelve su v
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -431,7 +431,7 @@ En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones 
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation> 
+</ClaimsTransformation>
 ```
 
 ### <a name="example"></a>Ejemplo
@@ -513,7 +513,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 | OutputClaim | outputClaim2 | string | Si las cadenas son iguales, esta notificación de salida contiene el valor del parámetro de entrada `stringMatchMsgCode`. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo de la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` en función del resultado de la comparación. |
 
-Puede usar esta transformación de notificaciones para comprobar si una notificación es igual a un valor que haya especificado. Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **termsOfUseConsentVersion** es igual a `v1`. En caso afirmativo, cambie el valor a `v2`. 
+Puede usar esta transformación de notificaciones para comprobar si una notificación es igual a un valor que haya especificado. Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **termsOfUseConsentVersion** es igual a `v1`. En caso afirmativo, cambie el valor a `v2`.
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -539,7 +539,7 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
     - **inputClaim**: v1
 - Parámetros de entrada:
     - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **stringMatchMsg**:  B2C_V1_90005
     - **stringMatchMsgCode**:  The TOS is upgraded to v2
 - Notificaciones de salida:
@@ -560,7 +560,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 | OutputClaim | outputClaim | string | Si las cadenas son iguales, esta notificación de salida contiene el valor del parámetro de entrada `outputClaimIfMatched`. O null, si las cadenas no coinciden. |
 | OutputClaim | stringCompareResultClaim | boolean | Tipo de la notificación de salida del resultado de la comparación, que debe establecerse en `true` o `false` en función del resultado de la comparación. |
 
-Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **ageGroup** es igual a `Minor`. En caso afirmativo, devuelve el valor para `B2C_V1_90001`. 
+Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **ageGroup** es igual a `Minor`. En caso afirmativo, devuelve el valor para `B2C_V1_90001`.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -585,7 +585,7 @@ Por ejemplo, la siguiente transformación de notificaciones comprueba si el valo
     - **claimToMatch**: Minor
 - Parámetros de entrada:
     - **matchTo**: Minor
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Notificaciones de salida:
     - **isMinorResponseCode**: B2C_V1_90001

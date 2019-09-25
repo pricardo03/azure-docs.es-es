@@ -1,7 +1,7 @@
 ---
 title: Configuración de Azure Application Insights para supervisar los modelos de aprendizaje automático
-titleSuffix: Azure Machine Learning service
-description: Supervisión de los servicios web implementados con el servicio Azure Machine Learning Service mediante Azure App Insights
+titleSuffix: Azure Machine Learning
+description: Supervisión de los servicios web implementados con Azure Machine Learning mediante Azure App Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 785507e9ae12d8da564a223c8cdf544a98b8de61
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858761"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002878"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Supervisión de los modelos de Azure Machine Learning con Application Insights
 
-En este artículo, puede obtener información sobre cómo configurar Azure Application Insights para el servicio Azure Machine Learning. Application Insights le ofrece la oportunidad de supervisar:
+En este artículo aprenderá a configurar Azure Application Insights para Azure Machine Learning. Application Insights le ofrece la oportunidad de supervisar:
 * Tasas de solicitudes, tiempos de respuesta y tasas de error.
 * Tasas de dependencias, tiempos de respuesta y tasas de error.
 * Excepciones.
@@ -30,7 +30,7 @@ En este artículo, puede obtener información sobre cómo configurar Azure Appli
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+* Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Para obtener información acerca de cómo obtener estos requisitos previos, consulte [Procedimiento de configuración de un entorno de desarrollo](how-to-configure-environment.md).
 * Un modelo de Machine Learning entrenado para implementarse en Azure Kubernetes Service (AKS) o Azure Container Instance (ACI). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
@@ -111,7 +111,7 @@ Puede habilitar y deshabilitar Application Insights en Azure Portal.
  
 
 ## <a name="evaluate-data"></a>Evaluación de los datos
-Los datos del servicio se almacenan en la cuenta de Application Insights en el mismo grupo de recursos del servicio Azure Machine Learning.
+Los datos del servicio se almacenan en la cuenta de Application Insights en el mismo grupo de recursos de Azure Machine Learning.
 Para verlo:
 1. Vaya al área de trabajo de Machine Learning Service en [Azure Portal](https://portal.azure.com) y haga clic en el vínculo de Application Insights.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306188"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057910"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -309,6 +309,8 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |details.data     | Datos específicos que se encuentran en la solicitud y que corresponden a la regla.         |
 |details.file     | Archivo de configuración que contiene la regla.        |
 |details.line     | Número de línea del archivo de configuración que desencadenó el evento.       |
+|hostname   | Nombre de host o dirección IP de la puerta de enlace de aplicaciones.    |
+|transactionId  | Identificador único de una transacción determinada que ayuda a agrupar varias infracciones de reglas que se produjeron dentro de la misma solicitud.   |
 
 ```json
 {
@@ -333,6 +335,8 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
+    "hostname": "40.90.218.100", 
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 

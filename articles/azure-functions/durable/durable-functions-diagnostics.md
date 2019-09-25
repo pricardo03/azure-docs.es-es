@@ -2,19 +2,19 @@
 title: 'Diagnóstico con Durable Functions: Azure'
 description: Aprenda a diagnosticar problemas con la extensión Durable Functions para Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734493"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933513"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -32,7 +32,7 @@ Cada evento de ciclo de vida de una instancia de orquestación provoca uno de se
 
 * **hubName**: nombre de la central de tareas donde se ejecutan las orquestaciones.
 * **appName**: Nombre de la aplicación de función. Es útil cuando tiene varias aplicaciones de función que compartan la misma instancia de Application Insights.
-* **slotName**: la [ranura de implementación](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) donde se ejecuta la aplicación de función actual. Es útil cuando se aprovechan las ranuras de implementación para modificar las orquestaciones.
+* **slotName**: la [ranura de implementación](../functions-deployment-slots.md) donde se ejecuta la aplicación de función actual. Es útil cuando se aprovechan las ranuras de implementación para modificar las orquestaciones.
 * **functionName**: nombre de la función de actividad o de orquestador.
 * **functionType**: tipo de función, como **Orquestador** o **Actividad**.
 * **instanceId**: identificador único de la instancia de orquestación.
@@ -349,12 +349,13 @@ Los clientes obtendrán la siguiente respuesta:
 
 Azure Functions admite la depuración directa de código de función y esa misma compatibilidad se traslada a Durable Functions, tanto si se ejecuta en Azure o localmente. Sin embargo, hay algunos comportamientos que tener en cuenta al depurar:
 
-* **Reproducción**: las funciones de orquestador suelen reproducir cuando se reciben nuevas entradas. Esto significa que una sola ejecución *lógica* de una función de orquestador puede resultar en alcanzar el mismo punto de interrupción varias veces, especialmente si se establece al principio en el código de la función.
-* **Espera**: siempre que se encuentre un `await`, devuelve el control al distribuidor de Durable Task Framework. Si se trata de la primera vez que se encuentra una instrucción `await` determinada, la tarea asociada *nunca* se reanuda. En realidad, como la tarea nunca se reanuda, no se puede *omitir* la instrucción await (F10 en Visual Studio). La omisión solo funciona cuando se reproduce una tarea.
-* **Tiempo de expiración de los mensajes**: Durable Functions usa mensajes de cola internos para dirigir la ejecución de las funciones tanto de orquestador como de actividad. En un entorno de varias máquinas virtuales, iniciar la depuración durante largos períodos de tiempo podría provocar que otra máquina virtual recogiera el mensaje, lo que provocaría la duplicación de la ejecución. Este comportamiento también existe para las funciones con desencadenador de cola normales, pero es importante señalarlo en este contexto, ya que las colas son un detalle de la implementación.
+* **Reproducción**: las funciones de orquestador suelen [reproducir](durable-functions-orchestrations.md#reliability) cuando se reciben nuevas entradas. Esto significa que una sola ejecución *lógica* de una función de orquestador puede resultar en alcanzar el mismo punto de interrupción varias veces, especialmente si se establece al principio en el código de la función.
+* **Espera**: siempre que se encuentre un `await` en una función de orquestador, devuelve el control al distribuidor de Durable Task Framework. Si se trata de la primera vez que se encuentra una instrucción `await` determinada, la tarea asociada *nunca* se reanuda. En realidad, como la tarea nunca se reanuda, no se puede *omitir* la instrucción await (F10 en Visual Studio). La omisión solo funciona cuando se reproduce una tarea.
+* **Tiempo de expiración de los mensajes**: Durable Functions usa mensajes de cola internos para dirigir la ejecución de las funciones tanto de orquestador como de actividad o de entidad. En un entorno de varias máquinas virtuales, iniciar la depuración durante largos períodos de tiempo podría provocar que otra máquina virtual recogiera el mensaje, lo que provocaría la duplicación de la ejecución. Este comportamiento también existe para las funciones con desencadenador de cola normales, pero es importante señalarlo en este contexto, ya que las colas son un detalle de la implementación.
+* **Detención e inicio**: los mensajes de Durable Functions se conservan entre las sesiones de depuración. Si detiene la depuración y termina el proceso de host local mientras se está ejecutando una función de Durable Functions, dicha función se puede volver a ejecutar automáticamente en una sesión de depuración futura. Esto puede resultar confuso cuando no se espera. Borrar todos los mensajes de las [colas de almacenamiento internas](durable-functions-perf-and-scale.md#internal-queue-triggers) entre las sesiones de depuración es una técnica para evitar este comportamiento.
 
 > [!TIP]
-> Al establecer puntos de interrupción, si desea interrumpir solo la ejecución sin reproducción, puede establecer un punto de interrupción condicional que solo se active si `IsReplaying` es `false`.
+> Al establecer puntos de interrupción en las funciones de orquestador, si desea interrumpir solo la ejecución sin reproducción, puede establecer un punto de interrupción condicional que solo se active si `IsReplaying` es `false`.
 
 ## <a name="storage"></a>Storage
 
@@ -370,4 +371,4 @@ Esto es útil para la depuración, porque verá el estado concreto de las orques
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda a usar los temporizadores de larga duración](durable-functions-timers.md)
+> [Más información acerca de la supervisión en Azure Functions](../functions-monitoring.md)

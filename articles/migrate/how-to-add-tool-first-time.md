@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: b226f7c5879673b573133cde45db78d8d1f2fffa
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810291"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934177"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Incorporación de una herramienta de evaluación y migración por primera vez
 
@@ -43,14 +43,23 @@ Configure un nuevo proyecto de Azure Migrate en una suscripción de Azure y agre
 
     Puede crear un proyecto de Azure Migrate en cualquiera de estas zonas geográficas.
 
-    **Geografía** | **Región de ubicación del almacenamiento**
+   **Geografía** | **Región de ubicación del almacenamiento**
     --- | ---
-    Asia | Sudeste Asiático o Asia Oriental
-    Europa | Sur de Europa u Oeste de Europa
+    Asia   | Sudeste Asiático o Asia Oriental
+    Europa | Norte de Europa y Oeste de Europa
+    Japón  | Este de Japón u Oeste de Japón
     Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
     Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
+    Canadá | Centro de Canadá
+    India  | India central o India meridional
+    Australia | Sudeste de Australia
 
     La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales. Puede seleccionar cualquier región de destino para la migración real.
+
+    Si desea especificar una región específica dentro de un área geográfica para implementar el proyecto de migración y sus recursos asociados (las restricciones de directiva de su suscripción pueden permitir la implementación de recursos de Azure solo en una región específica de Azure), puede usar la API siguiente para crear un proyecto de migración. Especifique el identificador de la suscripción, el nombre del grupo de recursos, el nombre del proyecto de migración junto con la ubicación (cualquiera de las regiones de Azure mencionadas en la tabla en la que se implementa Azure Migrate).
+
+    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+
 
 4. Haga clic en **Siguiente** y agregue una herramienta de valoración o migración.
 

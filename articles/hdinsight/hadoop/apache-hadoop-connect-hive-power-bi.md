@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 69353968f6b38f0d16b68c58b9b00c3e6d45850b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0e8f0e6ff6ba4b280d6174b6cec231ddca782912
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446871"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058595"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualización de los datos de Apache Hive con Microsoft Power BI mediante ODBC en Azure HDInsight
 
@@ -49,7 +49,7 @@ La tabla de Hive hivesampletable incluye todos los clústeres de HDInsight.
 
 2. En el menú superior, vaya a **Inicio** > **Obtener datos** > **Más...**
 
-    ![Datos abiertos de Power BI en HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![abrir datos de Power BI en Excel para HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
 3. En el cuadro de diálogo **Obtener datos**, seleccione **Otro** a la izquierda, **ODBC** a la derecha y, luego, **Conectar** en la parte inferior.
 

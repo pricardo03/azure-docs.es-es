@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277610"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984358"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -87,6 +87,8 @@ Puede ver y restablecer las claves de suscripción desde Azure Portal, donde cre
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Búsqueda de claves de punto de conexión en el portal de QnA Maker
 
+El punto de conexión está en la misma región que el recurso porque las claves del punto de conexión se utilizan para efectuar una llamada a la base de conocimiento.
+
 Las claves de punto de conexión se pueden administrar desde el [portal de QnA Maker](https://qnamaker.ai).
 
 1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai), vaya a su perfil y seleccione **Service settings** (Configuración del servicio):
@@ -111,6 +113,8 @@ QnA Maker crea varios recursos de Azure. Para simplificar la administración y b
 |App Service|X|No es posible por diseño|
 |Application Insights|✔|Se puede compartir|
 |Servicio de búsqueda|✔|1. `testkb` es un nombre reservado para el servicio QnAMaker; no lo pueden usar otros.<br>2. La asignación de sinónimo por el nombre `synonym-map` está reservada para el servicio QnAMaker.<br>3. El número de bases de conocimiento publicadas está limitado por el nivel del servicio Search. Si hay índices libres disponibles, otros servicios pueden utilizarlos.|
+
+Más información sobre [App Service](../../../app-service/index.yml) y el [servicio Azure Search](../../../search/index.yml).
 
 ### <a name="using-a-single-search-service"></a>Uso de un servicio Search individual
 
@@ -202,6 +206,8 @@ Puede consultar su versión actual en https://www.qnamaker.ai/UserSettings. Si s
 El servicio de administración de QnA Maker solo se usa para el portal de QnA Maker y para el procesamiento de datos inicial. Este servicio solo está disponible en la región Oeste de EE. UU. En este servicio de Oeste de EE. UU., no se almacena ningún dato de cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información sobre [App Service](../../../app-service/index.yml) y el [servicio Azure Search](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Crear y publicar una base de conocimiento](../Quickstarts/create-publish-knowledge-base.md)

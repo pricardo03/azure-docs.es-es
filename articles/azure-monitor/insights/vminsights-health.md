@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233161"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933120"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -36,49 +36,52 @@ Para obtener más información sobre cómo configurar Azure Monitor para máquin
 
 En esta sección se describen los criterios de mantenimiento predeterminados para supervisar las máquinas virtuales Linux y Windows de Azure. Todos los criterios de mantenimiento están preconfigurados para enviar una alerta cuando se detecta una condición incorrecta.
 
-### <a name="windows-vms"></a>Máquinas virtuales Windows
+| Nombre de monitor | Frecuencia (min) | Duración de retrospectiva (min) | Operator | Umbral | Alerta sobre el estado | severity | Categoría de carga de trabajo | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Disco lógico en línea | 5 | 15 | <> | 1 (true) | Crítico | Sev1 | Linux | 
+| Espacio disponible en el disco lógico | 5 | 15 | < | 200 MB (advertencia)<br> 100 MB (crítico) | Advertencia | Sev1<br> Sev2 | Linux | 
+| % de inode disponibles en el disco lógico | 5 | 15 | < | 5 % | Crítico | Sev1 | Linux | 
+| % de espacio disponible en el disco lógico | 5 | 15 | < | 5 % | Crítico | Sev1 | Linux | 
+| Estado del adaptador de red | 5 | 15 | <> | 1 (true) | Advertencia | Sev2 | Linux | 
+| Memoria en megabytes disponibles del sistema operativo | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
+| Media del disco Segundos de disco/lecturas | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Media del disco Segundos de disco/transferencias | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Media del disco Segundos de disco/escrituras | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Estado del disco | 5 | 25 | <> | 1 (true) | Crítico | Sev1 | Linux | 
+| Porcentaje total de tiempo del procesador total del sistema operativo | 5 | 10 | >= | 95 % | Crítico | Sev1 | Linux | 
+| Porcentaje de uso total de la CPU | 5 | 10 | >= | 95 % | Crítico | Sev1 | Windows | 
+| Error o daños en el sistema de archivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Windows | 
+| Media de segundos del disco lógico por lectura | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
+| Media de segundos del disco lógico por transferencia | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
+| Promedio de segundos del disco lógico por escritura (disco lógico) | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
+| Longitud actual de cola de disco (disco lógico) | 5 | 60 | >= | 32 | Advertencia | Sev2 | Windows | 
+| Espacio disponible en el disco lógico (MB) | 15 | 60 | > | 500 MB advertencia<br> 300 MB crítico | Crítico | Sev1<br> Sev2 | Windows | 
+| (%) de espacio disponible en el disco lógico | 15 | 60 | > | 10 % advertencia<br> 5 % crítico | Crítico | Sev1<br> Sev2 | Windows |
+| Porcentaje de tiempo de inactividad del disco lógico | 15 | 360 | <= | 20% | Advertencia | Sev2 | Windows | 
+| Porcentaje de ancho de banda usado para la lectura | 5 | 60 | >= | 60% | Advertencia | Sev2 | Windows | 
+| Porcentaje total del ancho de banda usado | 5 | 60 | >= | 75 % | Advertencia | Sev2 | Windows | 
+| Porcentaje de ancho de banda para la escritura | 5 | 60 | >= | 60% | Advertencia | Sev2 | Windows | 
+| Service Health del cliente DHCP | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health del cliente DNS | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health del registro de eventos de Windows | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health del firewall de Windows | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health de RPC | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health de servidor | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Service Health de Administración remota de Windows | 5 | 12 | <> | 4 (ejecución) | Crítico | Sev1 | Windows | 
+| Megabytes disponibles de memoria | 5 | 10 | < | 100 MB | Crítico | Sev1 | Windows | 
+| Entradas libres de la tabla de páginas del sistema | 5 | 10 | <= | 5000 | Crítico | Sev1 | Windows | 
+| Páginas de memoria por segundo | 5 | 10 | >= | 5000/s | Advertencia | Sev1 | Windows | 
+| Porcentaje de memoria asignada en uso | 5 | 10 | > | 80 % | Crítico | Sev1 | Windows | 
+| Media de segundos del disco por transferencia | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
+| Promedio de segundos del disco por escritura | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
+| Longitud actual de cola de disco | 5 | 60 | >= | 32 | Advertencia | Sev2 | Windows | 
+| Porcentaje de tiempo de inactividad del disco | 5 | 60 | >= | 20% | Advertencia | Sev2 | Windows | 
 
-- Megabytes disponibles de memoria
-- Media de segundos del disco por escritura (disco lógico)
-- Media de segundos del disco por escritura (disco)
-- Media de segundos del disco lógico por lectura
-- Media de segundos del disco lógico por transferencia
-- Media de segundos del disco por lectura
-- Media de segundos del disco por transferencia
-- Longitud actual de cola de disco (disco lógico)
-- Longitud actual de cola de disco (disco)
-- Porcentaje de tiempo de inactividad del disco
-- Error o daños en el sistema de archivos
-- Poco espacio disponible en el disco lógico (%)
-- Poco espacio disponible en el disco lógico (MB)
-- Porcentaje de tiempo de inactividad del disco lógico
-- Páginas de memoria por segundo
-- Porcentaje de ancho de banda usado para la lectura
-- Porcentaje total del ancho de banda usado
-- Porcentaje de ancho de banda para la escritura
-- Porcentaje de memoria asignada en uso
-- Porcentaje de tiempo de inactividad del disco
-- Service Health del cliente DHCP
-- Service Health del cliente DNS
-- Service Health de RPC
-- Service Health de servidor
-- Porcentaje de uso total de la CPU
-- Service Health del registro de eventos de Windows
-- Service Health del firewall de Windows
-- Service Health de Administración remota de Windows
+>[!NOTE]
+>Duración de retrospectiva representa la frecuencia con la que la ventana de la retrospectiva comprueba los valores de métricas, por ejemplo en los últimos cinco minutos.  
 
-### <a name="linux-vms"></a>Máquinas virtuales con Linux
-
-- Media del disco Segundos de disco/transferencias
-- Media del disco Segundos de disco/lecturas
-- Media del disco Segundos de disco/escrituras
-- Estado del disco
-- Espacio disponible en el disco lógico
-- % de espacio disponible en el disco lógico
-- % de inode disponibles en el disco lógico
-- Estado del adaptador de red
-- Porcentaje de tiempo del procesador total
-- Megabytes disponibles de memoria del sistema operativo
+>[!NOTE]
+>Frecuencia representa la frecuencia con la que la alerta de métrica comprueba si se cumplen las condiciones, por ejemplo, cada minuto.  Es la velocidad a la que se ejecuta el criterio de mantenimiento y la retrospectiva es la duración en la que se evalúa el criterio de estado. Por ejemplo, el criterio de mantenimiento evalúa si la **utilización de la CPU** de la condición es superior al 95 por ciento con una frecuencia de 5 minutos y permanece superior al 95 % durante 15 minutos (3 ciclos de evaluación consecutivos), el estado se actualiza a una gravedad crítica si aún no lo estaba.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

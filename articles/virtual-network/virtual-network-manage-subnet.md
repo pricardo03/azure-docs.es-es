@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 8a8feb0f12fbf5eadcddf239ff2e13c058a566fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4af8c6dbbcbb877351018eb881f4d3b0b447bbce
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693303"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098971"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -72,7 +72,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
     - **Usuarios**: puede controlar el acceso a la subred con los roles integrados u otros personalizados. Para obtener más información sobre la asignación de roles y usuarios para el acceso a la subred, consulte [Asignación de roles para administrar el acceso a los recursos de Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Grupo de seguridad de red** y **Tabla de rutas**: vea el paso 5 de [Agregar una subred](#add-a-subnet).
     - **Puntos de conexión de servicio**: vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). A la hora de habilitar un punto de conexión de servicio para una red existente, asegúrese de que no se esté ejecutando ninguna tarea crítica en ningún recurso de la subred. Los puntos de conexión de servicio cambian las rutas en cada interfaz de red de la subred: pasan de usar la ruta predeterminada con el prefijo de dirección *0.0.0.0/0* y el tipo de próximo salto *Internet* a usar una ruta nueva con los prefijos de dirección del servicio y el tipo de próximo salto *VirtualNetworkServiceEndpoint*. Durante el cambio se puede terminar cualquier conexión TCP que esté abierta. El punto de conexión de servicio no se habilita hasta que los flujos de tráfico al servicio de todas las interfaces de red se actualicen con la nueva ruta. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
-    - **Delegación de subred:** vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). La delegación de subred se puede modificar a varias delegaciones habilitadas para él o a ninguna. Si un recurso para un servicio ya está implementado en la subred, la delegación de subred no se puede quitar hasta que se quiten los todos los recursos para el servicio. Para delegar a otro servicio, seleccione el servicio al que desea delegar en la lista **Servicios**.
+    - **Delegación de subred:** vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). La delegación de subred se puede modificar a varias delegaciones habilitadas para él o a ninguna. Si un recurso de un servicio ya está implementado en la subred, la delegación de la subred no se puede agregar ni quitar hasta que se quiten los todos los recursos del servicio. Para delegar a otro servicio, seleccione el servicio al que desea delegar en la lista **Servicios**.
 5. Seleccione **Guardar**.
 
 **Comandos**

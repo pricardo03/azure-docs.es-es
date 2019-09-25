@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511312"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064335"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede personalizar la apariencia de cualquier [perfil técnico autodeclarado](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C ejecuta código en el explorador del cliente y usa un método moderno denominado CORS (uso compartido de recursos entre orígenes). 
+Puede personalizar la apariencia de cualquier [perfil técnico autodeclarado](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) ejecuta código en el explorador del cliente y usa un método moderno denominado CORS (uso compartido de recursos entre orígenes).
 
 Para personalizar la interfaz de usuario, especifique una URL en el elemento **ContentDefinition** con el contenido HTML personalizado. En el perfil técnico autodeclarado o **OrchestrationStep**, apunte a ese identificador de definición de contenido. La definición de contenido puede contener un elemento **LocalizedResourcesReferences** que especifique una lista de los recursos localizados que se cargarán. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la URL y, después, muestra la página al usuario.
 
@@ -70,9 +70,9 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Cadena que contiene la URL de la página HTML5 de la definición de contenido. |
-| RecoveryUri | 0:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. | 
-| DataUri | 1:1 | Cadena que contiene la URL relativa de un archivo HTML que proporciona la experiencia del usuario que se invocará para el paso. |  
-| Metadatos | 1:1 | Colección de pares de clave y valor que contiene los metadatos usados por la definición de contenido. | 
+| RecoveryUri | 0:1 | Cadena que contiene la URL de la página HTML para mostrar un error relacionado con la definición de contenido. |
+| DataUri | 1:1 | Cadena que contiene la URL relativa de un archivo HTML que proporciona la experiencia del usuario que se invocará para el paso. |
+| Metadatos | 1:1 | Colección de pares de clave y valor que contiene los metadatos usados por la definición de contenido. |
 | LocalizedResourcesReferences | 0:1 | Colección de referencias de recursos localizados. Use este elemento para personalizar la localización de la interfaz de usuario y el atributo de notificaciones. |
 
 ### <a name="datauri"></a>DataUri
@@ -82,11 +82,11 @@ El elemento **DataUri** se usa para especificar el identificador de página. Azu
 | Valor |   DESCRIPCIÓN |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Muestra una página de error cuando se produce una excepción o un error. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. | 
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este valor también proporciona la función “Mantener iniciada la sesión” y el vínculo "¿Ha olvidado la contraseña?" | 
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. Este valor también proporciona la función “Mantener iniciada la sesión” y el vínculo "¿Ha olvidado la contraseña?" |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Verifica los números de teléfono mediante mensajes de texto o llamadas de voz durante el registro o inicio de sesión. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Muestra un formulario que permite a los usuarios crear o actualizar su perfil. | 
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Muestra un formulario que permite a los usuarios crear o actualizar su perfil. |
 
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
@@ -95,7 +95,7 @@ El elemento **LocalizedResourcesReferences** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | Una lista de referencias de recursos localizados para la definición de contenido. | 
+| LocalizedResourcesReference | 1:n | Una lista de referencias de recursos localizados para la definición de contenido. |
 
 El elemento **LocalizedResourcesReferences** contiene los atributos siguientes:
 
@@ -141,7 +141,7 @@ Para obtener información sobre cómo agregar la compatibilidad de localización
 
 El id. de atributo del elemento **ContentDefinition** especifica el tipo de página relacionado con la definición de contenido. El elemento define el contexto que se aplicará en una plantilla personalizada de HTML5/CSS. En la tabla siguiente, se describe el conjunto de id. de definición de contenido reconocido por el Marco de experiencia de identidad y los tipos de página relacionados. Puede crear sus propias definiciones de contenido con un id. arbitrario.
 
-| ID | Plantilla predeterminada | DESCRIPCIÓN | 
+| id | Plantilla predeterminada | DESCRIPCIÓN |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**: muestra una página de error cuando se produce una excepción o un error. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de selección de proveedor de identidades**: muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
@@ -153,4 +153,4 @@ El id. de atributo del elemento **ContentDefinition** especifica el tipo de pág
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de registro de cuenta de red social**: muestra un formulario que los usuarios necesitan completar al registrarse mediante una cuenta existente de un proveedor de identidades de redes sociales. Esta página es similar a la página anterior de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de actualización de perfil**: muestra un formulario al que pueden acceder los usuarios para actualizar su perfil. Esta página es similar a la página de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página unificada de registro o inicio de sesión**: controla el proceso de registro o inicio de sesión del usuario. Los usuarios pueden utilizar proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
- 
+

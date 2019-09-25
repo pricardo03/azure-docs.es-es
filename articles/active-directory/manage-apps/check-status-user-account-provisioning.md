@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda7654ca2d825ae4112dd06021c7e83ed6867cd
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381245"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033527"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -44,72 +44,32 @@ En este artículo se utilizan los términos que se definen a continuación:
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtención de informes de aprovisionamiento desde Azure Portal
 
-Para obtener información de informes de aprovisionamiento de una aplicación determinada, comience por iniciar [Azure Portal](https://portal.azure.com) e ir a la aplicación empresarial para la que se ha configurado el aprovisionamiento. Por ejemplo, si va a aprovisionar usuarios para LinkedIn Elevate, la ruta de navegación a los detalles de la aplicación es la siguiente:
+Para obtener información de informes de aprovisionamiento de una aplicación determinada, comience por iniciar [Azure Portal](https://portal.azure.com) y **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. También puede ir a la aplicación empresarial para la que está configurado el aprovisionamiento. Por ejemplo, si va a aprovisionar usuarios para LinkedIn Elevate, la ruta de navegación a los detalles de la aplicación es la siguiente:
 
 **Azure Active Directory &gt; Aplicaciones empresariales &gt; Todas las aplicaciones &gt; LinkedIn Elevate**
 
-Desde aquí, puede acceder al informe de resumen de aprovisionamiento y a los registros de auditoría de aprovisionamiento, que se describen a continuación.
+Desde aquí, puede acceder a la barra de progreso de aprovisionamiento y a los registros de aprovisionamiento, que se describen a continuación.
 
-## <a name="provisioning-summary-report"></a>Informe de resumen de aprovisionamiento
+## <a name="provisioning-progress-bar"></a>Barra de progreso de aprovisionamiento
 
-El informe de resumen de aprovisionamiento está visible en la pestaña **Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Detalles de sincronización** debajo de **Configuración** y proporciona la siguiente información:
+La [barra de progreso de aprovisionamiento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) está visible en la **pestaña Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Estado actual** bajo **Configuración**, y muestra el estado del ciclo inicial o incremental actual. En esta sección también se muestra lo siguiente:
 
 * El número total de usuarios y grupos que se han sincronizado y están actualmente en el ámbito para el aprovisionamiento entre el sistema de origen y el sistema de destino.
-* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado una [sincronización inicial](user-provisioning.md#what-happens-during-provisioning).
-* Tanto si ha finalizado una [sincronización inicial](user-provisioning.md#what-happens-during-provisioning) como si no.
+* La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado un [ciclo inicial](user-provisioning.md#what-happens-during-provisioning).
+* Tanto si ha finalizado un [ciclo inicial](user-provisioning.md#what-happens-during-provisioning) como si no.
 * Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (por ejemplo, error al comunicarse con el sistema de destino debido a que las credenciales del administrador no son válidas).
 
-El informe de resumen de aprovisionamiento debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
+El **Estado actual** debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
 
- ![Informe de resumen](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Informe de resumen](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
-## <a name="provisioning-audit-logs"></a>Registros de auditoría de aprovisionamiento
+## <a name="provisioning-logs-preview"></a>Registros de aprovisionamiento (versión preliminar)
 
-Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de auditoría de Azure AD, que pueden verse en la pestaña **Registros de auditoría** en la categoría **Aprovisionamiento de cuentas**. Los tipos de eventos de actividades registradas incluyen:
-
-* **Eventos de importación**: cada vez que el servicio de aprovisionamiento de Azure AD recupera información sobre un usuario individual o un grupo desde un sistema de origen o destino, se registra un evento de "importación". Durante la sincronización, los usuarios se recuperan en primer lugar del sistema de origen, con resultados que se registran como eventos de "importación". Los identificadores de coincidencias de los usuarios recuperados se consultan luego en el sistema de destino para comprobar si existen, con resultados que se registran también como eventos de "importación". Estos eventos registran todos los atributos de usuario asignados y sus valores, vistos por el servicio de aprovisionamiento de Azure AD en el momento del evento.
-* **Eventos de reglas de sincronización**: estos eventos notifican los resultados de las reglas de asignación de atributos y cualquier filtro de ámbito configurado, una vez importados y evaluados los datos de usuario a partir de los sistemas de origen y de destino. Por ejemplo, si se considera que un usuario en un sistema de origen está en el ámbito para el aprovisionamiento y que no existe en el sistema de destino, este evento registra que el usuario se aprovisionará en el sistema de destino.
-* **Eventos de exportación**: cada vez que el servicio de aprovisionamiento de Azure AD escribe una cuenta de usuario o un objeto de grupo para un sistema de destino, se registra un evento de "exportación". Estos eventos registran todos los atributos de usuario y sus valores, escritos por el servicio de aprovisionamiento de Azure AD en el momento del evento. Si se ha producido un error al escribir la cuenta de usuario o el objeto de grupo en el sistema de destino, se mostrará aquí.
-* **Eventos de custodia de procesos**: las custodias de procesos se producen cuando el servicio de aprovisionamiento se encuentra con un error al intentar una operación y comienza a reintentar la operación en un intervalo de tiempo de espera. Cada vez que se reintenta una operación de aprovisionamiento, se registra un evento de "custodia".
-
-Al examinar los eventos de aprovisionamiento para un usuario individual, los eventos se suelen producir en este orden:
-
-1. Evento de importación: el usuario se recupera del sistema de origen.
-1. Evento de importación: se consulta el sistema de destino para comprobar la existencia del usuario recuperado.
-1. Evento de reglas de sincronización: los datos de usuario de los sistemas de origen y de destino se evalúan con las reglas de asignación del atributo configurado y los filtros de ámbito para determinar qué acción, si la hay, debe realizarse.
-1. Evento de exportación: si el evento de reglas de sincronización ha dictado que se debe realizar una acción (agregar, actualizar o eliminar), los resultados de la acción se registran en un evento de exportación.
-
-   ![Ejemplo: Página de registro de auditoría que muestra las actividades y el estado](./media/check-status-user-account-provisioning/audit_logs.PNG)
-
-### <a name="looking-up-provisioning-events-for-a-specific-user"></a>Búsqueda de eventos de aprovisionamiento para un usuario específico
-
-El caso de uso más común para los registros de auditoría de aprovisionamiento es comprobar el estado de aprovisionamiento de una cuenta de usuario individual. Para buscar eventos de aprovisionamiento para un usuario específico:
-
-1. Vaya a la sección **Registros de auditoría**.
-1. En el menú **Categoría**, seleccione **Aprovisionamiento de cuentas**.
-1. En el menú **Intervalo de fechas**, seleccione el intervalo de fechas que va a buscar.
-1. En la barra **Buscar** barra, escriba el identificador del usuario que va a buscar. El formato del valor del identificador debe coincidir con el que ha seleccionado como identificador de coincidencia principal en la configuración de asignación de atributos (por ejemplo, userPrincipalName o número de Id. de empleado). El valor del identificador requerido estará visible en la columna Destinos.
-1. Presione Entrar para buscar. Se devuelven en primer lugar los eventos de aprovisionamiento más recientes.
-1. Si se devuelven eventos, tenga en cuenta los tipos de actividad y si se han realizado correctamente o no. Si no se devuelve ningún resultado, significa que el usuario no existe o que no ha sido detectado por el proceso de aprovisionamiento si no se ha realizado aún una sincronización completa.
-1. Haga clic en los eventos individuales para ver detalles ampliados, incluidas todas las propiedades de usuario que se han recuperado, evaluado o escrito como parte del evento.
-
-Para ver una demostración sobre cómo usar los registros de auditoría, vea el vídeo siguiente. Los registros de auditoría se muestran alrededor del minuto 5:30:
-
-> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
-
-### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Sugerencias para ver los registros de auditoría de aprovisionamiento
-
-Para optimizar la legibilidad en Azure Portal, seleccione el botón **Columnas** y elija estas columnas:
-
-* **Fecha**: muestra la fecha en la que se ha producido el evento.
-* **Destinos**: muestra el identificador de usuario y el nombre de aplicación que son los temas del evento.
-* **Actividad**: el tipo de actividad, tal como se ha descrito anteriormente.
-* **Estado**: indica si el evento se ha realizado correctamente o no.
-* **Motivo del estado**: resumen de lo que ha sucedido en el evento de aprovisionamiento.
+Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Los tipos de eventos de actividades registradas incluyen:
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-El informe de resumen de aprovisionamiento y los registros de auditoría desempeñan un papel clave a la hora de ayudar a los administradores a solucionar diversos problemas de aprovisionamiento de cuentas de usuario.
+El informe de resumen de aprovisionamiento y los registros de aprovisionamiento desempeñan un papel clave a la hora de ayudar a los administradores a solucionar diversos problemas de aprovisionamiento de cuentas de usuario.
 
 Para ver instrucciones basadas en escenarios sobre cómo solucionar problemas de aprovisionamiento automático de usuarios, consulte [Problemas al configurar y aprovisionar usuarios en una aplicación](application-provisioning-config-problem.md).
 

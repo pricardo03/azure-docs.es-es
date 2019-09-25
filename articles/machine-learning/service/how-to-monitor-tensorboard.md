@@ -1,6 +1,6 @@
 ---
 title: Visualización de experimentos con TensorBoard
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Inicie TensorBoard para visualizar los historiales de ejecución de los experimentos e identificar posibles áreas para el ajuste y el reentrenamiento de hiperparámetros.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856071"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034331"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
 
-En este artículo, obtendrá información sobre cómo ver las métricas y ejecuciones de los experimentos en TensorBoard mediante [el paquete `tensorboard`](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) del SDK principal de Azure Machine Learning Service. Una vez que haya inspeccionado las ejecuciones de sus experimentos, puede ajustar y reentrenar mejor sus modelos de Machine Learning.
+En este artículo, obtendrá información sobre cómo ver las métricas y ejecuciones de los experimentos en TensorBoard mediante [el paquete `tensorboard`](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) del SDK principal de Azure Machine Learning. Una vez que haya inspeccionado las ejecuciones de sus experimentos, puede ajustar y reentrenar mejor sus modelos de Machine Learning.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) es un conjunto de aplicaciones web para inspeccionar y comprender el rendimiento y la estructura de sus experimentos.
 
@@ -43,7 +43,7 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 
     * Su propio servidor de Jupyter Notebook
           * [Instalar el SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) con el elemento `tensorboard` adicional
-          * [Cree un área de trabajo del servicio Azure Machine Learning](how-to-manage-workspace.md).  
+          * [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).  
           * [Cree un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
@@ -71,7 +71,7 @@ if not path.exists(exp_dir):
 
 ### <a name="download-tensorflow-demo-experiment-code"></a>Descarga del código del experimento de demostración de TensorFlow
 
-El repositorio de TensorFlow tiene una demostración MNIST con una amplia instrumentación de TensorBoard. No modificamos nada de este código de demostración (y tampoco es necesario hacerlo) para que funcione con Azure Machine Learning Service. En el código siguiente, descargamos el código MNIST y lo guardamos en la carpeta recién creada del experimento.
+El repositorio de TensorFlow tiene una demostración MNIST con una amplia instrumentación de TensorBoard. No modificamos nada de este código de demostración (y tampoco es necesario hacerlo) para que funcione con Azure Machine Learning. En el código siguiente, descargamos el código MNIST y lo guardamos en la carpeta recién creada del experimento.
 
 ```python
 import requests

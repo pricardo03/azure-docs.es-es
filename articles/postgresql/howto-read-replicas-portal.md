@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: bd1317242f84b4d8bd039da89d991a73f6cd3781
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309306"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995451"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Cree y administre mediante Azure Portal réplicas de lectura en el servicio Azure Database for PostgreSQL: servidor único.
 
@@ -179,4 +179,4 @@ La métrica **Replica Lag** (Retraso entre réplicas) muestra el tiempo desde la
  
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre las [réplicas de lectura en Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Aprenda a [crear y administrar réplicas de lectura en la CLI de Azure](howto-read-replicas-cli.md).
+* Aprenda a [crear y administrar réplicas de lectura en la CLI de Azure y con API REST](howto-read-replicas-cli.md).

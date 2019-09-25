@@ -10,18 +10,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227227"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066181"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Cuando se usa Azure Active Directory (Azure AD) B2C junto con Azure Application Insights, se pueden obtener registros de eventos detallados y personalizados para los recorridos de usuario. En este artículo, aprenderá a:
+Cuando se usa Azure Active Directory B2C (Azure AD B2C) junto con Azure Application Insights, se pueden obtener registros de eventos detallados y personalizados de los recorridos del usuario. En este artículo, aprenderá a:
 
 * Obtener información detallada sobre el comportamiento del usuario.
 * Solucionar problemas con sus propias directivas durante la fase de desarrollo o producción.
@@ -45,7 +45,7 @@ Realice los pasos del artículo [Introducción a las directivas personalizadas](
 Cuando usa Application Insights con Azure AD B2C, todo lo que necesita hacer es crear un recurso y obtener la clave de instrumentación.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de usar el directorio que contiene la suscripción de Azure. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción. Este inquilino no es el inquilino de Azure AD B2C.
+2. Asegúrese de usar el directorio que contiene la suscripción de Azure. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción. Este inquilino no es el inquilino de Azure AD B2C.
 3. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal y, a continuación, busque y seleccione **Application Insights**.
 4. Haga clic en **Create**(Crear).
 5. En **Nombre**, escriba un nombre para el recurso.
@@ -111,10 +111,10 @@ Los perfiles técnicos pueden considerarse funciones en el Marco de experiencia 
 
 | Perfil técnico | Tarea |
 | ----------------- | -----|
-| AzureInsights-Common | Crea un conjunto común de parámetros que se incluirán en todos los perfiles técnicos de AzureInsights. | 
-| AzureInsights-SignInRequest | Crea un evento de inicio de sesión con un conjunto de notificaciones cuando se ha recibido una solicitud de inicio de sesión. | 
-| AzureInsights-UserSignup | Crea un evento UserSignup cuando el usuario activa la opción de inicio de sesión en un recorrido de inicio de sesión y registro. | 
-| AzureInsights-SignInComplete | Registra la finalización correcta de una autenticación cuando se ha enviado un token a la aplicación de usuario de confianza. | 
+| AzureInsights-Common | Crea un conjunto común de parámetros que se incluirán en todos los perfiles técnicos de AzureInsights. |
+| AzureInsights-SignInRequest | Crea un evento de inicio de sesión con un conjunto de notificaciones cuando se ha recibido una solicitud de inicio de sesión. |
+| AzureInsights-UserSignup | Crea un evento UserSignup cuando el usuario activa la opción de inicio de sesión en un recorrido de inicio de sesión y registro. |
+| AzureInsights-SignInComplete | Registra la finalización correcta de una autenticación cuando se ha enviado un token a la aplicación de usuario de confianza. |
 
 Agregue los perfiles al archivo *TrustFrameworkExtensions.xml* desde el módulo de inicio. Agregue estos elementos al elemento **ClaimsProviders**:
 
@@ -230,11 +230,11 @@ Cargue el archivo *TrustFrameworkExtensions.xml*. Luego, llame a la directiva de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Agregue tipos de notificación y eventos a su recorrido del usuario según sus necesidades. Puede usar [solucionadores de notificaciones](claim-resolver-overview.md) o cualquier tipo de notificación de cadena y agregar las notificaciones mediante la incorporación de un elemento **Notificación de entrada** al evento de Application Insights o al perfil técnico AzureInsights-Common. 
+Agregue tipos de notificación y eventos a su recorrido del usuario según sus necesidades. Puede usar [solucionadores de notificaciones](claim-resolver-overview.md) o cualquier tipo de notificación de cadena y agregar las notificaciones mediante la incorporación de un elemento **Notificación de entrada** al evento de Application Insights o al perfil técnico AzureInsights-Common.
 
 - **ClaimTypeReferenceId** es la referencia a un tipo de notificación.
-- **PartnerClaimType** es el nombre de la propiedad que aparece en Azure Insights. Use la sintaxis de `{property:NAME}`, donde `NAME` es la propiedad que se agrega al evento. 
-- **DefaultValue** usa cualquier valor de cadena o el solucionador de notificaciones. 
+- **PartnerClaimType** es el nombre de la propiedad que aparece en Azure Insights. Use la sintaxis de `{property:NAME}`, donde `NAME` es la propiedad que se agrega al evento.
+- **DefaultValue** usa cualquier valor de cadena o el solucionador de notificaciones.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

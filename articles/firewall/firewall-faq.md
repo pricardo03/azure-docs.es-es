@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114773"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018845"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -129,11 +129,9 @@ Azure Firewall no aplica SNAT cuando la dirección IP de destino es un interval
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se admite la tunelización o encadenamiento forzados a una aplicación virtual de red?
 
-La tunelización forzada no se admite de forma predeterminada, pero se puede habilitar con la ayuda del soporte técnico.
+La tunelización forzada no se admite actualmente. Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
 
-Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet. De forma predeterminada, Azure Firewall no admite la tunelización forzada a una red local.
-
-Sin embargo, si la configuración requiere la tunelización forzada a una red local, Microsoft proporcionará soporte según el caso. Póngase en contacto con soporte técnico para que podamos revisar su caso. Si acepta, permitiremos su suscripción y nos aseguraremos de que se mantenga la conectividad del firewall a Internet requerida.
+Si la configuración requiere tunelización forzada a una red local y puede determinar los prefijos de las direcciones IP de destino de los destinos de Internet, puede configurar estos intervalos con la red local como el próximo salto mediante una ruta definida por el usuario en AzureFirewallSubnet. O bien, puede usar BGP para definir estas rutas.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 
@@ -150,6 +148,9 @@ Si configura * **.contoso.com**, permite *cualquiervalor*.contoso.com, pero no c
 ## <a name="what-does-provisioning-state-failed-mean"></a>¿Qué significa *Estado de aprovisionamiento: error*?
 
 Cada vez que se aplique un cambio de configuración, Azure Firewall intenta actualizar todas sus instancias de back-end subyacentes. En raras ocasiones, una de estas instancias de back-end puede producir un error al actualizar con la nueva configuración y el proceso de actualización se detiene con un estado de aprovisionamiento con error. Azure Firewall todavía está operativo, pero es posible que la configuración aplicada se encuentre en un estado incoherente, donde algunas instancias tienen la configuración anterior y otras tienen el conjunto de reglas actualizado. Si esto sucede, intente actualizar la configuración una vez más, hasta que la operación se realice correctamente y el firewall se encuentre en un estado de aprovisionamiento *Correcto*.
+
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>¿Cómo controla Azure Firewall el mantenimiento planeado y los errores no planeados?
+Azure Firewall consta de varios nodos de back-end en una configuración activo-activo.  Para cualquier mantenimiento planeado, se dispone de lógica de purga de la conexión para actualizar los nodos correctamente.  Las actualizaciones se planean durante el horario no comercial de cada una de las regiones de Azure para limitar aún más el riesgo de interrupción.  Si surgen problemas imprevistos, se crea una instancia de un nuevo nodo para reemplazar el nodo con errores.  Normalmente, la conectividad con el nuevo nodo se restablece en 10 segundos desde el momento en que se produjo el error.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>¿Hay un límite de caracteres para un nombre de firewall?
 

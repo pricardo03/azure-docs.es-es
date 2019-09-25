@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617106"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018272"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servicio de contenido desde Azure Storage en App Service en Linux
 
-En esta guía se muestra cómo servir contenido estático en App Service en Linux mediante [Azure Storage](/azure/storage/common/storage-introduction). Entre las ventajas se incluye protección y portabilidad del contenido, acceso a varias aplicaciones y varios métodos de transferencia.
+En esta guía se muestra cómo servir contenido estático en App Service en Linux mediante [Azure Storage](/azure/storage/common/storage-introduction). Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

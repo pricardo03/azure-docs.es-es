@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68c235f32d003adcddecb98c20f30c517c723617
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723949"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033335"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -111,18 +111,18 @@ Use el portal de Azure Active Directory para configurar el servicio de una aplic
 
    - La opción **Configuración** controla el funcionamiento del servicio de aprovisionamiento de una aplicación, incluso si se está ejecutando. El menú **Ámbito** permite especificar si solo los usuarios y grupos asignados deben incluirse en el ámbito para el aprovisionamiento, o si se deben aprovisionar todos los usuarios en el directorio de Azure AD. Para obtener más información sobre la "asignación" de usuarios y grupos, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](assign-user-or-group-access-portal.md).
 
-En la pantalla de administración de la aplicación, seleccione **Registros de auditoría** para ver los registros de cada operación que el servicio de aprovisionamiento de Azure AD ejecuta. Para obtener más información, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
+En la pantalla de administración de la aplicación, seleccione **Registros de aprovisionamiento (versión preliminar)** para ver los registros de cada operación que el servicio de aprovisionamiento de Azure AD ejecuta. Para obtener más información, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
 
-![Ejemplo: pantalla Registros de auditoría para una aplicación](./media/user-provisioning/audit_logs.PNG)
+![Ejemplo: pantalla de registros de aprovisionamiento para una aplicación](./media/user-provisioning/audit_logs.PNG)
 
 > [!NOTE]
 > El servicio de aprovisionamiento de usuarios de Azure AD también se puede configurar y administrar mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
 ## <a name="what-happens-during-provisioning"></a>¿Qué ocurre durante el aprovisionamiento?
 
-Si Azure AD es el sistema de origen, el servicio de aprovisionamiento usa la [característica de consulta diferencial de Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) para supervisar usuarios y grupos. El servicio de aprovisionamiento ejecuta una sincronización con el sistema de origen y el sistema de destino, seguida de sincronizaciones incrementales periódicas.
+Si Azure AD es el sistema de origen, el servicio de aprovisionamiento usa la [característica de consulta diferencial de Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) para supervisar usuarios y grupos. El servicio de aprovisionamiento ejecuta un ciclo inicial en el sistema de origen y el sistema de destino, seguido de ciclos incrementales periódicos.
 
-### <a name="initial-sync"></a>Sincronización inicial
+### <a name="initial-cycle"></a>Ciclo inicial
 
 Cuando se inicia el servicio de aprovisionamiento, la primera sincronización ejecutada será así:
 
@@ -132,13 +132,13 @@ Cuando se inicia el servicio de aprovisionamiento, la primera sincronización ej
 1. Si no se encuentra un usuario coincidente en el sistema de destino, se crea mediante los atributos que devuelve el sistema de origen. Una vez que se crea la cuenta de usuario, el servicio de aprovisionamiento detecta y almacena en caché el identificador del sistema de destino del nuevo usuario, que se usa para ejecutar todas las futuras operaciones en dicho usuario.
 1. Si se encuentra un usuario coincidente, se actualiza mediante los atributos que proporciona el sistema de origen. Una vez que la cuenta de usuario coincide, el servicio de aprovisionamiento detecta y almacena en caché el identificador del sistema de destino del nuevo usuario, que se usa para ejecutar todas las futuras operaciones en dicho usuario.
 1. Si las asignaciones de atributos contienen atributos de "referencia", el servicio realiza actualizaciones adicionales en el sistema de destino para crear y vincular los objetos a los que se hace referencia. Por ejemplo, un usuario puede tener un atributo "Administrador" en el sistema de destino, que está vinculado a otro usuario creado en el sistema de destino.
-1. Se conserva una marca de agua al final de la sincronización inicial, que proporciona el punto de partida para las sincronizaciones incrementales posteriores.
+1. Se conserva una marca de agua al final del ciclo inicial, que proporciona el punto de partida para los ciclos incrementales posteriores.
 
 Algunas aplicaciones, como ServiceNow, G Suite y Box no solo admiten el aprovisionamiento de usuarios, sino también el de los grupos y sus miembros. En esos casos, si el aprovisionamiento de grupos está habilitado en las [asignaciones](customize-application-attributes.md), el servicio de aprovisionamiento sincroniza los usuarios y los grupos, y luego las pertenencias del grupo.
 
-### <a name="incremental-syncs"></a>Sincronizaciones incrementales
+### <a name="incremental-cycles"></a>Ciclos incrementales
 
-Después de la sincronización inicial, todas las demás sincronizaciones harán lo siguiente:
+Después del ciclo inicial, todos los demás ciclos harán lo siguiente:
 
 1. Se consulta el sistema de origen de los usuarios y grupos que se actualizaron desde la última marca de agua almacenada.
 1. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](assign-user-or-group-access-portal.md) o [filtro de ámbito basado en atributos](define-conditional-rules-for-provisioning-user-accounts.md) configurados.
@@ -149,21 +149,21 @@ Después de la sincronización inicial, todas las demás sincronizaciones harán
 1. Si un usuario que estaba anteriormente en ámbito del aprovisionamiento se quita del ámbito (lo que incluye estar sin asignar), el servicio deshabilita al usuario en el sistema de destino mediante una actualización.
 1. Si un usuario que estaba anteriormente en ámbito del aprovisionamiento se deshabilita o se elimina temporalmente en el sistema de origen, el servicio deshabilita al usuario en el sistema de destino mediante una actualización.
 1. Si un usuario que estaba anteriormente en ámbito del aprovisionamiento se elimina permanentemente en el sistema de origen, el servicio elimina al usuario en el sistema de destino. En Azure AD, los usuarios se eliminan permanentemente 30 días después de que se hayan eliminado temporalmente.
-1. Se conserva una nueva marca de agua al final de la sincronización incremental, que proporciona el punto de partida para las sincronizaciones incrementales posteriores.
+1. Se conserva una nueva marca de agua al final del ciclo incremental, que proporciona el punto de partida para los ciclos incrementales posteriores.
 
 > [!NOTE]
 > Opcionalmente, puede deshabilitar las operaciones **Crear**, **Actualizar** o **Eliminar** mediante las casillas **Acciones del objeto de destino** de la sección [Asignaciones](customize-application-attributes.md). La lógica para deshabilitar un usuario durante una actualización también se controla mediante una asignación de atributos desde un campo como "accountEnabled".
 
-El servicio de aprovisionamiento sigue ejecutando sincronizaciones incrementales opuestas de manera indefinida, según intervalos definidos en el [tutorial específico de cada aplicación](../saas-apps/tutorial-list.md), hasta que se produzca uno de los siguientes eventos:
+El servicio de aprovisionamiento sigue ejecutando ciclos incrementales opuestos de manera indefinida, según intervalos definidos en el [tutorial específico de cada aplicación](../saas-apps/tutorial-list.md), hasta que se produzca uno de los siguientes eventos:
 
 - El servicio se detiene manualmente mediante Azure Portal o por medio del comando de Graph API adecuado. 
-- Se desencadena una nueva sincronización inicial mediante la opción **Clear state and restart** (Borrar estado y reiniciar) de Azure Portal o por medio del comando de Graph API adecuado. Esta acción también borra cualquier marca de agua almacenada y hace que todos los objetos de origen se evalúen de nuevo.
-- Se desencadena una nueva sincronización inicial debido a un cambio en las asignaciones de atributos o los filtros de ámbito. Esta acción también borra cualquier marca de agua almacenada y hace que todos los objetos de origen se evalúen de nuevo.
+- Se desencadena un nuevo ciclo inicial mediante la opción **Clear state and restart** (Borrar estado y reiniciar) de Azure Portal o por medio del comando de Graph API adecuado. Esta acción también borra cualquier marca de agua almacenada y hace que todos los objetos de origen se evalúen de nuevo.
+- Se desencadena un nuevo ciclo inicial debido a un cambio en las asignaciones de atributos o los filtros de ámbito. Esta acción también borra cualquier marca de agua almacenada y hace que todos los objetos de origen se evalúen de nuevo.
 - El proceso de aprovisionamiento entra en cuarentena (ver a continuación) debido a una alta tasa de errores y permanece en cuarentena durante más de cuatro semanas. En este caso, el servicio se deshabilita automáticamente.
 
 ### <a name="errors-and-retries"></a>Errores y reintentos
 
-Si un usuario individual no se puede agregar, actualizar o eliminar en el sistema de destino debido a un error en dicho sistema, la operación se reintenta en el siguiente ciclo de sincronización. Si el error continúa, los reintentos comienzan a producirse según una frecuencia reducida y disminuyen gradualmente hasta un solo intento al día. Para resolver el error, los administradores deben comprobar los [registros de auditoría](check-status-user-account-provisioning.md) en busca de eventos de "custodia de proceso" para determinar la causa y realizar la acción apropiada. Algunos errores comunes son:
+Si un usuario individual no se puede agregar, actualizar o eliminar en el sistema de destino debido a un error en dicho sistema, la operación se reintenta en el siguiente ciclo de sincronización. Si el error continúa, los reintentos comienzan a producirse según una frecuencia reducida y disminuyen gradualmente hasta un solo intento al día. Para resolver el error, los administradores deben comprobar los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) para determinar la causa principal y realizar la acción apropiada. Algunos errores comunes son:
 
 - Usuarios que no tienen relleno un atributo en el sistema de origen que es necesario en el sistema de destino
 - Usuarios que tienen un valor de atributo en el sistema de origen para el que existe una restricción única en el sistema de destino, y el mismo valor está presente en otro registro de usuario
@@ -174,7 +174,7 @@ Estos errores pueden resolverse mediante el ajuste de los valores de atributo de
 
 Si todas o la mayoría de las llamadas realizadas al sistema de destino no tienen éxito sistemáticamente debido a un error (como en el caso de credenciales de administrador no válidas), el trabajo de aprovisionamiento entra en estado de "cuarentena". Este estado se indica en el [informe de resumen de aprovisionamiento](check-status-user-account-provisioning.md) y por correo electrónico si se han configurado las notificaciones por correo electrónico en Azure Portal.
 
-En cuarentena, la frecuencia de las sincronizaciones incrementales se reduce gradualmente a una vez al día.
+En cuarentena, la frecuencia de los ciclos incrementales se reduce gradualmente a una vez al día.
 
 El trabajo de aprovisionamiento se quita de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita.
 
@@ -184,9 +184,9 @@ El rendimiento depende de si el trabajo de aprovisionamiento ejecuta un ciclo de
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>¿Cómo puedo saber si los usuarios se aprovisionan correctamente?
 
-Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los registros de auditoría de Azure AD. Esto incluye todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación.
+Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Esto incluye todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación.
 
-Para obtener información sobre cómo leer los registros de auditoría en Azure Portal, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
+Para obtener información sobre cómo leer los registros de aprovisionamiento en Azure Portal, consulte la [guía de informes de aprovisionamiento](check-status-user-account-provisioning.md).
 
 ## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>¿Cómo resolver problemas con el aprovisionamiento de usuarios?
 

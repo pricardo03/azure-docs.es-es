@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/18/2019
+ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067381"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091117"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registros de servidor en Azure Database for PostgreSQL con un único servidor
 Azure Database for PostgreSQL genera registros de errores y consultas. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. (No se incluye acceso a los registros de transacciones). 
@@ -28,10 +28,19 @@ Si ha habilitado los registros, puede acceder a ellos desde el almacenamiento de
 
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede optar por hacer que se emitan a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de procedimientos de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede optar por hacer que se emitan a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. 
 
 > [!IMPORTANT]
-> Esta función de diagnóstico para registros de servidor solo está disponibles en los [planes de tarifa](concepts-pricing-tiers.md) de uso general y optimizados para memoria.
+> Esta característica de diagnóstico para registros de servidor solo está disponible en los [planes de tarifa](concepts-pricing-tiers.md) de uso general y optimizados para memoria.
+
+Para habilitar los registro de diagnóstico desde Azure Portal:
+
+   1. En el portal, vaya a *Configuración de diagnóstico*  en el menú de navegación del servidor de Postgres.
+   2. Seleccione *Agregar configuración de diagnóstico*.
+   3. Asigne un nombre a esta configuración. 
+   4. Seleccione su ubicación de nivel inferior preferida (cuenta de almacenamiento, centro de eventos o análisis de registros). 
+   5. Seleccione los tipos de datos que desee.
+   6. Guarde la configuración.
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del punto de conexión de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen. 
 
@@ -40,7 +49,7 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | TenantId | El identificador de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Marca de tiempo de cuando se grabó el registro en UTC |
-| Type | Tipo del registro. Siempre `AzureDiagnostics` |
+| type | Tipo del registro. Siempre `AzureDiagnostics` |
 | SubscriptionId | GUID de la suscripción a la que pertenece el servidor |
 | ResourceGroup | Nombre del grupo de recursos al que pertenece el servidor |
 | ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -58,6 +67,9 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | DatatypeName | Nombre del tipo de datos (si procede) |
 | LogicalServerName | Nombre del servidor | 
 | _ResourceId | URI de recurso |
+| Prefijo | Prefijo de la línea de registro |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre el acceso a los registros desde [Azure Portal](howto-configure-server-logs-in-portal.md) o la [CLI de Azure](howto-configure-server-logs-using-cli.md).

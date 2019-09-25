@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767156"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983400"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 
@@ -35,7 +35,7 @@ Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUser
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Las invitaciones se han deshabilitado para el directorio
 
-Si recibe una notificación de que no tiene permisos para invitar a usuarios, vaya a User Settings (Configuración de usuario) y compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos.
+Si recibe una notificación de que no tiene permisos para invitar a usuarios, vaya a Azure Active Directory > Configuración de usuario > Usuarios externos > Administrar la configuración de la colaboración externa y compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos.
 
 ![Captura de pantalla que muestra la configuración de los usuarios externos](media/troubleshoot/external-user-settings.png)
 

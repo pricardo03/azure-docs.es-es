@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 391ad5c6535d457c2df988cd29d21e481310b17f
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061760"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018164"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -105,12 +105,12 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 5: el servicio Backup no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos** <br>
 **Causa 6: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095-gb"></a>UserErrorUnsupportedDiskSize: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB.
+## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize: el tamaño de disco configurado no es compatible actualmente con Azure Backup.
 
 **Código de error**: UserErrorUnsupportedDiskSize <br>
-**Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 4095 GB. <br>
+**Mensaje de error**: El tamaño de disco configurado no es compatible actualmente con Azure Backup. <br>
 
-La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de una máquina virtual con un tamaño de disco superior a 4095 GB. Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de gran tamaño (de más de 4 TB y hasta un máximo de 30 TB), consulte este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+La operación de copia de seguridad podría generar un error cuando se realiza una copia de seguridad de una máquina virtual con un tamaño de disco superior a 30 TB. Además, actualmente no se admite la copia de seguridad de discos cifrados con un tamaño superior a 4 TB. Para asegurarse de que el tamaño de disco sea inferior o igual al límite admitido, divida los discos.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 
@@ -122,12 +122,10 @@ El trabajo de copia de seguridad reciente no se pudo completar porque hay un tra
 1. Inicie sesión en Azure Portal y haga clic en **Todos los servicios**. Escriba Recovery Services y haga clic en **Almacenes de Recovery Services**. Aparece la lista de almacenes de Servicios de recuperación.
 2. En la lista de almacenes de Recovery Services, seleccione un almacén donde esté configurada la copia de seguridad.
 3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
-
-- Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
-  - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
-  - Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-
+   - Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
+     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
+     - Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 4. Reintente la operación de copia de seguridad.
 
 Si la operación de copia de seguridad programada tarda más, generando un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -156,8 +154,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 4. Descargue e instale la [versión más reciente del MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
 5. Compruebe que el servicio de agente de invitado de Microsoft Azure aparece en los servicios.
 6. Ejecute un trabajo de copia de seguridad a petición:
-
-- En el portal, seleccione **Crear copia de seguridad ahora**.
+   - En el portal, seleccione **Crear copia de seguridad ahora**.
 
 Además, compruebe que [Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) está instalado en la máquina virtual, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
 

@@ -1,7 +1,7 @@
 ---
 title: Ajuste de los hiperparámetros de un modelo
-titleSuffix: Azure Machine Learning service
-description: Ajuste de forma eficaz los hiperparámetros de su modelo de aprendizaje profundo o aprendizaje automático mediante el servicio Azure Machine Learning. Aprenderá cómo definir el espacio de búsqueda de parámetros, especificar una métrica principal para optimizar y terminar anticipadamente las series de bajo rendimiento.
+titleSuffix: Azure Machine Learning
+description: Ajuste de forma eficaz los hiperparámetros de su modelo de aprendizaje profundo o aprendizaje automático mediante Azure Machine Learning. Aprenderá cómo definir el espacio de búsqueda de parámetros, especificar una métrica principal para optimizar y terminar anticipadamente las series de bajo rendimiento.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873065"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999387"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning Service
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning
 
-Ajuste de forma eficaz los hiperparámetros de un modelo mediante el servicio Azure Machine Learning.  El ajuste de hiperparámetros incluye los siguientes pasos:
+Ajuste de forma eficaz los hiperparámetros de un modelo mediante Azure Machine Learning.  El ajuste de hiperparámetros incluye los siguientes pasos:
 
 * Definir el espacio de búsqueda de parámetros
 * Especificar una métrica principal para optimizar  
@@ -94,7 +94,7 @@ Este código define un espacio de búsqueda con dos parámetros: `learning_rate`
 
 ### <a name="sampling-the-hyperparameter-space"></a>Muestreo del espacio de hiperparámetros
 
-También puede especificar el método de muestreo de parámetros que se usará durante la definición del espacio de hiperparámetros. El servicio Azure Machine Learning admite muestreo aleatorio, muestreo de cuadrícula y muestreo bayesiano.
+También puede especificar el método de muestreo de parámetros que se usará durante la definición del espacio de hiperparámetros. Azure Machine Learning admite muestreo aleatorio, muestreo de cuadrícula y muestreo bayesiano.
 
 #### <a name="random-sampling"></a>Muestreo aleatorio
 
@@ -186,7 +186,7 @@ Cuando se usa una directiva de terminación anticipada, puede configurar los sig
 * `evaluation_interval`: la frecuencia con que se aplica la directiva. Cada vez que el script de entrenamiento registra la métrica principal se considera un intervalo. Por lo tanto, un parámetro `evaluation_interval` de 1 aplicará la directiva cada vez que el script de entrenamiento notifique la métrica principal. Un parámetro `evaluation_interval` de 2 aplicará la directiva las demás veces que el script de entrenamiento notifique la métrica principal. Si no se especifica, `evaluation_interval` está establecido como 1 de forma predeterminada.
 * `delay_evaluation`: retrasa la primera evaluación de la directiva un número especificado de intervalos. Es un parámetro opcional que permite que todas las configuraciones se ejecuten durante un número mínimo inicial de intervalos, lo que evita la terminación prematura de series de entrenamientos. Si se especifica, la directiva aplica cada múltiplo de evaluation_interval que sea mayor o igual que delay_evaluation.
 
-El servicio Azure Machine Learning admite las siguientes directivas de terminación anticipada.
+Azure Machine Learning admite las siguientes directivas de terminación anticipada.
 
 ### <a name="bandit-policy"></a>Directiva de bandidos
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` es el nombre que quiere asignar a su experimento de ajuste de hiperparámetros y `workspace` es el área de trabajo en la que quiere crear el experimento (para más información sobre los experimentos, consulte [¿Cómo funciona el servicio Azure Machine Learning?](concept-azure-machine-learning-architecture.md)).
+`experiment_name` es el nombre que quiere asignar a su experimento de ajuste de hiperparámetros y `workspace` es el área de trabajo en la que quiere crear el experimento (para más información sobre los experimentos, consulte [¿Cómo funciona Azure Machine Learning?](concept-azure-machine-learning-architecture.md)).
 
 ## <a name="visualize-experiment"></a>Visualización del experimento
 

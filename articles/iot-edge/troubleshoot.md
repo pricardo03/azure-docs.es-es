@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 61c75c011ce25c3c7238ec75cf5ed579e677531f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707082"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091373"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -212,12 +212,14 @@ Registros de ejemplo de edgeAgent:
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 Una configuración de redes en la red del host evita que el agente de IoT Edge alcance la red. El agente intentará conectarse en primer lugar a través de AMQP (puerto 5671). Si se produce un error en la conexión, lo intentará mediante los protocolos WebSocket (puerto 443).
 
 El entorno de ejecución de IoT Edge configura una red para cada uno de los módulos en los que se comunica. En Linux, esta red es una red de puente. En Windows, se usa NAT. Este problema es más frecuente en los dispositivos de Windows que usan contenedores de Windows que usan la red NAT. 
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 Asegúrese de que hay una ruta a Internet para las direcciones IP asignadas a esta red de puente o NAT. A veces, una configuración de VPN en el host invalida la red de IoT Edge. 
 
 ## <a name="iot-edge-hub-fails-to-start"></a>No se puede iniciar el centro de IoT Edge
@@ -231,19 +233,23 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 Algún otro proceso del equipo host se ha enlazado con el puerto 443. El centro de IoT Edge asigna los puertos 5671 y 443 para su uso en escenarios de puerta de enlace. Se producirá un error en la asignación de puertos si hay algún otro proceso enlazado con este puerto. 
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 Busque y detenga el proceso que está utilizando el puerto 443. Este proceso suele ser un servidor web.
 
 ## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>El agente de IoT Edge no puede acceder a la imagen de un módulo (403)
 No se puede ejecutar un contenedor y los registros de edgeAgent muestran un error 403. 
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 El agente de IoT Edge no tiene permisos para acceder a la imagen de un módulo. 
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 Asegúrese de que las credenciales del registro se hayan especificado correctamente en el manifiesto de implementación.
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>Error de nombre de host no válido del demonio de seguridad de IoT Edge
@@ -254,10 +260,12 @@ El comando `sudo journalctl -u iotedge` produce un error e imprime el mensaje si
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 El tiempo de ejecución de IoT Edge solo puede admitir los nombres de host que tienen menos de 64 caracteres. Las máquinas físicas no suelen tener nombres de host largos, pero el problema es más común en una máquina virtual. Los nombres de host generados automáticamente para las máquinas virtuales Windows hospedadas en Azure, en particular, suelen ser largos. 
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquina virtual y, a continuación, estableciendo el nombre DNS como nombre de host en el comando de configuración.
 
 1. En Azure Portal, navegue a la hoja de introducción de la máquina virtual. 
@@ -284,10 +292,12 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
 ## <a name="stability-issues-on-resource-constrained-devices"></a>Problemas de estabilidad en dispositivos con recursos limitados 
 Es posible que encuentre problemas de estabilidad en dispositivos restringidos como Raspberry Pi, especialmente cuando se utiliza como puerta de enlace. Los síntomas incluyen excepciones de memoria insuficiente en el módulo del concentrador perimetral, los dispositivos de nivel inferior no pueden conectarse o el dispositivo deja de enviar mensajes de telemetría después de unas horas.
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 El centro de IoT Edge, que forma parte del runtime de IoT Edge, está optimizado para el rendimiento de manera predeterminada e intenta asignar grandes fragmentos de memoria. Esta optimización no es ideal para dispositivos con perímetro limitado y puede causar problemas de estabilidad.
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 En el centro de IoT Edge, establezca una variable de entorno **OptimizeForPerformance** en **false**. Existen dos formas de hacerlo:
 
 En la interfaz de usuario: 
@@ -316,10 +326,12 @@ En el manifiesto de implementación:
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>No se obtienen los registros del demonio de IoT Edge en Windows
 Si aparece EventLogException al usar`Get-WinEvent` en Windows, compruebe las entradas del registro.
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 El comando de PowerShell `Get-WinEvent` se basa en que esté presente una entrada del Registro para encontrar los registros por un elemento `ProviderName` concreto.
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 Establezca una entrada del registro para el demonio de IoT Edge. Cree un archivo **iotedge.reg** con el siguiente contenido e impórtelo en el Registro de Windows haciendo doble clic en él o mediante el comando `reg import iotedge.reg`:
 
 ```
@@ -339,10 +351,12 @@ El módulo de IoT Edge personalizado no puede enviar un mensaje a edgeHub y se p
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-### <a name="root-cause"></a>Causa principal
+**Causa principal**
+
 El demonio de IoT Edge aplica la identificación de proceso para todos los módulos que se conectan a edgeHub por motivos de seguridad. Comprueba que todos los mensajes enviados por un módulo proceden del identificador de proceso principal del módulo. Si un módulo envía un mensaje desde un identificador de proceso diferente del que se estableció inicialmente, se rechazará el mensaje y se generará el mensaje de error 404.
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 A partir de la versión 1.0.7, todos los procesos de módulo tienen autorización para conectarse. Si no es posible actualizar a la versión 1.0.7, realice los pasos siguientes. Para más información, consulte el [registro de cambios de la versión v1.1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
 Asegúrese de que el módulo de IoT Edge personalizado siempre usa el mismo identificador de proceso para enviar los mensajes a edgeHub. Por ejemplo, asegúrese de usar `ENTRYPOINT` en lugar del comando `CMD` en el archivo de Docker, ya que `CMD` da lugar a un identificador de proceso para el módulo y a otro identificador de proceso para el comando bash que ejecuta el programa principal, mientras que `ENTRYPOINT` da lugar a un identificador de proceso único.
@@ -363,10 +377,12 @@ Aunque IoT Edge permite una mejor configuración para proteger el entorno de eje
 
 El dispositivo tiene problemas para iniciar los módulos definidos en la implementación. Solo edgeAgent se está ejecutando, pero continuamente notifica "archivo de configuración vacío..."
 
-### <a name="potential-root-cause"></a>Posible causa principal
+**Causa principal**
+
 De forma predeterminada, IoT Edge inicia módulos en su propia red de contenedores aislada. El dispositivo pueda tener problemas con la resolución de nombres DNS dentro de esta red privada.
 
-### <a name="resolution"></a>Resolución
+**Resolución**
+
 
 **Opción 1: establecer el servidor DNS en la configuración del motor de contenedor**
 

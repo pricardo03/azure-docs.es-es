@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852464"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086572"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Escenario: Aplicación web que permite iniciar sesión a los usuarios
 
@@ -32,15 +32,35 @@ Aprenda todo lo que necesita para compilar una aplicación web que permita inici
 
 ## <a name="getting-started"></a>Introducción
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 Si quiere crear sus primeras aplicaciones web portátiles (ASP.NET Core) que permitan iniciar sesión a los usuarios, siga este inicio rápido:
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: aplicación web ASP.NET Core que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-core-webapp.md)
 
-Si prefiere la opción de ASP.NET, pruebe el tutorial siguiente:
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+Si desea saber cómo agregar el inicio de sesión a una aplicación web de ASP.NET heredada, pruebe el siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: aplicación web ASP.NET que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Si es un desarrollador de Java, pruebe el siguiente inicio rápido:
+
+> [!div class="nextstepaction"]
+> [Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Si desarrolla con Python, pruebe lo siguiente:
+
+> [!div class="nextstepaction"]
+> [Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>Información general
 
@@ -51,11 +71,11 @@ Agregue autenticación a la aplicación web para que permita iniciar sesión a l
 En una segunda fase, también puede habilitar la aplicación para llamar a las API web en nombre del usuario con sesión iniciada. Esta fase siguiente es un escenario diferente, que encontrará en [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. Este escenario aún no requiere las bibliotecas de autenticación de Microsoft (MSAL), que se refieren a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación solo se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
+> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. En el caso de .NET, este escenario aún no requiere las bibliotecas de autenticación de Microsoft (MSAL), que se refieren a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación solo se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
 
 ## <a name="specifics"></a>Características específicas
 
-- Durante el registro de la aplicación, deberá proporcionar uno o varios (si implementa la aplicación en varias ubicaciones) URI de respuesta. En algunos casos (ASP.NET/ASP.NET Core), deberá habilitar el IDToken. Por último, deberá configurar un URI de cierre de sesión para que la aplicación reaccione ante los usuarios que cierran sesión.
+- Durante el registro de la aplicación, deberá proporcionar uno o varios (si implementa la aplicación en varias ubicaciones) URI de respuesta. En algunos casos (ASP.NET/ASP.NET Core), deberá habilitar el token del identificador. Por último, deberá configurar un URI de cierre de sesión para que la aplicación reaccione ante los usuarios que cierran sesión.
 - En el código de la aplicación, deberá proporcionar la autoridad a la que la aplicación web delegada el inicio de sesión. Es posible que quiera personalizar la validación del token (en concreto, en escenarios de ISV).
 - Las aplicaciones web admiten cualquier tipo de cuenta. Para obtener más información, consulte [Tipos de cuenta admitidos](v2-supported-account-types.md).
 

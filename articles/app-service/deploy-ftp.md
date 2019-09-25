@@ -11,16 +11,16 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 09/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070497"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098053"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
@@ -72,9 +72,9 @@ Se recomienda usar las **Credenciales de la aplicación** para implementar en su
 
 Para mejorar la seguridad, permita solo FTP a través de SSL. También puede deshabilitar FTP y FTPS si no utiliza la implementación de FTP.
 
-En la página de recursos de la aplicación de [Azure Portal](https://portal.azure.com), seleccione **Configuración de la aplicación** en el panel de navegación izquierdo.
+En la página de recursos de la aplicación de [Azure Portal](https://portal.azure.com), seleccione **Configuración** > **Configuración general** en el panel de navegación izquierdo.
 
-Para deshabilitar FTP sin cifrar, seleccione **Solo FTPS**. Para deshabilitar completamente el FTP y FTPS, seleccione **Deshabilitar**. Cuando termine, haga clic en **Guardar**. Si usa **Solo FTPS** debe exigir TLS 1.2 o posterior; para ello, navegue a la hoja **Configuración de SSL** de la aplicación web. TLS 1.0 y 1.1 no son compatibles con **Solo FTPS**.
+Para deshabilitar FTP sin cifrar, seleccione **Solo FTPS** en **Estado FTP**. Para deshabilitar completamente tanto FTP como FTPS, seleccione **Deshabilitado**. Cuando termine, haga clic en **Guardar**. Si usa **Solo FTPS** debe exigir TLS 1.2, o cualquier versión posterior; para ello, navegue a la hoja **Configuración de TLS/SSL** de la aplicación web. TLS 1.0 y 1.1 no son compatibles con **Solo FTPS**.
 
 ![Deshabilitación de FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

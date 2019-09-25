@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d9bf9687f60e649fee98869ef263117177ad5efd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097929"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933231"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestadores singleton con Durable Functions (Azure Functions)
 
@@ -113,9 +113,6 @@ module.exports = async function(context, req) {
 
 De forma predeterminada, los identificadores de instancia son identificadores únicos globales generados aleatoriamente. Pero, en este caso, el identificador de instancia se pasa en los datos de ruta desde la dirección URL. El código llama a [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) o `getStatus` (JavaScript) para comprobar si ya se está ejecutando una instancia con el identificador especificado. Si no es así, se crea una instancia con ese identificador.
 
-> [!WARNING]
-> Al desarrollar de forma local en JavaScript, deberá establecer la variable de entorno `WEBSITE_HOSTNAME` en `localhost:<port>`, por ejemplo `localhost:7071` para usar métodos en `DurableOrchestrationClient`. Para obtener más información sobre este requisito, vea el [problema de GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 > [!NOTE]
 > En este ejemplo hay una posible condición de carrera. Si dos instancias de **HttpStartSingle** se ejecutan simultáneamente, ambas llamadas de función notificarán un resultado satisfactorio, pero realmente solo se iniciará una instancia de orquestación. Según los requisitos, esto puede tener efectos secundarios no deseados. Por este motivo, es importante asegurarse de que no hay dos solicitudes que puedan ejecutar esta función de desencadenador simultáneamente.
 
@@ -124,4 +121,4 @@ Los detalles de implementación de la función de orquestador no importan realme
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Cómo llamar a suborquestaciones](durable-functions-sub-orchestrations.md)
+> [Obtener información acerca de las características HTTP nativas de las orquestaciones](durable-functions-http-features.md)

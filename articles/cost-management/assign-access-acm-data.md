@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493754"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105118"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -42,7 +42,7 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 | Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
 | Grupo de administración | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todas las suscripciones por debajo del grupo de administración |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los grupos de recursos o recursos en la suscripción |
-| Grupos de recursos | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |
 
 <sup>1</sup>La cuenta de facturación también se conoce como inscripción o Contrato Enterprise.
 
@@ -62,7 +62,7 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 
 - Cuenta de Azure
 - Grupo de administración
-- Grupos de recursos
+- Resource group
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar el acceso a los costos en el portal de EA
 
@@ -129,7 +129,7 @@ Después de completar los pasos anteriores, la cuenta de usuario se convierte en
 
 ## <a name="assign-management-group-scope-access"></a>Asignar el acceso al ámbito de grupo de administración
 
-Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+El acceso para ver el ámbito de grupo de administración requiere al menos el permiso de lector de Cost Management (o lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de administración_ y, a continuación, seleccione los **grupos de administración** que necesite.

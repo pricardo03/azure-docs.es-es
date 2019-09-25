@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596519"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933803"
 ---
 # <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
@@ -66,9 +66,10 @@ En la siguiente tabla se proporciona un resumen de los costes asociados y lo que
 | **Almacenamiento de Log Analytics** |  |
 | Alertas y recomendaciones de dispositivo| Alertas y recomendaciones de dispositivo generadas por el servicio | No opcional. |
 | Datos de seguridad sin procesar| Datos de seguridad sin procesar de dispositivos IoT recopilados por agentes de seguridad | Se deshabilita el _almacenamiento de eventos de seguridad de dispositivos sin procesar_. |
+|
 
 >[!Important]
-> Optar por deshabilitarlas tiene implicaciones serias en las características de seguridad disponibles.
+> Dejar de participar tiene graves implicaciones en Azure Security Center para IoT en relación con la disponibilidad de las características de seguridad. 
   
 | Si se deshabilita | Implicaciones |
 | --- | --- |

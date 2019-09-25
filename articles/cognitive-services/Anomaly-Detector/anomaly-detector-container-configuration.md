@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932992"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102568"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configuración de los contenedores de Anomaly Detector
 
@@ -104,8 +104,10 @@ Reemplace el valor entre corchetes, `{}`, por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{API_KEY} | La clave de punto de conexión del recurso Anomaly Detector. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | El valor del punto de conexión de facturación, incluida la región.|`https://westus2.api.cognitive.microsoft.com`|
+| **{CLAVE_API}** | La clave del punto de conexión del recurso `Anomaly Detector` en la página Claves de `Anomaly Detector` de Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Anomaly Detector`.| Consulte el apartado de [recopilación de los parámetros necesarios](anomaly-detector-container-howto.md#gathering-required-parameters) para ejemplos explícitos. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](anomaly-detector-container-howto.md#billing).

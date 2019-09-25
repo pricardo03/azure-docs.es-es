@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: b840f1ce42c9d7e4af8854a2c6bd7fd26f5b88e9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307446"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067615"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -54,10 +54,10 @@ Calendar no tiene que ver con reuniones personales y citas, ni sobre eventos pú
 Nombre de la intención | DESCRIPCIÓN | Ejemplos
 ---------|----------|---------------
  AcceptEventEntry | Aceptar una cita, una reunión o un evento en el calendario. | Accept an appointment. (Aceptar una cita) <br> Accept the event (Aceptar el evento) <br> accept today's meeting. (aceptar la reunión de hoy)
- Cancelar | Cancelar la acción en curso mediante el asistente virtual, como cancelar el proceso de creación de una reunión. <br> ***Aviso**: Esta intención incluye principalmente la acción "Cancel" en el escenario Calendar. Si necesita una expresión general en "Cancel", aproveche la intención "Cancel" en el dominio de **Utilities**.* | It's ok, just cancel the event. (De acuerdo, solo cancelar el evento) <br> No, I just cancel the appointment. (No, acabo de cancelar la cita)
+ Cancelar | Cancelar la acción en curso mediante el asistente virtual, como cancelar el proceso de creación de una reunión. <br> _**Aviso**: Esta intención incluye principalmente la acción "Cancel" en el escenario Calendar. Si necesita una expresión general en "Cancel", aproveche la intención "Cancel" en el dominio de **Utilities**._ | It's ok, just cancel the event. (De acuerdo, solo cancelar el evento) <br> No, I just cancel the appointment. (No, acabo de cancelar la cita)
  ChangeCalendarEntry | Cambiar o volver a programar la entrada del calendario. | Reschedule my 6 a.m. (Volver a programar las 6 a. m.) appointment tomorrow to 2 p.m. (cita para mañana a las 2 p. m.) <br> Reschedule doctor's appointment for 5 PM (Volver a programar la cita del médico para las 5 p. m.) <br> Reschedule lunch with jenny olson to Friday. (Volver a programar el almuerzo con jenny olson al viernes) <br> Change event time. (Cambiar la hora del evento)
  CheckAvailability | Buscar disponibilidad para una cita o reunión en el calendario del usuario o en el calendario de otra persona. | ¿Cuándo está Jim disponible para una reunión? <br> Show when Carol is available tomorrow. (Mostrar cuándo está disponible Carol mañana) <br> ¿Chris está disponible el sábado?
- Confirm | Confirmar si desea realizar una operación o acción en función de la intención anterior. <br> ***Aviso**: Esta intención incluye principalmente la acción "Confirm" para el escenario de calendario. Si necesita expresiones más generales en "Confirm", aproveche la intención "Confirm" en el dominio **Utilities**.*| That's correct, please create the meeting (Eso es correcto, crea la reunión) <br> Yes, thanks, connect to the meeting. (Sí, gracias, conectarse a la reunión)
+ Confirm | Confirmar si desea realizar una operación o acción en función de la intención anterior. <br> _**Aviso**: Esta intención incluye principalmente la acción "Confirm" para el escenario de calendario. Si necesita expresiones más generales en "Confirm", aproveche la intención "Confirm" en el dominio **Utilities**._| That's correct, please create the meeting (Eso es correcto, crea la reunión) <br> Yes, thanks, connect to the meeting. (Sí, gracias, conectarse a la reunión)
  ConnectToMeeting | Conectarse con una reunión. | Connect me to 11:00 conference call with Andy. (Conectarme a la llamada de conferencia de las 11:00 con Andy) <br> Accept the budget meeting call. (Aceptar la llamada de reunión de presupuesto)
  ContactMeetingAttendees | Ponerse en contacto con los asistentes de la reunión. | Tell the meeting I am running late to 3:00 meeting. (Decir a la reunión que llego tarde a la reunión de las 3:00) <br> Notify colleagues for 8 am meeting that it needs to start at 8:30. (Notificar a los compañeros de 8 a. m. que deben comenzar a las 8:30)
  CreateCalendarEntry | Agregar un nuevo elemento cada vez al calendario. | Create a meeting about discussing issues. (Crear una reunión para hablar de los problemas) <br> create a meeting with abc@microsoft.com (reservar una reunión de 2 horas con XX)
@@ -69,10 +69,10 @@ Nombre de la intención | DESCRIPCIÓN | Ejemplos
  FindCalendarDetail | Comprobar y mostrar los detalles de la programación. | I need you to provide me the details of the meeting I have scheduled with my colleague Paul. (Necesito que nos proporcione los detalles de la reunión que he programado con mi colega Paul)
  FindDuration | Comprobar la duración. | How much time will I have to pick up groceries? (¿Cuánto tiempo tengo para recoger la compra?) <br> How long do I have for lunch? (¿Cuánto tiempo tengo para comer?)
  FindMeetingRoom | Buscar las salas de reuniones disponibles. | What meet rooms do I have? (¿Que salas de reuniones tengo?) <br> A new meeting location, find one. (Una nueva ubicación de reunión, buscar una)
- Goback | Volver al último paso o elemento.  <br> ***Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de GoBack.* | Previous one (Mostrar anterior) <br> Back to last email. (Volver al último correo electrónico)
- Reject | El usuario rechaza el asistente virtual propuesto. <br> ***Aviso**: Consulte el dominio **Utilities** para más información sobre la expresiones generales de Reject.* | Not need to set the event. (No es necesario establecer el evento) <br> I have other things to do at that time. (En ese momento tengo otras cosas que hacer)
-ShowNext | Comprobar el evento siguiente. <br> ***Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de ShowNext.* | Give me my next event. (Enviarme mi evento siguiente) <br> What is next in calendar? (¿Qué es lo siguiente en el calendario?)
- ShowPrevious | Comprobar el evento anterior. <br> ***Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de ShowPrevious.* | What is the schedule before that? (¿Cuál es el programa anterior?)
+ Goback | Volver al último paso o elemento.  <br> _**Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de GoBack._ | Previous one (Mostrar anterior) <br> Back to last email. (Volver al último correo electrónico)
+ Reject | El usuario rechaza el asistente virtual propuesto. <br> _**Aviso**: Consulte el dominio **Utilities** para más información sobre la expresiones generales de Reject._ | Not need to set the event. (No es necesario establecer el evento) <br> I have other things to do at that time. (En ese momento tengo otras cosas que hacer)
+ShowNext | Comprobar el evento siguiente. <br> _**Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de ShowNext._ | Give me my next event. (Enviarme mi evento siguiente) <br> What is next in calendar? (¿Qué es lo siguiente en el calendario?)
+ ShowPrevious | Comprobar el evento anterior. <br> _**Aviso**: Consulte el dominio **Utilities** para más información sobre las expresiones generales de ShowPrevious._ | What is the schedule before that? (¿Cuál es el programa anterior?)
  TimeRemaining | Comprobar el tiempo restante hasta el siguiente evento. | Display how much time i have before my meetings. (Mostrar cuánto tiempo tengo antes de mis reuniones) <br> Display the amount of time I have before my next meeting begins. (Mostrar la cantidad de tiempo que tengo antes de comenzar la próxima reunión)
  
 ### <a name="entities"></a>**Entidades**
@@ -156,7 +156,7 @@ ContactAttribute | simple | Un atributo del contacto sobre el que el usuario pre
 ContactName | personName  | El nombre de un contacto o del destinatario de un mensaje. | Send the mail to **Stevens** (Enviar el correo electrónico a Stevens) | Stevens
 Fecha y hora | datetime | Fecha y hora de un correo electrónico recibido. | Read **today**'s mail (Leer el correo de hoy) <br> Who emailed me **today**? (¿Quién me ha enviado un correo electrónico hoy?) <br> who phoned at **7 p.m.** ? (¿Quién me ha telefoneado a las 7 p. m.?) | today (hoy) <br> tomorrow (mañana)
 DestinationPhone | simple | El destino al que el usuario quiere llamar o enviar un SMS. | make a call to **house** (hacer una llamada a casa) <br> send a text message to **home** (enviar un mensaje de texto a casa) | house (casa) <br> home
-EmailAddress | email | La dirección de correo electrónico que el usuario desea enviar o consultar. | send email to Megan.Flynn@MKF.com (enviar correo electrónico a xx)<br> abc@outlook.com 
+EmailAddress | email | La dirección de correo electrónico que el usuario desea enviar o consultar. | send email to Megan.Flynn@MKF.com (Enviar correo electrónico a xx)<br> abc@outlook.com 
 EmailSubject | simple, pattern.Any | El texto que se utiliza como la línea de asunto de un correo electrónico. | Compose email to David with subject **hey** (Redactar correo electrónico para David con el asunto Hola)  | RE: caso interesante
 Clave | simple | La tecla que el usuario quiere presionar. | Press the **space** key. (Pulsar la barra espaciadora) <br> press **9** (presionar 9) | pound (almohadilla) <br> star (asterisco) <br> 8
 Línea | simple | La línea que el usuario quiere usar para enviar un correo electrónico o un SMS. | Read my last **hotmail** email. (Leer mi último correo electrónico de hotmail) <br> Call Peter by **mobile**. (Llamar a Peter por el móvil) <br> Call Dad using my **work** line. (Llamar a papá con mi línea de trabajo)| hotmail <br> Skype <br> Teléfono británico

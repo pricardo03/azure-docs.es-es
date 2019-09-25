@@ -1,6 +1,6 @@
 ---
-title: Copia de datos de Teradata mediante Azure Data Factory | Microsoft Docs
-description: Obtenga información sobre el conector Teradata del servicio Data Factory que permite copiar datos desde una base de datos Teradata a almacenes de datos compatibles con Data Factory como receptores.
+title: Copia de datos de Teradata Vantage mediante Azure Data Factory | Microsoft Docs
+description: El conector Teradata del servicio Data Factory le permite copiar datos desde Teradata Vantage a almacenes de datos compatibles con Data Factory como receptores.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,26 +10,31 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e538c8b00bddc8a2fa35b158c1e76f9033b73a56
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232501"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089180"
 ---
-# <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
+# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 >
 > * [Versión 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versión actual](connector-teradata.md)
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Teradata. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
+En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde Teradata Vantage. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde una base de datos Teradata a cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Este conector de Teradata es compatible con las actividades siguientes:
+
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+
+Puede copiar datos desde Teradata Vantage a cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 En concreto, este conector Teradata admite las siguientes funcionalidades:
 
@@ -62,8 +67,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type se debe establecer en **Teradata**. | Sí |
-| connectionString | Especifica la información necesaria para conectarse a la instancia de Base de datos de Teradata. Consulte los ejemplos siguientes.<br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada. | Sí |
-| username | Especifique un nombre de usuario para conectarse a la base de datos Teradata. Se aplica cuando se usa autenticación de Windows. | Sin |
+| connectionString | Especifica la información necesaria para conectarse a la instancia de Teradata. Consulte los ejemplos siguientes.<br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada. | Sí |
+| username | Especifique un nombre de usuario para conectarse a Teradata. Se aplica cuando se usa autenticación de Windows. | Sin |
 | password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). <br>Se aplica al utilizar la autenticación de Windows o hacer referencia a la contraseña en Key Vault para la autenticación básica. | Sin |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sí |
 
@@ -142,8 +147,8 @@ Para copiar datos de Teradata, se admiten las siguientes propiedades:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en `TeradataTable`. | Sí |
-| database | El nombre de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
-| table | El nombre de la tabla de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
+| database | El nombre de la instancia de Teradata. | No (si se especifica "query" en el origen de la actividad) |
+| table | El nombre de la tabla de la instancia de Teradata. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo:**
 
@@ -197,7 +202,7 @@ Para copiar datos desde Teradata, en la sección **source** de la actividad de c
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en `TeradataSource`. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para obtener algunos ejemplos. | No (si se especifica la tabla en el conjunto de datos) |
-| partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos de una base de datos de Teradata se controla mediante la configuración [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia. | Sin |
+| partitionOptions | Especifica las opciones de creación de particiones de datos que se usan para cargar datos desde Teradata. <br>Los valores permitidos son los siguientes: **None** (valor predeterminado), **Hash** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos desde Teradata se controla mediante la configuración [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia. | Sin |
 | partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica cuando la opción de partición no es `None`. | Sin |
 | partitionColumnName | Especifique el nombre de la columna de origen que usará la partición por rangos o la partición de hash para la copia en paralelo. Si no se especifica, se detectará automáticamente el índice principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `Hash` o `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte un ejemplo en la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata). | Sin |
 | partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica cuando la opción de partición es `DynamicRange`. Si usa la consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Teradata](#parallel-copy-from-teradata) para ver un ejemplo. | Sin |
@@ -245,9 +250,9 @@ El conector de Teradata de Data Factory proporciona la creación de particiones 
 
 ![Captura de pantalla de las opciones de partición](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Al habilitar la copia con particiones, Data Factory ejecuta consultas en paralelo en el origen de Teradata para cargar los datos mediante particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de la base de datos de Teradata.
+Al habilitar la copia con particiones, Data Factory ejecuta consultas en paralelo en el origen de Teradata para cargar los datos mediante particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` como cuatro, Data Factory genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de Teradata.
 
-Es recomendable que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de la base de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
+Es recomendable que habilite la copia en paralelo con la creación de particiones de datos, especialmente si carga grandes cantidades de datos de Teradata. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribir en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribir en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -328,6 +333,11 @@ Al copiar datos desde Teradata, se aplican las siguientes asignaciones. Para má
 | VarChar |Cadena |
 | VarGraphic |No compatible. Se aplica la conversión explícita en la consulta de origen. |
 | Xml |No compatible. Se aplica la conversión explícita en la consulta de origen. |
+
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

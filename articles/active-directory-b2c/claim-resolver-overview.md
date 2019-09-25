@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a13d4b0b44c51f78a068b1619fe083a08756af6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511607"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064397"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
-Los solucionadores de notificaciones en [directivas personalizadas](active-directory-b2c-overview-custom.md) de Azure Active Directory (Azure AD) B2C proporcionan información de contexto sobre una solicitud de autorización, como el nombre de la directiva, el identificador de correlación de la solicitud, el idioma de la interfaz de usuario, etc.
+Los solucionadores de notificaciones de [directivas personalizadas](active-directory-b2c-overview-custom.md) de Azure Active Directory B2C (Azure AD B2C) proporcionan información de contexto sobre una solicitud de autorización, como el nombre de la directiva, el identificador de correlación de la solicitud, el idioma de la interfaz de usuario, etc.
 
-Para utilizar un solucionador de notificaciones en una notificación de entrada o salida, se define una cadena **ClaimType** en el elemento [ClaimsSchema](claimsschema.md) y, a continuación, se establece **DefaultValue** en el solucionador de notificaciones del elemento de notificación de entrada o salida. Azure AD B2C lee el valor del solucionador de notificaciones y usa el valor en el perfil técnico. 
+Para utilizar un solucionador de notificaciones en una notificación de entrada o salida, se define una cadena **ClaimType** en el elemento [ClaimsSchema](claimsschema.md) y, a continuación, se establece **DefaultValue** en el solucionador de notificaciones del elemento de notificación de entrada o salida. Azure AD B2C lee el valor del solucionador de notificaciones y usa el valor en el perfil técnico.
 
-En el ejemplo siguiente, un tipo de notificación llamada `correlationId` se define con un **DataType** de `string`.  
+En el ejemplo siguiente, un tipo de notificación llamada `correlationId` se define con un **DataType** de `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -107,7 +107,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 
 ### <a name="restful-technical-profile"></a>Perfil técnico de RESTful
 
-En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que desee enviar el idioma del usuario, el nombre de la directiva, el ámbito y el identificador de cliente. Según estas notificaciones, la API REST puede ejecutar la lógica de negocios personalizada y, si es necesario, generar un mensaje de error localizado. 
+En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que desee enviar el idioma del usuario, el nombre de la directiva, el ámbito y el identificador de cliente. Según estas notificaciones, la API REST puede ejecutar la lógica de negocios personalizada y, si es necesario, generar un mensaje de error localizado.
 
 En el ejemplo siguiente se muestra un perfil técnico de RESTful:
 

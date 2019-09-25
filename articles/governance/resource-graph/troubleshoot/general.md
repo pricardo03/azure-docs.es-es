@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900005"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000523"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solución problemas relativos a errores con Azure Resource Graph
 
@@ -82,7 +82,7 @@ Los clientes que pasan explícitamente una lista de suscripciones con una consul
 
 #### <a name="cause"></a>Causa
 
-Si el cliente no tiene permiso de lectura para todas las suscripciones proporcionadas, se denegará la solicitud debido a la falta de derechos de seguridad adecuados.
+Si el cliente no tiene permiso de lectura para todas las suscripciones proporcionadas, se denegará la solicitud debido a la falta de los derechos de seguridad adecuados.
 
 #### <a name="resolution"></a>Resolución
 

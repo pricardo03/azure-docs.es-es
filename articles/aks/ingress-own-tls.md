@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615431"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097861"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS y uso de sus propios certificados TLS en Azure Kubernetes Service (AKS)
 
@@ -133,7 +133,7 @@ Ambas aplicaciones se ejecutan ahora en el clúster de Kubernetes, sin embargo, 
 En el ejemplo siguiente, el tráfico a la dirección `https://demo.azure.com/` se enruta al servicio denominado `aks-helloworld`. El tráfico a la dirección `https://demo.azure.com/hello-world-two` se enruta al servicio `ingress-demo`. En este artículo, no es necesario cambiar los nombres de host de demostración. Para su uso en producción, proporcione los nombres especificados como parte del proceso de solicitud y generación del certificado.
 
 > [!TIP]
-> Si el nombre de host especificado durante el proceso de solicitud de certificado (el nombre CN) no coincide con el host definido en la ruta de entrada, el controlador de entrada muestra un *certificado falso de controlador de entrada de Kubernetes*. Asegúrese de que los nombres de host de la ruta de entrada y el certificado coinciden.
+> Si el nombre de host especificado durante el proceso de solicitud de certificado (el nombre CN) no coincide con el host definido en la ruta de entrada, el controlador de entrada muestra la advertencia *Certificado falso de controlador de entrada de Kubernetes*. Asegúrese de que los nombres de host de la ruta de entrada y el certificado coinciden.
 
 La sección *tls* indica la ruta de entrada para usar el secreto llamado *aks-ingress-tls* para el host *demo.azure.com*. De nuevo, para su uso en producción, especifique su propia dirección de host.
 

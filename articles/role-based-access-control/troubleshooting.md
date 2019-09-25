@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982716"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967099"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -182,6 +182,8 @@ Algunas características de [Azure Functions](../azure-functions/functions-overv
 Un lector puede hacer clic en la pestaña **Características de la plataforma** y, a continuación, hacer clic en **Toda las opciones de configuración** para ver algunas opciones de configuración relacionadas con una aplicación de función (similar a una aplicación web), pero no puede modificar ninguna de estas opciones de configuración. Para tener acceso a estas características, necesitará el rol de [colaborador](built-in-roles.md#contributor).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
-* [Visualización de registros de actividad de cambios de RBAC en recursos de Azure](change-history-report.md)
+
+- [Solución de problemas de usuarios invitados](role-assignments-external-users.md#troubleshoot)
+- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
+- [Visualización de registros de actividad de cambios de RBAC en recursos de Azure](change-history-report.md)
 

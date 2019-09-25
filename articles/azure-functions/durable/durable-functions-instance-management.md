@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0df6f5f9728a8e48a3257e56ddf8ad23906dc92c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735173"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933315"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
@@ -31,9 +31,6 @@ Es importante ser capaz de iniciar una instancia de orquestación. Normalmente, 
 El método [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) en [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o `startNew` en `DurableOrchestrationClient`(JavaScript) inicia una nueva instancia. Las instancias de esta clase pueden adquirirse mediante el enlace `orchestrationClient`. Internamente, este método pone un mensaje en la cola de control, que, a su vez, desencadena el inicio de una función con el nombre especificado que utiliza el enlace de desencadenador `orchestrationTrigger`.
 
 Esta operación de sincronización se completa cuando el proceso de orquestación se programa correctamente. El proceso de orquestación debería comenzar en 30 segundos. Si tarda más tiempo, verá `TimeoutException`.
-
-> [!WARNING]
-> Al desarrollar de forma local en JavaScript, establezca la variable de entorno `WEBSITE_HOSTNAME` en `localhost:<port>` (por ejemplo, `localhost:7071`) para usar métodos en `DurableOrchestrationClient`. Para más información sobre este requisito, consulte el [problema en GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -361,7 +358,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Envío de eventos a instancias
 
-En algunos escenarios, para las funciones del orquestador es importante poder esperar y escuchar eventos externos. Esto incluye [supervisar funciones](durable-functions-concepts.md#monitoring) y funciones que están esperando la [interacción humana](durable-functions-concepts.md#human).
+En algunos escenarios, para las funciones del orquestador es importante poder esperar y escuchar eventos externos. Esto incluye [supervisar funciones](durable-functions-overview.md#monitoring) y funciones que están esperando la [interacción humana](durable-functions-overview.md#human).
 
 Envíe notificaciones de eventos a instancias en ejecución mediante el método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o el método `raiseEvent` de la clase `DurableOrchestrationClient` (JavaScript). Las instancias que pueden controlar estos eventos son aquellas que están en espera de una llamada a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) o `waitForExternalEvent` (JavaScript).
 
@@ -541,7 +538,7 @@ Si tiene un error de la orquestación por un motivo inesperado, puede *rebobinar
 
 Use la API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (. NET) o `rewindAsync` (JavaScript) para poner la orquestación de nuevo en estado *En ejecución*. Vuelva a ejecutar la actividad o los errores de ejecución de suborquestación que generaron el error en la orquestación.
 
-Por ejemplo, supongamos que tiene un flujo de trabajo que requiere una serie de [aprobaciones realizadas por humanos](durable-functions-concepts.md#human). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, suponga que otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con la API `RewindAsync` (.NET) o `rewindAsync` (JavaScript), un administrador de aplicaciones puede corregir el error de configuración y devolver la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
+Por ejemplo, supongamos que tiene un flujo de trabajo que requiere una serie de [aprobaciones realizadas por humanos](durable-functions-overview.md#human). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, suponga que otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con la API `RewindAsync` (.NET) o `rewindAsync` (JavaScript), un administrador de aplicaciones puede corregir el error de configuración y devolver la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
 
 > [!NOTE]
 > La característica para *rebobinar* no admite el rebobinado de instancias de orquestación que utilizan temporizadores durables.
@@ -661,4 +658,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información acerca de cómo usar las API HTTP para la instancia de administración](durable-functions-http-api.md)
+> [Aprenda a controlar las versiones](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Referencia de la API HTTP integrada para la administración de instancias](durable-functions-http-api.md)

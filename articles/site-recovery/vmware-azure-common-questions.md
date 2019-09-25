@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491695"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002275"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -231,7 +231,7 @@ Revise los [requisitos previos](vmware-azure-deploy-configuration-server.md#prer
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>¿Puedo configurar manualmente el servidor de configuración en lugar de usar una plantilla?
 
-Se recomienda [crear la máquina virtual del servidor de configuración](vmware-azure-deploy-configuration-server.md) usando la versión más reciente de la plantilla de OVF. Si no puede usar la plantilla (por ejemplo, si no tiene acceso al servidor de VMware), [descargue](physical-azure-set-up-source.md) el archivo de configuración de Portal y configure el servidor de configuración.
+Se recomienda [crear la máquina virtual del servidor de configuración](vmware-azure-deploy-configuration-server.md) con la versión más reciente de la plantilla de Open Virtualization Format (OVF). Si no puede usar la plantilla (por ejemplo, si no tiene acceso al servidor de VMware), [descargue](physical-azure-set-up-source.md) el archivo de configuración de Portal y configure el servidor de configuración.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>¿Un servidor de configuración se puede replicar en más de una región?
 
@@ -288,6 +288,14 @@ Sí, pero tenga en cuenta que solo se puede realizar la conmutación por recuper
 ### <a name="where-can-i-download-vault-registration-keys"></a>¿Dónde puedo descargar las claves de registro del almacén?
 
 En el almacén de Recovery Services, seleccione **Servidores de configuración** en **Infraestructura de Site Recovery** > **Administrar**. Después, en **Servidores**, seleccione **Descargar clave de registro** para descargar el archivo de credenciales del almacén.
+
+### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>¿Se puede usar un solo servidor de configuración para proteger varias instancias de vCenter?
+
+Sí, un solo servidor de configuración puede proteger las máquinas virtuales en varias instancias de vCenter.  No hay un máximo de instancias de vCenter que se puedan agregar al servidor de configuración; sin embargo, sí se aplican los límites al número de máquinas virtuales que puede proteger un solo servidor de configuración.
+
+### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>¿Puede un solo servidor de configuración proteger varios clústeres en vCenter?
+
+Sí, Azure Site Recovery puede proteger las máquinas virtuales de diferentes clústeres.
 
 ## <a name="process-server"></a>Servidor de proceso
 

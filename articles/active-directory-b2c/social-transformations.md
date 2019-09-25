@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37fe192e83c946089e2374f24ae10a756134e45a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25c5fed4fd88866f46a9ca254213cae5db893a4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807857"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063584"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En Azure Active Directory (Azure AD) B2C, las identidades de cuentas de redes sociales se almacenan en un atributo `userIdentities` de un tipo de notificación **alternativeSecurityIdCollection**. Cada elemento de **alternativeSecurityIdCollection** especifica el emisor (nombre del proveedor de identidades, como facebook.com) y `issuerUserId`, que es un identificador de usuario único para el emisor.
+En Azure Active Directory B2C (Azure AD B2C), las identidades de cuentas de redes sociales se almacenan en un atributo `userIdentities` de un tipo de notificación **alternativeSecurityIdCollection**. Cada elemento de **alternativeSecurityIdCollection** especifica el emisor (nombre del proveedor de identidades, como facebook.com) y `issuerUserId`, que es un identificador de usuario único para el emisor.
 
 ```JSON
 "userIdentities": [{

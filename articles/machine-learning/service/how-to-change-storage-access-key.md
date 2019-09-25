@@ -1,7 +1,7 @@
 ---
 title: Cambio de las claves de acceso de la cuenta de almacenamiento
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo cambiar las claves de acceso de la cuenta de Azure Storage que usa el área de trabajo. Azure Machine Learning Service usa una cuenta de Azure Storage para almacenar los datos y los modelos. Al regenerar la clave de acceso de la cuenta de almacenamiento, debe actualizar Azure Machine Learning Service para que use las claves nuevas.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo cambiar las claves de acceso de la cuenta de Azure Storage que usa el área de trabajo. Azure Machine Learning usa una cuenta de Azure Storage para almacenar los datos y los modelos. Al regenerar la clave de acceso de la cuenta de almacenamiento, debe actualizar Azure Machine Learning para que use las claves nuevas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558230"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034968"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 
-Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de Azure Storage que usa Azure Machine Learning Service. Azure Machine Learning puede usar cuentas de almacenamiento para almacenar datos o modelos entrenados.
+Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de Azure Storage que usa Azure Machine Learning. Azure Machine Learning puede usar cuentas de almacenamiento para almacenar datos o modelos entrenados.
 
 Por motivos de seguridad, es posible que necesite cambiar las claves de acceso de una cuenta de Azure Storage. Cuando se regenera la clave de acceso, es necesario actualizar Azure Machine Learning para que use la nueva clave. Azure Machine Learning podría estar usando la cuenta de almacenamiento para el almacenamiento de modelos y como almacén de datos.
 
@@ -35,7 +35,7 @@ Por motivos de seguridad, es posible que necesite cambiar las claves de acceso d
 
 ## <a name="what-needs-to-be-updated"></a>¿Qué se debe actualizar?
 
-Las cuentas de almacenamiento pueden usarse como un espacio del área de trabajo de Azure Machine Learning Service para almacenar registros, modelos, instantáneas, etc. y como almacén de datos. El proceso para actualizar el área de trabajo implica un solo comando de la CLI de Azure y se puede ejecutar después de actualizar la clave de almacenamiento. El proceso de actualización de los almacenes de datos es más complicado. Conlleva detectar qué almacenes de datos usan actualmente la cuenta de almacenamiento y, después, volver a registrarlos.
+Las cuentas de almacenamiento pueden usarse como un espacio del área de trabajo de Azure Machine Learning para almacenar registros, modelos, instantáneas, etc. y como almacén de datos. El proceso para actualizar el área de trabajo implica un solo comando de la CLI de Azure y se puede ejecutar después de actualizar la clave de almacenamiento. El proceso de actualización de los almacenes de datos es más complicado. Conlleva detectar qué almacenes de datos usan actualmente la cuenta de almacenamiento y, después, volver a registrarlos.
 
 > [!IMPORTANT]
 > Actualice al mismo tiempo el área de trabajo con la CLI de Azure y los almacenes de datos con Python. No basta con actualizar solo uno de estos dos elementos; de hecho, podrían producirse errores mientras no actualice ambos.
@@ -74,7 +74,7 @@ Si existe una entrada para la cuenta de almacenamiento cuyas claves de acceso pl
 
 ## <a name="update-the-access-key"></a>Actualización de la clave de acceso
 
-Para actualizar Azure Machine Learning Service de modo que use la clave nueva, siga estos pasos:
+Para actualizar Azure Machine Learning de modo que use la clave nueva, siga estos pasos:
 
 > [!IMPORTANT]
 > Lleve a cabo todos los pasos, sin olvidarse de actualizar el área de trabajo con la CLI y los almacenes de datos con Python. Si solo actualiza uno de estos dos elementos, podrían producirse errores mientras no actualice ambos.

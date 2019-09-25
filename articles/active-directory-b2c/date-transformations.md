@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511125"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064348"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de fecha del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para más información, consulte [ClaimsTransformations](claimstransformations.md).
+En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de fecha del esquema Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 

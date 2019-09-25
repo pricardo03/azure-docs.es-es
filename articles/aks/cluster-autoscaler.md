@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914865"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097910"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Versión preliminar: Escalado automático de un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
 Para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS), es posible que deba ajustar el número de nodos que ejecutan las cargas de trabajo. El componente de escalado automático de clústeres puede supervisar los pods del clúster que no pueden programarse debido a las restricciones de los recursos. Cuando se detectan problemas, la cantidad de nodos de un grupo de nodos aumenta para satisfacer las necesidades de la aplicación. Asimismo, los nodos también se comprueban regularmente para detectar la falta de pods en ejecución y, en consecuencia, la cantidad de nodos se reduce según sea necesario. Esta capacidad de ampliar o reducir automáticamente la cantidad de nodos en su clúster de AKS le permite ejecutar un clúster de forma eficaz y rentable.
 
-En este artículo se muestra cómo habilitar y administrar el escalado automático de clústeres en un clúster de AKS. Solo se debe probar Cluster Autoscaler en versión preliminar en clústeres AKS.
+En este artículo se muestra cómo habilitar y administrar el escalado automático de clústeres en un clúster de AKS. Cluster Autoscaler solo se debe probar en versión preliminar en clústeres de AKS.
 
 > [!IMPORTANT]
 > Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
@@ -52,12 +52,12 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 
 Para adaptarse a las cambiantes necesidades de las aplicaciones, como detallar los horarios entre la jornada laboral y la noche o un fin de semana, los clústeres a menudo necesitan una forma de realizar automáticamente el escalado. Los clústeres de AKS pueden escalarse mediante una de dos maneras:
 
-* El **escalado automático de clústeres** busca pods que no puedan programarse en nodos debido a las restricciones de los recursos. El clúster aumenta automáticamente la cantidad de nodos.
-* El **escalado automático horizontal de pods** usa el servidor de métricas en un clúster de Kubernetes para supervisar la demanda de recursos de los pods. Si un servicio necesita más recursos, el número de pods aumenta automáticamente para satisfacer la demanda.
+* El **escalado automático de clústeres** busca pods que no puedan programarse en nodos debido a las restricciones de los recursos. Luego, el clúster aumenta automáticamente la cantidad de nodos.
+* El **escalado automático horizontal de pods** usa el servidor de métricas en un clúster de Kubernetes para supervisar la demanda de recursos de los pods. Si una aplicación necesita más recursos, el número de pods aumenta automáticamente para satisfacer la demanda.
 
 ![El escalado automático de clústeres y el escalado automático horizontal de pods colaboran a menudo para responder a las exigencias de la aplicación.](media/autoscaler/cluster-autoscaler.png)
 
-Tanto el escalado automático de clústeres como el escalado automático horizontal de pods pueden reducir el número de pods y nodos según sea necesario. El escalado automático de clústeres reduce el número de nodos cuando no se usa toda la capacidad durante un período de tiempo. Los pods de un nodo que quitará el escalado automático de clústeres se programan con seguridad en otra parte del clúster. El escalado automático de clústeres no se puede reducir verticalmente si no se pueden mover los pods, tal como se detalla en las situaciones siguientes:
+Tanto Horizontal Pod Autoscaler como Cluster Autoscaler pueden reducir el número de pods y nodos según sea necesario. El escalado automático de clústeres reduce el número de nodos cuando no se usa toda la capacidad durante un período de tiempo. Los pods de un nodo que quitará el escalado automático de clústeres se programan con seguridad en otra parte del clúster. El escalado automático de clústeres no se puede reducir verticalmente si no se pueden mover los pods, tal como se detalla en las situaciones siguientes:
 
 * Un pod creado directamente y que no lo respalde un objeto de controlador, como una implementación o un conjunto de réplicas.
 * Un presupuesto de interrupciones de pods (PDB) es demasiado restrictivo y no permite que la cantidad de pods sea menor que el umbral definido.
@@ -67,7 +67,7 @@ Para obtener más información acerca de cómo el escalado automático de clúst
 
 El escalado automático de clústeres usa parámetros de inicio para cosas como intervalos de tiempo entre eventos de escalado y umbrales de recursos. Estos parámetros se definen mediante la plataforma de Azure y actualmente no se pueden ajustar. Para obtener más información sobre los parámetros que usa el escalado automático de clústeres, consulte [What are the cluster autoscaler parameters?][autoscaler-parameters] (¿Cuáles son los parámetros de clúster del escalado automático de clústeres?).
 
-Los escalados automáticos del pod horizontal y del clúster pueden funcionar juntos y a menudo se implementan en un clúster. Cuando se combinan, el escalado automático horizontal de pods se centra en ejecutar el número de pods necesario para satisfacer las exigencias de la aplicación. El escalado automático de clústeres se centra en ejecutar el número de nodos necesario para admitir los pods programados.
+Horizontal Pod Autoscaler y Cluster Autoscaler pueden funcionar juntos y a menudo se implementan en un clúster. Cuando se combinan, el escalado automático horizontal de pods se centra en ejecutar el número de pods necesario para satisfacer las exigencias de la aplicación. El escalado automático de clústeres se centra en ejecutar el número de nodos necesario para admitir los pods programados.
 
 > [!NOTE]
 > El escalado manual está deshabilitado cuando se usa el escalado automático de clústeres. Permita que el escalado automático de clústeres determine el número de nodos. Si quiere escalar manualmente el clúster, [deshabilite el escalado automático de clústeres](#disable-the-cluster-autoscaler).
@@ -104,7 +104,7 @@ Tardará unos minutos en crear el clúster y configurar las opciones del escalad
 ## <a name="change-the-cluster-autoscaler-settings"></a>Cambiar la configuración del escalado automático de clústeres
 
 > [!IMPORTANT]
-> Si tiene habilitada la característica de *varios grupos de agentes* en la suscripción, vaya a la sección [escalado automático con varios grupos de agentes](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Los clústeres con varios grupos de agentes habilitados requieren el uso del conjunto de comandos `az aks nodepool` para cambiar las propiedades específicas del grupo de nodos en lugar de `az aks`. En las instrucciones siguientes se supone que no ha habilitado varios grupos de nodos. Para comprobar si está habilitado, ejecute `az feature  list -o table` y busque `Microsoft.ContainerService/multiagentpoolpreview`.
+> Si tiene habilitada la característica de *varios grupos de agentes* en la suscripción, vaya a la sección [escalado automático con varios grupos de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Los clústeres con varios grupos de agentes habilitados requieren el uso del conjunto de comandos `az aks nodepool` para cambiar las propiedades específicas del grupo de nodos en lugar de `az aks`. En las instrucciones siguientes se supone que no ha habilitado varios grupos de nodos. Para comprobar si está habilitado, ejecute `az feature  list -o table` y busque `Microsoft.ContainerService/multiagentpoolpreview`.
 
 En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1*, y el número máximo de nodos se estableció en *3*. Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
 

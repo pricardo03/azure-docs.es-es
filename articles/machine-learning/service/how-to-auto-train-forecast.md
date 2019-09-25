@@ -1,7 +1,7 @@
 ---
 title: Entrenamiento automático de un modelo de previsión de series temporales
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el servicio Azure Machine Learning para entrenar un modelo de regresión de previsión de series temporales mediante aprendizaje automático automatizado.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar Azure Machine Learning para entrenar un modelo de regresión de previsión de series temporales mediante aprendizaje automático automatizado.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879066"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035042"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
-En este artículo aprenderá a entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en el servicio Azure Machine Learning. La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. En los siguientes ejemplos se indica cómo:
+En este artículo aprenderá a entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en Azure Machine Learning. La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. En los siguientes ejemplos se indica cómo:
 
 * Preparar los datos para el modelado de series temporales
 * Configurar parámetros específicos de las serie temporales en un objeto [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)
@@ -37,7 +37,7 @@ Las características que se extraen de los datos de entrenamiento desempeñan un
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md) (Creación de un área de trabajo del servicio Azure Machine Learning).
+* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * En este artículo se presupone una familiarización básica con la configuración de una experimento de aprendizaje de automático automatizado. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los patrones de diseño del experimento de aprendizaje automático automatizado.
 
 ## <a name="preparing-data"></a>Preparación de los datos

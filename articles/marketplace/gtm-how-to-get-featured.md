@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938168"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962752"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Azure Marketplace y AppSource
 
 Azure Marketplace y AppSource cuentan con secciones de **aplicaciones destacadas** en los que puede mostrarse su aplicación:
 
-* En primer lugar, si tiene una oferta de evaluación o transacción, puede usar la ventaja de "promoción de categoría" gracias a las ventajas de comercialización.
+* En primer lugar, si tiene una oferta de evaluación o de transacción, puede usar la ventaja de "promoción de categoría" gracias a las [ventajas de comercialización](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * En segundo lugar, revise la lista de procedimientos recomendados y los siguientes criterios para ganarse un espacio.
 
 El algoritmo de selección de las aplicaciones destacadas genera una puntuación para una aplicación de Microsoft, igual que la puntuación de crédito de una persona en los Estados Unidos.  La selección semanal de aplicaciones destacadas se basará en un cálculo del rendimiento de la aplicación y del servicio.
@@ -44,7 +44,7 @@ El soporte técnico de GTM también incluye una biblioteca completa de plantilla
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los servicios GTM de Marketplace, visite [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
+Más información acerca de las [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com) para crear y configurar la oferta
 

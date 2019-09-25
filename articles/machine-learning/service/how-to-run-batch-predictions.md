@@ -1,7 +1,7 @@
 ---
 title: Ejecución de predicciones por lotes en grandes cantidades de datos con canalizaciones
-titleSuffix: Azure Machine Learning service
-description: Aprenda cómo hacer predicciones por lotes de forma asincrónica en grandes cantidades de datos gracias a Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Aprenda cómo hacer predicciones por lotes de forma asincrónica en grandes cantidades de datos gracias a Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128266"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034309"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Ejecución de predicciones por lotes en grandes conjuntos de datos con canalizaciones de Azure Machine Learning
 
-En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos mediante las canalizaciones de ML con Azure Machine Learning Service.
+En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos mediante las canalizaciones de ML con Azure Machine Learning.
 
 La predicción por lotes (o puntuación por lotes) proporciona una inferencia rentable con un rendimiento sin precedentes para aplicaciones asincrónicas. Las canalizaciones de predicción por lotes pueden escalarse para realizar inferencias en terabytes de datos de producción. La predicción por lotes está optimizada para las predicciones de alto rendimiento y de tipo "fire-and-forget" (envíelo y olvídese) cuando se trabaja con una gran cantidad de datos.
 
@@ -30,7 +30,7 @@ En los pasos siguientes, se creará una [canalización de aprendizaje automátic
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configure un entorno de desarrollo para instalar el SDK de Azure Machine Learning. Para obtener más información, consulte [Configurar un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md).
 

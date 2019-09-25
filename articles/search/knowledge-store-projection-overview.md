@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186234"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004005"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabajar con proyecciones en un almacén de conocimiento en Azure Search
 
@@ -34,7 +34,7 @@ El almacén de conocimiento admite dos tipos de proyecciones:
 
 + **Objetos**: Cuando necesita una representación JSON de los datos y enriquecimientos, las proyecciones de objeto se guardan como blobs.
 
-Para ver las proyecciones definidas en contexto, consulte [Cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md)
+Para ver las proyecciones definidas en contexto, consulte [Cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md).
 
 ## <a name="projection-groups"></a>Grupos de proyecciones
 
@@ -66,6 +66,9 @@ Puede proyectar un solo documento del índice en varias tablas, conservando las 
 ### <a name="defining-a-table-projection"></a>Definir una proyección de tabla
 
 Al definir una proyección de tabla dentro del elemento `knowledgeStore` del conjunto de aptitudes, empiece asignando un nodo del árbol de enriquecimiento al origen de la tabla. Normalmente, este nodo es el resultado de una aptitud de **conformador** que agregó a la lista de aptitudes para producir una forma concreta que necesita proyectar en las tablas. Puede segmentar el nodo que elija para proyectarlo en varias tablas. La definición de las tablas es una lista de las tablas que desea proyectar. 
+
+#### <a name="projection-slicing"></a>Segmentación de proyección
+Al definir un grupo de proyecciones de tabla, se puede segmentar un solo nodo del árbol de enriquecimiento en varias tablas relacionadas. La adición de una tabla con una ruta de acceso de origen que sea un elemento secundario de una proyección de tabla existente hará que el nodo secundario se segmente fuera del nodo primario y se proyecte en la nueva tabla relacionada. Esto permite definir un único nodo en una aptitud de conformador que puede ser el origen de todas sus proyecciones de tabla.
 
 Cada tabla requiere tres propiedades:
 

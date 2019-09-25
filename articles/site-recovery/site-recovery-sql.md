@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742321"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934829"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server
 
@@ -111,7 +111,7 @@ Algunas tecnologías de BCDR, como SQL Always On, no admiten de forma nativa la 
 
     ![Captura de pantalla de la ventana con la etiqueta Content_AG que muestra los nombres de servidor y los estados](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Cree un equilibrador de carga. Para cada cliente de escucha de grupo de disponibilidad, cree una dirección IP desde el grupo de direcciones IP de front-end. Agregue también la VM con SQL Server al grupo de back-end.
+1. Asegúrese de que el equilibrador de carga de la red de conmutación por error tiene una dirección IP del grupo de direcciones IP de front-end que corresponde a cada agente de escucha del grupo de disponibilidad y con la máquina virtual de SQL Server en el grupo de back-end.
 
      ![Captura de pantalla de la ventana titulada "SQL-AlwaysOn-LB: grupo de direcciones IP de front-end"](./media/site-recovery-sql/create-load-balancer1.png)
 

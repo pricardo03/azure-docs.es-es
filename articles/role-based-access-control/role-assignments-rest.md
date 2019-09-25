@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ee030e8c97cf3033b9d2d76b8125c64ecf8065
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472739"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996468"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Administración del acceso a recursos de Azure mediante RBAC y la API de REST
 
@@ -38,15 +38,14 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mos
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener.
 
-    | Ámbito | Type |
+    | Ámbito | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
-    
-       
-     > [!NOTE]
-     > En el ejemplo anterior, Microsoft.web es el proveedor de recursos utilizado que hace referencia a la instancia de App Service. De forma similar, puede usar cualquier otro proveedor de recursos y generar el URI de ámbito. Para obtener más información, consulte [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) y [Operaciones del proveedor de recursos de Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) compatibles.  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+
+    En el ejemplo anterior, microsoft.web es un proveedor de recursos que hace referencia a una instancia de App Service. De forma similar, puede usar cualquier otro proveedor de recursos y especificar el ámbito. Para más información, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md) y [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md) compatibles.  
      
 1. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignación de roles.
 
@@ -73,23 +72,31 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Para cr
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
+
 1. En el identificador URI, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | Type |
+    | Ámbito | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Reemplace *{roleAssignmentName}* por el identificador GUID de la asignación de roles.
 
-1. En el cuerpo de la solicitud, reemplace *{subscriptionId}* por el identificador de la suscripción.
+1. En el cuerpo de la solicitud, reemplace *{scope}* por el ámbito de la asignación de roles.
+
+    | Ámbito | type |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Reemplace *{roleDefinitionId}* por el identificador de la definición de roles.
 
@@ -109,11 +116,12 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito para eliminar la asignación de roles.
 
-    | Ámbito | Type |
+    | Ámbito | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    | `subscriptions/{subscriptionId1}` | Subscription |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Recurso |
 
 1. Reemplace *{roleAssignmentName}* por el identificador GUID de la asignación de roles.
 

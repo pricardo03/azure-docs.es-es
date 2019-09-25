@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: e21f3eed7e631c974d34f148b85843b055deaf60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706860"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076243"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Uso de Apache Hive como una herramienta de extracción, transformación y carga de datos (ETL)
 
@@ -23,7 +23,7 @@ Normalmente, deberá limpiar y transformar los datos entrantes antes de cargarlo
 
 En la siguiente ilustración se muestra una introducción del caso de uso y el modelo de automatización de ETL. Los datos de entrada se transforman para generar el resultado adecuado.  Durante la transformación, los datos pueden cambiar de forma, tipo e incluso de lenguaje.  Los procesos ETL pueden convertir las unidades del sistema imperial al métrico, cambiar las zonas horarias y mejorar la precisión a fin de alinearse correctamente con los datos existentes en el destino.  Los procesos ETL también pueden combinar los nuevos datos con los datos existentes para mantener los informes actualizados, o para proporcionar más información sobre los datos existentes.  A continuación, las aplicaciones, como los servicios y las herramientas de informes, pueden consumir estos datos en el formato deseado.
 
-![Apache Hive como ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+![Apache Hive como arquitectura de ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
 Hadoop se utiliza normalmente en los procesos ETL que importan un gran número de archivos de texto (por ejemplo, CSV), un número más pequeño pero a menudo cambiante de archivos de texto, o ambos.  Hive es una herramienta excelente que se usa para preparar los datos antes de cargarlos en su destino.  Permite crear un esquema del archivo CSV y usar un lenguaje similar a SQL para generar programas de MapReduce que interactúan con los datos. 
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4eaf59200295a25498d3c8b84196e73a703b055d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074024"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995247"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell
 
@@ -157,30 +157,6 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 En RBAC, para enumerar el acceso se enumeran las asignaciones de roles.
 
-### <a name="list-role-assignments-at-a-specific-scope"></a>Lista de asignaciones de roles en un ámbito específico
-
-Puede ver todas las asignaciones de roles de una suscripción, un grupo de recursos o un recurso determinados. Por ejemplo, para ver todas las asignaciones activas de un grupo de recursos, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
-
-```azurepowershell
-Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
-```
-
-```Example
-PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales | FL DisplayName, RoleDefinitionName, Scope
-
-DisplayName        : Alain Charon
-RoleDefinitionName : Backup Operator
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-
-DisplayName        : Isabella Simonsen
-RoleDefinitionName : BizTalk Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-
-DisplayName        : Alain Charon
-RoleDefinitionName : Virtual Machine Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
-```
-
 ### <a name="list-role-assignments-for-a-user"></a>Lista de las asignaciones de rol de un usuario
 
 Para enumerar todos los roles que están asignados a un usuario específico, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
@@ -207,6 +183,54 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
+### <a name="list-role-assignments-at-a-resource-group-scope"></a>Enumeración de asignaciones de roles en un ámbito de grupo de recursos
+
+Para enumerar todas las asignaciones de roles en un ámbito de grupo de recursos, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+
+```azurepowershell
+Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales | FL DisplayName, RoleDefinitionName, Scope
+
+DisplayName        : Alain Charon
+RoleDefinitionName : Backup Operator
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+
+DisplayName        : Isabella Simonsen
+RoleDefinitionName : BizTalk Contributor
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+
+DisplayName        : Alain Charon
+RoleDefinitionName : Virtual Machine Contributor
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+```
+
+### <a name="list-role-assignments-at-a-subscription-scope"></a>Enumeración de asignaciones de roles en un ámbito de suscripción
+
+Para enumerar todas las asignaciones de roles en un ámbito de suscripción, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obtener el identificador de suscripción, lo puede encontrar en la hoja **Suscripciones** de Azure Portal o bien puede usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+
+```azurepowershell
+Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+```
+
+### <a name="list-role-assignments-at-a-management-group-scope"></a>Lista de asignaciones de roles en un ámbito de grupo de administración
+
+Para enumerar todas las asignaciones de roles en un ámbito de grupo de administración, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obtener el identificador del grupo de administración, puede encontrarlo en la hoja **Grupos de administración** de Azure Portal o usar [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+
+```azurepowershell
+Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
 ### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Enumeración de asignaciones de roles para el administrador y los coadministradores del servicio clásico
 
 Para enumerar las asignaciones de roles para el administrador y los coadministradores de una suscripción clásica, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
@@ -223,7 +247,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 Para asignar un rol, debe identificar el objeto (usuario, grupo o aplicación) y el ámbito.
 
-Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Para obtener el identificador de suscripción, lo puede encontrar en la hoja **Suscripciones** de Azure Portal o bien puede usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 Para obtener el identificador del objeto de un usuario de Azure AD, use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
@@ -245,10 +269,10 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Creación de una asignación de roles para un usuario en el ámbito de un grupo de recursos
 
-Para conceder acceso a un usuario en el ámbito del grupo de recursos, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para conceder acceso a un usuario en un ámbito del grupo de recursos, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name_in_quotes> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
 ```
 
 ```Example
@@ -304,10 +328,10 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Creación de una asignación de roles para un grupo en el ámbito de un recurso
 
-Para conceder acceso a un grupo en el ámbito del recurso, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para conceder acceso a un grupo en un ámbito de recurso, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name_in_quotes> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
 ```
 
 ```Example
@@ -335,10 +359,10 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Creación de una asignación de roles para una aplicación en el ámbito de una suscripción
 
-Para conceder acceso a una aplicación en el ámbito de la suscripción, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+Para conceder acceso a una aplicación en un ámbito de suscripción, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example
@@ -355,16 +379,48 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
+### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Creación de una asignación de roles para un usuario en el ámbito de un grupo de administración
+
+Para conceder acceso a un usuario en un ámbito del grupo de administración, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Para obtener el identificador del grupo de administración, puede encontrarlo en la hoja **Grupos de administración** de Azure Portal o usar [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
+```
+
+```Example
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+
+RoleAssignmentId   : /providers/Microsoft.Management/managementGroups/marketing-group/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
+Scope              : /providers/Microsoft.Management/managementGroups/marketing-group
+DisplayName        : Alain Charon
+SignInName         : alain@example.com
+RoleDefinitionName : Billing Reader
+RoleDefinitionId   : fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+```
+
 ## <a name="remove-access"></a>Quitar acceso
 
 En RBAC, para quitar el acceso, es preciso quitar una asignación de roles mediante [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-```azurepowershell
-Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope <scope_such_as_subscription>
-```
+En el ejemplo siguiente se quita la asignación de roles *Colaborador de la máquina virtual* del usuario *alain\@example.com* en el grupo de recursos *pharma-sales*:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
+```
+
+En el ejemplo siguiente se quita el rol <nombre_del_rol> de <id_del_objeto> en un ámbito de suscripción.
+
+```azurepowershell
+Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+```
+
+En el ejemplo siguiente se quita el rol <nombre_del_rol> de <id_del_objeto> en el ámbito del grupo de administración.
+
+```azurepowershell
+Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
 Si se obtiene un mensaje de error parecido al siguiente: "La información proporcionada no se asigna a una asignación de roles", asegúrese de especificar también los parámetros `-Scope` o `-ResourceGroupName`. Para más información, vea [Solución de problemas de RBAC para recursos de Azure](troubleshooting.md#role-assignments-without-a-security-principal).

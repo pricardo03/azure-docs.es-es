@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918812"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036330"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -95,7 +95,7 @@ Para obtener información sobre cómo crear un recurso compartido de archivos pr
 Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos prémium. Para cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos del recurso compartido original en el nuevo recurso compartido que creó. Para hacerlo, puede usar cualquiera de las herramientas de copia de Azure Files compatibles, como Robocopy o AzCopy.
 
 > [!IMPORTANT]
-> Los recursos compartidos de archivos prémium solo están disponibles con LRS y están disponibles en la mayoría de regiones que ofrecen cuentas de almacenamiento. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure.
+> Los recursos compartidos de archivos Prémium están disponibles con LRS en la mayoría de regiones que ofrecen cuentas de almacenamiento y con ZRS en subconjuntos de regiones más pequeños. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, consulte [Cobertura de soporte técnico y disponibilidad regional](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
 
 #### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 
@@ -157,7 +157,7 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 
 Los recursos compartidos estándar de Azure Files admiten cuatro opciones de redundancia de datos: almacenamiento con redundancia local (LRS), almacenamiento con redundancia de zona (ZRS),almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar).
 
-Los recursos compartidos prémium de Azure Files solo admiten el almacenamiento con redundancia local (LRS).
+Los recursos compartidos Prémium de Azure Files admiten tanto LRS como ZRS. ZRS está disponible actualmente en un subconjunto más pequeño de regiones.
 
 En las siguientes secciones se describen las diferencias entre las diferentes opciones de redundancia:
 
@@ -211,6 +211,7 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |Este de Australia |LRS     |Sin    |Sí|
 |Sudeste de Australia|LRS     |Sin    |Aún no|
 |India Central  |LRS     |Sin    |Aún no|
+|Asia oriental      |LRS     |Sin    |Aún no|
 |East US        |LRS     |Sin    |Aún no|
 |Centro de Francia |LRS, ZRS|Sin    |LRS: sí; ZRS: aún no|
 |Sur de Francia   |LRS     |Sin    |Sí|

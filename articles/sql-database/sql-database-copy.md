@@ -8,15 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 09/04/2019
+ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173424"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934202"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL
 
@@ -72,7 +72,8 @@ Para crear una copia de la base de datos, debe tener los siguientes roles:
 - Rol de colaborador de SQL Server
 - Rol personalizado en las bases de datos de origen y de destino con el siguiente permiso:
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Para cancelar una copia de la base de datos, debe tener los siguientes roles:
 
@@ -80,7 +81,23 @@ Para cancelar una copia de la base de datos, debe tener los siguientes roles:
 - Rol de colaborador de SQL Server
 - Rol personalizado en las bases de datos de origen y de destino con el siguiente permiso:
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
+   
+Para administrar la copia de la base de datos mediante Azure Portal, también necesitará los siguientes permisos:
+
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/write   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/write   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/operationstatuses/read    
+
+Si desea ver las operaciones en implementaciones en el grupo de recursos en el portal, las operaciones en varios proveedores de recursos, incluidas las operaciones de SQL, necesitará estos roles RBAC adicionales: 
+
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read   
+&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
+
+
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copia de una base de datos mediante Transact-SQL
 

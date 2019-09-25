@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816524"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996612"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -85,6 +85,7 @@ Una posible causa es la ausencia de compatibilidad multicanal SMB. Actualmente, 
 
 - Obtener una máquina virtual con un núcleo más grande puede ayudar a mejorar el rendimiento.
 - Ejecutar la aplicación cliente desde varias máquinas virtuales aumentará el rendimiento.
+
 - Siempre que sea posible, use las API de REST.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>El rendimiento en los clientes de Linux es significativamente menor en comparación con los clientes de Windows.
@@ -95,8 +96,9 @@ Se trata de un problema conocido relacionado con la implementación del cliente 
 
 ### <a name="workaround"></a>Solución alternativa
 
-- Distribuir la carga entre varias máquinas virtuales
+- Distribuir la carga entre varias máquinas virtuales.
 - En la misma máquina virtual, use varios puntos de montaje con la opción **nosharesock** y propague la carga entre estos puntos de montaje.
+- En Linux, intente montar la opción **nostrictsync** para evitar forzar el vaciado de SMB en cada llamada a fsync. Para Azure Files, esta opción no afecta a la coherencia de los datos, pero puede producir metadatos de archivos obsoletos en la lista de directorios (comando **ls -l**). La consulta directa de metadatos del archivo (comando **stat**) devolverá los metadatos de archivo más recientes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latencias altas para cargas de trabajo con muchos metadatos que implican operaciones de apertura y cierre extensas.
 

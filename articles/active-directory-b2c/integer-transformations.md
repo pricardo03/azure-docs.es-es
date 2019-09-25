@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510798"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064210"
 ---
 # <a name="integer-claims-transformations"></a>Transformaciones de notificaciones de entero
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de entero del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para obtener más información, vea [ClaimsTransformations](claimstransformations.md).
+En este artículo se proporcionan ejemplos de uso de las transformaciones de notificaciones de enteros del esquema Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim 
+## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 
 Convierte a un tipo de datos Long en un tipo de datos String.
 
@@ -49,6 +49,6 @@ En este ejemplo, la notificación `numericUserId` con un tipo de valor de Long s
 
 - Notificaciones de entrada:
     - **inputClaim**: 12334 (Long)
-- Notificaciones de salida: 
+- Notificaciones de salida:
     - **outputClaim**: "12334" (cadena)
 

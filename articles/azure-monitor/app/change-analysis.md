@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849168"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033382"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -87,57 +87,39 @@ En Azure Monitor, Change Analysis actualmente está integrado en la experiencia 
 
 ### <a name="enable-change-analysis-at-scale"></a>Habilitación de Change Analysis a gran escala
 
-Si la suscripción incluye varias aplicaciones web, podría resultar ineficaz habilitar el servicio en el nivel de aplicación web. En este caso, siga estas instrucciones alternativas.
+Si la suscripción incluye varias aplicaciones web, podría resultar ineficaz habilitar el servicio en el nivel de aplicación web. Ejecute el siguiente script para habilitar todas las aplicaciones web de su suscripción.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registro del proveedor de recursos de Change Analysis para la suscripción
+Requisitos previos:
+* Módulo Az de PowerShell. Siga las instrucciones de [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0).
 
-1. Registre la marca de características de Change Analysis (versión preliminar). Dado que la marca de características se encuentra en versión preliminar, es preciso registrarla para que sea visible para la suscripción:
+Ejecute el siguiente script:
 
-   1. Abra [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Captura de pantalla del cambio de Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Cambie el tipo de shell a **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Captura de pantalla del cambio de Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Ejecute el siguiente comando de PowerShell:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Registre el proveedor de recursos de Change Analysis para la suscripción.
+```
 
-   - Vaya a **Suscripciones** y seleccione la suscripción que quiere habilitar en el servicio de cambios. Después seleccione los proveedores de recursos:
 
-        ![Captura de pantalla que muestra cómo registrar al proveedor de recursos de Change Analysis](./media/change-analysis/register-rp.png)
-
-       - Seleccione **Microsoft.ChangeAnalysis**. En la parte superior de la página, seleccione **Registrar**.
-
-       - Después de habilitar al proveedor de recursos, puede establecer una etiqueta oculta en la aplicación web para detectar cambios en el nivel de implementación. Para establecer una etiqueta oculta, siga las instrucciones debajo de la sección **No se puede obtener la información de Change Analysis**.
-
-   - También puede usar un script de PowerShell para registrar el proveedor de recursos:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        Para establecer una etiqueta oculta en una aplicación web mediante PowerShell, ejecute el siguiente comando:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > Después de agregar la etiqueta oculta, es posible que deba esperar hasta cuatro horas antes de que se reflejen los cambios. Los resultados se retrasan porque Change Analysis solo examina la aplicación web cada cuatro horas. La programación de cuatro horas limita el impacto del examen en el rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

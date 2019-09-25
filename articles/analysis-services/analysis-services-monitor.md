@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596097"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958983"
 ---
 # <a name="monitor-server-metrics"></a>Supervisión de las métricas del servidor
 
@@ -55,6 +55,10 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 |MemoryLimitLow|Memoria: límite bajo de memoria|Bytes|Media|Límite bajo de memoria del archivo de configuración.|
 |MemoryLimitVertiPaq|Memoria: VertiPaq de límite de memoria|Bytes|Media|Límite en memoria del archivo de configuración.|
 |MemoryUsage|Memoria: Uso de la memoria|Bytes|Media|Uso de memoria del proceso de servidor tal como se usa para calcular el precio de la memoria del limpiador. Es igual que el contador Process\PrivateBytes más el tamaño de los datos asignados a la memoria; no se tiene en cuenta ninguna memoria asignada por el sistema de análisis en memoria (VertiPaq) que supere el límite de memoria del sistema.|
+|private_bytes_metric|Bytes privados |Bytes|Media|La cantidad total de memoria que el proceso del motor de Analysis Services y los procesos de contenedor de Mashup han asignado, sin incluir la memoria compartida con otros procesos.|
+|virtual_bytes_metric|Bytes virtuales |Bytes|Media|Tamaño actual del espacio de direcciones virtuales que están usando el proceso del motor de Analysis Services y los procesos de contenedor de Mashup.|
+|mashup_engine_private_bytes_metric|Bytes privados del motor M |Bytes|Media|Cantidad total de procesos de contenedor de mashup de memoria asignados, sin incluir la memoria compartida con otros procesos.|
+|mashup_engine_virtual_bytes_metric|Bytes virtuales del motor M |Bytes|Media|Tamaño actual del espacio de direcciones virtuales que están usando los proceso de contenedor de Mashup.|
 |Quota|Memoria: Quota|Bytes|Media|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
 |QuotaBlocked|Memoria: cuota bloqueada|Count|Media|Número actual de solicitudes de cuota que están bloqueadas hasta que se liberen otras cuotas de memoria.|
 |VertiPaqNonpaged|Memoria: VertiPaq no paginado|Bytes|Media|Bytes de memoria bloqueados en el espacio de trabajo para que los use el motor en memoria.|

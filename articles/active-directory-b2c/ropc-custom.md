@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164847"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063699"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-En Azure Active Directory (Azure AD) B2C, el flujo de las credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAuth. En este flujo, una aplicación (que también se conoce como usuario de confianza), intercambia credenciales válidas por tokens. En las credenciales, se incluye un identificador de usuario y una contraseña. Los tokens devueltos son un token de identificador, un token de acceso y un token de actualización.
+En Azure Active Directory B2C (Azure AD B2C), el flujo de las credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAuth. En este flujo, una aplicación (que también se conoce como usuario de confianza), intercambia credenciales válidas por tokens. En las credenciales, se incluye un identificador de usuario y una contraseña. Los tokens devueltos son un token de identificador, un token de acceso y un token de actualización.
 
 Las opciones siguientes se admiten en el flujo de ROPC:
 
@@ -42,7 +42,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Azure Active
 ## <a name="register-an-application"></a>Registro de una aplicación
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Aplicaciones** y **Agregar**.
 5. Escriba un nombre para la aplicación, como *ROPC_Auth_app*.
@@ -88,7 +88,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Azure Active
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -140,7 +140,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Azure Active
     </TechnicalProfile>
     ```
 
-    Reemplace el valor **DefaultValue** de **client_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que ha creado en el tutorial de requisitos previos. Reemplace el valor **DefaultValue** de **resource_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que también ha creado en el tutorial de requisitos previos.  
+    Reemplace el valor **DefaultValue** de **client_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que ha creado en el tutorial de requisitos previos. Reemplace el valor **DefaultValue** de **resource_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que también ha creado en el tutorial de requisitos previos.
 
 5. Agregue los siguientes elementos de **ClaimsProvider** con sus perfiles técnicos al elemento **ClaimsProviders**:
 
@@ -245,7 +245,7 @@ Después, actualice el archivo del usuario de confianza que inicia el recorrido 
 2. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. El identificador de directiva es el nombre de la directiva. Por ejemplo, **B2C_1A_ROPC_Auth**.
 3. Cambie el valor del atributo **ReferenceId** en **DefaultUserJourney** a `ResourceOwnerPasswordCredentials`.
 4. Cambie el elemento **OutputClaims** para que solo contenga las siguientes notificaciones:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -269,9 +269,9 @@ Use su aplicación favorita de desarrollo de API para generar una llamada de API
 
 | Clave | Valor |
 | --- | ----- |
-| nombre de usuario | `user-account` |
-| contraseña | `password1` |
-| grant_type | contraseña |
+| username | `user-account` |
+| password | `password1` |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | id_token del token |

@@ -425,7 +425,7 @@
       href: hyper-v-azure-powershell-resource-manager.md
     - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V (con VMM) en Azure con PowerShell
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: Incorporación de runbooks de Azure Automation a los planes de recuperación para organizar la conmutación por error
+    - name: Adición de runbooks de Automation a los planes de recuperación
       href: site-recovery-runbook-automation.md
 - name: Supervisión
   items:

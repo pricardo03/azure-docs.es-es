@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509155"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065514"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En Azure Active Directory (Azure AD) B2C, puede configurar los requisitos de complejidad de las contraseñas proporcionadas por un usuario al crear una cuenta. De forma predeterminada, Azure AD B2C utiliza contraseñas **seguras**. En este artículo se muestra cómo configurar la complejidad de las contraseñas en [directivas personalizadas](active-directory-b2c-overview-custom.md). También es posible configurar la complejidad de las contraseñas en [flujos de usuario](active-directory-b2c-reference-password-complexity.md).
+En Azure Active Directory B2C (Azure AD B2C), puede configurar los requisitos de complejidad de las contraseñas que proporciona un usuario al crear una cuenta. De forma predeterminada, Azure AD B2C utiliza contraseñas **seguras**. En este artículo se muestra cómo configurar la complejidad de las contraseñas en [directivas personalizadas](active-directory-b2c-overview-custom.md). También es posible configurar la complejidad de las contraseñas en [flujos de usuario](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -112,7 +112,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 ### <a name="upload-the-files"></a>Carga de los archivos
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Marco de experiencia de identidad**.
 5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.

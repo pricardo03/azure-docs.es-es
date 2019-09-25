@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 889c2e75e9eee0586c709b032dbb6d1c58d45102
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/13/2019
+ms.openlocfilehash: 5ef11e86b85a537a809352325d56ac3ff983c2c1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142047"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993059"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar datos en Azure Database for MySQL
 
@@ -22,6 +22,8 @@ Los escenarios principales para considerar el uso de Data-in Replication son:
 
 - **Sincronización de datos híbridos:** con Replicación de datos de entrada, se pueden mantener los datos sincronizados entre los servidores locales y Azure Database for MySQL. Esta sincronización resulta útil para crear aplicaciones híbridas. Este método resulta atractivo cuando se tiene un servidor de base de datos local existente, pero quiere mover los datos a una región más cercana a los usuarios finales.
 - **Sincronización de multi-nube:** para soluciones de nube complejas, use Replicación de datos de entrada para sincronizar datos entre Azure Database for MySQL y distintos proveedores de nube, incluidas las máquinas virtuales y los servicios de base de datos hospedados en dichas nubes.
+ 
+Para los escenarios de migración, use [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) (DMS).
 
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
@@ -37,7 +39,7 @@ La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/s
 - Si el servidor maestro tiene SSL habilitado, asegúrese de que el certificado de entidad de certificación de SSL proporcionado para el dominio se haya incluido en el procedimiento almacenado `mysql.az_replication_change_master`. Consulte los [ejemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) siguientes y el parámetro `master_ssl_ca`.
 - Asegúrese de que la dirección IP del servidor maestro se ha agregado a las reglas de firewall del servidor de réplica de Azure Database for MySQL. Actualice las reglas de firewall mediante [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Asegúrese de que el equipo que hospeda el servidor maestro permite el tráfico entrante y saliente en el puerto 3306.
-- Asegúrese de que el servidor maestro tenga una **dirección IP pública** o de que el sistema DNS sea de acceso público.
+- Asegúrese de que el servidor maestro tiene una **dirección IP pública**, de que el DNS es accesible públicamente o de que tiene un nombre de dominio completo (FQDN).
 
 ### <a name="other"></a>Otros
 - La Replicación de datos de entrada solo se admite en los planes de tarifa De uso general y Optimizada para memoria.
@@ -46,3 +48,4 @@ La [*base de datos del sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/s
 ## <a name="next-steps"></a>Pasos siguientes
 - Información acerca de cómo [configurar la replicación de datos internos](howto-data-in-replication.md)
 - Información acerca de cómo [replicar en Azure con réplicas de lectura](concepts-read-replicas.md)
+- Información acerca de cómo [migrar datos con un tiempo de inactividad mínimo mediante DMS](howto-migrate-online.md)

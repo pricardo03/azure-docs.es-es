@@ -10,17 +10,17 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 892f47b6acf22c62ce2290e2ede9d0bcd21eefc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835432"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065894"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure Active Directory B2C
 
 > [!IMPORTANT]
-> Para obtener la información más reciente acerca de la facturación del uso y los precios de Azure Active Directory (Azure AD) B2C, consulte [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Para conocer la información más reciente sobre la facturación del uso y los precios de Azure Active Directory B2C (Azure AD), consulte [Precios de Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Los cargos por el uso de Azure AD B2C se facturan a una suscripción de Azure. Cuando se crea un inquilino de Azure AD B2C, es preciso que el administrador de inquilinos vincule explícitamente dicho inquilino a una suscripción de Azure. Este artículo le muestra cómo.
 

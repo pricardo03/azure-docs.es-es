@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207144"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057790"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegación de tareas en Administración de derechos de Azure AD (versión preliminar)
 
@@ -69,7 +69,7 @@ La administración de derechos incluye los siguientes roles específicos de admi
 
 | Role | DESCRIPCIÓN |
 | --- | --- |
-| Creador de catálogos | Crear y administrar catálogos. Normalmente, un administrador de TI que no es administrador global o un propietario de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del catálogo y puede agregar otros propietarios del catálogo. |
+| Creador de catálogos | Crear y administrar catálogos. Normalmente, un administrador de TI que no es administrador global o un propietario de recursos en una colección de recursos. La persona que crea un catálogo se convierte automáticamente en el primer propietario del catálogo y puede agregar otros propietarios del catálogo. Un creador de catálogos no puede administrar o ver los catálogos que no son de su propiedad y no puede agregar recursos que no son de su propiedad a un catálogo. Si el creador del catálogo tiene que administrar otro catálogo o agregar recursos que no son de su propiedad, puede solicitar ser copropietario de ese catálogo o recurso. |
 | Propietario del catálogo | Editar y administrar catálogos existentes. Normalmente, un administrador de TI o propietarios de recursos, o un usuario que el propietario del catálogo ha designado. |
 | Administrador de paquetes de acceso | Editar y administrar todos los paquetes de acceso existentes en un catálogo. |
 
@@ -139,7 +139,15 @@ Si desea delegar la creación del catálogo, agregue usuarios al rol de creador 
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Adición de un propietario del catálogo o de un administrador de paquetes de acceso
 
-Si desea delegar la administración de un catálogo o de paquetes de acceso del catálogo, agregue usuarios a los roles de propietario del catálogo o de administrador de paquetes de acceso. Quien crea un catálogo se convierte en el primer propietario del catálogo. Siga estos pasos para asignar un usuario al rol de propietario del catálogo o de administrador de paquetes de acceso.
+Si desea delegar la administración de un catálogo o de paquetes de acceso del catálogo, agregue usuarios a los roles de propietario del catálogo o de administrador de paquetes de acceso. Quien crea un catálogo se convierte en el primer propietario del catálogo. 
+
+El propietario del catálogo asignado o el administrador de paquetes de acceso tienen que estar familiarizados con el proyecto. El creador del catálogo debe crear el paquete de acceso si participa en las operaciones cotidianas del proyecto y conoce la información siguiente:
+- Qué recursos se necesitan
+- Quién necesitará acceso
+- Quién necesita aprobar el acceso
+- Cuánto tiempo durará el proyecto
+
+Si no participa en las operaciones diarias del proyecto, el creador del catálogo debe delegar la tarea en el responsable del proyecto, que creará y administrará el paquete de acceso. Siga estos pasos para asignar un usuario al rol de propietario del catálogo o de administrador de paquetes de acceso:
 
 **Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
 

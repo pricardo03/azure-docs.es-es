@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956749"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962625"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guía de publicación de Azure Marketplace y AppSource
 
@@ -52,7 +52,7 @@ Incremente sus ventas y realice la venta cruzada de sus soluciones dando respues
 
 Obtenga información detallada sobre el rendimiento de sus anuncios mediante los datos y los análisis que están disponibles a través de Marketplace. Obtenga más información sobre el rendimiento de las campañas, los pedidos y pagos, y cómo maximizar las actividades de la campaña de la solución.
 
-### <a name="marketplace-go-to-market-benefits"></a>Ventajas de la comercialización en Marketplace 
+### <a name="commercial-marketplace-benefits"></a>Ventajas de Marketplace comercial 
 
 Los nuevos anuncios de Marketplace pueden optar a un conjunto variado de ventajas gratuitas que ayudarán a los asociados a desarrollar sus negocios en Marketplace. Estas ventajas se dividen en una de las siguientes categorías: 
 
@@ -64,7 +64,7 @@ Los nuevos anuncios de Marketplace pueden optar a un conjunto variado de ventaja
 
 Una vez que [envíe su solución](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) a Marketplace, nuestro equipo de incorporación se pondrá en contacto con usted para ayudarle en su experiencia de publicación.  Para más información, consulte [Creación de una cuenta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-Para más información sobre las ventajas de comercialización de Microsoft y las maneras en que puede hacer crecer su negocio en Marketplace, visite la página [Servicios de comercialización de Microsoft](https://partner.microsoft.com/reach-customers/gtm).
+Más información acerca de las [ventajas de Marketplace comercial](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

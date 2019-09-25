@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858505"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993468"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -132,7 +132,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría.|
 |Enmascaramiento de datos|Adición, modificación, eliminación o visualización de reglas de enmascaramiento de datos|
 |Cifrado de datos transparente|Visualización del estado de cifrado de datos transparente|
-|Almacén de datos de consulta (rendimiento)|Modificación o visualización de la configuración del almacén de consulta, ajuste automático|
+|Almacén de datos de consulta (rendimiento)|Modificación o visualización de la configuración del almacén de consulta|
 |Ajuste automático|Aplicación y comprobación de recomendaciones de ajuste automático, como la indexación automática|
 |Copia de base de datos|Creación de base de datos como copia.<br>Exportación a un archivo BACPAC.|
 |Sincronización de datos SQL|Sincronización entre la base de datos central y las bases de datos miembro que se ejecutan según una programación configurable o bien de forma manual|

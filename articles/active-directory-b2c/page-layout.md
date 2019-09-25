@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 011fb262ff91c56269c5b7dc9adf4aaeab9acbd5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228963"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063842"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selección de un diseño de página en Azure Active Directory B2C mediante directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Puede habilitar el código de JavaScript del lado cliente en las directivas de Azure Active Directory (Azure AD) B2C, independientemente de si usa flujos de usuario o directivas personalizadas. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](active-directory-b2c-overview-custom.md), seleccionar un diseño de página y usar [b2clogin.com](b2clogin.md) en las solicitudes.
+Puede habilitar el código de JavaScript del lado cliente en las directivas de Azure Active Directory B2C (Azure AD B2C), independientemente de si usa flujos de usuario o directivas personalizadas. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](active-directory-b2c-overview-custom.md), seleccionar un diseño de página y usar [b2clogin.com](b2clogin.md) en las solicitudes.
 
 Un diseño de página es una asociación de elementos que proporciona Azure AD B2C y el contenido que proporciona el usuario.
 

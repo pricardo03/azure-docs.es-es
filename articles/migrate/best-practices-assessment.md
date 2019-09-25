@@ -1,17 +1,17 @@
 ---
-title: Procedimientos recomendados para crear una evaluación con Azure Migrate Server Assessment | Microsoft Docs
+title: Procedimientos recomendados para crear una evaluación con Azure Migrate Server Assessment
 description: Proporciona sugerencias para crear evaluaciones con Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234314"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007709"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
@@ -33,8 +33,8 @@ Como ejemplo, si tiene una máquina virtual local con cuatro núcleos con un uso
 
 - **Evaluación basada en el rendimiento**:
     - Identifica la memoria y los núcleos efectivos según el uso del núcleo (4 x 0,20 = 0,8) y la memoria (8 GB x 0,10 = 0,8).
-    - Aplica el factor de confort especificado en las propiedades de evaluación (por ejemplo, 1.3 x) para obtener los valores que se van a usar para el ajuste de tamaño. 
-    - Recomienda el tamaño de máquina virtual más cercano en Azure que puede admitir ~1,4 núcleos (0,8 x 1,3) y una memoria de ~1,4 GB (0,8 x 1,3).
+    - Aplica el factor de confort especificado en las propiedades de evaluación (por ejemplo, 1,3 x) para obtener los valores que se van a usar para el ajuste de tamaño. 
+    - Recomienda el tamaño de máquina virtual más cercano en Azure que puede admitir ~1,04 núcleos (0,8 x 1,3) y una memoria de ~1,04 GB (0,8 x 1,3).
 
 - **Evaluación tal cual (como en el entorno local)** :
     -  Recomienda una máquina virtual con cuatro núcleos; 8 GB de memoria.

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42bffdc1960a87c931e914896e8e36de45991bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a8eaa46b46551f9b6075ec10b38de80f84c22a0
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784125"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034142"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD
 
@@ -33,9 +33,9 @@ Siempre debería empezar buscando el tutorial de configuración específico para
 
 Una vez que el servicio está configurado, se puede extraer la mayor parte de la información sobre el funcionamiento del servicio de dos lugares:
 
--   **Registros de auditoría**: los registros de auditoría de aprovisionamiento registran todas las operaciones realizadas por el servicio de aprovisionamiento, incluidas las consultas en Azure AD de los usuarios asignados que pertenecen al ámbito de aprovisionamiento. Consulte la existencia de esos usuarios en la aplicación de destino y compare los objetos de usuario entre el sistema. Después, agregue, actualice o deshabilite la cuenta de usuario en el sistema de destino en función de la comparación. Puede acceder a los registros de auditoría de aprovisionamiento en Azure Portal, en la pestaña **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt; Registros de auditoría**. Filtre los registros en la categoría **Aprovisionamiento de cuentas** para ver solo los eventos de aprovisionamiento para esa aplicación.
+-   **Registros de aprovisionamiento (versión preliminar)** : los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registran todas las operaciones realizadas por el servicio de aprovisionamiento, incluidas las consultas en Azure AD de los usuarios asignados que pertenecen al ámbito de aprovisionamiento. Consulte la existencia de esos usuarios en la aplicación de destino y compare los objetos de usuario entre el sistema. Después, agregue, actualice o deshabilite la cuenta de usuario en el sistema de destino en función de la comparación. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**.
 
--   **Estado de aprovisionamiento**: se puede ver un resumen de aprovisionamiento de la última ejecución del aprovisionamiento para una aplicación determinada en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt;\[Nombre de la aplicación\]&gt;Aprovisionamiento**, en la parte inferior de la pantalla bajo la configuración del servicio. En esta sección se resume cuántos usuarios (o grupos) se están sincronizando actualmente entre ambos sistemas y si se han producido errores. Los detalles del error se encuentran en los registros de auditoría. Tenga en cuenta que el estado de aprovisionamiento no se rellena hasta que se ha completado una sincronización inicial completa entre Azure AD y la aplicación.
+-   **Estado actual**: se puede ver un resumen de aprovisionamiento de la última ejecución del aprovisionamiento para una aplicación determinada en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt;Aprovisionamiento**, en la parte inferior de la pantalla bajo la configuración del servicio. En la sección Estado actual se muestra si un ciclo de aprovisionamiento ha iniciado las cuentas de usuario de aprovisionamiento. Puede ver el progreso del ciclo, cuántos usuarios y grupos se han aprovisionado y cuántos roles se crean. Si hay errores, puede consultar los detalles en [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas generales con el aprovisionamiento que tener en cuenta
 
@@ -43,14 +43,14 @@ A continuación, se muestra una lista de las áreas problemáticas generales en 
 
 * [No parece que el servicio de aprovisionamiento se inicie](#provisioning-service-does-not-appear-to-start)
 * No se puede guardar la configuración porque las credenciales de la aplicación no funcionan
-* [Los registros de auditoría indican que hay usuarios "omitidos" y no aprovisionados, aunque estén asignados](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [Los registros de aprovisionamiento indican que hay usuarios "omitidos" y no aprovisionados, aunque estén asignados](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>No parece que el servicio de aprovisionamiento se inicie
 
-Si establece **Estado de aprovisionamiento** en **Activado** en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt;Aprovisionamiento** de Azure Portal. No obstante, no se muestran más detalles de estado en esa página tras recargas posteriores. Es probable que el servicio se esté ejecutando pero que no se haya completado aún una sincronización inicial. Compruebe los **registros de auditoría** descritos antes para determinar qué operaciones está realizando el servicio y si se han producido errores.
+Si establece **Estado de aprovisionamiento** en **Activado** en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt;Aprovisionamiento** de Azure Portal. No obstante, no se muestran más detalles de estado en esa página tras recargas posteriores. Es probable que el servicio se esté ejecutando pero que no se haya completado aún un ciclo inicial. Compruebe los **registros de aprovisionamiento** descritos antes para determinar qué operaciones está realizando el servicio y si se han producido errores.
 
 >[!NOTE]
->Una sincronización inicial puede tardar desde 20 minutos hasta varias horas, según el tamaño del directorio de Azure AD y el número de usuarios en el ámbito de aprovisionamiento. Las sincronizaciones posteriores a la inicial serán más rápidas, ya que el servicio de aprovisionamiento almacena marcas de agua que representan el estado de ambos sistemas tras la sincronización inicial, lo cual mejora el rendimiento de las posteriores.
+>Un ciclo inicial puede tardar desde 20 minutos hasta varias horas, según el tamaño del directorio de Azure AD y el número de usuarios en el ámbito de aprovisionamiento. Los ciclos posteriores al inicial serán más rápidos, ya que el servicio de aprovisionamiento almacena marcas de agua que representan el estado de ambos sistemas tras el ciclo inicial, lo cual mejora el rendimiento de los posteriores.
 >
 >
 
@@ -58,9 +58,9 @@ Si establece **Estado de aprovisionamiento** en **Activado** en la sección **Az
 
 Para que funcione el aprovisionamiento, Azure AD necesita credenciales válidas que le permitan conectarse a una API de administración de usuarios proporcionada por esa aplicación. Si estas credenciales no funcionan o las desconoce, revise el tutorial para configurar esta aplicación, tal como se ha descrito antes.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Los registros de auditoría indican que hay usuarios omitidos y no aprovisionados, aunque estén asignados
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Los registros de aprovisionamiento indican que hay usuarios omitidos y no aprovisionados, aunque estén asignados
 
-Cuando un usuario se muestra como "Omitido" en los registros de auditoría, es muy importante que lea los detalles ampliados en el mensaje del registro para determinar la razón. Algunas razones y soluciones habituales son:
+Cuando un usuario se muestra como "Omitido" en los registros de aprovisionamiento, es muy importante que lea los detalles ampliados en el mensaje del registro para determinar la razón. Algunas razones y soluciones habituales son:
 
 - **Se ha configurado un filtro de ámbito** **que está filtrando al usuario por un valor de atributo**. Para más información sobre los filtros de ámbito, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 

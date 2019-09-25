@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7232917df6018c9c8afc7e7edd3730a277b193f4
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798266"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065420"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Administración de amenazas en los recursos y los datos en Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C tiene características integradas que pueden ayudarle a protegerse frente a amenazas en los recursos y los datos. Estas amenazas incluyen los ataques de denegación de servicio y contraseña. Los ataques por denegación de servicio pueden hacer que los recursos no estén disponibles para los usuarios previstos. Los ataques a contraseñas pueden dar lugar a un acceso no autorizado a los recursos.
+Azure Active Directory B2C (Azure AD B2C) tiene características integradas que pueden ayudarle a protegerse frente a amenazas en los recursos y los datos. Estas amenazas incluyen los ataques de denegación de servicio y contraseña. Los ataques por denegación de servicio pueden hacer que los recursos no estén disponibles para los usuarios previstos. Los ataques a contraseñas pueden dar lugar a un acceso no autorizado a los recursos.
 
 ## <a name="denial-of-service-attacks"></a>Ataques por denegación de servicio
 

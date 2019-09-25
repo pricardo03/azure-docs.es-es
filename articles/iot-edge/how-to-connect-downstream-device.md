@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698629"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999404"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -170,10 +170,9 @@ Esta sección presenta una aplicación de ejemplo para conectar un cliente de di
 
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de Python de Azure IoT a una puerta de enlace IoT Edge. 
 
-1. Puede obtener el ejemplo **edge_downstream_client** en los [Ejemplos del SDK de dispositivo IoT de Azure para Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**. 
-3. En el archivo edge_downstream_client.py, actualice las variables **CONNECTION_STRING** y **TRUSTED_ROOT_CA_CERTIFICATE_PATH**. 
-4. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo. 
+1. El ejemplo de **send_message** se obtiene de los [Ejemplos del SDK de dispositivo IoT de Azure para Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Asegúrese de que la ejecución se realiza en un contenedor de Edge o en un escenario de depuración y de que las variables de entorno `EdgeHubConnectionString` y `EdgeModuleCACertificateFile` se hayan establecido.
+3. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo. 
 
 
 ## <a name="test-the-gateway-connection"></a>Prueba de la conexión de puerta de enlace

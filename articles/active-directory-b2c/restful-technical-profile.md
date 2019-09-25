@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f535bc7d67198b3fe06326260bc1910b6afd36f2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346774"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063737"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con un servicio RESTful propio. Azure AD B2C envía datos al servicio RESTful en una colección de notificaciones de entrada y recibe los datos en una colección de notificaciones de salida. Con la integración del servicio RESTful, puede hacer lo siguiente:
+Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con un servicio RESTful propio. Azure AD B2C envía datos al servicio RESTful en una colección de notificaciones de entrada y recibe los datos en una colección de notificaciones de salida. Con la integración del servicio RESTful, puede hacer lo siguiente:
 
 - **Validar datos de entrada de usuario**: impide que se conserven datos con formato incorrecto en Azure AD B2C. Si el valor del usuario no es válido, el servicio REST devuelve el mensaje de error que indica al usuario que proporcione una entrada. Por ejemplo, puede comprobar que la dirección de correo electrónico que proporciona el usuario existe en la base de datos del cliente.
 - **Sobrescribir notificaciones de entrada**: permite volver a formatear los valores de las notificaciones de entrada. Por ejemplo, si un usuario escribe el nombre con mayúsculas o minúsculas, se le puede dar un formato en el que solo la primera letra esté en mayúscula.
@@ -43,7 +43,7 @@ En el ejemplo siguiente se muestra un perfil técnico de RESTful:
 <TechnicalProfile Id="REST-UserMembershipValidator">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>Notificaciones de entrada
@@ -70,7 +70,7 @@ En el ejemplo siguiente se muestra la notificación devuelta por la API REST:
 
 - La notificación **MembershipId** que se asigna al nombre de notificación **loyaltyNumber**.
 
-El perfil técnico también devuelve notificaciones, que no son devueltas por el proveedor de identidades: 
+El perfil técnico también devuelve notificaciones, que no son devueltas por el proveedor de identidades:
 
 - La notificación **loyaltyNumberIsNew** que tiene un valor predeterminado establecido en `true`.
 
@@ -85,11 +85,11 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ServiceUrl | Sí | La dirección URL del punto de conexión de la API REST. | 
-| AuthenticationType | Sí | El tipo de autenticación realizada por el proveedor de notificaciones RESTful. Valores posibles: `None`, `Basic` o `ClientCertificate`. El valor `None` indica que la API REST no es anónima. El valor `Basic` indica que la API REST se protege con autenticación básica HTTP. Solo los usuarios verificados, incluido Azure AD B2C, pueden acceder a la API. El valor `ClientCertificate` (recomendado) indica que la API REST restringe el acceso mediante la autenticación de certificado de cliente. Solo pueden acceder al servicio los servicios que tengan los certificados adecuados, como Azure AD B2C. | 
-| SendClaimsIn | Sin | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. | 
-| ClaimsFormat | Sin | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. | 
-| DebugMode | Sin | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. | 
+| ServiceUrl | Sí | La dirección URL del punto de conexión de la API REST. |
+| AuthenticationType | Sí | El tipo de autenticación realizada por el proveedor de notificaciones RESTful. Valores posibles: `None`, `Basic` o `ClientCertificate`. El valor `None` indica que la API REST no es anónima. El valor `Basic` indica que la API REST se protege con autenticación básica HTTP. Solo los usuarios verificados, incluido Azure AD B2C, pueden acceder a la API. El valor `ClientCertificate` (recomendado) indica que la API REST restringe el acceso mediante la autenticación de certificado de cliente. Solo pueden acceder al servicio los servicios que tengan los certificados adecuados, como Azure AD B2C. |
+| SendClaimsIn | Sin | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. |
+| ClaimsFormat | Sin | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. |
+| DebugMode | Sin | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
@@ -111,7 +111,7 @@ Si el tipo de autenticación se establece en `Basic`, el elemento **Cryptographi
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Sí | Nombre de usuario que se usa para la autenticación. | 
+| BasicAuthenticationUsername | Sí | Nombre de usuario que se usa para la autenticación. |
 | BasicAuthenticationPassword | Sí | Contraseña que se usa para la autenticación. |
 
 En el ejemplo siguiente se muestra un perfil técnico con autenticación básica:
@@ -136,7 +136,7 @@ Si el tipo de autenticación se establece en `ClientCertificate`, el elemento **
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ClientCertificate | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para la autenticación. | 
+| ClientCertificate | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para la autenticación. |
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -159,13 +159,13 @@ Es posible la API REST tenga que devolver un mensaje de error, como "No se encue
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| version | Sí | 1.0.0 | 
-| status | Sí | 409 | 
-| código | Sin | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. | 
-| requestId | Sin | Identificador de solicitud del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. | 
-| userMessage | Sí | Mensaje de error que se muestra al usuario. | 
-| developerMessage | Sin | Descripción detallada del problema y cómo corregirlo, que se muestra cuando `DebugMode` está habilitado. | 
-| moreInfo | Sin | URI que señala a información adicional, que se muestra cuando `DebugMode` está habilitado. | 
+| version | Sí | 1.0.0 |
+| status | Sí | 409 |
+| código | Sin | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
+| requestId | Sin | Identificador de solicitud del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. |
+| userMessage | Sí | Mensaje de error que se muestra al usuario. |
+| developerMessage | Sin | Descripción detallada del problema y cómo corregirlo, que se muestra cuando `DebugMode` está habilitado. |
+| moreInfo | Sin | URI que señala a información adicional, que se muestra cuando `DebugMode` está habilitado. |
 
 En el ejemplo siguiente se muestra una API REST que devuelve un mensaje de error con formato JSON:
 
@@ -175,9 +175,9 @@ En el ejemplo siguiente se muestra una API REST que devuelve un mensaje de error
   "status": 409,
   "code": "API12345",
   "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "userMessage": "Message for the user",
+  "developerMessage": "Verbose description of problem and how to fix it.",
+  "moreInfo": "https://restapi/error/API12345/moreinfo"
 }
 ```
 
@@ -197,7 +197,7 @@ public class ResponseContent
 ```
 
 ## <a name="examples"></a>Ejemplos:
-- [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-custom-rest-api-netfw.md) 
+- [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-custom-rest-api-netfw.md)
 - [Protección de los servicios RESTful mediante la autenticación HTTP básica](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Protección de los servicios RESTful mediante certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 - [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md)

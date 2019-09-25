@@ -1,23 +1,26 @@
 ---
-title: Creación y administración de réplicas de lectura en Azure Database for MySQL
-description: En este artículo se describe cómo configurar y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure.
+title: 'Creación y administración de réplicas de lectura en Azure Database for MySQL: CLI de Azure, API REST'
+description: En este artículo se describe cómo configurar y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure y API REST
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 8a9366005ceef5a99fd66f0ec0cd53c98b481ee1
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/14/2019
+ms.openlocfilehash: 5bec4e7284e78506372d395bf022055fa31998e3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309335"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993550"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure y API REST
 
-En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en la misma región de Azure que el servidor maestro del servicio Azure Database for MySQL mediante la CLI de Azure.
+En este artículo aprenderá a crear y administrar réplicas de lectura en el servicio Azure Database for MySQL mediante la CLI de Azure y API REST. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="azure-cli"></a>CLI de Azure
+Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
+
+### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) que se usará como servidor maestro. 
@@ -25,7 +28,7 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 > [!IMPORTANT]
 > La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
 
-## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
+### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 
@@ -53,7 +56,23 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > [!NOTE]
 > Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el maestro para asegurarse de que la réplica trabajar al mismo nivel que el servidor maestro.
 
-## <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
+
+### <a name="list-replicas-for-a-master-server"></a>Lista de réplicas de un servidor maestro
+
+Para ver todas las réplicas de un determinado servidor maestro, ejecute el siguiente comando: 
+
+```azurecli-interactive
+az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
+```
+
+El comando `az mysql server replica list` requiere los siguientes parámetros:
+
+| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
+| --- | --- | --- |
+| resource-group |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
+| server-name | mydemoserver | Nombre o identificador del servidor maestro. |
+
+### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
 
 > [!IMPORTANT]
 > La detención la replicación en un servidor es irreversible. Una vez que detenida, la replicación entre un servidor maestro y una réplica no se puede deshacer. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
@@ -71,7 +90,7 @@ El comando `az mysql server replica stop` requiere los siguientes parámetros:
 | resource-group |  myresourcegroup |  Grupo de recursos donde se encuentra el servidor de réplica.  |
 | Nombre | mydemoreplicaserver | Nombre del servidor de réplica para el que desea detener la replicación. |
 
-## <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica
+### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica
 
 La eliminación de un servidor de réplica de lectura se puede realizar mediante la ejecución del comando **[az mysql server delete](/cli/azure/mysql/server)** .
 
@@ -79,7 +98,7 @@ La eliminación de un servidor de réplica de lectura se puede realizar mediante
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-## <a name="delete-a-master-server"></a>Eliminación de un servidor maestro
+### <a name="delete-a-master-server"></a>Eliminación de un servidor maestro
 
 > [!IMPORTANT]
 > Al eliminar un servidor maestro, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor maestro. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
@@ -90,20 +109,71 @@ Para eliminar un servidor maestro, puede ejecutar el comando **[az mysql server 
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="list-replicas-for-a-master-server"></a>Lista de réplicas de un servidor maestro
 
-Para ver todas las réplicas de un determinado servidor maestro, ejecute el siguiente comando: 
+## <a name="rest-api"></a>API DE REST
+Puede crear y administrar réplicas de lectura mediante [API REST de Azure](/rest/api/azure/).
 
-```azurecli-interactive
-az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
+### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
+Puede crear una réplica de lectura mediante la [API de creación](/rest/api/mysql/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
 ```
 
-El comando `az mysql server replica list` requiere los siguientes parámetros:
+```json
+{
+  "location": "southeastasia",
+  "properties": {
+    "createMode": "Replica",
+    "sourceServerId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}"
+  }
+}
+```
 
-| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
-| --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
-| server-name | mydemoserver | Nombre o identificador del servidor maestro. |
+> [!NOTE]
+> Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
+
+Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
+
+Se crea una réplica con la misma configuración de proceso y almacenamiento que la maestra. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+
+
+> [!IMPORTANT]
+> Antes de actualizar la configuración de un servidor maestro a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
+
+### <a name="list-replicas"></a>Lista de réplicas
+Puede ver la lista de réplicas de un servidor maestro mediante la [API de lista de réplicas](/rest/api/mysql/replicas/listbyserver):
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
+```
+
+### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
+Puede detener la replicación entre un servidor maestro y una réplica de lectura mediante la [API de actualización](/rest/api/mysql/servers/update).
+
+Después de detener la replicación en un servidor maestro y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}?api-version=2017-12-01
+```
+
+```json
+{
+  "properties": {
+    "replicationRole":"None"  
+   }
+}
+```
+
+### <a name="delete-a-master-or-replica-server"></a>Eliminación de un servidor maestro o de réplica
+Para eliminar un servidor maestro o una réplica, use la [API de eliminación](/rest/api/mysql/servers/delete):
+
+Cuando se elimina un servidor maestro, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

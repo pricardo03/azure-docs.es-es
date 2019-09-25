@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142928"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098800"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -180,8 +180,19 @@ A.  Sí. Se admite un máximo de 10 cuentas de almacenamiento, de uso general, c
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>P: Recibí el dispositivo, pero parece estar dañado. ¿Cuál debo hacer?
 A. Si su dispositivo ha llegado dañado o hay evidencia de que lo hayan alterado, no lo use. [Póngase en contacto con el soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) y devuelva el dispositivo lo antes posible. También puede crear un nuevo pedido de Data Box para obtener un dispositivo de reemplazo. En ese caso, no se le cobrará por el dispositivo de reemplazo.
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>P: ¿Puedo usar mi propia empresa de transporte para enviar Data Box?
-A. En cuanto al servicio Data Box, Microsoft se encarga de administrar el envío desde y hasta el centro de datos de Azure. Si quiere usar su propio transportista, puede usar el servicio de importación y exportación de Azure. Para obtener más información, vaya a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (¿Qué es el servicio de importación y exportación de Azure?).
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>P: ¿Puedo seleccionar mi pedido de Data Box? ¿Puedo usar el transportista que prefiera para devolver Data Box?
+A. Sí. Microsoft también ofrece el envío autoadministrado, pero solo en la región US Gov. Al realizar el pedido de Data Box, puede elegir la opción de envío autoadministrado. Para recoger el pedido del dispositivo Data Box, siga estos pasos:
+    
+1. Después de haber realizado el pedido, este se procesa y se prepara Data Box. Se le enviará por correo electrónico una notificación cuando el pedido se pueda recoger. 
+2. Una vez que el pedido esté listo para su recogida, vaya a él en Azure Portal y. después, a la hoja **Información general**. 
+3. Verá una notificación con un código en Azure Portal. Envíe un correo electrónico al [equipo de operaciones de Azure Data Box](mailto:adbops@microsoft.com), en el que les indicará el código. El equipo proporcionará la ubicación y programará una fecha y hora de recogida. Debe llamar al equipo en un plazo máximo de cinco días laborables después de recibir la notificación por correo electrónico.
+
+Una vez que se complete la copia de los datos, siga estos pasos siguientes para devolver el dispositivo:
+
+1. Una vez que la copia de datos se complete sin errores, ejecute **Preparar para enviar**. Una vez que se complete la preparación, recibirá un código en la interfaz de usuario web local del dispositivo. Copie y guarde el código.
+2. Apague el dispositivo y quite los cables de conexión.
+3. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
+4. Envíe al [equipo de operaciones de Azure Data Box](mailto:adbops@microsoft.com) un correo electrónico con el código que guardó antes. Ellos le indicarán dónde y cuándo puede dejar el dispositivo.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P: ¿Mis dispositivos Data Box cruzarán fronteras internacionales durante el envío?
 A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE. Esto se aplica tanto a los dispositivos de Data Box como a los de Data Box Heavy.

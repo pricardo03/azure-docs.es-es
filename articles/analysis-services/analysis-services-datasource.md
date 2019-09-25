@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899409"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993380"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -42,7 +42,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 **Proveedor**   
 Los modelos En memoria y DirectQuery que se conectan a orígenes de datos de Azure utilizan el proveedor de datos .NET Framework para SQL Server.
 
-## <a name="on-premises-data-sources"></a>Orígenes de datos locales
+## <a name="other-data-sources"></a>Otros orígenes de datos
 
 Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, se necesita una puerta de enlace local. Cuando se usa una puerta de enlace, se requieren proveedores de 64 bits.
 
@@ -113,6 +113,10 @@ Para orígenes de datos locales:
 Para orígenes de datos en la nube:
 
 * Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
+
+## <a name="oauth-credentials"></a>Credenciales de OAuth
+
+En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superiores, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante SSMS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Puerta de enlace local](analysis-services-gateway.md)   

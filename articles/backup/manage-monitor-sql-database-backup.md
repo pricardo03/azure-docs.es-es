@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019033"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934823"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -140,6 +140,32 @@ Anule el registro de una instancia de SQL Server después de deshabilitar la pro
 4. Haga clic con el botón derecho en el servidor protegido y seleccione **Anular registro**.
 
    ![Seleccionar Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>Modificación de directivas
+Modifique la directiva para cambiar la frecuencia de las copias de seguridad o la duración de retención.
+
+> [!NOTE]
+> Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
+
+En el panel del almacén, vaya a **Administrar** > **Directivas de copia de seguridad** y elija la directiva que desea editar.
+
+  ![Administración de directivas de copia de seguridad](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Modificación de la directiva de copia de seguridad](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes. 
+
+#### <a name="inconsistent-policy"></a>Directiva incoherente 
+
+A veces, una operación de modificación de directiva puede conducir a una versión de directiva **incoherente** para algunos elementos de copia de seguridad. Esto sucede cuando el trabajo de **protección de configuración**  correspondiente fracasa para el elemento de copia de seguridad después de que se desencadene una operación de modificación de directiva. Aparece como se indica a continuación en la vista del elemento de copia de seguridad:
+ 
+  ![Directiva incoherente](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+Puede corregir la versión de directiva de todos los elementos afectados en un solo clic:
+
+  ![Corrección de la directiva incoherente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Volver a registrar la extensión en la máquina virtual de SQL Server
 

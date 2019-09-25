@@ -1,7 +1,7 @@
 ---
 title: 'Referencia de funciones geoespaciales de OData: Azure Search'
 description: Funciones geoespaciales de OData, geo.distance y geo.intersects, en consultas de Azure Search.
-ms.date: 06/13/2019
+ms.date: 09/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,18 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9585a9a7ea976ed32ccb8eed1e69877339196f87
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 03220786c65ab510a632252b20d593cd96a90494
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647577"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003457"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>Funciones geoespaciales de OData en Azure Search: `geo.distance` y `geo.intersects`
 
 Azure Search admite consultas geoespaciales en las [expresiones de filtro de OData](query-odata-filter-orderby-syntax.md) a través de las funciones `geo.distance` y `geo.intersects`. La función `geo.distance` devuelve la distancia en kilómetros entre dos puntos, siendo uno de ellos un campo o una variable de rango, y el otro una constante que se pasa como parte del filtro. La función `geo.intersects` devuelve `true` si un punto determinado se encuentra dentro de un polígono determinado, donde el punto es un campo o una variable de rango, y el polígono se especifica como una constante que se pasa como parte del filtro.
 
 La función `geo.distance` también se puede usar en el [parámetro **$orderby**](search-query-odata-orderby.md) para ordenar los resultados de la búsqueda por distancia con respecto a un punto dado. La sintaxis de `geo.distance` en **$orderby** es la misma que la de **$filter**. Cuando se usa `geo.distance` en **$orderby**, el campo al que se aplica debe ser de tipo `Edm.GeographyPoint` y también debe ser **ordenable**.
+
+> [!NOTE]
+> Al usar `geo.distance` en el parámetro **$orderby**, el campo que se pasa a la función debe contener solo un punto geográfico. En otras palabras, debe ser de tipo `Edm.GeographyPoint` y no `Collection(Edm.GeographyPoint)`. No es posible ordenar por campos de colección en Azure Search.
 
 ## <a name="syntax"></a>Sintaxis
 

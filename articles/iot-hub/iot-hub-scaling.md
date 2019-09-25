@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891997"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999962"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -33,7 +33,7 @@ Cada nivel del IoT Hub está disponible en tres tamaños, basados en la cantidad
 
 El nivel estándar de IoT Hub permite todas las características y es necesario para cualquier solución de IoT que desee hacer uso de las funcionalidades de comunicación bidireccional. El nivel Basic permite un subconjunto de las características y está pensado para las soluciones de IoT que solo necesitan comunicación unidireccional de los dispositivos a la nube. Ambos niveles ofrecen las mismas características de seguridad y autenticación.
 
-Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel por cada instancia de IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y B3, o S1 y S2.
+Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel por cada instancia de IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y S2.
 
 | Capacidad | Nivel Basic | Nivel Estándar o Gratis |
 | ---------- | ---------- | ------------- |
@@ -86,6 +86,10 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 | Enviar eventos de módulo | Solo AMQP y MQTT | Solo AMQP y MQTT |
 | [Actualizar estado de la carga de archivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sí | Sí |
 | [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sí, excepto las funcionalidades de IoT Edge | Sí |
+| [Cancelar trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Sí | Sí |
+| [Crear trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Sí | Sí |
+| [Obtener trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Sí | Sí |
+| [Obtener trabajos de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Sí | Sí |
 | [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sí |
 | [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sí |
 | [Obtener módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sí |
@@ -107,17 +111,17 @@ La mejor forma de dimensionar una solución de IoT Hub es evaluar el tráfico en
 * Mensajes de nube a dispositivo
 * Operaciones de registro de identidad
 
-El tráfico se mide por unidad, no por centro. Una instancia de IoT Hub de nivel 1 o 2 puede tener hasta 200 unidades asociadas. Una instancia de IoT Hub de nivel 3 puede tener hasta 10 unidades. Una vez que creado el IoT Hub, puede cambiar el número de unidades o moverse entre los tamaños 1, 2 y 3 dentro de un nivel específico sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub).
+El tráfico en la instancia de IoT Hub se mide por unidad. Al crear una instancia de IoT Hub, elija el nivel y la edición, y establezca el número de unidades disponibles. Puede adquirir hasta 200 unidades para las ediciones B1, B2, S1 o S2, o hasta 10 unidades para B3 o S3. Después de crear la instancia de IoT Hub, puede cambiar el número de unidades disponibles dentro de su edición, actualizar o cambiar a una versión anterior entre las de su mismo nivel (de B1 a B2) o actualizar del nivel básico al estándar (de B1 a S1) sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub).  
 
 Como ejemplo de las funcionalidades de tráfico de cada nivel, los mensajes del dispositivo a la nube siguen estas directrices de rendimiento sostenidas:
 
-| Nivel | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
+| Versiones de nivel | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
 | --- | --- | --- |
 | B1, S1 |Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) |Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
 | B2, S2 |Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) |Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
 | B3, S3 |Hasta 814 MB/minuto por unidad<br/>(1144,4 GB/día/unidad) |Promedio de 208.333 mensajes/minuto por unidad<br/>(300 millones de mensajes/día por unidad) |
 
-Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) y diseñe su solución en consecuencia.
+El rendimiento del dispositivo a la nube es solo una de las métricas que se deben tener en cuenta al diseñar una solución de IoT. Para información más completa, consulte las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ### <a name="identity-registry-operation-throughput"></a>Capacidad de procesamiento para las operaciones de registro de identidad
 

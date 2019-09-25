@@ -1,5 +1,5 @@
 ---
-title: Administración del acceso a recursos de Azure de usuarios externos mediante RBAC | Microsoft Docs
+title: Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC | Microsoft Docs
 description: Aprenda a administrar el acceso a recursos de Azure de los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC).
 services: active-directory
 documentationcenter: ''
@@ -12,123 +12,197 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f4b0276074b6732cf57443f51ef5d867f205a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952206"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967325"
 ---
-# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Administración del acceso a recursos de Azure de usuarios externos mediante RBAC
+# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC
 
-El control de acceso basado en rol (RBAC) permite una mejor administración de seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. RBAC proporciona la flexibilidad de tener una suscripción de Azure administrada por el administrador de la cuenta (rol de administrador de servicio en el nivel de suscripción) y tener múltiples usuarios invitados que trabajen con la misma suscripción pero sin tener derechos administrativos en ella.
+El control de acceso basado en rol (RBAC) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
 
-> [!NOTE]
-> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el Centro de administración de Microsoft 365 no permiten el uso de RBAC.
+## <a name="when-would-you-invite-guest-users"></a>¿Cuándo invitará a los usuarios invitados?
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Asignación de roles RBAC en el ámbito de la suscripción
+A continuación se describen algunos escenarios de ejemplo en los que podría invitar a usuarios invitados a su organización y concederles permisos:
 
-Hay dos ejemplos comunes (entre otros) en los que se utiliza RBAC:
+- Permitir que un proveedor externo por cuenta propia que solo tiene una cuenta de correo electrónico acceda a los recursos de Azure para la realización de un proyecto
+- Permitir que un asociado externo administre determinados recursos o una suscripción completa.
+- Permitir que los ingenieros del servicio de soporte técnico que no están en su organización (por ejemplo, el soporte técnico de Microsoft) accedan temporalmente a los recursos de Azure para solucionar problemas
 
-* Existencia de usuarios externos a las organizaciones (no forman parte del inquilino de Azure Active Directory del usuario administrador) invitados a administrar determinados recursos o la suscripción completa
-* Existencia de usuarios dentro de la organización (forman parte del inquilino de Azure Active Directory del usuario) que son parte de equipos o grupos distintos y necesitan acceso granular bien a la suscripción completa o a determinados grupos de recursos o ámbitos de recursos del entorno.
+## <a name="permission-differences-between-member-users-and-guest-users"></a>Diferencias de permisos entre usuarios miembros y usuarios invitados
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Conceder acceso en el nivel de suscripción para un usuario fuera de Azure Active Directory
+Los miembros nativos de un directorio (usuarios miembros) tienen permisos diferentes que los usuarios invitados de otro directorio como invitado de colaboración B2B (usuarios invitados). Por ejemplo, los usuarios miembros puede leer casi toda la información del directorio, mientras que los usuarios invitados tienen permisos de directorio restringidos. Para más información sobre los usuarios miembros y los usuarios invitados, consulte [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-Solo los **Propietarios** de la suscripción pueden conceder roles RBAC. Por lo tanto, el administrador debe iniciar sesión como un usuario que tenga este rol asignado previamente o que haya creado la suscripción de Azure.
+## <a name="add-a-guest-user-to-your-directory"></a>Adición de un usuario invitado a su directorio
 
-En Azure Portal, una vez que inicie sesión como administrador, seleccione "Suscripciones" y seleccione la suscripción deseada.
-![Hoja Suscripciones en Azure Portal](./media/role-assignments-external-users/0.png) De forma predeterminada, si el usuario administrador adquirió la suscripción de Azure, el usuario aparecerá como **Administrador de la cuenta**, siendo este el rol de la suscripción. Para más información sobre los roles de la suscripción de Azure, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Siga estos pasos para agregar un usuario invitado a su directorio mediante la página de Azure Active Directory.
 
-En este ejemplo, el usuario "alflanigan@outlook.com" es el **Propietario** de la suscripción "Free Trial" en el inquilino de AAD "Default tenant Azure". Dado que este usuario es el creador de la suscripción de Azure con la cuenta de Microsoft "Outlook" inicial (cuenta Microsoft = Outlook, Live, etc.), el nombre de dominio predeterminado para todos los demás usuarios agregados en este inquilino será **"\@alflaniganuoutlook.onmicrosoft.com"** . Por diseño, la sintaxis del nuevo dominio se forma uniendo el nombre de usuario y el nombre de dominio del usuario que creó el inquilino y agregando la extensión **".onmicrosoft.com"** .
-Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de añadirlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](../active-directory/fundamentals/add-custom-domain.md).
+1. Asegúrese de que la configuración de colaboración externa de la organización se configure de forma que le permita invitar a otros usuarios. Para más información, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../active-directory/b2b/delegate-invitations.md).
 
-En este ejemplo, el directorio "Default tenant Azure" contiene solo usuarios con el nombre de dominio "\@alflanigan.onmicrosoft.com".
+1. En Azure Portal, haga clic en **Azure Active Directory** > **Usuarios** > **Nuevo usuario invitado**.
 
-Después de seleccionar la suscripción, el usuario administrador debe hacer clic en **Control de acceso (IAM)** y, a continuación, en **Agregar un nuevo rol**.
+    ![Característica Nuevo usuario invitado en Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
-![Característica de control de acceso IAM en Azure Portal](./media/role-assignments-external-users/1.png)
+1. Siga los pasos para agregar un nuevo usuario invitado. Para más información, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
 
-![Agregar un nuevo usuario en la característica de control de acceso IAM en Azure Portal](./media/role-assignments-external-users/2.png)
+Después de agregar un usuario invitado al directorio, puede enviarle un vínculo directo a una aplicación compartida o bien, el propio usuario invitado puede hacer clic en la dirección URL de canje del correo electrónico de invitación.
 
-El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol**, el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para ver una explicación más detallada de cada rol y de sus ámbitos que se pueden asignar, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
+![Correo electrónico de invitación de usuario invitado](./media/role-assignments-external-users/invite-email.png)
 
-El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, será visible en **Suscripciones > Control de acceso (IAM)** con todos los usuarios que están asignados actualmente a un rol de RBAC en el ámbito de la suscripción.
+Para que el usuario invitado pueda acceder a su directorio, debe completar el proceso de invitación.
 
-![Agregar permisos al nuevo rol de RBAC](./media/role-assignments-external-users/3.png)
+![Revisión de los permisos de la invitación del usuario invitado](./media/role-assignments-external-users/invite-review-permissions.png)
 
-![Lista de roles RBAC en el nivel de suscripción](./media/role-assignments-external-users/4.png)
+Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
 
-El usuario "chessercarlton@gmail.com" ha sido invitado como **Propietario** de la suscripción "Free Trial". Después de enviar la invitación, el usuario externo recibirá una confirmación por correo electrónico con un enlace de activación.
-![invitación por correo electrónico para el rol de RBAC](./media/role-assignments-external-users/5.png)
+## <a name="grant-access-to-a-guest-user"></a>Concesión de acceso a un usuario invitado
 
-Al ser un usuario externo a la organización, el nuevo usuario no tiene ningún atributo en el directorio "Default tenant Azure". Estos se crearán después de que el usuario externo haya dado su consentimiento para ser registrado en el directorio asociado con la suscripción para la que se le ha asignado el rol.
+En RBAC, para conceder acceso es preciso asignar un rol. Para conceder acceso a un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada. Siga estos pasos para conceder acceso a un usuario invitado en distintos ámbitos.
 
-![Mensaje de invitación por correo electrónico para el rol de RBAC](./media/role-assignments-external-users/6.png)
+1. En Azure Portal, haga clic en **Todos los servicios**.
 
-El usuario externo aparece en el inquilino de Azure Active Directory a partir de ahora como un usuario externo, y se puede ver en Azure Portal.
+1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
-![Hoja de usuarios de Azure Active Directory en Azure Portal](./media/role-assignments-external-users/7.png)
+1. Haga clic en el recurso específico.
 
-En la vista **Usuarios**, los usuarios externos pueden reconocerse por el tipo de icono diferente en Azure Portal.
+1. Haga clic en **Control de acceso (IAM)** .
 
-Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, se puede identificar el **Tipo de usuario**, que tiene dos parámetros comunes, **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](../active-directory/active-directory-b2b-admin-add-users.md)
+    En la siguiente captura de pantalla se muestra un ejemplo de la hoja Control de acceso (IAM) de un grupo de recursos. Si realiza algún cambio en el control de acceso aquí, solo se aplicará al grupo de recursos.
 
-> [!NOTE]
-> Asegúrese de que, después de escribir las credenciales en el portal, el usuario externo selecciona el directorio correcto en el que se iniciará sesión. El mismo usuario puede tener acceso a varios directorios y puede seleccionar cualquiera de ellos haciendo clic en el nombre de usuario en la parte superior derecha de Azure Portal y, a continuación, seleccionando el directorio adecuado en la lista desplegable.
+    ![Hoja Control de acceso (IAM) para un grupo de recursos](./media/role-assignments-external-users/access-control-resource-group.png)
 
-Al ser un invitado en el directorio, el usuario externo puede administrar todos los recursos de la suscripción de Azure, pero no tiene acceso al directorio.
+1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-![Acceso restringido a Azure Active Directory en Azure Portal](./media/role-assignments-external-users/9.png)
+1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
 
-Azure Active Directory y una suscripción de Azure no tienen una relación de primario-secundario como tienen otros recursos de Azure (por ejemplo: las máquinas virtuales, las redes virtuales, las aplicaciones web, el almacenamiento, etc.) en una suscripción de Azure. Todo lo anterior se crea, administra y factura en una suscripción de Azure, mientras que se usa una suscripción de Azure para administrar el acceso a un directorio de Azure. Para más información, consulte [Cómo se relaciona una suscripción de Azure a Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-De todos los roles integrados de RBAC, **Propietario** y **Colaborador** ofrecen acceso administrativo completo a todos los recursos del entorno, la diferencia radica en que un colaborador no puede crear y eliminar nuevos roles RBAC. Otros roles integrados, como **Colaborador de la máquina virtual**, ofrecen acceso de administración completa solo a los recursos indicados por el nombre, con independencia del **Grupo de recursos** en el que se creen.
+    ![Menú Agregar](./media/role-assignments-external-users/add-menu.png)
 
-Asignar el rol integrado de RBAC de **Colaborador de la máquina virtual** en el nivel de suscripción significa que el usuario al que se le ha asignado el rol:
+1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 
-* Puede ver todas las máquinas virtuales con independencia de su fecha de implementación y del grupo de recursos del que forman parte.
-* Tiene acceso completo de administración a las máquinas virtuales de la suscripción.
-* No puede ver ningún otro tipo de recursos de la suscripción.
-* No puede realizar ningún cambio desde la perspectiva de facturación.
+1. En la lista **Seleccionar**, seleccione el usuario invitado. Si no ve al usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar, direcciones de correo electrónico o identificadores de objeto.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Asignación de un rol integrado de RBAC a un usuario externo
+   ![Panel Agregar asignación de roles](./media/role-assignments-external-users/add-role-assignment.png)
 
-Para un escenario diferente en esta prueba, el usuario externo "alflanigan@gmail.com" se agrega como un **Colaborador de la máquina virtual**.
+1. Haga clic en **Guardar** para asignar el rol en el ámbito seleccionado.
 
-![Rol integrado de colaborador de la máquina virtual](./media/role-assignments-external-users/11.png)
+    ![Asignación del rol Colaborador de la máquina virtual](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-El comportamiento normal para un usuario externo con este rol integrado es ver y administrar máquinas virtuales y solo sus recursos adyacentes necesarios de Resource Manager durante la implementación. Por diseño, estas roles limitados ofrecen acceso únicamente a sus recursos correspondientes creados en Azure Portal.
+## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Concesión de acceso a un usuario invitado que todavía no está en el directorio
 
-![Información general sobre el rol de colaborador de la máquina virtual en Azure Portal](./media/role-assignments-external-users/12.png)
+En RBAC, para conceder acceso es preciso asignar un rol. Para conceder acceso a un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada.
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Concesión de acceso en el nivel de suscripción a un usuario del mismo directorio
+Si el usuario invitado todavía no está en el directorio, puede invitar al usuario directamente desde el panel Agregar asignación de roles.
 
-El flujo del proceso es idéntico al agregar un usuario externo, tanto desde la perspectiva del administrador que concede el rol de RBAC como del usuario al que se concede el acceso al rol. La diferencia es que el usuario invitado no recibe ninguna invitación por correo electrónico ya que los ámbitos de recursos de la suscripción estarán disponibles en el panel después de iniciar sesión.
+1. En Azure Portal, haga clic en **Todos los servicios**.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Asignación de roles de RBAC en el ámbito del grupo de recursos
+1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
-El proceso de asignación de un rol de RBAC en un ámbito **Grupo de recursos** es idéntico al de asignar el rol en el nivel de suscripción para ambos tipos de usuarios: internos o externos (parte del mismo directorio). Los usuarios a los que se les ha asignado del rol de RBAC verán en su entorno únicamente el grupo de recursos al que se les asignó acceso desde el icono **Grupo de recursos** en Azure Portal.
+1. Haga clic en el recurso específico.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Asignación de roles de RBAC en el ámbito del recurso
+1. Haga clic en **Control de acceso (IAM)** .
 
-El proceso de asignación de un rol de RBAC en el ámbito del recurso en Azure es idéntico al de asignar un rol en el nivel de suscripción o de grupo de recursos, y se sigue el mismo flujo de trabajo en ambos escenarios. Del mismo modo, los usuarios a los que se ha asignado el rol de RBAC solo pueden ver los elementos a los que se les ha asignado acceso, tanto en la pestaña **Todos los recursos** como directamente en su panel.
+1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-Un aspecto importante de RBAC tanto en el ámbito de un grupo de recursos como en el de un recurso es asegurarse de que los usuarios inician sesión en el directorio correcto.
+1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
 
-![Inicio de sesión en un directorio en Azure Portal](./media/role-assignments-external-users/13.png)
+    ![Menú Agregar](./media/role-assignments-external-users/add-menu.png)
 
-## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Asignación de roles de RBAC en un grupo de Azure Active Directory
+1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 
-Todos los escenarios que usan RBAC en los tres ámbitos distintos de Azure ofrecen el privilegio de administrar e implementar diversos recursos como usuario asignado sin necesidad de administrar una suscripción personal. Aunque el rol de RBAC se asigna para un ámbito de suscripción, grupo de recursos o recurso, todos los recursos creados por los usuarios asignados se facturan a una suscripción de Azure a la que los usuarios tienen acceso. De este modo, los usuarios que tienen permisos de administrador de facturación para la suscripción de Azure tienen una información general completa del consumo, independientemente de quién administra los recursos.
+1. En la lista **Seleccionar**, escriba la dirección de correo electrónico de la persona a la que desea invitar y seleccione esa persona.
 
-Para organizaciones de mayor tamaño, los roles de RBAC se pueden aplicar del mismo modo para grupos de Azure Active Directory, dando por hecho que el usuario administrador quiera conceder acceso granular a equipos o departamentos enteros y no individualmente a cada usuario, considerándose así una opción muy eficiente en tiempo y administración. Para ilustrar este ejemplo, el rol **Colaborador** se ha agregado a uno de los grupos en el inquilino en el nivel de suscripción.
+   ![Invitar a usuarios invitados en el panel Agregar asignación de roles](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
-![Agregar rol de RBAC para grupos de AAD](./media/role-assignments-external-users/14.png)
+1. Haga clic en **Guardar** para agregar el usuario invitado al directorio, asignar el rol y enviar una invitación.
 
-Estos grupos son grupos de seguridad que se aprovisionan y administran únicamente dentro de Azure Active Directory.
+    Transcurridos unos instantes, verá una notificación de la asignación de roles e información sobre la invitación.
 
+    ![Asignación de roles y notificación de usuario invitado](./media/role-assignments-external-users/invited-user-notification.png)
+
+1. Para invitar manualmente al usuario invitado, haga clic con el botón derecho y copie el vínculo de invitación de la notificación. No haga clic en el vínculo de invitación porque eso inicia el proceso de invitación.
+
+    El vínculo de invitación tendrá el siguiente formato:
+
+    `https://invitations.microsoft.com/redeem/...`
+
+1. Envíe el vínculo de invitación al usuario invitado para completar el proceso de invitación.
+
+    Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
+
+## <a name="remove-a-guest-user-from-your-directory"></a>Eliminación de un usuario invitado del directorio
+
+Antes de eliminar un usuario invitado de un directorio, primero debe eliminar las asignaciones de roles de dicho usuario invitado. Siga estos pasos para eliminar un usuario invitado de un directorio.
+
+1. Abra **Control de acceso (IAM)** en un ámbito como, por ejemplo, grupo de administración, suscripción, grupo de recursos o recurso, en el que el usuario invitado tenga una asignación de roles.
+
+1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles.
+
+1. En la lista de asignaciones de roles, agregue una marca de verificación junto al usuario invitado con la asignación de roles que desea eliminar.
+
+   ![Eliminar asignación de roles](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Haga clic en **Quitar**.
+
+   ![Mensaje de eliminación de asignación de roles](./media/role-assignments-external-users/remove-role-assignment.png)
+
+1. En el mensaje de eliminación de asignación de roles que aparece, haga clic en **Sí**.
+
+1. En la barra de navegación izquierda, haga clic en **Azure Active Directory** > **Usuarios**.
+
+1. Haga clic en el usuario invitado que desea eliminar.
+
+1. Hacer clic en **Eliminar**.
+
+   ![Eliminar usuario invitado](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. En el mensaje de eliminación que aparece, haga clic en **Sí**.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+### <a name="guest-user-cannot-browse-the-directory"></a>El usuario invitado no puede examinar el directorio
+
+Los usuarios invitados tienen permisos de directorio restringidos. Por ejemplo, los usuarios invitados no pueden examinar el directorio y no pueden buscar grupos o aplicaciones. Para más información, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+![El usuario invitado no puede examinar los usuarios de un directorio](./media/role-assignments-external-users/directory-no-users.png)
+
+Si un usuario invitado necesita privilegios adicionales en el directorio, puede asignar un rol de directorio al usuario invitado. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![Asignar el rol Lectores de directorio](./media/role-assignments-external-users/directory-roles.png)
+
+### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>El usuario invitado no puede examinar usuarios, grupos o entidades de servicio para asignar roles
+
+Los usuarios invitados tienen permisos de directorio restringidos. Incluso si un usuario invitado es [Propietario](built-in-roles.md#owner) en un ámbito, si intenta crear una asignación de roles para conceder acceso a otra persona, no podrá examinar la lista de usuarios, grupos o entidades de servicio.
+
+![El usuario invitado no puede examinar las entidades de seguridad para asignar roles](./media/role-assignments-external-users/directory-no-browse.png)
+
+Si el usuario invitado conoce el nombre de inicio de sesión exacto de alguien del directorio, puede conceder acceso. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>El usuario invitado no puede registrar aplicaciones ni crear entidades de servicio
+
+Los usuarios invitados tienen permisos de directorio restringidos. Si un usuario invitado necesita poder registrar aplicaciones o crear entidades de servicio, puede agregar el usuario invitado al rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![El usuario invitado no puede registrar aplicaciones](./media/role-assignments-external-users/directory-access-denied.png)
+
+### <a name="guest-user-does-not-see-the-new-directory"></a>El usuario invitado no ve el nuevo directorio
+
+Si a un usuario invitado se le ha concedido acceso a un directorio, pero no ve el nuevo directorio enumerado en Azure Portal cuando intenta cambiar en su panel **Directorio y suscripción**, asegúrese de que el usuario invitado ha completado el proceso de invitación. Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
+
+### <a name="guest-user-does-not-see-resources"></a>El usuario invitado no ve los recursos
+
+Si a un usuario invitado se le ha concedido acceso a un directorio, pero no ve los recursos a los que se le ha concedido acceso en Azure Portal, asegúrese de que el usuario invitado ha seleccionado el directorio correcto. Un usuario invitado podría tener acceso a varios directorios. Para cambiar de directorio, en la parte superior izquierda, haga clic en **Directorio y suscripción** y, a continuación, haga clic en el directorio adecuado.
+
+![Panel Directorios y suscripciones de Azure Portal](./media/role-assignments-external-users/directory-subscription.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md)
+- [Propiedades de un usuario de colaboración B2B de Azure Active Directory](../active-directory/b2b/user-properties.md)
+- [Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)

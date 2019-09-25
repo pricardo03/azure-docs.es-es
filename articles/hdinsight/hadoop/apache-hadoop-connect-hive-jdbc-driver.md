@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 689926d0dbaebaaf56c8238e8fed7a691e8cacf4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cd8a6c7e7f5ddf781fcd63f3969eedd8f45424bc
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882513"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058613"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Apache Hive mediante el controlador JDBC en HDInsight
 
@@ -67,7 +67,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 4. En los iconos en la parte superior del cuadro de diálogo **Drivers** (Controladores), seleccione el icono de **+** para crear un nuevo controlador.
 
-    ![Iconos de controladores](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
+    ![Icono de controladores de la aplicación de SQL SQuirreL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
 
 5. En el cuadro de diálogo Add driver (agregar controlador), agregue la siguiente información:
 
@@ -76,13 +76,13 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
     * **Extra Class Path** (Ruta de acceso de clase adicional): haga clic en el botón **Agregar** para agregar todos los archivos .jar que se descargaron anteriormente
     * **Extra Class Path**(nombre de clase): org.apache.hive.jdbc.HiveDriver
 
-   ![cuadro de diálogo para agregar controlador](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
+   ![cuadro de diálogo para agregar controlador con parámetros](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
 
    Seleccione **Aceptar** para guardar la configuración.
 
 6. En el lado izquierdo de la ventana de SQL SQuirreL, seleccione **Aliases**. A continuación, seleccione el icono de **+** para crear un nuevo alias de conexión.
 
-    ![agregar nuevo alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    ![cuadro de diálogo para agregar nuevo alias de SQL SQuirreL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. Use los siguientes valores para el cuadro de diálogo **Add Alias** (Agregar alias).
 
@@ -98,16 +98,16 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
     * **Password** (Contraseña): contraseña para la cuenta de inicio de sesión del clúster.
 
-   ![cuadro de diálogo para agregar alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
+   ![cuadro de diálogo para agregar alias con parámetros](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Use el botón **Test** (Probar) para comprobar que la conexión funciona. Cuando aparezca el cuadro de diálogo **Connect to: Hive on HDInsight** (Conectarse a: Hive en HDInsight), haga clic en **Connect** (Conectar) para realizar la prueba. Si la prueba se realiza con éxito, verá un cuadro de diálogo **Connection successful** (Conexión correcta). Si se produce un error, consulte [Solución de problemas](#troubleshooting).
 
     Use el botón **OK** (Aceptar) situado en la parte inferior del cuadro de diálogo **Add Alias** (Agregar alias) para guardar el alias de conexión.
 
 8. En la lista desplegable **Connect to** (Conectar a), en la parte superior de SQL SQuirreL, seleccione **Hive on HDInsight** (Hive en HDInsight). Cuando se le pida, seleccione **Connect** (Conectar).
 
-    ![cuadro de diálogo de conexión](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
+    ![cuadro de diálogo de conexión con parámetros](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
 9. Una vez conectado, escriba la siguiente consulta en el cuadro de diálogo de consulta SQL y seleccione el icono **Run** (Ejecutar) (la persona que lo ejecuta). El área de resultados debe mostrar los resultados de la consulta.
 

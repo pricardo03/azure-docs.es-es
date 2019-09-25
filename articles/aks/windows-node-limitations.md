@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233132"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000215"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ La compatibilidad del grupo de nodos de Windows Server incluye algunas limitacio
 
 Kubernetes se ha centrado siempre en Linux. Muchos ejemplos usados en el sitio web [Kubernetes.io][kubernetes] ascendente están diseñados para su uso en nodos de Linux. Al crear implementaciones que usan contenedores de Windows Server, se aplican las consideraciones siguientes en el nivel de sistema operativo:
 
-- **Identidad**: Linux utiliza los valores userID (UID) y groupID (GID), representados como tipos de enteros. Los nombres de usuario y de grupo no son canónicos: son simplemente un alias en */etc/groups* o */etc/passwd* en UID+GID.
+- **Identidad**: Linux identifica a un usuario mediante un identificador de usuario numérico de enteros (UID). Los usuarios también tienen un nombre de usuario alfanumérico para iniciar sesión, que se convierte en Linux en su UID. De igual forma, Linux identifica a los grupos de usuarios mediante un identificador de grupo numérico de enteros (GID) y traduce el nombre de grupo en su GID correspondiente.
     - Windows Server usa un identificador de seguridad binario de mayor tamaño (SID) que se almacena en la base de datos de Windows Security Access Manager (SAM). Esta base de datos no se comparte entre el host y los contenedores ni entre contenedores.
 - **Permisos de archivos**: Windows Server utiliza una lista de control de acceso basada en SID, en lugar de una máscara de bits de permisos y UID+GID.
 - **Rutas de archivo**: la convención en Windows Server consiste en usar \ en lugar de /.

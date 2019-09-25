@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 25ea4c96a0e392db2af9c25a150696ca2b25b2dd
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c58f8ae0605f99952507a5f308316f784b3d8de1
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164549"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105141"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalación y ejecución de contenedores de Form Recognizer
 
@@ -37,8 +37,27 @@ Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguient
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> En Windows, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.|
 |La CLI de Azure| Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en el host.|
-|Recurso de la API Computer Vision| Para procesar documentos e imágenes digitalizados, necesita un recurso de Computer Vision. Puede acceder a la característica Reconocer texto como un recurso de Azure (API REST o SDK) o como un [contenedor](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Se aplican las tarifas de facturación habituales. <br><br>Pase tanto la clave de API como los puntos de conexión del recurso de Computer Vision (nube de Azure o contenedor de Cognitive Services). Utilice esta clave de API y el punto de conexión como **{COMPUTER_VISION_API_KEY}** y **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Si utiliza el contenedor *cognitive-services-recognize-text*, asegúrese de cumplir con lo siguiente:<br><br>La clave de Computer Vision para el contenedor de Form Recognizer es la clave especificada en el comando `docker run` de Computer Vision para el contenedor *cognitive-services-recognize-text*.<br>El punto de conexión de facturación es el punto de conexión del contenedor (por ejemplo, `http://localhost:5000`). Si se utilizan los contenedores Computer Vision y Form Recognizer juntos en el mismo host, no se pueden iniciar con el puerto predeterminado de *5000*.  |
+|Recurso de la API Computer Vision| Para procesar documentos e imágenes digitalizados, necesita un recurso de Computer Vision. Puede acceder a la característica Reconocer texto como un recurso de Azure (API REST o SDK) o como un [contenedor](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Se aplican las tarifas de facturación habituales. <br><br>Pase tanto la clave de API como los puntos de conexión del recurso de Computer Vision (nube de Azure o contenedor de Cognitive Services). Utilice esta clave de API y el punto de conexión como **{COMPUTER_VISION_API_KEY}** y **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Si utiliza el contenedor *cognitive-services-recognize-text*, asegúrese de cumplir con lo siguiente:<br><br>La clave de Computer Vision para el contenedor de Form Recognizer es la clave especificada en el comando `docker run` de Computer Vision para el contenedor *cognitive-services-recognize-text*.<br>El punto de conexión de facturación es el punto de conexión del contenedor (por ejemplo, `http://localhost:5000`). Si se utilizan los contenedores Computer Vision y Form Recognizer juntos en el mismo host, no se pueden iniciar con el puerto predeterminado de *5000*. |
 |Recurso de Form Recognizer |Para usar estos contenedores, debe tener lo siguiente:<br><br>Un recurso de **Form Recognizer** de Azure para obtener la clave de API y el identificador URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de claves y de información general de **Form Recognizer** en Azure Portal y ambos son necesarios para iniciar el contenedor.<br><br>**{FORM_RECOGNIZER_API_KEY}** : una de las dos claves de recursos disponibles en la página Claves<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página Información general|
+
+## <a name="gathering-required-parameters"></a>Recopilación de los parámetros obligatorios
+
+Hay tres parámetros principales para todos los contenedores de Cognitive Services que son necesarios. El contrato de licencia para el usuario final (CLUF) debe estar presente con un valor de `accept`. Además, se necesitan una dirección URL de punto de conexión y una clave de API.
+
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>URI de punto de conexión `{COMPUTER_VISION_ENDPOINT_URI}` y `{FORM_RECOGNIZER_ENDPOINT_URI}`
+
+El valor del URI del **punto de conexión** está disponible en la página *Información general* de Azure Portal del recurso de Cognitive Services correspondiente. Vaya a la página *Información general*, mantenga el cursor sobre el punto de conexión y aparecerá un icono `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span>. Cópielo y utilícelo cuando sea necesario.
+
+![Recopilación el URI del punto de conexión para su uso posterior](../containers/media/overview-endpoint-uri.png)
+
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Claves `{COMPUTER_VISION_API_KEY}` y `{FORM_RECOGNIZER_API_KEY}`
+
+Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Azure Portal del recurso de Cognitive Services correspondiente. Vaya a la página *Claves* y haga clic en el icono `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span>.
+
+![Obtención de una de las dos claves para su uso posterior](../containers/media/keys-copy-api-key.png)
+
+> [!IMPORTANT]
+> Estas claves de suscripción se usan para tener acceso a la API de Cognitive Services. No comparta las claves. Almacénelas de forma segura, por ejemplo, con Azure Key Vault. También se recomienda regenerar estas claves periódicamente. Solo se necesita una clave para realizar una llamada API. Al volver a generar la primera clave, puede usar la segunda clave para seguir teniendo acceso al servicio.
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
@@ -108,16 +127,9 @@ Cuando el contenedor esté en el [equipo host](#the-host-computer), use el sigui
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Ejecución del contenedor mediante el comando docker run
 
-Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes:
+Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` y `{FORM_RECOGNIZER_API_KEY}`.
 
-| Marcador de posición | Valor |
-|-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | Esta clave se usa para iniciar el contenedor. Está disponible en la página de **claves de Form Recognizer** de Azure Portal.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de **información general de Form Recognizer**.|
-|{COMPUTER_VISION_API_KEY}| La clave está disponible en la página **Claves de la API Computer Vision** de Azure Portal.|
-|{COMPUTER_VISION_ENDPOINT_URI}|El punto de conexión de facturación. Si está utilizando un recurso de Computer Vision en la nube, el valor del identificador URI está disponible en la página de **información general de la API Computer Vision** de Azure Portal. Si utiliza un contenedor `cognitive-services-recognize-text`, use la dirección URL del punto de conexión de facturación que se pasó al contenedor en el comando `docker run`.|
-
-Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
+Hay disponibles [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
 ### <a name="form-recognizer"></a>Form Recognizer
 

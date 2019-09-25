@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835626"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063852"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Los elementos **Predicates** y **PredicateValidations** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos con el formato adecuado en el inquilino de Azure Active Directory (Azure AD) B2C.
+Los elementos **Predicates** y **PredicateValidations** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos con el formato adecuado en el inquilino de Azure Active Directory B2C (Azure AD B2C).
 
 En el siguiente diagrama se muestra la relación entre los elementos:
 

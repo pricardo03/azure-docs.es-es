@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5c55084a57e46931049841f5011941b2115e9e69
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206837"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961521"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtener análisis en la base de conocimiento
 
@@ -26,9 +26,7 @@ QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilit
 
     ![Selección del recurso de Application Insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Seleccione **Analytics**. Se abre una nueva ventana en la que puede consultar la telemetría de QnA Maker.
-
-    ![Seleccione Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. Selecciona **Log (Analytics)** (Registro [análisis]). Se abre una nueva ventana en la que puede consultar la telemetría de QnA Maker.
 
 3. Pegue la consulta siguiente y ejecútela.
 
@@ -48,7 +46,7 @@ QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilit
 
     Seleccione **Ejecutar** para ejecutar la consulta.
 
-    ![Ejecutar consulta](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![Ejecute la consulta para determinar las preguntas, respuestas y puntuaciones de los usuarios](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Ejecución de consultas de otros análisis en la base de conocimiento de QnA Maker
 

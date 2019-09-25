@@ -46,10 +46,96 @@
       href: tutorial-secure-web-server.md
 - name: Ejemplos
   items:
-    - name: PowerShell
+    - name: Índice de PowerShell
       href: powershell-samples.md
-    - name: CLI de Azure
+    - name: PowerShell
+      items:
+        - name: Crear
+          items:
+            - name: Rápido
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
+            - name: Máquina virtual completamente configurada
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
+            - name: Máquina virtual de alta disponibilidad
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
+            - name: Ejemplo de script personalizado
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
+            - name: Uso de DSC
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
+            - name: Máquina virtual a partir de carga de VHD
+              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
+            - name: Conexión de un disco de sistema operativo
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+            - name: Máquina virtual a partir de instantánea
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
+        - name: Administración del almacenamiento
+          items:
+            - name: Creación de un disco administrado a partir de un VHD
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+            - name: Creación de un disco administrado a partir de una instantánea
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+            - name: Copia de un disco administrado
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: Exportación de una instantánea como VHD a una cuenta de almacenamiento
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+            - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+            - name: Creación de una instantánea a partir de un disco duro virtual
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+            - name: Copia de una instantánea
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: Seguridad
+          items:
+            - name: Cifrado de una máquina virtual y sus discos de datos
+              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
+        - name: Supervisión
+          items:
+            - name: Azure Monitor
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
+            - name: Recopilación de detalles sobre todas las máquinas virtuales de una suscripción
+              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
+    - name: Índice de la CLI de Azure
       href: cli-samples.md
+    - name: CLI
+      items:
+        - name: Crear
+          items:
+            - name: Rápido
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
+            - name: Máquina virtual completamente configurada
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
+            - name: Máquina virtual de alta disponibilidad
+              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
+            - name: Ejemplo de script personalizado
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
+            - name: Uso de la configuración de DSC
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
+        - name: Administración del almacenamiento
+          items:
+            - name: Creación de un disco administrado desde un disco duro virtual
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+            - name: Creación de un disco administrado a partir de una instantánea
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+            - name: Copia de un disco administrado
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: Exportación de una instantánea como un disco duro virtual a una cuenta de almacenamiento
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+            - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+            - name: Copia de una instantánea
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: Red
+          items:
+            - name: Protección del tráfico de red entre máquinas virtuales
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
+        - name: Seguridad
+          items:
+            - name: Cifrado de una máquina virtual y discos de datos
+              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
+            - name: Supervisión
+              items:
+                - name: Azure Monitor
+                  href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Conceptos
   items:
     - name: Azure Resource Manager
@@ -388,6 +474,8 @@
           href: expand-os-disk.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
+        - name: Creación de una instantánea incremental
+          href: disks-incremental-snapshots.md
         - name: Copia de seguridad de discos no administrados
           href: incremental-snapshots.md
         - name: Migración y conversión

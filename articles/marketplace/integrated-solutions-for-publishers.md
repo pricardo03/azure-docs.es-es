@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860298"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993677"
 ---
 # <a name="publishing-integrated-solutions"></a>Publicación de soluciones integradas
 
@@ -89,5 +89,9 @@ Aunque hay cinco tipos de servicio disponibles para las ofertas de servicios de 
 ## <a name="going-to-market-with-your-integrated-solution"></a>Comercialización de la solución integrada 
 
 Una vez que la solución esté publicada en Azure Marketplace o AppSource, querrá impulsar la generación de reconocimiento y demanda a través de actividades de marketing. Revise las actividades que aparecen en [el plan del proyecto y la escala de tiempo](https://aka.ms/AA5qiuc), incluidas las actividades que los asociados pueden controlar dentro de sus propios equipos y entre sí. A continuación, obtenga acceso a las [ventajas de comercialización](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) proporcionadas a los asociados que han publicado en Marketplace. Todas las ofertas de soluciones integradas son válidas para las ventajas de nivel de prueba.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte [Soluciones integradas](https://docs.microsoft.com/azure/marketplace/integrated-solutions) para información sobre la compra de una solución integrada en Marketplace.
 
 ---

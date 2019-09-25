@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899486"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097840"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
-A medida que ejecuta aplicaciones en Azure Kubernetes Service (AKS), es posible que deba aumentar o disminuir la cantidad de recursos de proceso. Del mismo modo que debe cambiar el número de instancias de la aplicación, es posible que deba cambiar también el número de nodos de Kubernetes subyacentes. También es posible que deba aprovisionar rápidamente un gran número de instancias de aplicación adicionales.
+A medida que ejecuta aplicaciones en Azure Kubernetes Service (AKS), es posible que deba aumentar o disminuir la cantidad de recursos de proceso. Del mismo modo que debe cambiar el número de instancias de la aplicación, es posible que deba cambiar también el número de nodos de Kubernetes subyacentes. Es posible que también deba aprovisionar rápidamente un gran número de instancias de aplicación adicionales.
 
 En este artículo se presentan los conceptos básicos para ayudarle a escalar aplicaciones en AKS:
 
@@ -27,7 +27,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 
 ## <a name="manually-scale-pods-or-nodes"></a>Escalado manual de pods o nodos
 
-Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar el escalado manual, defina la réplica o el número de nodos, y la API de Kubernetes programará la creación de pods adicionales o el drenaje de nodos.
+Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar un escalado manual, defina el número de réplicas o de nodos. Luego, Kubernetes API programará la creación de pods adicionales o el drenaje de nodos en función del número de réplicas o de nodos.
 
 Para empezar con el escalado manual de pods y nodos, consulte [Escalado de aplicaciones en AKS][aks-scale].
 
@@ -43,15 +43,15 @@ Para empezar a usar Horizontal Pod Autoscaler en AKS, consulte [Escalado automá
 
 ### <a name="cooldown-of-scaling-events"></a>Recuperación de eventos de escalado
 
-Dado que Horizontal Pod Autoscaler comprueba cada 30 segundos la API de métricas, es posible que los eventos de escalado anteriores no se hayan completado correctamente antes de realizar otra comprobación. Este comportamiento puede provocar que Horizontal Pod Autoscaler cambie el número de réplicas antes de que el evento de escalado anterior haya podido recibir la carga de trabajo de la aplicación y las demandas de recursos para ajustarlas en consecuencia.
+Dado que Horizontal Pod Autoscaler comprueba cada 30 segundos la API de métricas, es posible que los eventos de escalado anteriores no se hayan completado correctamente antes de realizar otra comprobación. Este comportamiento puede provocar que Horizontal Pod Autoscaler cambie el número de réplicas antes de que el evento de escalado anterior pueda recibir la carga de trabajo de la aplicación y las demandas de recursos para ajustarlas en consecuencia.
 
-Para minimizar estos eventos de carrera, se establecen valores de recuperación o retraso. Estos valores definen cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que la API de métricas refleje la carga de trabajo distribuida. De forma predeterminada, el retraso en los eventos de escalado vertical es de 3 minutos y, en los eventos de reducción vertical, de 5 minutos.
+Para minimizar estos eventos de carrera, se establecen valores de recuperación o retraso. Estos valores definen cuánto tiempo debe esperar Horizontal Pod Autoscaler después de un evento de escalado antes de que se pueda desencadenar otro evento de escalado. Este comportamiento permite que el nuevo recuento de réplicas surta efecto y que Metrics API refleje la carga de trabajo distribuida. De forma predeterminada, el retraso en los eventos de escalado vertical es de 3 minutos y, en los eventos de reducción vertical, de 5 minutos.
 
-Actualmente, no se pueden ajustar estos valores de recuperación a partir del valor predeterminado.
+Actualmente, estos valores de recuperación no se pueden ajustar a partir del valor predeterminado.
 
 ## <a name="cluster-autoscaler"></a>Cluster Autoscaler
 
-Para responder a las distintas exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler (actualmente en versión preliminar en AKS) que ajusta el número de nodos según los recursos de proceso solicitados en el grupo de nodos. De manera predeterminada, Cluster Autoscaler comprueba en el servidor de la API de métricas cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
+Para responder a las cambiantes exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler, que actualmente está en versión preliminar en AKS, que ajusta el número de nodos en función de los recursos de proceso solicitados en el grupo de nodos. De manera predeterminada, Cluster Autoscaler comprueba en el servidor de la API de métricas cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
 
 ![Cluster Autoscaler de Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -63,7 +63,7 @@ Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler en A
 
 ### <a name="scale-up-events"></a>Escalado vertical de eventos
 
-Si un nodo no tiene suficientes recursos de proceso para ejecutar un pod solicitado, ese pod no puede avanzar en el proceso de programación. No se puede iniciar el pod a menos que existan recursos de proceso adicionales en el grupo de nodos.
+Si un nodo no tiene suficientes recursos de proceso para ejecutar un pod solicitado, el pod no avanza por el progreso de la programación. El pod no se puede iniciar, salvo que haya recursos de proceso adicionales disponibles en el grupo de nodos.
 
 Si Cluster Autoscaler detecta pods que no se pueden programar debido a restricciones de recursos del grupo de nodos, el número de nodos del grupo de nodos aumenta para proporcionar los recursos de proceso adicionales. Cuando esos nodos adicionales están correctamente implementados y disponibles para su uso en el grupo de nodos, los pods se programan para ejecutarse en estos.
 
@@ -71,7 +71,7 @@ Si su aplicación necesita escalar rápidamente, algunos de los pods pueden perm
 
 ### <a name="scale-down-events"></a>Reducción vertical de eventos
 
-Cluster Autoscaler también supervisa el estado de programación de pods de los nodos que no han recibido recientemente nuevas solicitudes de programación. Este escenario indica que el grupo de nodos tiene más recursos de proceso de los necesarios y que se puede reducir el número de nodos.
+Cluster Autoscaler también supervisa el estado de programación de los pods en los nodos que no han recibido recientemente nuevas solicitudes de programación. Este escenario indica que el grupo de nodos tiene más recursos de proceso de los necesarios y que se puede reducir el número de nodos.
 
 Un nodo que supera un umbral que indica que ya no es necesario durante 10 minutos, está programado de forma predeterminada para su eliminación. Cuando se produce esta situación, los pods se programan para ejecutarse en otros nodos del grupo de nodos y Cluster Autoscaler reduce el número de nodos.
 

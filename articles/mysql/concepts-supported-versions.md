@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 09/12/2019
+ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947165"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962587"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
@@ -26,15 +26,15 @@ Azure Database for MySQL actualmente admite las siguientes versiones:
 
 ## <a name="mysql-version-56"></a>MySQL versión 5.6
 
-Versión de corrección de errores: 5.6.42
+Versión de corrección de errores: 5.6.44
 
-Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) de MySQL para más información sobre mejoras y correcciones de MySQL 5.6.42.
+Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) de MySQL para más información sobre mejoras y correcciones de esta versión.
 
 ## <a name="mysql-version-57"></a>MySQL versión 5.7
 
-Versión de corrección de errores: 5.7.24
+Versión de corrección de errores: 5.7.26
 
-Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) de MySQL para más información sobre mejoras y correcciones de MySQL 5.7.24.
+Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) de MySQL para más información sobre mejoras y correcciones de esta versión.
 
 ## <a name="mysql-version-80"></a>MySQL versión 8.0
 
@@ -43,7 +43,7 @@ Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7
 
 Versión de corrección de errores: 8.0.15
 
-Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) de MySQL para más información sobre mejoras y correcciones de MySQL 8.0.15.
+Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) de MySQL para más información sobre mejoras y correcciones de esta versión.
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
 El servicio administra automáticamente la aplicación de partes para las actualizaciones de las versiones de corrección de errores. Por ejemplo, 5.7.20 a 5.7.21.  

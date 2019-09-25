@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: bd660a2b6ffb96478c3170cc7013ff22518b758f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7baa2adbd615a449c73e70e1b96524fc1e18b25d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702204"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000173"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Uso del enrutamiento inteligente y de las versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 
-[Istio][istio-github] es una malla de servicio de código abierto que proporciona un conjunto clave de funcionalidades en los microservicios de un clúster de Kubernetes. Estas características incluyen la administración del tráfico, la seguridad e identidad de servicio, el cumplimiento de directivas y la observación. Para más información sobre Istio, vea la documentación del sitio oficial [What is Istio?][istio-docs-concepts] (¿Qué es Istio?).
+[Istio][istio-github] es una malla de servicio de código abierto que proporciona un conjunto clave de funcionalidades en los microservicios de un clúster de Kubernetes. Estas características incluyen la administración del tráfico, la seguridad e identidad de servicio, el cumplimiento de directivas y la observación. Para más información sobre Istio, vea la documentación del sitio oficial [¿Qué es Istio?][istio-docs-concepts].
 
 En este artículo se explica cómo usar la funcionalidad de administración de tráfico de Istio. Se usa una aplicación de votación de AKS de ejemplo para explorar el enrutamiento inteligente y las versiones de valor controlado.
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a:
 
 En los pasos detallados en este artículo se da por hecho que creó un clúster de AKS (Kubernetes `1.11` y versiones posteriores, con RBAC habilitado) y que estableció una conexión `kubectl` con el clúster. Istio también debe estar instalado en el clúster.
 
-Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart] y la [instalación de Istio en AKS][istio-install].
+Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart] y la guía de [instalación de Istio en AKS][istio-install].
 
 ## <a name="about-this-application-scenario"></a>Acerca de este escenario de aplicación
 
@@ -97,7 +97,7 @@ service/voting-app created
 ```
 
 > [!NOTE]
-> Istio tiene algunos requisitos específicos en relación a los pods y los servicios. Para más información, vea la documentación sobre [requisitos para pods y servicios de Istio][istio-requirements-pods-and-services].
+> Istio tiene algunos requisitos específicos en relación a los pods y los servicios. Para más información, consulte la [documentación sobre requisitos para pods y servicios de Istio][istio-requirements-pods-and-services].
 
 Para ver los pods creados, use el comando [kubectl get pods][kubectl-get] como sigue:
 
@@ -116,7 +116,7 @@ voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s
 voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s
 ```
 
-Para obtener información sobre el pod, use [kubectl describe pod][kubectl-describe]. Reemplace el nombre del pod con el nombre de un pod en su propio clúster de AKS de la salida anterior:
+Para ver información sobre el pod, use [kubectl describe pod][kubectl-describe]. Reemplace el nombre del pod con el nombre de un pod en su propio clúster de AKS de la salida anterior:
 
 ```azurecli
 kubectl describe pod voting-app-1-0-956756fd-d5w7z --namespace voting
@@ -195,7 +195,7 @@ deployment.apps/voting-analytics-1-1 created
 
 Vuelva a abrir la aplicación de votación de AKS de ejemplo en un explorador con el uso de la dirección IP de la puerta de enlace de entrada de Istio obtenida en el paso anterior.
 
-El explorador alterna entre las dos vistas que se muestran a continuación. Puesto que utiliza un [servicio][kubernetes-service] de Kubernetes para el componente `voting-analytics` con un único selector de etiquetas (`app: voting-analytics`), Kubernetes usa el comportamiento predeterminado de round robin entre los pods que coinciden con dicho selector. En este caso, son las versiones `1.0` y `1.1` de sus pods `voting-analytics`.
+El explorador alterna entre las dos vistas que se muestran a continuación. Puesto que utiliza un [servicio][kubernetes-service] de Kubernetes para el componente `voting-analytics` con un único selector de etiquetas (`app: voting-analytics`), Kubernetes usa el comportamiento predeterminado de round-robin entre los pods que coinciden con dicho selector. En este caso, son las versiones `1.0` y `1.1` de sus pods `voting-analytics`.
 
 ![La versión 1.0 del componente de análisis que se ejecuta en la aplicación de votación de AKS.](media/istio/deploy-app-01.png)
 
@@ -235,7 +235,7 @@ Ahora vamos a bloquear el tráfico únicamente a la versión `1.1` del component
 > * Una **regla de destino** define las directivas de tráfico y las directivas específicas de la versión.
 > * Una **directiva** define qué métodos de autenticación pueden aceptarse en las cargas de trabajo.
 
-Use el comando `kubectl apply` para reemplazar la definición de servicio virtual en el componente `voting-app` y agregue [reglas de destino][istio-reference-destinationrule] y [servicios virtuales][istio-reference-virtualservice] para los demás componentes. Agregue también una [directiva][istio-reference-policy] al espacio de nombres `voting` para asegurarse de que todas las comunicaciones entre los servicios están protegidas con certificados de cliente y Mutual TLS.
+Use el comando `kubectl apply` para reemplazar la definición de servicio virtual en el componente `voting-app` y agregue [reglas de destino][istio-reference-destinationrule] y [servicios virtuales][istio-reference-virtualservice] para los demás componentes. Agregue también una [directiva][istio-reference-policy] al espacio de nombres `voting` para asegurarse de que todas las comunicaciones entre los servicios están protegidas con certificados de cliente y Mutual TLS.
 
 * La directiva tiene `peers.mtls.mode` establecido en `STRICT` para garantizar la aplicación del certificado Mutual TLS entre los servicios dentro del espacio de nombres `voting`.
 * También se establece `trafficPolicy.tls.mode` en `ISTIO_MUTUAL` en todas nuestras reglas de destino. Istio ofrece servicios con identidades seguras y protege las comunicaciones entre los servicios con certificados cliente y Mutual TLS que Istio administra de forma transparente.
@@ -286,7 +286,7 @@ La salida de ejemplo siguiente muestra la parte pertinente del sitio web devuelt
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-Ahora se debe confirmar que Istio usa los certificados Mutual TLS para proteger las comunicaciones entre cada uno de los servicios. Para ello, usaremos el comando [authn tls-check][istioctl-authn-tls-check] del binario de cliente `istioctl`, que tiene la forma siguiente.
+Ahora se debe confirmar que Istio usa los certificados Mutual TLS para proteger las comunicaciones entre cada uno de los servicios. Para ello, usaremos el comando [authn tls-check][istioctl-authn-tls-check] del binario de cliente `istioctl`, que toma la siguiente forma.
 
 ```console
 istioctl authn tls-check <pod-name[.namespace]> [<service>]
