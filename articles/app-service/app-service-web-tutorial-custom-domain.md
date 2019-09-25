@@ -84,7 +84,7 @@ Si el plan de App Service no es **F1**, cierre la página **Escalar verticalment
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
+### <a name="scale-up-the-app-service-plan"></a>Escalado vertical del plan de App Service
 
 Seleccione cualquiera de los niveles no gratuitos (**D1**, **B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
@@ -100,10 +100,10 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ## <a name="map-your-domain"></a>Asignación del dominio
 
-Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS personalizado a App Service. Siga los pasos correspondientes:
+Puede usar un **registro CNAME** o un **registro D** para asignar un nombre DNS personalizado a App Service. Siga los pasos correspondientes:
 
 - [Asignar un registro CNAME](#map-a-cname-record)
-- [Asignar un registro A](#map-an-a-record)
+- [Asignar un registro D](#map-an-a-record)
 - [Asignar un dominio con comodín (con un registro CNAME)](#map-a-wildcard-domain)
 
 > [!NOTE]
@@ -164,15 +164,15 @@ Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteri
 
 <a name="a" aria-hidden="true"></a>
 
-### <a name="map-an-a-record"></a>Asignar un registro A
+### <a name="map-an-a-record"></a>Asignar un registro D
 
-En el ejemplo del tutorial, se agrega un registro A al dominio raíz (por ejemplo, `contoso.com`).
+En el ejemplo del tutorial, se agrega un registro D al dominio raíz (por ejemplo, `contoso.com`).
 
 <a name="info"></a>
 
 #### <a name="copy-the-apps-ip-address"></a>Copiar la dirección IP de la aplicación
 
-Para asignar un registro A, se necesita la dirección IP externa de la aplicación. Dicha dirección IP se puede encontrar en la página **Dominios personalizados** de la aplicación en Azure Portal.
+Para asignar un registro D, se necesita la dirección IP externa de la aplicación. Dicha dirección IP se puede encontrar en la página **Dominios personalizados** de la aplicación en Azure Portal.
 
 En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
@@ -186,11 +186,11 @@ En la página **Dominios personalizados**, copie la dirección IP de la aplicaci
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-#### <a name="create-the-a-record"></a>Crear el registro A
+#### <a name="create-the-a-record"></a>Crear el registro D
 
-Para asignar un registro A a un aplicación, App Service requiere **dos** registros DNS:
+Para asignar un registro D a un aplicación, App Service requiere **dos** registros DNS:
 
-- Un registro **A** que se asigna a la dirección IP de la aplicación.
+- Un registro **D** que se asigna a la dirección IP de la aplicación.
 - Un registro **TXT** que se asigna al nombre de dominio predeterminado de la aplicación `<app_name>.azurewebsites.net`. App Service usa este registro solo durante la configuración para comprobar que posee el dominio personalizado. Después de que el dominio personalizado se valida y se configura en App Service, puede eliminar el registro TXT.
 
 En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz).
@@ -307,7 +307,7 @@ Desplácese a los nombres DNS que configuró anteriormente (por ejemplo, `contos
 
 Si recibe un error HTTP 404 (No se encuentra) al ir a la dirección URL de su dominio personalizado, compruebe que su dominio se resuelve en la dirección IP de la aplicación mediante <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Si no es así, esto podría deberse a uno de los siguientes motivos:
 
-- En el dominio personalizado configurado falta un registro A o un registro CNAME.
+- En el dominio personalizado configurado falta un registro D o un registro CNAME.
 - El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
 
 <a name="virtualdir" aria-hidden="true"></a>
