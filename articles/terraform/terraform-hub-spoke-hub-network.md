@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 5f8d9119ea9caeb598946a384f321fa6f7e14def
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 12538c0348efc1621d3f8f6ee0cb93d73c712898
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000221"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173429"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Tutorial: Creación de una red virtual del concentrador con Terraform en Azure
 
@@ -30,7 +30,7 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. [Creación de una topología de red híbrida en topología en estrella tipo hub-and-spoke con Terraform en Azure](./terraform-hub-spoke-introduction.md).
+1. [Creación de una topología de red híbrida en estrella tipo hub-and-spoke con Terraform en Azure](./terraform-hub-spoke-introduction.md).
 1. [Creación de una red virtual local con Terraform en Azure](./terraform-hub-spoke-on-prem.md).
 
 ## <a name="create-the-directory-structure"></a>Creación de la estructura de directorios
@@ -73,7 +73,7 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
 
 1. Pegue el siguiente código en el editor:
 
-    ```JSON
+    ```hcl
     locals {
       prefix-hub         = "hub"
       hub-location       = "CentralUS"

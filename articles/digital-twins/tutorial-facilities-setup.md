@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622941"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219746"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
 
@@ -43,15 +43,11 @@ Estos tutoriales utilizan y modifican los mismos ejemplos que usa la [guía de i
 
 - Tiene [Visual Studio Code](https://code.visualstudio.com/) para explorar el código de ejemplo. 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Implementar Digital Twins
 
 Use los pasos de esta sección para crear una nueva instancia del servicio Azure Digital Twins. Solo se puede crear una instancia por suscripción. Si ya tiene una en ejecución, vaya a la siguiente sección. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Concesión de permisos a una aplicación
 
@@ -76,7 +72,7 @@ Si ya tiene los ejemplos descargados para la [guía de inicio rápido para la b�
 
 En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csharp\digital-twins-samples.code-workspace** en Visual Studio Code. Esta solución contiene dos proyectos:
 
-* Puede usar el ejemplo de aprovisionamiento **occupancy-quickstart** para configurar y aprovisionar un [grafo de inteligencia espacial](concepts-objectmodel-spatialgraph.md#graph). Este grafo es la imagen digitalizada de los espacios físicos y de los recursos que hay en ellos. Usa un [modelo de objetos](concepts-objectmodel-spatialgraph.md#model), que define los objetos de un edificio inteligente. Para obtener una lista completa de los objetos y las API REST de Digital Twins, visite [esta documentación de la API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o la dirección URL de API Management que se creó para [su instancia](#deploy).
+* Puede usar el ejemplo de aprovisionamiento **occupancy-quickstart** para configurar y aprovisionar un [grafo de inteligencia espacial](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Este grafo es la imagen digitalizada de los espacios físicos y de los recursos que hay en ellos. Usa un [modelo de objetos](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), que define los objetos de un edificio inteligente. Para obtener una lista completa de los objetos y las API REST de Digital Twins, visite [esta documentación de la API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) o la dirección URL de API Management que se creó para [su instancia](#deploy-digital-twins).
 
    Para explorar el ejemplo y ver cómo se comunica con su instancia de Digital Twins, puede comenzar con la carpeta **src\actions**. Los archivos de esta carpeta implementan los comandos que usará en estos tutoriales:
     - El archivo **provisionSample.cs** muestra cómo aprovisionar el grafo espacial.
@@ -84,7 +80,7 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
     - El archivo **getAvailableAndFreshSpaces.cs** obtiene los resultados de una función personalizada llamada función definida por el usuario.
     - El archivo **createEndpoints.cs** crea puntos de conexión que interactúan con otros servicios.
 
-* El ejemplo de simulación **device-connectivity** simula los datos del sensor y los envía a la instancia de IoT Hub aprovisionada para la instancia de Digital Twins. Este ejemplo se usará en [el siguiente tutorial después de aprovisionar su grafo espacial](tutorial-facilities-udf.md#simulate). Los identificadores de sensores y dispositivos que se usan para configurar este ejemplo deben ser iguales a los que usará para aprovisionar su grafo.
+* El ejemplo de simulación **device-connectivity** simula los datos del sensor y los envía a la instancia de IoT Hub aprovisionada para la instancia de Digital Twins. Este ejemplo se usará en [el siguiente tutorial después de aprovisionar su grafo espacial](tutorial-facilities-udf.md#simulate-sensor-data). Los identificadores de sensores y dispositivos que se usan para configurar este ejemplo deben ser iguales a los que usará para aprovisionar su grafo.
 
 ### <a name="configure-the-provisioning-sample"></a>Configuración del ejemplo de aprovisionamiento
 
@@ -101,17 +97,15 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
     ```
 
 1. En Visual Studio Code, abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) en el proyecto **occupancy-quickstart**. Actualice los valores siguientes:
-   * **ClientId**: Escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#permissions).
-   * **Tenant**: Escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#permissions).
-   * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta por los valores de su instancia: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy). Reemplace **swagger/** por **api/v1.0/** .
+   * **ClientId**: Escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#grant-permissions-to-your-app).
+   * **Tenant**: Escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#grant-permissions-to-your-app).
+   * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta por los valores de su instancia: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy-digital-twins). Reemplace **swagger/** por **api/v1.0/** .
 
 1. Consulte una lista de características de Digital Twins que puede explorar mediante el ejemplo. Ejecute el siguiente comando:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Descripción del proceso de aprovisionamiento
 

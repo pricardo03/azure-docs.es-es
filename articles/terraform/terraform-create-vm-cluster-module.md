@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
-ms.openlocfilehash: c6aa780b04c85b8156463011c2b90da2da4541f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 09/20/2019
+ms.openlocfilehash: 6279b5c9022b448aea9b33a94fc1b2b35b6d23de
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776281"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169857"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Creación de un clúster de VM con Terraform mediante el registro de módulos
 
@@ -35,7 +35,7 @@ Para obtener más información sobre Terraform, consulte la [documentación de T
 
  Revise el artículo sobre cómo [Instalar Terraform y configurar el acceso a Azure](/azure/virtual-machines/linux/terraform-install-configure) para crear una entidad de servicio de Azure. Use esta entidad de servicio para completar un nuevo archivo `azureProviderAndCreds.tf` en un directorio vacío con el código siguiente:
 
-```tf
+```hcl
 variable subscription_id {}
 variable tenant_id {}
 variable client_id {}
@@ -53,7 +53,7 @@ provider "azurerm" {
 
 Cree una plantilla de Terraform nueva denominada `main.tf` con el código siguiente:
 
-```tf
+```hcl
 module mycompute {
     source = "Azure/compute/azurerm"
     resource_group_name = "myResourceGroup"

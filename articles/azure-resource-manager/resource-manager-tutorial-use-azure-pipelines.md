@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 85dc0476da12bea64610b6910b0682fef00f4b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064739"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122222"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -264,4 +264,4 @@ Puede que también quieras eliminar el repositorio de GitHub y el proyecto de Az
 En este tutorial, creas una canalización de Azure DevOps para implementar una plantilla de Azure Resource Manager. Para aprender a implementar los recursos de Azure en varias regiones y a usar prácticas de implementación seguras, consulte
 
 > [!div class="nextstepaction"]
-> [Uso de Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Uso de procedimientos de implementación seguros](./deployment-manager-tutorial.md)

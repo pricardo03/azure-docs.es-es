@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 435ee13de28fb1591a5579761ecc7ad5bf9f9d76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 98c7c2450b4aa828f544ecab4c1e320eb74bab45
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000830"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169787"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Tutorial: Creación de una red virtual local con Terraform en Azure
 
@@ -66,7 +66,7 @@ Cree el archivo de configuración de Terraform que declara una red virtual local
 
 1. Pegue el siguiente código en el editor:
 
-    ```JSON
+    ```hcl
     locals {
       onprem-location       = "SouthCentralUS"
       onprem-resource-group = "onprem-vnet-rg"

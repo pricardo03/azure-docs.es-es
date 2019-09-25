@@ -3,15 +3,16 @@ title: 'Script de Azure PowerShell: Obtener procesamiento (RU/s) para MongoDB AP
 description: 'Script de Azure PowerShell: Obtener procesamiento (RU/s) para MongoDB API en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 91e3d8f1240e2eebb3e1d30ee18b16299f442106
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0df75831bb54ebb9f648a8ca9207c2572fd4d2e9
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602280"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178867"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obtener procesamiento (RU/s) para una base de datos o una colección para MongoDB API en Azure Cosmos DB
 

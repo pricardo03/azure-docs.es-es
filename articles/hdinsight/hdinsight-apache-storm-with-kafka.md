@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 31882b878f76060bdbf70a308673fc80d60c8440
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0eaa3428234db8a7045728404bcfac5cc732dd9d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075881"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181158"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -372,7 +372,7 @@ El proyecto contiene un archivo denominado `dev.properties` que se utiliza para 
 | `kafka.broker.hosts` | Los hosts de agente de Kafka (nodos de trabajo). |
 | `kafka.topic` | El tema de Kafka que usan las topologías. |
 | `hdfs.write.dir` | El directorio en el que escribe la topología Kafka-reader. |
-| `hdfs.url` | El sistema de archivos que usa el clúster de Storm. Para las cuentas de Azure Storage, use un valor de `wasb:///`. Para Azure Data Lake Storage Gen2, use un valor de `abfs:///`. Para Azure Data Lake Storage Gen1, use un valor de `adl:///`. |
+| `hdfs.url` | El sistema de archivos que usa el clúster de Storm. Para las cuentas de Azure Storage, use un valor de `wasb://`. Para Azure Data Lake Storage Gen2, use un valor de `abfs://`. Para Azure Data Lake Storage Gen1, use un valor de `adl://`. |
 
 ## <a name="create-the-clusters"></a>Creación de los clústeres
 

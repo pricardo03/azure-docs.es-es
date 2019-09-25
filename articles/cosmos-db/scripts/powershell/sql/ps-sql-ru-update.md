@@ -3,15 +3,16 @@ title: 'Script de Azure PowerShell: Actualizar RU/s para SQL API (Core) en Azure
 description: 'Script de Azure PowerShell: Actualizar RU/s para SQL API (Core) en Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6b54b6021baf7a91c79309f8fa69b4df67d3887e
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603831"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178755"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Actualización RU/s para una base de datos o un contenedor para SQL (Core) API en Azure Cosmos DB
 

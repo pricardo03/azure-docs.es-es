@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162542"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262315"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub
 
@@ -126,7 +126,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>Habilitación de los registros de diagnóstico 
 
-Los [registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) están deshabilitados de forma predeterminada cuando se crea un centro de IoT. En esta sección, habilitará los registros de diagnóstico para su centro.
+Los [registros de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) están deshabilitados de forma predeterminada cuando se crea un centro de IoT. En esta sección, habilitará los registros de diagnóstico para su centro.
 
 1. En primer lugar, si no está aún en su centro en el portal, haga clic en **Grupos de recursos** y seleccione el grupo de recursos Contoso-Resources. Seleccione el centro de la lista de recursos que se muestran. 
 

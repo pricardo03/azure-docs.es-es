@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e95143da96ce9891c3820479e536e9ea6a18617
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b07c6d6317d8ca284008d271f507b965414bfbc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861361"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Server
 
@@ -158,7 +158,7 @@ En esta sección, va a permitir que B. Simon use el inicio de sesión único de
     h. Haga clic en **Guardar**
 
     > [!NOTE]
-    > El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO. Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm).
+    > El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO. Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
 
 ### <a name="create-tableau-server-test-user"></a>Crear usuario de prueba de Tableau Server
 

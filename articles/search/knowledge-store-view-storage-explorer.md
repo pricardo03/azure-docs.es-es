@@ -4,16 +4,15 @@ description: Visualice y analice un almacén de conocimiento de Azure Search con
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 6c90cec91e85f64397f70b015ffde15a2ea6deaf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963122"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265613"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualización de un almacén de conocimiento con el Explorador de Storage
 
