@@ -7,15 +7,7 @@
 - name: Documentación sobre las extensiones de máquina virtual
   href: extensions/overview.md
 - name: Cargas de trabajo
-  items:
-    - name: Oracle
-      href: workloads/oracle/oracle-considerations.md
-    - name: SAP
-      href: workloads/sap/get-started.md
-    - name: Informática de alto rendimiento
-      href: workloads/hpc/overview.md
-    - name: Rehospedaje del sistema central
-      href: workloads/mainframe-rehosting/overview.md
+  href: ./workloads/workloads.md
 - name: Implementaciones clásicas
   items:
     - name: Máquinas virtuales con Linux mediante la implementación clásica
