@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 31273105c2f4de6950eae6a66c50264803197642
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981872"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003083"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migración de los datos a una cuenta de Cassandra API de Azure Cosmos DB mediante Striim
 
@@ -155,7 +155,17 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
    ![Conectar a destino](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Escriba las propiedades de configuración de su instancia de Azure Cosmos DB de destino y seleccione **Guardar** para continuar.
+1. Antes de configurar el destino, asegúrese de que ha agregado un [certificado raíz de Baltimore al entorno de Java de Striim](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+
+1. Escriba las propiedades de configuración de su instancia de Azure Cosmos DB de destino y seleccione **Guardar** para continuar. Estos son los parámetros clave a tener en cuenta:
+
+   * **Adaptador**: use **DatabaseWriter**. Cuando se escribe en Cassandra API de Azure Cosmos DB, se requiere DatabaseWriter. El controlador de Cassandra 3.6.0 está incluido en Striim. Si DatabaseWriter supera el número de RU aprovisionadas en el contenedor de Azure Cosmos, la aplicación se bloqueará.
+
+   * **Nombre de usuario**: especifique el nombre de la cuenta de Azure Cosmos.
+   
+   * **Contraseña**: especifique la clave principal de su cuenta de Azure Cosmos.
+
+   * **Tablas**: las tablas de destino deben tener claves principales y las claves principales no se pueden actualizar.
 
    ![Configuración de propiedades de destino](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
 
@@ -178,8 +188,7 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
 1. Por último, iniciemos sesión en Azure y vayamos a su cuenta de Azure Cosmos. Actualice Data Explorer y podrá ver que han llegado esos datos. 
 
-Mediante el uso de la solución de Striim en Azure, puede migrar datos continuamente a Azure Cosmos DB desde diversos orígenes como Oracle, Cassandra, MongoDB y unos cuantos más a Azure Cosmos DB. En caso de que haya algún problema al configurar la ruta de migración con Striim, envíe una solicitud de soporte técnico en el [sitio web de Striim](https://go2.striim.com/request-support-striim).
-
+Mediante el uso de la solución de Striim en Azure, puede migrar datos continuamente a Azure Cosmos DB desde diversos orígenes como Oracle, Cassandra, MongoDB y algunos más. Para más información, visite el [sitio web de Striim](https://www.striim.com/), [descargue una prueba gratuita de 30 días de Striim](https://go2.striim.com/download-free-trial) y, para ver si hay algún problema al configurar la ruta de migración con Striim, envíe una [solicitud de soporte técnico](https://go2.striim.com/request-support-striim).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

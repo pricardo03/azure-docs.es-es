@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879256"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097566"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -78,6 +78,13 @@ Para obtener más información, consulte los artículos siguientes:
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (El final de FRS está cerca)
 
+Si el dominio no usa aún DFSR, DEBE migrarlo para que lo utilice antes de instalar la protección con contraseña de Azure AD. Para más información, consulte el vínculo siguiente:
+
+[Guía de migración de replicación de SYSVOL: Replicación de FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+> [!WARNING]
+> El software del agente de DC de Protección con contraseña de Azure AD se instala actualmente en los controladores de dominio de los dominios que usan aún FRS para la replicación de SYSVOL, pero NO funciona correctamente en este entorno. Otros efectos secundarios negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Migre el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR como también para desbloquear la implementación de Protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
+
 **P: ¿Cuánto espacio en disco requiere la característica en el recurso compartido sysvol del dominio?**
 
 El uso exacto del espacio varía puesto que depende de factores como el número y la longitud de los tokens no permitidos en la lista global de Microsoft de no permitidos y la lista personalizada por inquilino, además de la sobrecarga de cifrado. El contenido de estas listas es probable que aumente en el futuro. Teniendo esto en cuenta, la característica debería necesitar al menos cinco (5) megabytes de espacio en el recurso compartido sysvol del dominio.
@@ -129,6 +136,10 @@ No.
 **P: ¿Por qué Azure AD sigue rechazando las contraseñas no seguras, aunque haya configurado la directiva para que esté en modo de auditoría?**
 
 Solo se admite el modo de auditoría en el entorno de Active Directory local. Azure AD siempre está implícitamente en modo "aplicar" cuando evalúa las contraseñas.
+
+**P: Mis usuarios ven el mensaje de error tradicional de Windows cuando Protección con contraseña de Azure AD rechaza una contraseña. ¿Es posible personalizar este mensaje de error para que los usuarios sepan lo que ha sucedido realmente?**
+
+No. El mensaje de error que ven los usuarios cuando un controlador de dominio rechaza una contraseña está controlado por la máquina cliente, no por el controlador de dominio. Este comportamiento se produce si las directivas predeterminadas de contraseñas de Active Directory o una solución basada en filtro de contraseña, como Protección con contraseña de Azure AD, rechazan una contraseña.
 
 ## <a name="additional-content"></a>Contenido adicional
 

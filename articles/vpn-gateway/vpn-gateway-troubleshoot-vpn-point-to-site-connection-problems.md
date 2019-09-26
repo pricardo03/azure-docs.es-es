@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo solucionar problemas de conexión 
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475962"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104816"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -45,11 +45,10 @@ Para solucionar este problema, siga estos pasos:
 
 2. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | Ubicación |
+    | Certificate | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
-    | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Equipo local\Entidades de certificación raíz de confianza|
+    | AzureRoot.cer    | Equipo local\Entidades de certificación raíz de confianza|
 
 3. Vaya a C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente el certificado (archivo *.cer) en el usuario y en el almacén del equipo.
 
@@ -85,7 +84,7 @@ Para preparar Windows 10 o Server 2016 para IKEv2:
    | Windows 10 Versión 1709 | 22 de marzo de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Establezca el valor de clave del Registro. Cree o establezca la clave REG_DWORD “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” del Registro en 1.
+2. Establezca el valor de clave del Registro. Cree o establezca la clave REG_DWORD `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` del Registro en 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Error de cliente de VPN: Mensaje recibido inesperado o con formato incorrecto.
 
@@ -122,7 +121,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 1. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | Ubicación |
+    | Certificate | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
@@ -382,7 +381,7 @@ El motivo es un tipo de puerta de enlace incorrecto configurado.
 
 El tipo de puerta de enlace de VPN de Azure debe ser VPN y el tipo de VPN debe ser **RouteBased**.
 
-## <a name="vpn-package-installer-doesnt-complete"></a>El instalador del paquete VPN no finaliza
+## <a name="vpn-package-installer-doesnt-complete"></a>El instalador del paquete VPN no finaliza.
 
 ### <a name="cause"></a>Causa
 

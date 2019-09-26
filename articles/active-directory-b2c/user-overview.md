@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42a38b47f9e49652b5fe80aa5bbd0047dc7d1e74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511959"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063138"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
-En Azure Active Directory (Azure AD) B2C, puede usar diferentes tipos de cuentas. Azure Active Directory, Azure Active Directory B2B y Azure Active Directory B2C comparten los tipos de cuentas de usuario que se pueden usar.
+En Azure Active Directory B2C (Azure AD B2C), puede usar diferentes tipos de cuentas. Azure Active Directory, Azure Active Directory B2B y Azure Active Directory B2C comparten los tipos de cuentas de usuario que se pueden usar.
 
 Están disponibles los siguientes tipos de cuentas:
 
 - **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
-- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos. 
-- **Cuenta de consumidor**: una cuenta de consumidor se crea mediante un flujo de usuario de registro en una aplicación Azure AD B2C o el uso de Azure AD Graph API y la usan los usuarios de las aplicaciones registrados con Azure AD B2C. 
+- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
+- **Cuenta de consumidor**: una cuenta de consumidor se crea mediante un flujo de usuario de registro en una aplicación Azure AD B2C o el uso de Azure AD Graph API y la usan los usuarios de las aplicaciones registrados con Azure AD B2C.
 
 ## <a name="work-account"></a>Cuenta profesional
 
@@ -35,12 +35,12 @@ Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las si
 
 - **Nombre** y **Nombre de usuario**: la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com*.
 - **Perfil**: la cuenta está configurada con un perfil de datos de usuario. Tiene la oportunidad de especificar un nombre, los apellidos, el puesto y el nombre de departamento. Puede editar el perfil después de crear la cuenta.
-- **Grupos**: use un grupo para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino. 
+- **Grupos**: use un grupo para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
 - **Rol de directorio**: debe especificar el nivel de acceso que tiene la cuenta de usuario a los recursos en el inquilino. Están disponibles los siguientes niveles de permiso:
 
     - **Usuario**: los usuarios pueden acceder a los recursos asignados, pero no pueden administrar la mayoría de los recursos de inquilino.
     - **Administrador global**: los administradores globales tienen el control completo de todos los recursos de inquilino.
-    - **Administrador limitado**: seleccione el rol administrativo o los roles para el usuario. Para obtener más información acerca de los roles que se pueden seleccionar, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
+    - **Administrador limitado**: seleccione el rol administrativo o los roles para el usuario. Para obtener más información acerca de los roles que se pueden seleccionar, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="create-a-work-account"></a>Crear una cuenta profesional
 
@@ -58,7 +58,7 @@ Puede usar la siguiente información para actualizar el perfil de un usuario:
 
 ### <a name="reset-a-password-for-a-user"></a>Restablecer la contraseña de un usuario
 
-Puede usar la siguiente información para restablecer la contraseña de un usuario: 
+Puede usar la siguiente información para restablecer la contraseña de un usuario:
 
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)

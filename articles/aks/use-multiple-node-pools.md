@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915855"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996896"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -78,7 +78,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * Los grupos de varios nodos solo están disponibles para los clústeres creados después de registrar correctamente la característica *MultiAgentpoolPreview* en la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que esta característica se registrara satisfactoriamente.
 * No puede eliminar el primer grupo de nodos.
 * El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
-* No puede agregar, actualizar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
+* No pueden agregar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
@@ -89,6 +89,8 @@ Aunque esta característica está en versión preliminar, se aplican las siguien
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
 Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.10* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
+
+Se recomienda usar el equilibrador de carga de SKU estándar al utilizar varios grupos de nodos. Lea [este documento](load-balancer-standard.md) para más información sobre el uso de equilibradores de carga estándar con AKS.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 La operación de creación del clúster tarda unos minutos.
@@ -578,7 +581,7 @@ Puede que tarde unos minutos en actualizarse el clúster de AKS según la config
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Asignar una IP pública por nodo en un grupo de nodos
 
 > [!NOTE]
-> Durante la versión preliminar, existe una limitación de uso de esta característica con la *SKU de Standard Load Balancer de AKS (versión preliminar)* debido a que las reglas del equilibrador de carga pueden estar en conflicto con el aprovisionamiento de VM. Durante la versión preliminar,use la *SKU de Load Balancer básico* si necesita asignar una dirección IP pública por nodo.
+> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Durante la versión preliminar,use la *SKU de Load Balancer básico* si necesita asignar una dirección IP pública por nodo.
 
 Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, algunos escenarios pueden requerir que los nodos de un grupo de nodos tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Esto se puede lograr si se registra para una característica en vista previa (GB) independiente: IP pública de nodo (versión preliminar).
 

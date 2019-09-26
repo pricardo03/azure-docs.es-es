@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892533"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983930"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
@@ -204,6 +204,6 @@ Si la plantilla incluye un parámetro con el mismo nombre que uno de los paráme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para saber cómo definir parámetros en la plantilla, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
 - Para más información sobre el uso de valores de una instancia de Key Vault, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md).
-
+- Para más información sobre los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).

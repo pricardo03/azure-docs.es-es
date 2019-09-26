@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/01/2019
+ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861023"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036658"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Para acceder a orígenes de datos locales desde las aplicaciones lógicas, cree un recurso de puerta de enlace de datos local en Azure Portal. Las aplicaciones lógicas pueden usar entonces los [conectores locales](../logic-apps/logic-apps-gateway-install.md#supported-connections). En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en el quipo local](../logic-apps/logic-apps-gateway-install.md). Para obtener más información sobre cómo funciona la puerta de enlace, vea [Cómo funciona la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Para acceder a orígenes de datos locales desde las aplicaciones lógicas, cree un recurso de puerta de enlace de datos local en Azure Portal. Las aplicaciones lógicas pueden usar entonces los [conectores locales](../connectors/apis-list.md#on-premises-connectors). En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en un equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > Para conectarse a redes virtuales de Azure, considere la posibilidad de crear en su lugar un [*entorno del servicio de integración*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
@@ -29,6 +29,27 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 * [Puerta de enlace de datos local de Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Administración de una puerta de enlace de datos local en Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>Orígenes de datos admitidos
+
+En Azure Logic Apps, la puerta de enlace de datos local admite [conectores locales](../connectors/apis-list.md#on-premises-connectors) para estos orígenes de datos:
+
+* BizTalk Server 2016
+* Sistema de archivos
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Base de datos de Oracle
+* PostgreSQL
+* SAP
+* SharePoint Server
+* SQL Server
+* Teradata
+
+Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -135,6 +156,13 @@ Para crear un recurso de puerta de enlace diferente, vincular la instalación de
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+**P.** : ¿Por qué no puedo ver mi instalación de puerta de enlace al crear el recurso de puerta de enlace en Azure? <br/>
+**R.** : Este problema puede deberse a estos motivos:
+
+* La instalación de puerta de enlace está registrada y ha sido reclamada por otro recurso de puerta de enlace en Azure. Las instalaciones de puerta de enlace no aparecen en la lista de instancias después de crear los recursos de puerta de enlace para ellas. Para comprobar los registros de puerta de enlace en Azure Portal, revise todos los recursos de Azure de tipo **Puertas de enlace de datos local** para *todas* las suscripciones de Azure.
+
+* La identidad de Azure AD para la persona que instaló la puerta de enlace difiere de la persona que inició sesión en Azure Portal. Compruebe que ha iniciado sesión con la misma identidad que instaló la puerta de enlace.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

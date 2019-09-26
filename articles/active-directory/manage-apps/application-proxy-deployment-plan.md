@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812837"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033643"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -292,11 +292,11 @@ Sin embargo, los usuarios aún necesitan llevar a cabo operaciones con privilegi
 
 ### <a name="reporting-and-monitoring"></a>Creación de informes y supervisión
 
-Azure AD proporciona información adicional acerca del uso de las aplicaciones de la organización y del estado operativo mediante [registros de auditoría e informes](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Proxy de aplicación también facilita la supervisión de conectores desde el portal de Azure AD y los registros de eventos de Windows.
+Azure AD proporciona información adicional acerca del uso de las aplicaciones de la organización y del estado operativo mediante [registros de auditoría e informes](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Proxy de aplicación también facilita la supervisión de conectores desde el portal de Azure AD y los registros de eventos de Windows.
 
 #### <a name="application-audit-logs"></a>Registros de auditoría de la aplicación
 
-Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. [Los registros de auditoría](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) se pueden exportar desde Azure Portal y [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta). Además, los [informes de uso y de información](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) también están disponibles para la aplicación.
+Estos registros proporcionan información detallada sobre los inicios de sesión a las aplicaciones configuradas con Application Proxy y el dispositivo y el usuario que acceden a la aplicación. [Los registros de auditoría](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) se pueden exportar desde Azure Portal y [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta). Además, los [informes de uso y de información](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) también están disponibles para la aplicación.
 
 #### <a name="application-proxy-connector-monitoring"></a>Supervisión de conectores de Application Proxy
 

@@ -1,6 +1,6 @@
 ---
 title: Uso de la interfaz de ML automatizado de Azure para entrenar e implementar modelos
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Cree, administre e implemente experimentos de aprendizaje automático automatizado en la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910416"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034826"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
 
@@ -26,9 +26,9 @@ ms.locfileid: "70910416"
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
+* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Primeros pasos
 

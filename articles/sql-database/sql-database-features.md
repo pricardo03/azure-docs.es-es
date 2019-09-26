@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873518"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103154"
 ---
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
 
@@ -32,7 +32,7 @@ Azure SQL Database administra las bases de datos y garantiza su alta disponibili
 
 En las tablas siguientes se enumeran las características principales de SQL Server y se proporciona información sobre si la característica se admite parcial o totalmente en instancias administradas o bases de datos únicas, así como un vínculo a más información sobre dicha característica.
 
-| **Característica de SQL** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas** |
+| **Característica de SQL** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas y grupos de instancias** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). |
 | [Grupos de disponibilidad AlwaysOn (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) | Todas las bases de datos incluyen [alta disponibilidad](sql-database-high-availability.md) y el [usuario no la puede administrar](sql-database-managed-instance-transact-sql-information.md#always-on-availability). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |
@@ -112,10 +112,10 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 
 La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se agregan como un valor adicional a las características de base de datos estándar. Hay una serie de servicios externos que se pueden usar con el servicio Azure SQL Database. 
 
-| **Características de la plataforma** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas** |
+| **Características de la plataforma** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas y grupos de instancias** |
 | --- | --- | --- |
-| [Replicación geográfica activa](sql-database-active-geo-replication.md) | Sí, todos los niveles de servicio que no sean de hiperescala. | No; consulte [Grupo de conmutación por error automática (versión preliminar)](sql-database-auto-failover-group.md) como alternativa. |
-| [Grupos de conmutación por error automática](sql-database-auto-failover-group.md) | Sí, todos los niveles de servicio que no sean de hiperescala. | Sí, [en versión preliminar pública](sql-database-auto-failover-group.md)|
+| [Replicación geográfica activa](sql-database-active-geo-replication.md) | Sí, todos los niveles de servicio que no sean de hiperescala. | No, consulte [Grupos de conmutación por error automática](sql-database-auto-failover-group.md) como alternativa. |
+| [Grupos de conmutación por error automática](sql-database-auto-failover-group.md) | Sí, todos los niveles de servicio que no sean de hiperescala. | No, consulte [Grupos de conmutación por error automática](sql-database-auto-failover-group.md).|
 | Escalado automático | Sí, pero solo en el [modelo sin servidor](sql-database-serverless.md). En el modelo sin servidor, el cambio de nivel de servicio (cambio de núcleo virtual, almacenamiento o DTU) es rápido y se realiza en línea. El cambio del nivel de servicio requiere un tiempo de inactividad mínimo o inexistente. | No, debe elegir proceso y almacenamiento reservados. El cambio del nivel de servicio (almacenamiento máximo o núcleo virtual) se realiza en línea y requiere un tiempo de inactividad mínimo o inexistente. |
 | [Copias de seguridad automáticas](sql-database-automated-backups.md) | Sí. Las copias de seguridad completas se realizan cada 7 días, las diferenciales cada 12 horas y las copias de seguridad de registro cada 5 a 10 minutos. | Sí. Las copias de seguridad completas se realizan cada 7 días, las diferenciales cada 12 horas y las copias de seguridad de registro cada 5 a 10 minutos. |
 | [Ajuste automático (índices)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sí](sql-database-automatic-tuning.md)| Sin |
@@ -131,7 +131,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | [Administración basada en directivas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Sin | Sin |
 | Dirección IP pública | Sí. El acceso puede restringirse mediante puntos de conexión de servicio o un firewall.  | Sí. Se debe habilitar explícitamente y el puerto 3342 debe habilitarse en las reglas de NSG. La dirección IP pública puede deshabilitarse si es necesario. Consulte [Punto de conexión público](sql-database-managed-instance-public-endpoint-securely.md) para más información. | 
 | [Restauración de base de datos a un momento dado](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sí, todos los niveles de servicio que no sean de hiperescala. Consulte [Recuperación de bases de datos SQL](sql-database-recovery-using-backups.md#point-in-time-restore). | Sí; consulte el artículo sobre [recuperación SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Grupos de recursos | Sí, como [grupos elásticos](sql-database-elastic-pool.md) | No. Una sola instancia administrada puede tener varias bases de datos que comparten el mismo grupo de recursos. Las instancias administradas no pueden compartir recursos. |
+| Grupos de recursos | Sí, como [grupos elásticos](sql-database-elastic-pool.md) | Sí. Una sola instancia administrada puede tener varias bases de datos que comparten el mismo grupo de recursos. Además, puede implementar varias instancias administradas en [grupos de instancias (versión preliminar)](sql-database-instance-pools.md) que pueden compartir los recursos. |
 | Escalado o reducción vertical (en línea) | Sí, puede cambiar la DTU o los núcleos virtuales reservados o el almacenamiento máximo con un tiempo de inactividad mínimo. | Sí, puede cambiar los núcleos virtuales reservados o el almacenamiento máximo con un tiempo de inactividad mínimo. |
 | Alias de SQL | Sí, consulte [alias DNS](dns-alias-overview.md). | Sin |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sí | Sí |
@@ -146,7 +146,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 ## <a name="tools"></a>Herramientas
 Azure SQL Database admite diversas herramientas de datos que pueden ayudarle a administrar los datos.
 
-| **Herramienta** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas** |
+| **Herramienta** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas y grupos de instancias** |
 | --- | --- | --- |
 | Portal de Azure | Sí | Sí |
 | CLI de Azure | Sí | Sí|
@@ -167,7 +167,7 @@ Azure SQL Database admite diversas herramientas de datos que pueden ayudarle a a
 
 Puede usar diferentes métodos de migración para trasladar los datos entre SQL Server, una base de datos única y bases de datos de Instancia administrada. Algunos métodos están **en línea** y seleccionan todos los cambios realizados en el origen mientras se está ejecutando la migración. Sin embargo, en los métodos **sin conexión**, es necesario detener la carga de trabajo que está modificando los datos en el origen mientras la migración está en curso.
 
-| **Origen** | **Base de datos única y grupo elástico** | **Instancia administrada** |
+| **Origen** | **Base de datos única y grupo elástico** | **Instancia administrada y grupos de Instancias** |
 | --- | --- | --- |
 | SQL Server (local, AzureVM, Amazon RDS) | **En línea:** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replicación transaccional](sql-database-managed-instance-transactional-replication.md) <br/> **Sin conexión:** [Archivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **En línea:** [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replicación transaccional](sql-database-managed-instance-transactional-replication.md) <br/> **Sin conexión:** Copia de seguridad/restauración nativa, [archivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicación de instantáneas](sql-database-managed-instance-transactional-replication.md) |
 | Base de datos única | **Sin conexión:** [Archivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Sin conexión:** [Archivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
@@ -183,3 +183,4 @@ Microsoft continúa agregando características a Azure SQL Database. Visite la p
 Para obtener más información acerca de los tipos de Azure SQL Database, consulte:
 - [¿Qué es SQL Database?](sql-database-technical-overview.md)
 - [¿Qué es la Instancia administrada?](sql-database-managed-instance.md)
+- [¿Qué son los grupos de Instancia administrada?](sql-database-instance-pools.md)

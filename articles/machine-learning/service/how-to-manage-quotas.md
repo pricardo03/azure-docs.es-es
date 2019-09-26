@@ -1,6 +1,6 @@
 ---
 title: Administración y solicitud de cuotas de recursos
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: En esta guía se explican las distintas cuotas de los recursos de Azure Machine Learning y cómo ver y solicitar una cuota mayor.
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,26 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2ee819625f772c96ac6c5a771935da17ee05f3aa
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278062"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002685"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Administración y solicitud de cuotas para recursos de Azure
 
-Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Azure Machine Learning. Dichos límites oscilan entre un extremo en el número de áreas de trabajo que se pueden crear a límites en el proceso subyacente real que se usa para entrenar modelos o para la puntuación o inferencia de modelos. 
+Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con Azure Machine Learning. Dichos límites oscilan entre un extremo en el número de áreas de trabajo que se pueden crear a límites en el proceso subyacente real que se usa para entrenar modelos o para la puntuación o inferencia de modelos. 
 
 En este artículo se proporciona más información acerca de los límites previamente configurados de varios recursos de Azure de su suscripción. También encontrará vínculos útiles para solicitar mejoras de la cuota de todos los tipos de recurso. Estos límites se establecen para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure.
 
-Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus recursos de Azure Machine Learning Service para cargas de trabajo de producción. Por ejemplo, si su clúster no alcanza el número objetivo de nodos especificado, es posible que se haya alcanzado el límite de núcleos del Proceso de Azure Machine Learning para la suscripción. Si desea aumentar el límite o la cuota por encima del límite predeterminado, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno. Los límites no se pueden subir por encima del valor de Límite máximo que se muestra en las tablas siguientes debido a las restricciones de capacidad de Azure. Si la columna Límite máximo no existe, el recurso no tiene límites ajustables.
+Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus recursos de Azure Machine Learning para cargas de trabajo de producción. Por ejemplo, si su clúster no alcanza el número objetivo de nodos especificado, es posible que se haya alcanzado el límite de núcleos del Proceso de Azure Machine Learning para la suscripción. Si desea aumentar el límite o la cuota por encima del límite predeterminado, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno. Los límites no se pueden subir por encima del valor de Límite máximo que se muestra en las tablas siguientes debido a las restricciones de capacidad de Azure. Si la columna Límite máximo no existe, el recurso no tiene límites ajustables.
 
 ## <a name="special-considerations"></a>Consideraciones especiales
 
 + Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
 
-+ La cuota se comparte en todos los servicios de las suscripciones, incluso en Azure Machine Learning Service. La única excepción es el Proceso de Azure Machine Learning, el que tiene una cuota independiente de la cuota de procesos principales. Al evaluar las necesidades de capacidad, asegúrese de calcular el uso de la cuota entre todos los servicios.
++ La cuota se comparte en todos los servicios de las suscripciones, incluso en Azure Machine Learning. La única excepción es el Proceso de Azure Machine Learning, el que tiene una cuota independiente de la cuota de procesos principales. Al evaluar las necesidades de capacidad, asegúrese de calcular el uso de la cuota entre todos los servicios.
 
 + Los límites predeterminados varían según el tipo de categoría de la oferta, por ejemplo, evaluación gratuita, pago por uso y series, como Dv2, F, G, etc.
 

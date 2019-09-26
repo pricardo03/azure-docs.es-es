@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 37e6a3ee9f793a475cf9d775e99da989e82957dc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 7b266a21aabf37765de4f4f94cd3939cec697585
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813484"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058512"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que está usando:"]
@@ -27,6 +27,12 @@ ms.locfileid: "70813484"
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos SQL Server como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que incluye información general de esta actividad.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
+
+Este conector SQL Server es compatible con las actividades siguientes:
+
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
 Puede copiar datos desde una base de datos de SQL Server en cualquier almacén de datos receptor compatible. O bien puede copiar datos desde cualquier almacén de datos de origen compatible a una base de datos de SQL Server. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -152,7 +158,9 @@ Las siguientes propiedades son compatibles para copiar datos con una base de dat
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos se debe establecer en **SqlServerTable**. | Sí |
-| tableName |Esta propiedad es el nombre de la tabla o vista de la instancia de base de datos SQL Server a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
+| schema | Nombre del esquema. |No para el origen, sí para el receptor  |
+| table | Nombre de la tabla o vista. |No para el origen, sí para el receptor  |
+| tableName | Nombre de la tabla o vista con el esquema. Esta propiedad permite la compatibilidad con versiones anteriores. Para la nueva carga de trabajo use `schema` y `table`. | No para el origen, sí para el receptor |
 
 **Ejemplo**
 
@@ -168,7 +176,8 @@ Las siguientes propiedades son compatibles para copiar datos con una base de dat
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -526,6 +535,14 @@ Cuando copia datos con SQL Server como origen y destino, se usan las siguientes 
 
 >[!NOTE]
 > Para los tipos de datos que se asignan al tipo decimal provisional, Azure Data Factory actualmente admite una precisión de hasta 28. Si tiene datos que requieren una precisión mayor que 28, considere la posibilidad de convertir a una cadena en una consulta SQL.
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propiedades de la actividad GetMetadata
+
+Para información detallada sobre las propiedades, consulte [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md). 
 
 ## <a name="troubleshoot-connection-issues"></a>Solución de problemas de conexión
 

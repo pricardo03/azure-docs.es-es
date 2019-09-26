@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080527"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309516"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>¿Qué son los aceleradores de soluciones de Azure IoT?
 
@@ -85,7 +85,7 @@ Los aceleradores de soluciones originales se escribieron con .NET usando una arq
 | Fábrica conectada      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulación de dispositivo      | Microservicios | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Para más información sobre la arquitectura de microservicios, consulte [Introducción a la arquitectura de referencia de Azure IoT](iot-accelerators-architecture-overview.md).
+Para más información sobre la arquitectura de microservicios, consulte [Introducción a la arquitectura de referencia de Azure IoT](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
 ## <a name="deployment-options"></a>Opciones de implementación
 

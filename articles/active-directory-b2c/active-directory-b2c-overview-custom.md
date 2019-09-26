@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 335b6c1a12f3786d7c0f1083f5b052aaac4beccb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716819"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065771"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. Los flujos de usuario están predefinidos en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
+Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory B2C (Azure AD B2C). Los flujos de usuario están predefinidos en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparación de las directivas personalizadas y los flujos de usuario
 
@@ -55,7 +55,7 @@ El servicio de administración de identidades y acceso de cliente (CIAM) de Azur
 
 Azure AD B2C interactúa en secuencia con proveedores de identidades, usuarios, otros sistemas y con el directorio local de usuario para completar una tarea de identidad. Por ejemplo, iniciar sesión en un cliente, registrar un nuevo usuario o restablecer una contraseña. El marco de experiencia de identidad y una directiva (que también se conoce como una directiva de marco de confianza o de recorrido del usuario) crea confianza entre varios usuarios y define explícitamente los actores, las acciones, los protocolos y la secuencia de pasos que se van a completar.
 
-Identity Experience Framework es una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades en formatos de protocolo estándar como OpenID Connect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar que admiten HTML y CSS.
+Identity Experience Framework es una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades en formatos de protocolo estándar como OpenID Connect, OAuth, SAML y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar que admiten HTML y CSS.
 
 Una directiva personalizada se representa como uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen el esquema de notificaciones, las transformaciones de notificaciones, las definiciones de contenido, los proveedores de notificaciones, los perfiles técnicos y los pasos de orquestación del recorrido del usuario, entre otros elementos. Una directiva personalizada es accesible como uno o varios archivos XML que el marco de experiencia de identidad ejecuta cuando lo invoca un usuario de confianza. Los desarrolladores que configuran las directivas personalizadas deben definir las relaciones de confianza con mucho detalle para incluir puntos de conexión de metadatos, definiciones exactas de intercambio de notificaciones, además de configurar secretos, claves y certificados según lo necesite cada proveedor de identidades.
 

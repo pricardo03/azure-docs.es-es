@@ -4,14 +4,14 @@ description: Describe la estructura y las propiedades de plantillas de Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306837"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984094"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -84,6 +84,8 @@ Las propiedades disponibles para un parámetro son:
 | maxLength |Sin |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
 | description |Sin |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](#comments). |
 
+Para ejemplos de cómo usar los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
+
 ## <a name="variables"></a>variables
 
 En la sección de variables, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas.
@@ -116,6 +118,8 @@ En el ejemplo siguiente se muestran las opciones disponibles para definir una va
 ```
 
 Si desea información sobre el uso de `copy` para crear varios valores para una variable, consulte [Iteración de variables](resource-group-create-multiple.md#variable-iteration).
+
+Para ejemplos de cómo usar las variables, consulte [Variables en plantillas de Azure Resource Manager](template-variables.md).
 
 ## <a name="functions"></a>Functions
 
@@ -159,6 +163,8 @@ Al definir una función de usuario, hay algunas restricciones:
 | valor-del-parámetro |Sin |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | tipo de salida |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de función. |
 | valor de salida |Sí |Expresión de lenguaje de plantilla que se evalúa y devuelve desde la función. |
+
+Para ejemplos de cómo usar las funciones personalizadas, consulte [Funciones definidas por el usuario de la plantilla de Azure Resource Manager](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Recursos
 
@@ -259,6 +265,8 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 | condition |Sin | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
 | type |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](resource-manager-keyvault-parameter.md). |
 | value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
+
+Para ejemplos sobre cómo usar las salidas, consulte [Salidas en una plantilla de Azure Resource Manager](template-outputs.md).
 
 <a id="comments" />
 

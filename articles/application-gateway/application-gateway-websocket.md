@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48f1b6e4410820d40ba6563d431c690ab791ff0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831252"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097241"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
 
@@ -28,7 +28,7 @@ Se usa en aplicaciones que se benefician de la comunicación rápida y en tiempo
 
 Para establecer una conexión de WebSocket, se intercambia un protocolo de enlace específico basado en HTTP entre el cliente y el servidor. Si se realiza correctamente, el protocolo de capa de aplicación se "actualiza" de HTTP a WebSockets, mediante la conexión TCP establecida previamente. Una vez que esto ocurre, HTTP queda completamente fuera de juego. Los dos puntos de conexión pueden enviar o recibir los datos mediante el protocolo WebSocket, hasta que se cierra la conexión de WebSocket. 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![websocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 
@@ -68,7 +68,7 @@ Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket.
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Configuración de reglas de enrutamiento, BackendHttpSetting y BackendAddressPool
 
-BackendAddressPool se usa para definir un grupo back-end con servidores con WebSocket habilitado. backendHttpSetting se define con un puerto de back-end 80 y 443. Las propiedades de la afinidad basada en cookies y requestTimeouts no son pertinentes para el tráfico de WebSocket. No se requiere ningún cambio en la regla de enrutamiento, se usa "Básico" para vincular el agente de escucha adecuado al grupo de direcciones back-end correspondiente. 
+BackendAddressPool se usa para definir un grupo back-end con servidores con WebSocket habilitado. backendHttpSetting se define con un puerto de back-end 80 y 443. El valor de tiempo de espera de la solicitud en la configuración de HTTP también se aplica a la sesión de WebSocket. No se requiere ningún cambio en la regla de enrutamiento, se usa para vincular el agente de escucha adecuado al grupo de direcciones back-end correspondiente. 
 
 ```json
 "requestRoutingRules": [{

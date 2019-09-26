@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b50b59b6a1f99787b842923cd6ec77ee6500f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d827843bdbaff1ad95dce3318f39867abe8b2d0f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509532"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065621"
 ---
-# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Deshabilitación de la comprobación del correo electrónico durante la suscripción de consumidores en Azure Active Directory B2C 
-Cuando se habilita, Azure Active Directory (Azure AD) B2B proporciona al consumidor la posibilidad de iniciar sesión en las aplicaciones ofreciendo una dirección de correo electrónico y creando una cuenta local. Azure AD B2C garantiza direcciones de correo electrónico válidas exigiendo que los consumidores puedan comprobarlas durante el proceso de suscripción. También impide que un proceso automatizado malintencionado genere cuentas falsas para aplicaciones.
+# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Deshabilitación de la comprobación del correo electrónico durante la suscripción de consumidores en Azure Active Directory B2C
+Cuando se habilita, Azure Active Directory B2B (Azure AD B2C) proporciona al consumidor la posibilidad de iniciar sesión en las aplicaciones ofreciendo una dirección de correo electrónico y creando una cuenta local. Azure AD B2C garantiza direcciones de correo electrónico válidas exigiendo que los consumidores puedan comprobarlas durante el proceso de suscripción. También impide que un proceso automatizado malintencionado genere cuentas falsas para aplicaciones.
 
 Algunos desarrolladores de aplicaciones prefieren pasar por alto la comprobación de correos electrónicos durante el proceso de suscripción y, en su lugar, son los consumidores los que tienen que comprobar la dirección de correo electrónico más tarde. Para ello, Azure AD B2C puede configurarse para deshabilitar la comprobación de correo electrónico. Si lo hace, crea un proceso de inicio de sesión más eficaz y ofrece a los desarrolladores la flexibilidad para diferenciar los consumidores que han comprobado su dirección de correo electrónico de los que no lo ha hecho.
 
 De forma predeterminada, los flujos de usuario de inicio de sesión tienen activada la comprobación de correos electrónicos. Siga estos pasos para desactivarla:
 
 1. Haga clic en **Flujos de usuario**.
-2. Haga clic en el flujo de usuario (por ejemplo, "B2C_1_SiUp") para abrirlo. 
+2. Haga clic en el flujo de usuario (por ejemplo, "B2C_1_SiUp") para abrirlo.
 3. Haga clic en **Diseños de página**.
 4. Haga clic en **Página de suscripción de cuenta local**.
 5. Haga clic en **Dirección de correo electrónico** en la columna **Nombre** bajo la sección **Atributos de usuario**.
@@ -34,5 +34,5 @@ De forma predeterminada, los flujos de usuario de inicio de sesión tienen activ
 
 > [!NOTE]
 > Deshabilitar la comprobación de correos electrónicos en el proceso de registro puede provocar que se reciban correos no deseados. Si deshabilita el valor predeterminado, se recomienda agregar su propio sistema de comprobación.
-> 
+>
 >

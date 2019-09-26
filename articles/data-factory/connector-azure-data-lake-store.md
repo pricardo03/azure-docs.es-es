@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 968e356947e99c3b6c4fe9d5acd2efed264be5b0
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813468"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010107"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
@@ -30,10 +30,11 @@ En este artículo se explica cómo copiar datos con Azure Data Lake Storage Gen1
 
 Este conector de Azure Data Lake Storage Gen1 es compatible con las actividades siguientes:
 
-- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
-- [Asignación de Data Flow](concepts-data-flow-overview.md)
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md) 
+- [Asignación de flujo de datos](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
+- [Actividad de eliminación](delete-activity.md)
 
 En concreto, con este conector, puede hacer lo siguiente:
 
@@ -164,7 +165,7 @@ En Azure Data Factory no es necesario especificar ninguna propiedad, más allá 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
 - Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
-- Para otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+- En el caso de otros formatos como **ORC**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
 ### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
 
@@ -490,6 +491,18 @@ Si quiere replicar las listas de control de acceso (ACL) junto con los archivos 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de Data Flow
 
 Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en la característica Asignación de Data Flow.
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propiedades de la actividad GetMetadata
+
+Para información detallada sobre las propiedades, consulte [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md). 
+
+## <a name="delete-activity-properties"></a>Propiedades de la actividad de eliminación
+
+Para información detallada sobre las propiedades, consulte [Actividad de eliminación](delete-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

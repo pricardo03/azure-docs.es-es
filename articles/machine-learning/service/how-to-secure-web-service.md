@@ -1,7 +1,7 @@
 ---
 title: Protección de servicios web con SSL
-titleSuffix: Azure Machine Learning service
-description: Aprenda a proteger un servicio web implementado con Azure Machine Learning Service habilitando HTTPS. HTTPS protege los datos de los clientes mediante el uso de Seguridad de capa de transporte (TLS), un sustituto de Capas de sockets seguros (SSL). Los clientes también usan HTTPS para comprobar la identidad del servicio web.
+titleSuffix: Azure Machine Learning
+description: Aprenda a proteger un servicio web implementado con Azure Machine Learning habilitando HTTPS. HTTPS protege los datos de los clientes mediante el uso de Seguridad de capa de transporte (TLS), un sustituto de Capas de sockets seguros (SSL). Los clientes también usan HTTPS para comprobar la identidad del servicio web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772521"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034375"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Use SSL para proteger un servicio web con Azure Machine Learning
 
-En este artículo se muestra cómo proteger un servicio web implementado con Azure Machine Learning Service.
+En este artículo se muestra cómo proteger un servicio web implementado con Azure Machine Learning.
 
 Se usa [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para restringir el acceso a los servicios web y proteger los datos que los clientes envían. HTTPS le ayuda a proteger las comunicaciones entre un cliente y un servicio web mediante el cifrado de las comunicaciones entre los dos. El cifrado usa [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se conoce a veces todavía como *Capa de sockets seguros* (SSL), que fue su predecesor.
 
@@ -151,7 +151,7 @@ Después, debe actualizar el DNS para que apunte al servicio web.
 
   Actualice el DNS de la Dirección IP pública del clúster de AKS en la pestaña **Configuración** debajo de **Configuración** en el panel izquierdo. (Vea la siguiente imagen). La dirección IP pública es uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
-  [![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Actualizar el certificado SSL
 

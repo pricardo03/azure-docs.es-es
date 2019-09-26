@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4f9a828e5233c88db2106bc648c07578927e0d29
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c2b409f0eefe5efa389432cbb007cc08e0c6ae1e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514880"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71078281"
 ---
 Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a datos de blob y cola con Azure AD y OAuth:
 
@@ -26,4 +26,6 @@ Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso 
 - [Emisor de mensajes de datos de la cola de Storage](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): se usa para conceder permisos de adición a los mensajes de las colas de Azure Storage.
 
 > [!NOTE]
-> Tenga en cuenta que las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
+> Las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
+>
+> Solo los roles definidos explícitamente para el acceso a datos permiten a una entidad de seguridad acceder a los datos de blobs o colas. Los roles como **Propietario**, **Colaborador** y **Colaborador de la cuenta de almacenamiento** permiten que una entidad de seguridad administre una cuenta de almacenamiento, pero no proporcionan acceso a los datos de blobs o colas dentro de esa cuenta.

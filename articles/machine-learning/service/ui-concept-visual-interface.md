@@ -1,7 +1,7 @@
 ---
 title: Interfaz visual
-titleSuffix: Azure Machine Learning service
-description: Obtenga información acerca de los términos, los conceptos y el flujo de trabajo que conforman la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+titleSuffix: Azure Machine Learning
+description: Obtenga información acerca de los términos, los conceptos y el flujo de trabajo que conforman la interfaz visual (versión preliminar) de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860407"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996522"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>¿Qué es la interfaz visual de Azure Machine Learning Service? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>¿Qué es la interfaz visual de Azure Machine Learning? 
 
-La interfaz visual (versión preliminar) de servicio Azure Machine Learning Service permite preparar datos, entrenar, probar, implementar, administrar y realizar un seguimiento de los modelos de Machine Learning sin escribir código.
+La interfaz visual (versión preliminar) de Azure Machine Learning permite preparar datos, entrenar, probar, implementar, administrar y realizar un seguimiento de los modelos de Machine Learning sin escribir código.
 
 No se requiere ningún tipo de programación, conecte visualmente [conjuntos de datos](#dataset) y [módulos](#module) para construir el modelo.
 
-La interfaz visual usa el [área de trabajo](concept-workspace.md) de Azure Machine Learning Service para:
+La interfaz visual usa el [área de trabajo](concept-workspace.md) de Azure Machine Learning para:
 
 + Escribir artefactos de las ejecuciones de [experimentos](#experiment) en el área de trabajo.
 + Acceder a [conjuntos de datos](#dataset).

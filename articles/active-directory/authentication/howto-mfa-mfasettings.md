@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860288"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075497"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -403,6 +403,8 @@ La característica reduce el número de autenticaciones en las aplicaciones web,
 >La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la verificación en dos pasos para AD FS mediante el Servidor Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.
 >
 >Si los usuarios seleccionan **Mantener la sesión iniciada** en AD FS y también marcan su dispositivo como de confianza para Multi-Factor Authentication, no se comprobará el usuario automáticamente después de que expire el número de días de la característica **Recordar Multi-Factor Authentication**. Azure AD solicita una nueva verificación en dos pasos, pero AD FS devuelve un token con la fecha y la notificación originales de Multi-Factor Authentication en lugar de volver a realizar la verificación en dos pasos. **Esta reacción crea un bucle de comprobación entre Azure AD y AD FS.**
+>
+>La característica **Recordar Multi-Factor Authentication** no es compatible con los usuarios de B2B y no será visible para ellos al iniciar sesión en los inquilinos invitados.
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitación de Recordar Multi-Factor Authentication

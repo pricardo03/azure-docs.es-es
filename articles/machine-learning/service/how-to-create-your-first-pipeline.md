@@ -1,6 +1,6 @@
 ---
 title: Crear, ejecutar y realizar un seguimiento de las canalizaciones de ML
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Use canalizaciones de ML para crear y administrar flujos de trabajo que unen las fases de Machine Learning (ML). Estas fases incluyen la preparación de los datos, el entrenamiento del modelo, la implementación de modelo y la inferencia o puntuación.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858776"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034841"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -26,11 +26,11 @@ Si bien se puede usar un tipo distinto de canalización, denominado [Azure Pipel
 
 Cada fase de una canalización de Machine Learning, como la preparación de datos y el entrenamiento de modelos, puede incluir uno o más pasos.
 
-Las canalizaciones de Machine Learning que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning Service. 
+Las canalizaciones de Machine Learning que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning. 
 
 Las canalizaciones de Machine Learning usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -283,7 +283,7 @@ La reutilización de los resultados anteriores (`allow_reuse`) es clave cuando s
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
 > [!NOTE]
-> No se carga ningún archivo o dato en Azure Machine Learning Service cuando define los pasos o compila la canalización.
+> No se carga ningún archivo o dato en Azure Machine Learning cuando define los pasos o compila la canalización.
 
 ```python
 # list of steps to run
@@ -322,7 +322,7 @@ Para obtener más información, consulte el [paquete de pasos de canalizaciones 
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
-Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual. La instantánea también se almacena como parte del experimento del área de trabajo.
+Cuando envía la canalización, Azure Machine Learning comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual. La instantánea también se almacena como parte del experimento del área de trabajo.
 
 > [!IMPORTANT]
 > Para evitar que los archivos se incluyan en la instantánea, cree un archivo [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguelos. El archivo `.amlignore` usa la misma sintaxis y patrones que el archivo [.gitignore](https://git-scm.com/docs/gitignore). Si ambos archivos existen, el archivo `.amlignore` tiene prioridad.

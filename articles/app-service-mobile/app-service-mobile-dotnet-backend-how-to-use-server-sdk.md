@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119521"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097777"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -41,7 +41,7 @@ Si va a iniciar un nuevo proyecto, puede crear una aplicación de App Service me
 Si va a agregar funcionalidades móviles a un proyecto existente, consulte la sección [Descarga e inicialización del SDK](#install-sdk) .
 
 ### <a name="create-a-net-backend-using-the-azure-portal"></a>Creación de un back-end .NET mediante el Portal de Azure
-Para crear una instancia de App Service de back-end móvil, siga el [tutorial rápido][3] o estos pasos:
+Para crear un back-end móvil de App Service, siga el [tutorial de inicio rápido][3] o bien estos pasos:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -62,7 +62,7 @@ Instale la carga de trabajo de Azure mediante el instalador de Visual Studio par
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Creación de un back-end de .NET con Visual Studio 2015
 
-Para crear un proyecto de Azure Mobile Apps en Visual Studio, instale la versión 2.9.0 o posterior de [Azure SDK para .NET][4]. Una vez haya instalado el SDK, cree una aplicación de ASP.NET mediante los siguientes pasos:
+Para crear un proyecto de Azure Mobile Apps en Visual Studio, instale la versión 2.9.0 o posterior de [Azure SDK para .NET][4]. Una vez haya instalado el SDK, cree una aplicación de ASP.NET mediante los siguientes pasos:
 
 1. Abra el cuadro de diálogo **Nuevo proyecto** (desde **Archivo** > **Nuevo** > **Proyecto...** ).
 2. Expanda **Plantillas** > **Visual C#** y seleccione **Web**.
@@ -426,7 +426,7 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Push to users][6] (Notificación push a usuarios) en el ejemplo de inicio rápido de App Service Mobile Apps completado para el back-end de .NET.
+Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Notificación push a usuarios][6] en el ejemplo de inicio rápido de App Service Mobile Apps completado para el back-end de .NET.
 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Procedimientos para: Depuración y solución de problemas del SDK de .NET Server
 Azure App Service proporciona varias técnicas de depuración y solución de problemas para las aplicaciones ASP.NET.
@@ -440,7 +440,7 @@ Puede escribir en registros de diagnóstico de App Service mediante la escritura
 
 Para habilitar los diagnósticos y escribir en los registros:
 
-1. Siga los pasos que se indican en [Habilitación de diagnósticos](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Siga los pasos que se indican en [Habilitar el registro de aplicaciones (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Agregue la siguiente instrucción using en el archivo de código:
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Para habilitar los diagnósticos y escribir en los registros:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Vuelva a publicar el proyecto de servidor y acceda al back-end de aplicación móvil para ejecutar la ruta de acceso del código con el registro.
-5. Descargue y evalúe los registros, como se describe en [Instrucciones: Descarga de registros](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Descargue y evalúe los registros, como se describe en [Acceso a los archivos de registro](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Depuración local con autenticación
 Puede ejecutar la aplicación localmente para probar los cambios antes de publicarlos en la nube. Para la mayoría de los servidores back-end de Azure Mobile Apps, presione *F5* mientras está en Visual Studio. Sin embargo, hay algunas consideraciones adicionales cuando se usa la autenticación.

@@ -4,14 +4,14 @@ description: Cómo rellenar Azure Blob Storage para usarlo con Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 07a97b1afa8049ace97f1589393cd76c24f21368
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775168"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105307"
 ---
 # <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Traslado de datos a Azure Blob Storage en Azure HPC Cache
 
@@ -31,15 +31,17 @@ Si no quiere usar la utilidad de carga o si quiere agregar contenido a un destin
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Carga previa de datos en Blob Storage con CLFSLoad
 
-Puede usar la utilidad [Avere CLFSLoad](https://aka.ms/avere-clfsload) para copiar los datos en un nuevo contenedor de Blob Storage antes de agregarlo como destino de almacenamiento. Esta utilidad se ejecuta en una máquina virtual Linux y escribe los datos en el formato de propiedad necesario para Azure HPC Cache. Esta es la manera más eficaz de rellenar un contenedor de Blob Storage y usarlo con la caché.
+Puede usar la <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> utilidad Avere CLFSLoad para copiar los datos en un nuevo contenedor de Blob Storage antes de agregarlo como destino de almacenamiento. Esta utilidad se ejecuta en un sistema Linux único y escribe los datos en el formato de propiedad necesario para Azure HPC Cache. CLFSLoad es la manera más eficaz de rellenar un contenedor de Blob Storage y usarlo con la caché.
+
+La utilidad Avere CLFSLoad está disponible a petición de su equipo de Azure HPC Cache. Pida contacto a su equipo o abra una incidencia de soporte técnico para solicitar ayuda.
 
 Esta opción solo funciona con contenedores nuevos vacíos. Cree el contenedor antes de usar Avere CLFSLoad.
 
-Se puede encontrar información más detallada en el [archivo Léame de Avere CLFSLoad](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
+Se incluye información detallada en la distribución de Avere CLFSLoad, que está disponible a petición del equipo de Azure HPC Cache. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 Información general del proceso:
 
-1. Prepare un sistema Linux (físico o máquina virtual) con la versión 3.6 o posterior de Python. (Se recomienda Python 3.7 para mejorar el rendimiento).
+1. Prepare un sistema Linux (máquina virtual o físico) con la versión 3.6 o posterior de Python. (Se recomienda Python 3.7 para mejorar el rendimiento).
 1. Instale el software Avere-CLFSLoad en el sistema Linux.
 1. Ejecute la transferencia desde la línea de comandos de Linux.
 
@@ -50,7 +52,7 @@ La utilidad Avere CLFSLoad necesita la siguiente información:
 * Un token de firma de acceso compartido (SAS) que permite a la utilidad escribir en el contenedor
 * Una ruta de acceso local al origen de datos, ya sea un directorio local que contiene los datos que se van a copiar o una ruta de acceso local a un sistema remoto montado con los datos.
 
-Los requisitos se explican de forma detallada en el archivo [Léame de Avere CLFSLoad](https://aka.ms/avere-clfsload).
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copia de datos mediante Azure HPC Cache
 

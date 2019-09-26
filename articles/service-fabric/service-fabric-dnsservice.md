@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599649"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103245"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servicio DNS en Azure Service Fabric
 El servicio DNS es un servicio de sistema opcional que se puede habilitar en el clúster para detectar otros servicios que usan el protocolo DNS. 
@@ -73,16 +73,16 @@ Siga estos pasos para habilitar el servicio DNS:
 
    - Para habilitar el servicio DNS con la configuración predeterminada, agréguelo a la sección `addonFeatures` dentro de la sección `properties`, tal como se muestra en el ejemplo siguiente:
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - Para habilitar el servicio con otra configuración que no sea la predeterminada, agregue una sección `DnsService` a la sección `fabricSettings` dentro de la sección `properties`. En este caso, no es necesario agregar DnsService a `addonFeatures`. Para más información sobre las propiedades que se pueden establecer para el servicio DNS, vea la [configuración del servicio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -111,7 +111,10 @@ Siga estos pasos para habilitar el servicio DNS:
               ]
             }
        ```
-1. Una vez actualizada la plantilla del clúster con sus cambios, aplíquelos para completar la actualización. Cuando se lleva a cabo la actualización, el servicio del sistema DNS comienza a ejecutarse en el clúster. El nombre del servicio es `fabric:/System/DnsService`, que puede encontrar en la sección de servicio del **sistema** del Service Fabric Explorer. 
+3. Una vez actualizada la plantilla del clúster con sus cambios, aplíquelos para completar la actualización. Cuando se lleva a cabo la actualización, el servicio del sistema DNS comienza a ejecutarse en el clúster. El nombre del servicio es `fabric:/System/DnsService`, que puede encontrar en la sección de servicio del **sistema** del Service Fabric Explorer. 
+
+> [!NOTE]
+> Al actualizar DNS de deshabilitado a habilitado, es posible que Service Fabric Explorer no refleje el nuevo estado. Para solucionarlo, reinicie los nodos modificando UpgradePolicy en la plantilla de Azure Resource Manager. Para más información, consulte la [referencia de la plantilla de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications).
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Definición del nombre DNS para el servicio
@@ -179,7 +182,7 @@ Las consultas de DNS destinadas a una partición presentan el siguiente formato:
 Donde:
 
 - *First-Label-Of-Partitioned-Service-DNSName* es la primera parte de su nombre DNS del servicio.
-- *PartitionPrefix* es un valor que se puede establecer en la sección DnsService del manifiesto de clúster o con la plantilla de Resource Manager del clúster. El valor predeterminado es "-". Para más información, consulte la [configuración del servicio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* es un valor que se puede establecer en la sección DnsService del manifiesto de clúster o con la plantilla de Resource Manager del clúster. El valor predeterminado es "--". Para más información, consulte la [configuración del servicio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* es el nombre de la partición. 
 - *PartitionSuffix* es un valor que se puede establecer en la sección DnsService del manifiesto de clúster o con la plantilla de Resource Manager del clúster. El valor predeterminado es una cadena vacía. Para más información, consulte la [configuración del servicio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* es la parte restante del nombre DNS del servicio.

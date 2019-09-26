@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375313"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067768"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -43,10 +43,13 @@ En la tabla se resumen los escenarios admitidos para las máquinas virtuales de 
 Azure Government | Gobierno de EE. UU. - Virginia
 Asia Pacífico | Asia Oriental o Sudeste Asiático
 Australia | Este de Australia o Sudeste de Australia
+Brasil | Sur de Brasil
 Canadá | Centro de Canadá o Este de Canadá
 Europa | Norte de Europa y Oeste de Europa
+Francia | Centro de Francia
 India | India central o India meridional
 Japón |  Este de Japón u Oeste de Japón
+Corea | Centro de Corea del Sur o Sur de Corea del Sur
 Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
 Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
 
@@ -73,7 +76,7 @@ Azure Migrate ejecuta un dispositivo ligero que detecta VM de VMware y envía lo
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**Implementación del dispositivo** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior. 
+**Implementación del dispositivo** | El dispositivo se implementa como VM de VMware. Necesita suficientes recursos en vCenter Server para asignar una máquina virtual con 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/><br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/> La máquina virtual del dispositivo debe implementarse en un host ESXi que ejecute la versión 5.5 o posterior.
 **Proyecto de Azure Migrate** | Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Evalúe hasta 35 000 VM en un proyecto.
 **Detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
 **Grupo de evaluación** | Puede agregar hasta 35 000 máquinas en un solo grupo.

@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
-ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 09/16/2019
+ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845383"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010201"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
-En este artículo se proporciona una introducción a los límites de recursos de instancia administrada de Azure SQL Database e información sobre cómo solicitar aumentar estos límites.
+En este artículo se proporciona una introducción a las características técnicas y los límites de recursos de instancia administrada de Azure SQL Database e información sobre cómo solicitar aumentar estos límites.
 
 > [!NOTE]
-> Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
+> Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md). Para ver las diferencias generales entre los niveles de servicio de una base de datos única y una instancia administrada, consulte [Comparación de niveles de servicio](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## <a name="instance-level-resource-limits"></a>Límites de recursos a nivel de instancia
 
@@ -43,11 +43,11 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 
 > [!IMPORTANT]
 > - El hardware de Gen4 está en proceso de eliminación gradual. Se recomienda implementar nuevas instancias administradas en el hardware de Gen5.
-> - El hardware de Gen4 en este momento está disponible en las siguientes regiones: Norte de Europa, Europa Occidental, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Centro de Canadá, India del Sur, Sudeste Asiático y Centro de Corea.
+> - El hardware de Gen4 en este momento solo sigue disponible en las siguientes regiones: Norte de Europa, Europa Occidental, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Centro de Canadá, India del Sur, Sudeste Asiático y Centro de Corea.
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-Instancia administrada tiene dos niveles de servicio: De uso general y Crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
+Instancia administrada tiene dos niveles de servicio: [De uso general](sql-database-service-tier-general-purpose.md) y [Crítico para la empresa](sql-database-service-tier-business-critical.md). Estos niveles proporcionan [funcionalidades diferentes](sql-database-service-tiers-general-purpose-business-critical.md), como se describe en la tabla siguiente:
 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
@@ -58,6 +58,7 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
 | Tamaño de archivo máximo | 8 TB | 4 TB |
+| Tamaño máximo del archivo de registro | 2 TB | 2 TB |
 | Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 K - 110 K (1375/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
 | Límite de rendimiento de escritura en el registro | 3 MB/s por núcleo virtual<br/>22 MB/s por instancia como máximo | 4 MB/s por núcleo virtual<br/>48 MB/s por instancia como máximo|
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Aumentar el tamaño del archivo para mejorar el rendimiento de E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
@@ -66,13 +67,14 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | OLTP en memoria (optimización en memoria | No compatible | Disponible |
 | Número máximo de sesiones | 30000 | 30000 |
 | [Réplicas de solo lectura](sql-database-read-scale-out.md) | 0 | 1 (incluida en el precio) |
-| Precios y facturación | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | Se cobra el [núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/). <br/>Las IOPS no se cobran.<br/>El almacenamiento de copia de seguridad no se cobra aún. | 
-| Modelos de descuento | [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de desarrollo y pruebas [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de desarrollo y pruebas [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 > [!NOTE]
 > - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
 > - El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
 > Puede crear otra réplica legible en diferentes regiones de Azure mediante grupos de conmutación por error automática.
+
+> [!NOTE]
+> Encuentre más información sobre los [límites de recursos en grupos de instancias administradas en este artículo](sql-database-instance-pools.md#instance-pools-resource-limitations).
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -94,7 +96,7 @@ Actualmente, instancia administrada admite la implementación solo en los siguie
 Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure en función del tipo de suscripción:
 
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
-- **Límite de núcleos virtuales**: el número máximo de núcleos virtuales que se pueden implementar en todas las instancias en una sola región.
+- **Límite de núcleos virtuales**: el número máximo de núcleos virtuales que se pueden implementar en todas las instancias en una sola región. El número total de instancias no se limita siempre que se encuentre dentro del límite de núcleo virtual.
 
 > [!Note]
 > Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.

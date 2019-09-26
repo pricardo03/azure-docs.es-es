@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509256"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065525"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En Azure Active Directory (Azure AD) B2C, puede permitir que los usuarios que han iniciado sesión con una cuenta local cambien su contraseña sin tener que demostrar su autenticidad por comprobación de correo electrónico. Si la sesión expira cuando el usuario llega al flujo de cambio de contraseña, se le solicita que inicie sesión de nuevo. En este artículo se muestra cómo configurar el cambio de contraseñas en [directivas personalizadas](active-directory-b2c-overview-custom.md). También es posible configurar el [restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md) para flujos de usuario.
+En Azure Active Directory B2C (Azure AD B2C), puede permitir que los usuarios que han iniciado sesión con una cuenta local cambien su contraseña sin tener que demostrar su autenticidad por comprobación de correo electrónico. Si la sesión expira cuando el usuario llega al flujo de cambio de contraseña, se le solicita que inicie sesión de nuevo. En este artículo se muestra cómo configurar el cambio de contraseñas en [directivas personalizadas](active-directory-b2c-overview-custom.md). También es posible configurar el [restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md) para flujos de usuario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Siga los pasos de [Introducción a las directivas personalizadas en Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="add-the-elements"></a>Adición de los elementos 
+## <a name="add-the-elements"></a>Adición de los elementos
 
-1. Abra el archivo *TrustframeworkExtensions.xml* y agregue el siguiente elemento **ClaimType** con un identificador de `oldPassword` al elemento [ClaimsSchema](claimsschema.md): 
+1. Abra el archivo *TrustframeworkExtensions.xml* y agregue el siguiente elemento **ClaimType** con un identificador de `oldPassword` al elemento [ClaimsSchema](claimsschema.md):
 
     ```XML
     <BuildingBlocks>
@@ -156,7 +156,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Active Direc
 7. Modifique el atributo **ReferenceId** de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado. Por ejemplo, *PasswordChange*.
 8. Guarde los cambios.
 
-Puede encontrar la directiva de ejemplo [aquí](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+Puede encontrar la directiva de ejemplo [aquí](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
 ## <a name="test-your-policy"></a>Prueba de la directiva
 
@@ -165,7 +165,7 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 ### <a name="upload-the-files"></a>Carga de los archivos
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. Seleccione **Marco de experiencia de identidad**.
 5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
@@ -177,8 +177,8 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
 1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_profile_edit_password_change*.
 2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token, **URL de respuesta** debe mostrar `https://jwt.ms`.
-3. Haga clic en **Ejecutar ahora**. Inicie sesión con la cuenta que creó anteriormente. Ahora debería tener la oportunidad de cambiar la contraseña. 
+3. Haga clic en **Ejecutar ahora**. Inicie sesión con la cuenta que creó anteriormente. Ahora debería tener la oportunidad de cambiar la contraseña.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md). 
+- Más información sobre [Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

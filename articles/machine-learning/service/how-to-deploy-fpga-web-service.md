@@ -1,7 +1,7 @@
 ---
 title: 'Descripción de FPGA: procedimiento para realizar la implementación'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo implementar un servicio web con un modelo que se ejecuta en una FPGA con Azure Machine Learning Service para obtener una inferencia de latencia ultrabaja.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo implementar un servicio web con un modelo que se ejecuta en una FPGA con Azure Machine Learning para obtener una inferencia de latencia ultrabaja.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860468"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034464"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 
-En este artículo se proporciona una introducción a las matrices de puertas programables por campo (FPGA) y se muestra cómo se pueden implementar los modelos mediante Azure Machine Learning Service en una FPGA de Azure. 
+En este artículo se proporciona una introducción a las matrices de puertas programables por campo (FPGA) y se muestra cómo se pueden implementar los modelos mediante Azure Machine Learning en una FPGA de Azure. 
 
 Las FPGA contienen una matriz de bloques de lógica programables y una jerarquía de interconexiones reconfigurables. Las interconexiones permiten que estos bloques se configuren de distintas maneras después de su fabricación. Las FPGA ofrecen una combinación de capacidad de programación y rendimiento en comparación con otros chips.
 
@@ -28,7 +28,7 @@ Las FPGA contienen una matriz de bloques de lógica programables y una jerarquí
 
 El diagrama y la tabla siguientes muestran cómo se comparan las FPGA con otros procesadores.
 
-![Diagrama de comparación de FPGA del servicio Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagrama de comparación de FPGA de Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Procesador||DESCRIPCIÓN|
 |---|:-------:|------|
@@ -89,7 +89,7 @@ Puede implementar un modelo como servicio web en FPGA con modelos acelerados med
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Una suscripción de Azure.  Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+- Una suscripción de Azure.  Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Cuota de FPGA. Use la CLI de Azure para comprobar si dispone de cuota:
 
@@ -112,7 +112,7 @@ Puede implementar un modelo como servicio web en FPGA con modelos acelerados med
 
     Si no tiene cuota, envíe una solicitud a [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Para obtener más información, consulte [Create a workspace](how-to-manage-workspace.md) (Crear un área de trabajo).
+- Un área de trabajo de Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Para obtener más información, consulte [Create a workspace](how-to-manage-workspace.md) (Crear un área de trabajo).
  
 - El SDK de Python para modelos acelerados por hardware:
 

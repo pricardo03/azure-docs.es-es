@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843861"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090630"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -41,8 +41,9 @@ Use la ingesta clásica (masiva) en lugar de la ingesta de streaming cuando la c
  
 1. En la [interfaz de usuario web](https://dataexplorer.azure.com/), defina la [directiva de ingesta de streaming](/azure/kusto/concepts/streamingingestionpolicy) en las tablas o las bases de datos que van a recibir los datos de streaming. 
 
-    > [!TIP]
-    > Si la directiva está definida en el nivel de base de datos, todas las tablas de la base de datos están habilitadas para la ingesta de streaming.
+    > [!NOTE]
+    > * Si la directiva está definida en el nivel de base de datos, todas las tablas de la base de datos están habilitadas para la ingesta de streaming.
+    > * La directiva aplicada solo puede hacer referencia a los datos recién ingeridos y no a otras tablas de la base de datos.
 
 ## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Uso de la ingesta de streaming para ingerir datos en un clúster
 

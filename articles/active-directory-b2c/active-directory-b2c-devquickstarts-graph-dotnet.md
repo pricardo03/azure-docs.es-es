@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c7fcbbbfcc2192160ca852538c015a365518e448
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880091"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065955"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usar Graph API de Azure AD
 
 >[!NOTE]
 > Debe utilizar [Graph API de Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) para administrar los usuarios de un directorio de Azure AD B2C. Esto es diferente de Microsoft Graph API. Obtenga más información [aquí](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-Los inquilinos de Azure Active Directory (Azure AD) B2C tienden a ser muy grandes. Esto supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios. Quizá necesite migrar un almacén de usuario existente a un inquilino de B2C. Puede que desee hospedar un registro de usuarios en su propia página y crear cuentas de usuario en su directorio de Azure AD B2C en segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario. Puede realizar estas tareas mediante Graph API de Azure AD.
+Los inquilinos de Azure Active Directory B2C (Azure AD BC2) tienden a ser muy grandes. Esto supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios. Quizá necesite migrar un almacén de usuario existente a un inquilino de B2C. Puede que desee hospedar un registro de usuarios en su propia página y crear cuentas de usuario en su directorio de Azure AD B2C en segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario. Puede realizar estas tareas mediante Graph API de Azure AD.
 
 Para los inquilinos de B2C, existen dos modos de comunicación principales con Graph API.
 
@@ -43,10 +43,10 @@ Cuando tenga el inquilino B2C, deberá registrar su aplicación mediante [Azure 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD B2C, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el panel de navegación izquierdo, elija **Todos los servicios**, haga clic en **Registros de aplicaciones** y, luego, en **Nuevo registro**.
-4. Siga las indicaciones y cree una nueva aplicación. 
+4. Siga las indicaciones y cree una nueva aplicación.
     1. Adición de un nombre adecuado
     2. Seleccione **Solo las cuentas de este directorio organizativo**.
-    3. Seleccione **Web** como tipo de aplicación y **proporcione cualquier dirección URL de inicio de sesión** (p. ej.,`https://B2CGraphAPI`), ya que no es pertinente para este ejemplo.  
+    3. Seleccione **Web** como tipo de aplicación y **proporcione cualquier dirección URL de inicio de sesión** (p. ej.,`https://B2CGraphAPI`), ya que no es pertinente para este ejemplo.
     4. Haga clic en Registrar.
 5. La aplicación aparecerá ahora en la lista de aplicaciones. Haga clic en ella para obtener el **Identificador de aplicación** (también conocido como id. de cliente). Cópielo, pues lo necesitará en una sección posterior.
 6. En el menú de configuración, haga clic en **Certificados y secretos**.
@@ -65,8 +65,8 @@ Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios e
 
 > [!NOTE]
 > La concesión de permisos puede tardar unos minutos en procesarse completamente.
-> 
-> 
+>
+>
 
 ## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configuración de permisos de eliminación o actualización de contraseñas para la aplicación
 Actualmente, el permiso *Leer y escribir en datos de directorio* **NO** incluye la capacidad de eliminar usuarios o actualizar contraseñas de usuarios. Si quiere dotar a la aplicación de la capacidad de eliminar usuarios o actualizar contraseñas, deberá seguir estos pasos adicionales que hacen partícipe a PowerShell. De lo contrario, puede ir a la sección siguiente.
@@ -132,8 +132,8 @@ Cualquier solicitud a Graph API requiere un token de acceso para la autenticaci�
 
 > [!NOTE]
 > Este ejemplo de código usa ADAL v2 para comunicarse con Graph API.  Debe usar AAL v2 o v3 con el fin de obtener los tokens de acceso que se pueden utilizar con Graph API de Azure AD.
-> 
-> 
+>
+>
 
 Cuando se ejecuta `B2CGraphClient`, se crea una instancia de la clase `B2CGraphClient`. El constructor para esta clase configura scaffolding de autenticación de ADAL:
 
@@ -260,8 +260,8 @@ Puede ver cómo se construye la solicitud POST en `B2CGraphClient.SendGraphPostR
 
 > [!NOTE]
 > Si las cuentas que se van a migrar desde un almacén de usuario existente tienen menos seguridad de contraseña que la [seguridad de contraseña exigida por Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), puede deshabilitar el requisito de contraseña segura mediante el valor `DisableStrongPassword` de la propiedad `passwordPolicies`. Por ejemplo, puede modificar la solicitud de creación de usuario proporcionada anteriormente de la siguiente manera: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-> 
-> 
+>
+>
 
 ### <a name="update-consumer-user-accounts"></a>Actualización de cuentas de usuario consumidor
 Al actualizar objetos de usuario, el proceso es similar al que se utiliza para crear objetos de usuario. Sin embargo, este proceso usa el método HTTP `PATCH` :

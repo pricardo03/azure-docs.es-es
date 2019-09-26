@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7bd1268784df50168e03673ac809b3a5854e2be7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775072"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036868"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -22,7 +22,7 @@ Antes de usar Azure Portal para crear una instancia de Azure HPC Cache, asegúre
 Se recomienda una suscripción de pago.
 
 > [!NOTE]
-> Durante la versión preliminar pública, el equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés de prueba. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
+> Durante la versión preliminar, el equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés de prueba. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
 
 ## <a name="network-infrastructure"></a>Infraestructura de red
 

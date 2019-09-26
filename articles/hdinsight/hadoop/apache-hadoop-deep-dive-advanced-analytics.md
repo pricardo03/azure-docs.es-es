@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918260"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066976"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -23,17 +23,17 @@ HDInsight proporciona la capacidad de obtener información valiosa de grandes ca
 
 ## <a name="advanced-analytics-process"></a>Proceso de análisis avanzado
 
-![Proceso](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Flujo de proceso de análisis avanzado](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-Una vez que haya identificado el problema empresarial y haya empezado a recopilar y procesar los datos, debe crear un modelo que represente la pregunta que quiera predecir. Su modelo usará uno o varios algoritmos de aprendizaje automático para realizar el tipo de predicción que mejor se adapte a sus necesidades empresariales.  Se debe usar la mayoría de los datos para entrenar el modelo, y la parte restante para probarlo o evaluarlo. 
+Una vez que haya identificado el problema empresarial y haya empezado a recopilar y procesar los datos, debe crear un modelo que represente la pregunta que quiera predecir. Su modelo usará uno o varios algoritmos de aprendizaje automático para realizar el tipo de predicción que mejor se adapte a sus necesidades empresariales.  Se debe usar la mayoría de los datos para entrenar el modelo, y la parte restante para probarlo o evaluarlo.
 
-Después de crear, cargar, probar y evaluar el modelo, en el siguiente paso se debe implementar el modelo para que comience a proporcionar respuestas a sus preguntas. El último paso consiste en supervisar el rendimiento de su modelo y ajustarlo según sea necesario. 
+Después de crear, cargar, probar y evaluar el modelo, en el siguiente paso se debe implementar el modelo para que comience a proporcionar respuestas a sus preguntas. El último paso consiste en supervisar el rendimiento de su modelo y ajustarlo según sea necesario.
 
 ## <a name="common-types-of-algorithms"></a>Tipos comunes de algoritmos
 
 Las soluciones de análisis avanzado proporcionan un conjunto de algoritmos de aprendizaje automático. Este es un resumen de las categorías de los algoritmos y los casos de uso empresariales comunes asociados.
 
-![Casos de uso de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Resúmenes de las categorías de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Además de seleccionar los algoritmos más adecuados, debe considerar si debe proporcionar o no datos para el aprendizaje. Los algoritmos de aprendizaje automático se clasifican como se indica a continuación:
 
@@ -98,7 +98,7 @@ Hay tres tareas clave en este escenario de análisis avanzado:
 
 En este ejemplo se utiliza el conjunto de imágenes de CIFAR-10 que compilan y distribuyen Alex Krizhevsky, Vinod Nair y Geoffrey Hinton. El conjunto de datos de CIFAR-10 contiene 60 000 imágenes 32 x 32 que pertenecen a 10 clases mutuamente exclusivas de color:
 
-![Imágenes](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Imágenes de ejemplo de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Para obtener más detalles sobre el conjunto de datos, vea [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) (Entrenamiento de varias capas de características a partir de imágenes muy pequeñas) de Alex Krizhevsky.
 
@@ -111,7 +111,7 @@ El conjunto de datos se dividió en particiones para formar un conjunto de apren
 
 El proceso completo del procesamiento previo o la puntuación de 10 000 imágenes tarda menos de un minuto en un clúster con 4 nodos de trabajo. El modelo predice con precisión las etiquetas de aproximadamente 9100 imágenes (91 %). Una matriz de confusión muestra los errores más comunes de clasificación. Por ejemplo, la matriz muestra que el etiquetado incorrecto de perros como gatos y viceversa se produce con mayor frecuencia que con otros pares de etiquetas.
 
-![Results](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Gráfico de resultados de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>¡Pruébelo!
 

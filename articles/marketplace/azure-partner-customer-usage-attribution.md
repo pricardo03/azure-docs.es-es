@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977150"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105625"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -166,43 +166,28 @@ Asimismo, si lo desea también puede realizar un seguimiento de los identificado
 
 El identificador único global debe estar registrado para permitir la atribución de uso del cliente.
 
-Todos los registros de identificadores únicos globales de plantillas se realizan a través de Cloud Partner Portal (CPP) de Azure Marketplace.
+Todos los registros de los GUID de plantilla se realizan en el Centro de partners.
 
-Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones.
+Después de agregar el GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de todas las implementaciones.
 
-1. Regístrese en [Azure Marketplace](https://aka.ms/listonazuremarketplace) y consiga acceso a CPP.
+1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
 
-   * Los asociados deben [tener un perfil en CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
+   * Los partners deben [tener un perfil en el Centro de partners](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
    * Los asociados pueden registrar varios identificadores únicos globales.
    * Los asociados puede registrar un identificador único global tanto para las plantillas de solución que no sean de Marketplace como para las ofertas.
 
-1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
 
-1. En la esquina superior derecha, seleccione el icono de su cuenta y, después, seleccione **Perfil de publicador**.
+1. En la esquina superior derecha, seleccione el icono de engranaje de la configuración y, a continuación, **Configuración de desarrollador**.
 
-   ![Seleccionar Perfil de publicador](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
 
-1. En la **página de perfil**, haga clic en **Add Tracking GUID** (Agregar GUID de seguimiento).
-
-   ![Seleccionar Add Tracking GUID (Agregar GUID de seguimiento)](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. En el cuadro **Tracking GUID** (GUID de seguimiento), escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Custom Description** (Descripción personalizada), escriba el nombre o la descripción de la oferta.
-
-   ![Página de perfil](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Escriba el identificador único global y la descripción de la oferta](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
 
 1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
 
-   ![Volver a seleccionar Add Tracking GUID (Agregar GUID de seguimiento)](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Escribir otro identificador único global y la descripción de la oferta](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Seleccione **Guardar**.
 
-   ![Seleccionar Guardar](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones.
 
 ## <a name="verify-the-guid-deployment"></a>Comprobación de la implementación de GUID
 
@@ -247,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Informe
 
-Puede encontrar el informe de atribución de uso del cliente en el panel de análisis del Centro de asociados ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene problemas con los informes o el inicio de sesión, cree una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico de Get.
+Puede encontrar el informe de atribución de uso del cliente en el panel de análisis del Centro de asociados ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene problemas con los informes o el inicio de sesión, cree una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico de Get.
 
 Elija Tracked Templates (Plantillas en seguimiento) en la lista desplegable de Partner Association Type (Tipo de asociación del asociado) para ver el informe.
 
@@ -269,7 +254,7 @@ Al implementar el software \<PARTNER>, Microsoft puede identificar la instalaci�
 
 Existen dos canales de soporte técnico según los problemas que se encuentre.
 
-Si tiene algún problema en el Centro de asociados, como consultar un informe de atribución de uso del cliente o iniciar sesión, cree una solicitud de soporte técnico para el equipo de soporte técnico del Centro de asociados aquí: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Si tiene algún problema en el Centro de asociados, como consultar un informe de atribución de uso del cliente o iniciar sesión, cree una solicitud de soporte técnico para el equipo de soporte técnico del Centro de asociados aquí: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

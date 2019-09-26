@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885554"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105394"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -37,7 +37,7 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 |[CLI de Azure](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<NombreDeClúster> \<NúmeroDeInstanciasDeDestino> |
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **Tamaño de clúster** en el menú izquierdo y, luego, en el panel Tamaño de clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
-![Escalar clúster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Opción de escalado de clústeres de Azure Portal](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Con cualquiera de estos métodos, puede escalar o reducir verticalmente el clúster de HDInsight en cuestión de minutos.
 
@@ -112,7 +112,7 @@ Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **i
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
 4. En la página de YARN, seleccione **Quick Links** (Vínculos rápidos), mantenga el puntero sobre el nodo principal activo y después seleccione **ResourceManager UI** (UI de ResourceManager).
 
-    ![UI de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![Interfaz de usuario ResourceManager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 Puede acceder directamente a la UI de ResourceManager con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 

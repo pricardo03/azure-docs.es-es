@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9b74491c76747bd635547f6f22964fe792dbf01a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931945"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104085"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de base de referencia: bloqueo de la autenticación heredada (versión preliminar)
 
@@ -106,11 +106,11 @@ La **directiva de base de referencia: bloqueo de la autenticación heredada (ver
 
 Para habilitar esta directiva y proteger a su organización:
 
-1. Inicie sesión en  **Azure Portal** con uno de los siguientes roles: Administrador global, Administrador de seguridad o Administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. En la lista de directivas, seleccione **Baseline policy: Block legacy authentication (preview)** (Directiva de base de referencia: Bloquear la autenticación heredada [versión preliminar]).
 1. Establezca **Habilitar directiva** en **Usar la directiva inmediatamente**.
-1. Haga clic en  **Guardar**.
+1. Haga clic en **Save**(Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

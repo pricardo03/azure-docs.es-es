@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376093"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066776"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de Hyper-V
 
@@ -27,9 +27,9 @@ En la tabla se resumen los escenarios admitidos para las VM de Hyper-V.
 **Implementación** | **Detalles***
 --- | ---
 **Evaluación de VM de Hyper-V locales** | [Configure](tutorial-prepare-hyper-v.md) la primera evaluación.<br/><br/> [Ejecute](scale-hyper-v-assessment.md) una evaluación a gran escala.
-**Migración de máquinas virtuales de Hyper-V a Azure** | [Pruebe](tutorial-migrate-hyper-v.md) a migrar a Azure. 
+**Migración de máquinas virtuales de Hyper-V a Azure** | [Pruebe](tutorial-migrate-hyper-v.md) a migrar a Azure.
 
-La migración de servidores de Hyper-V administrados con System Center Virtual Machine Manager (VMM) no es compatible con la migración de servidores de Azure Migrate. 
+La migración de servidores de Hyper-V administrados con System Center Virtual Machine Manager (VMM) no es compatible con la migración de servidores de Azure Migrate.
 
 ## <a name="azure-migrate-projects"></a>Proyectos de Azure Migrate
 
@@ -44,10 +44,13 @@ Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas.
   Azure Government | Gobierno de EE. UU. - Virginia
   Asia Pacífico | Asia Oriental o Sudeste Asiático
   Australia | Este de Australia o Sudeste de Australia
+  Brasil | Sur de Brasil
   Canadá | Centro de Canadá o Este de Canadá
   Europa | Norte de Europa y Oeste de Europa
+  Francia | Centro de Francia
   India | India central o India meridional
   Japón |  Este de Japón u Oeste de Japón
+  Corea | Centro de Corea del Sur o Sur de Corea del Sur
   Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
   Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882435"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059217"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Análisis de los registros de Apache Hadoop en Azure HDInsight
 
@@ -110,7 +110,7 @@ Para más información sobre los registros de aplicación, consulte [Simplifying
 ### <a name="access-the-ambari-ui"></a>Acceder a la interfaz de usuario de Ambari
 En Azure Portal, haga clic en un nombre de clúster de HDInsight para abrir el panel del clúster. En el panel del clúster, haga clic en **Panel**.
 
-![Inicie el panel del clúster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight: inicio del panel del clúster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Acceder a la interfaz de usuario de Yarn
@@ -120,7 +120,7 @@ Puede utilizar la IU de YARN para hacer lo siguiente:
 
 * **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esta acción presenta detalles del estado del clúster, como la memoria total asignada, los núcleos que se están usando, el estado del administrador de recursos del clúster, la versión del clúster, etc.
   
-    ![Inicio del panel del clúster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Launch cluster dashboard yarn")
+    ![HDInsight: inicio del panel del clúster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight: inicio del panel del clúster yarn")
 * **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
 * **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
 

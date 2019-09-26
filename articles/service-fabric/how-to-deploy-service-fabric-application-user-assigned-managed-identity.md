@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624913"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037486"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el usuario (versión preliminar)
 
@@ -27,7 +27,7 @@ Para implementar una aplicación de Service Fabric con una identidad administrad
 
 ## <a name="user-assigned-identity"></a>Identidad asignada por el usuario
 
-Para habilitar la aplicación con una identidad asignada por el usuario, agregue primero la propiedad de **identidad** al recurso de aplicación de tipo **userAssigned** y las identidades asignadas por el usuario a las que se hace referencia. A continuación, agregue una sección **managedIdentities** dentro de la sección **properties** del recurso **application** que contiene una lista de nombres descriptivos para la asignación del objeto principalId para cada una de las identidades asignadas por el usuario.
+Para habilitar la aplicación con una identidad asignada por el usuario, agregue primero la propiedad de **identidad** al recurso de aplicación de tipo **userAssigned** y las identidades asignadas por el usuario a las que se hace referencia. A continuación, agregue una sección **managedIdentities** dentro de la sección **properties** del recurso **application** que contiene una lista de nombres descriptivos para la asignación del objeto principalId para cada una de las identidades asignadas por el usuario. Para más información sobre las identidades asignadas por el usuario, consulte [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### <a name="application-template"></a>Plantilla de la aplicación
 

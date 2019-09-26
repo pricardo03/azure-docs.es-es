@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512435"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063311"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de la colección de cadenas del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para más información, vea [ClaimsTransformations](claimstransformations.md).
+En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de la colección de cadenas del esquema de Identity Experience Framework en Azure Active Directory B2C (Azure AD B2C). Para más información, vea [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Agrega una notificación de cadena a una nueva notificación stringCollection. 
+Agrega una notificación de cadena a una nueva notificación stringCollection.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -33,7 +33,7 @@ Agrega una notificación de cadena a una nueva notificación stringCollection.
 | InputClaim | collection | stringCollection | [Opcional] Si se especifica, la transformación de notificaciones copia los elementos de esta colección y agrega el elemento al final de la notificación de la colección de salida. |
 | OutputClaim | collection | stringCollection | Elementos ClaimTypes que se producen después de que se invoque este elemento ClaimsTransformation. |
 
-Use esta transformación de notificaciones para agregar una cadena a una clase stringCollection nueva o existente. Se usa normalmente en un perfil técnico **AAD-UserWriteUsingAlternativeSecurityId**. Antes de crear una nueva cuenta de redes sociales, la transformación de notificaciones **CreateOtherMailsFromEmail** lee el ClaimType y agrega el valor al ClaimType **otherMails**. 
+Use esta transformación de notificaciones para agregar una cadena a una clase stringCollection nueva o existente. Se usa normalmente en un perfil técnico **AAD-UserWriteUsingAlternativeSecurityId**. Antes de crear una nueva cuenta de redes sociales, la transformación de notificaciones **CreateOtherMailsFromEmail** lee el ClaimType y agrega el valor al ClaimType **otherMails**.
 
 La siguiente transformación de notificaciones agrega el ClaimType **email** al ClaimType **otherMails**.
 
@@ -54,12 +54,12 @@ La siguiente transformación de notificaciones agrega el ClaimType **email** al 
 - Notificaciones de entrada:
   - **collection**: ["someone@outlook.com"]
   - **item**: "admin@contoso.com"
-- Notificaciones de salida: 
+- Notificaciones de salida:
   - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Agrega un parámetro de cadena a una nueva notificación stringCollection. 
+Agrega un parámetro de cadena a una nueva notificación stringCollection.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -67,7 +67,7 @@ Agrega un parámetro de cadena a una nueva notificación stringCollection.
 | InputParameter | item | string | El valor que se agregará a la notificación de salida. |
 | OutputClaim | collection | stringCollection | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
-Use esta transformación de notificaciones para agregar un valor de cadena a una clase stringCollection nueva o existente. En el ejemplo siguiente se agrega una dirección de correo electrónico constante (admin@contoso.com) a la notificación **otherMails**. 
+Use esta transformación de notificaciones para agregar un valor de cadena a una clase stringCollection nueva o existente. En el ejemplo siguiente se agrega una dirección de correo electrónico constante (admin@contoso.com) a la notificación **otherMails**.
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -87,21 +87,21 @@ Use esta transformación de notificaciones para agregar un valor de cadena a una
 
 - Notificaciones de entrada:
   - **collection**: ["someone@outlook.com"]
-- Parámetros de entrada 
+- Parámetros de entrada
   - **item**: "admin@contoso.com"
 - Notificaciones de salida:
   - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
-Obtiene el primer elemento de la colección de la cadena proporcionada. 
+Obtiene el primer elemento de la colección de la cadena proporcionada.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | Los ClaimTypes que la transformación de notificaciones usa para obtener el elemento. |
 | OutputClaim | extractedItem | string | Elementos ClaimTypes que se producen después de que se invoque este elemento ClaimsTransformation. El primer elemento de la colección. |
 
-En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el primer elemento de la notificación de **correo electrónico**. 
+En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el primer elemento de la notificación de **correo electrónico**.
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -118,6 +118,6 @@ En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el 
 
 - Notificaciones de entrada:
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
-- Notificaciones de salida: 
+- Notificaciones de salida:
   - **extractedItem**: "someone@outlook.com"
 

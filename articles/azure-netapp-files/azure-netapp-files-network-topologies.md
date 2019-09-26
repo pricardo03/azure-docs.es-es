@@ -3,7 +3,7 @@ title: Instrucciones para el planeamiento de red de Azure NetApp Files | Microso
 description: Describe las instrucciones que pueden ayudarle a diseñar una arquitectura de red eficaz con Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383488"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984135"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -36,13 +36,13 @@ Debe entender algunas consideraciones al planear de red de Azure NetApp Files.
 Las características siguientes no se admiten actualmente en Azure NetApp Files: 
 
 * Grupos de seguridad de red (NSG) aplicados a la subred delegada
-* Rutas definidas por el usuario (UDR) con próximo salto como subred de Azure NetApp Files
+* Rutas definidas por el usuario (UDR) con prefijo de dirección como subred de Azure NetApp Files
 * Directivas de Azure (por ejemplo, directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files
 * Equilibradores de carga para el tráfico de Azure NetApp Files
 
 Las siguientes restricciones de red se aplican a Azure NetApp Files:
 
-* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas) no puede ser mayor que 1000.
+* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. Mientras tanto, si necesita más direcciones IP, póngase en contacto con nuestro equipo de soporte técnico con su caso de uso y el límite requerido.
 * En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
 
 

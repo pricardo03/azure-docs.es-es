@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716668"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063314"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades utilizando una directiva personalizada en Azure Active Directory (Azure AD) B2C. Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña.
+Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades utilizando una directiva personalizada en Azure Active Directory B2C (Azure AD B2C). Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña.
 
 ## <a name="type-of-technical-profiles"></a>Tipo de perfiles técnicos
 
@@ -37,7 +37,6 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de la API de REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
-- **WsFed**: federación con cualquier proveedor de identidades del protocolo WsFed.
 - [Administración de sesiones](active-directory-b2c-reference-sso-custom.md): administración de distintos tipos de sesiones.
 - **Application Insights**
 

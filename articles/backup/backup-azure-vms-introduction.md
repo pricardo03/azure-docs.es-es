@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951861"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018701"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -140,48 +140,13 @@ Disco de datos 2 | 4095 GB | 0 GB
 El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 0 GB = 47 GB. Este tamaño de instancias protegidas (47 GB) se convierte en la base de la factura mensual. A medida que crece la cantidad de datos en la VM, el tamaño de instancia protegida usado para la facturación también cambia para que coincida.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Versión preliminar pública limitada: Copia de seguridad de máquinas virtuales con tamaños de disco de hasta 30 TB
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Versión preliminar pública: Copia de seguridad de máquinas virtuales con tamaños de disco de hasta 30 TB
 
-Azure Backup admite ya una versión preliminar pública limitada de instancias de [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) más grandes y potentes de hasta 30 TB de tamaño. Esta versión preliminar proporciona compatibilidad en el nivel de producción con las máquinas virtuales administradas.
+Azure Backup admite ya una versión preliminar pública de instancias de [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) más grandes y potentes de hasta 30 TB de tamaño. Esta versión preliminar proporciona compatibilidad en el nivel de producción con las máquinas virtuales administradas.
 
-Puede inscribirse sin problemas en la versión preliminar sin que afecte de ninguna manera a sus copias de seguridad en curso. Una vez que la suscripción esté inscrita en la versión preliminar, deben realizarse correctamente copias de seguridad de todas las máquinas virtuales con tamaños de disco superiores a 30 TB. Para inscribirse en la versión preliminar:
- 
-Ejecute los siguientes cmdlets desde un terminal de PowerShell con privilegios elevados:
+Las copias de seguridad de las máquinas virtuales con un tamaño de disco de hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una máquina virtual deben funcionar fluidamente sin afectar las copias de seguridad existentes. No se requiere ninguna acción del usuario para ejecutar las copias de seguridad de los discos de gran tamaño si la máquina virtual ya está configurada con Azure Backup.
 
-1. Inicie sesión en la cuenta de Azure.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Seleccione la suscripción que desea registrar para la actualización:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Registre esta suscripción en el programa de la versión preliminar: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Espere 30 minutos a que la suscripción se inscriba en el versión preliminar. 
-
- 4. Para comprobar el estado, ejecute los siguientes cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Cuando la suscripción se muestre como registrada, ejecute el siguiente comando:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Las máquinas virtuales cifradas con discos de más de 4 TB no se admiten en esta versión preliminar.
-
-
+Las copias de seguridad de todas las instancias de Máquinas virtuales de Azure con discos grandes que tengan una copia de seguridad configurada se deben realizar correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

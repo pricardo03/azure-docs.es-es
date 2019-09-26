@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880184"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036644"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis para Marketplace comercial en el Centro de partners
 
@@ -26,7 +26,6 @@ Para obtener acceso a las herramientas de análisis del Centro de partners, abra
 |[Pedidos](#orders-dashboard)|Información sobre pedidos en formato gráfico y descargable|
 |[Clientes](#customer-dashboard)|Información acerca de los clientes, incluidas las tendencias de crecimiento, presentadas en un formato gráfico y descargable|
 |[Descargas](#downloads-dashboard)|Lista de las solicitudes de descarga de los últimos 30 días|
-|[Calificaciones y reseñas](#ratings-and-reviews)| Información de las calificaciones y reseñas que los clientes han realizado acerca de las ofertas que han adquirido.
 
 ## <a name="summary-dashboard"></a>Panel Resumen
 
@@ -245,13 +244,13 @@ Recibirá una notificación emergente y un correo con un vínculo al panel **Des
 | Nombre de la instancia en la nube: Azure Government | Orden| Nubes de Microsoft específicas de la Administración Pública para una de las administraciones siguientes: China, Alemania o Estados Unidos de América.| |
 | Ciudad del cliente| Cliente| Nombre de ciudad proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.||
 | Customer Communication Language (Idioma de comunicación del cliente)  | Cliente| Idioma preferido por el cliente para la comunicación.||
-| Customer Company Name (Nombre de la empresa del cliente) | Cliente, pedido | Nombre de empresa proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.|  |
+| Customer Company Name (Nombre de la empresa del cliente) | Cliente, pedido | Nombre de empresa proporcionado por el cliente. Podría ser diferente del nombre de la suscripción a Azure del cliente.|  |
 | Customer Country (País del cliente) | Cliente, pedido | Nombre de país proporcionado por el cliente. Podría ser diferente del país de la suscripción a Azure del cliente.|  |
 | Customer Email (Correo electrónico del cliente)| Cliente| Dirección de correo electrónico proporcionada por el cliente final. Podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.||
 | Customer First Name (Nombre del cliente)| Cliente| Nombre proporcionado por el cliente. Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.| |
 | Identificador de cliente | Cliente, pedido | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias.|  |
 | Customer Postal Code (Código postal del cliente)  | Cliente| Código postal proporcionado por el cliente. Podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente.| |
-| Customer State (Estado del cliente)| Cliente| Estado (dirección) proporcionado por el cliente. Podría ser diferente del apellido proporcionado en la suscripción a Azure del cliente.| |
+| Customer State (Estado del cliente)| Cliente| Estado (dirección) proporcionado por el cliente. Podría ser diferente del estado proporcionado en la suscripción a Azure del cliente.| |
 | Date Acquired (Fecha de adquisición)| Cliente| Primera fecha en que el cliente adquirió cualquier oferta publicada por usted.| |
 | Date Lost (Fecha de pérdida)| Cliente| Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente.||
 | Cliente nuevo  | Orden| El valor identificará a un nuevo cliente que adquiere una o varias de sus ofertas por primera vez (o no). El valor será "Sí" si es el mismo mes natural de la "Fecha de adquisición". El valor será "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado. |
@@ -286,38 +285,3 @@ Recibirá una notificación emergente y un correo con un vínculo al panel **Des
 | Nombre del proveedor| Cliente| Nombre del proveedor que participa en la relación entre Microsoft y el cliente final. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP.|
 | SKU| Orden| Nombre de la SKU tal como se definió durante la publicación. Una oferta puede tener muchas SKU, pero una SKU solo puede asociarse a una única oferta.||
 | Trial End Date (Fecha de fin de la prueba)| Orden| La fecha del período de prueba de este pedido va a finalizar o ha finalizado.||
-
-## <a name="ratings-and-reviews"></a>Calificaciones y reseñas
-
-Cuando los clientes examinan, buscan y compran ofertas en los dos catálogos de soluciones, pueden dejar calificaciones y reseñas de las ofertas que han adquirido. Pueden enviar nuevas calificaciones o reseñas, así como actualizar o eliminar las calificaciones o reseñas que ya han enviado. Las reseñas se publican en Azure Marketplace o AppSource en la pestaña Reviews (Reseñas) de la página de presentación del producto de la oferta. Los clientes pueden incluir sus nombres en las calificaciones o reseñas, o bien pueden publicarlas de forma anónima.  
-
-> [!NOTE]
-> Los clientes solo pueden realizar cambios en las calificaciones y reseñas que poseen.
-
-El  **panel de calificaciones y reseñas** muestra las tendencias y los detalles de las actividades de los clientes. Proporciona representaciones gráficas de:
-
-- Calificaciones y reseñas  
-- Revisar comentarios
-
-### <a name="marketplace-storefront-tabs"></a>Pestaña de escaparate de Marketplace
-
-Los anunciantes pueden ver las métricas de la oferta por separado en las pestañas AppSource y Azure Marketplace. Para ver métricas de ofertas específicas, seleccione **Oferta** en el menú desplegable:
-
-![Menú desplegable de ofertas de análisis del Centro de partners](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>Resumen de calificaciones y reseñas
-
-La sección del resumen de calificaciones y reseñas muestra las métricas siguientes de un intervalo de fechas seleccionado:
-
-- **Calificación media:** Media ponderada de la clasificación por estrellas de todas las calificaciones que han enviado por clientes de la oferta seleccionada.
-- **Desglose de calificación:** Desglose de la clasificación por estrellas por el número de clientes que han enviado sus calificaciones. El gráfico de barras se apila con las calificaciones reales y revisadas (recuento de clasificación actualizado).
-- **Total de calificaciones:** Recuento total de las clasificaciones enviadas. Este recuento incluye las clasificaciones con y sin reseñas.
-- **Calificaciones con reseñas:** Número de reseñas enviadas.
-
-![Resumen de reseñas y calificaciones de análisis del Centro de partners](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>Revisar comentarios
-
-Las revisiones se muestran en orden cronológico y se usará el momento en que se publicaron. La vista predeterminada muestra todas las reseñas. Las reseñas se pueden filtrar por clasificación por estrellas desde la opción **Filtro** del menú desplegable. También puede buscar palabras clave que aparecen en la reseña.  
-
-![Comentario de revisión de análisis del Centro de partners](./media/analyze-reviews.png)

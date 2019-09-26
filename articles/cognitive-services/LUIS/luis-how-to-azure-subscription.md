@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844871"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984378"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso de las claves de recursos de creación y de tiempo de ejecución
 
@@ -56,7 +56,7 @@ Cuando esté listo para publicar el punto de conexión de predicción, cree y as
 1. Seleccione **+ Crear un recurso**.
 1. En el cuadro de búsqueda, escriba `Language understanding`.
 1. Seleccione **Crear** para iniciar el proceso de creación. 
-1. Cree **ambos** para crear una clave de tiempo de ejecución de punto de conexión de predicción y de creación. 
+1. Seleccione **Ambos** para crear una clave de tiempo de ejecución de punto de conexión de predicción y de creación. 
 1. Escriba la información necesaria para crear el recurso y seleccione **Crear** para finalizar el proceso.
 
     ![Creación del recurso de reconocimiento del lenguaje](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)

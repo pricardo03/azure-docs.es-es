@@ -1,6 +1,6 @@
 ---
 title: Recopilar datos en los modelos de producción
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo recopilar datos de modelo de entrada de Azure Machine Learning en Azure Blob Storage.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860524"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002860"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
-En este artículo, aprenderá cómo recopilar datos de modelo de entrada de las instancias de Azure Machine Learning Services que ha implementado en el clúster de Azure Kubernetes (AKS) en Azure Blob Storage. 
+En este artículo, aprenderá cómo recopilar datos de modelo de entrada de las instancias de Azure Machine Learning que ha implementado en el clúster de Azure Kubernetes (AKS) en Azure Blob Storage. 
 
 Una vez habilitado, estos datos que recopile le ayudarán a:
 * [Supervisar datos flotantes](how-to-monitor-data-drift.md) a medida que los datos de producción entran en el modelo
@@ -50,9 +50,9 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Un área de trabajo del servicio de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
+- Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
 
 - Un modelo de aprendizaje automático entrenado para implementarse en Azure Kubernetes Service (AKS). Si no tiene uno, consulte el tutorial [Train an image classification model](tutorial-train-models-with-aml.md) (Entrenamiento un modelo de clasificación de imágenes).
 
@@ -61,7 +61,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 - [Configuración del entorno](how-to-configure-environment.md) e instalación del [SDK de supervisión](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Habilitación de recolección de datos
-La recopilación de datos se puede habilitar independientemente del modelo que se implementa a través del servicio Azure Machine Learning u otras herramientas. 
+La recopilación de datos se puede habilitar independientemente del modelo que se implementa a través de Azure Machine Learning u otras herramientas. 
 
 Para habilitarla, debe:
 

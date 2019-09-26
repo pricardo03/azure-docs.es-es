@@ -1,7 +1,7 @@
 ---
 title: Implementación de un modelo para la inferencia con GPU
-titleSuffix: Azure Machine Learning service
-description: En este artículo se enseña a usar Azure Machine Learning Service para implementar un modelo de aprendizaje profundo de TensorFlow habilitado para GPU como un servicio web y las solicitudes de inferencia de puntuación.
+titleSuffix: Azure Machine Learning
+description: En este artículo se enseña a usar Azure Machine Learning para implementar un modelo de aprendizaje profundo de TensorFlow habilitado para GPU como un servicio web y las solicitudes de inferencia de puntuación.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844990"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002765"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
-En este artículo aprenderá a usar Azure Machine Learning Service para implementar un modelo habilitado para GPU como un servicio web. La información de este artículo se basa en la implementación de un modelo en Azure Kubernetes Service (AKS). El clúster de AKS proporciona un recurso de GPU que el modelo usa para la inferencia.
+En este artículo aprenderá a usar Azure Machine Learning para implementar un modelo habilitado para GPU como un servicio web. La información de este artículo se basa en la implementación de un modelo en Azure Kubernetes Service (AKS). El clúster de AKS proporciona un recurso de GPU que el modelo usa para la inferencia.
 
 La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo implementado para realizar predicciones. El uso de GPU en lugar de CPU ofrece ventajas de rendimiento en el cálculo que se puede paralelizar considerablemente.
 
@@ -34,7 +34,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
+* Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 * Un entorno de desarrollo de Python con el SDK de Azure Machine Learning instalado. Para más información, consulte [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -51,7 +51,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 Para conectarse a un área de trabajo existente, use el código siguiente:
 
 > [!IMPORTANT]
-> Este fragmento de código espera que la configuración del área de trabajo se guarde en el directorio actual o en su elemento primario. Para más información sobre cómo crear un área de trabajo, consulte [Creación y administración de áreas de trabajo del servicio Azure Machine Learning](how-to-manage-workspace.md).   Para más información sobre cómo guardar la configuración en un archivo, consulte [Creación de un archivo de configuración de área de trabajo](how-to-configure-environment.md#workspace).
+> Este fragmento de código espera que la configuración del área de trabajo se guarde en el directorio actual o en su elemento primario. Para más información sobre cómo crear un área de trabajo, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning](how-to-manage-workspace.md).   Para más información sobre cómo guardar la configuración en un archivo, consulte [Creación de un archivo de configuración de área de trabajo](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure le facturará siempre y cuando exista el clúster de AKS. Asegúrese de eliminar el clúster de AKS cuando haya terminado con él.
 
-Para más información acerca del uso de Azure Kubernetes Service con Azure Machine Learning Service, consulte [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Para más información acerca del uso de Azure Kubernetes Service con Azure Machine Learning, consulte [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Escribir el script de entrada
 

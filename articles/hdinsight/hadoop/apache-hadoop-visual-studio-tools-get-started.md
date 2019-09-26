@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 44a076ee6979e207ac3992f76d3b89cc188d53b8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884035"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076289"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -83,7 +83,7 @@ Para conectarse a su suscripción de Azure:
 
 4. En el Explorador de servidores, aparece una lista de los clústeres de HDInsight existentes. Si no tiene ningún clúster, puede crear uno mediante Azure Portal, Azure PowerShell o el SDK de HDInsight. Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-   ![Captura de pantalla de la lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores")
+   ![Lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores")
 
 5. Expanda un clúster de HDInsight. Se mostrarán **Bases de datos de Hive**, una cuenta de almacenamiento predeterminada, cuentas de almacenamiento vinculadas y un **registro del servicio Hadoop**. Puede expandir las entidades.
 
@@ -113,11 +113,11 @@ Haga clic con el botón derecho en el clúster vinculado y seleccione **Editar**
 ## <a name="explore-linked-resources"></a>Exploración de recursos vinculados
 Desde el Explorador de servidores, podrá ver la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas. Expanda la cuenta de almacenamiento predeterminada para ver los contenedores en la cuenta de almacenamiento. Se marcarán la cuenta de almacenamiento predeterminada y el contenedor predeterminado. Haga clic con el botón derecho en cualquiera de los contenedores para ver su contenido.
 
-![Captura de pantalla de recursos vinculados de lista de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Recursos vinculados de lista")
+![Recursos vinculados de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png "Recursos vinculados de lista")
 
 Después de abrir un contenedor, puede usar los siguientes botones para cargar, eliminar y descargar blobs:
 
-![Captura de pantalla de operaciones de blob de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png "Carga, eliminación y descarga de blobs en el Explorador de servidores")
+![Operaciones de blob de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png "Carga, eliminación y descarga de blobs en el Explorador de servidores")
 
 ## <a name="run-interactive-apache-hive-queries"></a>Ejecución de consultas interactivas de Apache Hive
 [Apache Hive](https://hive.apache.org) es una infraestructura de almacenamiento de datos que se basa en Hadoop. Hive se utiliza para el análisis, las consultas y resumen de los datos. Data Lake Tools para Visual Studio se puede usar para ejecutar consultas de Hive desde Visual Studio. Para más información acerca de Hive, consulte [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md).
@@ -201,7 +201,7 @@ Para crear y ejecutar consultas ad hoc:
 
       Asegúrese de que **Lote** está seleccionado y, después, seleccione **Enviar**.  Si selecciona la opción de envío avanzado, configure las opciones **Nombre del trabajo**, **Argumentos**, **Configuraciones adicionales** y **Estado de directorio** del script.
 
-      ![Captura de pantalla de la consulta y la opción Lote](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
+      ![Opciones de consulta y lote de Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![Captura de pantalla de consulta de Hive para Hadoop en HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Envío de consultas")
 
@@ -224,7 +224,7 @@ Para crear y ejecutar una solución de Hive:
 
 El resumen del trabajo varía ligeramente entre los modos por **lotes** e **interactivo**.
 
-![Resumen del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Resumen del trabajo de Hive")
+![Pantalla Pestaña de resumen de trabajos de Apache Hive](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Resumen de trabajos de Hive")
 
 Utilice el botón **Actualizar** para actualizar el estado hasta que el estado del trabajo cambie a **Finalizado**.  
 
@@ -232,7 +232,7 @@ Utilice el botón **Actualizar** para actualizar el estado hasta que el estado d
 
 * Para obtener detalles del trabajo del modo **interactivo**, vea las pestañas **Salida** y **Salida de HiveServer2**.
 
-  ![Detalles del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Detalles del trabajo de Hive")
+  ![Detalles de trabajos de Apache Hive para Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Detalles de trabajos de Hive")
 
 ### <a name="view-job-graph"></a>Visualización del gráfico del trabajo
 
@@ -242,14 +242,13 @@ Para ver todos los operadores que hay en el vértice, haga doble clic en los vé
 
 El gráfico del trabajo puede no mostrarse, aun habiendo especificado Tez como motor de ejecución, si no hay iniciada ninguna aplicación Tez.  Esto puede ocurrir porque el trabajo no contiene instrucciones DML, o las instrucciones DML pueden volver sin iniciar una aplicación Tez. Por ejemplo, `SELECT * FROM table1` no iniciará la aplicación Tez.
 
-![Gráfico del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Resumen del trabajo de Hive")
-
+![Gráfico de trabajo de Apache Hive para Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "Resumen de trabajos de Hive")
 
 ### <a name="task-execution-detail"></a>Detalles de ejecución de la tarea
 
 En el gráfico del trabajo, se puede seleccionar **Detalles de ejecución de la tarea** para obtener información estructurada y visualizada de los trabajos de Hive. También puede obtener más información del trabajo. Si se produce algún problema de rendimiento, puede usar la vista para obtener más información sobre el mismo. Por ejemplo, puede obtener información acerca de cómo funciona cada tarea e información detallada acerca de cada tarea (lectura y escritura de datos, hora de programación/inicio/fin, etc.). Esta información se puede usar para ajustar las configuraciones de trabajo o la arquitectura del sistema en función de la información visualizada.
 
-![Captura de pantalla de la ventana Vista de ejecución de tareas de Data Lake Tools para Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Vista de ejecución de tareas")
+![Visual Studio Tools de Data Lake: ventana Vista de ejecución de tareas](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-task-execution-view.png "Vista de ejecución de tareas")
 
 
 ### <a name="view-hive-jobs"></a>Ver trabajos de Hive

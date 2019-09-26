@@ -1,6 +1,6 @@
 ---
 title: ¿Qué son las canalizaciones de Machine Learning?
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: En este artículo, obtenga información sobre las canalizaciones de Machine Learning que puede compilar con el SDK de Azure Machine Learning para Python y las ventajas de utilizar canalizaciones. Los científicos de datos usan canalizaciones de Machine Learning (ML) para crear, optimizar y administrar sus flujos de trabajo de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858824"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035484"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>¿Qué son las canalizaciones de Machine Learning en Azure Machine Learning Service?
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>¿Qué son las canalizaciones de Machine Learning en Azure Machine Learning?
 
-Obtenga información sobre las canalizaciones de aprendizaje automático que puede crear y administrar con Azure Machine Learning Service. 
+Obtenga información sobre las canalizaciones de aprendizaje automático que puede crear y administrar con Azure Machine Learning. 
 
 Mediante las canalizaciones de Machine Learning (ML), los científicos de datos, los ingenieros de datos y los profesionales de TI pueden colaborar en los pasos relacionados con las acciones siguientes:
 + Preparación de datos, como normalizaciones y transformaciones
@@ -30,7 +30,7 @@ Mediante las canalizaciones de Machine Learning (ML), los científicos de datos,
 
 Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md).
 
-![Canalizaciones de aprendizaje automático en el servicio Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
+![Canalizaciones de aprendizaje automático en Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>¿Qué tecnología de canalización de Azure se debe usar?
@@ -86,7 +86,7 @@ Hay dos paquetes de Python para canalizaciones con Azure Machine Learning: [az
 
 + Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md).
 
-+ Aprenda a [ejecutar predicciones por lotes en grandes cantidades de datos](how-to-run-batch-predictions.md).
++ Aprenda a [ejecutar predicciones por lotes en grandes cantidades de datos](tutorial-pipeline-batch-scoring-classification.md).
 
 + Consulte la [documentación de referencia del SDK para canalizaciones](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 

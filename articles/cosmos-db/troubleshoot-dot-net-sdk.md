@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 51b37c43b94ad59090f32af0d57bbefaa57f30fa
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806398"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932557"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 En este artículo se tratan problemas comunes, soluciones alternativas, pasos de diagnóstico y herramientas al usar el [SDK de .NET](sql-api-sdk-dotnet.md) con las cuentas de la API de SQL de Azure Cosmos DB.
@@ -48,7 +48,7 @@ La comprobación de las [métricas del portal](monitor-accounts.md) le ayudarán
 RequestTimeout se produce cuando se usa la conexión directa o TCP, pero puede producirse también en el modo de puerta de enlace. Estas son las causas conocidas comunes y las sugerencias sobre cómo corregir el problema.
 
 * El uso de la CPU es elevado, lo que provocará latencia o tiempos de espera de la solicitud. El cliente puede escalar verticalmente el equipo host para proporcionarle más recursos, o se puede distribuir la carga entre más equipos.
-* La disponibilidad de puertos/sockets puede ser reducida. Cuando se usan SDK de .NET anteriores a la versión 2.0, los clientes que se ejecutan en Azure pueden provocar el [agotamiento de puertos SNAT (PAT) de Azure]. Este un ejemplo de por qué se recomienda ejecutar siempre la versión más reciente del SDK.
+* La disponibilidad de puertos/sockets puede ser reducida. Cuando se ejecutan en Azure, los clientes que usan el SDK de .NET pueden alcanzar el agotamiento de puertos SNAT (PAT) de Azure. Para reducir la posibilidad de que se produzca este problema, use la versión 2.x o 3.x más reciente del SDK de .NET. Este un ejemplo de por qué se recomienda ejecutar siempre la versión más reciente del SDK.
 * La creación de varias instancias de DocumentClient podría provocar problemas de tiempo de espera y la contención de la conexión. Siga los [consejos de rendimiento](performance-tips.md) y use una sola instancia de DocumentClient en un proceso completo.
 * A veces, los usuarios verán tiempos de espera de solicitud o latencia elevados porque sus colecciones no se aprovisionan lo suficiente, el back-end limita las solicitudes y el cliente realiza reintentos de forma interna sin comunicarlo al autor de la llamada. Compruebe las [métricas del portal](monitor-accounts.md).
 * Azure Cosmos DB distribuye el rendimiento general aprovisionado de forma uniforme entre las particiones físicas. Compruebe las métricas del portal para ver si la carga de trabajo detecta una [clave de partición](partition-data.md) frecuente. Esto hará que el rendimiento consumido agregado (RU/s) parezca estar por debajo de las RU aprovisionadas, pero un rendimiento consumido de una sola partición (RU/s) superará el rendimiento aprovisionado. 

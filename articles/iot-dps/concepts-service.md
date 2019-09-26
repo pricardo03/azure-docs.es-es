@@ -3,17 +3,17 @@ title: Conceptos del servicio Azure IoT Hub Device Provisioning | Microsoft Docs
 description: Describe conceptos del aprovisionamiento de servicios específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745815"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104360"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceptos del servicio IoT Hub Device Provisioning
 
@@ -57,7 +57,7 @@ Hay dos tipos de inscripciones que admite el servicio Device Provisioning:
 
 ### <a name="enrollment-group"></a>Grupo de inscripción
 
-Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Todos los dispositivos del grupo de inscripción presentan los certificados X.509 que han sido firmados por la misma entidad de certificación (CA) raíz o intermedia. Los grupos de inscripción solo pueden utilizar el mecanismo de atestación X.509. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
+Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Los grupos de inscripción admiten X. 509 y claves simétricas. Todos los dispositivos del grupo de inscripción X.509 presentan certificados X.509 que ha firmado la misma entidad de certificación (CA) raíz o intermedia. Cada dispositivo del grupo de inscripción de clave simétrica presenta tokens de SAS derivados de la clave simétrica de grupo. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
 
 > [!TIP]
 > Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino.

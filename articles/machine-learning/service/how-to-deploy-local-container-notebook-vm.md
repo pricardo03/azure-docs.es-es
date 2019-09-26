@@ -1,7 +1,7 @@
 ---
 title: Implementación de modelos en máquinas virtuales de Notebook
-titleSuffix: Azure Machine Learning service
-description: Aprenda a implementar modelos de Azure Machine Learning Service como un servicio web con máquinas virtuales de Notebook.
+titleSuffix: Azure Machine Learning
+description: Aprenda a implementar modelos de Azure Machine Learning como un servicio web con máquinas virtuales de Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947903"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002822"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>Implementación de un modelo en máquinas virtuales de Notebook
 
-Aprenda a usar Azure Machine Learning Service para implementar un modelo como un servicio web en su máquina virtual de Notebook. Use las máquinas virtuales de Notebook si se cumple una de las condiciones siguientes:
+Aprenda a usar Azure Machine Learning para implementar un modelo como un servicio web en su máquina virtual de Notebook. Use las máquinas virtuales de Notebook si se cumple una de las condiciones siguientes:
 
 - Debe implementar y validar rápidamente el modelo.
 - Está probando un modelo que está en desarrollo.
 
 > [!TIP]
-> La implementación de un modelo de Jupyter Notebook en una máquina virtual de Notebook, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la máquina virtual de Notebook. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning Service](how-to-deploy-and-where.md).
+> La implementación de un modelo de Jupyter Notebook en una máquina virtual de Notebook, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la máquina virtual de Notebook. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning Service con una máquina virtual de Notebook en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+- Un área de trabajo de Azure Machine Learning con una máquina virtual de Notebook en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="deploy-to-the-notebook-vms"></a>Implementación en máquinas virtuales de Notebook
 

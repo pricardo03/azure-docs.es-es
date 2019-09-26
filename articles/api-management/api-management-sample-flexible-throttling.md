@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: f0f89275006498c0ff4883f259d7e76f723b922b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851331"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066766"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Azure API Management
 La posibilidad de limitar las solicitudes entrantes es un rol clave de Azure API Management. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.
@@ -29,7 +29,8 @@ Hasta la fecha, las funcionalidades de limitación de velocidad se han circunscr
 
 ## <a name="custom-key-based-throttling"></a>Limitación por clave personalizada
 
-> NOTA:  Las directivas `rate-limit-by-key` y `quota-by-key` no están disponibles en el nivel Consumo de Azure API Management. 
+> [!NOTE]
+> Las directivas `rate-limit-by-key` y `quota-by-key` no están disponibles en el nivel Consumo de Azure API Management. 
 
 Las nuevas directivas [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) y [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) ofrecen una solución más flexible para el control del tráfico. Estas nuevas directivas permiten definir expresiones para identificar las claves que se usan para realizar un seguimiento del uso del tráfico. El funcionamiento de esto se ilustra más claramente con un ejemplo. 
 
@@ -78,5 +79,5 @@ Así se permite a la aplicación cliente del desarrollador elegir cómo se quier
 Azure API Management ofrece limitación de velocidad y de cuota para proteger y agregar valor al servicio de API. Las nuevas directivas de limitación con reglas de ámbito personalizadas permiten un control más preciso sobre las directivas para permitir a los clientes crear aplicaciones aún mejores. Los ejemplos de este artículo muestran el uso de estas nuevas directivas fabricando claves de limitación de velocidad con direcciones IP de cliente, identidad de usuario y valores generados por el cliente. Pero hay muchas más partes del mensaje que podrían usarse como, por ejemplo, agente de usuario, fragmentos de ruta de dirección URL, tamaño del mensaje.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Háganos sus comentarios en la conversación Disqus sobre este tema. Sería estupendo conocer otros posibles valores de clave que hayan sido una elección lógica en sus escenarios.
+Envíenos sus comentarios como un problema de GitHub para este tema. Sería estupendo conocer otros posibles valores de clave que hayan sido una elección lógica en sus escenarios.
 

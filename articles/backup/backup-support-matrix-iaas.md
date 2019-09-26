@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872891"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71018682"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar copias de seguridad de cargas de trabajo y máquinas locales, y de las máquinas virtuales de Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad para realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -158,13 +158,13 @@ Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de se
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos. <br/><br/> Compatibilidad con tamaños de disco de hasta 4 TB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de más de 4 TB y hasta un máximo de 30 TB, vea este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Tamaño del disco de datos | El disco individual puede tener hasta 4095 GB.<br/><br/>Para suscribirse a una versión preliminar pública limitada de Azure Backup que admita discos de más de 4 TB y hasta un máximo de 30 TB, vea este [artículo](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos. <br/><br/> Admite la copia de seguridad de máquinas virtuales con cada tamaño de disco hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una máquina virtual.
+Tamaño del disco de datos | El disco individual puede tener hasta 30 TB.
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Se admite.
 Discos cifrados | Se admite.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
 Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos con el acelerador de escritura habilitado durante la copia de seguridad. Como no tienen copia de seguridad, no podrá restaurar estos discos desde puntos de recuperación de la VM.
-Copia de seguridad de discos desduplicados | No compatible.
+Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato
 Agregar disco a una máquina virtual protegida | Se admite.
 Cambiar tamaño de disco de una máquina virtual protegida | Se admite.
 Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas virtuales mediante Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
@@ -180,7 +180,7 @@ Varias direcciones IP reservadas |    Se admite. <br/><br/> [Obtenga más inform
 Máquinas virtuales con varios adaptadores de red  | Se admite. <br/><br/> [Obtenga más información](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) sobre cómo restaurar máquinas virtuales con una configuración de red especial.
 Máquinas virtuales con direcciones IP públicas    | Se admite.<br/><br/> Asocie una dirección IP pública existente a la NIC, o cree una dirección y asóciela a la NIC después de realizar la restauración.
 Grupo de seguridad de red (NSG) en la NIC o la subred. |   Se admite.
-Dirección IP reservada (estática) | No compatible.<br/><br/> No puede realizar una copia de seguridad de una máquina virtual con una dirección IP reservada y ningún punto de conexión definido.
+Dirección IP estática | No compatible.<br/><br/> A una nueva máquina virtual que se crea a partir de un punto de restauración se le asigna una dirección IP dinámica.<br/><br/> En el caso de las máquinas virtuales clásicas, no puede realizar una copia de seguridad de una máquina virtual con una dirección IP reservada y ningún punto de conexión definido.
 Dirección IP dinámica |    Se admite.<br/><br/> Si la NIC de la máquina virtual de origen usa una dirección IP dinámica, de forma predeterminada, la NIC de la máquina virtual restaurada también la usará.
 Administrador de tráfico de Azure   | Se admite.<br/><br/>Si la máquina virtual de la que se ha realizado la copia de seguridad está en Traffic Manager, agregue manualmente la máquina virtual restaurada a la misma instancia de Traffic Manager.
 Azure DNS | Se admite.

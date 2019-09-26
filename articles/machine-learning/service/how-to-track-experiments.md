@@ -1,7 +1,7 @@
 ---
-title: Métricas de registro durante las ejecuciones de entrenamiento
-titleSuffix: Azure Machine Learning service
-description: Puede realizar un seguimiento de sus experimentos y supervisar las métricas para mejorar el proceso de creación de modelos. Aprenda a agregar el registro al script de entrenamiento, enviar el experimento, comprobar el progreso de un trabajo en ejecución y ver los resultados registrados de una ejecución.
+title: Registro de métricas y experimentos de ML
+titleSuffix: Azure Machine Learning
+description: Supervise sus experimentos de Azure ML y supervise las métricas de ejecución para mejorar el proceso de creación de modelos. Agregue el registro al script de entrenamiento y vea los resultados registrados de una ejecución.  Use run.log, Run.start_logging o ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,21 +10,21 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858724"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002705"
 ---
-# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Seguimiento de las métricas de entrenamiento del aprendizaje automático con Azure Machine Learning
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Supervisión de métricas y ejecuciones de experimentos de Azure ML
 
-Realice el seguimiento de sus experimentos y supervise las métricas para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar código de registro a un script de entrenamiento, enviar una ejecución de experimento, supervisar dicha ejecución y comprobar los resultados en Azure Machine Learning Service.
+Realice el seguimiento de sus experimentos y supervise las métricas de ejecución para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar código de registro a un script de entrenamiento, enviar una ejecución de experimento, supervisar dicha ejecución y comprobar los resultados en Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning Service también puede registrar información de otros orígenes durante el entrenamiento, como las ejecuciones de Machine Learning automatizado o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
+> Azure Machine Learning también puede registrar información de otros orígenes durante el entrenamiento, como las ejecuciones de Machine Learning automatizado o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
 
 ## <a name="available-metrics-to-track"></a>Métricas disponibles de las que se realiza seguimiento
 
@@ -65,7 +65,7 @@ Antes de agregar el registro y enviar un experimento, debe configurar el área d
 
 **start_logging** crea una ejecución interactiva para su uso en escenarios como los cuadernos. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución en el experimento.
 
-En el ejemplo siguiente, se entrena un modelo sklearn Ridge sencillo de forma local en un cuaderno de Jupyter local. Para más información sobre el envío de experimentos a diferentes entornos, consulte [Configuración de destinos de proceso para el entrenamiento de modelos con el servicio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+En el ejemplo siguiente, se entrena un modelo sklearn Ridge sencillo de forma local en un cuaderno de Jupyter local. Para más información sobre el envío de experimentos a diferentes entornos, consulte [Configuración de destinos de proceso para el entrenamiento de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
 1. Cree un script de entrenamiento en un cuaderno local de Jupyter. 
 
@@ -91,7 +91,7 @@ En el ejemplo siguiente, se entrena un modelo sklearn Ridge sencillo de forma lo
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Agregue seguimiento del experimento mediante el SDK del servicio Azure Machine Learning y cargue un modelo guardado en el registro de ejecución del experimento. El código siguiente agrega etiquetas y registros y carga un archivo de modelo en la ejecución del experimento.
+2. Agregue seguimiento del experimento mediante el SDK de Azure Machine Learning y cargue un modelo guardado en el registro de ejecución del experimento. El código siguiente agrega etiquetas y registros y carga un archivo de modelo en la ejecución del experimento.
 
    ```python
     # Get an experiment object from Azure Machine Learning

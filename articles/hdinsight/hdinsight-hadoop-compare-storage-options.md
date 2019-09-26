@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885200"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104532"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -34,7 +34,7 @@ En la tabla siguiente se resumen los servicios de Azure Storage que son compatib
 |Azure Storage| Blob Storage** | Object | Blob en bloques | Estándar | Frecuente, esporádico, archivo | Todo | Todo |
 |Azure Data Lake Storage Gen1| N/D | Jerárquico (sistema de archivos) | N/D | N/D | N/D | Solo 3.6 | Todos excepto HBase |
 
-** Para clústeres de HDInsight, solo las cuentas de almacenamiento secundario pueden ser de tipo BlobStorage.
+**Para los clústeres de HDInsight, solo las cuentas de almacenamiento secundarias pueden ser de tipo BlobStorage; Blob en páginas no es una opción de almacenamiento admitida.
 
 Para obtener más información sobre los tipos de cuentas de almacenamiento, consulte [Información general acerca de la cuenta de Azure Storage](../storage/common/storage-account-overview.md).
 
@@ -129,7 +129,7 @@ Si decide proteger la cuenta de almacenamiento con las restricciones de **Firewa
 
 El diagrama siguiente proporciona una panorámica de la arquitectura de HDInsight de Azure Storage:
 
-![Diagrama que muestra cómo los clústeres de Hadoop usan la API de HDFS para acceder y almacenar datos estructurados y no estructurados en Blob Storage](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Arquitectura de almacenamiento para HDInsight")
+![Arquitectura de almacenamiento para HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage Architecture")
 
 HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Se puede acceder a este sistema de archivos usando el URI completo, por ejemplo:
 

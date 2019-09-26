@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951866"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091827"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
@@ -40,6 +40,9 @@ La característica de sesión de Service Bus permite una operación de recepció
 En el portal, establezca la marca con la casilla siguiente:
 
 ![][2]
+
+> [!NOTE]
+> Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente ***ya no*** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
 
 Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un modelo imperativo donde controlar cuándo se reciben mensajes y sesiones, y un modelo basado en controlador, similar a *OnMessage*, que oculta la complejidad de la administración del bucle de recepción.
 

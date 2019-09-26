@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813928"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002482"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1
 
@@ -25,7 +25,6 @@ En este artículo usará [Jupyter Notebook](https://jupyter.org/), disponible co
 
 * Clúster de Azure HDInsight Spark con Data Lake Storage Gen1 como almacenamiento. Siga las instrucciones que se describen en [Inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-    
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
 > [!NOTE]  
@@ -120,7 +119,7 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
      También puede ver la salida en otras visualizaciones. Por ejemplo, un gráfico de área con la misma salida tendría el siguiente aspecto.
 
-     ![Gráfico de área del resultado de la consulta](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "Gráfico de área del resultado de la consulta")
+     ![Gráfico de área del resultado de la consulta](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Gráfico de área del resultado de la consulta")
 
 8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 

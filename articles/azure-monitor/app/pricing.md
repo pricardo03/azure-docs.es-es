@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277006"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067013"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -151,7 +151,7 @@ En cada registro retenido, `itemCount` indica el número de registros originales
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
 
 > [!NOTE]
-> Eliminamos temporalmente esta característica mientras tratamos una posible incidencia.  Regresara a mediados de septiembre de 2019.
+> Eliminamos temporalmente esta característica mientras tratamos una posible incidencia.  Estará de vuelta la primera semana de octubre de 2019.
 
 La retención predeterminada de los recursos de Application Insights es de 90 días. Es posible seleccionar distintos períodos de retención para cada recurso de Application Insights. El conjunto completo de períodos de retención disponibles es de 30, 60, 90, 120, 180, 270, 365, 550 o 730 días. 
 

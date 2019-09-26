@@ -2,18 +2,18 @@
 title: Herramientas de Data Lake para Visual Studio con Sandbox de Hortonworks en Azure HDInsight
 description: Aprenda a usar las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks en ejecución en una máquina virtual local. Con estas herramientas puede crear y ejecutar trabajos de Hive y Pig en el espacio aislado, así como ver la salida de los trabajos y el historial.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: hrasheed
-ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885517"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098769"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
@@ -41,7 +41,7 @@ Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, s
 
 2. En el **Explorador de servidores**, haga clic con el botón derecho en la entrada **HDInsight** y seleccione **Conectar con el emulador de HDInsight**.
 
-    ![Captura de pantalla del Explorador de servidores, con la opción Conectar al emulador de HDInsight resaltada](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
+    ![Explorador de servidores, con la opción Conectar al emulador de HDInsight resaltada](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. En el cuadro de diálogo **Conectar al emulador de HDInsight**, escriba la contraseña que ha configurado para Ambari.
 
@@ -51,19 +51,19 @@ Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, s
 
 4. Use el campo **Contraseña** para escribir la contraseña configurada para la cuenta `root`. Deje los demás campos con los valores predeterminados.
 
-    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña de Ambari resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña de Ambari resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
     Seleccione **Next** (Siguiente) para continuar.
 
 5. Espere a que finalice la validación de los servicios. En algunos casos, se puede producir un error de validación y se le pedirá que actualice la configuración. Si se produce un error de validación, seleccione **Actualizar** y espere a que finalicen la configuración y la comprobación del servicio.
 
-    ![Captura de pantalla del cuadro de diálogo, con el botón Actualizar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+    ![Captura de pantalla del cuadro de diálogo, con el botón Actualizar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update-window.png)
 
     > [!NOTE]  
     > El proceso de actualización usa Ambari para modificar la configuración de Sandbox de Hortonworks en función de lo que esperan las herramientas de Data Lake para Visual Studio.
 
 6. Una vez finalizada la validación, seleccione **Finalizar** para concluir la configuración.
-    ![Captura de pantalla del cuadro de diálogo, con el botón Finalizar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
+    ![Captura de pantalla del cuadro de diálogo, con el botón Finalizar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
 
      >[!NOTE]  
      > Según la velocidad del entorno de desarrollo y de la cantidad de memoria asignada a la máquina virtual, la configuración y validación de los servicios puede tardar varios minutos.
@@ -76,7 +76,7 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en la entrada del clúster local agregado anteriormente y, luego, seleccione **Escribir una consulta de Hive**.
 
-    ![Captura de pantalla del Explorador de servidores, con la opción Escribir una consulta de Hive resaltada](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
+    ![Captura de pantalla del Explorador de servidores, con la opción Escribir una consulta de Hive resaltada](./media/hdinsight-hadoop-emulator-visual-studio/write-apache-hive-query.png)
 
     Aparece una nueva ventana de consulta. Aquí puede escribir y enviar rápidamente una consulta al clúster local.
 
@@ -86,15 +86,15 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
     Para ejecutar la consulta, seleccione **Enviar** en la parte superior de la ventana. Deje las demás opciones (**Batch** y el nombre del servidor) en los valores predeterminados.
 
-    ![Captura de pantalla de la ventana de consulta, con el botón Enviar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
+    ![Captura de pantalla de la ventana de consulta, con el botón Enviar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/query-window-submit-hive.png)
 
     También puede usar el menú desplegable junto a **Enviar** para seleccionar **Avanzadas**. Las opciones avanzadas permiten proporcionar opciones adicionales al enviar el trabajo.
 
-    ![Captura de pantalla del cuadro de diálogo Enviar script de Hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Captura de pantalla del cuadro de diálogo Enviar script de Hive](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
 
 3. Una vez enviada la consulta, aparece el estado del trabajo. El estado del trabajo muestra información sobre el trabajo mientras lo procesa Hadoop. En **Estado del trabajo** se proporciona el estado actual del trabajo. El estado se actualiza periódicamente, aunque también se puede usar el icono de actualización para actualizarlo manualmente.
 
-    ![Captura de pantalla del cuadro de diálogo Vista de trabajos, con la opción Estado del trabajo resaltada](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
+    ![Captura de pantalla del cuadro de diálogo Vista de trabajos, con la opción Estado del trabajo resaltada](./media/hdinsight-hadoop-emulator-visual-studio/job-view-dialog-box1.png)
 
     Cuando el **estado del trabajo** cambie a **Finalizado**, se mostrará un grafo acíclico dirigido (DAG). Este diagrama describe la ruta de acceso de ejecución que determina Tez al procesar la consulta de Hive. Tez es el motor de ejecución predeterminado para Hive en el clúster local.
 
@@ -105,14 +105,14 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
 4. También puede ejecutar trabajos de Hive de forma interactiva cambiando el campo **Batch** a **Interactivo**. Luego, seleccione **Ejecutar**.
 
-    ![Captura de pantalla de los botones Interactivo y Ejecutar resaltados](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
+    ![Captura de pantalla de los botones Interactivo y Ejecutar resaltados](./media/hdinsight-hadoop-emulator-visual-studio/hdi-interactive-query.png)
 
     Una consulta interactiva transmite el registro de salida generado durante el procesamiento a la ventana **Salida de HiveServer2**.
 
     > [!NOTE]  
     > Es la misma información que está disponible en el vínculo **Registro de trabajo** una vez concluido un trabajo.
 
-    ![Captura de pantalla del registro de salida](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
+    ![Captura de pantalla de la salida de HiveServer2](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## <a name="create-a-hive-project"></a>Creación de un proyecto de Hive
 
@@ -122,7 +122,7 @@ También puede crear un proyecto que incluya varios scripts de Hive. Cuando teng
 
 2. En la lista de proyectos, expanda **Plantillas** y **Azure Data Lake** y, luego, seleccione **HIVE (HDInsight)** . En la lista de plantillas, seleccione **Hive Sample**. Escriba un nombre y una ubicación y, luego, seleccione **Aceptar**.
 
-    ![Captura de pantalla de la ventana Nuevo proyecto, con las opciones Azure Data Lake, HIVE, Ejemplo de Hive y Aceptar resaltadas](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
+    ![Ventana Nuevo proyecto, con Azure Data Lake, ejemplo de Hive y Aceptar](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 El proyecto **Hive Sample** contiene dos scripts, **WebLogAnalysis.hql** y **SensorDataAnalysis.hql**. Puede enviar estos scripts con el mismo botón **Enviar**, situado en la parte superior de la ventana.
 
@@ -132,7 +132,7 @@ Aunque Hive proporciona un lenguaje similar a SQL para trabajar con datos estruc
 
 1. Abra Visual Studio y seleccione **Archivo**, **Nuevo** y **Proyecto**. En la lista de proyectos, expanda **Plantillas** y **Azure Data Lake** y, luego, seleccione **Pig (HDInsight)** . En la lista de plantillas, seleccione **Pig Application**. Escriba un nombre y una ubicación, y seleccione **Aceptar**.
 
-    ![Captura de pantalla de la ventana Nuevo proyecto, con las opciones Azure Data Lake, Pig, Aplicación Pig y Aceptar resaltadas](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![Captura de pantalla de la ventana Nuevo proyecto, con las opciones Azure Data Lake, Pig, Aplicación Pig y Aceptar resaltadas](./media/hdinsight-hadoop-emulator-visual-studio/new-apche-pig-project.png)
 
 2. Escriba el siguiente texto como contenido del archivo **script.pig** que se creó con este proyecto.
 
@@ -149,11 +149,11 @@ Aunque Hive proporciona un lenguaje similar a SQL para trabajar con datos estruc
 
     Aunque Pig usa un lenguaje diferente que Hive, la forma de ejecutar los trabajos es la misma en ambos lenguajes mediante el botón **Enviar**. La selección de la lista desplegable situada junto a **Enviar** muestra un cuadro de diálogo de envío avanzado para Pig.
 
-    ![Captura de pantalla del cuadro de diálogo Enviar script de Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Captura de pantalla del cuadro de diálogo Enviar script de Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
 
 3. El estado y la salida de trabajo también se muestran del mismo modo que en una consulta de Hive.
 
-    ![Captura de pantalla de un trabajo de Pig finalizado](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
+    ![Captura de pantalla de un trabajo de Pig finalizado](./media/hdinsight-hadoop-emulator-visual-studio/completed-apache-pig.png)
 
 ## <a name="view-jobs"></a>Vista de trabajos
 
@@ -161,11 +161,11 @@ Las herramientas de Data Lake también le permiten ver fácilmente la informaci�
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en el clúster local y seleccione **Ver trabajos**. Se muestra una lista de trabajos que se enviaron al clúster.
 
-    ![Captura de pantalla del Explorador de servidores, con la opción Ver trabajos resaltada](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
+    ![Captura de pantalla del Explorador de servidores, con la opción Ver trabajos resaltada](./media/hdinsight-hadoop-emulator-visual-studio/server-explorer-view-jobs.png)
 
 2. En la lista de trabajos, seleccione uno para ver los detalles del trabajo.
 
-    ![Captura de pantalla del Explorador de trabajos, con uno de los trabajos resaltado](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
+    ![Captura de pantalla del Explorador de trabajos, con uno de los trabajos resaltado](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-job-details.png)
 
     La información que aparece es similar a la que se ve después de ejecutar una consulta de Hive o Pig, junto con vínculos para ver la información de registro y de salida.
 
@@ -175,11 +175,11 @@ Las herramientas de Data Lake también le permiten ver fácilmente la informaci�
 
 1. En el **Explorador de servidores**, expanda la entrada **Clúster local de HDInsight** y, luego, **Bases de datos de Hive**. Se muestran las bases de datos **Predeterminada** y **xademo** en el clúster local. Al expandir una base de datos se muestran las tablas que hay dentro de la base de datos.
 
-    ![Captura de pantalla del Explorador de servidores, con las bases de datos expandidas](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
+    ![Captura de pantalla del Explorador de servidores, con las bases de datos expandidas](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases-view.png)
 
 2. La expansión de una tabla muestra las columnas de esa tabla. Si quiere ver los datos rápidamente, haga clic con el botón derecho en una tabla y seleccione **Ver las 100 primeras filas**.
 
-    ![Captura de pantalla del Explorador de servidores, con una tabla expandida y la opción Ver las 100 primeras filas seleccionada](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
+    ![Explorador de servidores, con una tabla expandida y la opción Ver las 100 primeras filas seleccionada](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>Propiedades de las bases de datos y de las tablas
 
@@ -191,11 +191,11 @@ Puede ver las propiedades de una base de datos o de una tabla. Al seleccionar **
 
 Para crear una tabla, haga clic con el botón derecho en una base de datos y seleccione **Crear tabla**.
 
-![Captura de pantalla del Explorador de servidores, con la opción Crear tabla resaltada](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
+![Captura de pantalla del Explorador de servidores, con la opción Crear tabla resaltada](./media/hdinsight-hadoop-emulator-visual-studio/server-explorer-create-table.png)
 
 Ya puede crear la tabla usando un formulario. En la parte inferior de la siguiente captura de pantalla puede ver el script HiveQL sin formato que se usa para crear la tabla.
 
-![Captura de pantalla del formulario usado para crear una tabla](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
+![Captura de pantalla del formulario usado para crear una tabla](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form-box.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b872fcfbc2ead2cebdd32ff718b582c13af314e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509307"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065580"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
+Azure Active Directory B2C (Azure AD B2C) se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
 
 Esta característica ayuda a las aplicaciones a tratar escenarios como los siguientes:
 
@@ -40,11 +40,11 @@ Se crea una cuenta de cliente en el inquilino antes de que se produzca el paso d
 
 ## <a name="add-multi-factor-authentication"></a>Incorporación de la autenticación multifactor
 
-Es posible habilitar la autenticación multifactor en un flujo de usuario que creó anteriormente. 
+Es posible habilitar la autenticación multifactor en un flujo de usuario que creó anteriormente.
 
 Para habilitar la autenticación multifactor:
 
-1. Abra el flujo de usuario y, a continuación, seleccione **Propiedades**. 
+1. Abra el flujo de usuario y, a continuación, seleccione **Propiedades**.
 2. Junto a **Autenticación multifactor**, seleccione **Habilitado**.
 3. Haga clic en **Guardar** en la parte superior de la página.
 

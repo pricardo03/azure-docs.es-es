@@ -4,14 +4,14 @@ description: Aprenda a registrar y llamar a procedimientos almacenados, desencad
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7732039ff2494ef16fda5afe384a824ec786a8cf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092939"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104829"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 
@@ -26,9 +26,9 @@ Los ejemplos siguientes muestran cómo registrar y llamar a un procedimiento alm
 > [!NOTE]
 > Para los contenedores con particiones, al ejecutar un procedimiento almacenado, se debe proporcionar un valor de clave de partición en las opciones de solicitud. Los procedimientos almacenados siempre se limitan a una clave de partición. Los elementos que tienen un valor de clave de partición diferente no estarán visibles para el procedimiento almacenado. Esto también se aplica a los desencadenadores.
 
-### <a name="stored-procedures---net-sdk"></a>Procedimientos almacenados: SDK de .NET
+### <a name="stored-procedures---net-sdk-v2"></a>Procedimientos almacenados: SDK de .NET V2
 
-El siguiente un ejemplo muestra cómo registrar un procedimiento almacenado con el SDK de .NET:
+El siguiente un ejemplo muestra cómo registrar un procedimiento almacenado con el SDK de .NET V2:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-El siguiente código muestra cómo llamar a un procedimiento almacenado con el SDK de .NET:
+El siguiente código muestra cómo llamar a un procedimiento almacenado con el SDK de .NET V2:
 
 ```csharp
 dynamic newItem = new
@@ -56,7 +56,32 @@ dynamic newItem = new
 Uri uri = UriFactory.CreateStoredProcedureUri("myDatabase", "myContainer", "spCreateToDoItem");
 RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("Personal") };
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
-var id = result.Response;
+```
+
+### <a name="stored-procedures---net-sdk-v3"></a>Procedimientos almacenados: SDK de .NET V3
+
+El siguiente un ejemplo muestra cómo registrar un procedimiento almacenado con el SDK de .NET V3:
+
+```csharp
+StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
+{
+    Id = "spCreateToDoItem",
+    Body = File.ReadAllText(@"..\js\spCreateToDoItem.js")
+});
+```
+
+El siguiente código muestra cómo llamar a un procedimiento almacenado con el SDK de .NET V3:
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItem);
 ```
 
 ### <a name="stored-procedures---java-sdk"></a>Procedimientos almacenados: SDK de Java
@@ -176,9 +201,9 @@ Cuando se ejecuta, los desencadenadores previos se pasan en el objeto RequestOpt
 > [!NOTE]
 > Aunque el nombre del desencadenador se pasa como una lista, todavía puede ejecutar solo un desencadenador por cada operación.
 
-### <a name="pre-triggers---net-sdk"></a>Desencadenadores previos: SDK de .NET
+### <a name="pre-triggers---net-sdk-v2"></a>Desencadenadores previos: SDK de .NET V2
 
-El código siguiente muestra cómo registrar un desencadenador previo mediante el SDK de. NET:
+El código siguiente muestra cómo registrar un desencadenador previo mediante el SDK de. NET V2:
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -193,7 +218,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-El código siguiente muestra cómo llamar a un desencadenador previo mediante el SDK de. NET:
+El código siguiente muestra cómo llamar a un desencadenador previo mediante el SDK de. NET V2:
 
 ```csharp
 dynamic newItem = new
@@ -207,6 +232,34 @@ dynamic newItem = new
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
+```
+
+### <a name="pre-triggers---net-sdk-v3"></a>Desencadenadores previos: SDK de .NET V3
+
+El código siguiente muestra cómo registrar un desencadenador previo mediante el SDK de. NET V3:
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPreValidateToDoItemTimestamp",
+    Body = File.ReadAllText("@..\js\trgPreValidateToDoItemTimestamp.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+});
+```
+
+El código siguiente muestra cómo llamar a un desencadenador previo mediante el SDK de. NET V3:
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
 ### <a name="pre-triggers---java-sdk"></a>Desencadenadores previos: SDK de Java
@@ -301,9 +354,9 @@ client.CreateItem(container_link, item, {
 
 Los ejemplos siguientes muestran cómo registrar un desencadenador posterior mediante los SDK de Azure Cosmos DB. Consulte el [ejemplo de desencadenador posterior](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) porque el origen para este desencadenador previo se guarda como `trgPostUpdateMetadata.js`.
 
-### <a name="post-triggers---net-sdk"></a>Desencadenadores posteriores: SDK de .NET
+### <a name="post-triggers---net-sdk-v2"></a>Desencadenadores posteriores: SDK de .NET V2
 
-El código siguiente muestra cómo registrar un desencadenador posterior mediante el SDK de. NET:
+El código siguiente muestra cómo registrar un desencadenador posterior mediante el SDK de. NET V2:
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -318,7 +371,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-El código siguiente muestra cómo llamar a un desencadenador posterior mediante el SDK de. NET:
+El código siguiente muestra cómo llamar a un desencadenador posterior mediante el SDK de. NET V2:
 
 ```csharp
 var newItem = { 
@@ -330,6 +383,32 @@ var newItem = {
 RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
+```
+
+### <a name="post-triggers---net-sdk-v3"></a>Desencadenadores posteriores: SDK de .NET V3
+
+El código siguiente muestra cómo registrar un desencadenador posterior mediante el SDK de. NET V3:
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPostUpdateMetadata",
+    Body = File.ReadAllText(@"..\js\trgPostUpdateMetadata.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Post
+});
+```
+
+El código siguiente muestra cómo llamar a un desencadenador posterior mediante el SDK de. NET V3:
+
+```csharp
+var newItem = { 
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
 ### <a name="post-triggers---java-sdk"></a>Desencadenadores posteriores: SDK de Java
@@ -422,16 +501,16 @@ client.CreateItem(container_link, item, {
 
 Los ejemplos siguientes muestran cómo registrar una función definida por el usuario mediante los SDK de Azure Cosmos DB. Consulte este [ejemplo de función definida por el usuario](how-to-write-stored-procedures-triggers-udfs.md#udfs) porque el origen para este desencadenador previo se guarda como `udfTax.js`.
 
-### <a name="user-defined-functions---net-sdk"></a>Funciones definidas por el usuario (UDF): SDK de .NET
+### <a name="user-defined-functions---net-sdk-v2"></a>Funciones definidas por el usuario (UDF): SDK de .NET V2
 
-El código siguiente muestra cómo registrar una función definida por el usuario mediante el SDK de. NET:
+El código siguiente muestra cómo registrar una función definida por el usuario mediante el SDK de. NET V2:
 
 ```csharp
 string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
-    Body = File.ReadAllText($@"..\js\{udfId}.js"),
+    Body = File.ReadAllText($@"..\js\{udfId}.js")
 };
 
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -439,7 +518,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-El código siguiente muestra cómo llamar a una función definida por el usuario mediante el SDK de. NET:
+El código siguiente muestra cómo llamar a una función definida por el usuario mediante el SDK de. NET V2:
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -448,6 +527,32 @@ var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM I
 foreach (var result in results)
 {
     //iterate over results
+}
+```
+
+### <a name="user-defined-functions---net-sdk-v3"></a>Funciones definidas por el usuario (UDF): SDK de .NET V3
+
+El código siguiente muestra cómo registrar una función definida por el usuario mediante el SDK de. NET V3:
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
+{
+    Id = "Tax",
+    Body = File.ReadAllText(@"..\js\Tax.js")
+});
+```
+
+El código siguiente muestra cómo llamar a una función definida por el usuario mediante el SDK de. NET V3:
+
+```csharp
+var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
+while (iterator.HasMoreResults)
+{
+    var results = await iterator.ReadNextAsync();
+    foreach (var result in results)
+    {
+        //iterate over results
+    }
 }
 ```
 

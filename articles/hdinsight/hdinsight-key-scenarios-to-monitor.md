@@ -2,18 +2,18 @@
 title: Supervisión del rendimiento de un clúster en Azure HDInsight
 description: Cómo supervisar el estado y el rendimiento de los clústeres de Apache Hadoop en Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879702"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104400"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
@@ -36,11 +36,11 @@ Para obtener una visión de alto nivel de los nodos de un clúster y su carga, i
 
 También verá columnas que muestra el número de núcleos y la cantidad de RAM de cada host, así como el uso del disco y el promedio de carga.
 
-![Pestaña Hosts](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Información general de la pestaña Hosts de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Seleccione cualquiera de los nombres de host para tener una vista detallada de los componentes que se ejecutan en el host y su métrica. La métrica se muestra como una escala de tiempo seleccionable de uso de la CPU, carga, uso del disco, uso de la memoria, uso de la red y números de procesos.
 
-![Detalles del host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Información general de los detalles de host de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Para más información acerca del establecimiento de alertas y visualización de métricas, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -56,7 +56,7 @@ Cuando varios inquilinos comparten un clúster grande, compiten por sus recursos
 
 YARN nos permite asignar recursos a estas colas y muestra si todos los recursos disponibles están asignados. Para ver información acerca de las colas, inicie sesión en la interfaz de usuario web de Ambari y, después, seleccione **YARN Queue Manager** (Administrador de colas de YARN) en el menú superior.
 
-![YARN Queue Manager (Administrador de colas de YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![Administrador de la cola de YARN de Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 La página YARN Queue Manager (Administrador de colas de YARN) muestra una lista de las colas, a la izquierda, y el porcentaje de la capacidad que se asigna a cada una.
 
@@ -64,11 +64,11 @@ La página YARN Queue Manager (Administrador de colas de YARN) muestra una lista
 
 Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Vínculos rápidos**, seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
 
-![Vínculo del menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Vínculos del menú de la interfaz de usuario del Administrador de recursos](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Programador) en el menú de la izquierda. Se ve una lista de las colas debajo de *Application Queues* (Colas de aplicación). Aquí puede ver la capacidad que se usa para cada una de las colas, cómo se distribuyen los trabajos entre ellas y si alguno de los trabajos tiene los recursos restringidos.
 
-![Menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Menú de la interfaz de usuario del Administrador de recursos de Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 

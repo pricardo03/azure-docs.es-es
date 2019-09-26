@@ -1,6 +1,6 @@
 ---
-title: Copiar datos de Azure Database for PostgreSQL con Azure Data Factory | Microsoft Docs
-description: Obtenga información sobre cómo copiar datos de Azure Database for PostgreSQL en almacenes de datos de receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+title: Copia de datos en Azure Database for PostgreSQL como origen o destino mediante Azure Data Factory | Microsoft Docs
+description: Aprenda a copiar datos en Azure Database for PostgreSQL como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,22 +10,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 18e60d8bc3feb1aa7ba76e5a0b39531d2f52c7dd
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 4cb6f420b6d084539dc98a09632d0760a1344012
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312035"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092169"
 ---
-# <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar datos de Azure Database for PostgreSQL con Azure Data Factory
+# <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copia de datos en Azure Database for PostgreSQL como origen o destino mediante Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Azure Database for PostgreSQL. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
+Ese conector se usa especialmente para el [servicio Azure Database for PostgreSQL](../postgresql/overview.md). Para copiar datos desde una base de datos PostgreSQL genérica ubicada en el entorno local o en la nube, use el [conector PostgreSQL](connector-postgresql.md).
+
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos de Azure Database for PostgreSQL en cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Este conector de Azure Database for PostgreSQL es compatible con las actividades siguientes:
+
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+
+Puede copiar datos de Azure Database for PostgreSQL en cualquier almacén de datos receptor compatible. También puede copiar datos en Azure Database for PostgreSQL desde cualquier almacén de datos de origen admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
@@ -102,7 +109,7 @@ Para copiar datos de Azure Database for PostgreSQL, establezca la propiedad type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzurePostgreSqlTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **AzurePostgreSqlTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -131,7 +138,7 @@ Para copiar datos de Azure Database for PostgreSQL, establezca el tipo de origen
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzurePostgreSqlSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzurePostgreSqlSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -165,6 +172,54 @@ Para copiar datos de Azure Database for PostgreSQL, establezca el tipo de origen
     }
 ]
 ```
+
+### <a name="azure-database-for-postgresql-as-sink"></a>Azure Database for PostgreSQL como receptor
+
+Para copiar datos en Azure Database for PostgreSQL, se admiten las siguientes propiedades en la sección de **receptor** de la actividad de copia:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **AzurePostgreSQLSink** | Sí |
+| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Database for PostgreSQL en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin |
+| writeBatchSize | Inserta datos en la tabla de Azure Database for PostgreSQL cuando el tamaño de búfer alcanza el valor de writeBatchSize.<br>El valor permitido es un entero que representa el número de filas. | No (el valor predeterminado es 10 000) |
+| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No (el valor predeterminado es 00:00:30) |
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureDatabaseForPostgreSQL",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure PostgreSQL output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "AzurePostgreSQLSink",
+                "preCopyScript": "<custom SQL script>",
+                "writeBatchSize": 100000
+            }
+        }
+    }
+]
+```
+
+## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
+
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

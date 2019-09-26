@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: efac8755be8435ae7929fdcb2ecedb4959c363b9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305478"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097140"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Compatibilidad de idiomas y regiones para Text Analytics API
 
@@ -48,17 +48,18 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Árabe      | `ar`          |           |             | ✔ \*                     | |
 | Checo       | `cs`          |           |             | ✔ \*                     | |
-| Chino simplificado | `zh-CN`|           |             | ✔         |    |
+| Chino simplificado | `zh-hans`| ✔ \***     |             | ✔         |    |
+| Chino (tradicional) | `zh-hant`| ✔ \***     |             | ✔         |    |
 | Danés      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Neerlandés       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| English     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finés     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Francés      | `fr`          | ✔        | ✔           |  ✔            |     |
+| Francés      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
 | Alemán      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | Griego       | `el`          | ✔ \*     |             |            |     |
 | Húngaro   | `hu`          |           |             |  ✔ \*          |     | 
-| Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Japonés    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Italiano     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
+| Japonés    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Noruego (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polaco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
@@ -71,7 +72,9 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 
 \* La compatibilidad con idiomas está en versión preliminar
 
-\*\* [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) y [Vinculación de entidad](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) están disponibles para este idioma.    
+\*\* [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) y [Vinculación de entidad](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) están disponibles para este idioma.  
+
+\*** Disponible en la [versión preliminar pública de Análisis de sentimiento V3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
 ## <a name="see-also"></a>Otras referencias
 

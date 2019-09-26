@@ -6,23 +6,25 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 07ecc8547ab155600bccfd1ad8f1ecbb58a18fa3
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552423"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931843"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 
 En este artículo se describe cómo se realiza la conmutación por recuperación de máquinas virtuales de Hyper-V protegidas por Site Recovery.
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Asegúrese de leer los detalles sobre los [diferentes tipos de conmutación por recuperación](concepts-types-of-failback.md) y las advertencias correspondientes.
-1. Asegúrese de que el servidor del sitio principal de VMM o el servidor de host Hyper-V está conectado a Azure.
-2. Debe haber realizado la acción **Confirmar** en la máquina virtual.
+
+- Asegúrese de leer los detalles sobre los [diferentes tipos de conmutación por recuperación](concepts-types-of-failback.md) y las advertencias correspondientes.
+- Asegúrese de que el servidor del sitio principal de VMM o el servidor de host Hyper-V está conectado a Azure.
+- Debe haber realizado la acción **Confirmar** en la máquina virtual.
+- Asegúrese de que está usando una cuenta de almacenamiento para la replicación y no discos administrados. No se admite la conmutación por recuperación de máquinas virtuales de Hyper-V replicadas mediante la administración de discos.
 
 ## <a name="perform-failback"></a>Realización de una conmutación por recuperación
 Después de la conmutación por error de la ubicación principal a la secundaria, las máquinas virtuales replicadas no están protegidas por Site Recovery y la ubicación secundaria actúa como ubicación principal. Para que las VM conmuten por recuperación en un plan de recuperación, ejecute una conmutación por error planeada desde el sitio secundario en el sitio primario del modo siguiente. 

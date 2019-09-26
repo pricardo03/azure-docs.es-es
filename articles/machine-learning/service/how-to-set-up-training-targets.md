@@ -1,6 +1,6 @@
 ---
 title: Creación y uso de destinos de proceso para el entrenamiento del modelo
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Configurar los entornos de entrenamiento (destinos de proceso) del entrenamiento del modelo de Machine Learning. Es fácil cambiar entre entornos de entrenamiento. Inicie el entrenamiento de forma local. Si necesita escalar horizontalmente, cambie a un destino de proceso basado en la nube.
 services: machine-learning
 author: heatherbshapiro
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860538"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034410"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 
-Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
+Con Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
-Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la página de aterrizaje de su área de trabajo, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
+Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la página de aterrizaje de su área de trabajo, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo de Azure Machine Learning.
  
 En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
@@ -35,7 +35,7 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 
 ## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
-Azure Machine Learning Service tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
+Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -45,7 +45,7 @@ Azure Machine Learning Service tiene distintas modalidades de soporte técnico e
 
 ## <a name="whats-a-run-configuration"></a>¿En qué consiste una configuración de ejecución?
 
-Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script.
+Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script.
 
 Todo lo que debe hacer es definir el entorno de cada destino de proceso con una **configuración de ejecución**.  Después, cuando desee ejecutar el experimento de entrenamiento en un destino de proceso diferente, especifique la configuración de ejecución para ese proceso. Para obtener más información sobre cómo especificar un entorno y enlazarlo a la configuración de ejecución, consulte [Creación y administración de entornos para el aprendizaje y la implementación](how-to-use-environments.md).
 
@@ -143,7 +143,7 @@ Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente pa
 
 ### <a id="vm"></a>Máquinas virtuales remotas
 
-Azure Machine Learning también admite la posibilidad de que traiga su propio recurso de proceso y lo adjunte a su área de trabajo. Uno de estos tipos de recursos es una máquina virtual remota arbitraria, siempre que se pueda acceder desde Azure Machine Learning Service. El recurso puede ser una máquina virtual de Azure, un servidor remoto de la organización o local. En concreto, dada la dirección IP y las credenciales (nombre de usuario y contraseña o clave SSH), puede usar cualquier máquina virtual a la que se pueda acceder para las ejecuciones remotas.
+Azure Machine Learning también admite la posibilidad de que traiga su propio recurso de proceso y lo adjunte a su área de trabajo. Uno de estos tipos de recursos es una máquina virtual remota arbitraria, siempre que se pueda acceder desde Azure Machine Learning. El recurso puede ser una máquina virtual de Azure, un servidor remoto de la organización o local. En concreto, dada la dirección IP y las credenciales (nombre de usuario y contraseña o clave SSH), puede usar cualquier máquina virtual a la que se pueda acceder para las ejecuciones remotas.
 
 Puede usar un entorno de Conda integrado en el sistema, un entorno de Python existente o un contenedor de Docker. Para realizar la ejecución en un contenedor de Docker, el motor de Docker debe estar en ejecución en la máquina virtual. Esta funcionalidad es especialmente útil cuando se desea un entorno de desarrollo o experimentación basado en la nube más flexible que un equipo local.
 
@@ -327,7 +327,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
 ### <a id="portal-reuse"></a>Adjuntar destinos de proceso
 
-Para usar destinos de proceso creados fuera del área de trabajo de Azure Machine Learning Service, debe adjuntarlos. Adjuntar un destino de proceso hace que esté disponible para el área de trabajo.
+Para usar destinos de proceso creados fuera del área de trabajo de Azure Machine Learning, debe adjuntarlos. Adjuntar un destino de proceso hace que esté disponible para el área de trabajo.
 
 Siga los pasos descritos previamente para ver la lista de destinos de proceso. Luego, siga los pasos a continuación para adjuntar un destino de proceso: 
 
@@ -356,7 +356,7 @@ Siga los pasos descritos previamente para ver la lista de destinos de proceso. L
 
 ## <a name="set-up-with-cli"></a>Configuración con la CLI
 
-Puede acceder a los destinos de proceso asociados con el área de trabajo mediante la [extensión de la CLI](reference-azure-machine-learning-cli.md) para el servicio Azure Machine Learning.  Puede usar la CLI para:
+Puede acceder a los destinos de proceso asociados con el área de trabajo mediante la [extensión de la CLI](reference-azure-machine-learning-cli.md) para Azure Machine Learning.  Puede usar la CLI para:
 
 * Crear un destino de proceso administrado
 * Actualizar un destino de proceso administrado
@@ -366,7 +366,7 @@ Para más información, consulte el artículo sobre la [administración de recur
 
 ## <a name="set-up-with-vs-code"></a>Configuración con VS Code
 
-Puede crear y administrar los destinos de proceso asociados con el área de trabajo, así como acceder a ellos, mediante la [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para el servicio Azure Machine Learning.
+Puede crear y administrar los destinos de proceso asociados con el área de trabajo, así como acceder a ellos, mediante la [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para Azure Machine Learning.
 
 ## <a id="submit"></a>Envío de una ejecución de entrenamiento mediante el SDK de Azure Machine Learning
 
@@ -515,4 +515,4 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 * Obtenga información sobre cómo [ajustar los hiperparámetros eficazmente](how-to-tune-hyperparameters.md) para crear modelos mejores.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
 * Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Uso de Azure Machine Learning con Azure Virtual Networks](how-to-enable-virtual-network.md)

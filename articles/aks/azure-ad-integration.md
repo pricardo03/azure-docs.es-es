@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542893"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103788"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
@@ -86,7 +86,7 @@ La primera aplicación de Azure AD se aplica para obtener la pertenencia a un gr
 
     e. Seleccione **Agregar permisos** para guardar las actualizaciones.
 
-    f. En **Otorgar consentimiento**, seleccione **Conceder consentimiento de administrador**. Este botón no está disponible si la cuenta actual no es de un administrador de inquilinos.
+    f. En **Otorgar consentimiento**, seleccione **Conceder consentimiento de administrador**. Este botón no estará disponible si la cuenta que se usa no aparece como administrador de inquilinos.
 
     Una vez se han concedido los permisos correctamente, la siguiente notificación se muestra en el portal:
 
