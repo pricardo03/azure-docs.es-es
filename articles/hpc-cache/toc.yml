@@ -23,12 +23,15 @@
             - name: Carga previa de la nueva instancia de Blob Storage
               href: hpc-cache-ingest.md
             - name: Métodos de ingesta de datos alternativos
-            - name: Rellenado de la caché con la copia en paralelo
-              href: hpc-cache-ingest-parallelcp.md
-            - name: Rellenado de la caché con msrsync
-              href: hpc-cache-ingest-msrsync.md
-            - name: Rellenado de la caché mediante la copia manual de archivos
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: Rellenado de la caché con la copia en paralelo
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: Rellenado de la caché con msrsync
+                  href: hpc-cache-ingest-msrsync.md
+                - name: Rellenado de la caché mediante la copia manual de archivos
+                  href: hpc-cache-ingest-manual.md
+    - name: Conexión a la memoria caché
+      href: hpc-cache-mount.md
 - name: Recursos
   items:
     - name: Abrir una incidencia de soporte técnico

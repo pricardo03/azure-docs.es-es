@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe4a47161e86614807e69b613b49e8808a35e041
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077230"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266074"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Alta disponibilidad de SAP HANA para máquinas virtuales de Azure
 
@@ -60,7 +60,7 @@ Azure tiene diferentes Acuerdos de Nivel de Servicio de disponibilidad para los 
 
 [Acuerdo de Nivel de Servicio para Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) describe tres Acuerdos de Nivel de Servicio diferentes, para tres configuraciones distintas:
 
-- Una sola máquina virtual que usa [discos SSD Premium de Azure ](../../wi https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/ows/disks-types.md) para el disco del sistema operativo y todos los discos de datos. Esta opción proporciona un tiempo de actividad mensual del 99,9 %.
+- Una sola máquina virtual que usa [discos SSD Premium de Azure ](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) para el disco del sistema operativo y todos los discos de datos. Esta opción proporciona un tiempo de actividad mensual del 99,9 %.
 - Varias máquinas virtuales (al menos dos) que se organizan en un [conjunto de disponibilidad de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Esta opción proporciona un tiempo de actividad mensual del 99,95 %.
 - Varias máquinas virtuales (al menos dos) que se organizan en una [zona de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Esta opción proporcionaba un tiempo de actividad mensual del 99,99 %.
 
