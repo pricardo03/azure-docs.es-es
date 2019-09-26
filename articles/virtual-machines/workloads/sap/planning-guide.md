@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098764"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067862"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -344,6 +344,7 @@ En el documento se utilizarán los términos siguientes:
 * Infraestructura de SAP: Este término hace referencia a todos los recursos de SAP de la infraestructura de TI de un cliente. La infraestructura de SAP incluye todos los entornos, tanto los que son de producción como los que no.
 * Sistema SAP: La combinación de la capa de DBMS y la capa de aplicación de, por ejemplo, un sistema de desarrollo SAP ERP, un sistema de prueba SAP BW, un sistema de producción SAP CRM, etc. En las implementaciones de Azure no se admite la división de estas dos capas entre la infraestructura local y de Azure. Esto significa que un sistema SAP debe implementarse de forma local o en Azure, pero no en ambos. Sin embargo, los diferentes sistemas de una infraestructura de SAP pueden implementarse en Azure o de forma local. Por ejemplo, pueden implementarse sistemas de pruebas y de desarrollo de SAP CRM en Azure, a la vez que se implementa el sistema de producción de forma local.
 * Entre locales o híbrida: describe un escenario donde se implementan máquinas virtuales en una suscripción de Azure con conexión de sitio a sitio, entre varios sitios o de ExpressRoute entre los centros de datos locales y Azure. En la documentación habitual de Azure, este tipo de implementaciones se describen como escenarios entre locales o híbridos. La razón tras la conexión es extender los dominios locales, Active Directory/OpenLDAP locales y DNS local a Azure. La infraestructura local se extiende a los recursos de Azure de la suscripción. Con esta extensión, las máquinas virtuales pueden formar parte del dominio local. Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Este es el caso más común y casi exclusivo de implementación de recursos de SAP en Azure. Para más información, consulte [este][vpn-gateway-cross-premises-options] artículo y [este][vpn-gateway-site-to-site-create].
+* Extensión de Azure Monitor, Supervisión mejorada y Extensión de Azure para SAP: se usan para describir exactamente el mismo elemento. Describe una extensión de máquina virtual que debe implementar el usuario para proporcionar algunos datos básicos sobre la infraestructura de Azure al agente del host de SAP. Puede que las notas de SAP hagan referencia a ella como Extensión de supervisión o Supervisión mejorada. En Azure, haremos referencia a ella como **Extensión de Azure para SAP.**
 
 > [!NOTE]
 > En sistemas de producción SAP, se admiten implementaciones entre locales o híbridos de sistemas SAP donde Azure Virtual Machines que ejecuten sistemas SAP pertenezcan a un dominio local. Las configuraciones entre locales o híbridas se admiten para la implementación completa o parcial de infraestructuras de SAP en Azure. Se requiere que esas máquinas virtuales formen parte del dominio y ADS/OpenLDAP locales incluso al ejecutar una infraestructura completa de SAP en Azure. 
@@ -799,7 +800,7 @@ Hasta el momento, de la experiencia de los clientes se extrae que PowerShell (PS
 Consulte el ejemplo a continuación: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-La implementación de la extensión de supervisión de Azure para SAP (consulte el capítulo [Solución de supervisión de Azure para SAP][planning-guide-9.1] de este documento) solo es posible mediante PowerShell o la CLI. Por lo tanto, es obligatorio para instalar y configurar PowerShell o la CLI al implementar o administrar un sistema SAP NetWeaver en Azure.  
+La implementación de la extensión de Azure para SAP (consulte el capítulo [Extensión de Azure para SAP][planning-guide-9.1] de este documento) solo es posible mediante PowerShell o la CLI. Por lo tanto, es obligatorio para instalar y configurar PowerShell o la CLI al implementar o administrar un sistema SAP NetWeaver en Azure.  
 
 Como Azure ofrece más funciones, se agregarán nuevos cmdlets de PS que requieren una actualización de los cmdlets. Por lo tanto, es recomendable consultar el sitio de descargas de Azure al menos una vez al mes <https://azure.microsoft.com/downloads/> para ver si se ha publicado una nueva versión de los cmdlets. La nueva versión se instala sobre la anterior.
 
@@ -816,7 +817,7 @@ Para obtener más información sobre la instalación, la configuración y el uso
 * [Implementación y administración de máquinas virtuales mediante plantillas de Azure Resource Manager y la CLI de Azure][../../linux/create-ssh-secured-vm-from-template.md]
 * [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Lea también el capítulo [CLI de Azure para máquinas virtuales de Linux][deployment-guide-4.5.2] en la [Guía de implementación][planning-guide] a fin de descubrir cómo usar la CLI de Azure para implementar la extensión de supervisión de Azure para SAP.
+Lea también el capítulo [CLI de Azure para máquinas virtuales Linux][deployment-guide-4.5.2] en la [Guía de implementación][planning-guide] a fin de descubrir cómo usar la CLI de Azure para implementar la extensión de Azure para SAP.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Diferentes formas de implementar máquinas virtuales para SAP en Azure
 
@@ -1302,7 +1303,7 @@ La replicación geográfica de Azure funciona localmente en cada disco duro virt
 ---
 ### <a name="final-deployment"></a>Implementación final
 
-Para más información acerca de la implementación final y los pasos exactos, especialmente en relación con la implementación de la supervisión extendida de SAP, consulte la [Guía de implementación][deployment-guide].
+Para más información acerca de la implementación final y los pasos exactos, especialmente en relación con la implementación de la extensión de Azure para SAP, consulte la [Guía de implementación][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Acceso a sistemas SAP que se ejecutan en máquinas virtuales de Azure
 
@@ -1775,29 +1776,29 @@ Las instancias de SAP ubicadas en Azure tienen que acceder a los recursos compar
 
 ## <a name="supportability"></a>Compatibilidad
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Solución de supervisión de Azure para SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Extensión de Azure para SAP
 
-Para habilitar la supervisión de sistemas SAP críticos en Azure, las herramientas de supervisión de SAP SAPOSCOL o SAP Host Agent obtienen datos del host del servicio de máquina virtual de Azure por medio de una extensión de supervisión de Azure para SAP. Puesto que las demandas de SAP eran muy específicas para las aplicaciones de SAP, Microsoft decidió no implementar de forma genérica la funcionalidad requerida en Azure, y dejar al criterio de los clientes la implementación de las configuraciones y los componentes de supervisión necesarios para sus máquinas virtuales que se ejecuten en Azure. Sin embargo, Azure automatizará la mayor parte de la implementación y la administración del ciclo de vida de los componentes.
+A fin de proporcionar parte de la información de infraestructura de Azure de los sistemas SAP críticos a las instancias de agente del host de SAP instaladas en las máquinas virtuales, debe instalarse una extensión de Azure (VM) para SAP en las máquinas virtuales implementadas. Puesto que las demandas de SAP eran muy específicas para las aplicaciones de SAP, Microsoft decidió no implementar de forma genérica la funcionalidad requerida en Azure, y dejar al criterio de los clientes la implementación de las configuraciones y las extensiones de máquina virtual necesarias para sus máquinas virtuales que se ejecutan en Azure. Sin embargo, Azure automatizará la mayor parte de la implementación y la administración del ciclo de vida de la extensión de Azure VM para SAP.
 
 #### <a name="solution-design"></a>Diseño de la solución
 
-La solución desarrollada para habilitar la supervisión de SAP se basa en la arquitectura del marco de agente y extensión de VM de Azure. La idea del marco de agente y extensión de VM Azure es permitir la instalación de las aplicaciones de software disponibles en la galería de extensiones de VM de Azure dentro de una máquina virtual. La idea principal que subyace tras este concepto es permitir (en casos como el de la extensión de supervisión de Azure para SAP) la implementación de una funcionalidad especial en una máquina virtual y la configuración de dicho software al realizar la implementación.
+La solución desarrollada para permitir al agente del host de SAP obtener la información necesaria se basa en la arquitectura del marco de agente y extensión de Azure VM. La idea del marco de agente y extensión de VM Azure es permitir la instalación de las aplicaciones de software disponibles en la galería de extensiones de VM de Azure dentro de una máquina virtual. La idea principal que subyace tras este concepto es permitir (en casos como el de la extensión de Azure para SAP) la implementación de una funcionalidad especial en una máquina virtual y la configuración de dicho software al realizar la implementación.
 
 El "agente de VM de Azure" que permite controlar extensiones específicas de VM de Azure dentro de la máquina virtual se inyecta en las máquinas virtuales de Windows de forma predeterminada al crear VM en Azure Portal. En el caso de SUSE, Red Hat u Oracle Linux, el agente de VM ya forma parte de la imagen de Azure Marketplace. En caso de que se desee cargar una VM de Linux desde un sistema local a Azure, el agente de VM se debe instalar manualmente.
 
-Los bloques de creación básicos de la solución de supervisión de Azure para SAP tienen el aspecto siguiente:
+Los bloques de creación básicos de la solución que proporciona información de la infraestructura de Azure al agente del host de SAP en Azure tienen el siguiente aspecto:
 
 ![Componentes de la extensión de Microsoft Azure][planning-guide-figure-2400]
 
-Como se muestra en el diagrama de bloques anterior, una parte de la solución de supervisión para SAP se hospeda en la galería de imágenes de máquina virtual de Azure y de extensiones de Azure (un repositorio replicado globalmente que está administrado por Azure Operations). El equipo conjunto de SAP/Microsoft que trabaja en la implementación de SAP en Azure debe trabajar con las operaciones de Azure para publicar nuevas versiones de la extensión de supervisión de Azure para SAP.
+Como se muestra en el diagrama de bloques anterior, una parte de la solución se hospeda en la galería de imágenes de máquina virtual de Azure y de extensiones de Azure (un repositorio replicado globalmente que está administrado por Azure Operations). El equipo conjunto de SAP/Microsoft que trabaja en la implementación de SAP en Azure debe trabajar con las operaciones de Azure para publicar nuevas versiones de la extensión de Azure para SAP.
 
-Cuando se implementa una máquina virtual de Windows nueva, el agente de VM de Azure se agrega automáticamente a la máquina virtual. La función de este agente es coordinar la carga y la configuración de las extensiones de Azure para la supervisión de los sistemas SAP NetWeaver. En las máquinas virtuales Linux, el agente de máquina virtual de Azure ya forma parte de la imagen de sistema operativo de Azure Marketplace.
+Cuando se implementa una máquina virtual de Windows nueva, el agente de VM de Azure se agrega automáticamente a la máquina virtual. La función de este agente es coordinar la carga y la configuración de las extensiones de Azure de las máquinas virtuales. En las máquinas virtuales Linux, el agente de máquina virtual de Azure ya forma parte de la imagen de sistema operativo de Azure Marketplace.
 
 Sin embargo, el cliente aún deberá realizar otro paso, que consiste en habilitar y configurar la recopilación de rendimiento. El proceso relacionado con la configuración se automatiza mediante un script de PowerShell o un comando de la CLI. Se puede descargar el script de PowerShell en el Centro de scripts de Microsoft Azure como se describe en la [Guía de implementación][deployment-guide].
 
-La arquitectura general de la solución de supervisión de Azure para SAP tiene el siguiente aspecto:
+La arquitectura general de la extensión de Azure para SAP tiene el siguiente aspecto:
 
-![Solución de supervisión de Azure para SAP NetWeaver][planning-guide-figure-2500]
+![Extensión de Azure para SAP ][planning-guide-figure-2500]
 
 **Para las instrucciones exactas y los pasos detallados para utilizar estos cmdlets de PowerShell o el comando de la CLI durante las implementaciones, siga las instrucciones de la [Guía de implementación][deployment-guide].**
 
