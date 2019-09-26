@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242343"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176680"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -44,7 +44,7 @@ SSO de conexión directa se habilita a través de Azure AD Connect tal como se m
 - La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD. Si hay varios bosques de AD, cada cuenta de equipo tendrá su propia clave de descifrado de Kerberos única.
 
 >[!IMPORTANT]
-> La cuenta de equipo `AZUREADSSOACC` precisa de una gran protección por motivos de seguridad. Solo los administradores de dominio deben poder administrar la cuenta de equipo. Asegúrese de que la delegación de Kerberos de la cuenta de equipo está deshabilitada y de que ninguna otra cuenta de Active Directory tiene permisos de delegación en la cuenta de equipo `AZUREADSSOACC`. Almacene la cuenta de equipo en una unidad organizativa (OU) donde esté a salvo de eliminaciones accidentales y donde solo los administradores de dominio tengan acceso. La clave de descifrado de Kerberos de la cuenta de equipo también debe considerarse como confidencial. Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
+> La cuenta de equipo `AZUREADSSOACC` precisa de una gran protección por motivos de seguridad. Solo los administradores de dominio deben poder administrar la cuenta de equipo. Asegúrese de que la delegación de Kerberos de la cuenta de equipo está deshabilitada y de que ninguna otra cuenta de Active Directory tiene permisos de delegación en la cuenta de equipo `AZUREADSSOACC`. Almacene la cuenta de equipo en una unidad organizativa (OU) donde esté a salvo de eliminaciones accidentales y donde solo los administradores de dominio tengan acceso. La clave de descifrado de Kerberos de la cuenta de equipo también debe considerarse como confidencial. Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](how-to-connect-sso-faq.md) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
 
 Una vez que se completa la instalación, SSO de conexión directa funcionan del mismo modo que cualquier otro inicio de sesión que usa la autenticación integrada de Windows (IWA).
 
@@ -57,7 +57,7 @@ El flujo de inicio de sesión en un explorador web es el siguiente:
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 
    >[!NOTE]
-   >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), se omiten los pasos 2 y 3.
+   >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md), se omiten los pasos 2 y 3.
 
 4. Con JavaScript en segundo plano, Azure AD desafía al explorador, a través de una respuesta 401 No autorizado, a que proporcione un vale de Kerberos.
 5. A su vez, el explorador solicita un vale desde Active Directory para la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD).

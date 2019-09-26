@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135185"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260332"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -33,7 +33,7 @@ Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y base
 Para más información sobre las métricas y las categorías de registro admitidas por los diversos servicios de Azure, consulte:
 
 - [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 En este artículo se proporciona orientación para ayudarle a habilitar los datos de telemetría de diagnósticos para bases de datos, grupos elásticos e Instancias administradas de Azure SQL. También puede ayudarle a saber cómo configurar Azure SQL Analytics como una herramienta de supervisión que permita visualizar los datos de telemetría de diagnóstico de las bases de datos.
 
@@ -90,7 +90,7 @@ Use el menú **Configuración de diagnóstico** para configurar el streaming de 
 
 Puede configurar un recurso de grupos elásticos para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Recurso | Telemetría de supervisión |
+| Resource | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Grupo elástico** | [Métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contiene el porcentaje de eDTU/CPU, el límite de eDTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, el porcentaje de sesiones, el porcentaje de trabajos, el almacenamiento, el porcentaje de almacenamiento, el límite de almacenamiento y el porcentaje de almacenamiento de XTP. |
 
@@ -152,7 +152,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de bases de 
 
 Puede configurar un recurso de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Recurso | Telemetría de supervisión |
+| Resource | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Instancia administrada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
@@ -304,7 +304,7 @@ Lea sobre cómo [cambiar la configuración de diagnóstico con la API de REST de
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-Lea sobre cómo [habilitar la configuración de diagnóstico al crear recursos con la plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Lea sobre cómo [habilitar la configuración de diagnóstico al crear recursos con la plantilla de Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## <a name="stream-into-azure-sql-analytics"></a>Transmisión en Azure SQL Analytics
 
@@ -442,8 +442,8 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: ResourceUsageStats |
-|Recurso|Nombre del recurso |
+|Category|Nombre de la categoría Siempre: ResourceUsageStats |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -467,9 +467,9 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
+|Category|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -518,9 +518,9 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
+|Category|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -556,9 +556,9 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: Errors |
+|Category|Nombre de la categoría Siempre: Errors |
 |OperationName|Nombre de la operación. Siempre: ErrorEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -585,9 +585,9 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics |
+|Category|Nombre de la categoría Siempre: DatabaseWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -614,9 +614,9 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: Tiempos de expiración |
+|Category|Nombre de la categoría Siempre: Tiempos de expiración |
 |OperationName|Nombre de la operación. Siempre: TimeoutEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -637,9 +637,9 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: Blocks |
+|Category|Nombre de la categoría Siempre: Blocks |
 |OperationName|Nombre de la operación. Siempre: BlockEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -661,9 +661,9 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TimeGenerated [UTC] |Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: Interbloqueos |
+|Category|Nombre de la categoría Siempre: Interbloqueos |
 |OperationName|Nombre de la operación. Siempre: DeadlockEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -682,8 +682,8 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
 |type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
-|Categoría|Nombre de la categoría Siempre: AutomaticTuning |
-|Recurso|Nombre del recurso |
+|Category|Nombre de la categoría Siempre: AutomaticTuning |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -712,7 +712,7 @@ Obtenga más información sobre el [formato de registro de Intelligent Insights]
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, vea lo siguiente:
 
 - [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md)
 
 Para obtener información sobre Event Hubs, lea lo siguiente:
 

@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 2b923a381be9d6cdb1a83f582a541c9e17e117a4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 43e76b9331eb8dbe95265810b9191a10d4caee08
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086625"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272022"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -79,7 +79,7 @@ El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 > [!NOTE]
-> Para obtener acceso total a los recursos tras el inicio de sesión, el Explorador de Storage requiere permisos de administración (Azure Resource Manager) y en el nivel de datos. Esto significa que necesita permisos de Azure Active Directory que proporcionen acceso a la cuenta de Storage, los contenedores de la cuenta y los datos de los contenedores. Si solo tiene permisos en el nivel de datos, considere la posibilidad de [agregar un recurso mediante Azure AD](#add-a-resource-via-azure-ad). Para más información sobre los permisos específicos que requiere el Explorador de Storage, consulte la [Guía de solución de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues).
+> Para obtener acceso total a los recursos tras el inicio de sesión, el Explorador de Storage requiere permisos de administración (Azure Resource Manager) y en el nivel de datos. Esto significa que necesita permisos de Azure Active Directory que proporcionen acceso a la cuenta de Storage, los contenedores de la cuenta y los datos de los contenedores. Si solo tiene permisos en el nivel de datos, considere la posibilidad de [agregar un recurso mediante Azure AD](#add-a-resource-via-azure-ad). Para más información sobre los permisos específicos que requiere el Explorador de Storage, consulte la [Guía de solución de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
 
 1. En el Explorador de Storage, seleccione **Administrar cuentas** para ir al panel Administración de cuentas.
 

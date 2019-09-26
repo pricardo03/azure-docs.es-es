@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946869"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257591"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Análisis para FedRAMP
 
@@ -111,7 +111,7 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 [Azure Monitor](../../azure-monitor/overview.md) genera una visualización completa de los datos de supervisión, incluidos registros de actividad, métricas y datos de diagnóstico, lo que permite a los clientes crear una imagen completa del estado del sistema.  
 [Los registros de Azure Monitor](../azure-security-disk-encryption-overview.md) ofrecen un registro completo de la actividad de usuario y del sistema, además de mantenimiento de este. Recopila y analiza los datos generados por los recursos en Azure y en los entornos locales.
 - **Registros de actividad**: los [registros de actividad](../../azure-monitor/platform/activity-logs-overview.md) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción.
-- **Registros de diagnóstico**: los [registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) son todos los registros emitidos por todos los recursos. Estos incluyen los registros del sistema de eventos de Windows y los registros de Azure Blob Storage, tablas y cola.
+- **Registros de diagnóstico**: los [registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) son todos los registros emitidos por todos los recursos. Estos incluyen los registros del sistema de eventos de Windows y los registros de Azure Blob Storage, tablas y cola.
 - **Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de Application Gateway con WAF habilitado.
 - **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para que queden archivados durante un período de retención definido de dos días. Esos registros se conectan a los registros de Azure Monitor para el procesamiento, el almacenamiento y la creación de informes de panel.
 

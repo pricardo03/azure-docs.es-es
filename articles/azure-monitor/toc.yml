@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: contadores de rendimiento
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: Dependencias
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: Información general
                       href: platform/diagnostics-extension-overview.md
+                    - name: Recopilación de registros
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: Historial de versiones
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: Grupos de equipos
               href: platform/computer-groups.md
-        - name: Recursos de Azure
+        - name: Plataforma Azure
           items:
-            - name: Registros de diagnóstico
+            - name: Introducción a los registros de plataforma
+              href: platform/platform-logs-overview.md
+            - name: Registros del recurso
               items:
                 - name: Información general
-                  href: platform/diagnostic-logs-overview.md
-                - name: Recopilación en registros
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Recopilación desde Azure Storage
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: Recopilación en registros de Azure Monitor
+                  href: platform/resource-logs-collect-workspace.md
                 - name: Archivar en Storage
-                  href: platform/archive-diagnostic-logs.md
-                - name: Habilitar con plantillas de Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Suscripción de Azure
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: Transmisión a Event Hubs
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: Registro de actividades
               items:
                 - name: Información general
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: Esquema
                   href: platform/activity-log-schema.md
+            - name: Configuración de diagnóstico
+              items:
+                - name: Creación de la configuración de diagnóstico
+                  href: platform/diagnostic-settings.md
+                - name: Creación de la configuración de diagnóstico con Resource Manager
+                  href: platform/diagnostic-settings-template.md
+                - name: Cambio al formato de almacenamiento de blobs
+                  href: platform/resource-logs-blob-format.md
             - name: Transmisión de datos a Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Análisis de Key Vault
@@ -685,6 +695,7 @@
         - name: Storage
           items:
             - name: Azure Monitor para Storage
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: Bases de datos
           items:
@@ -747,7 +758,7 @@
             - name: Conexión con Configuration Manager
               href: platform/collect-sccm.md
         - name: Transmisión de datos a Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: Análisis de datos
       items:
         - name: Métricas

@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
     - name: Ejemplos
       items:
+        - name: Ejemplos de la CLI de Azure
+          href: ./azure-cli-samples.md
         - name: Ejemplos de .NET
           href: ./hdinsight-sdk-dotnet-samples.md
         - name: Ejemplos de Java
@@ -613,6 +615,8 @@
               href: ./hbase/apache-hbase-provision-vnet.md
         - name: Solución de problemas
           items:
+            - name: Solución de problemas de rendimiento de Apache HBase
+              href: ./hbase/troubleshoot-hbase-performance-issues.md
             - name: hbase hbck devuelve incoherencias
               href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
             - name: Excepción de almacenamiento después del restablecimiento de la conexión

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 80f90f1788e798261f77bb7a4147763e7ca6cec0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d64cdce34127b066aedc8a5fcd6ec3a891b38c5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946506"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262846"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -36,7 +36,7 @@ Las aplicaciones en la nube son complejas y tienen muchas partes en movimiento. 
 Los registros de Azure se clasifican en los tipos siguientes:
 * Los **registros de control y administración** proporcionan información sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Para más información, consulte [Registros de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
-* Los **registros del plano de datos** proporcionan información sobre eventos desencadenados como parte del uso de los recursos de Azure. Ejemplos de este tipo de registro son los registros de eventos del sistema de Windows, de seguridad y de aplicaciones en una máquina virtual, así como los [registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) que se han configurado mediante Azure Monitor.
+* Los **registros del plano de datos** proporcionan información sobre eventos desencadenados como parte del uso de los recursos de Azure. Ejemplos de este tipo de registro son los registros de eventos del sistema de Windows, de seguridad y de aplicaciones en una máquina virtual, así como los [registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) que se han configurado mediante Azure Monitor.
 
 * Los **eventos procesados** proporcionan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md), donde [Azure Security Center](../../security-center/security-center-intro.md) ha procesado y analizado su suscripción y proporciona unas alertas de seguridad concisas.
 
@@ -45,7 +45,7 @@ En la tabla siguiente se enumeran los tipos más importante de registros disponi
 | Categoría del registro | Tipo de registro | Uso | Integración |
 | ------------ | -------- | ------ | ----------- |
 |[Registros de actividad](../../azure-monitor/platform/activity-logs-overview.md)|Eventos de plano de control de los recursos de Azure Resource Manager|  Proporciona información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.|    API REST y [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Registros de Azure Diagnostics](../../azure-monitor/platform/diagnostic-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|  Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](../../azure-monitor/platform/diagnostic-logs-overview.md)|
+|[Registros de Azure Diagnostics](../../azure-monitor/platform/resource-logs-overview.md)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|    Proporciona información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](../../azure-monitor/platform/resource-logs-overview.md)|
 |[Informes de Azure AD](../../active-directory/reports-monitoring/overview-reports.md)|Registros e informes | Informa sobre las actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Máquinas virtuales y servicios en la nube](../../azure-monitor/learn/quick-collect-azurevm.md)|Servicio de Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](../../monitoring-and-diagnostics/azure-diagnostics.md) (almacenamiento de Windows Azure Diagnostics) y Linux en Azure Monitor|
 |[Análisis de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|El registro de almacenamiento proporciona datos de métricas de una cuenta de almacenamiento|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|   API de REST o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
@@ -95,14 +95,14 @@ Los registros de diagnóstico de Azure ofrecen varias opciones de configuración
 
 * Guardarlos en una [cuenta de almacenamiento](../../azure-monitor/platform/archive-diagnostic-logs.md) para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
 
-* [Transmitirlos a Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para la ingesta en un servicio de terceros o una solución de análisis personalizado como [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+* [Transmitirlos a Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) para la ingesta en un servicio de terceros o una solución de análisis personalizado como [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
 * Analícelos con [registros de Azure Monitor](../../log-analytics/log-analytics-queries.md).
 
 **Servicios admitidos, esquema de los registros de diagnóstico y categorías de registro admitidas por tipo de recurso**
 
 
-| Servicio | Esquema y documentación | Tipo de recurso | Categoría |
+| Servicio | Esquema y documentación | Tipo de recurso | Category |
 | ------- | ------------- | ------------- | -------- |
 |Azure Load Balancer| [Registros de Azure Monitor para Load Balancer (versión preliminar)](../../load-balancer/load-balancer-monitor-log.md)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
 |Grupos de seguridad de red|[Registros de Azure Monitor para grupos de seguridad de red](../../virtual-network/virtual-network-nsg-manage-log.md)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
@@ -315,11 +315,11 @@ En el centro de registros de Azure Monitor se encuentra el área de trabajo de L
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Los orígenes conectados son los equipos y otros recursos que generan los datos que recopila el servicio de registros de Azure Monitor. Los orígenes pueden incluir los agentes instalados en equipos [Windows](../../log-analytics/log-analytics-agent-windows.md) y [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) que se conectan directamente o agentes de un [grupo de administración de System Center Operations Manager conectado](../../azure-monitor/platform/om-agents.md). Registros de Azure Monitor también puede recopilar datos de una [cuenta de Azure Storage](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+Los orígenes conectados son los equipos y otros recursos que generan los datos que recopila el servicio de registros de Azure Monitor. Los orígenes pueden incluir los agentes instalados en equipos [Windows](../../log-analytics/log-analytics-agent-windows.md) y [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) que se conectan directamente o agentes de un [grupo de administración de System Center Operations Manager conectado](../../azure-monitor/platform/om-agents.md). Registros de Azure Monitor también puede recopilar datos de una [cuenta de Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md).
 
 Los [orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) son las distintas variantes de datos que se recopilan desde cada origen conectado. Los orígenes incluyen eventos y [datos de rendimiento](../../azure-monitor/platform/data-sources-performance-counters.md) de agentes de [Windows](../../azure-monitor/platform/data-sources-windows-events.md) y Linux, además de orígenes como [registros de IIS](../../azure-monitor/platform/data-sources-iis-logs.md) y [registros de texto personalizado](../../azure-monitor/platform/data-sources-custom-logs.md). Usted configura cada origen de datos que desea recopilar y la configuración se entrega automáticamente a cada origen conectado.
 
-Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md):
+Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure](../../azure-monitor/platform/resource-logs-collect-storage.md):
 
 * Azure Diagnostics directo a registros de Azure Monitor (**Diagnósticos** en la tabla siguiente)
 

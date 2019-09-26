@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035908"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260870"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -84,7 +84,7 @@ Una vez revocada la clave de cifrado, el servicio Event Hubs en el espacio de no
 > Si elimina una clave de cifrado existente del almacén de claves y la reemplaza por una nueva clave en el espacio de nombres de Event Hubs, dado que la clave eliminada sigue siendo válida hasta una hora (ya que está almacenada en caché), es posible que los datos antiguos (que se cifraron con la clave antigua) sigan siendo accesibles junto con los nuevos datos, a los que ahora solo se puede acceder con la nueva clave. Este comportamiento es así por diseño en la versión preliminar de la característica. 
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos 
-La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones cuando se cifra un espacio de nombres con claves administradas por el cliente. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones cuando se cifra un espacio de nombres con claves administradas por el cliente. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Habilitación de registros de usuario
 Siga estos pasos para habilitar registros para las claves administradas por el cliente.

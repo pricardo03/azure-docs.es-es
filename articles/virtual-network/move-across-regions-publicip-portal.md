@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 0ee3a386c6044abe834b901ce43795df68bd37c6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059381"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219223"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Movimiento de una dirección IP pública de Azure a otra región mediante Azure Portal
 
@@ -27,7 +27,7 @@ Las direcciones IP públicas de Azure son específicas de la región y no se pue
 - Las direcciones IP públicas de Azure no se pueden mover entre regiones.  Tendrá que asociar la nueva dirección IP pública a los recursos de la región de destino.
 
 - Para exportar una configuración de IP pública e implementar una plantilla para crear una dirección IP pública en otra región, necesitará el rol de colaborador de red u otro superior.
-   
+
 - Identifique el diseño de red de origen y todos los recursos que está usando actualmente. Este diseño incluye, pero no se limita a, los equilibradores de carga, los grupos de seguridad de red (NSG) y las redes virtuales.
 
 - Compruebe que su suscripción de Azure permite crear direcciones IP públicas en la región de destino que se usa. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
@@ -40,13 +40,13 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exportación de la plantilla e implementación desde un script
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) > **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Grupos de recursos**.
 2. Busque el grupo de recursos que contiene la dirección IP pública de origen y haga clic en él.
 3. Seleccione > **Configuración** > **Exportar plantilla**.
 4. En la hoja **Exportar plantilla**, elija **Implementar**.
 5. Haga clic en **Plantilla** > **Editar parámetros** para abrir el archivo **parameters.json** en el editor en línea.
 8. Para editar el parámetro del nombre de la dirección IP pública, cambie la propiedad en **parameters** > **value** del nombre de la dirección IP pública de origen al nombre de la dirección IP pública de destino. Asegúrese de que el nombre se encuentra entre comillas:
-    
+
     ```json
             {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -61,7 +61,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
     ```
 8.  Haga clic en **Guardar** en el editor.
 
-9.  Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea. 
+9.  Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
 
 10. Para editar la región de destino a la que se va a mover la dirección IP pública, cambie la propiedad **location** en **resources**:
 
@@ -86,11 +86,11 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
-    
+
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
 
     * **SKU**: puede cambiar la SKU de la dirección IP pública de la configuración de estándar a básica o viceversa modificando la propiedad **sku** > **name** en el archivo **template.json**:
@@ -131,17 +131,17 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Haga clic en **Guardar** en el editor en línea.
 
 14. Haga clic en **Aspectos básicos** > **Suscripción** para elegir la suscripción donde se implementará la dirección IP pública de destino.
 
-15. Haga clic en **Aspectos básicos** > **Grupo de recursos** para elegir el grupo de recursos donde se implementará la dirección IP pública de destino.  Puede hacer clic en **Crear nuevo** para crear un grupo de recursos para la dirección IP pública de destino.  Asegúrese de que el nombre no sea el mismo que el del grupo de recursos de origen de la dirección IP pública de origen existente. 
+15. Haga clic en **Aspectos básicos** > **Grupo de recursos** para elegir el grupo de recursos donde se implementará la dirección IP pública de destino.  Puede hacer clic en **Crear nuevo** para crear un grupo de recursos para la dirección IP pública de destino.  Asegúrese de que el nombre no sea el mismo que el del grupo de recursos de origen de la dirección IP pública de origen existente.
 
 16. Compruebe que **Aspectos básicos** > **Ubicación** está establecido en la ubicación de destino en la que quiere que se implemente la dirección IP pública.
 
@@ -151,7 +151,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 
 19. Haga clic en el botón **Comprar** para implementar la dirección IP pública de destino.
 
-## <a name="discard"></a>Discard (Descartar) 
+## <a name="discard"></a>Discard (Descartar)
 
 Si quiere descartar la dirección IP pública de destino, elimine el grupo de recursos que la contiene.  Para ello, en el portal, seleccione el grupo de recursos en el panel y, luego, **Eliminar** en la parte superior de la página de información general.
 

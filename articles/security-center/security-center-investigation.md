@@ -3,9 +3,8 @@ title: Investigación de incidentes y alertas en Azure Security Center | Microso
 description: Este documento le ayuda a utilizar la característica de investigación de Azure Security Center para investigar alertas e incidentes de seguridad.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
-ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: memildin
+ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662954"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202051"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigación de incidentes y alertas en Azure Security Center (retirado)
 Este documento le ayuda a utilizar la característica de investigación (versión preliminar) de Azure Security Center para investigar alertas e incidentes de seguridad.

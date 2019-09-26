@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 3fa68cf3996efa047b7573306749acb56b4c9411
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 77805b15d0061d0ab4b6ef2185c2f7f1c3459f0c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "70744098"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172074"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -90,7 +90,7 @@ La plantilla de proyecto crea un proyecto en el lenguaje elegido e instala las d
     >[!IMPORTANT]
     >Debido a que el archivo local.settings.json puede contener secretos, tiene que excluirlo del control de origen del proyecto.
 
-En este momento, puede agregar los enlaces de entrada y de salida a la función mediante la [modificación del archivo de function.json](#javascript-2) o [la incorporación de un parámetro a una función de biblioteca de clases de C#](#c-class-library-2).
+En este momento, puede agregar los enlaces de entrada y de salida a la función mediante la [modificación del archivo de function.json](#add-a-function-to-your-project) o [la incorporación de un parámetro a una función de biblioteca de clases de C#](#add-a-function-to-your-project).
 
 También puede [agregar una nueva función al proyecto](#add-a-function-to-your-project).
 
@@ -98,11 +98,11 @@ También puede [agregar una nueva función al proyecto](#add-a-function-to-your-
 
 Excepto los desencadenadores HTTP y del temporizador, los enlaces se implementan como paquetes de extensión. Tiene que instalar los paquetes de extensión para los desencadenadores y enlaces que los necesiten. El proceso de instalar las extensiones de enlace depende del lenguaje del proyecto.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>Biblioteca de clases de C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) en la ventana del terminal para instalar los paquetes de extensión que necesita en el proyecto. El siguiente comando instala la extensión de Azure Storage, que implementa los enlaces para el almacenamiento de Blob, Cola y Tabla.
 
@@ -110,19 +110,23 @@ Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) e
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## <a name="add-a-function-to-your-project"></a>Incorporación de una función al proyecto
 
 Puede agregar una nueva función a un proyecto existente mediante una de las plantillas de desencadenador de funciones predefinidas. Para agregar un nuevo desencadenador de función, seleccione la tecla F1 para abrir la paleta de comandos, después, busque y ejecute el comando **Azure Functions: Create Function**. Siga las indicaciones para elegir el tipo de desencadenador y definir los atributos necesarios del desencadenador. Si el desencadenador requiere una clave de acceso o cadena de conexión para conectarse a un servicio, prepárela antes de crear el desencadenador de la función.
 
 Los resultados de esta acción dependen del lenguaje del proyecto:
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de JavaScript.
 
-### <a name="c-class-library"></a>Biblioteca de clases de C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nuevo archivo de biblioteca de clases (. cs) de C# se agrega al proyecto.
+
+---
 
 ## <a name="add-input-and-output-bindings"></a>Incorporación de enlaces de entrada y de salida
 
@@ -130,7 +134,7 @@ Puede expandir la función mediante la adición de enlaces de entrada y de salid
 
 Los ejemplos siguientes se conectan a una cola de almacenamiento denominada `outqueue`, en la que está establecida la cadena de conexión para la cuenta de almacenamiento en valor de aplicación `MyStorageConnection` en local.settings.json.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace**:
 
@@ -168,7 +172,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Para más información, consulte la referencia sobre [enlace de salida de Queue Storage](functions-bindings-storage-queue.md#output---javascript-example).
 
-### <a name="c-class-library"></a>Biblioteca de clases de C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
 
@@ -181,6 +185,8 @@ Este código requiere que agregue la siguiente instrucción `using`:
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
+
+---
 
 El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. Agregue uno o varios mensajes a la colección. Estos mensajes se envían a la cola cuando se completa la función.
 

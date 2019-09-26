@@ -2,18 +2,18 @@
 title: Las definiciones de directiva de Azure supervisadas en Azure Security Center | Microsoft Docs
 description: Las definiciones de directiva de Azure supervisadas en Azure Security Center.
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910350"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201670"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Directivas de seguridad de Azure supervisadas por Security Center
 Este artículo proporciona una lista de definiciones de Azure Policy que puede supervisar en Azure Security Center. Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).

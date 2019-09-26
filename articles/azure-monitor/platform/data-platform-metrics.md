@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e534754e46e6f2ad9b99b67d24d9f7da63a51a4f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113521"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258378"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
@@ -37,7 +37,7 @@ En la tabla siguiente se enumeran las distintas formas en que se pueden usar dat
 | Visualizar | Ancle un gráfico del Explorador de métricas en un [panel de Azure](../learn/tutorial-app-dashboards.md).<br>Cree un [libro](../app/usage-workbooks.md) para combinar con varios conjuntos de datos en un informe interactivo. Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinarlos con otros orígenes de datos. |
 | Alerta | Configure una [regla de alertas de métricas](alerts-metric.md) que envíe una notificación o realice una [acción automatizada](action-groups.md) cuando el valor de la métrica cruce un umbral. |
 | Automatizar |  Use la [escalabilidad automática](autoscale-overview.md) para aumentar o disminuir los recursos según un valor de métrica que cruce un umbral. |
-| Exportación | [Redirija las métricas a los registros](diagnostic-logs-stream-log-store.md) para analizar los datos en las métricas en Microsoft Azure junto con los datos en los registros de Azure Monitor y para almacenar los valores de las métricas durante un período superior a 93 días.<br>Haga streaming de métricas a un [centro de eventos](stream-monitoring-data-event-hubs.md) para redirigirlas a sistemas externos. |
+| Exportación | [Redirija las métricas a los registros](resource-logs-collect-storage.md) para analizar los datos en las métricas en Microsoft Azure junto con los datos en los registros de Azure Monitor y para almacenar los valores de las métricas durante un período superior a 93 días.<br>Haga streaming de métricas a un [centro de eventos](stream-monitoring-data-event-hubs.md) para redirigirlas a sistemas externos. |
 | Recuperar | Obtenga acceso a los valores de métricas desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights).<br>Obtenga acceso a los valores de métricas de aplicaciones personalizadas con [API REST](rest-api-walkthrough.md).<br>Obtenga acceso a los valores de métricas desde una línea de comandos mediante la [CLI](/cli/azure/monitor/metrics). |
 | Archivar | [Archivar](..//learn/tutorial-archive-data.md) el historial de rendimiento o estado del recurso para fines de cumplimiento, auditoría o creación de informes sin conexión. |
 
@@ -110,7 +110,7 @@ Para la mayoría de los recursos en Azure, las métricas se almacenan durante 93
 
 
 > [!NOTE]
-> También puede [enviar métricas de plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](diagnostic-logs-stream-log-store.md) para tendencias a largo plazo.
+> También puede [enviar métricas de plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](resource-logs-collect-storage.md) para tendencias a largo plazo.
 
 
 

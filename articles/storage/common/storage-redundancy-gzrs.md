@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036332"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300646"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
@@ -29,7 +29,11 @@ Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y 
 
 GZRS y RA-GZRS están disponibles actualmente en las versiones preliminares de las siguientes regiones:
 
+- Norte de Europa
+- Oeste de Europa
 - Este de EE. UU.
+- Este de EE. UU. - 2
+- Centro de EE. UU.
 
 Microsoft sigue habilitando GZRS y RA-GZRS en otras regiones de Azure. Revise periódicamente la página  [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/)  para información sobre las regiones compatibles.
 

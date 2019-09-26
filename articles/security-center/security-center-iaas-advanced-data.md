@@ -3,9 +3,8 @@ title: Advanced Data Security para IaaS en Azure Security Center | Microsoft Do
 description: " Obtenga información sobre cómo habilitar Advanced Data Security para IaaS en Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295751"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202178"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar pública)
 Advanced Data Security para servidores SQL Server en Azure Virtual Machines es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Actualmente, incluye (en versión preliminar pública) una funcionalidad para buscar y mitigar posibles vulnerabilidades de la base de datos, así como y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. 

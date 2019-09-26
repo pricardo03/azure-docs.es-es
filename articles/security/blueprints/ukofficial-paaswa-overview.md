@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946522"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262785"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
@@ -113,7 +113,7 @@ Esta plantilla implementa las siguientes características de App Service:
 - Varias [ranuras de implementación](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) de App Service: desarrollo, versión preliminar, control de calidad, pruebas de aceptación de usuario y, por supuesto, producción (ranura predeterminada).
 - [Identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity) para conectarse a [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (también se puede usar para proporcionar acceso a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)). 
 - Integración con [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) para supervisar el rendimiento
-- [Registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- [Registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) 
 - [Alertas](../../azure-monitor/app/alerts.md) de métricas 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 

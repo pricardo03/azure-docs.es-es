@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: bc341492779e6ed5aef2505a98ad8a116866fe4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ae974be462a688d7b740fb9ca28e1186e7512326
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695273"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273800"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Descarga de los detalles de uso
-Para comenzar, [descargue los detalles de uso](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). En la tabla siguiente se proporciona la definición y valores de ejemplo de uso de las máquinas virtuales implementadas a través de Azure Resource Manager. Este documento no contiene información detallada de las máquinas virtuales implementadas a través del modelo clásico.
+Para comenzar, [descargue los detalles de uso](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). En la tabla siguiente se proporciona la definición y valores de ejemplo de uso de las máquinas virtuales implementadas a través de Azure Resource Manager. Este documento no contiene información detallada de las máquinas virtuales implementadas a través del modelo clásico.
 
 
 | Fields             | Significado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valores de ejemplo                                                                                                                                                                                                                                                                                                                                                   |
@@ -82,7 +82,7 @@ El nombre de región que se rellenó en el campo Ubicación de recurso en los de
 |    chinaeast             |    Este de China                            |
 |    chinanorth            |    Norte de China                           |
 |    eastasia              |    Asia oriental                             |
-|    estado                |    Este de EE. UU                               |
+|    estado                |    East US                               |
 |    eastus2               |    Este de EE. UU. 2                             |
 |    GermanyCentral        |    Centro de Alemania                            |
 |    GermanyNortheast      |    Nordeste de Alemania                          |

@@ -3,23 +3,22 @@ title: Plataformas compatibles con Azure Security Center | Microsoft Docs
 description: En este documento se proporciona una lista de plataformas compatibles con Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232202"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201634"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -120,8 +119,8 @@ Para obtener más información sobre las características admitidas para la list
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [Security Center recopila datos y el agente de log Analytics](security-center-enable-data-collection.md).
-- Aprenda cómo [Security Center administra y protege los datos](security-center-data-security.md).
+- Obtenga información sobre cómo [Security Center recopila datos y sobre el agente de Log Analytics](security-center-enable-data-collection.md).
+- Obtenga información sobre cómo [Security Center administra y protege los datos](security-center-data-security.md).
 - Aprenda a [planear y entender las consideraciones de diseño para adoptar Azure Security Center](security-center-planning-and-operations-guide.md).
 - Obtenga información [sobre las características disponibles para los diferentes entornos de nube](security-center-services.md).
 - Obtenga más información sobre la [detección de amenazas en máquinas virtuales y servidores en Azure Security Center](security-center-alerts-iaas.md).

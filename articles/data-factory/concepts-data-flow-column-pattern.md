@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775211"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219765"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Asignación de patrones de columnas de flujos de datos
 
@@ -57,5 +57,5 @@ Cree las reglas mediante el generador de expresiones. Las expresiones devolverá
 * `position` es la posición ordinal de las columnas en el flujo de datos
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre el [lenguaje de expresiones](http://aka.ms/dataflowexpressions) de Mapping Data Flow de ADF para las transformaciones de datos.
+* Obtenga más información sobre el [lenguaje de expresiones](https://aka.ms/dataflowexpressions) de Mapping Data Flow de ADF para las transformaciones de datos.
 * Uso de patrones de columnas en la [transformación de receptor](data-flow-sink.md) y en la [transformación Seleccionar](data-flow-select.md) con asignación basada en reglas

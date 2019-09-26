@@ -84,7 +84,11 @@
     - name: Equilibrio de carga de máquinas virtuales en una zona (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: Configuración de reglas de salida
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: 'Configuración de reglas de salida: CLI'
+          href: configure-load-balancer-outbound-cli.md
+        - name: 'Configuración de reglas de salida: PowerShell'
+          href: configure-load-balancer-outbound-powershell.md
     - name: Creación de una instancia de Azure Load Balancer mediante API REST
       href: create-load-balancer-rest-api.md
     - name: Creación de Load Balancer básico (plantilla)

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910184"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300557"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 
@@ -504,8 +504,6 @@ La instalación de Azure Data Factory Analytics crea un conjunto de vistas prede
 - Estadísticas de ADF: 3) Duración máxima de las ejecuciones de canalización
 
 ![Ventana con "Libros (vista previa)" y "AzureDataFactoryAnalytics" resaltados](media/data-factory-monitor-oms/monitor-oms-image6.png)
-
-![Representación gráfica de ejecuciones y errores](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
 Puede visualizar las métricas anteriores, examinar las consultas detrás de estas métricas, editar las consultas, crear alertas y realizar otras acciones.
 

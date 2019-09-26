@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 3b5f5ab278a14d3a5b12eae34d5c0076cfba5494
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8d71863406eb6e8b032a78f65ab5be97cca91bd7
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098996"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212883"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Acerca de los asociados de MSP de redes de Azure
 
@@ -40,7 +40,7 @@ Use los vínculos de esta sección para obtener más información acerca los ser
 
 [InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
 
-[IIJ](https://www.iij.ad.jp/en/)
+[IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
 [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
 

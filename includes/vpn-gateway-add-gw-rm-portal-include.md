@@ -5,50 +5,50 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/30/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186160"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273775"
 ---
-1. Inicie sesión en Azure Portal y seleccione **Crear un recurso**. Se abre la página **Nuevos**.
+1. En el portal, a la izquierda, haga clic en **+ Crear un recurso** y escriba "Virtual Network Gateway" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear**. Se abre la página **Crear puerta de enlace de red virtual**.
 
-2. En el campo **Buscar en Marketplace**, escriba *puerta de enlace de red virtual* y seleccione **Puerta de enlace de red virtual** en la lista de búsqueda. 
+   ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Campos de la página Crear puerta de enlace de red virtual")
 
-3. En la página **Puerta de enlace de red virtual**, seleccione **Crear** para abrir la página **Crear puerta de enlace de red virtual**.
+   ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Campos de la página Crear puerta de enlace de red virtual")
+2. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.
 
-   ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Campos de la página Crear puerta de enlace de red virtual")
+   **Detalles del proyecto**
 
-4. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual:
+   - **Suscripción**: seleccione la suscripción que desea usar en la lista desplegable.
+   - **Grupo de recursos**: esta configuración se rellena automáticamente cuando selecciona la red virtual en esta página.
 
-   - **Nombre**: escriba un nombre para el objeto de puerta de enlace que está creando. Este nombre es distinto del nombre de la subred de puerta de enlace. 
+   **Detalles de instancia**
 
-   - **Tipo de puerta de enlace**: seleccione **VPN** para las puertas de enlace de VPN. 
-
-   - **Tipo de VPN**: seleccione el tipo de VPN que se especifica para la configuración. La mayoría de las configuraciones requieren un tipo de VPN **basada en enrutamiento**.
-
+   - **Nombre**: Asigne un nombre a la puerta de enlace. Asignar nombre a la puerta de enlace no es lo mismo que asignar nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.
+   - **Región**: Seleccione la región en la que quiere crear este recurso. La región de la puerta de enlace debe ser la misma que la red virtual.
+   - **Tipo de puerta de enlace**: Seleccione **VPN**. Las puertas de enlace VPN usan el tipo de puerta de enlace de red virtual **VPN**. 
+   - **Tipo de VPN**: seleccione el tipo de VPN que se especifica para la configuración. La mayoría de las configuraciones requieren un tipo de VPN basada en enrutamiento.
    - **SKU**: seleccione la SKU de puerta de enlace en la lista desplegable. Las SKU que aparecen en la lista desplegable dependen del tipo de VPN que seleccione. Para más información acerca de las SKU de puerta de enlace, consulte [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-      Seleccione **Habilitar el modo activo/activo** solo si va a crear una configuración de puerta de enlace activa/activa. En caso contrario, deje este valor sin seleccionar.
-  
-   - **Ubicación**: puede que necesite desplazarse para ver la **ubicación**. Establezca el campo **Ubicación** en la ubicación en la que se encuentra la red virtual. Por ejemplo, **Oeste de EE. UU.** Si no establece la ubicación en la región donde se encuentra la red virtual, no aparecerá en la lista desplegable cuando seleccione una red virtual.
+      **Red virtual**: Elija la red virtual a la que quiera agregar esta puerta de enlace.
 
-   - **Red virtual**: Elija la red virtual a la que quiera agregar esta puerta de enlace. Seleccione **Red virtual** para abrir la página **Elegir red virtual** y seleccione la red virtual. Si no ve la red virtual, asegúrese de que el campo **Ubicación** esté establecido en la región en la que esta se encuentra.
+      **Intervalo de direcciones de subred de puerta de enlace**: Este campo solo aparece si la red virtual seleccionada no tiene una subred de puerta de enlace. Rellene el intervalo si aún no tiene una subred de puerta de enlace. Si es posible, convierta el intervalo /27 o mayor (/26, /25, etc.).
 
-   - **Intervalo de direcciones de subred de puerta de enlace**: solo verá esta opción si anteriormente no creó una subred de puerta de enlace para la red virtual. Si creó una subred de puerta de enlace válida, esta opción no aparecerá.
+   **Dirección IP pública**: esta configuración especifica el objeto de dirección IP pública que se asocia a la puerta de enlace de VPN. La dirección IP pública se asigna dinámicamente a este objeto cuando se crea la puerta de enlace de VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 
-   - **Dirección IP pública**: esta configuración especifica el objeto de dirección IP asociado con la puerta de enlace de VPN. La dirección IP pública se asigna dinámicamente a este objeto cuando se crea la puerta de enlace de VPN. Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas *dinámicas*. Sin embargo, la asignación dinámica no significa que la dirección IP cambie después de que se haya asignado a la puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
-    
-      - Mantenga la opción **Crear nueva** seleccionada.
+     - **Dirección IP pública**: Mantenga la opción **Crear nueva** seleccionada.
+     - **Nombre de dirección IP pública**: En el cuadro de texto, escriba un nombre para la dirección IP pública.
+     - **Asignación**: VPN Gateway solo admite Dinámica.
 
-      - En el cuadro de texto, escriba un nombre para la dirección IP pública.
+   **Modo activo/activo**: Seleccione **Habilitar el modo activo/activo** solo si va a crear una configuración de puerta de enlace activa/activa. En caso contrario, deje este valor sin seleccionar.
 
-   - **Configure BGP ASN** (Configuración de ASN de BGP): desactive esta opción, a menos que la configuración la requiera específicamente. Si es así, el ASN predeterminado es *65515*, un valor que se puede cambiar.
-     
-5. Compruebe la configuración y seleccione **Crear** para empezar a crear la puerta de enlace de VPN. Se validará la configuración y verá el icono **Implementación de la puerta de enlace de red virtual** en el panel. La creación de una puerta de enlace puede tardar hasta 45 minutos. Es posible que tenga que actualizar la página de portal para ver el estado completado.
+   Deje la opción **Configurar ASN BGP** sin seleccionar, a menos que su configuración requiera específicamente este valor. Si necesita esta configuración, el valor predeterminado del ASN es 65515, aunque esto se puede cambiar.
 
-6. Después de crear la puerta de enlace, compruebe la dirección IP que tiene asignada mediante la visualización de la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado. Para más información, puede seleccionar el dispositivo conectado (la puerta de enlace de red virtual).
+3. Haga clic en **Revisar y crear** para ejecutar la validación. Una vez superada la validación, haga clic en **Crear** para implementar VPN Gateway. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
+
+Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 0f070cb9a6e300dad0ec9e0b393b09b7f22d2942
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717570"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212582"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Análisis operativo en tiempo real integrado en Azure Cosmos DB con Apache Spark (versión preliminar) 
 
@@ -136,12 +136,6 @@ La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Co
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB en los análisis de juego:
 
 ![Compatibilidad de Spark de Azure Cosmos DB en el análisis de juegos](./media/spark-api-introduction/gaming-analytics.png)
-
-## <a name="built-in-jupyter-notebooks-support"></a>Compatibilidad integrada con cuadernos de Jupyter
-
-Azure Cosmos DB admite cuadernos de Jupyter Notebook integrados para todas las API, como Cassandra, MongoDB, SQL, Gremlin y Table. Los cuadernos de Jupyter Notebook se ejecutan en las cuentas de Azure Cosmos y mejoran la experiencia del desarrollador. La compatibilidad integrada de los cuadernos con todas las API y modelos de datos de Azure Cosmos DB permite ejecutar consultas de forma interactiva. También puede ejecutar modelos de aprendizaje automático y analizar los datos almacenados en las bases de datos de Azure Cosmos. Gracias a la experiencia de los cuadernos de Jupyter, puede analizar los datos almacenados, crear y entrenar modelos de aprendizaje automático y realizar inferencias sobre los datos en Azure Portal, como se muestra en la siguiente imagen:
-
-![Compatibilidad con cuadernos de Jupyter en Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

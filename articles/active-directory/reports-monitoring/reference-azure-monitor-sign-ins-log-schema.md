@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127047"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259151"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
@@ -149,7 +149,7 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | ResourceId | Este valor no se ha asignado, y puede ignorar este campo de forma segura.  |
 | OperationName | Para inicios de sesión, este valor es siempre *Actividad de inicio de sesión*. |
 | OperationVersion | Versión de la API REST solicitada por el cliente. |
-| Categoría | Para inicios de sesión, este valor es siempre *SignIn*. | 
+| Category | Para inicios de sesión, este valor es siempre *SignIn*. | 
 | TenantId | GUID del inquilino asociado con los registros. |
 | ResultType | El resultado de la operación de inicio de sesión puede ser *Correcto* o *Error*. | 
 | ResultSignature | Contiene el código de error, si existe, de la operación de inicio de sesión. |
@@ -170,4 +170,4 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Interpretación del esquema de registros de auditoría en Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Más información sobre los registros de diagnóstico de Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Más información sobre los registros de diagnóstico de Azure](../../azure-monitor/platform/resource-logs-overview.md)

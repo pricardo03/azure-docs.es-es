@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110300"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155156"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Supervisión del rendimiento con la extensión de Microsoft Azure Diagnostics
 
@@ -191,9 +191,6 @@ Este es un ejemplo de una configuración con el contador para la *Tiempo total d
       },
 ....
 ```
-
- >[!NOTE]
- >Aunque puede utilizar `*` para especificar grupos de contadores de rendimiento con nombres similares, el envío de todos los contadores a través de un receptor (para Application Insights) requiere que se declaren individualmente. 
 
 1. Una vez que haya agregado los contadores de rendimiento adecuados que se deben recopilar, debe actualizar el recurso de clúster de manera que estos cambios se reflejan en el clúster de ejecución. Guarde su `template.json` modificado y abra PowerShell. Puede actualizar el clúster con `New-AzResourceGroupDeployment`. La llamada requiere el nombre del grupo de recursos, el archivo de plantilla actualizado y el archivo de parámetro, y solicita a Resource Manager realizar los cambios adecuados en los recursos que se ha actualizado. Una vez que haya iniciado sesión en su cuenta y esté en la suscripción correcta, utilice el siguiente comando para ejecutar la actualización:
 

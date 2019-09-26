@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965211"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176825"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -221,7 +221,7 @@ En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure A
 >[!IMPORTANT]
 >Si se pierde la clave de descifrado de Kerberos de la cuenta de un equipo, se puede usar para generar vales de Kerberos para todos los usuarios de su bosque de AD. En ese caso, actores malintencionados pueden suplantar los inicios de sesión de Azure AD de los usuarios en peligro. Se recomienda encarecidamente cambiar las claves de descifrado de Kerberos de manera periódica (al menos cada 30 días).
 
-Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
+Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
 
 >[!IMPORTANT]
 >No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada treinta días.

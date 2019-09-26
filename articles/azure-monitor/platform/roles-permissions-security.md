@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243421"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260617"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 
@@ -31,7 +31,7 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 * Ver las reglas de alerta definidas en [Alertas de Azure](alerts-overview.md)
 * Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](powershell-quickstart-samples.md) o la [CLI multiplataforma](cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
-* Ver la [configuración de diagnóstico](diagnostic-logs-overview.md#diagnostic-settings) de un recurso.
+* Ver la [configuración de diagnóstico](diagnostic-settings.md) de un recurso.
 * Ver el [perfil de registro](activity-log-export.md) de una suscripción.
 * Consultar la configuración de escalado automático.
 * Consultar la configuración y actividad de alertas.
@@ -52,7 +52,7 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
 * Publicar paneles de supervisión como un panel compartido.
-* Determinar la [configuración de diagnóstico](diagnostic-logs-overview.md#diagnostic-settings) de un recurso.\*
+* Determinar la [configuración de diagnóstico](diagnostic-settings.md) de un recurso.\*
 * Establecer el [perfil de registro](activity-log-export.md) de una suscripción.\*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.

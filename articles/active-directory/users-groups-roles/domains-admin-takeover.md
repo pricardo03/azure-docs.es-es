@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914771"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146457"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -88,14 +88,11 @@ Cuando se comprueba la propiedad del nombre de dominio, Azure AD quita el nombre
 ### <a name="support-for-external-admin-takeover"></a>Compatibilidad con la adquisición de administración externa
 La adquisición de administración externa es compatible con los servicios en línea siguientes:
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 Los planes de servicio compatibles incluyen:
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - RMS para individuos
@@ -113,10 +110,6 @@ En el caso de [RMS para individuos](/azure/information-protection/rms-for-indivi
 Si inquilino no administrado está en otra región, la clave y las plantillas no se mueven. Por ejemplo, si el inquilino no administrado está en Europa y al organización que usted posee se encuentra en Norteamérica.
 
 Aunque RMS para individuos está diseñado para admitir la autenticación de Azure AD para abrir contenido protegido, no impide que los usuarios también protejan el contenido. Si los usuarios han protegido el contenido con la suscripción a RMS para individuos y la clave y las plantillas no se han movido, no será posible acceder a dicho contenido después de la adquisición del dominio.
-
-#### <a name="more-information-about-power-bi"></a>Más información sobre Power BI
-
-Al realizar un adquisición externa, el contenido de Power BI que se creó antes de la adquisición se coloca en un [área de trabajo archivada de Power BI](/power-bi/service-admin-power-bi-archived-workspace). Debe migrar manualmente el contenido que quiera usar en el nuevo inquilino.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets de Azure AD PowerShell para la opción ForceTakeover
 Puede ver estos cmdlets en uso en el [ejemplo de PowerShell](#powershell-example).

@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194674"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161976"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -20,7 +20,7 @@ Cuando se determina que un recurso de Azure no cumple con una regla de directiva
 
 > [!div class="checklist"]
 > - [Detalles de cumplimiento](#compliance-details)
-> - [Historial de cambios (versión preliminar)](#change-history-preview)
+> - [Historial de cambios (versión preliminar)](#change-history)
 
 ## <a name="compliance-details"></a>Detalles de cumplimiento
 
@@ -79,7 +79,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
 > [!NOTE]
 > Para proteger los datos, cuando un valor de propiedad es _secreto_, el valor actual muestra asteriscos.
 
-Estos detalles explican por qué un recurso no es compatible actualmente, pero no muestran cuándo se realizó el cambio en el recurso que provocó que se transformara en no compatible. Para obtener esa información, consulte [Historial de cambios (versión preliminar)](#change-history-preview) a continuación.
+Estos detalles explican por qué un recurso no es compatible actualmente, pero no muestran cuándo se realizó el cambio en el recurso que provocó que se transformara en no compatible. Para obtener esa información, consulte [Historial de cambios (versión preliminar)](#change-history) a continuación.
 
 ### <a name="compliance-reasons"></a>Razones de cumplimiento
 

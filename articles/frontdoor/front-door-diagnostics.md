@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736808"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260169"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervisión de métricas y registro en Azure Front Door Service
 
@@ -31,14 +31,14 @@ Las métricas son una característica de determinados recursos de Azure en los q
 
 | Métrica | Nombre de métrica para mostrar | Unidad | Dimensiones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| RequestCount | Recuento de solicitudes | Recuento | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de solicitudes de cliente que atiende Front Door.  |
+| RequestCount | Recuento de solicitudes | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de solicitudes de cliente que atiende Front Door.  |
 | RequestSize | Tamaño de la solicitud | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como solicitudes de clientes a Front Door. |
 | ResponseSize | Tamaño de la respuesta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como respuestas de Front Door a los clientes. |
 | TotalLatency | Latencia total | Milisegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tiempo calculado desde que Front Door recibe la solicitud de cliente hasta que el cliente reconoce el último byte de respuesta de Front Door. |
-| BackendRequestCount | Recuento de solicitudes de back-end | Recuento | HttpStatus</br>HttpStatusGroup</br>Back-end | Número de solicitudes enviadas de Front Door a los servidores back-end. |
+| BackendRequestCount | Recuento de solicitudes de back-end | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | Número de solicitudes enviadas de Front Door a los servidores back-end. |
 | BackendRequestLatency | Latencia de las solicitudes de back-end | Milisegundos | Back-end | Tiempo calculado desde que Front Door envía la solicitud al servidor back-end hasta que Front Door recibe el último byte de respuesta del servidor back-end. |
 | BackendHealthPercentage | Porcentaje de estado del back-end | Percent | Back-end</br>BackendPool | El porcentaje de sondeos de estado correctos de Front Door a los servidores back-ends. |
-| WebApplicationFirewallRequestCount | Recuento de solicitudes del firewall de aplicaciones web | Recuento | PolicyName</br>RuleName</br>. | Número de solicitudes de cliente procesadas por la seguridad del nivel de aplicación de Front Door. |
+| WebApplicationFirewallRequestCount | Recuento de solicitudes del firewall de aplicaciones web | Count | PolicyName</br>RuleName</br>. | Número de solicitudes de cliente procesadas por la seguridad del nivel de aplicación de Front Door. |
 
 ## <a name="activity-log"></a>Registros de actividad
 
@@ -59,7 +59,7 @@ Acceda a registros de actividad en el servicio Front Door Service o a los regi
 ## <a name="diagnostic-logging"></a>Registros de diagnóstico
 Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad.
 
-Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que realiza el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que realiza el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ![Registros de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
 
@@ -92,5 +92,5 @@ Front Door Service actualmente proporciona los registros de diagnóstico (agru
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cree una instancia de Front Door](quickstart-create-front-door.md)
+- [Crear un perfil de Front Door](quickstart-create-front-door.md)
 - Información acerca de cómo [funciona Front Door](front-door-routing-architecture.md)

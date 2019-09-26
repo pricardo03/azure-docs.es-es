@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876579"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260860"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -35,7 +35,7 @@ Azure Digital Twins es compatible con un eficaz sistema de registro, supervisió
 
 * Para ver una configuración de registro específica de Azure Digital Twins, lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md).
 * Consulte la introducción a [Azure Monitor](../azure-monitor/overview.md) para obtener información acerca de la eficaz configuración del registro que se habilita a través de Azure Monitor.
-* Lea el artículo [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar el registro de diagnóstico en Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
+* Lea el artículo [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/resource-logs-overview.md) para configurar el registro de diagnóstico en Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
 
 Una vez configurado, podrá seleccionar todas las categorías de registro y métricas, así como usar áreas de trabajo del análisis del registro de Azure Monitor para dar soporte a sus esfuerzos de depuración.
 

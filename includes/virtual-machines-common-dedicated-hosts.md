@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976612"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266864"
 ---
 ## <a name="benefits"></a>Ventajas 
 
@@ -113,6 +113,6 @@ Azure supervisa y administra el estado de mantenimiento de los hosts. Al consult
 |----------|----------------|
 | Host disponible     | No hay ningún problema conocido en el host.   |
 | Host bajo investigación  | Hay algunos problemas en el host y se están examinando. Se trata de un estado transitorio necesario para que Azure intente identificar el ámbito y la causa principal del problema identificado. Es posible que se vean afectadas las máquinas virtuales que se ejecutan en el host. |
-| Host pendiente de desasignación   | Azure no puede devolver el host a un estado correcto y le solicita que vuelva a implementar las máquinas virtuales fuera de este host. Si `autoHealingOnFailure` está habilitado, las máquinas virtuales *se recuperan* con un hardware que funcione correctamente. De lo contrario, es posible que la máquina virtual se esté ejecutando en un host que esté a punto de producir un error.|
+| Host pendiente de desasignación   | Azure no puede devolver el host a un estado correcto y le solicita que vuelva a implementar las máquinas virtuales fuera de este host. Si `autoReplaceOnFailure` está habilitado, las máquinas virtuales *se recuperan* con un hardware que funcione correctamente. De lo contrario, es posible que la máquina virtual se esté ejecutando en un host que esté a punto de producir un error.|
 | Host desasignado  | Todas las máquinas virtuales se han quitado del host. Ya no se le cobrará por este host, ya que el hardware se eliminado de la rotación.   |
 

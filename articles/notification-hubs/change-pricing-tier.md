@@ -2,22 +2,23 @@
 title: Cambio del plan de tarifa del espacio de nombres de Notification Hubs | Microsoft Docs
 description: Obtenga información sobre cómo cambiar el plan de tarifa de un espacio de nombres de Azure Notification Hubs.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 01/28/2019
-ms.author: jowargo
-ms.openlocfilehash: 99ea21b3eb01a674a89c70a1b923f02e600cc3c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60234450"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212569"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambio del plan de tarifa de un espacio de nombres de Azure Notification Hubs
 Notification Hubs se ofrece en tres niveles: **gratis**, **básico** y **estándar**. En este artículo se muestra cómo cambiar el plan de tarifa para un espacio de nombres de Azure Notification Hubs. 

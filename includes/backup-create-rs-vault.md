@@ -2,21 +2,22 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: include
 ms.date: 10/18/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f6099975ad6968313e3083f2e7f5e3220db03cb
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186670"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241071"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+
 Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
 
 Para crear un almacén de Recovery Services:
@@ -32,7 +33,7 @@ Para crear un almacén de Recovery Services:
     ![Escribir y elegir Almacenes de Recovery Services](./media/backup-create-rs-vault/all-services.png)
 
     Aparece la lista de almacenes de Recovery Services de la suscripción.
-    
+
 4. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
 
     ![Agregar un almacén de Recovery Services](./media/backup-create-rs-vault/add-button-create-vault.png)

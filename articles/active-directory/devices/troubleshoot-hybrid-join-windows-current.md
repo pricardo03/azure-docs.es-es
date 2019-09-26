@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995163"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162410"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solución de problemas de dispositivos híbridos unidos a Azure Active Directory 
 
@@ -110,7 +110,7 @@ Continúe con los pasos siguientes para más información.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 y versiones posteriores
 
-Busque el subapartado "Previous Registration" (Registro previo) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión.
+Busque el subapartado "Previous Registration" (Registro previo) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión. Esta sección solo se muestra si el dispositivo está unido a un dominio y no puede realizar una unión a Azure AD híbrido.
 El campo "Error Phase" (Fase del error) denota la fase del error de unión y "Client ErrorCode" (Código de error del cliente), el código de error de la operación de unión.
 
 ```
@@ -181,7 +181,7 @@ Para buscar el código de suberror del código de error de detección, use uno d
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 y versiones posteriores
 
-Busque el subapartado "DRS Discovery Test" (Prueba de detección de DRS) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión.
+Busque el subapartado "DRS Discovery Test" (Prueba de detección de DRS) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión. Esta sección solo se muestra si el dispositivo está unido a un dominio y no puede realizar una unión a Azure AD híbrido.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Busque el tipo de registro y busque el código de error en la siguiente lista.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 y versiones posteriores
 
-Busque el subapartado "Previous Registration" (Registro previo) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión.
+Busque el subapartado "Previous Registration" (Registro previo) en el apartado "Diagnostic Data" (Datos de diagnóstico) de la salida de estado de la unión. Esta sección solo se muestra si el dispositivo está unido a un dominio y no puede realizar una unión a Azure AD híbrido.
 El campo "Registration Type" (Tipo de registro) denota el tipo de unión realizada.
 
 ```

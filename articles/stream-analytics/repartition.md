@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101506"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266442"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Vuelva a crear particiones para optimizar el procesamiento con Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Experimente y observe el uso de recursos de su trabajo para determinar el númer
 
 Cuando el trabajo usa SQL Database para la salida, use el reparticionamiento explícito para hacer coincidir el recuento de particiones óptimo y maximizar el rendimiento. Dado que SQL funciona mejor con ocho escritores, volver a particionar el flujo con ocho antes del vaciado, o en algún otro flujo ascendente, puede beneficiar el rendimiento del trabajo. 
 
-Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Considere el uso de [INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) en la consulta para especificar explícitamente el número de redactores de salida. 
+Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Considere el uso de [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) en la consulta para especificar explícitamente el número de redactores de salida. 
 
 En el ejemplo siguiente se lee desde la entrada, independientemente de que se cree una partición de forma natural, y se crea una partición de la secuencia diez veces mayor según la dimensión de DeviceID y se vacían los datos en la salida. 
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d72b474e5f5e62ded6423fcc756e1cd51b905f4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850665"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265126"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -259,7 +259,7 @@ Una configuración de nodo firmada se comprueba localmente en un nodo administra
 > [!NOTE]
 > Un archivo de configuración de nodo debe ocupar más de 1 MB para poderlo importar en Azure Automation.
 
-Para más información sobre cómo firmar configuraciones de nodo, consulte [Improvements in WMF 5.1 - How to sign configuration and module](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations). (Mejoras en WMF 5.1: firma de la configuración y del módulo).
+Para más información sobre cómo firmar configuraciones de nodo, consulte [Improvements in WMF 5.1 - How to sign configuration and module](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations). (Mejoras en WMF 5.1: firma de la configuración y del módulo).
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>Compilación de una configuración en Windows PowerShell
 

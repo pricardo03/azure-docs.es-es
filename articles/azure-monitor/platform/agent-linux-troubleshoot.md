@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 732c93688dbc73cb5a4ce21e4669744be61c5925
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071668"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299562"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -34,7 +34,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Ubicaciones de registro importantes y herramienta de recopilador de registros
 
- Archivo | Ruta de acceso
+ Archivo | Path
  ---- | -----
  Archivo de registro del agente de Log Analytics para Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Archivo de registro de configuración del agente de Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
@@ -43,7 +43,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
 ## <a name="important-configuration-files"></a>Archivos de configuración importantes
 
- Categoría | Ubicación del archivo
+ Category | Ubicación del archivo
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf`, `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
  Rendimiento, Nagios, Zabbix, salida de Log Analytics y agente general | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
@@ -51,7 +51,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
  >[!NOTE]
  >Edición de archivos de configuración para los contadores de rendimiento, y Syslog se sobrescribe si la colección se configura desde el [menú de datos Configuración avanzada de Log Analytics](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) en Azure Portal para el área de trabajo. Para deshabilitar la configuración para todos los agentes, deshabilite la colección de **Configuración avanzada** de Log Analytics o, para un único agente, ejecute lo siguiente:  
-> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>Códigos de error de instalación
 
@@ -192,7 +192,7 @@ Se trata de un problema conocido que se produce con la primera carga de datos de
 ## <a name="issue-you-see-omiagent-using-100-cpu"></a>Problema: Se indica el proceso omiagent usa el 100 % de la CPU
 
 ### <a name="probable-causes"></a>Causas probables
-Una regresión en el paquete nss-pem [v1.0.3 5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) causó un problema de rendimiento grave, que hemos observado con frecuencia en las distribuciones Redhat/Centos 7.x. Para más información sobre este problema, consulte la siguiente documentación: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121) (Error 1667121 Regresión del rendimiento en libcurl).
+Una regresión en el paquete nss-pem [v1.0.3 5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) causó un problema de rendimiento grave, que hemos observado con frecuencia en las distribuciones Redhat/Centos 7.x. Para más información sobre este problema, consulte la siguiente documentación: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121) (Error 1667121 Regresión del rendimiento en libcurl).
 
 Los errores relacionados con el rendimiento no se producen constantemente y son muy difíciles de reproducir. Si experimenta este problema con omiagent, debe usar el script omiHighCPUDiagnostics.sh, que recopilará el seguimiento de pila de omiagent cuando se supere un umbral determinado.
 
@@ -206,7 +206,7 @@ Los errores relacionados con el rendimiento no se producen constantemente y son 
 
 ### <a name="resolution-step-by-step"></a>Resolución (paso a paso)
 
-1. Actualice el paquete nss-pem a [v1.0.3 5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+1. Actualice el paquete nss-pem a [v1.0.3 5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. Si el paquete nss-pem no está disponible para la actualización (sucede principalmente en Centos), degrade curl a la versión 7.29.0-46. Si por error ejecuta la "actualización de yum", curl se actualizará a la versión 7.29.0-51 y volverá a producirse el problema. <br/>
