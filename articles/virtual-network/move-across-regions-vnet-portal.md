@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 2a1ee358a6c97b721ec6f0da3eb70269239b0737
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a09ce7b77dfcaa51e7c82f67a5d20000f3e22b61
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077960"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71220001"
 ---
 # <a name="move-azure-virtual-network-to-another-region-using-the-azure-portal"></a>Traslado de una red virtual de Azure a otra región mediante Azure Portal
 
@@ -27,7 +27,7 @@ Puede usar una plantilla de Azure Resource Manager para completar el traslado de
 - Para exportar una red virtual e implementar una plantilla para crear una red virtual en otra región, necesitará el rol Colaborador de red u otro superior.
 
 - Los emparejamientos de redes virtuales no se volverán a crear y se producirá un error si todavía están presentes en la plantilla.  Tendrá que quitar todos los pares de redes virtuales antes de exportar la plantilla y, a continuación, volver a establecer los pares después de la migración de la red virtual.
-    
+
 - Identifique el diseño de red de origen y todos los recursos que está usando actualmente. Este diseño incluye, pero no se limita a los equilibradores de carga, grupos de seguridad de red (NSG), e IP públicas.
 
 - Compruebe que su suscripción de Azure permite crear redes virtuales en la región de destino. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
@@ -40,13 +40,13 @@ En los pasos siguientes se muestra cómo preparar la red virtual para el traslad
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportación de la plantilla e implementación desde el portal
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) > **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Grupos de recursos**.
 2. Seleccione el grupo de recursos que contiene la red virtual de origen y haga clic en él.
 3. Seleccione > **Configuración** > **Exportar plantilla**.
 4. En la hoja **Exportar plantilla**, elija **Implementar**.
 5. Haga clic en **PLANTILLA** > **Editar parámetros** para abrir el archivo **parameters.json** en el editor en línea.
 6. Para editar el parámetro correspondiente al nombre de la red virtual, cambie la propiedad **value** de **parameters**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +62,7 @@ En los pasos siguientes se muestra cómo preparar la red virtual para el traslad
 
 8.  Haga clic en **Guardar** en el editor.
 
-9.  Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea. 
+9.  Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
 
 10. Para editar la región de destino a la que se va a trasladar la red virtual, cambie la propiedad **location** en **resources** en el editor en línea:
 
@@ -83,11 +83,11 @@ En los pasos siguientes se muestra cómo preparar la red virtual para el traslad
                         },
 
     ```
- 
+
 11. Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
- 
+
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
-    
+
     * **Espacio de direcciones**: el espacio de direcciones de la red virtual se puede modificar antes de guardar al editar la sección **resources** > **addressSpace** y cambiar la propiedad **addressPrefixes** en el archivo **template.json**:
 
         ```json
@@ -179,7 +179,7 @@ En los pasos siguientes se muestra cómo preparar la red virtual para el traslad
 
 14. Haga clic en **BÁSICO** > **Suscripción** para elegir la suscripción en la que se implementará la red virtual de destino.
 
-15. Haga clic en **BÁSICO** > **Grupo de recursos** para elegir el grupo de recursos en el que se implementará la red virtual de destino.  Puede hacer clic en **Crear nuevo** para crear un nuevo grupo de recursos para la red virtual de destino.  Asegúrese de que el nombre no es el mismo que el del grupo de recursos de origen de la red virtual existente. 
+15. Haga clic en **BÁSICO** > **Grupo de recursos** para elegir el grupo de recursos en el que se implementará la red virtual de destino.  Puede hacer clic en **Crear nuevo** para crear un nuevo grupo de recursos para la red virtual de destino.  Asegúrese de que el nombre no es el mismo que el del grupo de recursos de origen de la red virtual existente.
 
 16. Compruebe que **BÁSICO** > **Ubicación** está establecido en la ubicación de destino en la que quiere implementar la red virtual.
 
@@ -189,7 +189,7 @@ En los pasos siguientes se muestra cómo preparar la red virtual para el traslad
 
 19. Haga clic en el botón **Comprar** para implementar la red virtual de destino.
 
-## <a name="discard"></a>Discard (Descartar) 
+## <a name="discard"></a>Discard (Descartar)
 
 Si quiere descartar la red virtual de destino, elimine el grupo de recursos que contiene la red virtual de destino.  Para ello, en el portal, seleccione el grupo de recursos en el panel y, luego, **Eliminar** en la parte superior de la página de información general.
 

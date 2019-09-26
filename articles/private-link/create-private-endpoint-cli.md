@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 33383f42c3731d8a5aefdcde5008d706d5a9eed8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104797"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219372"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creación de un punto de conexión privado mediante la CLI de Azure
 Un punto de conexión privado es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link. En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una red virtual, un servidor de SQL Database con un punto de conexión privado mediante la CLI de Azure. A continuación, puede acceder a la máquina virtual y acceder de forma segura al recurso de vínculo privado (un servidor de Azure SQL Database privado en este ejemplo). 
@@ -107,7 +107,7 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --registration-enabled false 
 
 #Query for the network interface ID  
-az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id'
+networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
  
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
@@ -144,7 +144,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 1. Una vez que aparezca el escritorio de la máquina virtual, minimícelo para volver a su escritorio local.  
 
-## <a name="access-dql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
 En esta sección, se conectará al servidor de SQL Database desde la máquina virtual mediante el punto de conexión privado.
 

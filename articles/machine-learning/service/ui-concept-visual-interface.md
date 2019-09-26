@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996522"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128803"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>¿Qué es la interfaz visual de Azure Machine Learning? 
 
@@ -95,8 +95,8 @@ Para aprender a implementar el modelo, consulte [Tutorial: Implementación de un
 
 * Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con la interfaz visual](ui-tutorial-automobile-price-train-score.md)
 * Utilice uno de los ejemplos y modifíquelo cuanto necesite para adaptarlo a sus necesidades:
-    * [Ejemplo 1 - Regresión: predicción del precio](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Ejemplo 5 - Clasificación: predicción de la deserción de clientes, la apetencia y la venta vertical](ui-sample-classification-predict-churn.md)
+    * [Ejemplo 1 - Regresión: predicción del precio](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Ejemplo 5 - Clasificación: predicción de la deserción de clientes, la apetencia y la venta vertical](how-to-ui-sample-classification-predict-churn.md)

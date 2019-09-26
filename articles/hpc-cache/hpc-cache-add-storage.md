@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775048"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037195"
 ---
 # <a name="add-storage"></a>Agregue almacenamiento
 
@@ -27,13 +27,15 @@ Puede agregar destinos de almacenamiento al crear la instancia de Azure HPC Cach
 
 Use la pestaña **Storage Targets** (Destinos de almacenamiento) del Asistente para creación de caché para definir el almacenamiento al mismo tiempo que crea la instancia de caché.
 
-![captura de pantalla de la pestaña destinos de almacenamiento](media/create-targets.png)
+![captura de pantalla de la pestaña destinos de almacenamiento](media/hpc-cache-storage-targets-pop.png)
 
 Haga clic en el vínculo **Add storage target** (Agregar destino de almacenamiento) para agregar almacenamiento.
 
 ## <a name="add-storage-targets-from-the-cache"></a>Incorporación de destinos de almacenamiento de la caché
 
 En Azure Portal, abra la instancia de caché y haga clic en **Destinos de almacenamiento** en la barra lateral izquierda. En la página Destino de almacenamiento se enumeran todos los destinos existentes y se proporciona un vínculo para agregar uno nuevo.
+
+![captura de pantalla del vínculo de destinos de almacenamiento en la barra lateral, en el encabezado Configurar, que se encuentra entre los encabezados de categoría Configuración y Supervisión](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage
 
@@ -51,8 +53,6 @@ Para definir un contenedor de blobs de Azure, escriba esta información.
 * **Storage container** (Contenedor de almacenamiento): seleccione el contenedor de blobs para este destino.
 
 * **Virtual namespace path** (Ruta de acceso del espacio de nombres virtual): establezca la ruta de archivo orientada al cliente para este destino de almacenamiento. Lea [Configuración del espacio de nombres agregado](hpc-cache-namespace.md) para obtener más información acerca de la característica de espacio de nombres virtual.
-
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
 
 Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamiento.
 

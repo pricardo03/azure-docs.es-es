@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810766"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066937"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
-Extracción, transformación y carga de datos (ETL) es el proceso por el que se adquieren los datos desde varios orígenes, se recopilan en una ubicación estándar, se limpian y se procesan y, en última instancia, se cargan en un almacén de datos desde el que se pueden consultar. Los procesos ETL heredados importan los datos, los limpian localmente y, a continuación, los almacenan en un motor de datos relacionales. Con HDInsight, una gran variedad de componentes del ecosistema de Apache Hadoop admiten la ejecución de ETL a escala. 
+Extracción, transformación y carga de datos (ETL) es el proceso por el que se adquieren los datos desde varios orígenes, se recopilan en una ubicación estándar, se limpian y se procesan y, en última instancia, se cargan en un almacén de datos desde el que se pueden consultar. Los procesos ETL heredados importan los datos, los limpian localmente y, a continuación, los almacenan en un motor de datos relacionales. Con HDInsight, una gran variedad de componentes del ecosistema de Apache Hadoop admiten la ejecución de ETL a escala.
 
 Esta canalización puede resumir el uso de HDInsight en el proceso ETL:
 
-![Información general de ETL de HDInsight](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![Información general de ETL de HDInsight a escala](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 En las siguientes secciones se explica cada una de las fases de ETL y sus componentes asociados.
 
@@ -35,11 +35,11 @@ La orquestación es necesaria para ejecutar el trabajo pertinente en el momento 
 
 Apache Oozie es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop. Oozie se ejecuta dentro de un clúster de HDInsight y se integra con la pila de Hadoop. Oozie es compatible con los trabajos de Hadoop para Apache Hadoop MapReduce, Apache Pig, Apache Hive y Apache Sqoop. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
-Para obtener más información, vea [Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](../hdinsight-use-oozie-linux-mac.md). Para profundizar más y saber cómo usar Oozie para controlar una canalización de extremo a extremo, vea [Uso de una canalización de análisis de datos](../hdinsight-operationalize-data-pipeline.md). 
+Para obtener más información, vea [Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](../hdinsight-use-oozie-linux-mac.md). Para profundizar más y saber cómo usar Oozie para controlar una canalización de extremo a extremo, vea [Uso de una canalización de análisis de datos](../hdinsight-operationalize-data-pipeline.md).
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory proporciona funcionalidades de orquestación como plataforma como servicio. Se trata de un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo controlados por datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de los datos. 
+Azure Data Factory proporciona funcionalidades de orquestación como plataforma como servicio. Se trata de un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo controlados por datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de los datos.
 
 Con Azure Data Factory, puede:
 

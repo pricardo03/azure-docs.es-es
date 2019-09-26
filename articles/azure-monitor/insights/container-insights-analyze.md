@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744589"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067088"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores
 Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Azure Kubernetes Service (AKS) desde dos perspectivas. Puede supervisar directamente desde un clúster de AKS, o desde todos los clústeres de AKS de una suscripción desde Azure Monitor. La visualización de Azure Container Instances también es posible cuando se supervisa un clúster de AKS concreto.
@@ -170,9 +170,13 @@ En un nodo expandido, puede explorar en profundidad desde el pod o contenedor qu
 
 Seleccione los controladores o los contenedores en la parte superior de la página para revisar el estado y el uso de recursos de dichos objetos. Para revisar el uso de memoria, en la lista desplegable **Métrica**, seleccione **RSS de memoria** o **Espacio de trabajo de memoria**. **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
 
-El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. En **RSS de memoria**, solo se indica la memoria principal (en otras palabras, la memoria residente). Esta métrica muestra la capacidad real de la memoria disponible.
-
 ![Vista de rendimiento de los nodos del contenedor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. En **RSS de memoria**, solo se indica la memoria principal (en otras palabras, la memoria residente). Esta métrica muestra la capacidad real de la memoria disponible. ¿Cuál es la diferencia entre la memoria residente y la memoria virtual?
+
+- La memoria residente o la memoria principal es la cantidad real de memoria de la máquina disponible para los nodos del clúster.
+
+- La memoria virtual es el espacio en disco duro (caché) reservado que usa el sistema operativo para intercambiar datos de la memoria al disco cuando se está bajo presión de la memoria y, a continuación, volver a capturar la memoria cuando sea necesario.
 
 De forma predeterminada, los datos de rendimiento se basan en las últimas seis horas, pero puede cambiar el período con la opción **Intervalo de tiempo** de la parte superior izquierda. También puede filtrar los resultados del intervalo de tiempo si selecciona **Mínimo**, **Promedio**, **50.º**, **90.º**, **95.º** y **Máximo** en el selector de percentiles. 
 

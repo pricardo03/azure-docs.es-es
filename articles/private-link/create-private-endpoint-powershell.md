@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 5aa9201e969d9224527d0deea333dc61bda8e444
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104766"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130343"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
@@ -54,7 +54,7 @@ Azure implementa recursos en una subred dentro de una red virtual, por lo que es
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name mySubnet ` 
+  -Name mySubnet `
   -AddressPrefix 10.0.0.0/24 `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
@@ -99,15 +99,21 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Cree un servidor de SQL Database con el comando New-AzSqlServer. Recuerde que el nombre del servidor de SQL Database debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
 
-$adminSqlLogin = "SqlAdmin" $password = "ChangeYourAdminPassword1"
+```azurepowershell-interactive
+$adminSqlLogin = "SqlAdmin"
+$password = "ChangeYourAdminPassword1"
 
 $server = New-AzSqlServer -ResourceGroupName "myResourceGroup" `
-    -ServerName "myserver" ` -Location "WestCentralUS" ` -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+    -ServerName "myserver" `
+    -Location "WestCentralUS" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
-    -ServerName "myserver"` -DatabaseName "myda"`
-    -RequestedServiceObjectiveName "S0" ` -SampleName "AdventureWorksLT"
-
+    -ServerName "myserver"`
+    -DatabaseName "myda"`
+    -RequestedServiceObjectiveName "S0" `
+    -SampleName "AdventureWorksLT"
+```
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
@@ -115,20 +121,20 @@ Punto de conexión privado para el servidor de SQL Database en la red virtual c
 
 ```azurepowershell
 
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" ` 
-  -PrivateLinkServiceId $server.ResourceId ` 
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" `
+  -PrivateLinkServiceId $server.ResourceId `
   -GroupId "sqlServer" 
  
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "MyVirtualNetwork"  
  
-$subnet = $virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
+$subnet = $virtualNetwork `
+  | Select -ExpandProperty subnets `
   | Where-Object  {$_.Name -eq 'mysubnet'}  
  
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" ` 
-  -Name "myPrivateEndpoint" ` 
-  -Location "westcentralus" ` 
-  -Subnet  $subnet` 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
+  -Name "myPrivateEndpoint" `
+  -Location "westcentralus" `
+  -Subnet  $subnet`
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -137,12 +143,12 @@ Cree una zona DNS privada para el dominio del servidor de SQL Database y cree u
 
 ```azurepowershell
 
-$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" ` 
+$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" `
   -Name "privatelink.database.windows.net" 
  
-$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" ` 
-  -ZoneName "privatelink.database.windows.net"` 
-  -Name "mylink" `  
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" `
+  -ZoneName "privatelink.database.windows.net"`
+  -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
  
 $networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
@@ -152,8 +158,8 @@ foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
 Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
 $recordName = $fqdn.split('.',2)[0] 
 $dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  ` 
--ResourceGroupName "myResourceGroup" -Ttl 600 ` 
+New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
+-ResourceGroupName "myResourceGroup" -Ttl 600 `
 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
 } 
 } 
@@ -164,9 +170,9 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 Use  [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)  para devolver la dirección IP pública de una máquina virtual. Este ejemplo devuelve la dirección IP pública de la máquina virtual  *myVM* :
 
 ```azurepowershell
-Get-AzPublicIpAddress ` 
-  -Name myPublicIpAddress ` 
-  -ResourceGroupName myResourceGroup ` 
+Get-AzPublicIpAddress `
+  -Name myPublicIpAddress `
+  -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
 Abra un símbolo del sistema en el equipo local. Ejecute el comando mstsc. Reemplace  <publicIpAddress>  por la dirección IP pública que se devolvió en el último paso: 

@@ -2,18 +2,18 @@
 title: 'Información general del aprendizaje automático: Azure HDInsight'
 description: Información general sobre las opciones de aprendizaje automático de macrodatos para clústeres de Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812001"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105415"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
 
@@ -29,7 +29,7 @@ La biblioteca Microsoft Machine Learning para Apache Spark es [MMLSpark](https:/
 
 [R](https://www.r-project.org/) es actualmente el lenguaje de programación estadístico más popular del mundo. Es una herramienta de visualización de datos de código abierto con una comunidad de más de 2,5 millones de usuarios y que sigue aumentando. Con su próspera cuenta de usuarios y la contribución de más de 8 000 paquetes, R es una opción factible para muchas empresas que requieren el aprendizaje automático. Puede crear un clúster de HDInsight con Machine Learning Services preparado para usarse con grandes conjuntos de datos y modelos. Esta funcionalidad proporciona a los científicos de datos y a los estadísticos una interfaz conocida de R que se puede escalar a petición mediante HDInsight, sin la sobrecarga de mantenimiento y configuración del clúster.
 
-![Aprendizaje para la predicción con R server](./media/hdinsight-machine-learning-overview/r-training.png)
+![Aprendizaje para la predicción con R server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R.  También tiene la opción de ejecutarlos en estos nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
@@ -39,7 +39,7 @@ Con Machine Learning Services en HDInsight con Spark, puede simultanear el apren
 
 Azure Machine Learning no solo proporciona herramientas para análisis predictivo de modelos, sino también un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona una completa solución de análisis predictivo en la nube que se puede usar para crear modelos predictivos, probarlos, ponerlos en funcionamiento y administrarlos. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
 
-![Análisis avanzado accesible en Hadoop con Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
+![Información general de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Cree características para los datos de un clúster de Hadoop en HDInsight mediante [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *La ingeniería de características* intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características a partir de los datos sin procesar que facilitan el proceso de aprendizaje. Puede ejecutar consultas de HiveQL desde Azure Machine Learning Studio y obtener acceso a los datos procesados en Hive y almacenados en blobs, mediante el uso del [módulo de importación de datos](../machine-learning/studio/import-data.md).
 

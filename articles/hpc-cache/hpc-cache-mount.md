@@ -4,14 +4,14 @@ description: Conexión de clientes a un servicio de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775076"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036935"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montaje de la instancia de Azure HPC Cache
 
@@ -19,13 +19,13 @@ Después de crear la caché, los clientes NFS pueden acceder a ella con un senci
 
 Use las direcciones de montaje que aparecen en la página de información general de la caché y la ruta de acceso del espacio de nombres virtual que estableció al crear el destino de almacenamiento. 
 
-![captura de pantalla de la página de información general de la instancia de Azure HPC Cache, con un cuadro de resaltado alrededor de la lista de direcciones de montaje en la parte inferior derecha](media/mount-addresses.png)
+![captura de pantalla de la página de información general de la instancia de Azure HPC Cache, con un cuadro de resaltado alrededor de la lista de direcciones de montaje en la parte inferior derecha](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > Las direcciones de montaje de la caché corresponden a las interfaces de red dentro de la subred de la caché. Estas NIC aparecen en el grupo de recursos con nombres que terminan en `-cluster-nic-` y un número. No las modifique ni elimine o la caché dejará de estar disponible.
 
-Las rutas de acceso del espacio de nombres virtual se muestran en la página **Destinos de almacenamiento**. 
-![captura de pantalla del panel de destino de almacenamiento de la caché, con un cuadro de resaltado alrededor de una entrada en la columna Ruta de acceso de la tabla](media/storage-target-path.png)
+Las rutas de acceso del espacio de nombres virtual se muestran en la página **Destinos de almacenamiento**. Haga clic en el nombre de destino para ver los detalles, incluida la ruta de acceso (o rutas de acceso) al espacio de nombres agregado asociada a él. 
+![captura de pantalla del panel de destino de almacenamiento de la caché, con un cuadro de resaltado alrededor de una entrada en la columna Ruta de acceso de la tabla](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>Sintaxis del comando de montaje
 

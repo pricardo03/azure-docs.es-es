@@ -2,18 +2,18 @@
 title: 'Apache Phoenix en HDInsight: Azure HDInsight'
 description: Información general de Apache Phoenix
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: ashishth
-ms.openlocfilehash: 8ba27261f5ba505c37ef4cc82d06b314471440bc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: becb4e4787c21e18455144108274f585ba25cb72
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811903"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105380"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix en Azure HDInsight
 
@@ -129,11 +129,11 @@ Un clúster HDInsight HBase incluye la [interfaz de usuario de Ambari](hdinsight
 
 2. Seleccione **HBase** en la lista de servicios en el menú de la izquierda y, a continuación, seleccione la pestaña **Configs** (Configuraciones).
 
-    ![Configuración de Ambari HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
+    ![Configuraciones de Apache Ambari HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
 3. Busque la sección de configuración de **Phoenix SQL** para habilitar o deshabilitar Phoenix y establecer el tiempo de espera de consulta.
 
-    ![Sección de configuración de Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
+    ![Sección de configuración de Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
 ## <a name="see-also"></a>Otras referencias
 
