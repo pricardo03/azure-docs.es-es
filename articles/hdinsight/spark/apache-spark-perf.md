@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995548"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181083"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimización de trabajos de Apache Spark en HDInsight
 
@@ -60,7 +60,7 @@ Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //url/ | **Estándar** | Sí | Clúster transitorio |
-| Azure Data Lake Storage Gen 2| **abfs [s]:** //url/ | **Más rápido** | Sí | Clúster transitorio |
+| Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Más rápido** | Sí | Clúster transitorio |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Más rápido** | Sí | Clúster transitorio |
 | HDFS local | **hdfs:** //url/ | **El más rápido** | Sin | Clúster 24/7 interactivo |
 
