@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714158"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261798"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
 Puede ver dos tipos de registros para Azure Service Bus:
 * **[Registros de actividad](../azure-monitor/platform/activity-logs-overview.md)** . Estos registros contienen información relativa a las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
-* **[Registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)** . Puede configurar registros de diagnóstico para obtener información más completa sobre todo lo que ocurre en un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de diagnóstico](../azure-monitor/platform/resource-logs-overview.md)** . Puede configurar registros de diagnóstico para obtener información más completa sobre todo lo que ocurre en un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
 
@@ -52,7 +52,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
-Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
 

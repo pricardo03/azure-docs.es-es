@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9aca2e4ea5e107358ff72e83562057830ece2cc
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7c7f2abda282d0219dd8787a9f6a2b6c1cda15df
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509350"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257911"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory? 
 
@@ -43,7 +43,7 @@ En la tabla siguiente se enumeran las dependencias de servicio adicionales que d
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Administración de Microsoft Azure (portal y API) | Con enlace en tiempo de compilación |
 | Microsoft Classroom | Exchange                                    | Con enlace en tiempo de compilación |
-|                     | SharePoint                                  | Con enlace en tiempo de compilación  |
+|                     | SharePoint                                  | Con enlace en tiempo de compilación |
 | Equipos de Microsoft     | Exchange                                    | Con enlace en tiempo de compilación |
 |                     | MS Planner                                  | Con enlace en tiempo de ejecución  |
 |                     | SharePoint                                  | Con enlace en tiempo de compilación |
@@ -57,6 +57,9 @@ En la tabla siguiente se enumeran las dependencias de servicio adicionales que d
 | proyecto             | Dynamics CRM                                | Con enlace en tiempo de compilación |
 | Skype Empresarial  | Exchange                                    | Con enlace en tiempo de compilación |
 | Visual Studio       | Administración de Microsoft Azure (portal y API) | Con enlace en tiempo de compilación |
+| Microsoft Forms     | Exchange                                    | Con enlace en tiempo de compilación |
+|                     | SharePoint                                  | Con enlace en tiempo de compilación |
+| Microsoft To-Do     | Exchange                                    | Con enlace en tiempo de compilación |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

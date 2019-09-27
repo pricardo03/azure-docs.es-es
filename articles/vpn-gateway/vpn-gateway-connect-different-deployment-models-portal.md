@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 722907328fe17c4116f4f8d948e081f9582ca712
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62124030"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266574"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -79,7 +78,7 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |Este de EE. UU |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
 
@@ -144,20 +143,13 @@ En esta sección se crea la puerta de enlace de red virtual y la puerta de enlac
 * Nombre de subred = Subnet-1 <br>
 * Intervalo de direcciones = 192.168.1.0/24 <br>
 
-
 Si no tiene una red virtual de Resource Manager y va a ejecutar estos pasos como ejercicio, cree una red virtual con los pasos que se indican en [Creación de una red virtual](../virtual-network/quick-create-portal.md) y use los valores de ejemplo.
 
-### <a name="2-create-a-gateway-subnet"></a>2. Creación de una subred de puerta de enlace
+### <a name="creategw"></a>2. Creación de una puerta de enlace de red virtual
 
-**Valor de ejemplo:** Subred de la puerta de enlace = 192.168.0.0/26
+En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
-Antes de crear una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace. Cree una subred de puerta de enlace con un recuento CIDR de /28 o mayor (/27, /26, etc.). Si crea esta configuración como parte de un ejercicio, puede usar los valores de ejemplo.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Creación de una puerta de enlace de red virtual
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Valores de ejemplo:**
 
@@ -167,18 +159,21 @@ Antes de crear una puerta de enlace de red virtual, primero deberá crear una su
 * SKU = VpnGw1 <br>
 * Ubicación = Este de EE. UU. <br>
 * Red virtual = RMVNet <br>
+* Subred de la puerta de enlace = 192.168.0.0/26 <br>
 * Configuración de primera dirección IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4. Creación de una puerta de enlace de red local
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Creación de una puerta de enlace de red local
 
 **Valores de ejemplo:** Puerta de enlace de red local = LocalRedVClásica
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |La dirección IP pública que se asigna a la puerta de enlace ClassicVNet|
-| RMVNet | (192.168.0.0/16) |Este de EE. UU |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
 
 La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual. Si lleva a cabo estos pasos como un ejercicio, consulte los valores de ejemplo.
 

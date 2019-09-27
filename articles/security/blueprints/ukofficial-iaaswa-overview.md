@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899941"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262800"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -172,7 +172,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Registros de actividad**: configure los [registros de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md) para que proporcionen información sobre las operaciones que se han realizado en los recursos de la suscripción.
 
-**Registros de diagnóstico**: los [registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
+**Registros de diagnóstico**: los [registros de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
 
 **Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
 

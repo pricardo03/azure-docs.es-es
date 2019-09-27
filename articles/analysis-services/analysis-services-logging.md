@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959064"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259423"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
-Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/resource-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registro de diagnóstico en Storage, Event Hubs o los registros de Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -141,7 +141,7 @@ Aprenda a [cambiar la configuración de diagnóstico con la API de REST de Azure
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-Lea sobre cómo [habilitar la configuración de diagnóstico al crear recursos con la plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Lea sobre cómo [habilitar la configuración de diagnóstico al crear recursos con la plantilla de Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## <a name="manage-your-logs"></a>Administración de los registros
 
@@ -327,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los [registros de diagnóstico de recursos Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Más información sobre los [registros de diagnóstico de recursos Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 Consulte [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) en la Ayuda de PowerShell.

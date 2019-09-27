@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 759c804fd4128d7b28cbba078cab5e9d7e6453f6
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208299"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170688"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 
@@ -30,7 +30,7 @@ Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requis
 
 * **Suscripción de Azure**. Para obtener una suscripción a Azure, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine de Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para más información sobre el aprovisionamiento de esta máquina virtual, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
+* [**X2Go**](https://wiki.x2go.org/doku.php) instalado en su equipo con una sesión abierta de XFCE. Para más información, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#x2go).
 * Para obtener una experiencia de desplazamiento más fluida, en el explorador web de Firefox de DSVM, alterne la marca `gfx.xrender.enabled` en `about:config`. [Más información](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de establecer `mousewheel.enable_pixel_scrolling` en `False`. [Más información](https://support.mozilla.org/questions/981140).
 * **Cuenta de Azure Machine Learning**. Si aún no tiene una, regístrese para obtener una cuenta nueva en la [página principal de Azure Machine Learning](https://studio.azureml.net/). Puede probarlo gratis para empezar.
 

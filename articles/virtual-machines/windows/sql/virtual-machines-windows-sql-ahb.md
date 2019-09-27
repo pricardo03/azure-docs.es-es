@@ -6,20 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100616"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262864"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Cambio del modelo de licencia en una máquina virtual con SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia de una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de máquina virtual con SQL, **Microsoft.SqlVirtualMachine**.
@@ -125,7 +125,7 @@ Si aprovisionó una VM con SQL Server a partir de imágenes de Azure Marketplac
 
 Solo puede instalar automáticamente SQL Server en una máquina virtual de Azure mediante la Ventaja híbrida de Azure. [Estas máquinas virtuales se deben registrar con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-register-with-resource-provider.md) mediante el establecimiento de la licencia de SQL Server como Ventaja híbrida de Azure, para indicar el uso de este modo de acuerdo con los términos de los productos de Microsoft.
 
-Solo puede cambiar el tipo de licencia de una máquina virtual con SQL Server que sea de pago por uso o Ventaja híbrida de Azure si dicha máquina virtual está registrada con el proveedor de recursos de máquina virtual con SQL. Todas las VM con SQL Server deben registrarse con el proveedor de recursos de cara al cumplimiento de la licencia.
+Solo puede cambiar el tipo de licencia de una máquina virtual con SQL Server que sea de pago por uso o Ventaja híbrida de Azure si dicha máquina virtual está registrada con el proveedor de recursos de máquina virtual con SQL.
 
 ## <a name="remarks"></a>Comentarios
 

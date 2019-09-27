@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400851"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259349"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -240,10 +240,10 @@ Para actualizar la configuración de muestreo del seguimiento distribuido para v
 }
 ```
 
-| Nombre del elemento | Obligatorio | Type | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sí | Entero | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` significa activado y `2` desactivado. |
-| `sampling_rate` | Sí | Entero | Este valor es un porcentaje. Solo se permiten valores de `0` a `100` (inclusive).  |
+| `sampling_mode` | Sí | Integer | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` significa activado y `2` desactivado. |
+| `sampling_rate` | Sí | Integer | Este valor es un porcentaje. Solo se permiten valores de `0` a `100` (inclusive).  |
 
 ## <a name="query-and-visualize"></a>Consultar y visualizar
 
@@ -251,7 +251,7 @@ Para ver todos los seguimientos registrados por una instancia de IoT Hub, consul
 
 ### <a name="query-using-log-analytics"></a>Consulta mediante Log Analytics
 
-Si ha configurado [Log Analytics con registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-stream-log-store.md), consulte mediante la búsqueda de registros en la categoría `DistributedTracing`. Por ejemplo, esta consulta muestra todos los seguimientos registrados:
+Si ha configurado [Log Analytics con registros de diagnóstico](../azure-monitor/platform/resource-logs-collect-storage.md), consulte mediante la búsqueda de registros en la categoría `DistributedTracing`. Por ejemplo, esta consulta muestra todos los seguimientos registrados:
 
 ```Kusto
 // All distributed traces 
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Registros de ejemplo como se muestran en Log Analytics:
 
-| TimeGenerated | nombreOperación | Categoría | Nivel | CorrelationId | DurationMs | Properties (Propiedades) |
+| TimeGenerated | OperationName | Category | Nivel | CorrelationId | DurationMs | properties (Propiedades) |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776446"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262102"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
@@ -403,6 +403,6 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre alertas](alerts-overview.md)
-* [Agregue la Configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-stream-template.md) a la plantilla de Resource Manager
+* [Agregue la Configuración de diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) a la plantilla de Resource Manager
 * Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
 

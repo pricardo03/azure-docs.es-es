@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036330"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212007"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -215,6 +215,7 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |East US        |LRS     |Sin    |Aún no|
 |Centro de Francia |LRS, ZRS|Sin    |LRS: sí; ZRS: aún no|
 |Sur de Francia   |LRS     |Sin    |Sí|
+|Europa del Norte   |LRS     |Sin    |Aún no|
 |Sur de la India    |LRS     |Sin    |Aún no|
 |Sudeste asiático |LRS, ZRS|Sin    |Sí|
 |Centro occidental de EE.UU.|LRS     |Sin    |Aún no|

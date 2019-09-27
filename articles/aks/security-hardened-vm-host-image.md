@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099441"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202981"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Protección de la seguridad en hosts de máquina virtual de AKS 
 
@@ -76,8 +76,6 @@ Actualmente, AKS-Engine no promueve ni se adhiere a ningún estándar de segurid
 |5.4.1.4 |Asegurarse de que el plazo máximo del bloqueo de contraseñas inactivas es 30 días |
 |5.4.4 |Asegurarse de que el umask de usuario predeterminado es 027, o incluso más restrictivo |
 |5.6 |Asegurarse de que está restringido el acceso al comando su|
-
-(*) Debe estar habilitado. Consulte la [documentación](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md) de la definición de clúster.
 
 ## <a name="additional-notes"></a>Notas adicionales
  

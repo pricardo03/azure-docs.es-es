@@ -12,14 +12,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 06/06/2019
+ms.date: 09/20/2019
 ms.author: cynthn
-ms.openlocfilehash: 4593859c441073115fddc3a67dc4ce99fdd6124a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 11d503e7dd15f148208da65d551f9c6ae71a7e7f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795072"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265565"
 ---
 # <a name="workloads-on-azure-virtual-machines"></a>Cargas de trabajo en máquinas virtuales de Azure
 
@@ -34,4 +34,4 @@ Las máquinas virtuales de Azure puede admitir muchas cargas de trabajo. Cada ca
 
 **Pasos siguientes**
 
-Conozca las máquinas virtuales de Azure con las guías de inicio rápido de máquinas virtuales de Azure para [Linux](../linux/quick-create-cli-nodejs.md) y [Windows](../windows/quick-create-powershell.md).
+Conozca las máquinas virtuales de Azure con las guías de inicio rápido de máquinas virtuales de Azure para [Linux](../linux/quick-create-cli.md) y [Windows](../windows/quick-create-powershell.md).

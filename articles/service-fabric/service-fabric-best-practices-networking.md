@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66237321"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262245"
 ---
 # <a name="networking"></a>Redes
 
@@ -70,7 +70,7 @@ Para habilitar las redes aceleradas en un clúster existente, es necesario escal
 
 * Para ejecutar cargas de trabajo de contenedor de Windows, use el [modo de red abierto](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar la comunicación de servicio a servicio.
 
-* Use un proxy inverso, como [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) o el [proxy inverso de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para exponer los puertos de aplicación comunes, como 80 o 443.
+* Use un proxy inverso, como [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) o el [proxy inverso de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para exponer los puertos de aplicación comunes, como 80 o 443.
 
 * En el caso de los contenedores de Windows hospedados en máquinas que no tienen una conexión física que no pueden extraer los niveles de base del almacenamiento en la nube de Azure, anule el comportamiento del nivel externo con el uso de la marca [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) en el demonio de Docker.
 

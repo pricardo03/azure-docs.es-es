@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135429"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265097"
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
@@ -146,7 +146,7 @@ Para administrar recursos de Azure, el script debe autenticarse por medio de las
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Agregar código para crear un cliente de Compute de Python e iniciar la máquina virtual
 
-Para trabajar con máquinas virtuales de Azure, cree una instancia del [cliente de Azure Compute para Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
+Para trabajar con máquinas virtuales de Azure, cree una instancia del [cliente de Azure Compute para Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use el cliente de Compute para iniciar la máquina virtual. Agregue el siguiente código al runbook:
 

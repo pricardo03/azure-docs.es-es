@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aea0a092ad836c020e23b81d38246ceead22ea0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402690"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213301"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -120,7 +120,7 @@ Las direcciones de las entidades de Service Bus deben tener el siguiente formato
 |-----------------|-------------|-------------|  
 |queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
 |topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
-|suscripción|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
+|subscription|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Operaciones de mensajes  
   
@@ -134,7 +134,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:renew-lock`|  
+|operation|string|Sí|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
  El cuerpo del mensaje de solicitud debe constar de una sección con el valor de AMQP que contiene una asignación con las siguientes entradas:  
@@ -172,7 +172,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:peek-message`|  
+|operation|string|Sí|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -213,7 +213,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:schedule-message`|  
+|operation|string|Sí|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -257,7 +257,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:cancel-scheduled-message`|  
+|operation|string|Sí|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -273,13 +273,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
-|statusDescription|string|Sin|Descripción del estado.|  
-  
-El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
-  
-|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|Matriz de long|Sí|Número de secuencia de los mensajes programados. El número de secuencia se utiliza para realizar cancelaciones.|  
+|statusDescription|string|Sin|Descripción del estado.|   
   
 ## <a name="session-operations"></a>Operaciones de sesiones  
   
@@ -293,7 +287,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:renew-session-lock`|  
+|operation|string|Sí|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -327,7 +321,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:peek-message`|  
+|operation|string|Sí|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -369,7 +363,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:set-session-state`|  
+|operation|string|Sí|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -398,7 +392,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:get-session-state`|  
+|operation|string|Sí|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -432,7 +426,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:get-message-sessions`|  
+|operation|string|Sí|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -469,7 +463,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:add-rule`|  
+|operation|string|Sí|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -530,7 +524,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:remove-rule`|  
+|operation|string|Sí|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -556,7 +550,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
 
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:enumerate-rules`|  
+|operation|string|Sí|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
 
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -639,7 +633,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:receive-by-sequence-number`|  
+|operation|string|Sí|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -681,7 +675,7 @@ El mensaje de solicitud debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|operación|string|Sí|`com.microsoft:update-disposition`|  
+|operation|string|Sí|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Sin|Tiempo de espera de funcionamiento del servidor en milisegundos.|  
   
 El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  

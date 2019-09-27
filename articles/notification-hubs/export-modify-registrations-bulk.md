@@ -2,22 +2,24 @@
 title: Exportación e importación de registros de Azure Notification Hubs en masa | Microsoft Docs
 description: Aprenda a usar el soporte técnico masivo de Notification Hubs para realizar un gran número de operaciones en un centro de notificaciones o para exportar todos los registros.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: jowargo
-ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575301"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212400"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportación e importación de registros de Azure Notification Hubs en masa
 Existen escenarios en los que es necesario crear o modificar gran cantidad de registros en un centro de notificaciones. Algunos de estos escenarios son actualizaciones de etiqueta posteriores a cálculos por lotes, o la migración de una implementación de inserción existente para usar Notification Hubs.

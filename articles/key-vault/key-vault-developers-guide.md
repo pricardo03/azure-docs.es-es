@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000793"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268845"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -29,26 +29,6 @@ Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Va
 ## <a name="public-previews"></a>Versiones preliminares públicas
 
 Periódicamente se publica una versión preliminar pública de una nueva característica de Key Vault. Pruébelas y díganos su opinión a través de la dirección de correo electrónico de comentarios azurekeyvault@microsoft.com.
-
-### <a name="storage-account-keys---july-10-2017"></a>Claves de cuenta de almacenamiento: 10 de julio de 2017
-
->[!NOTE]
->En esta actualización de Azure Key Vault, la única característica en versión preliminar es **Claves de cuenta de almacenamiento**.
-
-Esta versión preliminar incluye nuestra nueva característica Claves de cuenta de almacenamiento, disponible a través de estas interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) y [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Para más información sobre la nueva característica Claves de cuenta de almacenamiento, vea [Introducción a las claves de cuenta de almacenamiento de Azure Key Vault](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Vídeos
-
-Este vídeo muestra cómo crear su propio almacén de claves y cómo usarlo desde la aplicación de ejemplo 'Hello Key Vault'.
-
-- [Desarrollador de Key Vault: guía de inicio rápido](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Recursos mencionados en el vídeo anterior:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Código de ejemplo de Azure Key Vault](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Creación y administración de almacenes de claves
 

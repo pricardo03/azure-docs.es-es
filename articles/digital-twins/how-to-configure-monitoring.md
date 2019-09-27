@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950120"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261040"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Configuración de la supervisión en Azure Digital Twins
 
@@ -57,7 +57,7 @@ Para el registro de actividad avanzada:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Habilitación de registros de diagnóstico de cliente
 
-Es posible establecer la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) de Azure para cada instancia de Azure a fin de complementar el registro de actividad. Si bien los registros de actividad pertenecen a los eventos de nivel de suscripción, el registro de diagnóstico proporciona información sobre el historial de operaciones de los propios recursos.
+Es posible establecer la [configuración de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) de Azure para cada instancia de Azure a fin de complementar el registro de actividad. Si bien los registros de actividad pertenecen a los eventos de nivel de suscripción, el registro de diagnóstico proporciona información sobre el historial de operaciones de los propios recursos.
 
 Estos son algunos ejemplos del registro de diagnóstico:
 
@@ -129,6 +129,6 @@ Azure Digital Twins también admite el registro y la auditoría de seguridad esp
 
 - Obtenga más información sobre los [registros de actividad](../azure-monitor/platform/activity-logs-overview.md).
 
-- Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 - Obtenga más información sobre [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
