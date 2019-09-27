@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: Conexión desde un explorador web
           href: connect-web.md
+        - name: Conexión con el cliente macOS
+          href: connect-macos.md
+        - name: Conexión con el cliente iOS
+          href: connect-ios.md
     - name: Creación de un grupo host con una plantilla de Azure Resource Manager
       href: create-host-pools-arm-template.md
     - name: Creación de un grupo host con PowerShell

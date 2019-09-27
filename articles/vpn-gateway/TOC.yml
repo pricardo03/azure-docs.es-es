@@ -138,10 +138,10 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configuración de clientes de OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-        - name: Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
-          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configuración de un túnel de dispositivo VPN para los Grupos de disponibilidad AlwaysOn
           href: vpn-gateway-howto-always-on-device-tunnel.md
+        - name: Anuncio de rutas personalizadas para clientes de P2S
+          href: vpn-gateway-p2s-advertise-custom-routes.md
     - name: Creación de una puerta de enlace de red virtual con redundancia de zona en zonas de disponibilidad de Azure
       href: create-zone-redundant-vnet-gateway.md
     - name: Configuración de directivas de IPsec/IKE en las conexiones

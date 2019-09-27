@@ -71,6 +71,8 @@
           items:
             - name: 'Eliminación de los datos de imagen: CLI'
               href: container-registry-delete.md
+            - name: Directiva de retención para manifiestos sin etiquetar (versión preliminar)
+              href: container-registry-retention-policy.md
             - name: Purga automática de etiquetas y manifiestos (versión preliminar)
               href: container-registry-auto-purge.md
         - name: Actualización de un registro clásico

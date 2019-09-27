@@ -474,6 +474,8 @@
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
+        - name: Uso del Explorador de Storage para administrar discos
+          href: disks-use-storage-explorer-managed-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
         - name: Creación de una instantánea incremental

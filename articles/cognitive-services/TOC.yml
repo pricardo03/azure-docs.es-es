@@ -15,6 +15,8 @@
   items:
     - name: Compatibilidad con los contenedores
       href: cognitive-services-container-support.md
+    - name: Preguntas frecuentes acerca del contenedor
+      href: ./containers/container-faq.md
     - name: Recetas de contenedor
       items:
         - name: Reutilización del contenedor

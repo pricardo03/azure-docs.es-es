@@ -1,78 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Resource Manager en la documentación de Azure
+### YamlMime:Landing
+title: Documentación de Azure Resource Manager
+summary: La plantilla de Resource Manager es un archivo JSON (notación de objetos JavaScript) que define tanto la infraestructura como la configuración de un proyecto.
 metadata:
-  title: 'Resource Manager en la documentación de Azure: tutoriales, ejemplos, referencia y recursos'
-  description: Aprenda a usar Resource Manager para implementar y administrar recursos de solución en grupo y para crear plantillas para la implementación de recursos de forma uniforme y repetible.
+  title: Documentación de Azure Resource Manager
+  description: Aprenda a desarrollar plantillas de Azure Resource Manager y a usarlas para implementar recursos de Azure
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: 'Resource Manager, azure, devops, tutoriales, ejemplos, referencia, documentación'
-  author: mumian
-  manager: dougeby
-  ms.author: jgao
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 12/10/2018
-abstract:
-  description: 'Aprenda a usar Resource Manager para implementar, supervisar y administrar recursos de solución en grupo. En los tutoriales, las referencias de API y otra documentación, se muestra cómo configurar grupos de recursos y crear plantillas para la implementación uniforme y repetible.'
-sections:
-  - title: Guías de inicio rápido
-    items:
-      - type: paragraph
-        text: Use varias herramientas para crear plantillas de Azure Resource Manager para implementar recursos de Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Generación de una plantilla con Azure Portal
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Creación de una plantilla mediante Visual Studio Code
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Creación de una plantilla mediante Visual Studio
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: Aprenda a crear plantillas de Azure Resource Manager para implementar recursos de Azure.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Uso de la referencia de plantilla de Resource Manager</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Creación de varias instancias de un recurso de Azure</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Establecimiento del orden de implementación de los recursos</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Condiciones de uso</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integración de Azure Key Vault</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Creación de plantillas vinculadas</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Implementación de extensiones de máquina virtual</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Implementación de extensiones de SQL</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Protección de artefactos de plantilla</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Uso de procedimientos de implementación seguros</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Solución de problemas de las implementaciones de plantillas</a>.'
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Plantillas de configuración de ejemplos para tareas comunes de implementación.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Plantillas de inicio rápido de Azure</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (versión preliminar)</a>'
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Plantillas
-            html: <p><a href="/azure/templates/">Referencia de plantilla</a></p><p><a href="/azure/resource-group-template-functions">Funciones de plantillas</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funciones de definición de interfaz de usuario</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definición de interfaz de usuario</a></p>
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/resource">CLI de Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-          - title: Lenguajes
-            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/resources/">API DE REST</a></p>
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 09/25/2019
+  ms.openlocfilehash: 4981000d942bfa49503a63ce2a82ec994efc3c6e
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299508"
+landingContent:
+- title: Acerca de Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Resource Manager?
+      url: resource-group-overview.md
+    - text: ¿Qué es una plantilla de Resource Manager?
+      url: template-deployment-overview.md
+  - linkListType: concept
+    links:
+    - text: Procedimientos recomendados
+      url: template-best-practices.md
+    - text: Modos de implementación
+      url: deployment-modes.md
+    - text: Plantillas vinculadas
+      url: resource-group-linked-templates.md
+    - text: Implementación de nivel de suscripción
+      url: deploy-to-subscription.md
+    - text: Administrador de implementaciones
+      url: deployment-manager-overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 'Creación de plantillas: portal'
+      url: resource-manager-quickstart-create-templates-use-the-portal.md
+    - text: 'Creación de plantillas: VS Code'
+      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - text: 'Creación de plantillas: Visual Studio'
+      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Implementación de varias instancias
+      url: resource-manager-tutorial-create-multiple-instances.md
+    - text: Establecimiento del orden de implementación
+      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
+    - text: Integración de almacén de claves
+      url: resource-manager-tutorial-use-key-vault.md
+- title: Desarrollo de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de VS Code
+      url: resource-manager-tools-vs-code.md
+    - text: Uso de las funciones
+      url: resource-group-template-functions.md
+    - text: Definición de parámetros
+      url: template-parameters.md
+    - text: Definición de variables
+      url: template-variables.md
+    - text: Definición de recursos
+      url: child-resource-name-type.md
+    - text: Definir las salidas
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Plantillas de inicio rápido de Azure
+      url: /resources/templates/
+- title: Implementación de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Mediante PowerShell
+      url: resource-group-template-deploy.md
+    - text: Mediante la CLI
+      url: resource-group-template-deploy-cli.md
+    - text: Mediante el portal
+      url: resource-group-template-deploy-portal.md
+    - text: Mediante la API REST
+      url: resource-group-template-deploy-rest.md
+- title: Administración de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportar plantillas
+      url: export-template-portal.md
+    - text: CI/CD
+      url: vs-resource-groups-project-devops-pipelines.md
+- title: Administración de recursos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Traslado de recursos
+      url: resource-group-move-resources.md
+    - text: Etiquetado de recursos
+      url: resource-group-using-tags.md
+    - text: Bloqueo de recursos
+      url: resource-group-lock-resources.md
+- title: Supervisión y solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualización de registros de actividad
+      url: resource-group-audit.md
+    - text: Visualización de una operación de implementación
+      url: resource-manager-deployment-operations.md
+    - text: Solución de errores de implementación
+      url: resource-manager-common-deployment-errors.md
+- title: Exploración de contenido de referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Tipos y proveedores de recursos
+      url: resource-manager-supported-services.md
+    - text: Referencia de plantilla
+      url: /azure/templates/

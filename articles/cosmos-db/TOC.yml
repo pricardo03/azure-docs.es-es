@@ -691,6 +691,8 @@
       items:
         - name: Habilitar cuadernos
           href: enable-notebooks.md
+        - name: Uso de comandos de cuadernos integrados
+          href: use-notebook-features-and-commands.md
     - name: Programación en el lado servidor
       items:
         - name: 'Escritura de procedimientos almacenados, desencadenadores y UDF'
