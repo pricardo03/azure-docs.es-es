@@ -38,6 +38,8 @@
           href: create-cluster-database-csharp.md
         - name: Python
           href: create-cluster-database-python.md
+        - name: Plantilla del Administrador de recursos de Azure
+          href: create-cluster-database-resource-manager.md
     - name: Introducción de datos
       items:
         - name: Centro de eventos
