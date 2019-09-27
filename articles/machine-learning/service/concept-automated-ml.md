@@ -1,7 +1,7 @@
 ---
 title: Descripción del aprendizaje automático o AutoML
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo Azure Machine Learning Service puede elegir de forma automática un algoritmo y generar un modelo a partir de él para ahorrar tiempo, mediante los parámetros y criterios que proporcione con el fin de seleccionar el mejor algoritmo para el modelo.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo Azure Machine Learning puede elegir de forma automática un algoritmo y generar un modelo a partir de él para ahorrar tiempo, mediante los parámetros y criterios que proporcione con el fin de seleccionar el mejor algoritmo para el modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882031"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035700"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -39,7 +39,7 @@ Los científicos de datos, analistas y desarrolladores de todos los sectores pue
 
 ## <a name="how-automated-ml-works"></a>Funcionamiento del aprendizaje automático
 
-Si usa **Azure Machine Learning Service**, puede diseñar y ejecutar sus experimentos de entrenamiento de Machine Learning automatizado mediante los siguientes pasos:
+Si usa **Azure Machine Learning**, puede diseñar y ejecutar sus experimentos de entrenamiento de Machine Learning automatizado mediante los siguientes pasos:
 
 1. **Identifique el problema de Machine Learning** que quiere solucionar: clasificación, previsión o regresión.
 
@@ -53,7 +53,7 @@ Si usa **Azure Machine Learning Service**, puede diseñar y ejecutar sus experim
 
   ![Aprendizaje automático automatizado](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-Durante el entrenamiento, Azure Machine Learning Service crea una serie de canalizaciones en paralelo que prueban distintos parámetros y algoritmos. Se detendrá una vez que logre los criterios de salida definidos en el experimento.
+Durante el entrenamiento, Azure Machine Learning crea una serie de canalizaciones en paralelo que prueban distintos parámetros y algoritmos. Se detendrá una vez que logre los criterios de salida definidos en el experimento.
 
 También puede inspeccionar la información de ejecución registrada, que [contiene las métricas](how-to-understand-automated-ml.md) que se recopilan durante la ejecución. La ejecución del entrenamiento genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 

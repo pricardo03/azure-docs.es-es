@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 629a7c98a7b46b470470445cc56a6f53d9e4f4b4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883349"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077214"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -91,7 +91,7 @@ La instrucción **SELECT** solo devuelve una fila.
 
 Este es el resultado de la instrucción **SELECT**:
 
-![Acoplamiento del documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![Acoplamiento de HDInsight del documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Análisis de documentos JSON en Hive
 Hive proporciona tres mecanismos distintos para ejecutar consultas en documentos JSON, pero también puede escribir las suyas propias:
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 Este es el resultado cuando se ejecuta esta consulta en la ventana de la consola:
 
-![UDF get_json_object](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive get json object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 La función definida por el usuario get-json_object tiene algunas limitaciones:
 
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Salida de este script en la consola de Hive:
 
-![UDF json_tuple](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Resultados de la consulta JSON de Apache Hive](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 La función definida por el usuariojson_tuple usa la sintaxis [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) de Hive, que permite que json\_tuple cree una tabla virtual mediante la aplicación la función de transferencia de datos uniforme a cada fila de la tabla original. Los JSON complejos se vuelven demasiado difíciles de manejar debido al uso repetido de **LATERAL VIEW**. Además, **JSON_TUPLE** no puede controlar los JSON anidados.
 

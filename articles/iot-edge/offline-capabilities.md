@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147276"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091358"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -110,7 +110,7 @@ En los siguientes artículos se describe de forma detallada una manera de crear 
 
 ## <a name="specify-dns-servers"></a>Especificación de los servidores DNS 
 
-Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para [configurar el servidor DNS en el artículo de solución de problemas](troubleshoot.md#resolution-7), verá dos opciones.
+Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución para El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo en el artículo de solución de problemas.
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 
