@@ -99,7 +99,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 01 de octubre de 2018 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
