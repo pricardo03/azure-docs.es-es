@@ -80,6 +80,8 @@
         - name: Configuración de acceso a nodos de proceso
           href: pool-endpoint-configuration.md
         - name: Creación de un grupo con Shared Image Gallery
+          href: batch-sig-images.md
+        - name: Creación de un grupo con un recurso de imagen administrada
           href: batch-custom-images.md
         - name: Creación de un grupo en una red virtual
           href: batch-virtual-network.md

@@ -78,7 +78,7 @@
         - name: Authentication
           items:
             - name: Información general
-              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Inicios de sesión y usuarios
@@ -92,7 +92,7 @@
             - name: Seguridad de nivel de columna
               href: column-level-security.md
             - name: Seguridad de nivel de fila
-              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Protección de datos
           items:
             - name: Introducción al cifrado de datos transparente (TDE)
@@ -155,7 +155,7 @@
               href: sql-data-warehouse-tables-data-types.md
             - name: Tablas distribuidas
               href: sql-data-warehouse-tables-distribute.md
-            - name: restricciones de tabla
+            - name: Restricciones de tabla
               href: sql-data-warehouse-table-constraints.md
             - name: Índices
               href: sql-data-warehouse-tables-index.md
@@ -234,9 +234,9 @@
     - name: Seguridad
       items:
         - name: Configuración de la autenticación de Azure AD
-          href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Acceso condicional
-          href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Reglas de red virtual mediante PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: 'Habilitación de cifrado: portal'
@@ -338,7 +338,7 @@
     - name: T-SQL
       items:
         - name: Referencia completa
-          href: /sql/t-sql/language-reference
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Elementos del lenguaje SQL Data Warehouse
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: Instrucciones de SQL Data Warehouse

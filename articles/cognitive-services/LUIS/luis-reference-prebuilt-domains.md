@@ -426,5 +426,5 @@ Entidad de LUIS | Tipo de entidad | DESCRIPCIÓN | Ejemplos
 ------------|-------------|-------------|---------
 SearchEngine | List | El motor de búsqueda que el usuario quiere usar. | Bing <br> Google
 SearchText | simple, pattern.Any | El texto que el usuario quiere buscar. <br> _Etiquetar "amigos de Facebook" como SearchText si el sitio web después de "in" no es un motor de búsqueda. La dirección URL también debe etiquetarse como SearchText._ | Película <br> Aprendizaje profundo <br> Tom Cruise
-Vínculo | url | El vínculo del sitio web. | www.twitter.com
+Vínculo | url | El vínculo del sitio web. | [www.twitter.com](www.twitter.com)
 

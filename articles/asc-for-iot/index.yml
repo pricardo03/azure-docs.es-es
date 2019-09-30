@@ -1,75 +1,105 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación sobre Azure Security Center para IoT
+summary: Azure Security Center para IoT es un servicio de seguridad en la nube basado en Azure que proporciona una exhaustiva protección contra amenazas de los dispositivos de IoT.
 metadata:
-  title: 'Documentación sobre Azure Security Center para IoT: Tutoriales, inicios rápidos | Microsoft Docs'
-  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
-  services: asc-for-iot
-  author: mlottner
-  manager: rkarlin
+  title: Documentación sobre Azure Security Center para IoT
+  description: Azure Security Center para IoT es un servicio de seguridad en la nube basado en Azure que proporciona una exhaustiva protección contra amenazas de los dispositivos de IoT.
+  services: service
   ms.service: asc-for-iot
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/23/19
-  ms.author: rkarlin
-abstract:
-  description: "Use Azure Security Center para IoT para ampliar la vista de ciberseguridad existente a toda la solución IoT. Consiga una vista panorámica auténtica de la seguridad de todos los recursos relacionados con Azure. Las opciones de implementación rápida y la integración completa con los módulos gemelos de IoT Hub le ofrecen una amplia gama de opciones de personalización y facilita la integración con sus herramientas actuales de administración del dispositivo.\_"
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a habilitar su instancia de IoT Hub en Azure Security Center para IoT, a instalar los agentes seguridad y a conseguir visibilidad sobre las posibles amenazas.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: Habilitar Azure Security Center para IoT
-            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-          - image:
-              src: media/index/get-started.svg
-            text: Introducción a Azure Security para IoT
-            href: /azure/asc-for-iot/getting-started
-  - title: Guías de procedimientos
-    items:
-      - type: paragraph
-        text: 'Aprenda a definir directivas de seguridad, proteger los dispositivos frente a actividades malintencionadas y responder a los incidentes y las alertas de seguridad.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detecte amenazas con Azure Security Center para IoT</a>
-  - title: Desarrollo de aptitudes con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introducción a la seguridad en Azure
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-  - title: Vídeos de Azure Security Center para IoT
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: 'Alertas de seguridad de Microsoft Azure Security Center para IoT: Introducción'
-            href: 'https://youtu.be/pq5uSp9u_x0'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://youtu.be/pq5uSp9u_x0'
-          - title: 'Microsoft Azure Security Center para IoT: Solución'
-            href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Actualizaciones del servicio</a>'
+  ms.collection: M365-security-compliance
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/23/2019
+  ms.openlocfilehash: 5eb0d39d1dbe748b34dd8f5a72ae7796125eae44
+  ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71348535"
+landingContent:
+- title: Acerca de Azure Security Center para IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Security Center para IoT?
+      url: overview.md
+    - text: Planeamiento de una solución
+      url: service-prerequisites.md
+  - linkListType: architecture
+    links:
+    - text: Información acerca de la arquitectura de Azure Security Center para IoT
+      url: architecture.md
+    - text: Agentes de Azure Security Center para IoT
+      url: security-agent-architecture.md
+    - text: Módulo de seguridad de Edge
+      url: security-edge-architecture.md
+- title: Incorporación de Azure Security Center para IoT a IoT Hub
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introducción a Azure Security Center for IoT
+      url: getting-started.md
+    - text: IoT Hub
+      url: iot-hub-integration.md
+    - text: Agentes de seguridad
+      url: security-agents.md
+- title: Configuración de la solución
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Habilitar Azure Security Center para IoT en IoT Hub
+      url: quickstart-onboard-iot-hub.md
+    - text: Configuración de la solución
+      url: quickstart-configure-your-solution.md
+    - text: Creación de un módulo gemelo de Azure Security Center para IoT
+      url: quickstart-create-security-twin.md
+    - text: Creación de alertas de seguridad personalizadas
+      url: quickstart-create-custom-alerts.md
+- title: Personalización de su solución
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Elección de un agente
+      url: how-to-deploy-agent.md
+    - text: Implementación del agente de seguridad basado en C# de Azure Security Center for IoT para Windows
+      url: how-to-deploy-windows-cs.md
+    - text: Implementar el agente de seguridad basado en C# de Azure Security Center para IoT para Linux
+      url: how-to-deploy-linux-cs.md
+    - text: Implementación del agente de seguridad basado en C de Azure Security Center para IoT para Linux
+      url: how-to-deploy-linux-c.md
+    - text: Implementación del módulo de seguridad de Edge
+      url: how-to-deploy-edge.md
+    - text: Configuración de agentes de seguridad
+      url: how-to-agent-configuration.md
+    - text: Envío de sus propios mensajes de seguridad
+      url: how-to-send-security-messages.md
+    - text: Acceso a datos de seguridad sin procesar
+      url: how-to-security-data-access.md
+    - text: Investigación de un dispositivo
+      url: how-to-investigate-device.md
+- title: Solución de problemas de un agente de seguridad
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Guía de solución de problemas de un agente de seguridad (Linux)
+      url: troubleshoot-agent.md
+    - text: 'Información acerca del archivo LocalConfiguration.json: agente de C'
+      url: azure-iot-security-local-configuration-c.md
+    - text: Información acerca del archivo de configuración local (agente de C#)
+      url: azure-iot-security-local-configuration-csharp.md
+- title: Recursos de la solución de Azure Security Center para IoT
+  linkLists:
+  - linkListType: video
+    links:
+    - text: ¿Qué es Azure Security Center para IoT?
+      url: https://youtu.be/pq5uSp9u_x0
+    - text: Información acerca de Azure Security Center para IoT
+      url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+  - linkListType: reference
+    links:
+    - text: Preguntas más frecuentes
+      url: resources-frequently-asked-questions.md
+    - text: Precios y costos asociados
+      url: concept-pricing.md

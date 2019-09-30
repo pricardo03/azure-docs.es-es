@@ -128,8 +128,8 @@
           displayName: 'vanity, ingest'
         - name: Codificadores en directo recomendados
           href: recommended-on-premises-live-encoders.md
-        - name: Uso de una DVR en la nube
-          displayName: archive
+        - name: Cambio de tiempo y directo a vídeo bajo demanda
+          displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
         - name: Comparación de características
           href: live-event-types-comparison.md

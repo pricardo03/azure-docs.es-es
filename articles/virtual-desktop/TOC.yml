@@ -24,10 +24,12 @@
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
-        - name: "Conexión desde Windows\_10 o Windows\_7"
+        - name: Conexión con el cliente de Escritorio de Windows
           href: connect-windows-7-and-10.md
-        - name: Conexión desde un explorador web
+        - name: Conexión con el cliente web
           href: connect-web.md
+        - name: Conexión con el cliente de Android
+          href: connect-android.md
         - name: Conexión con el cliente macOS
           href: connect-macos.md
         - name: Conexión con el cliente iOS
@@ -72,6 +74,8 @@
       href: partners.md
     - name: "Preguntas frecuentes sobre la sesión múltiple de Windows\_10\_Enterprise"
       href: windows-10-multisession-faq.md
+    - name: Ubicaciones de datos
+      href: data-locations.md
 - name: Solución de problemas
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'

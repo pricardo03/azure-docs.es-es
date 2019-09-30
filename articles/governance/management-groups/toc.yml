@@ -1,0 +1,16 @@
+- name: Documentación acerca de los grupos de administración de Azure
+  href: ./index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: Administración de Azure
+      href: ../azure-management.md
+    - name: Grupos de administración
+      href: ./overview.md
+- name: Guías de procedimientos
+  expanded: true
+  items:
+    - name: Creación de grupos de administración
+      href: ./create.md
+    - name: Administración de los recursos
+      href: ./manage.md

@@ -89,6 +89,12 @@
       href: traffic-manager-powershell-arm.md
     - name: Dirigir el dominio de Internet Traffic Manager
       href: traffic-manager-point-internet-domain.md
+    - name: Reemplazo de la subred
+      items:
+        - name: 'Configuración del reemplazo de la subred: CLI de Azure'
+          href: traffic-manager-subnet-override-cli.md
+        - name: 'Configuración del reemplazo de la subred: PowerShell'
+          href: traffic-manager-subnet-override-powershell.md
     - name: Solución de problemas
       items:
         - name: Solucionar el estado degradado en el Administrador de tráfico de Azure
