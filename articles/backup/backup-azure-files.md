@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624349"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129560"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Copia de seguridad y restauración de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
@@ -86,13 +86,15 @@ En ocasiones, puede que quiera generar una instantánea de copia de seguridad, o
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. En la lista de recursos compartidos de archivos de Azure, seleccione el que desee. Se abre el menú de elementos de copia de seguridad correspondiente al recurso compartido de archivos seleccionado.
+3. En la lista de recursos compartidos de archivos de Azure, seleccione el que desee. Aparecen los detalles de **Backup Item** (Elemento de copia de seguridad). En el menú **Backup Item** (Elemento de copia de seguridad), haga clic en **Backup Now** (Crear copia de seguridad ahora). Dado que se trata de un trabajo de copia de seguridad a petición, no hay ninguna directiva de retención asociada con el punto de recuperación.
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/backup-item-menu.png)
 
-4. En el menú de elementos de la copia de seguridad, haga clic en **Backup Now** (Crear copia de seguridad ahora). Dado que se trata de un trabajo de copia de seguridad a petición, no hay ninguna directiva de retención asociada con el punto de recuperación. Se abre el cuadro de diálogo **Backup Now** (Crear copia de seguridad ahora). Especifique el último día que quiere conservar el punto de recuperación.
+4. Se abre el cuadro de diálogo **Backup Now** (Crear copia de seguridad ahora). Especifique el último día que quiere conservar el punto de recuperación.
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/backup-now-menu.png)
+
+5. Haga clic en **Ok** (Aceptar) para confirmar el trabajo de copia de seguridad a petición.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restauración a partir de la copia de seguridad de un recurso compartido de archivos de Azure
 Si necesita restaurar un recurso compartido de archivos completo o archivos o carpetas individuales desde un punto de restauración, vaya al elemento de copia de seguridad como se ha explicado en la sección anterior. Elija **Restore Share** (Restaurar recurso compartido) para restaurar un recurso compartido de archivos entero desde un momento dado deseado. En la lista de puntos de restauración que se muestran, seleccione uno para poder sobrescribir el recurso compartido de archivos actual o restaurarlo a un recurso compartido de archivos alternativo de la misma región.

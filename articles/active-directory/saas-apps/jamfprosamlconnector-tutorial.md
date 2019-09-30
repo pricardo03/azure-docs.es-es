@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034256"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212385"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Jamf Pro
 
@@ -87,7 +87,7 @@ En esta sección va a habilitar el inicio de sesión único de Azure AD en Azur
 1. Seleccione **Establecer direcciones URL adicionales**. Si quiere configurar la aplicación en modo **iniciado por SP**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL que use la siguiente fórmula: `https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador, la URL de respuesta y la dirección URL de inicio de sesión reales. Obtendrá el valor del identificador real de *la sección **Inicio de sesión único** en el portal de Jamf Pro, que se explica más adelante en el tutorial. Puede extraer el valor real del subdominio del valor del identificador y usar esa información del subdominio como las direcciones URL de inicio de sesión y de respuesta. También puede consultar las fórmulas que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador, la URL de respuesta y la dirección URL de inicio de sesión reales. Obtendrá el valor del identificador real de la sección **Single Sign-On** (Inicio de sesión único) en el portal de Jamf Pro, que se explica más adelante en el tutorial. Puede extraer el valor real del subdominio del valor del identificador y usar esa información del subdominio como las direcciones URL de inicio de sesión y de respuesta. También puede consultar las fórmulas que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, vaya a la sección **Certificado de firma de SAML**, seleccione el botón de **copia** para copiar el valor de **Dirección URL de metadatos de federación de aplicación** y guárdelo en su equipo.
 

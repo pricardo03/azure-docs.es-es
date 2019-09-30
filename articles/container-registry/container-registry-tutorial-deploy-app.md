@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310460"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146924"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementación de una aplicación web de un registro de contenedor de Azure con replicación geográfica
 
@@ -55,7 +55,11 @@ En el cuadro **Web App for Containers** que aparece al seleccionar "Implementar 
 | **Nombre del sitio** | Nombre único global para la aplicación web. En este ejemplo, se usa el formato `<acrName>-westus` para identificar fácilmente el registro y la región desde los que se implementó la aplicación web. |
 | **Grupo de recursos** | **Usar existente** > `myResourceGroup` |
 | **Plan de App Service/Ubicación** | Cree un nuevo plan denominado `plan-westus` en la región **Oeste de EE. UU**. |
-| **Imagen** | `acr-helloworld:v1`
+| **Imagen** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
+
+> [!NOTE]
+> Cuando se crea un plan de App Service para implementar una aplicación en contenedor, se selecciona automáticamente un plan predeterminado para hospedar la aplicación. El plan predeterminado depende de la configuración del sistema operativo.
 
 Seleccione **Crear** para aprovisionar la aplicación web en la región *Oeste de EE. UU*.
 
@@ -84,7 +88,8 @@ Use el procedimiento que se describe en la sección anterior para implementar un
 | **Nombre del sitio** | Nombre único global para la aplicación web. En este ejemplo, se usa el formato `<acrName>-eastus` para identificar fácilmente el registro y la región desde los que se implementó la aplicación web. |
 | **Grupo de recursos** | **Usar existente** > `myResourceGroup` |
 | **Plan de App Service/Ubicación** | Cree un nuevo plan denominado `plan-eastus` en la región **Este de EE. UU**. |
-| **Imagen** | `acr-helloworld:v1`
+| **Imagen** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
 
 Seleccione **Crear** para aprovisionar la aplicación web en la región *Este de EE. UU*.
 

@@ -1,5 +1,5 @@
 ---
-title: Ejecución de un cuaderno de estrategias en Azure Sentinel (versión preliminar)| Microsoft Docs
+title: Ejecución de un cuaderno de estrategias en Azure Sentinel | Microsoft Docs
 description: En este artículo se describe cómo ejecutar un cuaderno de estrategias en Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018797"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229508"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel (versión preliminar)
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este tutorial le ayuda a usar cuadernos de estrategias de seguridad en Azure Sentinel para establecer respuestas automatizadas frente a amenazas en problemas relacionados con la seguridad detectados por Azure Sentinel.
 
@@ -78,7 +76,9 @@ Para crear un nuevo cuaderno de estrategias de seguridad en Azure Sentinel, siga
 
 6. Se abrirá el Diseñador de aplicación lógica donde puede crear una plantilla nueva o editarla. Más información sobre cómo crear un cuaderno de estrategias con [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Si crea un cuaderno de estrategias en blanco, en el campo **Buscar todos los conectores y desencadenadores** , escriba *Azure Sentinel* y seleccione **When a response to an Azure Sentinel alert is triggered** (Cuando se desencadena una respuesta a una alerta de Azure Sentinel). <br>Después de crearlo, el nuevo cuaderno de estrategias aparece en la lista **Cuadernos de estrategias**. Si no aparece, haga clic en **Actualizar**. 
+7. Si crea un cuaderno de estrategias en blanco, en el campo **Buscar todos los conectores y desencadenadores** , escriba *Azure Sentinel* y seleccione **When a response to an Azure Sentinel alert is triggered** (Cuando se desencadena una respuesta a una alerta de Azure Sentinel). <br>Después de crearlo, el nuevo cuaderno de estrategias aparece en la lista **Cuadernos de estrategias**. Si no aparece, haga clic en **Actualizar**.
+
+1. Use las funciones **Obtener entidades**, que permiten obtener las entidades pertinentes desde dentro de la lista **Entidades**, como cuentas, direcciones IP y hosts. Esto permitirá ejecutar acciones en entidades específicas.
 
 7. Ahora puede definir lo que ocurre cuando se desencadena el playbook. Puede agregar una acción, una condición lógica, condiciones de casos de conmutador o bucles.
 

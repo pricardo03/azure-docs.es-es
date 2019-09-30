@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/31/2019
-ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679125"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161489"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -53,7 +53,7 @@ En este tutorial se supone que tiene un conocimiento intermedio de los servicios
 
 En esta sección, creará recursos de Azure:
 
-* Un grupo de recursos en el que se incluirán todos los recursos de Azure para este tutorial.
+* Un grupo de recursos que contendrá todos los recursos de Azure para este tutorial.
 * Un clúster de [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS).
 * Una instancia de [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) (ACR) para compilar (con ACR Tasks) y almacenar imágenes de Docker.
 

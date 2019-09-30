@@ -8,19 +8,19 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172965"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172794"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure App Service con la integración e implementación continuas de Jenkins
 
 En este tutorial se implementa una aplicación web de Java de ejemplo de GitHub en [Azure App Service en Linux](/azure/app-service/containers/app-service-linux-intro) mediante la integración (CI) e implementación continuas (CD) en Jenkins. Cuando actualiza la aplicación insertando confirmaciones en GitHub, Jenkins compila automáticamente la aplicación y vuelve a publicarla en Azure App Service. La aplicación de ejemplo de este tutorial se desarrolló mediante la plataforma [Spring Boot](https://projects.spring.io/spring-boot/). 
 
-![Información general](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![Introducción a la implementación de GitHub en Azure App Service](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 En este tutorial va a completar estas tareas:
 
@@ -97,19 +97,19 @@ Para que Jenkins supervise a GitHub y responda cuando se inserten nuevas confirm
 
 1. En la página **Manage Jenkins** (Administrar Jenkins), seleccione **Configure System** (Configurar sistema). 
 
-   ![Configurar sistema](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Configurar el sistema en Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. En la sección **GitHub** proporcione los detalles del servidor de GitHub. En la lista **Add GitHub Server** (Agregar servidor de GitHub), seleccione **GitHub Server** (Servidor de GitHub). 
 
-   ![Agregar servidor de GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Agregar servidor de GitHub en Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. Si la propiedad **Manage hooks** (Administrar enlaces) no está seleccionada, selecciónela. Seleccione **Avanzadas** para especificar otros valores de configuración. 
 
-   ![Elegir "Avanzadas" para ver más opciones de configuración](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Especificar configuración avanzada de Jenkins para el servidor de GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. En la lista **Manage additional GitHub actions** (Administrar acciones de GitHub adicionales), seleccione **Convert login and password to token** (Convertir contraseña e inicio de sesión en token).
 
-   ![Elegir "Administrar acciones de GitHub adicionales"](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Convertir el inicio de sesión y la contraseña en token para GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. Seleccione **From login and password** (A partir del inicio de sesión y la contraseña) para poder escribir el nombre de usuario y la contraseña de GitHub. Cuando haya terminado, seleccione **Create token credentials** (Crear credenciales de token), que permite crear un [token de acceso personal (PAT) de GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
@@ -181,11 +181,11 @@ En Jenkins, cree el trabajo de canalización para compilar e implementar la apli
 
 1. Vuelva a la página principal de Jenkins y seleccione **New Item** (Nuevo elemento). 
 
-   ![Seleccionar "Nuevo elemento"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Creación de una canalización de Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Proporcione un nombre para el trabajo de canalización, por ejemplo, "My-Java-Web-App" y seleccione **Pipeline** (Canalización). En la parte inferior, seleccione **OK** (Aceptar).  
 
-   ![Seleccionar "Canalización"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Asignar un nombre al trabajo de canalización de Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Configure Jenkins con la entidad de servicio para que este se pueda implementar en Azure sin usar sus propias credenciales.
 
@@ -199,7 +199,7 @@ En Jenkins, cree el trabajo de canalización para compilar e implementar la apli
       WEB_APP=yourWebAppName
       ```
 
-      ![Seleccione "Prepare an environment for the run" (Preparar un entorno para la ejecución) y establezca las variables de entorno](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Preparar un entorno para la ejecución y establecer las variables de entorno](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. Cuando finalice, seleccione **Guardar**.
 
@@ -254,7 +254,7 @@ Ahora, especifique el script de compilación e implementación que desea que use
 
 1. En Jenkins, seleccione el trabajo de canalización que creó anteriormente. 
 
-   ![Seleccionar trabajo de canalización para la aplicación web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Seleccionar trabajo de canalización de Jenkins para una aplicación web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. En el menú de la izquierda, seleccione **Configure** (Configurar).
 
@@ -272,7 +272,7 @@ Ahora, especifique el script de compilación e implementación que desea que use
 
    Una vez que haya terminado, la definición de la canalización debe ser parecida a la de este ejemplo: 
 
-   ![Apuntar a la canalización en el script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Señalar una canalización de Jenkins en el script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. Cuando finalice, seleccione **Guardar**.
 

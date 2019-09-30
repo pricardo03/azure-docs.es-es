@@ -3,15 +3,16 @@ title: 'Script de Azure PowerShell: Creación de un contenedor y base de datos c
 description: 'Script de Azure PowerShell: Creación de un contenedor y base de datos con SQL API (Core) para Azure Cosmos DB'
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: b8b8b30f178ba068bc800103f16adde43cf5dcb1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602213"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178796"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Creación de una base de datos y un contenedor para Azure Cosmos DB: SQL API (Core)
 
@@ -21,7 +22,9 @@ ms.locfileid: "67602213"
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create a database and container for SQL (Core) API")]
+Este script crea una cuenta de Cosmos para SQL (Core) API en dos regiones con coherencia de nivel de sesión, una base de datos con un rendimiento compartido y un contenedor con una clave de partición, una directiva de indexación personalizada, una directiva de clave única, un TTL, un rendimiento dedicado y una directiva de resolución de conflictos en la que el último escritor gana, con una ruta de resolución de conflictos personalizada que se utilizará cuando `multipleWriteLocations=true`.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 

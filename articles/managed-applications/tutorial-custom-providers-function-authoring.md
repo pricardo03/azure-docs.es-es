@@ -1,58 +1,55 @@
 ---
 title: Creación de un punto de conexión de RESTful para proveedores personalizados
-description: En este tutorial se explica cómo crear un punto de conexión de RESTful para proveedores personalizados. Detallará cómo tratar las solicitudes y respuestas para los métodos HTTP de RESTful admitidos.
+description: En este tutorial se muestra cómo crear un punto de conexión de RESTful para proveedores personalizados. Detalla cómo tratar las solicitudes y respuestas para los métodos HTTP de RESTful admitidos.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 176e3b02cbda7577e306d86363cfe5b41335fb6e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: ae821f07034b038f49a400de8c00e4ace6787192
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799184"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172871"
 ---
-# <a name="authoring-a-restful-endpoint-for-custom-providers"></a>Creación de un punto de conexión de RESTful para proveedores personalizados
+# <a name="author-a-restful-endpoint-for-custom-providers"></a>Creación de un punto de conexión de RESTful para proveedores personalizados
 
-Los proveedores personalizados le permiten personalizar los flujos de trabajo en Azure. Un proveedor personalizado es un contrato entre Azure y un `endpoint`. Este tutorial le guiará por el proceso de creación de un proveedor personalizado de RESTful `endpoint`. Si no está familiarizado con los proveedores personalizados de Azure, consulte [la introducción a los proveedores de recursos personalizados](./custom-providers-overview.md).
-
-Este tutorial se divide en los pasos siguientes:
-
-- Trabajo con las acciones y recursos personalizados
-- Creación de particiones de recursos personalizados en el almacenamiento
-- Compatibilidad con los métodos de RESTful del proveedor personalizado
-- Integración de las operaciones de RESTful
-
-Este tutorial se basará en los siguientes tutoriales:
-
-- [Configuración de Azure Functions para los proveedores personalizados de Azure](./tutorial-custom-providers-function-setup.md)
+Un proveedor personalizado es un contrato entre Azure y un punto de conexión. Los proveedores personalizados le permiten personalizar los flujos de trabajo en Azure. En este tutorial se muestra cómo crear un punto de conexión de RESTful para proveedores personalizados. Si no está familiarizado con los proveedores personalizados de Azure, consulte [la introducción a los proveedores de recursos personalizados](./custom-providers-overview.md).
 
 > [!NOTE]
-> Este tutorial se basa en el tutorial anterior. Algunos de los pasos del tutorial solo funcionarán si se ha configurado una función de Azure para que funcione con proveedores personalizados.
+> Este tutorial se basa en el artículo [Configuración de Azure Functions para los proveedores personalizados de Azure](./tutorial-custom-providers-function-setup.md). Algunos de los pasos del tutorial solo funcionan si se ha configurado una aplicación de funciones de Azure para que funcione con proveedores personalizados.
 
-## <a name="working-with-custom-actions-and-custom-resources"></a>Trabajo con las acciones y recursos personalizados
+## <a name="work-with-custom-actions-and-custom-resources"></a>Trabajo con las acciones y recursos personalizados
 
-En este tutorial, actualizaremos la función para que funcione como un punto de conexión de RESTful para nuestro proveedor personalizado. En Azure, los recursos y las acciones se modelan después de la especificación de RESTful básica: PUT crea un nuevo recurso; GET (instancia) recupera un recurso existente, DELETE elimina un recurso existente, POST desencadena una acción y GET (colección) enumera todos los recursos existentes. Para este tutorial, se utilizarán las tablas de Azure como almacenamiento, pero cualquier base de datos o servicio de almacenamiento puede servir.
+En este tutorial, va a actualizar la aplicación de funciones para que sirve de punto de conexión de RESTful para el proveedor personalizado. Los recursos y las acciones de Azure se modelan en función de la especificación de RESTful básica:
 
-## <a name="how-to-partition-custom-resources-in-storage"></a>Creación de particiones de recursos personalizados en el almacenamiento
+- **PUT**: Crear un nuevo recurso
+- **GET (instancia)** : Recuperar un recurso existente
+- **DELETE**: Quitar un recurso existente
+- **POST**: Desencadenar una acción
+- **GET (colección)** : Enumerar todos los recursos existentes
 
-Como vamos a crear un servicio RESTful, es necesario almacenar los recursos creados en el almacenamiento. Para Azure Table Storage, es necesario generar las claves de partición y de fila de los datos. En el caso de los proveedores personalizados, los datos deben particionarse en el proveedor personalizado. Cuando se envía una solicitud entrante al proveedor personalizado, este agregará el encabezado `x-ms-customproviders-requestpath` a la solicitud saliente a `endpoint`.
+ En este tutorial, va a utilizar Azure Table Storage. Sin embargo, cualquier servicio o de base de datos o de almacenamiento puede funcionar.
 
-Encabezado `x-ms-customproviders-requestpath` de ejemplo para un recurso personalizado:
+## <a name="partition-custom-resources-in-storage"></a>Creación de particiones de recursos personalizados en el almacenamiento
+
+Como va a crear un servicio RESTful, es necesario almacenar los recursos creados. Para Azure Table Storage, es necesario generar las claves de partición y de fila de los datos. En el caso de los proveedores personalizados, los datos deben particionarse en el proveedor personalizado. Cuando se envía una solicitud entrante al proveedor personalizado, este agregará el encabezado `x-ms-customproviders-requestpath` a la solicitud saliente al punto de conexión.
+
+En el ejemplo siguiente se muestra un encabezado `x-ms-customproviders-requestpath` de un recurso personalizado:
 
 ```
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Basándose en el encabezado `x-ms-customproviders-requestpath` de ejemplo anterior, podemos crear los parámetros partitionKey y rowKey para nuestro almacenamiento de la siguiente manera:
+Según el encabezado `x-ms-customproviders-requestpath` del ejemplo, puede crear los parámetros *partitionKey* y *rowKey* para el almacenamiento, tal como se muestra en la tabla siguiente:
 
 Parámetro | Plantilla | DESCRIPCIÓN
----|---
-partitionKey | '{subscriptionId}:{resourceGroupName}:{resourceProviderName}' | El parámetro partitionKey indica cómo se particionan los datos. Para la mayoría de los casos, los datos se deben particionar por la instancia del proveedor personalizado.
-rowKey | '{myResourceType}:{myResourceName}' | El parámetro rowKey indica el identificador individual de los datos. La mayoría de las veces es el nombre del recurso.
+---|---|---
+*partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | El parámetro *partitionKey* especifica cómo se particionan los datos. Por lo general, la instancia del proveedor personalizado se encarga de particionar los datos.
+*rowKey* | `{myResourceType}:{myResourceName}` | El parámetro *rowKey* especifica el identificador individual de los datos. Normalmente, el identificador es el nombre del recurso.
 
-Además, también necesitamos crear una nueva clase para modelar nuestro recurso personalizado. En este tutorial, agregaremos la clase `CustomResource` a nuestra función, que es una clase genérica que acepta cualquier entrada de datos:
+También necesita crear una nueva clase para modelar el recurso personalizado. En este tutorial, va a agregar la siguiente clase **CustomResource** a la aplicación de funciones:
 
 ```csharp
 // Custom Resource Table Entity
@@ -61,26 +58,27 @@ public class CustomResource : TableEntity
     public string Data { get; set; }
 }
 ```
-
-Esto crea una clase básica basada en `TableEntity`, que se usa para almacenar los datos. La clase `CustomResource` hereda dos propiedades de `TableEntity`: partitionKey y rowKey.
+**CustomResource** es una clase genérica simple que acepta cualquier dato de entrada. Se basa en el parámetro **TableEntity**, que se usa para almacenar los datos. La clase **CustomResource** hereda dos propiedades de **TableEntity**: **partitionKey** y **rowKey**.
 
 ## <a name="support-custom-provider-restful-methods"></a>Compatibilidad con los métodos de RESTful del proveedor personalizado
 
 > [!NOTE]
-> Si no está copiando el código directamente del tutorial, el contenido de la respuesta debe ser un JSON válido y establece el encabezado `Content-Type` como `application/json`.
+> Si no está copiando el código directamente del tutorial, el contenido de la respuesta debe ser un JSON válido que establece el encabezado `Content-Type` en `application/json`.
 
-Ahora que tenemos la configuración de la partición de datos, se va a aplicar la técnica de scaffolding en el CRUD básico y en los métodos de desencadenamiento para los recursos y acciones personalizados. Como los proveedores personalizados actúan como un proxy, la solicitud y la respuesta deben modelarse y tratarse por RESTful `endpoint`. Siga estos fragmentos de código para controlar las operaciones de RESTful básicas:
+Ahora que ha configurado la partición de datos, cree el CRUD básico y desencadene métodos para los recursos y acciones personalizados. Dado que los proveedores personalizados actúan como servidores proxy, el punto de conexión RESTful debe modelar y controlar la solicitud y la respuesta. Los fragmentos de código siguientes muestran cómo controlar las operaciones de RESTful básicas.
 
-### <a name="trigger-custom-action"></a>Desencadenamiento de la acción personalizada
+### <a name="trigger-a-custom-action"></a>Desencadenamiento de la acción personalizada
 
-En el caso de los proveedores personalizados, se desencadena una acción personalizada mediante las solicitudes `POST`. Una acción personalizada puede aceptar opcionalmente un cuerpo de la solicitud que contenga un conjunto de parámetros de entrada. La acción debe entonces devolver una respuesta que indique el resultado de la acción, así como si se realizado correctamente o ha producido un error. En este tutorial, agregaremos el método `TriggerCustomAction` a nuestra función:
+En el caso de los proveedores personalizados, se desencadena una acción personalizada mediante las solicitudes POST. Una acción personalizada puede aceptar opcionalmente un cuerpo de la solicitud que contenga un conjunto de parámetros de entrada. La acción entonces devuelve una respuesta que indique el resultado de la acción y si se realizado correctamente o ha producido un error.
+
+Agregue el método **TriggerCustomAction** siguiente a la aplicación de funciones:
 
 ```csharp
 /// <summary>
-/// Triggers a custom action with some side effect.
+/// Triggers a custom action with some side effects.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <returns>The http response result of the custom action.</returns>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <returns>The HTTP response result of the custom action.</returns>
 public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMessage requestMessage)
 {
     var myCustomActionRequest = await requestMessage.Content.ReadAsStringAsync();
@@ -93,22 +91,24 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
-El método `TriggerCustomAction` acepta una solicitud entrante y simplemente devuelve la respuesta con un código de estado correcto. 
+El método **TriggerCustomAction** acepta una solicitud entrante y simplemente devuelve la respuesta con un código de estado correcto.
 
-### <a name="create-custom-resource"></a>Creación de un recurso personalizado
+### <a name="create-a-custom-resource"></a>Creación de un recurso personalizado
 
-En el caso de los proveedores personalizados, se crea un recurso personalizado mediante las solicitudes `PUT`. El proveedor personalizado aceptará un cuerpo de la solicitud JSON, que contiene un conjunto de propiedades para el recurso personalizado. En Azure, los recursos siguen un modelo de RESTful. La misma dirección URL de solicitud que se utilizó para crear un recurso también debería poder recuperar y eliminar el recurso. En este tutorial, agregaremos el método `CreateCustomResource` para crear nuevos recursos:
+En el caso de los proveedores personalizados, se crea un recurso personalizado mediante las solicitudes PUT. El proveedor personalizado acepta un cuerpo de la solicitud JSON, que contiene un conjunto de propiedades para el recurso personalizado. Los recursos de Azure siguen un modelo de RESTful. Puede usar la misma dirección URL de solicitud para crear, recuperar o eliminar un recurso.
+
+Agregue el método **CreateCustomResource** siguiente para crear nuevos recursos:
 
 ```csharp
 /// <summary>
 /// Creates a custom resource and saves it to table storage.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="azureResourceId">The parsed Azure resource Id.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="azureResourceId">The parsed Azure resource ID.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the created custom resource.</returns>
+/// <returns>The HTTP response containing the created custom resource.</returns>
 public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, ResourceId azureResourceId, string partitionKey, string rowKey)
 {
     // Adds the Azure top-level properties.
@@ -133,29 +133,31 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-El método `CreateCustomResource` actualiza la solicitud entrante para incluir los campos específicos de Azure: `id`, `name` y `type`. Estos campos son propiedades de nivel superior que utilizan los servicios en Azure. Permiten que el proveedor personalizado se integre con otros servicios como Azure Policy, plantillas de Azure Resource Manager y Registros de actividad de Azure.
+El método **CreateCustomResource** actualiza la solicitud entrante para incluir los campos específicos de Azure **id**, **name** y **type**. Estos campos son propiedades de nivel superior que utilizan los servicios en Azure. Permiten que el proveedor personalizado se integre con otros servicios como Azure Policy, plantillas de Azure Resource Manager y el registro de actividades de Azure.
 
-Propiedad | Muestra | DESCRIPCIÓN
+Propiedad | Ejemplo | DESCRIPCIÓN
 ---|---|---
-Nombre | '{myCustomResourceName}' | El nombre del recurso personalizado.
-Tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | El espacio de nombres del tipo de recurso.
-id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName}' | El identificador del recurso.
+**name** | {myCustomResourceName} | El nombre del recurso personalizado
+**type** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | El espacio de nombres del tipo de recurso
+**id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | El identificador del recurso
 
-Además de agregar las propiedades, también guardamos el documento en Azure Table Storage. 
+Además de agregar las propiedades, también guardamos el documento JSON en Azure Table Storage.
 
-### <a name="retrieve-custom-resource"></a>Recuperación de recursos personalizados
+### <a name="retrieve-a-custom-resource"></a>Recuperación de un recurso personalizado
 
-En el caso de los proveedores personalizados, se recupera un recurso personalizado mediante las solicitudes `GET`. El proveedor personalizado *no* aceptará un cuerpo de la solicitud JSON. En el caso de las solicitudes `GET`, el **punto de conexión** debe utilizar el encabezado `x-ms-customproviders-requestpath` para devolver el recurso ya creado. En este tutorial, agregaremos el método `RetrieveCustomResource` para recuperar los recursos existentes:
+En el caso de los proveedores personalizados, se recupera un recurso personalizado mediante las solicitudes GET. El proveedor personalizado *no* acepta un cuerpo de la solicitud JSON. En las solicitudes GET, el punto de conexión utiliza el encabezado `x-ms-customproviders-requestpath` para devolver el recurso ya creado.
+
+Agregue el método **RetrieveCustomResource** siguiente para recuperar los recursos existentes:
 
 ```csharp
 /// <summary>
 /// Retrieves a custom resource.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the existing custom resource.</returns>
+/// <returns>The HTTP response containing the existing custom resource.</returns>
 public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
 {
     // Attempt to retrieve the Existing Stored Value
@@ -172,21 +174,23 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 }
 ```
 
-En Azure, los recursos deben seguir un modelo de RESTful. La dirección URL de la solicitud que creó el recurso también debe devolver el recurso si se realiza una solicitud `GET`.
+En Azure, los recursos siguen un modelo de RESTful. La dirección URL de la solicitud que crea un recurso también devuelve el recurso si se realiza una solicitud GET.
 
-### <a name="remove-custom-resource"></a>Supresión de un recurso personalizado
+### <a name="remove-a-custom-resource"></a>Eliminación de un recurso personalizado
 
-En el caso de los proveedores personalizados, se quita un recurso personalizado mediante las solicitudes `DELETE`. El proveedor personalizado *no* aceptará un cuerpo de la solicitud JSON. En el caso de las solicitudes `DELETE`, el **punto de conexión** debe utilizar el encabezado `x-ms-customproviders-requestpath` para eliminar el recurso ya creado. En este tutorial, agregaremos el método `RemoveCustomResource` para quitar los recursos existentes:
+En los proveedores personalizados, se quita un recurso personalizado mediante las solicitudes DELETE. El proveedor personalizado *no* acepta un cuerpo de la solicitud JSON. En las solicitudes DELETE, el punto de conexión utiliza el encabezado `x-ms-customproviders-requestpath` para eliminar el recurso ya creado.
+
+Agregue el método **RemoveCustomResource** siguiente para quitar los recursos existentes:
 
 ```csharp
 /// <summary>
 /// Removes an existing custom resource.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure storage account table.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The http response containing the result of the delete.</returns>
+/// <returns>The HTTP response containing the result of the deletion.</returns>
 public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
 {
     // Attempt to retrieve the Existing Stored Value
@@ -203,21 +207,23 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-En Azure, los recursos deben seguir un modelo de RESTful. La dirección URL de la solicitud que creó el recurso también debe eliminar el recurso si se realiza una solicitud `DELETE`.
+En Azure, los recursos siguen un modelo de RESTful. La dirección URL de la solicitud que crea un recurso también elimina el recurso si se realiza una solicitud DELETE.
 
 ### <a name="list-all-custom-resources"></a>Enumeración de recursos personalizados
 
-Para los proveedores personalizados, se puede enumerar una lista de los recursos personalizados existentes mediante las solicitudes `GET` de la colección. El proveedor personalizado *no* aceptará un cuerpo de la solicitud JSON. En el caso de las solicitudes `GET` de la colección, el `endpoint` debe utilizar el encabezado `x-ms-customproviders-requestpath` para enumerar los recursos ya creados. En este tutorial, agregaremos el método `EnumerateAllCustomResources` para enumerar los recursos existentes.
+Para los proveedores personalizados, se puede enumerar una lista de los recursos personalizados existentes mediante las solicitudes GET de la colección. El proveedor personalizado *no* acepta un cuerpo de la solicitud JSON. Para las solicitudes GET de la colección, el punto de conexión debe utilizar el encabezado `x-ms-customproviders-requestpath` para enumerar los recursos ya creados.
+
+Agregue el método **EnumerateAllCustomResources** siguiente para enumerar los recursos existentes:
 
 ```csharp
 /// <summary>
 /// Enumerates all the stored custom resources for a given type.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
-/// <returns>The http response containing a list of resources stored under 'value'.</returns>
+/// <returns>The HTTP response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)
 {
     // Generate upper bound of the query.
@@ -244,22 +250,22 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 ```
 
 > [!NOTE]
-> La clave de la fila mayor y menor que la sintaxis de la tabla de Azure para realizar una consulta "startswith" para las cadenas. 
+> Los métodos RowKey QueryComparisons.GreaterThan y QueryComparisons.LessThan es la sintaxis de Azure Table Storage para realizar una consulta "StartsWith" para las cadenas.
 
-Para enumerar todos los recursos existentes, generamos una consulta en la tabla de Azure que garantiza que los recursos existen bajo nuestra partición de proveedor personalizado. La consulta comprueba entonces que la clave de fila comienza con el mismo `{myResourceType}`.
+Para enumerar todos los recursos existentes, se genera una consulta de Azure Table Storage que garantiza que los recursos existen bajo nuestra partición de proveedor personalizado. La consulta comprueba entonces que la clave de fila comienza con el mismo valor `{myResourceType}`.
 
 ## <a name="integrate-restful-operations"></a>Integración de las operaciones de RESTful
 
-Cuando todos los métodos RESTful se agregan a la función, podemos actualizar el método `Run` principal para llamar a las funciones y tratar las diferentes solicitudes REST:
+Cuando todos los métodos RESTful se agregan a la aplicación de funciones, se actualiza el método **Run** principal para llamar a las funciones y tratar las diferentes solicitudes REST:
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure Function webhook and acts as the service behind a custom provider.
+/// Entry point for the Azure function app webhook that acts as the service behind a custom provider.
 /// </summary>
-/// <param name="requestMessage">The http request message.</param>
+/// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>
-/// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <returns>The http response for the custom Azure API.</returns>
+/// <param name="tableStorage">The Azure Table storage account.</param>
+/// <returns>The HTTP response for the custom Azure API.</returns>
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log, CloudTable tableStorage)
 {
     // Get the unique Azure request path from request headers.
@@ -288,7 +294,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
     switch (req.Method)
     {
-        // Action request for an custom action.
+        // Action request for a custom action.
         case HttpMethod m when m == HttpMethod.Post && !isResourceRequest:
             return await TriggerCustomAction(
                 requestMessage: req);
@@ -331,11 +337,13 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
             return req.CreateResponse(HttpStatusCode.BadRequest);
     }
 }
-``` 
+```
 
-El método `Run` actualizado incluirá ahora el enlace de entrada `tableStorage` que se agregó en Azure Table Storage. La primera parte del método ahora leerá el encabezado `x-ms-customproviders-requestpath` y usará la biblioteca `Microsoft.Azure.Management.ResourceManager.Fluent` para analizar el valor como un identificador de recurso. El encabezado `x-ms-customproviders-requestpath` lo envía el proveedor personalizado y designa la ruta de acceso de la solicitud entrante. Con el identificador del recurso analizado, ahora podemos generar los parámetros partitionKey y rowKey para que los datos busquen o almacenen recursos personalizados.
+El método actualizado **Run** ahora incluye el enlace de entrada *tableStorage* que agregó para Azure Table Storage. La primera parte del método lee el encabezado `x-ms-customproviders-requestpath` y usará la biblioteca `Microsoft.Azure.Management.ResourceManager.Fluent` para analizar el valor como un identificador de recurso. El encabezado `x-ms-customproviders-requestpath` lo envía el proveedor personalizado y especifica la ruta de acceso de la solicitud entrante.
 
-Además de agregar los métodos y las clases, tenemos que actualizar los métodos using de la función. Agregue lo siguiente en la parte superior del archivo:
+Con el identificador del recurso analizado, ahora se puede generar los valores **partitionKey** y **rowKey** para que los datos busquen o almacenen recursos personalizados.
+
+Después de agregar los métodos y las clases, hay que actualizar los métodos **using** de la aplicación de funciones. Agregue el código siguiente al principio del archivo de C#:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -359,10 +367,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Si se perdió durante cualquier punto de este tutorial, puede encontrar el código de ejemplo completo en la [referencia de punto de conexión RESTful de C# del proveedor personalizado](./reference-custom-providers-csharp-endpoint.md). Cuando se completa la función, guarde la dirección URL de la función que se puede utilizar para desencadenar la función, tal y como se utilizará en los tutoriales posteriores.
+Si se perdió en algún punto de este tutorial, puede encontrar el ejemplo de código completo en la [referencia de punto de conexión RESTful de C# del proveedor personalizado](./reference-custom-providers-csharp-endpoint.md). Una vez finalizada la aplicación de funciones, guarde la dirección URL de la aplicación de funciones. Se puede usar para desencadenar la aplicación de funciones en tutoriales posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, hemos creado un punto de conexión de RESTful para trabajar con el proveedor personalizado de Azure `endpoint`. Vaya al artículo siguiente para aprender a crear un proveedor personalizado.
-
-- [Tutorial: Creación de un proveedor personalizado](./tutorial-custom-providers-create.md)
+En este artículo, ha creado un punto de conexión de RESTful para trabajar con un punto de conexión de proveedor personalizado de Azure. Para aprender a crear un proveedor personalizado, vaya al artículo [Tutorial: Creación de un proveedor personalizado](./tutorial-custom-providers-create.md).

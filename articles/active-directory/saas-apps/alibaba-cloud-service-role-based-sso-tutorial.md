@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory en Cloud Service (inicio de sesión único basado en roles) | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Alibaba Cloud Service (Role-based SSO) | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Alibaba Cloud Service (inicio de sesión único basado en roles).
 services: active-directory
 documentationCenter: na
@@ -13,38 +13,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 09/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99b9173c817cc3ecf4b9a34ec6906af0b4de70e6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107162"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120767"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integración de Azure Active Directory en Cloud Service (inicio de sesión único basado en roles)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
-En este tutorial, aprenderá a integrar Alibaba Cloud Service (inicio de sesión único basado en roles) en Azure Active Directory (Azure AD).
-La integración de Alibaba Cloud Service (inicio de sesión único basado en roles) en Azure AD proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar Alibaba Cloud Service (Role-based SSO) con Azure Active Directory (Azure AD). Al integrar Alibaba Cloud Service (Role-based SSO) con Azure AD, se puede realizar lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a Alibaba Cloud Service (inicio de sesión único basado en roles).
-* Puede permitir que los usuarios inicien sesión automáticamente en Alibaba Cloud Service (inicio de sesión único basado en roles) (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Alibaba Cloud Service (Role-based SSO).
+* Permitir que los usuarios inicien sesión automáticamente en Alibaba Cloud Service (Role-based SSO) con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD en Alibaba Cloud Service (inicio de sesión único basado en roles), necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una suscripción habilitada para el inicio de sesión único de Alibaba Cloud Service (inicio de sesión único basado en roles)
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en Alibaba Cloud Service (Role-based SSO).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Alibaba Cloud Service (inicio de sesión único basado en roles) admite SSO iniciado por **IDP**
 
@@ -52,60 +50,40 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Alibaba Cloud Service (inicio de sesión único basado en roles) en Azure AD, es preciso agregar Alibaba Cloud Service (inicio de sesión único basado en roles) desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Alibaba Cloud Service (inicio de sesión único basado en roles) desde la galería, siga estos pasos:**
-
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
-
-    ![Botón Azure Active Directory](common/select-azuread.png)
-
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
-
-    ![Botón Nueva aplicación](common/add-new-app.png)
-
-4. En el cuadro de búsqueda, escriba **Alibaba Cloud Service (inicio de sesión único basado en roles)** , seleccione **Alibaba Cloud Service (inicio de sesión único basado en roles)** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
-
-    ![Alibaba Cloud Service (inicio de sesión único basado en roles) en la lista de resultados](common/search-new-app.png)
-
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Alibaba Cloud Service (Role-based SSO)** en el cuadro de búsqueda.
+1. Seleccione **Alibaba Cloud Service (Role-based SSO)** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 5. En la página de **Alibaba Cloud Service (inicio de sesión único basado en roles)** , haga clic en **Properties** (Propiedades) en el panel de navegación izquierdo, copie el **identificador de objeto** y guárdelo en su equipo para usarlo más adelante.
 
     ![Configuración de propiedades](./media/alibaba-cloud-service-role-based-sso-tutorial/Properties.png)
-    
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, se configura y se prueba el inicio de sesión único de Azure AD con Alibaba Cloud Service (inicio de sesión único basado en roles) con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Alibaba Cloud Service (inicio de sesión único basado en roles).
 
-Para configurar y probar el inicio de sesión único de Azure AD con Alibaba Cloud Service (inicio de sesión único basado en roles), es preciso completar los siguientes bloques de creación:
+## <a name="configure-and-test-azure-ad-single-sign-on-for-alibaba-cloud-service-role-based-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD para Alibaba Cloud Service (Role-based SSO)
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+Configure y pruebe el inicio de sesión único de Azure AD con Alibaba Cloud Service (Role-based SSO) mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Alibaba Cloud Service (Role-based SSO).
+
+Para configurar y probar el inicio de sesión único de Azure AD con Alibaba Cloud Service (Role-based SSO), es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 2. **[Configure el inicio de sesión único basado en roles de Alibaba Cloud Service](#configure-role-based-single-sign-on-in-alibaba-cloud-service)** para permitir que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Alibaba Cloud Service (inicio de sesión único basado en roles)](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de usuarios de prueba de Alibaba Cloud Service (inicio de sesión único basado en roles)](#create-alibaba-cloud-service-role-based-sso-test-user)** : para tener un homólogo de Britta Simon en Alibaba Cloud Service (inicio de sesión único basado en roles) que esté vinculado a la representación de usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+    1. **[Configuración del inicio de sesión único de Alibaba Cloud Service (Role-based SSO)](#configure-alibaba-cloud-service-role-based-sso-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
+    1. **[Creación de usuarios de prueba de Alibaba Cloud Service (inicio de sesión único basado en roles)](#create-alibaba-cloud-service-role-based-sso-test-user)** : para tener un homólogo de Britta Simon en Alibaba Cloud Service (inicio de sesión único basado en roles) que esté vinculado a la representación de usuario en Azure AD.
+3. **[Prueba del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Service (inicio de sesión único basado en roles), siga estos pasos:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Alibaba Cloud Service (Role-based SSO)** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Alibaba Cloud Service (inicio de sesión único basado en roles)** , haga clic en **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
@@ -114,64 +92,61 @@ Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Servic
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![imagen](common/upload-metadata.png)
-
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    ![imagen](common/browse-upload-metadata.png)
-
     c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección Alibaba Cloud Service (inicio de sesión único basado en roles):
-
-    ![imagen](common/idp-intiated.png)
 
     > [!Note]
     > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
-5. La aplicación Alibaba Cloud Service (inicio de sesión único basado en roles) espera que las aserciones de SAML estén en un formato específico, así que es necesario agregar asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+1. Alibaba Cloud Service (Role-based SSO) necesita que se configuren roles en Azure AD. La notificación de rol está preconfigurada, por lo que no tiene que ocuparse de ello, pero aún tiene que crear los roles en Azure AD con la ayuda de este [artículo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-    ![imagen](common/edit-attribute.png)
-
-6. Además de lo anterior, la aplicación Alibaba Cloud Service (inicio de sesión único basado en roles) espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
-
-    | NOMBRE | Espacio de nombres | Atributo de origen|
-    | ---------------| ------------| --------------- |
-    | Role | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
-    | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
-
-    > [!NOTE]
-    > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber cómo configurar el valor **Role** en Azure AD.
-
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
-
-    ![imagen](common/new-save-attribute.png)
-
-    ![imagen](common/new-attribute-details.png)
-
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-
-    c. Deje **Espacio de nombres** en blanco.
-
-    d. Seleccione **Atributo** como origen.
-
-    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
-
-    f. Haga clic en **Save**(Guardar).
-
-7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-8. En la sección **Set up Alibaba Cloud Service (Role-based SSO)** [Alibaba Cloud Service (inicio de sesión único basado en roles)], copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Alibaba Cloud Service (Role-based SSO)** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Create**(Crear).
 
-### <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configuración del inicio de sesión único basado en roles de Alibaba Cloud Service
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon use el inicio de sesión único de Azure concediéndole acceso a Alibaba Cloud Service (Role-based SSO).
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Alibaba Cloud Service (inicio de sesión único basado en roles)** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+
+    ![Vínculo de Agregar usuario](common/add-assign-user.png)
+
+1. En la pestaña **Usuarios y grupos**, seleccione u2 en la lista de usuarios y haga clic en **Seleccionar**. Después, haga clic en **Asignar**.
+
+    ![Prueba de la configuración](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
+
+1. Vea el rol asignado y pruebe Alibaba Cloud Service (inicio de sesión único basado en roles).
+
+    ![Prueba de la configuración](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
+
+    >[!NOTE]
+    >Después de asignar el usuario (u2), se asociará automáticamente el rol creado al usuario. Si ha creado varios roles, deberá asociar el rol adecuado al usuario según sea necesario. Si desea implementar el inicio de sesión único basado en roles de Azure AD a varias cuentas de Alibaba Cloud, repita los pasos anteriores.
+
+## <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configuración del inicio de sesión único basado en roles de Alibaba Cloud Service
 
 1. Inicie sesión en la [consola RAM](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fram.console.aliyun.com%2F%3Fspm%3Da2c63.p38356.879954.8.7d904e167h6Yg9) de Alibaba Cloud Service mediante Account1.
 
@@ -250,70 +225,15 @@ Para configurar el inicio de sesión único de Azure AD con Alibaba Cloud Servic
 
     g. Una vez que haya revisado la entidad de servicio con el rol necesario, asocie el rol con el usuario de Azure AD (u2) siguiendo los pasos de la sección **Asignación del usuario de prueba de Azure AD** del tutorial.
 
-### <a name="configure-alibaba-cloud-service-role-based-sso-single-sign-on"></a>Configuración del inicio de sesión único de Alibaba Cloud Service (inicio de sesión único basado en roles)
+### <a name="configure-alibaba-cloud-service-role-based-sso-sso"></a>Configuración del inicio de sesión único de Alibaba Cloud Service (Role-based SSO)
 
 Para configurar el inicio de sesión único en **Alibaba Cloud Service (inicio de sesión único basado en roles)** , es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Alibaba Cloud Service (inicio de sesión único basado en roles)](https://www.aliyun.com/service/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Create**(Crear).
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Alibaba Cloud Service (inicio de sesión único basado en roles).
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Alibaba Cloud Service (inicio de sesión único basado en roles)** .
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **Alibaba Cloud Service (inicio de sesión único basado en roles)** .
-
-    ![El vínculo de Alibaba Cloud Service (inicio de sesión único basado en roles) en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En la pestaña **Usuarios y grupos**, seleccione u2 en la lista de usuarios y haga clic en **Seleccionar**. Después, haga clic en **Asignar**.
-
-    ![Prueba de la configuración](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
-
-6. Vea el rol asignado y pruebe Alibaba Cloud Service (inicio de sesión único basado en roles).
-
-    ![Prueba de la configuración](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
-
-    >[!NOTE]
-    >Después de asignar el usuario (u2), se asociará automáticamente el rol creado al usuario. Si ha creado varios roles, deberá asociar el rol adecuado al usuario según sea necesario. Si desea implementar el inicio de sesión único basado en roles de Azure AD a varias cuentas de Alibaba Cloud, repita los pasos anteriores.
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Creación de un usuario de prueba en Alibaba Cloud Service (inicio de sesión único basado en roles)
 
 En esta sección, se crea un usuario llamado en Britta Simon en Alibaba Cloud Service (inicio de sesión único basado en roles). Trabaje con el [equipo de soporte técnico de Alibaba Cloud Service (inicio de sesión único basado en roles)](https://www.aliyun.com/service/) para agregar los usuarios a la plataforma de Alibaba Cloud Service (inicio de sesión único basado en roles). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO 
 
 Una vez completadas las configuraciones anteriores, pruebe Alibaba Cloud Service (inicio de sesión único basado en roles) con estos pasos:
 
@@ -335,9 +255,11 @@ Una vez completadas las configuraciones anteriores, pruebe Alibaba Cloud Service
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Pruebe Alibaba Cloud Service (Role-based SSO) con Azure AD](https://aad.portal.azure.com/)
 

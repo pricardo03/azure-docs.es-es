@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020185"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203267"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Compilación de una aplicación web Python (Django) con PostgreSQL en Azure App Service
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > Antes de crear una instancia de Azure Database for PostgreSQL, consulte [qué generación de proceso está disponible en su región](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
 
-También puede seguir los pasos de este artículo en macOS. Las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
+Los pasos de este artículo se pueden seguir en macOS, las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

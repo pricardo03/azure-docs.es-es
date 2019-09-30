@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Apptio | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Apptio.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BIS | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BIS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
+ms.assetid: 419849ac-8398-4e8b-9509-a90158824e03
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bc442bd48de3b75d43206a1f111b1e26c4608ed
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129723"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174441"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Apptio
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bis"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BIS
 
-En este tutorial, aprenderá a integrar Apptio con Azure Active Directory (Azure AD). Al integrar Apptio con Azure AD, puede hacer lo siguiente:
+En este tutorial, aprenderá a integrar BIS con Azure Active Directory (Azure AD). Al integrar BIS con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Apptio.
-* Permitir que los usuarios inicien sesión automáticamente en Apptio con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a BIS.
+* Permitir que los usuarios inicien sesión automáticamente en BIS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
@@ -38,46 +38,48 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Suscripción habilitada para el inicio de sesión único (SSO) en Apptio.
+* Suscripción habilitada para el inicio de sesión único (SSO) en BIS.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Apptio admite inicio de sesión único iniciado por **IDP**
+* BIS admite el inicio de sesión único iniciado por **SP**.
+
+* BIS admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-apptio-from-the-gallery"></a>Incorporación de Apptio desde la galería
+## <a name="adding-bis-from-the-gallery"></a>Adición de BIS desde la galería
 
-Para configurar la integración de Apptio en Azure AD, deberá agregar Apptio desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de BIS en Azure AD, deberá agregar BIS desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Apptio** en el cuadro de búsqueda.
-1. Seleccione **Apptio** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En la sección **Agregar desde la galería**, escriba **BIS** en el cuadro de búsqueda.
+1. Seleccione **BIS** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-apptio"></a>Configuración y prueba del inicio de sesión único de Azure AD para Apptio
+## <a name="configure-and-test-azure-ad-single-sign-on-for-bis"></a>Configuración y prueba del inicio de sesión único de Azure AD para BIS
 
-Configure y pruebe el inicio de sesión único de Azure AD con Apptio utilizando un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Apptio.
+Configure y pruebe el inicio de sesión único (SSO) de Azure AD con BIS mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de BIS.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Apptio, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con BIS, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único de Apptio](#configure-apptio-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
-    1. **[Creación del usuario de prueba de Apptio](#create-apptio-test-user)** : para tener un homólogo de B. Simon en Apptio vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en BIS](#configure-bis-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de BIS](#create-bis-test-user)** , para tener un homólogo de B.Simon en BIS vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Apptio**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **BIS**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -85,15 +87,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **Identificador**, escriba una dirección URL: `urn:federation:apptio`
-
-1. La notificación de rol está preconfigurada, por lo que no tiene que ocuparse de ello, pero aún tiene que crear los roles en Azure AD con la ayuda de este [artículo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.bistrainer.com/sso/biscr.cfm`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Apptio**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar BIS**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -111,10 +111,10 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B. Simon acceda a Apptio mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a BIS mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Apptio**.
+1. En la lista de aplicaciones, seleccione **BIS**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
@@ -127,19 +127,19 @@ En esta sección, va a permitir que B. Simon acceda a Apptio mediante el inicio
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-apptio-sso"></a>Configuración del inicio de sesión único de Apptio
+## <a name="configure-bis-sso"></a>Configuración del inicio de sesión único en BIS
 
-Para configurar el inicio de sesión único en **Apptio**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **BIS**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de BIS](mailto:help@bistrainer.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-apptio-test-user"></a>Creación del usuario de prueba de Apptio
+### <a name="create-bis-test-user"></a>Creación de un usuario de prueba de BIS
 
-En esta sección, creará un usuario llamado B. Simon en Apptio. Colabore con el [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact) para agregar los usuarios a la plataforma de Apptio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, se crea un usuario llamado B.Simon en BIS. BIS admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en BIS, se crea otro después de la autenticación.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Apptio del panel de acceso, debe iniciar sesión automáticamente en la aplicación Apptio para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de BIS en el Panel de acceso, iniciará sesión automáticamente en la versión de BIS para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -149,4 +149,5 @@ Al hacer clic en el icono de Apptio del panel de acceso, debe iniciar sesión au
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Pruebe Apptio con Azure AD](https://aad.portal.azure.com/)
+- [Probar BIS con Azure AD](https://aad.portal.azure.com/)
+

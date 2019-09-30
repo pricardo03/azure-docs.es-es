@@ -3,9 +3,9 @@ title: Envío de notificaciones a dispositivos concretos (Plataforma universal d
 description: Use Azure Notification Hubs con etiquetas en el registro para enviar noticias de última hora a una aplicación de la Plataforma universal de Windows.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: efe668e42e04942cc0d9fc99670057ab5bdd302a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402463"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212130"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutorial: Envío de notificaciones push en dispositivos Windows concretos que ejecutan aplicaciones de Plataforma universal de Windows
 
@@ -201,7 +203,7 @@ En esta sección, se registrará en el centro de notificaciones al inicio median
     var result = await notifications.SubscribeToCategories();
     ```
 
-    Este proceso garantiza que cuando se inicia la aplicación, recupera las categorías del almacenamiento local y solicita el registro de estas categorías. El método `InitNotificationsAsync` se creó como parte del tutorial [ Introducción a Notification Hubs][get-started].
+    Este proceso garantiza que cuando se inicia la aplicación, recupera las categorías del almacenamiento local y solicita el registro de estas categorías. El método `InitNotificationsAsync` se creó como parte del tutorial [Introducción a Notification Hubs][get-started].
 2. En el archivo del proyecto `MainPage.xaml.cs` agregue el siguiente código al método `OnNavigatedTo`:
 
     ```csharp

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: e5666a64e4160964e2c1b35707a0f064edb72460
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706901"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179128"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database en línea mediante DMS
 
@@ -78,16 +78,16 @@ Para completar este tutorial, necesita:
 - Si alguna de las tablas no tiene una clave principal, habilite la captura de datos modificados (CDC) en la base de datos y en las tablas concretas.
     > [!NOTE]
     > Puede usar el script siguiente para encontrar todas las tablas que no tengan clave principal.
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >Si los resultados muestran una o varias tablas con "is_tracked_by_cdc" como "0", habilite la captura de datos modificados para la base de datos y para las tablas específicas mediante el proceso descrito en el artículo [Habilitar y deshabilitar la captura de datos modificados (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
+    Si los resultados muestran una o varias tablas con "is_tracked_by_cdc" como "0", habilite la captura de datos modificados para la base de datos y para las tablas específicas mediante el proceso descrito en el artículo [Habilitar y deshabilitar la captura de datos modificados (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
 
 - Configure el rol de distribuidor para el servidor SQL Server de origen.
 
@@ -127,17 +127,17 @@ Para completar este tutorial, necesita:
 
 Antes de poder migrar datos de una instancia de SQL Server local a una base de datos única o agrupada de Azure SQL Database, debe evaluar la base de datos de SQL Server por si hay cualquier error de bloqueo que impida que se realice la migración. Con Data Migration Assistant v3.3 o una versión posterior, siga los pasos descritos en el artículo sobre cómo [llevar a cabo una evaluación de migración de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) para completar la evaluación de la base de datos local.
 
-Para evaluar una base de datos de local, realice los pasos siguientes:
+Para evaluar una base de datos de local, siga estos pasos:
 
 1. En Data Migration Assistant, seleccione el icono de Nuevo (+) y, luego, seleccione el tipo de proyecto **Evaluación**.
 2. Especifique un nombre de proyecto. Después, en el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server**; en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, después, seleccione **Create** (Crear) para crear el proyecto.
 
-    Cuando esté evaluando la base de datos de SQL Server de origen que se migrará a una base de datos única o agrupada de Azure SQL Database, puede elegir uno o ambos de los siguientes tipos de informes de evaluación:
+   Cuando esté evaluando la base de datos de SQL Server de origen que se migrará a una base de datos única o agrupada de Azure SQL Database, puede elegir uno o ambos de los siguientes tipos de informes de evaluación:
 
    - Check database compatibility (Comprobar compatibilidad de bases de datos)
    - Check feature parity (Comprobar paridad de características)
 
-     De forma predeterminada, se seleccionan los dos tipos de informes.
+   De forma predeterminada, se seleccionan los dos tipos de informes.
 
 3. En DMA, en la pantalla **Opciones**, seleccione **Siguiente**.
 4. En la pantalla **Seleccionar orígenes**, cuadro de diálogo **Conectar a un servidor**, proporcione los detalles de conexión en su instancia de SQL Server y, luego, seleccione **Conectar**.

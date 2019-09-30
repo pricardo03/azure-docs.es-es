@@ -1,19 +1,19 @@
 ---
-title: 'Script de Azure PowerShell: cambiar la prioridad de conmutación por error o desencadenar la conmutación por error de una cuenta de Azure Cosmos'
-description: 'Script de Azure PowerShell ejemplo: cambiar la prioridad de conmutación por error o desencadenar la conmutación por error de una cuenta de Azure Cosmos'
+title: 'Script de Azure PowerShell: creación de una cuenta Azure Cosmos con firewall de IP'
+description: 'Ejemplo de script de Azure PowerShell: creación de una cuenta Azure Cosmos con firewall de IP'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
+ms.openlocfilehash: c0e7d2b4fe1e63b468a4ef8c88310c5d7e115ebe
 ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155405"
+ms.locfileid: "71156520"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Cambio de la prioridad de conmutación por error o desencadenamiento de la conmutación por error de una cuenta de Azure Cosmos mediante PowerShell
+# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Creación de una cuenta Azure Cosmos con firewall de IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,11 +22,9 @@ ms.locfileid: "71155405"
 ## <a name="sample-script"></a>Script de ejemplo
 
 > [!NOTE]
-> Cualquier cambio que se realice en una región con `failoverPriority=0` desencadena una conmutación por error manual y solo se puede realizar en una cuenta configurada para la conmutación por error manual. Los cambios en las restantes regiones simplemente cambian la prioridad de conmutación por error de una cuenta de Cosmos.
-> [!NOTE]
 > En este ejemplo se muestra el uso de una cuenta de SQL (Core) API. Para usar este ejemplo para otras API, copie las propiedades relacionadas y aplíquelas a su script específico de la API
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-firewall-create.ps1 "Create an Azure Cosmos account with IP Firewall")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -43,8 +41,9 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Recursos de Azure**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invoca una acción en un recurso. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea un recurso. |
 |**Grupos de recursos de Azure**| |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 

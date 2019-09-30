@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915150"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240971"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -57,6 +57,7 @@ Una máquina de desarrollo:
 
 * Windows 10 con actualización 1809 o posterior.
 * Puede usar su propio equipo o una máquina virtual, según sus preferencias de desarrollo.
+  * Asegúrese de que el equipo de desarrollo admite la virtualización anidada. Esta funcionalidad es necesaria para ejecutar un motor de contenedor, que se instala en la sección siguiente.
 * Instale [Git](https://git-scm.com/). 
 
 Un dispositivo Azure IoT Edge en Windows:
@@ -299,7 +300,7 @@ El código IotEdgeModule1 recibe mensajes mediante la cola de entrada y los pasa
 
 3. Consulte la sección **Salida** de Visual Studio para ver los mensajes que llegan al centro de IoT. 
 
-   Ambos módulos pueden tardar unos minutos en iniciarse. El entorno de ejecución de Azure IoT Edge necesita recibir su nuevo manifiesto de implementación, extraer las imágenes de los módulos del entorno de ejecución del contenedor y, después, iniciar cada nuevo módulo. Si usted: 
+   Ambos módulos pueden tardar unos minutos en iniciarse. El entorno de ejecución de Azure IoT Edge necesita recibir su nuevo manifiesto de implementación, extraer las imágenes de los módulos del entorno de ejecución del contenedor y, después, iniciar cada nuevo módulo. 
 
    ![Visualización de los mensajes entrantes del dispositivo a la nube](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172050"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229528"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services
 
@@ -64,6 +64,15 @@ Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay 
 * **Nombre de dominio integrado:** de forma predeterminada, se usa el nombre de dominio integrado del directorio (un sufijo *.onmicrosoft.com*). Si se quiere habilitar el acceso LDAP seguro al dominio administrado a través de Internet, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación no emitirá un certificado.
 * **Nombres de dominio personalizados:** el enfoque más común consiste en especificar un nombre de dominio personalizado, normalmente uno que ya se posee y es enrutable. Cuando se usa un dominio personalizado enrutable, el tráfico puede fluir correctamente según sea necesario para admitir las aplicaciones.
 * **Sufijos de dominio no enrutables:** por lo general, se recomienda evitar un sufijo de nombre de dominio no enrutable, como *contoso.local*. El sufijo *.local* no es enrutable y puede provocar problemas con la resolución de DNS.
+
+> [!TIP]
+> Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda incluir un prefijo único para el nombre de dominio. Por ejemplo, si el nombre de la raíz DNS es *contoso. com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *corp. contoso. com* o *ds.contoso.com*. En un entorno híbrido con un entorno de AD DS local, es posible que estos prefijos ya estén en uso. Use un prefijo único para Azure AD DS.
+>
+> Puede usar el nombre DNS raíz para el dominio administrado de Azure AD DS, pero puede que tenga que crear algunos registros DNS adicionales para otros servicios de su entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
+>
+> En estos tutoriales y artículos de procedimientos, el dominio personalizado *contoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio, que puede incluir un prefijo único.
+>
+> Para más información, consulte [Selección de un prefijo de nomenclatura para el dominio][naming-prefix].
 
 También se aplican las siguientes restricciones de nombre DNS:
 
@@ -228,3 +237,6 @@ Para ver este dominio administrado en acción, cree una máquina virtual y únal
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+
+<!-- EXTERNAL LINKS -->
+[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

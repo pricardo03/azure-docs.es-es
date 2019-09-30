@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Lesson.ly | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Lesson.ly.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Whitesource | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Whitesource.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
+ms.assetid: bbc9167d-f1f3-4959-b11d-9c4c72c31ef3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b038eca3d4e6beb6b1d226a4a7b1e20bfe3bb55a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b37bfbfbe17a8fa6fdb9118c32bce7ea87a2636c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121424"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241186"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Lesson.ly
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whitesource"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Whitesource
 
-En este tutorial aprenderá a integrar Lesson.ly con Azure Active Directory (Azure AD). Al integrar Lesson.ly con Azure AD, se puede realizar lo siguiente:
+En este tutorial, aprenderá a integrar Whitesource con Azure Active Directory (Azure AD). Al integrar Whitesource con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Lesson.ly.
-* Permitir que los usuarios inicien sesión automáticamente en Lesson.ly con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a Whitesource.
+* Permitir que los usuarios inicien sesión automáticamente en Whitesource con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
@@ -38,44 +38,45 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Lesson.ly.
+* Suscripción habilitada para el inicio de sesión único (SSO) en Whitesource.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Lesson.ly admite el inicio de sesión único iniciado por **SP**.
-* Lesson.ly admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Whitesource admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-lessonly-from-the-gallery"></a>Adición de Lesson.ly desde la galería
+* Whitesource admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-Para configurar la integración de Lesson.ly en Azure AD, es preciso agregar Lesson.ly desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-whitesource-from-the-gallery"></a>Adición de Whitesource desde la galería
+
+Para configurar la integración de Whitesource en Azure AD, deberá agregar Whitesource desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Lesson.ly** en el cuadro de búsqueda.
-1. Seleccione **Lesson.ly** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En la sección **Agregar desde la galería**, escriba **Whitesource** en el cuadro de búsqueda.
+1. Seleccione **Whitesource** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-lessonly"></a>Configuración y prueba del inicio de sesión único de Azure AD para Lesson.ly
+## <a name="configure-and-test-azure-ad-single-sign-on-for-whitesource"></a>Configuración y prueba del inicio de sesión único de Azure AD para Whitesource
 
-Configure y pruebe el inicio de sesión único de Azure AD con Lesson.ly mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Lesson.ly.
+Configure y pruebe el inicio de sesión único de Azure AD con Whitesource mediante un usuario de prueba llamado **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Whitesource.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Lesson.ly, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Whitesource, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único de Lesson.ly](#configure-lessonly-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Lesson.ly](#create-lessonly-test-user)** , para tener un homólogo de B.Simon en Lesson.ly que esté vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único de Whitesource](#configure-whitesource-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba en Whitesource](#create-whitesource-test-user)** , para tener un homólogo de B.Simon en Whitesource que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Lesson.ly**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Whitesource**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -83,21 +84,18 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/signin`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.cloudapp.azure.com/`
+
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `com.whitesource.sp`
 
     > [!NOTE]
-    > Cuando se hace referencia a un nombre genérico, debe reemplazar **nombreDeCompañía** por un nombre real.
-
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.lessonly.com/auth/saml/metadata`
-
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Lessonly.com](mailto:support@lessonly.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de atención al cliente de Whitesource](https://www.whitesourcesoftware.com/contact-us/). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Lesson.ly**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar para obtener estos valores**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -115,10 +113,10 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B.Simon use el inicio de sesión único de Azure concediéndole acceso a Lesson.ly.
+En esta sección, va a permitir que B.Simon acceda a Whitesource mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Lesson.ly**.
+1. En la lista de aplicaciones, seleccione **Whitesource**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
@@ -131,24 +129,19 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-lessonly-sso"></a>Configuración del inicio de sesión único de Lesson.ly
+## <a name="configure-whitesource-sso"></a>Configuración del inicio de sesión único de Whitesource
 
-Para configurar el inicio de sesión único en **Lesson.ly**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Lesson.ly](mailto:support@lessonly.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Whitesource**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Whitesource](https://www.whitesourcesoftware.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-lessonly-test-user"></a>Creación de un usuario de prueba de Lesson.ly
+### <a name="create-whitesource-test-user"></a>Creación de un usuario de prueba en Whitesource
 
-El objetivo de esta sección es crear un usuario llamado a Britta Simon en Lessonly.com. Lessonly.com admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada.
+En esta sección, se crea un usuario llamado B.Simon en Whitesource. Whitesource admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Whitesource, se crea uno al intentar acceder a esta aplicación.
 
-No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Lessonly.com se creará un nuevo usuario, en caso de que no exista.
-
-> [!NOTE]
-> Si necesita crear un usuario manualmente, será preciso que se ponga contacto con el [equipo de soporte técnico de Lessonly.com](mailto:support@lessonly.com).
-
-## <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar sesión automáticamente en la versión de Lesson.ly para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Whitesource en el Panel de acceso, iniciará sesión automáticamente en la versión de Whitesource para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -158,4 +151,5 @@ Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar s
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Pruebe Lesson.ly con Azure AD](https://aad.portal.azure.com/)
+- [Probar Whitesource con Azure AD](https://aad.portal.azure.com/).
+

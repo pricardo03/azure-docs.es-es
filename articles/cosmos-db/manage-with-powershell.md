@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5b041fecfaa5a84ed5a04a3a8c53de10b9efd65b
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616826"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155365"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Administración de recursos de SQL API de Azure Cosmos DB mediante PowerShell
 
@@ -43,6 +43,7 @@ En las secciones siguientes se muestra cómo administrar la cuenta de Azure Cosm
 * [Regeneración de las claves para una cuenta de Azure Cosmos](#regenerate-keys)
 * [Enumeración de las cadenas de conexión para una cuenta de Azure Cosmos](#list-connection-strings)
 * [Modificación de la prioridad de conmutación por error de una cuenta de Azure Cosmos](#modify-failover-priority)
+* [Desencadenamiento de una conmutación por error manual en una cuenta de Azure Cosmos](#trigger-manual-failover)
 
 ### <a id="create-account"></a> Creación de una cuenta de Azure Cosmos
 
@@ -121,7 +122,9 @@ Este comando permite actualizar las propiedades de la cuenta de base de datos de
 * Habilitación de la arquitectura multimaestro
 
 > [!NOTE]
-> Este comando le permite agregar y quitar regiones, pero no le permite modificar las prioridades de conmutación por error ni cambiar la región con `failoverPriority=0`. Para modificar la prioridad de la conmutación por error, consulte [Modificación de la prioridad de conmutación por error de una cuenta de Azure Cosmos](#modify-failover-priority).
+> En una cuenta de Azure Cosmos no es posible agregar o quitar ubicaciones `locations` y, al mismo tiempo, cambiar otras propiedades. La modificación de regiones debe realizarse como una operación independiente, nunca a la vez que otro cambio en el recurso de la cuenta.
+> [!NOTE]
+> Este comando permite agregar y quitar regiones, pero no permite modificar las prioridades de conmutación por error ni desencadenar una conmutación por error manual. Consulte [Modificación de la prioridad de conmutación por error](#modify-failover-priority) y [Desencadenamiento de una conmutación por error manual](#trigger-manual-failover).
 
 ```azurepowershell-interactive
 # Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
@@ -238,23 +241,55 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modificación de la prioridad de conmutación por error
 
-En el caso de cuentas de bases de datos de varias regiones, puede cambiar el orden en que una cuenta de Cosmos promoverá las réplicas de lectura secundarias en caso de que se produzca una conmutación por error regional en la réplica de escritura principal. La modificación de `failoverPriority=0` también puede servir para iniciar una exploración de recuperación ante desastres para probar la planeación de esta última.
+En el caso de las cuentas configuradas con conmutación automática por error, puede cambiar el orden en el que Cosmos promoverá las réplicas secundarias a principales si las principales dejan de estar disponibles.
 
-En el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutación por error actual de `West US 2 = 0` y `East US 2 = 1`, y que se invierten las regiones.
+Para el ejemplo siguiente, asuma la prioridad de conmutación por error actual, `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`.
 
 > [!CAUTION]
 > Cambiar `locationName` por `failoverPriority=0` desencadenará una conmutación por error manual de una cuenta de Azure cosmos. Cualquier otro cambio de prioridad no desencadenará ninguna conmutación por error.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="West US 2"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="South Central US"; "failoverPriority"=1 },
+    @{ "locationName"="East US 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+### <a id="trigger-manual-failover"></a>Desencadenamiento de una conmutación por error manual
+
+En el caso de las cuentas configuradas con conmutación por error manual, puede conmutar por error y promover cualquier réplica secundaria a principal mediante la modificación de `failoverPriority=0`. Esta operación se puede usar iniciar una exploración de recuperación ante desastres para probar la planeación de esta última.
+
+En el ejemplo siguiente, suponga que la cuenta tiene una prioridad de conmutación por error actual de `West US 2 = 0` y `East US 2 = 1`, y que se invierten las regiones.
+
+> [!CAUTION]
+> Cambiar `locationName` por `failoverPriority=0` desencadenará una conmutación por error manual de una cuenta de Azure cosmos. Los restantes cambios de prioridad no desencadenarán ninguna conmutación por error.
+
+```azurepowershell-interactive
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="South Central US"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="West US 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{

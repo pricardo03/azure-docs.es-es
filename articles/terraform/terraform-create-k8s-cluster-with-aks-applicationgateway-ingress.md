@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
-ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994350"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169950"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Creación de un clúster de Kubernetes con el controlador de entrada de Application Gateway mediante Azure Kubernetes Service y Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) administra el entorno hospedado de Kubernetes. AKS facilita y acelera la implementación y administración de aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a realizar las tareas siguientes para crear un clú
 - **Entidad de servicio de Azure**: siga las instrucciones de la sección **Creación de la entidad de servicio** del artículo [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote los valores de appId, displayName y contraseña.
   - Anote el identificador de objeto de la entidad de servicio mediante la ejecución del siguiente comando:
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -82,7 +82,7 @@ Cree el archivo de configuración de Terraform que declara el proveedor de Azure
 
 1. Pegue el siguiente código en el editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -99,17 +99,21 @@ Cree el archivo de configuración de Terraform que declara el proveedor de Azure
     ```bash
     :wq
     ```
-   ## <a name="define-input-variables"></a>Definición de las variables de entrada
-   Creación del archivo de configuración de Terraform que muestra todas las variables necesarias para esta implementación
+
+## <a name="define-input-variables"></a>Definición de las variables de entrada
+Cree el archivo de configuración de Terraform que muestre todas las variables necesarias para esta implementación.
+
 1. En Cloud Shell, cree un archivo denominado `variables.tf`.
+
     ```bash
     vi variables.tf
     ```
+
 1. Seleccione la tecla I para acceder al modo de inserción.
 
-2. Pegue el siguiente código en el editor:
+1. Pegue el siguiente código en el editor:
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -254,9 +258,9 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
 
 1. Pegue los siguientes bloques de código en el editor:
 
-     a. Crear un bloque de variables locales para que lo reutilicen las variables calculadas
+    a. Cree un bloque de variables locales para que lo reutilicen las variables calculadas.
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -268,8 +272,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. Crear un origen de datos para el grupo de recursos, la nueva identidad de usuario
-    ```JSON
+
+    b. Cree un origen de datos para el grupo de recursos, la nueva identidad de usuario.
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -284,8 +290,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       tags = "${var.tags}"
     }
     ```
-    c. Crear recursos de red base
-   ```JSON
+
+    c. Cree los recursos de red base.
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -328,8 +336,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       tags = "${var.tags}"
     }
     ```
-    d. Crear un recurso de Application Gateway
-    ```JSON
+
+    d. Cree un recurso de Application Gateway.
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -393,8 +403,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. Crear asignaciones de roles
-    ```JSON
+
+    e. Cree asignaciones de roles.
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -424,8 +436,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. Creación de un clúster de Kubernetes
-    ```JSON
+
+    f. Cree un clúster de Kubernetes.
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -502,7 +516,7 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
 
 1. Pegue el siguiente código en el editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -559,7 +573,7 @@ Terraform realiza un seguimiento del estado de manera local a través del archiv
 
 1. En Cloud Shell, cree un contenedor en su cuenta de almacenamiento de Azure (reemplace los marcadores de posición &lt;YourAzureStorageAccountName> y &lt;YourAzureStorageAccountAccessKey> por los valores apropiados para su cuenta de almacenamiento de Azure).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -586,7 +600,7 @@ En esta sección, puede ver cómo usar el comando `terraform init` para crear lo
 
 1. Pegue las siguientes variables que creó anteriormente en el editor:
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>

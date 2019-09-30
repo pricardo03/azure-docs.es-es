@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138338"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173489"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 
@@ -42,9 +42,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Cree tres nuevos archivos en un directorio vacío con los nombres siguientes:
 
-- ```variables.tf```: este archivo contiene los valores de las variables utilizadas en la plantilla.
-- ```output.tf```: este archivo describe la configuración que se muestra después de la implementación.
-- ```vmss.tf```: este archivo contiene el código de la infraestructura que va a implementar.
+- `variables.tf`: este archivo contiene los valores de las variables utilizadas en la plantilla.
+- `output.tf`: este archivo describe la configuración que se muestra después de la implementación.
+- `vmss.tf`: este archivo contiene el código de la infraestructura que va a implementar.
 
 ##  <a name="create-the-variables"></a>Creación de las variables 
 
@@ -52,7 +52,7 @@ En este paso, se definen las variables que personalizan los recursos creados por
 
 Edite el archivo `variables.tf`, copie el código siguiente y, a continuación, guarde los cambios.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 Guarde el archivo.
 
-Al implementar la plantilla de Terraform, querrá obtener el nombre de dominio completo que se utiliza para acceder a la aplicación. Use el tipo de recurso ```output``` de Terraform y obtenga la propiedad ```fqdn``` del recurso. 
+Al implementar la plantilla de Terraform, querrá obtener el nombre de dominio completo que se utiliza para acceder a la aplicación. Use el tipo de recurso `output` de Terraform y obtenga la propiedad `fqdn` del recurso. 
 
 Edite el archivo `output.tf` y copie el código siguiente para exponer el nombre de dominio completo para las máquinas virtuales. 
 
@@ -89,9 +89,9 @@ En este paso, se crea la siguiente infraestructura de red en un nuevo grupo de r
 
 También necesitará un grupo de recursos donde se creen todos los recursos. 
 
-Edite y copie el código siguiente en el archivo ```vmss.tf```: 
+Edite y copie el código siguiente en el archivo `vmss.tf`: 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ Inicialice el entorno de Terraform mediante la ejecución del siguiente comando 
 terraform init 
 ```
  
-Los complementos del proveedor se descargan del registro de Terraform en la carpeta ```.terraform``` situada en el directorio donde se ejecutó el comando.
+Los complementos del proveedor se descargan del registro de Terraform en la carpeta `.terraform` situada en el directorio donde se ejecutó el comando.
 
 Ejecute el siguiente comando para implementar la infraestructura de Azure.
 
@@ -185,8 +185,7 @@ En este paso, creará los siguientes recursos en la red que se implementó anter
 
 Agregue el siguiente código al final del archivo `vmss.tf`:
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Personalice la implementación y agregue el código siguiente a `variables.tf`:
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

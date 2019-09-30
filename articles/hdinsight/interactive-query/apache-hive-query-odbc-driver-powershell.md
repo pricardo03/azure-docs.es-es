@@ -3,17 +3,17 @@ title: Consulta de Apache Hive con ODBC Driver y PowerShell en Azure HDInsight
 description: Utilice Microsoft Hive ODBC Driver y PowerShell para consultar los clústeres de Apache Hive en Azure HDInsight.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: b02c865e953861b5ac396538fdd0f0623b0e5428
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486068"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122170"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta de Apache Hive con ODBC y PowerShell
 
@@ -70,7 +70,7 @@ En los siguientes pasos se explica cómo crear un origen de datos ODBC de Apache
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |
    |  Default string column length, Binary column length, Decimal column scale |La longitud y precisión del tipo de datos pueden afectar a la forma en que se devuelven los datos. Pueden dar lugar a que se devuelva información incorrecta debido a la pérdida de precisión o al truncamiento. |
 
-    ![Opciones avanzadas](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opciones de configuración avanzada de DSN")
+    ![Opciones de configuración avanzada de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Advanced DSN configuration options")
 
 1. Seleccione **Probar** para probar el origen de datos. Cuando el origen de datos esté configurado correctamente, el resultado de la prueba mostrará **SUCCESS** (Correcto).  
 
