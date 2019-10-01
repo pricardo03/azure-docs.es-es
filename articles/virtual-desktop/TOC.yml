@@ -38,6 +38,8 @@
       href: create-host-pools-arm-template.md
     - name: Creación de un grupo host con PowerShell
       href: create-host-pools-powershell.md
+    - name: Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
+      href: deploy-windows-7-virtual-machine.md
     - name: Aplicación de una licencia de Windows a hosts de sesión de Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos
@@ -86,6 +88,8 @@
       href: troubleshoot-set-up-issues.md
     - name: Configuración de máquina virtual de host de sesión
       href: troubleshoot-vm-configuration.md
+    - name: Solución de problemas de máquinas virtuales Windows 7 en Windows Virtual Desktop
+      href: troubleshoot-windows-7-vm.md
     - name: Conexiones de cliente de Escritorio remoto
       href: troubleshoot-client-connection.md
     - name: "PowerShell para Windows\_Virtual\_Desktop"

@@ -440,6 +440,8 @@
           items:
             - name: 'Blobs, colas y archivos (versión 12. x: versión preliminar)'
               href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: 'Blobs, colas y archivos (versión 8)'
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
             - name: Proveedor de recursos de almacenamiento
               href: /java/api/overview/azure/storage/management
         - name: Node.js
@@ -537,6 +539,8 @@
               href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
             - name: Biblioteca de movimiento de datos de Azure Storage
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+            - name: Biblioteca de proveedor de recursos de almacenamiento
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
         - name: Código fuente
           items:
             - name: .NET
@@ -550,7 +554,7 @@
                 - name: Biblioteca de movimiento de datos
                   href: 'https://github.com/Azure/azure-storage-net-data-movement'
                 - name: Biblioteca de proveedor de recursos de almacenamiento
-                  href: /dotnet/api/overview/azure/storage/management
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
             - name: Java
               items:
                 - name: 'Biblioteca cliente de Azure Storage, versión 12.x (versión preliminar)'

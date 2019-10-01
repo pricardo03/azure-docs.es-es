@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre la versión preliminar de Windows Virtual Desktop
+title: Documentación sobre Windows Virtual Desktop
 metadata:
-  title: 'Documentación sobre la versión preliminar de Windows Virtual Desktop: tutoriales, inicios rápidos y referencias de API | Microsoft Docs'
-  description: La versión preliminar de Windows Virtual Desktop para Azure es una experiencia multiusuario de Windows 10 Enterprise virtualizada en la nube.
+  title: 'Documentación sobre Windows Virtual Desktop: tutoriales, inicios rápidos y referencias de API | Microsoft Docs'
+  description: Windows Virtual Desktop para Azure es una experiencia multiusuario de Windows 10 Enterprise virtualizada en la nube.
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: Información general
     items:
       - type: paragraph
-        text: 'Más información acerca de la versión preliminar de Windows Virtual Desktop y cómo usarla. Tutoriales, procedimientos, contenido de referencia, etc, que le muestran cómo configurar los inquilinos y los grupos host y cómo asignar roles a los usuarios para el entorno de Windows Virtual Desktop.'
+        text: 'Más información acerca de Windows Virtual Desktop y cómo usarlo. Tutoriales, procedimientos, contenido de referencia, etc, que le muestran cómo configurar los inquilinos y los grupos host y cómo asignar roles a los usuarios para el entorno de Windows Virtual Desktop.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">¿Qué es la versión preliminar de Windows Virtual Desktop?</a>
+          - html: <a href="/azure/virtual-desktop/overview">¿Qué es Windows Virtual Desktop?</a>
   - title: Tutoriales detallados
     items:
       - type: paragraph

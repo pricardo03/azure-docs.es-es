@@ -36,13 +36,15 @@
     - name: 10 - Control de máquinas virtuales
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
-    - name: 11 - Supervisión y actualización de máquinas virtuales
-      href: tutorial-monitoring.md
-    - name: 12 - Administración de la seguridad de máquinas virtuales
+    - name: 11 - Seguimiento y actualización de máquinas virtuales
+      href: tutorial-config-management.md
+    - name: 12 - Supervisión de máquinas virtuales
+      href: tutorial-monitor.md
+    - name: 13 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
-    - name: 13 - Instalación de una pila SQL\IIS\.
+    - name: 14 - Instalación de una pila de SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14 - Protección de un servidor web con SSL
+    - name: 15 - Seguridad de servidores web con SSL
       href: tutorial-secure-web-server.md
 - name: Ejemplos
   items:
