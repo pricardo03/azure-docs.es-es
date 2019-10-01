@@ -244,7 +244,7 @@
             - name: Creación de un almacén de conocimiento en Azure Portal
               href: knowledge-store-create-portal.md
             - name: Creación mediante REST y Postman
-              href: knowledge-store-howto.md
+              href: knowledge-store-create-rest.md
             - name: Visualización con el Explorador de Storage
               href: knowledge-store-view-storage-explorer.md
             - name: Conexión con Power BI

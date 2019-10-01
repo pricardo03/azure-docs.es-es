@@ -33,6 +33,8 @@
           href: visual-search-sdk-node.md
         - name: Usar Python
           href: visual-search-sdk-python.md
+        - name: Usar Java
+          href: visual-search-sdk-java.md
 - name: Tutoriales
   items:
     - name: Cargar una imagen
