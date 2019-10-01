@@ -4,7 +4,7 @@ description: En este artículo se proporciona información general de los proces
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945338"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162160"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Flujo de trabajo de la arquitectura clásica de máquinas virtuales de Microsoft Azure 
 En este artículo se proporciona información general de los procesos de flujo de trabajo que se producen al implementar o actualizar un recurso de Azure, como una máquina virtual. 
@@ -37,15 +37,16 @@ El diagrama siguiente presenta la arquitectura de los recursos de Azure.
 
 **B**. El controlador de tejido es el responsable del mantenimiento y la supervisión de todos los recursos del centro de datos. Se comunica con los agentes de host de tejido en el SO de tejido enviando información, como la versión del SO invitado, el Service Pack, la configuración del servicio y el estado del servicio.
 
-**C**. El agente de host reside en el sistema host y es responsable de configurar el SO invitado y de comunicarse con el agente invitado (WindowsAzureGuestAgent) para actualizar el rol hacia un estado previsto deseado y realizar comprobaciones de latido con el agente invitado. Si el agente de host no recibe respuesta de latido durante diez minutos, reinicia el SO invitado.
+**C**. El agente de host reside en el sistema operativo del host y es el responsable de configurar el SO invitado y de comunicarse con el agente invitado (WindowsAzureGuestAgent) para actualizar el rol según un estado previsto deseado y realizar comprobaciones de latido con el agente invitado. Si el agente de host no recibe respuesta de latido durante diez minutos, reinicia el SO invitado.
 
 **C2**. WaAppAgent es el responsable de instalar, configurar y actualizar WindowsAzureGuestAgent.exe.
 
 **D**.  WindowsAzureGuestAgent es responsable de lo siguiente:
 
-1. Configurar el SO invitado, lo que incluye el firewall, las ACL, los recursos LocalStorage, el Service Pack y la configuración y los certificados. Configurar el SID de la cuenta de usuario en la que se ejecutará el rol.
-2. Comunicar el estado del rol al tejido.
-3. Iniciar WaHostBootstrapper y supervisarlo para asegurarse de que el rol se encuentra en el estado previsto.
+1. Configurar el SO invitado, lo que incluye el firewall, las ACL, los recursos LocalStorage, la configuración y el paquete de servicio, y los certificados.
+2. Configurar el SID de la cuenta de usuario en la que se ejecutará el rol.
+3. Comunicar el estado del rol al tejido.
+4. Iniciar WaHostBootstrapper y supervisarlo para asegurarse de que el rol se encuentra en el estado previsto.
 
 **E**. WaHostBootstrapper es el responsable de:
 
@@ -76,7 +77,7 @@ El diagrama siguiente presenta la arquitectura de los recursos de Azure.
 
 ## <a name="workflow-processes"></a>Procesos de flujo de trabajo
 
-1. Un usuario realiza una solicitud, como cargar archivos .cspkg y .cscfg, indicando a un recurso que detenga o haga un cambio de configuración, etc. Esto se puede hacer a través de Azure Portal o una herramienta que utiliza Service Management API, como la característica Publicar de Visual Studio. Esta solicitud se pasa a RDFE para hacer todo el trabajo relacionado con las suscripciones y luego comunica la solicitud a FFE. El resto de estos pasos de flujo de trabajo son para implementar un nuevo paquete e iniciarlo.
+1. Un usuario realiza una solicitud, como cargar archivos ".cspkg" y ".cscfg", indicando a un recurso que detenga o haga un cambio de configuración, etc. Esto se puede hacer a través de Azure Portal o una herramienta que utiliza Service Management API, como la característica Publicar de Visual Studio. Esta solicitud se pasa a RDFE para hacer todo el trabajo relacionado con las suscripciones y luego comunica la solicitud a FFE. El resto de estos pasos de flujo de trabajo son para implementar un nuevo paquete e iniciarlo.
 2. FFE encuentra el grupo de máquinas correcto (en función de las aportaciones del cliente, como el grupo de afinidad o la ubicación geográfica, y de la entrada del tejido, como la disponibilidad de la máquina) y se comunica con el controlador de tejido maestro de ese grupo de máquinas.
 3. El controlador de tejido encuentra un host que tiene núcleos de CPU disponibles (o implementa un nuevo host). El Service Pack y la configuración del servicio se copian en el host y el controlador de tejido se comunica con el agente de host en el SO del host para implementar el paquete (configurar DIP, puertos, SO invitado, etc.).
 4. El agente de host inicia el SO invitado y se comunica con el agente invitado (WindowsAzureGuestAgent). El host envía los latidos al invitado para asegurarse de que el rol funciona para conseguir el estado previsto.
@@ -85,7 +86,7 @@ El diagrama siguiente presenta la arquitectura de los recursos de Azure.
 7. WaHostBootstrapper lee las tareas **Startup** de E:\RoleModel.xml y comienza a ejecutar las tareas de inicio. WaHostBootstrapper espera a que todas las tareas de inicio de modo Simple terminen y devuelvan un mensaje que indica que la operación se ha realizado correctamente.
 8. Para los roles web de IIS completo, WaHostBootstrapper indica a IISConfigurator que configure la instancia de AppPool de IIS y apunta el sitio a `E:\Sitesroot\<index>`, donde `<index>` es un índice basado en 0 en el número de `<Sites>` elementos definidos para el servicio.
 9. WaHostBootstrapper iniciará el proceso de host según el tipo de rol:
-    1. **Rol de trabajo**: WaWorkerHost.exe se inicia. WaHostBootstrapper ejecuta el método OnStart (). Después de regresar, WaHostBootstrapper comienza a ejecutar el método Run() y luego marca simultáneamente el rol como Listo y lo coloca en la rotación del equilibrador de carga (si se definen InputEndpoints). Después, WaHostBootsrapper entra en un bucle de comprobación del estado del rol.
+    1. **Rol de trabajo**: WaWorkerHost.exe se inicia. WaHostBootstrapper ejecuta el método OnStart(). Después de regresar, WaHostBootstrapper comienza a ejecutar el método Run() y luego marca simultáneamente el rol como Listo y lo coloca en la rotación del equilibrador de carga (si se definen elementos InputEndpoints). Después, WaHostBootsrapper entra en un bucle de comprobación del estado del rol.
     1. **Rol web HWC del SDK 1.2**: WaWebHost se inicia. WaHostBootstrapper ejecuta el método OnStart(). Después de regresar, WaHostBootstrapper comienza a ejecutar el método Run() y luego marca simultáneamente el rol como Listo y lo coloca en la rotación del equilibrador de carga. WaWebHost emite una solicitud de preparación (/do.rd_runtime_init GET). Todas las solicitudes web se envían a WaWebHost.exe. Después, WaHostBootsrapper entra en un bucle de comprobación del estado del rol.
     1. **Rol web de IIS completo**: aIISHost se inicia. WaHostBootstrapper ejecuta el método OnStart(). Después de regresar, comienza a ejecutar el método Run() y luego marca simultáneamente el rol como Listo y lo coloca en la rotación del equilibrador de carga. Después, WaHostBootsrapper entra en un bucle de comprobación del estado del rol.
 10. Las solicitudes web entrantes a un rol web de IIS completo activan IIS para iniciar el proceso W3WP y atender la solicitud, de la misma manera que lo haría en un entorno de IIS local.

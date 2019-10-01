@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 719f7f1c30a79b9057f25d6137423451cc606bfa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088414"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162197"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -33,6 +33,9 @@ No se puede eliminar un almacén de Recovery Services que tenga dependencias aso
 
   ![Error al eliminar el servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
 
+- Si los elementos de copia de seguridad se encuentran en estado de eliminación temporal, aparece el mensaje de advertencia siguiente y tendrá que esperar hasta que se eliminen de forma permanente. Para más información, consulte [este artículo](https://aka.ms/SoftDeleteCloudWorkloads).
+
+   ![Elimine el error del almacén.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 Para eliminar el almacén, elija el escenario que coincida con la configuración y siga los pasos recomendados:
 

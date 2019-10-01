@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067075"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146598"
 ---
 # <a name="troubleshooting"></a>solución de problemas
 
@@ -46,10 +46,9 @@ En este artículo se proporciona ayuda para solucionar problemas comunes que pue
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Error de prueba intermitente con un error de infracción de protocolo
 
-|Síntoma/mensaje de error| Causas posibles|
-|----|---------|
-El CR de infracción del protocolo debe seguirse de un avance de línea | Esto sucede cuando se detectan encabezados mal formados. En concreto, algunos encabezados podrían no estar usando CRLF para indicar el final de línea, lo que infringe la especificación del HTTP y, por tanto, no superan la validación en el nivel de WebRequest de .NET.
- || Esto también lo pueden provocar los equilibradores de carga o las redes CDN.
+|Síntoma/mensaje de error| Causas posibles| Posibles resoluciones |
+|----|---------|-----|
+|El servidor confirmó una infracción del protocolo. Section=ResponseHeader Detail=CR debe ir seguido de LF. | Esto sucede cuando se detectan encabezados mal formados. En concreto, algunos encabezados podrían no estar usando CRLF para indicar el final de línea, lo que provoca una infracción de la especificación HTTP. Application Insights aplica esta especificación HTTP y devuelve errores para las respuestas que tienen encabezados con un formato incorrecto.| a. Póngase en contacto con el proveedor del host del sitio web o el proveedor de CDN para corregir los servidores con errores. <br> b. En caso de que las solicitudes con error sean recursos (p. ej., archivos de estilo, imágenes o scripts), puede considerar la posibilidad de deshabilitar el análisis de las solicitudes dependientes. Tenga en cuenta que, si lo hace, perderá la capacidad de supervisar la disponibilidad de esos archivos.
 
 > [!NOTE]
 > La dirección URL podría no dar error en los exploradores que tienen una validación poco minuciosa de encabezados HTTP. Consulte esta entrada del blog para obtener una explicación detallada del problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

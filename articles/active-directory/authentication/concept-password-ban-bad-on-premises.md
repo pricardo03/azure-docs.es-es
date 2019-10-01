@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694761"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200213"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
-La protección mediante contraseña de Azure AD es una característica que mejora las directivas de contraseña en una organización. La implementación local de la protección mediante contraseña usa tanto las listas de contraseñas prohibidas globales como las personalizadas que se almacenan en Azure AD. Así se realizan las mismas comprobaciones locales que Azure AD para los cambios basados en la nube.
+La protección mediante contraseña de Azure AD es una característica que mejora las directivas de contraseña en una organización. La implementación local de la protección mediante contraseña usa tanto las listas de contraseñas prohibidas globales como las personalizadas que se almacenan en Azure AD. Se realizan las mismas comprobaciones locales que Azure AD hace para los cambios basados en la nube. Estas comprobaciones se realizan durante los cambios de contraseña y los escenarios de restablecimiento de contraseña.
 
 ## <a name="design-principles"></a>Principios de diseño
 

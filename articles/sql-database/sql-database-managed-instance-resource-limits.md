@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010201"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146800"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -52,23 +52,24 @@ Instancia administrada tiene dos niveles de servicio: [De uso general](sql-datab
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
 | Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64 y 80 |
-| Memoria máxima | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5,1GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. |
-| Tamaño máximo de almacenamiento reservado de instancia | - 2 TB para 4 núcleos virtuales (solo para Gen5)<br/>- 8 TB para otros tamaños | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
-| Tamaño máximo de base de datos | 8 TB | 4 TB |
-| Número máximo de bases de datos por instancia | 100 | 100 |
-| Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
-| Tamaño de archivo máximo | 8 TB | 4 TB |
-| Tamaño máximo del archivo de registro | 2 TB | 2 TB |
+| Memoria máxima | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 20,4 GB - 408 GB (5,1 GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. | Gen4: 56 GB - 168 GB (7 GB/núcleo virtual)<br/>Gen5: 20,4 GB - 408 GB (5,1 GB/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más memoria. |
+| Tamaño máximo de almacenamiento de instancia (reservado) | - 2 TB para 4 núcleos virtuales (solo para Gen5)<br/>- 8 TB para otros tamaños | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
+| Tamaño máximo de base de datos | Hasta el tamaño de instancia disponible actualmente (máximo 2 TB - 8 TB, según el número de núcleos virtuales). | Hasta el tamaño de instancia disponible actualmente (máximo 1 TB - 4 TB, según el número de núcleos virtuales). |
+| Tamaño máximo de tempDB | Limitado a 24 GB/núcleo virtual (96 - 1,920 GB) y el tamaño de almacenamiento de instancia disponible actualmente.<br/>Agregue más núcleos virtuales para obtener más espacio para TempDB. | Hasta el tamaño de almacenamiento de instancia disponible actualmente. El tamaño del archivo de registro de TempDB está limitado actualmente a 24 GB/núcleo virtual. |
+| Número máximo de bases de datos por instancia | 100, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. | 100, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
+| Número máximo de archivos de base de datos por instancia | Hasta 280, a menos que se alcance el límite de tamaño de almacenamiento de instancia o [espacio de almacenamiento de Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | 32 767 archivos por base de datos, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
+| Tamaño máximo del archivo de datos | Limitado al tamaño de almacenamiento de instancia disponible actualmente (máximo 2 TB - 8 TB) y el [espacio de asignación Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado al tamaño de almacenamiento de instancias disponible actualmente (hasta 1 TB - 4 TB). |
+| Tamaño máximo del archivo de registro | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. |
 | Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 K - 110 K (1375/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
-| Límite de rendimiento de escritura en el registro | 3 MB/s por núcleo virtual<br/>22 MB/s por instancia como máximo | 4 MB/s por núcleo virtual<br/>48 MB/s por instancia como máximo|
-| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Aumentar el tamaño del archivo para mejorar el rendimiento de E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
+| Límite de rendimiento de escritura en el registro (por instancia) | 3 MB/s por núcleo virtual<br/>Máx. 22 MB/s | 4 MB/s por núcleo virtual<br/>Máx. 48 MB/s |
+| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Aumentar el tamaño del archivo para mejorar el rendimiento de E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Sin limitación. |
 | Latencia de E/S de almacenamiento (aproximada) | 5-10 ms | 1-2 ms |
-| Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual)<br/>Agregue más núcleos virtuales para obtener más espacio para TempDB. | El límite viene dado por el tamaño máximo de almacenamiento de la instancia. El tamaño del archivo de registro de TempDB está limitado actualmente a 24 GB/núcleo virtual. |
 | OLTP en memoria (optimización en memoria | No compatible | Disponible |
 | Número máximo de sesiones | 30000 | 30000 |
 | [Réplicas de solo lectura](sql-database-read-scale-out.md) | 0 | 1 (incluida en el precio) |
 
 > [!NOTE]
+> - El **tamaño de almacenamiento de instancias disponible actualmente** es la diferencia entre el tamaño de instancia reservada y el espacio de almacenamiento usado.
 > - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
 > - El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
 > Puede crear otra réplica legible en diferentes regiones de Azure mediante grupos de conmutación por error automática.
@@ -93,10 +94,10 @@ Actualmente, instancia administrada admite la implementación solo en los siguie
 
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
-Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure en función del tipo de suscripción:
+Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. La instancia administrada tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance)), dependiendo de un tipo de suscripción:
 
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
-- **Límite de núcleos virtuales**: el número máximo de núcleos virtuales que se pueden implementar en todas las instancias en una sola región. El número total de instancias no se limita siempre que se encuentre dentro del límite de núcleo virtual.
+- **Límite de unidades de núcleos virtuales**: el número máximo de unidades de núcleo virtual que se pueden implementar en todas las instancias en una sola región. Un núcleo virtual de GP usa una unidad de núcleo virtual y un núcleo virtual de BC usa 4 unidades de núcleo virtual. El número total de instancias no está limitado, siempre que se encuentre dentro del límite de unidades de núcleo virtual.
 
 > [!Note]
 > Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.

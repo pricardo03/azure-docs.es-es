@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 6597096d0d3f4bf2f74433900f1b8686e2fdf551
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b1b9353feb9142dd0709b89cffb942ec5efaf936
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698426"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179176"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
@@ -64,7 +64,7 @@ Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la
 
 Los servidores con menos de 100 GB de almacenamiento aprovisionado se marcan como de solo lectura si el almacenamiento disponible es inferior a 512 MB o el 5 % del tamaño del almacenamiento aprovisionado. Los servidores con más de 100 GB de almacenamiento aprovisionado se marcan como solo de lectura cuando el almacenamiento libre es inferior a 5 GB.
 
-Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y el uso real supera los 105 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelva inferior a 512 MB.
+Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y el uso real supera los 105 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando quedan menos de 256 MB de almacenamiento disponible.
 
 Mientras el servicio intenta hacer que el servidor sea de solo lectura, se bloquean todas las nuevas solicitudes de transacción de escritura, y las transacciones activas existentes continuarán ejecutándose. Cuando el servidor se establece en solo lectura, todas las operaciones de escritura y confirmaciones de transacción posteriores generarán errores. Las consultas de lectura seguirán funcionando sin interrupciones. Después de aumentar el almacenamiento aprovisionado, el servidor estará listo para aceptar las transacciones de escritura de nuevo.
 
@@ -72,9 +72,9 @@ Le recomendamos que active el almacenamiento automático o que configure una ale
 
 ### <a name="storage-auto-grow"></a>Crecimiento automático del almacenamiento
 
-El crecimiento automático del almacenamiento impide que el servidor se quede sin almacenamiento y se vuelva de solo lectura. Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. Para servidores con menos de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB tan pronto como el almacenamiento disponible se encuentre por debajo de 1 GB o el 10 % del almacenamiento aprovisionado. En cuanto a servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible es inferior al 5 % del tamaño de almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente.
+El crecimiento automático del almacenamiento impide que el servidor se quede sin almacenamiento y se vuelva de solo lectura. Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. En cuanto a los servidores con menos de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB cuando el almacenamiento disponible es inferior al 10 % del almacenamiento aprovisionado. En cuanto a los servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible es inferior al 10 % del tamaño de almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente.
 
-Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera los 950 GB, el tamaño de almacenamiento del servidor se incrementa a 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño del almacenamiento aumenta a 15 GB cuando queda menos de 1 GB de almacenamiento.
+Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera los 900 GB, el tamaño de almacenamiento del servidor se incrementa a 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño del almacenamiento aumenta a 15 GB cuando queda menos de 1 GB de almacenamiento.
 
 Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
 

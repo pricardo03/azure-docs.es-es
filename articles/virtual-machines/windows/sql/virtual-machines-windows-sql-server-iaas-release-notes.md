@@ -12,16 +12,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: e58b01c6a01a22ef2dd45dc49d741f0287d603a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 759bec280b40973cf651dec3741a71d67c01fe04
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100373"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200169"
 ---
 # <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Notas de la versión de SQL Server en Azure Virtual Machines
 
 Azure permite implementar una máquina virtual (VM) con una imagen de SQL Server integrada. En este artículo se resumen las nuevas características y mejoras de las versiones recientes de [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). En el artículo también se enumeran las actualizaciones importantes de contenido que no están directamente relacionadas con la versión, pero que se publican en el mismo período de tiempo. Para obtener información sobre las mejoras en otros servicios de Azure, consulte [Actualizaciones del servicio](https://azure.microsoft.com/updates).
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="service-improvements"></a>Mejoras en el servicio
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+| **Host dedicado de Azure** | Puede ejecutar VM con SQL Server en un [host dedicado de Azure](virtual-machines-windows-sql-dedicated-host.md). |
+| &nbsp; | &nbsp; |
+
 
 ## <a name="july-2019"></a>Julio de 2019
 

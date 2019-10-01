@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/22/2019
+ms.openlocfilehash: a48e9e2583afbde584987e5a1ac61da9734058d1
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073586"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200134"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de firewall de Azure Database for PostgreSQL con un único servidor
 El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -44,21 +44,23 @@ Para permitir que las aplicaciones de Azure se conecten al servidor Azure Databa
 Además de Azure Portal, las reglas de firewall se pueden administrar mediante programación con la CLI de Azure.
 Vea también la información sobre la [creación y la administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure](howto-manage-firewall-using-cli.md).
 
-## <a name="troubleshooting-the-database-server-firewall"></a>Solución de problemas del firewall del servidor de la base de datos
+## <a name="troubleshooting-firewall-issues"></a>Solución de problemas de firewall
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor de Microsoft Azure Database for PostgreSQL no se comporte de la manera prevista:
 
 * **Los cambios en la lista de permitidos aún no se han aplicado:** puede que se produzca un retraso de hasta cinco minutos hasta que se apliquen los cambios de configuración del firewall del servidor de Azure Database for PostgreSQL.
 
 * **La cuenta de usuario no está autorizada o se ha usado una contraseña incorrecta:** si una cuenta de inicio de sesión no tiene los permisos en el servidor de Azure Database for PostgreSQL o la contraseña usada es incorrecta, se denegará la conexión al servidor de Azure Database for PostgreSQL. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe continuar ofreciendo las credenciales de seguridad necesarias.
 
-Por ejemplo, mediante un cliente JDBC, puede aparecer el siguiente error.
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Error grave: error de autenticación de contraseña para el usuario "suNombreDeUsuario"
+   Por ejemplo, mediante un cliente JDBC, puede aparecer el siguiente error.
+   > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Error grave: error de autenticación de contraseña para el usuario "suNombreDeUsuario"
 
 * **Dirección IP dinámica:** Si tiene una conexión a Internet con un direccionamiento IP dinámico y tiene problemas al acceder al firewall, pruebe una de las soluciones siguientes:
 
-* Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for PostgreSQL y agréguelo como regla de firewall.
+   * Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for PostgreSQL y agréguelo como regla de firewall.
 
-* Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue la dirección IP estática como regla de firewall.
+   * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue la dirección IP estática como regla de firewall.
+
+* **La dirección IP del servidor parece pública:** las conexiones con el servidor de Azure Database for PostgreSQL se redirigen mediante una puerta de enlace de Azure de acceso público. Sin embargo, la dirección IP real del servidor está protegida por el firewall. Para más información, consulte el [artículo de arquitectura de conectividad](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para leer artículos sobre cómo crear reglas de firewall de nivel de servidor y de base de datos, consulte:

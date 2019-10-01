@@ -13,23 +13,26 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2204c572ca1f74f8060d0b6176df69359fe69a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901380"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146428"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Eliminación masiva de usuarios (versión preliminar) en Azure Active Directory
 
-Azure Active Directory (Azure AD) admite operaciones de creación y eliminación de usuarios en bloque, invitar usuarios en bloque y la descarga de listas de usuarios, grupos y miembros del grupo.
+Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gran cantidad de miembros a un grupo mediante el uso de un archivo de valores separados por comas (CSV) para eliminar usuarios de forma masiva.
 
 ## <a name="to-bulk-delete-users"></a>Para eliminar usuarios en masa
 
 1. Inicie sesión en la organización de Azure AD con una cuenta que sea la del administrador de usuarios de la organización.
 1. En Azure AD, seleccione **Usuarios** > **Eliminación masiva**.
 1. En la página **Eliminación masiva de usuarios**, seleccione **Descargar** para recibir un archivo .csv válido de propiedades de usuario y, a continuación, agregue los usuarios que quiere eliminar.
-1. Cuando termine de editar el archivo .csv o si tiene uno propio listo para cargar, seleccione el archivo en **Cargue el archivo .csv** para validarlo.
+
+   ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se eliminarán.](./media/users-bulk-delete/delete-csv-file.png)
+
+1. Cuando termine de editar el archivo .csv, seleccione el archivo en **Cargue el archivo .csv** para validarlo.
 
    ![Selección de un archivo .csv local en el que se indican los usuarios que quiere eliminar](./media/users-bulk-delete/bulk-delete.png)
 

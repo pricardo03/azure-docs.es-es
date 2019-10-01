@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996896"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212266"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
 
@@ -35,7 +35,7 @@ Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azu
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para usar grupos de varios nodos, necesitará la versión 0.4.12 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para usar grupos de varios nodos, necesitará la versión 0.4.16 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,6 +79,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * No puede eliminar el primer grupo de nodos.
 * El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
 * No pueden agregar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
+* El nombre de un grupo de nodos debe empezar con una letra minúscula y solo puede contener caracteres alfanuméricos. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
@@ -131,6 +132,9 @@ az aks nodepool add \
     --kubernetes-version 1.12.7
 ```
 
+> [!NOTE]
+> El nombre de un grupo de nodos debe empezar con una letra minúscula y solo puede contener caracteres alfanuméricos. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
+
 Para ver el estado de los grupos de nodos, use el comando [az aks node pool list][az-aks-nodepool-list] y especifique el nombre del clúster y del grupo de recursos:
 
 ```azurecli-interactive
@@ -172,9 +176,11 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Actualización de un grupo de nodos
  
 > [!NOTE]
-> Las operaciones de actualización y escalado en un grupo de clústeres o nodos no se pueden realizar simultáneamente; si se intenta, se devolverá un error. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Obtenga más información al respecto en nuestra [guía de solución de problemas](https://aka.ms/aks-pending-upgrade).
+> Las operaciones de actualización y escalado en un grupo de clústeres o nodos no se pueden realizar simultáneamente. Si se intenta, se devuelve un error. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Obtenga más información al respecto en nuestra [guía de solución de problemas](https://aka.ms/aks-pending-upgrade).
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó `--kubernetes-version` con el valor *1.13.10*. De este modo, se establece la versión de Kubernetes tanto para el plano de control como para el grupo de nodos predeterminado. Los comandos de esta sección explican cómo actualizar un único grupo de nodos específico. La relación entre actualizar la versión de Kubernetes del plano de control y el grupo de nodos se explica en la [sección que tiene a continuación](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Cuando se creó el clúster de AKS en el primer paso, se especificó `--kubernetes-version` con el valor *1.13.10*. De este modo, se establece la versión de Kubernetes tanto para el plano de control como para el grupo de nodos predeterminado. Los comandos de esta sección explican cómo actualizar un único grupo de nodos específico.
+
+La relación entre actualizar la versión de Kubernetes del plano de control y el grupo de nodos se explica en la [sección que tiene a continuación](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La versión de la imagen del sistema operativo del grupo de nodos está vinculada a la versión de Kubernetes del clúster. Solo obtendrá actualizaciones de la imagen del sistema operativo cuando se haya realizado una actualización del clúster.
@@ -189,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> Para actualizar el plano de control a *1.14.6*, ejecute `az aks upgrade -k 1.14.6`. Para más información sobre las [actualizaciones del plano de control con varios grupos de nodos, haga clic aquí](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.13.10*:
 
@@ -228,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Tarda unos minutos en actualizar los nodos a la versión especificada.
 
-Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la misma versión de Kubernetes. La posibilidad de actualizar grupos de nodos individuales le permite realizar una actualización gradual y programar pods entre grupos de nodos para mantener el tiempo de actividad de las aplicaciones dentro de las restricciones antes mencionadas.
+Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la misma versión de Kubernetes. El comportamiento predeterminado de `az aks upgrade` es actualizar todos los grupos de nodos junto con el plano de control para lograr esta alineación. La posibilidad de actualizar grupos de nodos individuales le permite realizar una actualización gradual y programar pods entre grupos de nodos para mantener el tiempo de actividad de las aplicaciones dentro de las restricciones antes mencionadas.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Actualización del plano de control de un clúster con varios grupos de nodos
 
@@ -239,17 +242,18 @@ Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la
 > * La versión del grupo de nodos puede ser una versión secundaria anterior a la versión del plano de control.
 > * La versión del grupo de nodos puede ser cualquier versión de revisión, siempre y cuando se sigan las otras dos restricciones.
 
-Un clúster de AKS tiene dos objetos de recurso de clúster. La primera es una versión de Kubernetes del plano de control. El segundo es un grupo de agentes con una versión de Kubernetes. Un plano de control se asigna a uno o varios grupos de nodos, y cada uno de ellos tiene su propia versión de Kubernetes. El comportamiento de una operación de actualización depende del recurso a la que vaya dirigida y de la versión de la API subyacente a la que se llame.
+Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas. La primera es una versión de Kubernetes del plano de control. El segundo es un grupo de agentes con una versión de Kubernetes. Un plano de control se asigna a uno o varios grupos de nodos. El comportamiento de una operación de actualización depende del comando de la CLI de Azure que se use.
 
 1. La actualización del plano de control requiere el uso de `az aks upgrade`
-   * También se actualizarán todos los grupos de nodos del clúster.
-1. Actualización con `az aks nodepool upgrade`
-   * Esto actualizará solo el grupo de nodos de destino con la versión de Kubernetes especificada
+   * Esto actualiza la versión del plano de control y todos los grupos de nodos del clúster.
+   * Al pasar `az aks upgrade` con la marca `--control-plane-only` solo se actualiza el plano de control de clúster y no se cambia ninguno de los grupos de nodos asociados. La marca `--control-plane-only` está disponible en **AKS-preview extension v0.4.16** o superior.
+1. La actualización de grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`.
+   * Esto actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
 
 La relación entre las versiones de Kubernetes que contienen los grupos de nodos también debe seguir un conjunto de reglas.
 
 1. No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.
-1. Si no se especifica una versión de Kubernetes del grupo de nodos, el valor predeterminado que haya usado volverá a la versión del plano de control.
+1. Si no se especifica una versión de Kubernetes del grupo de nodos, el comportamiento depende del cliente que se use. Para la declaración de la plantilla ARM, se usa la versión existente definida para el grupo de nodos. Si no se establece ninguna, se usa la versión del plano de control.
 1. Se puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no se pueden enviar ambas operaciones simultáneamente.
 1. La versión de Kubernetes de un grupo de nodos debe tener la misma versión principal que el plano de control.
 1. La versión de Kubernetes de un grupo de nodos puede ser, como máximo, dos (2) versiones secundarias menores que la del plano de control, nunca mayor.
@@ -580,8 +584,8 @@ Puede que tarde unos minutos en actualizarse el clúster de AKS según la config
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Asignar una IP pública por nodo en un grupo de nodos
 
-> [!NOTE]
-> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Durante la versión preliminar,use la *SKU de Load Balancer básico* si necesita asignar una dirección IP pública por nodo.
+> [!WARNING]
+> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Durante la versión preliminar, debe usar la *SKU básica de Load Balancer* si necesita asignar una dirección IP pública por nodo.
 
 Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, algunos escenarios pueden requerir que los nodos de un grupo de nodos tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Esto se puede lograr si se registra para una característica en vista previa (GB) independiente: IP pública de nodo (versión preliminar).
 
@@ -589,7 +593,7 @@ Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comun
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Después de realizar el registro correctamente, implemente una plantilla de Azure Resource Manager siguiendo las mismas instrucciones que se detallaron [antes](#manage-node-pools-using-a-resource-manager-template) y agregue la siguiente propiedad de valor booleano "enableNodePublicIP" en agentPoolProfiles. Establezca esta opción en `true` ya que, de forma predeterminada, se establecerá en `false` si no se especifica. Esta es una propiedad de tiempo de creación y requiere una versión mínima de API de 2019-06-01. Esto se puede aplicar a los grupos de nodos de Linux y Windows.
+Después de realizar el registro correctamente, implemente una plantilla de Azure Resource Manager siguiendo las mismas instrucciones que se detallaron [antes](#manage-node-pools-using-a-resource-manager-template) y agregue la siguiente propiedad de valor booleano "enableNodePublicIP" en agentPoolProfiles. Establezca esta opción en `true`, ya que, de forma predeterminada, se establece en `false` si no se especifica. Esta es una propiedad de tiempo de creación y requiere una versión mínima de API de 2019-06-01. Esto se puede aplicar a los grupos de nodos de Linux y Windows.
 
 ```
 "agentPoolProfiles":[  

@@ -1,18 +1,18 @@
 ---
 title: Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 description: Aprenda a integrar Apache Spark y Apache Hive con el conector de Hive Warehouse en Azure HDInsight.
-ms.service: hdinsight
 author: nakhanha
 ms.author: nakhanha
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811663"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122203"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 
@@ -22,7 +22,7 @@ El conector de Hive Warehouse le permite aprovechar las ventajas de las caracter
 
 Apache Spark tiene una API de streaming estructurada que proporciona funcionalidades de streaming que no están disponibles en Apache Hive. A partir de la versión 4.0 de HDInsight, Apache Spark 2.3.1 y Apache Hive 3.1.0 tienen tiendas de metadatos independientes, lo que puede dificultar la interoperabilidad. El conector de Hive Warehouse simplifica el uso conjunto de Spark y Hive. La biblioteca HWC carga los datos de los demonios LLAP a los ejecutores de Spark en paralelo, por lo que resulta más eficiente y escalable que el uso de una conexión JDBC estándar desde Spark a Hive.
 
-![Arquitectura](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+![arquitectura del conector de Hive Warehouse](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
 Algunas de las operaciones compatibles con el conector de Hive Warehouse son:
 
@@ -42,14 +42,14 @@ Siga estos pasos para configurar el conector de Hive Warehouse entre un clúster
 1. Cree un clúster de Interactive Query de HDInsight (LLAP) 4.0 mediante Azure Portal con la misma cuenta de almacenamiento y la red virtual de Azure que el clúster de Spark.
 1. Copie el contenido del archivo `/etc/hosts` en headnode0 de su clúster de Interactive Query en el archivo `/etc/hosts` de headnode0 de su clúster de Spark. Este paso permitirá al clúster de Spark resolver las direcciones IP de los nodos del clúster de Interactive Query. Vea el contenido del archivo actualizado con `cat /etc/hosts`. La salida debe tener un aspecto similar a lo que se muestra en la captura de pantalla siguiente.
 
-    ![ver el archivo de hosts](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+    ![archivo de hosts del conector de Hive Warehouse](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. Para establecer la configuración del clúster de Spark, realice los pasos siguientes: 
     1. Vaya a Azure Portal, seleccione clústeres de HDInsight y, a continuación, haga clic en el nombre del clúster.
     1. En el lado derecho, bajo **Paneles de clúster**, seleccione **Inicio de Ambari**.
     1. En la interfaz de usuario web de Ambari, haga clic en **SPARK2** > **CONFIGS** > **Custom spark2-defaults** (Valores predeterminados personalizados de Spark2).
 
-        ![Configuración de Spark2 en Ambari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+        ![Configuración de Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
     1. Establezca `spark.hadoop.hive.llap.daemon.service.hosts` en el mismo valor que la propiedad **hive.llap.daemon.service.hosts** de ** Advanced hive-interactive-site** (hive-interactive-site avanzado). Por ejemplo: `@llap0`
 
@@ -59,7 +59,7 @@ Siga estos pasos para configurar el conector de Hive Warehouse entre un clúster
         jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
         ```
 
-        >[!Note] 
+        > [!Note]
         > La dirección URL de JDBC debe contener credenciales para conectarse a Hiveserver2 incluido un nombre de usuario y una contraseña.
 
     1. Establezca `spark.datasource.hive.warehouse.load.staging.dir` en un directorio de almacenamiento provisional adecuado y compatible con HDFS. Si tiene dos clústeres diferentes, el directorio de almacenamiento provisional debe ser una carpeta del directorio de almacenamiento provisional de la cuenta de almacenamiento del clúster de LLAP para que HiveServer2 tenga acceso a ella. Por ejemplo, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` en que `STORAGE_ACCOUNT_NAME` es el nombre de la cuenta de almacenamiento que usa el clúster, y `STORAGE_CONTAINER_NAME` es el nombre del contenedor de almacenamiento.
@@ -159,14 +159,14 @@ Spark no admite la escritura en tablas ACID administradas de Hive de forma nativ
     ```
 
 2. Filtre la tabla `hivesampletable` en que la columna `state` es igual a `Colorado`. Esta consulta de la tabla de Hive se devuelve como un elemento DataFrame de Spark. A continuación, el elemento DataFrame se guarda en la tabla de Hive `sampletable_colorado` utilizando la función `write`.
-    
+
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
 Puede ver la tabla resultante en la captura de pantalla siguiente.
 
-![mostrar tabla resultante](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+![visualización de la tabla de Hive del conector de Hive Warehouse](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Escrituras de flujos estructurados
 
@@ -185,7 +185,9 @@ Siga los pasos siguientes para crear un ejemplo del conector de Hive Warehouse e
     1. Abra otro terminal en el mismo clúster de Spark.
     1. En el símbolo del sistema, escriba `nc -lk 9999`. Este comando usa la utilidad netcat para enviar datos desde la línea de comandos al puerto especificado.
     1. Escriba las palabras que quiera que el flujo de Spark ingiera, seguidas de un retorno de carro.
-        ![datos de entrada del flujo de Spark](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
+        ![datos de entrada del flujo de Apache Spark](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
 1. Cree una nueva tabla de Hive para mantener los datos de flujos. En spark-shell, escriba los siguientes comandos:
 
     ```scala
@@ -230,8 +232,11 @@ Siga los pasos siguientes para crear un ejemplo del conector de Hive Warehouse e
     1. Abra la interfaz de usuario de administrador de Ranger en `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Haga clic en el servicio de Hive de su clúster en **Hive**.
         ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. Haga clic en la pestaña **Masking** (Enmascaramiento) y, luego, en **Add New Policy** (Agregar nueva directiva). ![lista de directivas de hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png).
-    1. Proporcione el nombre que quiera para la directiva y seleccione las opciones siguientes. Para la base de datos: **valor predeterminado**; tabla de Hive: **demostración**; columna de Hive: **nombre**; usuario: **rsadmin2**; tipos de acceso: **select** (determinados) y, en el menú **Select Masking Option** (Seleccionar opción de enmascaramiento), **Partial mask: show last 4** (Máscara parcial: mostrar últimos 4). Haga clic en **Agregar**.
+    1. Haga clic en la pestaña **Enmascaramiento** y, a continuación, en **Agregar nueva directiva**.
+
+        ![lista de directivas de Hive/Ranger del conector de Hive Warehouse](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+
+    a. Proporcione el nombre que quiera para la directiva y seleccione las opciones siguientes. Para la base de datos: **valor predeterminado**; tabla de Hive: **demostración**; columna de Hive: **nombre**; usuario: **rsadmin2**; tipos de acceso: **select** (determinados) y, en el menú **Select Masking Option** (Seleccionar opción de enmascaramiento), **Partial mask: show last 4** (Máscara parcial: mostrar últimos 4). Haga clic en **Agregar**.
                 ![crear directiva](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Vuelva a consultar el contenido de la tabla. Después de aplicar la directiva de Ranger, solo podemos ver los cuatro últimos caracteres de la columna.
 

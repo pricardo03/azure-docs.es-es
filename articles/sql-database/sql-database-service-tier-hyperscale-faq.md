@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515355"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162249"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescala de Azure SQL
 
@@ -54,7 +54,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 | | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **Rendimiento de E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
 | | Instancia administrada | Depende del tamaño del archivo | N/D | Instancia administrada: Depende del tamaño del archivo|
-|**Disponibilidad**|Todo|1 réplica, sin escalado de lectura, sin caché local | Varias réplicas, hasta el 15 escalados de lectura, caché local parcial | 3 replicas, 1 escalado de lectura, alta disponibilidad con redundancia de zona, caché local completa |
+|**Disponibilidad**|Todo|1 réplica, sin escalado de lectura, sin caché local | Varias réplicas, hasta 4 escalados de lectura, caché local parcial | 3 replicas, 1 escalado de lectura, alta disponibilidad con redundancia de zona, caché local completa |
 |**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 
 \* Los grupos elásticos no se admiten en el nivel de servicio Hiperescala
@@ -361,6 +361,11 @@ Se crean de forma predeterminada dos réplicas para bases de datos de hiperescal
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>¿Cómo me conecto a estos nodos de proceso secundarios?
 
 Puede conectarse a estos nodos de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `readonly`. Todas las conexiones marcadas con `readonly` se enrutan automáticamente a uno de los nodos de proceso adicionales de solo lectura.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>¿Cómo puedo validar si me he conectado correctamente al nodo de proceso secundario mediante SSMS u otras herramientas de cliente?
+
+Puede ejecutar la siguiente consulta T-SQL mediante SSMS u otras herramientas de cliente: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+El resultado es `READ_ONLY` si la conexión apunta al nodo secundario de solo lectura o `READ_WRITE` si la conexión apunta al nodo principal.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>¿Puedo crear un punto de conexión dedicado para la réplica de escalado de lectura?
 

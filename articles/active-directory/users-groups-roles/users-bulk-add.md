@@ -1,5 +1,5 @@
 ---
-title: Importación en bloque para agregar usuarios marcados en riesgo en el portal de Azure Active Directory | Microsoft Docs
+title: Creación masiva de usuarios (versión preliminar) en el portal de Azure Active Directory | Microsoft Docs
 description: Adición de usuarios en bloque en el Centro de administración de Azure AD de Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901312"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146301"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Importación en bloque de usuarios (versión preliminar) en Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creación masiva de usuarios (versión preliminar) en Azure Active Directory
 
 Azure Active Directory (Azure AD) admite operaciones de creación y eliminación de usuarios en bloque, invitar usuarios en bloque y la descarga de listas de usuarios, grupos y miembros del grupo.
 
@@ -37,6 +37,9 @@ Para crear usuarios en bloque en el portal de administración, debe iniciar sesi
 1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta que sea la del administrador de usuarios de la organización.
 1. En Azure AD, seleccione **Usuarios** > **Creación masiva**.
 1. En la página **Creación masiva de usuarios**, seleccione **Descargar** para recibir un archivo de valores separados por comas (CSV) válido de propiedades de usuario y, a continuación, agregue los nuevos usuarios.
+
+   ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se crearán.](./media/users-bulk-add/add-csv-file.png)
+
 1. Cuando termine de editar el archivo .csv o si tiene uno propio listo para cargar, seleccione el archivo en **Cargue el archivo .csv** para validarlo.
 
    ![Selección de un archivo .csv local en el que se indican los usuarios que quiere agregar](./media/users-bulk-add/upload-button.png)

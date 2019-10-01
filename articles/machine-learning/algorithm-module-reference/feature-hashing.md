@@ -1,5 +1,5 @@
 ---
-title: 'Feature Hashing (Hash de características): referencia para los módulos'
+title: Referencia del módulo Feature Hashing
 titleSuffix: Azure Machine Learning service
 description: Aprenda a usar el módulo Feature Hashing de Azure Machine Learning Service para caracterizar datos de texto.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 78d01cf071faed312773ebf12c75e7e6e5596e71
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210562"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170880"
 ---
-# <a name="feature-hashing"></a>Hash de características
+# <a name="feature-hashing-module-reference"></a>Referencia del módulo Feature Hashing
 
 En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Use el módulo **Feature Hashing** para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
+Use el módulo Feature Hashing para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
 
 La función de hash de características que se proporciona en este módulo se basa en la plataforma nimbusml. Para más información, consulte [Clase NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
@@ -30,16 +30,16 @@ Feature Hashing funciona mediante la conversión de tokens únicos en enteros. F
 
 Por ejemplo, tome un conjunto de oraciones simples como estas, seguido de una puntuación de opinión. Supongamos que desea utilizar este texto para generar un modelo.
 
-|TEXTO DE USUARIO|OPINIÓN|
+|Texto del usuario|Opinión|
 |--------------|---------------|
 |Me gustaba este libro|3|
 |No me gustaba este libro|1|
 |Este libro era fantástico|3|
 |Me encantan los libros|2|
 
-Internamente, el módulo **Feature Hashing** crea un diccionario de n-gramas. Por ejemplo, la lista de bigramas de este conjunto de datos debería tener el siguiente aspecto:
+Internamente, el módulo Feature Hashing crea un diccionario de n-gramas. Por ejemplo, la lista de bigramas de este conjunto de datos debería tener el siguiente aspecto:
 
-|TÉRMINO (bigramas)|FRECUENCIA|
+|Término (bigramas)|Frecuencia|
 |------------|---------------|
 |Este libro|3|
 |Me gustaba|1|
@@ -48,14 +48,14 @@ Internamente, el módulo **Feature Hashing** crea un diccionario de n-gramas. Po
 
 Puede controlar el tamaño de los n-gramas mediante la propiedad **N-grams**. Si elige bigramas, también se calcularán los unigramas. El diccionario también incluiría términos individuales como estos:
 
-|Término (unigramas)|FRECUENCIA|
+|Término (unigramas)|Frecuencia|
 |------------|---------------|
 |libro|3|
 |I|3|
 |libros|1|
 |gustaba|1|
 
-Una vez creado el diccionario, el módulo **Feature Hashing** convierte los términos del diccionario en valores hash. Después calcula si se ha procesado una característica en cada caso. Para cada fila de datos de texto, el módulo genera un conjunto de columnas, una columna para cada característica con hash.
+Una vez creado el diccionario, el módulo Feature Hashing convierte los términos del diccionario en valores hash. Después calcula si se ha procesado una característica en cada caso. Para cada fila de datos de texto, el módulo genera un conjunto de columnas, una columna para cada característica con hash.
 
 Por ejemplo, después de aplicar el algoritmo hash, las columnas de características pueden tener un aspecto similar al siguiente:
 
@@ -67,26 +67,26 @@ Por ejemplo, después de aplicar el algoritmo hash, las columnas de característ
 * Si el valor de la columna es 0, la fila no contenía la característica con hash.
 * Si el valor es 1, la fila sí contenía la característica.
 
-Hash de características le permite representar documentos de texto de longitud variable como vectores numéricos de características de igual longitud para lograr la reducción de la dimensionalidad. Si intentó usar la columna de texto para el entrenamiento tal cual estaba, esta se tratará como una columna de características categórica con muchos valores distintos.
+Feature Hashing le permite representar documentos de texto de longitud variable como vectores numéricos de características de igual longitud para reducir la dimensionalidad. Si intentó usar la columna de texto para el entrenamiento tal cual estaba, esta se tratará como una columna de características categórica con muchos valores distintos.
 
 Las salidas numéricas también permiten usar métodos de aprendizaje automático comunes como la clasificación, la agrupación en clústeres y la recuperación de información. Dado que las operaciones de búsqueda pueden utilizar hashes de enteros en lugar de comparaciones de cadenas, obtener los pesos de las características también es mucho más rápido.
 
-## <a name="configure-feature-hashing"></a>Configuración de Feature Hashing
+## <a name="configure-the-feature-hashing-module"></a>Configurar el módulo Feature Hashing
 
-1.  Agregue el módulo **Feature Hashing** al experimento en la interfaz visual.
+1.  Agregue el módulo Feature Hashing al experimento en una interfaz visual.
 
 1. Conecte el conjunto de datos que contiene el texto que desea analizar.
 
     > [!TIP]
-    > Dado que el hash de características no realiza operaciones léxicas como lematización o truncamiento, a veces puede obtener mejores resultados si realiza el preprocesamiento del texto antes de aplicarlo. 
+    > Dado que Feature Hashing no realiza operaciones léxicas como lematización o truncamiento, a veces puede obtener mejores resultados si preprocesa el texto antes de aplicar Feature Hashing. 
 
-1. Establezca **Target columns** (Columnas de destino) en las columnas de texto que desea convertir en características con hash. 
+1. Establezca **Target columns** (Columnas de destino) en las columnas de texto que desea convertir en características con hash. Tenga en cuenta que:
 
     * Las columnas deben ser del tipo de datos de cadena.
     
-    * La elección de varias columnas de texto puede tener un impacto significativo en la dimensionalidad de las características. Por ejemplo, el número de columnas de un hash de 10 bits va desde 1024 para una sola columna hasta 2048 para dos columnas.
+    * La elección de varias columnas de texto puede tener un impacto significativo en la dimensionalidad de las características. Por ejemplo, el número de columnas de un hash de 10 bits va desde 1024 para una sola columna hasta 2048 para dos columnas.
 
-1. Utilice **Hashing bitsize** (Tamaño de bits de hash) para especificar el número de bits que se va a utilizar al crear la tabla hash.
+1. Utilice **Hashing bitsize** (Tamaño de bits de hash) para especificar el número de bits que se va a usar al crear la tabla hash.
     
     El tamaño de bits predeterminado es 10. Para muchos problemas, este valor es adecuado. Es posible que necesite más espacio para evitar colisiones en función del tamaño del vocabulario de n-gramas del texto de entrenamiento.
     
@@ -98,7 +98,7 @@ Las salidas numéricas también permiten usar métodos de aprendizaje automátic
 
 ## <a name="results"></a>Results
 
-Una vez completado el procesamiento, el módulo genera un conjunto de datos transformado en el que la columna de texto original se ha convertido en varias columnas, cada una de las cuales representa una característica del texto. Dependiendo de la importancia del diccionario, el conjunto de resultados puede ser grande:
+Una vez completado el procesamiento, el módulo genera un conjunto de datos transformado en el que la columna de texto original se ha convertido en varias columnas. Cada columna representa una característica del texto. Dependiendo de la importancia del diccionario, el conjunto de resultados puede ser grande:
 
 |Nombre de la columna 1|Tipo de columna 2|
 |-------------------|-------------------|
@@ -113,11 +113,11 @@ Después de crear el conjunto de datos transformado, puede usarlo como entrada p
  
 ### <a name="best-practices"></a>Procedimientos recomendados
 
-Los siguientes procedimientos recomendados pueden ayudarle a sacar el máximo partido al módulo **Feature Hashing**:
+Los siguientes procedimientos recomendados pueden ayudarle a sacar el máximo partido al módulo Feature Hashing:
 
-* Agregue un módulo **Preprocess Text** (Preprocesamiento de texto) antes de usar **Feature Hashing** para preprocesar el texto de entrada. 
+* Agregue un módulo de preprocesamiento de texto antes de usar Feature Hashing para preprocesar el texto de entrada. 
 
-* Agregue un módulo **Select Columns** (Selección de columnas) después del módulo **Feature Hashing** para eliminar columnas de texto del conjunto de datos de salida. No necesita las columnas de texto una vez generadas las características de hash.
+* Agregue un módulo de selección de columnas después del módulo Feature Hashing para eliminar columnas de texto del conjunto de datos de salida. No necesita las columnas de texto una vez generadas las características de hash.
     
 * Considere la posibilidad de usar estas opciones de preprocesamiento de texto para simplificar los resultados y mejorar la precisión:
 
@@ -127,7 +127,7 @@ Los siguientes procedimientos recomendados pueden ayudarle a sacar el máximo pa
     * Eliminación de caracteres especiales y de puntuación
     * Raíz  
 
-El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier solución individual depende del dominio, del vocabulario y de la necesidad empresarial. Experimente con los datos para ver qué métodos de procesamiento de texto son más eficaces.
+El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier solución depende del dominio, del vocabulario y de la necesidad empresarial. Experimente con los datos para ver qué métodos de procesamiento de texto son más eficaces.
 
 ## <a name="next-steps"></a>Pasos siguientes
             

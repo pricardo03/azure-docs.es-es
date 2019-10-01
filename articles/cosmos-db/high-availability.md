@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4b039e777748499e1b9a2a120e9498d94066b735
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688280"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146664"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -106,13 +106,26 @@ En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varia
 > Para habilitar la compatibilidad de zona de disponibilidad para una cuenta de Azure Cosmos DB de varias regiones, la cuenta debe tener habilitadas las escrituras multimaestro.
 
 
-Puede habilitar la redundancia de zona al agregar una región a cuentas de Azure Cosmos nuevas o existentes. Actualmente, solo puede habilitar la redundancia de zona mediante Azure Portal, PowerShell y plantillas de Azure Resource Manager. Para habilitar la redundancia de zona en su cuenta de Azure Cosmos, debe establecer la marca `isZoneRedundant` en `true` para una ubicación específica. Puede establecer esta marca en la propiedad de ubicaciones. Por ejemplo, el siguiente fragmento de código de PowerShell habilita la redundancia de zona de la región "Sudeste Asiático":
+Puede habilitar la redundancia de zona al agregar una región a cuentas de Azure Cosmos nuevas o existentes. Para habilitar la redundancia de zona en su cuenta de Azure Cosmos, debe establecer la marca `isZoneRedundant` en `true` para una ubicación específica. Puede establecer esta marca en la propiedad de ubicaciones. Por ejemplo, el siguiente fragmento de código de PowerShell habilita la redundancia de zona de la región "Sudeste Asiático":
 
 ```powershell
 $locations = @( 
     @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" }, 
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
+```
+
+En el siguiente comando, se muestra cómo habilitar la redundancia de zona para las regiones "EastUS" y "WestUS2":
+
+```azurecli-interactive
+az cosmosdb create \
+  --name mycosmosdbaccount \
+  --resource-group myResourceGroup \
+  --kind GlobalDocumentDB \
+  --default-consistency-level Session \
+  --locations regionName=EastUS failoverPriority=0 isZoneRedundant=True \
+  --locations regionName=WestUS2 failoverPriority=1 isZoneRedundant=True \
+  --enable-multiple-write-locations
 ```
 
 Puede habilitar Availability Zones mediante Azure Portal al crear una cuenta de Azure Cosmos. Cuando cree una cuenta, asegúrese de habilitar la **Redundancia geográfica** y las **Escrituras en varias regiones**, y elija una región en la que se admita Availability Zones: 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914787"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146399"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Descarga masiva de miembros de un grupo (versión preliminar) en Azure Active Directory
 
@@ -26,10 +26,6 @@ Mediante el portal de Azure Active Directory (Azure AD), puede descargar de f
 
 > [!NOTE]
 > Las operaciones masivas de Azure AD son una característica en vista previa (GB) pública de Azure AD y están disponibles con cualquier plan de licencias de Azure AD de pago. Para obtener más información sobre los términos de uso de las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="bulk-download-service-limits"></a>Límites del servicio de descarga masiva
-
-La ejecución de cada actividad masiva para descargar una lista de miembros de grupo puede durar hasta una hora. Esto permite la descarga de una lista de al menos 500 000 miembros.
 
 ## <a name="to-bulk-download-group-membership"></a>Descarga masiva de pertenencias al grupo
 
@@ -45,6 +41,10 @@ La ejecución de cada actividad masiva para descargar una lista de miembros de g
 Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
 
    ![La página de resultados de la operación masiva muestra el estado de la solicitud masiva](./media/groups-bulk-download-members/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Límites del servicio de descarga de forma masiva
+
+La ejecución de cada actividad masiva para descargar una lista de miembros de grupo puede durar hasta una hora. Esto permite la descarga de una lista de al menos 500 000 miembros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

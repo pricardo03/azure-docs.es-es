@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dce9308230c2a82c66b1d8689123d9d34fc6e408
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2c0f763dcc03d0ed2e4fb335342f39c2708572c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114683"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213554"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -1218,9 +1218,9 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | DataAction | Microsoft.CognitiveServices/accounts/VisualSearch/search/action | Devuelve una lista de etiquetas relevantes para la imagen proporcionada |
 > | DataAction | Microsoft.CognitiveServices/accounts/WebSearch/search/action | Obtiene los resultados de la Web, imágenes, noticias y vídeos para una consulta determinada. |
 > | . | Microsoft.CognitiveServices/accounts/write | Escribe las cuentas de la API. |
-> | . | Microsoft.CognitiveServices/checkDomainAvailability/action | Lee las SKU disponibles en una suscripción. |
-> | . | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles en una suscripción. |
-> | . | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles en una suscripción. |
+> | . | Microsoft.CognitiveServices/checkDomainAvailability/action | Lee las SKU disponibles para una suscripción. |
+> | . | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles para una suscripción. |
+> | . | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lee las SKU disponibles para una suscripción. |
 > | . | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notificación de Microsoft.Network de la eliminación de redes o subredes virtuales. |
 > | . | Microsoft.CognitiveServices/Operations/read | Enumera todas las operaciones disponibles. |
 > | . | Microsoft.CognitiveServices/register/action | Registra la suscripción de Cognitive Services. |

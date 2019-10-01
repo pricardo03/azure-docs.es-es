@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2879b6830a5c793358cc2200485ed971c5f3c48
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883439"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123305"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT ExpressRoute
 Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, necesitará configurar y administrar NAT. Algunos proveedores de conectividad ofrecen la configuración y administración de NAT como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece tal servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación. 
@@ -21,7 +21,7 @@ Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, n
 Revise la página [Circuitos y dominios de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) para obtener información general de los distintos dominios de enrutamiento. Para satisfacer los requisitos de dirección IP pública para emparejamiento de Microsoft y público de Azure, se recomienda configurar NAT entre la red y Microsoft. Esta sección proporciona una descripción detallada de la infraestructura NAT que necesita para configurar.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos NAT para el emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). En la ilustración siguiente, se muestra un esquema general acerca de cómo debería configurarse NAT para el emparejamiento de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). En la ilustración siguiente, se muestra un esquema general acerca de cómo debería configurarse NAT para el emparejamiento de Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 

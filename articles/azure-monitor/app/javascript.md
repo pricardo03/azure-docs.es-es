@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933771"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162185"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -120,7 +120,7 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | disableAjaxTracking | false | Si es true, las llamadas Ajax no se recopilan automáticamente. El valor predeterminado es false. |
 | disableFetchTracking | true | Si es true, las solicitudes Fetch no se recopilan automáticamente. El valor predeterminado es true. |
 | overridePageViewDuration | false | Si es true, el comportamiento predeterminado de trackPageView se cambia para registrar el final del intervalo de duración de la vista de página cuando se llama a trackPageView. Si es false y no se proporciona ninguna duración personalizada a trackPageView, el rendimiento de la vista de página se calcula mediante la API de tiempos de navegación. El valor predeterminado es false. |
-| maxAjaxCallsPerView | 500 | El valor predeterminado es 500: controla cuántas llamadas AJAX se supervisarán por vista de página. Establézcalo en-1 para supervisar todas las llamadas AJAX (ilimitadas) en la página. |
+| maxAjaxCallsPerView | 500 | El valor predeterminado es 500: controla cuántas llamadas AJAX se supervisarán por vista de página. Establézcalo en -1 para supervisar todas las llamadas AJAX (ilimitadas) en la página. |
 | disableDataLossAnalysis | true | Si es false, se comprobará al inicio en los búferes del remitente de telemetría interna si hay elementos que todavía no se hayan enviado. |
 | disableCorrelationHeaders | false | Si es false, el SDK agregará dos encabezados ("Request-Id" y "Request-Context") a todas las solicitudes de dependencia para correlacionarlas con las solicitudes correspondientes en el lado servidor. El valor predeterminado es false. |
 | correlationHeaderExcludedDomains |  | Deshabilite encabezados de correlación para dominios específicos. |
@@ -132,12 +132,16 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | isRetryDisabled | false | El valor predeterminado es false. Si es false, se produce un reintento con los errores 206 (parcialmente correcto), 408 (tiempo de espera), 429 (demasiadas solicitudes), 500 (error interno del servidor), 503 (servicio no disponible) y 0 (sin conexión, solo si se detecta). |
 | isStorageUseDisabled | false | Si es true, el SDK no almacenará ni leerá ningún dato del almacenamiento local o de la sesión. El valor predeterminado es false. |
 | isBeaconApiDisabled | true | Si es false, el SDK enviará toda la telemetría mediante [Beacon API](https://www.w3.org/TR/beacon). |
+| onunloadDisableBeacon | false | El valor predeterminado es false. Si la pestaña está cerrada, el SDK enviará la telemetría restante mediante la [API Beacon ](https://www.w3.org/TR/beacon). |
 | sdkExtension | null | Establece el nombre de la extensión del SDK. Solo puede contener caracteres alfabéticos. El nombre de la extensión se agrega como prefijo a la etiqueta "ai.internal.sdkVersion" (por ejemplo, "ext_javascript:2.0.0"). El valor predeterminado es null. |
 | isBrowserLinkTrackingEnabled | false | El valor predeterminado es false. Si es true, el SDK realizará un seguimiento de todas las solicitudes de [Vínculo con exploradores](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink). |
 | appId | null | AppId se utiliza para la correlación entre las dependencias AJAX que se producen en el lado cliente con las solicitudes del lado servidor. Cuando Beacon API está habilitada, no se puede usar automáticamente, pero se puede establecer manualmente en la configuración. El valor predeterminado es null. |
 | enableCorsCorrelation | false | Si es true, el SDK agregará dos encabezados ("Request-Id" y "Request-Context") a todas las solicitudes CORS para correlacionar dependencias AJAX salientes con las solicitudes correspondientes en el lado servidor. El valor predeterminado es false. |
 | namePrefix | no definido | Un valor opcional que se usará como sufijo de nombre para el nombre de cookies y localStorage.
 | enableAutoRouteTracking | false | Realice un seguimiento automático de los cambios de ruta en aplicaciones de página única (SPA). Si es true, cada cambio de ruta enviará una nueva vista de página a Application Insights. Los cambios de ruta hash (`example.com/foo#bar`) también se registran como nuevas vistas de página.
+| enableRequestHeaderTracking | false | Si es true, se realiza un seguimiento de los encabezados de solicitud AJAX y Fetch. El valor predeterminado es false.
+| enableResponseHeaderTracking | false | Si es true, se realiza un seguimiento de los encabezados de respuesta de solicitud AJAX y Fetch. El valor predeterminado es false.
+| distributedTracingMode | `DistributedTracingModes.AI` | Establece del modo de seguimiento distribuido. Si se establece el modo AI_AND_W3C o el modo W3C, se generarán los encabezados de contexto de seguimiento W3C (traceparent/tracestate) y se incluirán en todas las solicitudes salientes. AI_AND_W3C se proporciona para la compatibilidad con versiones anteriores de cualquier servicio instrumentado de Application Insights heredado.
 
 ## <a name="single-page-applications"></a>Aplicaciones de página única
 

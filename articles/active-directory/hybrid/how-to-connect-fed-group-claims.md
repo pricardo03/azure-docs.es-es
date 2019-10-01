@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 2d547c73137605e4666499b568bdcebce394935a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3cb53656adb1dbeb5e5597d02edfe5be4dbec6a8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595222"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170488"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar notificaciones de grupo para aplicaciones con Azure Active Directory (versión preliminar pública)
 
@@ -60,7 +60,7 @@ Sin embargo, si una aplicación existente espera consumir información de grupo 
 - Si usa el grupo local sAMAccountName para la autorización, use nombres calificados de dominio, ya que hay menos posibilidades de que surjan problemas si los nombres entran en algún conflicto. sAMAccountName por sí solo puede ser único dentro de un dominio de Active Directory, pero si más de un dominio de Active Directory está sincronizado con un inquilino de Azure Active Directory, existe la posibilidad de que más de un grupo tenga el mismo nombre.
 - Puede usar los [Roles de aplicación](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para proporcionar una capa de direccionamiento indirecto entre la suscripción del grupo y la aplicación.   A continuación, la aplicación toma decisiones de autorización internas basadas en las notificaciones de roles del token.
 - Si la aplicación está configurada para obtener atributos de grupo que se sincronizan desde Active Directory y un grupo no contiene esos atributos, no se incluirá en las notificaciones.
-- Las notificaciones de grupo de los token incluyen grupos anidados.   Si un usuario es miembro de GroupB, y GroupB es a su vez miembro de GroupA, las notificaciones de grupo del usuario contendrán GroupA y GroupB. En cuanto a las organizaciones que cuentan con un uso intensivo de grupos anidados y tienen usuarios con un gran número de suscripciones a grupos, la cantidad de grupos enumerados en el token puede aumentar el tamaño de ese token.   Azure Active Directory limita la cantidad de grupos que se emitirá en un token a 150 para las aserciones de SAML y a 200 para JWT, para evitar que los token se vuelvan demasiado grandes.  Si un usuario es miembro de un número mayor de grupos que el límite establecido, los grupos se emiten y se crea un enlace al punto de conexión de Graph para obtener información del grupo.
+- Las notificaciones de grupo de los token incluyen grupos anidados.   Si un usuario es miembro de GroupB, y GroupB es a su vez miembro de GroupA, las notificaciones de grupo del usuario contendrán GroupA y GroupB. En cuanto a las organizaciones que cuentan con un uso intensivo de grupos anidados y tienen usuarios con un gran número de suscripciones a grupos, la cantidad de grupos enumerados en el token puede aumentar el tamaño de ese token.   Azure Active Directory limita la cantidad de grupos que se emitirá en un token a 150 para las aserciones de SAML y a 200 para JWT, para evitar que los token se vuelvan demasiado grandes.  Si un usuario es miembro de un número mayor de grupos que el límite establecido, los grupos se emiten junto con un vínculo al punto de conexión de Graph para obtener información del grupo.
 
 > Requisitos previos para usar atributos de grupo sincronizados desde Active Directory:   Los grupos se deben sincronizar desde Active Directory mediante Azure AD Connect.
 

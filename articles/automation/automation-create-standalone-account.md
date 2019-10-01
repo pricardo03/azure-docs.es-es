@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779149"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146642"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -28,7 +28,6 @@ Al crear una cuenta de Automation en Azure Portal, estas cuentas se crean autom�
   * Creación de una entidad de servicio en Azure Active Directory (Azure AD).
   * Crea un certificado.
   * Asigna el control de acceso basado en rol (RBAC) del colaborador, que administra recursos de Azure Resource Manager mediante runbooks.
-* **Cuenta de ejecución clásica**. Esta cuenta carga un certificado de administración. El certificado administra los recursos clásicos mediante runbooks.
 
 Con estas cuentas que cree, podrá generar e implementar Runbooks que den soporte técnico a sus necesidades de automatización.
 
@@ -89,7 +88,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 
 Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente. Una vez creados, estos runbooks se pueden eliminar de forma segura, en caso de que no se desee conservarlos. Las cuentas de ejecución pueden utilizarse para autenticarse con la cuenta en un runbook y deben conservarse a menos que se cree otra o que ya no sean necesarias. La siguiente tabla resume los recursos de la cuenta de ejecución.
 
-| Recurso | DESCRIPCIÓN |
+| Resource | DESCRIPCIÓN |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook gráfico de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución. El runbook obtiene todos los recursos de Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook de PowerShell de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución. El runbook obtiene todos los recursos de Resource Manager. |
@@ -97,14 +96,13 @@ Una vez que se crea la cuenta de Automation, se también varios recursos automá
 | AzureRunAsCertificate |Recurso de certificado que se crea automáticamente al crear una cuenta de Automation, o mediante el uso del siguiente script de PowerShell para una cuenta existente. El certificado realiza la autenticación en Azure, de modo que puede administrar los recursos de Azure Resource Manager desde los runbooks. Este certificado tiene una duración de un año. |
 | AzureRunAsConnection |Recurso de conexión que se crea automáticamente al crear una cuenta de Automation, o mediante el uso del siguiente script de PowerShell para una cuenta existente. |
 
-La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clásico.
+## <a name="classic-run-as-accounts"></a>Cuentas de ejecución clásicas
 
-| Recurso | DESCRIPCIÓN |
-| --- | --- |
-| Runbook AzureClassicAutomationTutorial |Ejemplo de un runbook gráfico. El runbook obtiene todas las máquinas virtuales clásicas de una suscripción mediante el uso de la Cuenta de ejecución clásica (certificado). A continuación, muestra los nombres y el estado de las máquinas virtuales. |
-| Runbook AzureClassicAutomationTutorial Script |Ejemplo de un runbook de PowerShell. El runbook obtiene todas las máquinas virtuales clásicas de una suscripción mediante el uso de la Cuenta de ejecución clásica (certificado). A continuación, muestra los nombres y el estado de las máquinas virtuales. |
-| AzureClassicRunAsCertificate |Se crea automáticamente un activo de certificado. El certificado realiza la autenticación en Azure, de modo que puede administrar los recursos clásicos de Azure desde los runbooks. Este certificado tiene una duración de un año. |
-| AzureClassicRunAsConnection |Se crea automáticamente un activo de conexión. El activo realiza la autenticación en Azure, de modo que puede administrar los recursos clásicos de Azure desde los runbooks. |
+Las cuentas de ejecución clásicas ya no se crean, de forma predeterminada, cuando se crea una cuenta de Azure Automation. Si todavía necesita una cuenta de ejecución clásica, siga los pasos que se describen a continuación.
+
+1. Desde la **Cuenta de Automation**, seleccione **Cuentas de ejecución** en **Configuración de la cuenta**.
+2. Seleccione **Cuenta de ejecución de Azure clásico**.
+3. Haga clic en **Crear** para continuar con la creación de la cuenta de ejecución clásica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

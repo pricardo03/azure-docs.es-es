@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906385"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200205"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias para la evaluación
 
@@ -59,9 +59,9 @@ Asocie un área de trabajo como se indica a continuación:
 3. En **Área de trabajo de OMS**, haga clic en **Requiere configuración**.
 4. En **Configurar área de trabajo**, especifique si quiere crear un área de trabajo nueva o utilizar una existente:
 
-    ![Adición de un área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Incorporación de un área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - Una vez especifica un nombre para un área de trabajo nueva, se crea en la misma geografía que el proyecto de Azure Migrate.
+    - Después de especificar un nombre para el área de trabajo nueva, puede elegir la [región](https://azure.microsoft.com/global-infrastructure/regions/) en que se creará.
     - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración.
     - Necesita acceso de lectura al área de trabajo para poder asociarla.
     - No puede modificar el área de trabajo asociada a un proyecto una vez se ha adjuntado.

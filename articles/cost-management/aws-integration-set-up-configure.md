@@ -100,7 +100,7 @@ Configure el permiso para Cost Explorer:
 
 1. Seleccione **Elegir un servicio**.
 2. Escriba **Cost Explorer Service**.
-3. Seleccione **Todas las acciones de Cost Explorer Service (ce:*\*)** . Esta acción valida que la colección es correcta.
+3. Seleccione **Todas las acciones de Cost Explorer Service (ce:\*)** . Esta acción valida que la colección es correcta.
 4. Seleccione **Añadir permisos adicionales**.
 
 Agregue el permiso para AWS Organizations:

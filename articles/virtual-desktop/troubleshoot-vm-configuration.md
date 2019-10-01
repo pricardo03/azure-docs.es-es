@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163296"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174124"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -296,17 +296,76 @@ Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones
 
 16. Cuando se terminen de ejecutar los cmdlets, reinicie la VM con la pila en paralelo con error de funcionamiento.
 
-## <a name="remote-licensing-model-is-not-configured"></a>El modelo de licencias de Escritorio remoto no está configurado
+## <a name="remote-licensing-model-isnt-configured"></a>El modelo de licencias remotas no está configurado
 
-Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que dice que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto." Si ve este mensaje, significa que debe configurar manualmente el modo de administración de licencias a **Por usuario**.
+Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta administrativa, puede recibir una notificación que dice que "el modo de administración de licencias de Escritorio remoto no está configurado, los servicios de Escritorio remoto dejarán de funcionar en X días. En el servidor de Agente de conexión, use el administrador del servidor para especificar el modo de administración de licencias de Escritorio remoto."
 
-Para configurar manualmente el modo de administración de licencias:  
+Si el límite de tiempo expira, aparece el mensaje de error "Se desconectó la sesión remota porque no hay licencias de acceso de cliente de Escritorio remoto disponibles para este equipo".
 
-1. Vaya al cuadro de búsqueda del **menú Inicio** y, a continuación, busque y abra **gpedit.msc** para acceder al editor local de directivas de grupo. 
-2. Vaya a  **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Licencias**. 
-3. Seleccione **Establecer el modo de licencia de Escritorio remoto** y cámbielo a **Por usuario**.
+Si ve alguno de estos mensajes, debe abrir el editor de directivas de grupo y configurar manualmente el modo de licencia como **Por usuario**. El proceso de configuración manual es diferente en función de la versión de Windows 10 Enterprise multisesión que use. En las secciones siguientes se explica cómo comprobar el número de versión y qué hacer para cada uno de ellos.
 
-Estamos analizando los problemas de notificación y de tiempo de expiración del período de gracia y se les dará una solución en una futura actualización. 
+>[!NOTE]
+>Windows Virtual Desktop solo requiere una licencia de acceso de cliente (CAL) de RDS si el grupo de hosts contiene hosts de sesión de Windows Server. Para obtener información sobre cómo configurar una CAL de RDS, vea [Licencia para la implementación de RDS con licencias de acceso de cliente (CAL)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificación de la versión de Windows 10 Enterprise multisesión que está usando
+
+Para consultar la versión de Windows 10 Enterprise multisesión que tiene:
+
+1. Inicie sesión con su cuenta de administrador.
+2. Escriba "Acerca de" en la barra de búsqueda situada junto al menú Inicio.
+3. Seleccione **Acerca de tu PC**.
+4. Consulte el número que aparece junto a "Versión". El número debe ser "1809" o "1903", tal como se muestra en la siguiente imagen.
+   
+    ![Captura de pantalla de la ventana de especificaciones de Windows. El número de versión está resaltado en azul.](media/windows-specifications.png)
+
+Ahora que conoce el número de versión, vaya directamente a la sección correspondiente.
+
+### <a name="version-1809"></a>Versión 1809
+
+Si el número de versión indica "1809", puede actualizar a Windows 10 Enterprise multisesión, versión 1903, o volver a implementar el grupo de hosts con la imagen más reciente.
+
+Para actualizar a Windows 10 versión 1903:
+
+1. Si aún no lo ha hecho, descargue e instale la [Actualización de mayo de 2019 de Windows 10](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Inicie sesión en el equipo con su cuenta de administrador.
+3. Ejecute **gpedit.msc** para abrir el editor de directivas de grupo.
+4. En Configuración del equipo, vaya a **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Licencias**.
+5. Seleccione **Establecer el modo de licencia de Escritorio remoto**.
+6. En la ventana que se abre, seleccione primero **Habilitado** y, a continuación, en Opciones, especifique el modo de licencia para el servidor de host de sesión de Escritorio remoto como **Por usuario**, tal como se muestra en la siguiente imagen.
+    
+    ![Una captura de pantalla de la ventana "Establecer el modo de licencia de Escritorio remoto" configurada según las instrucciones del paso 6.](media/group-policy-editor-per-user.png)
+
+7. Seleccione **Aplicar**.
+8. Seleccione **Aceptar**.
+9.  Reinicie el equipo.
+
+Para volver a implementar el grupo de hosts con la imagen más reciente:
+
+1. Siga las instrucciones que se indican en [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md) hasta que se le pida que elija una versión de SO de imagen. Puede elegir Windows 10 Enterprise multisesión con o sin Office 365 ProPlus.
+2. Inicie sesión en el equipo con su cuenta de administrador.
+3. Ejecute **gpedit.msc** para abrir el editor de directivas de grupo.
+4. En Configuración del equipo, vaya a **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Licencias**.
+5. Seleccione **Establecer el modo de licencia de Escritorio remoto**.
+6. En la ventana que se abre, seleccione primero **Habilitado** y, a continuación, en Opciones, especifique el modo de licencia para el servidor de host de sesión de Escritorio remoto como **Por usuario**.
+7. Seleccione **Aplicar**.
+8. Seleccione **Aceptar**.
+9.  Reinicie el equipo.
+
+### <a name="version-1903"></a>Versión 1903
+
+Si el número de versión indica "1903", siga estas instrucciones:
+
+1. Inicie sesión en el equipo con su cuenta de administrador.
+2. Ejecute **gpedit.msc** para abrir el editor de directivas de grupo.
+3. En Configuración del equipo, vaya a **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Licencias**.
+4. Seleccione **Establecer el modo de licencia de Escritorio remoto**.
+6. En la ventana que se abre, seleccione primero **Habilitado** y, a continuación, en Opciones, especifique el modo de licencia para el servidor de host de sesión de Escritorio remoto como **Por usuario**, tal como se muestra en la siguiente imagen.
+    
+    ![Una captura de pantalla de la ventana "Establecer el modo de licencia de Escritorio remoto" configurada según las instrucciones del paso 6.](media/group-policy-editor-per-user.png)
+
+7. Seleccione **Aplicar**.
+8. Seleccione **Aceptar**.
+9.  Reinicie el equipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
