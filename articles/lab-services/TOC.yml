@@ -70,6 +70,14 @@
               href: devtest-lab-use-claim-capabilities.md
 - name: Guías de procedimientos
   items:
+    - name: 'Laboratorios educativos: tipos de clase'
+      items:
+        - name: Tipos de clase
+          href: classroom-labs/class-types.md
+        - name: Aprendizaje profundo en el procesamiento natural
+          href: classroom-labs/class-type-deep-learning-natural-processing.md
+        - name: Generación de scripts en shell en Linux
+          href: classroom-labs/class-type-shell-scripting-linux.md
     - name: Laboratorios educativos
       items:
         - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)

@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: 'Administración de clústeres de HDInsight: PowerShell'
           href: ./hdinsight-administer-use-powershell.md
+        - name: Compilar una canalización de ETL
+          href: ./hdinsight-sales-insights-etl.md
     - name: Ejemplos
       items:
         - name: Ejemplos de la CLI de Azure
