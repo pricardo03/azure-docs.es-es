@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883669"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203790"
 ---
 # <a name="what-is-personalizer"></a>¿Qué es Personalizer?
 
@@ -39,7 +39,7 @@ Personalizer utiliza modelos de aprendizaje automático para detectar qué acci�
 1. Cree y configure una instancia del servicio Personalization en Azure Portal. Cada instancia es un bucle de Personalizer.
 1. Use el SDK para llamar a Personalizer con información (_características_) acerca de los usuarios y el contenido (_acciones_). Para usar Personalizer no es preciso proporcionar datos limpios y con etiqueta. 
 1. En la aplicación cliente, muestre al usuario la acción que ha seleccionado Personalizer.
-1. Use el SDK para proporcionar comentarios a Personalizer que indiquen si el usuario seleccionó la acción de Personalizer. Se trata de una _puntuación de recompensa_ y normalmente oscila entre -1 y 1.
+1. Use el SDK para proporcionar comentarios a Personalizer que indiquen si el usuario seleccionó la acción de Personalizer. Esta es una _[puntuación de recompensa](concept-rewards.md)_ .
 1. Vea el análisis en Azure Portal y evalúe el funcionamiento del sistema y cómo ayudan los datos a la personalización.
 
 ## <a name="where-can-i-use-personalizer"></a>¿Dónde se puede utilizar Personalizer?
@@ -53,14 +53,14 @@ Por ejemplo, una aplicación cliente puede agregar Personalizer para:
 * Elegir la respuesta de un bot de chat para clarificar la intención del usuario o sugerir una acción.
 * Dar prioridad a las sugerencias relativas a lo debe hacer un usuario en el siguiente paso de un proceso empresarial.
 
-Personalizer no es un servicio para conservar y administrar la información de los perfiles de los usuarios, ni para registrar las preferencias o el historial de cada usuario. Personalizer aprende de las características de cada interacción de una acción en un contexto de modelo único que puede obtener las máximas recompensas cuando aparecen características similares. 
+Personalizer no es un servicio para conservar y administrar la información de los perfiles de los usuarios, ni para registrar las preferencias o el historial de cada usuario. Personalizer aprende de las características de cada interacción de la acción de un contexto en un modelo único que puede obtener las máximas recompensas cuando aparecen características similares. 
 
 ## <a name="personalization-for-developers"></a>Personalization para desarrolladores
 
 El servicio Personalizer tiene dos API:
 
 * Envíe información (_características_) acerca de los usuarios y el contenido (_acciones_) para realizar la personalización. Personalizer responde con la acción principal.
-* Envíe comentarios a Personalizer acerca del funcionamiento de la clasificación como número, normalmente entre 0 y 1 (en la sección anterior era entre -1 y 1). 
+* Envíe a Personalizer sus comentarios sobre el funcionamiento de la clasificación como [puntuación de recompensa](concept-rewards.md). 
 
 ![Secuencia básica de eventos para Personalization](media/what-is-personalizer/personalization-intro.png)
 

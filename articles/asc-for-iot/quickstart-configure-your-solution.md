@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 15c8aabbcb19d009bb202d111dc7f80da4cebff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a546d153c6fe4f14ccc8c21308bd4a33385870c3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597034"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299698"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Inicio rápido: Configuración de una solución de IoT
 
@@ -34,9 +34,9 @@ Con Azure Security Center para IoT se puede supervisar toda una solución de IoT
 
 Una vez que se habilita en IoT Hub, Azure Security Center para IoT identifica automáticamente otros servicios de Azure, que también estén conectados a IoT Hub y que estén relacionados con la solución de IoT.
 
-Además de la detección automática de relaciones, se pueden elegir los otros grupos de recursos de Azure que se etiquetan como parte de la solución de IoT.
+Además de la detección automática de relaciones, se pueden elegir los otros grupos de recursos de Azure que se etiquetan como parte de la solución de IoT. 
 
-Las opciones que se seleccionen permiten agregar suscripciones completas, grupos de recursos o recursos individuales.
+Las opciones que se seleccionen permiten agregar suscripciones completas, grupos de recursos o recursos individuales. 
 
 Después de definir todas las relaciones de los recursos, Azure Security Center para IoT aprovecha Azure Security Center para generar alertas y recomendaciones de seguridad relativas a estos recursos.
 
@@ -45,9 +45,9 @@ Después de definir todas las relaciones de los recursos, Azure Security Center 
 Para agregar un recurso nuevo a la solución de IoT, siga estos pasos: 
 
 1. Abra **IoT Hub** en Azure Portal. 
-2. Seleccione y abra **Resources** (Recursos) en **Security**  (Seguridad) en el menú izquierdo. 
-3. Seleccione **Editar** y elija los grupos de recursos que pertenecen a la solución de IoT.
-5. Haga clic en **Agregar**. 
+1. Seleccione y abra **Resources** (Recursos) en **Security**  (Seguridad) en el menú izquierdo. 
+1. Seleccione **Editar** y elija los grupos de recursos que pertenecen a la solución de IoT.
+1. Haga clic en **Agregar**. 
 
 Felicidades. Ha agregado un nuevo grupo de recursos a la solución de IoT.
 

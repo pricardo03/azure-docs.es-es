@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104744"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130284"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creación de un punto de conexión privado mediante Azure Portal
 
@@ -150,8 +150,8 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
     | Subscription| Seleccione su suscripción. |
-    | Tipo de recurso | Seleccione Microsoft.Sql/servers. |
-    | Recurso |Seleccione *miServidor*.|
+    | Tipo de recurso | Seleccione **Microsoft.Sql/servers**. |
+    | Resource |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *sqlServer*.|
     |||
 7. Seleccione **Next: Configuration** (Siguiente: Configuración).
@@ -173,7 +173,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
 
-Después de crear *myVm, conéctese a ella desde Internet de la siguiente manera: 
+Después de crear **myVm*, conéctese a ella desde Internet como se indica a continuación: 
 
 1. En la barra de búsqueda del portal, escriba *myVm*.
 
@@ -199,6 +199,7 @@ Después de crear *myVm, conéctese a ella desde Internet de la siguiente manera
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
 1. En el Escritorio remoto de *myVm*, abra PowerShell.
+
 2. Escriba `nslookup myserver.database.windows.net`. 
 
     Recibirá un mensaje similar a este:

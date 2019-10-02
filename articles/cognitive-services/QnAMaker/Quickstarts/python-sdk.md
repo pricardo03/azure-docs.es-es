@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: 57407846ba2b1a71ceb91678c3ec4587d99814ad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 90712012f904f7b098af01433fee4a97ee8f2160
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947301"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203777"
 ---
 # <a name="quickstart-qna-maker-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de QnA Maker para Python
 
@@ -108,12 +108,15 @@ Llame al método [create](https://docs.microsoft.com/python/api/azure-cognitives
 
 [!code-python[Create a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=createkb&highlight=15)]
 
+Asegúrese de incluir la función [`_monitor_operation`](#get-status-of-an-operation), a la que se hace referencia en el código anterior, con el fin de crear correctamente una base de conocimiento. 
 
 ## <a name="update-a-knowledge-base"></a>Actualización de una base de conocimientos
 
 Para actualizar una base de conocimiento, pase el identificador de la base de conocimiento y un objeto [UpdateKbOperationDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-python) que contenga los objetos de DTO [add](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-python), [update](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-python) y [delete](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-python) al método [update](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#update-kb-id--update-kb--custom-headers-none--raw-false----operation-config-). Use el método [Operation.getDetail](#get-status-of-an-operation) para determinar si la actualización se realizó correctamente.
 
 [!code-python[Update a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=updatekb&highlight=2)]
+
+Asegúrese de incluir la función [`_monitor_operation`](#get-status-of-an-operation), a la que se hace referencia en el código anterior, con el fin de actualizar correctamente una base de conocimiento. 
 
 ## <a name="publish-a-knowledge-base"></a>Publicación de una base de conocimientos
 
@@ -145,6 +148,8 @@ La llamada _setTimeout_ del siguiente bloque de código se usa para simular cód
 
 Ejecute la aplicación con el comando `python knowledgebase_quickstart.py` desde el directorio de la aplicación.
 
+Todos los fragmentos de código de este artículo están [disponibles](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) y se pueden ejecutar como un solo archivo. 
+
 ```console
 python knowledgebase_quickstart.py
 ```
@@ -164,4 +169,3 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [¿Qué es QnA Maker API?](../Overview/overview.md)
 * [Editar una base de conocimiento](../how-to/edit-knowledge-base.md)
 * [Obtención de análisis de uso](../how-to/get-analytics-knowledge-base.md)
-* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py).

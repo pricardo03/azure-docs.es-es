@@ -3,16 +3,16 @@ title: Carga, descarga, enumeración y eliminación de blobs mediante la versió
 description: Creación, carga y eliminación de blobs y contenedores de Node.js con Azure Storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 9d709d19f179dc29b5e290a141d446f3353f4971
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306037"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240443"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Inicio rápido: Carga, descarga, enumeración y eliminación de blobs mediante la versión v10 del SDK de Azure Storage para JavaScript
 
@@ -51,6 +51,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
+
 Ahora que las dependencias están instaladas, puede ejecutar el ejemplo si emite el siguiente comando:
 
 ```bash
@@ -60,10 +61,11 @@ npm start
 La salida de la aplicación será parecida a la del ejemplo siguiente:
 
 ```bash
+Container "demo" is created
 Containers:
  - container-one
  - container-two
-Container "demo" is created
+ - demo
 Blob "quickstart.txt" is uploaded
 Local file "./readme.md" is uploaded
 Blobs in "demo" container:
@@ -75,9 +77,11 @@ Blob "quickstart.txt" is deleted
 Container "demo" is deleted
 Done
 ```
-Si usa una nueva cuenta de almacenamiento para este inicio rápido, puede que no vea los nombres de contenedor en la etiqueta "*Contenedores*".
+
+Si usa una cuenta de almacenamiento nueva para este inicio rápido, es posible que solo vea el contenedor de *demostración* en la lista en la etiqueta "*Contenedores:* ".
 
 ## <a name="understanding-the-code"></a>Descripción del código
+
 El ejemplo comienza con la importación de un número de clases y funciones desde el espacio de nombres de Azure Blob Storage. Cada uno de los elementos importados se analiza en contexto a medida que se usan en el ejemplo.
 
 ```javascript
@@ -123,14 +127,18 @@ const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
 El siguiente conjunto de constantes ayuda a revelar la intención de los cálculos de tamaño de archivo durante las operaciones de carga.
+
 ```javascript
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
+
 Se puede establecer que el tiempo de espera de las solicitudes que realice la API se agote después de un intervalo dado. La clase [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) es responsable de administrar el tiempo de espera de las solicitudes y, en este ejemplo, se usa la constante siguiente para definir los tiempos de espera.
+
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
+
 ### <a name="calling-code"></a>Llamadas al código
 
 Para admitir la sintaxis *async/await* de JavaScript, todo el código de llamada se encapsula en una función denominada *execute*. Luego se llama a *execute*, que se trata como una promesa.
@@ -142,6 +150,7 @@ async function execute() {
 
 execute().then(() => console.log("Done")).catch((e) => console.log(e));
 ```
+
 Todo el código siguiente se ejecuta dentro de la función execute, donde se encuentra el comentario `// commands...`.
 
 En primer lugar, se declaran las variables correspondientes para asignar nombres, probar contenido y apuntar al archivo local que se va a cargar en Blob Storage.
@@ -160,6 +169,7 @@ const credentials = new SharedKeyCredential(STORAGE_ACCOUNT_NAME, ACCOUNT_ACCESS
 const pipeline = StorageURL.newPipeline(credentials);
 const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net`, pipeline);
 ```
+
 Las siguientes clases se utilizan en este bloque de código:
 
 - La clase [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) es la encargada de encapsular las credenciales de la cuenta de almacenamiento para proporcionárselas a una canalización de solicitudes.
@@ -174,6 +184,7 @@ La instancia de *ServiceURL* se usa con instancias de [ContainerURL](/javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
+
 Las variables *containerURL* y *blockBlobURL* se reutilizan durante el ejemplo para que actúen sobre la cuenta de almacenamiento. 
 
 En este momento, el contenedor no existe en la cuenta de almacenamiento. La instancia de *ContainerURL* representa una dirección URL sobre la que puede actuar. Mediante el uso de esta instancia, puede crear y eliminar el contenedor. La ubicación de este contenedor equivale a una ubicación como esta:
@@ -187,6 +198,7 @@ La variable *blockBlobURL* se usa para administrar blobs individuales, lo que le
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 ```
+
 Al igual que con el contenedor, el blob en bloques no existe aún. La variable *blockBlobURL* se usa más adelante para crear el blob mediante la carga de contenido.
 
 ### <a name="using-the-aborter-class"></a>Uso de la clase Aborter
@@ -196,37 +208,13 @@ Se puede establecer que el tiempo de espera de las solicitudes que realice la AP
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
 ```
+
 La clase Aborter le proporciona control sobre las solicitudes permitiéndole:
 
 - designar la cantidad de tiempo que se le proporciona a un lote de solicitudes
 - designar cuánto tiempo tiene una solicitud individual para ejecutarse en el lote
 - cancelar solicitudes
 - usar el miembro estático *Aborter.none* para impedir que todas las solicitudes agoten el tiempo de espera a la vez
-
-### <a name="show-container-names"></a>Mostrar nombres de contenedor
-Las cuentas pueden almacenar un gran número de contenedores. El código siguiente muestra cómo mostrar los contenedores de forma segmentada, lo que permite recorrer de un vistazo un gran número de contenedores. La función *showContainerNames* pasa instancias de *ServiceURL* y *Aborter*.
-
-```javascript
-console.log("Containers:");
-await showContainerNames(serviceURL, aborter);
-```
-La función *showContainerNames* usa el método *listContainersSegment* para solicitar lotes de nombres de contenedor de la cuenta de almacenamiento.
-```javascript
-async function showContainerNames(aborter, serviceURL) {
-
-    let response;
-    let marker;
-
-    do {
-        response = await serviceURL.listContainersSegment(aborter, marker);
-        marker = response.marker;
-        for(let container of response.containerItems) {
-            console.log(` - ${ container.name }`);
-        }
-    } while (marker);
-}
-```
-Cuando se devuelve la respuesta, los *containerItems* se recorren en iteración para registrar el nombre en la consola. 
 
 ### <a name="create-a-container"></a>Crear un contenedor
 
@@ -236,22 +224,58 @@ Para crear un contenedor, se usa el método *create* de *ContainerURL*.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
+
 Como el nombre del contenedor se define cuando se llama a *ContainerURL.fromServiceURL(serviceURL, containerName)* , llamar al método *create* es todo lo que necesita para crear el contenedor.
 
+### <a name="show-container-names"></a>Mostrar nombres de contenedor
+
+Las cuentas pueden almacenar un gran número de contenedores. El código siguiente muestra cómo mostrar los contenedores de forma segmentada, lo que permite recorrer de un vistazo un gran número de contenedores. La función *showContainerNames* pasa instancias de *ServiceURL* y *Aborter*.
+
+```javascript
+console.log("Containers:");
+await showContainerNames(serviceURL, aborter);
+```
+
+La función *showContainerNames* usa el método *listContainersSegment* para solicitar lotes de nombres de contenedor de la cuenta de almacenamiento.
+
+```javascript
+async function showContainerNames(aborter, serviceURL) {
+    let marker = undefined;
+
+    do {
+        const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
+        marker = listContainersResponse.nextMarker;
+        for(let container of listContainersResponse.containerItems) {
+            console.log(` - ${ container.name }`);
+        }
+    } while (marker);
+}
+```
+
+Cuando se devuelve la respuesta, los *containerItems* se recorren en iteración para registrar el nombre en la consola. 
+
 ### <a name="upload-text"></a>Cargar texto
+
 Para cargar texto en el blob, use el método *upload*.
+
 ```javascript
 await blockBlobURL.upload(aborter, content, content.length);
 console.log(`Blob "${blobName}" is uploaded`);
 ```
+
 Aquí el texto y su longitud se pasan al método.
+
 ### <a name="upload-a-local-file"></a>Carga de un archivo local
+
 Para cargar un archivo local en el contenedor, necesita una dirección URL del contenedor y la ruta de acceso al archivo.
+
 ```javascript
 await uploadLocalFile(aborter, containerURL, localFilePath);
 console.log(`Local file "${localFilePath}" is uploaded`);
 ```
+
 La función *uploadLocalFile* llama a la función *uploadFileToBlockBlob*, que toma la ruta de acceso al archivo y una instancia del destino del blob en bloques como argumentos.
+
 ```javascript
 async function uploadLocalFile(aborter, containerURL, filePath) {
 
@@ -263,16 +287,20 @@ async function uploadLocalFile(aborter, containerURL, filePath) {
     return await uploadFileToBlockBlob(aborter, filePath, blockBlobURL);
 }
 ```
+
 ### <a name="upload-a-stream"></a>Carga de una secuencia
+
 También se admite la carga de secuencias. En este ejemplo se abre un archivo local como una secuencia para pasar al método upload.
+
 ```javascript
 await uploadStream(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 ```
+
 La función *uploadStream* llama a *uploadStreamToBlockBlob* para cargar la secuencia en el contenedor de almacenamiento.
+
 ```javascript
 async function uploadStream(aborter, containerURL, filePath) {
-
     filePath = path.resolve(filePath);
 
     const fileName = path.basename(filePath).replace('.md', '-stream.md');
@@ -295,51 +323,82 @@ async function uploadStream(aborter, containerURL, filePath) {
                     uploadOptions.maxBuffers);
 }
 ```
+
 Durante una carga, *uploadStreamToBlockBlob* asigna búferes a los datos de la memoria caché desde la secuencia en caso de que sea necesario un reintento. El valor *maxBuffers* designa el número máximo de búferes que se usa cuando cada búfer crea una solicitud de carga independiente. Un mayor número de búferes equivale a una mayor velocidad, pero a costa de un mayor uso de la memoria. La velocidad de carga se estanca cuando el número de búferes es lo suficientemente alto como para que el cuello de botella realice la transición a la red o al disco en lugar del cliente.
 
 ### <a name="show-blob-names"></a>Mostrar los nombres de blob
-Igual que las cuentas pueden contener muchos contenedores, cada contenedor puede contener una gran cantidad de blobs. El acceso a todos los blobs de un contenedor está disponible mediante una instancia de la clase *ContainerURL*. 
+
+Igual que las cuentas pueden contener muchos contenedores, cada contenedor puede contener una gran cantidad de blobs. El acceso a todos los blobs de un contenedor está disponible mediante una instancia de la clase *ContainerURL*.
+
 ```javascript
 console.log(`Blobs in "${containerName}" container:`);
 await showBlobNames(aborter, containerURL);
 ```
+
 La función *showBlobNames* llama a *listBlobFlatSegment* para solicitar lotes de blobs del contenedor.
+
 ```javascript
 async function showBlobNames(aborter, containerURL) {
-
-    let response;
-    let marker;
+    let marker = undefined;
 
     do {
-        response = await containerURL.listBlobFlatSegment(aborter);
-        marker = response.marker;
-        for(let blob of response.segment.blobItems) {
+        const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
+        marker = listBlobsResponse.nextMarker;
+        for (const blob of listBlobsResponse.segment.blobItems) {
             console.log(` - ${ blob.name }`);
         }
     } while (marker);
 }
 ```
+
 ### <a name="download-a-blob"></a>Descarga de un blob
+
 Una vez que se crea un blob, puede descargar el contenido mediante el método *download*.
+
 ```javascript
 const downloadResponse = await blockBlobURL.download(aborter, 0);
-const downloadedContent = downloadResponse.readableStreamBody.read(content.length).toString();
+const downloadedContent = await streamToString(downloadResponse.readableStreamBody);
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
-La respuesta se devuelve como una secuencia. En este ejemplo, la secuencia se convierte en una cadena para acceder a la consola.
+
+La respuesta se devuelve como una secuencia. En este ejemplo, la secuencia se convierte en una cadena mediante el uso de la siguiente función auxiliar *streamToString*.
+
+```javascript
+// A helper method used to read a Node.js readable stream into a string
+async function streamToString(readableStream) {
+    return new Promise((resolve, reject) => {
+      const chunks = [];
+      readableStream.on("data", data => {
+        chunks.push(data.toString());
+      });
+      readableStream.on("end", () => {
+        resolve(chunks.join(""));
+      });
+      readableStream.on("error", reject);
+    });
+}
+```
+
 ### <a name="delete-a-blob"></a>Eliminar un blob
+
 El método *delete* de una instancia de *BlockBlobURL* elimina un blob del contenedor.
+
 ```javascript
 await blockBlobURL.delete(aborter)
 console.log(`Block blob "${blobName}" is deleted`);
 ```
+
 ### <a name="delete-a-container"></a>Eliminación de un contenedor
+
 El método *delete* de una instancia de *ContainerURL* elimina un contenedor de la cuenta de almacenamiento.
+
 ```javascript
 await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Todos los datos escritos en la cuenta de almacenamiento se eliminan automáticamente al final del ejemplo de código. 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -3,18 +3,18 @@ title: Introducción a Azure Digital Twins | Microsoft Docs
 description: Conozca Azure Digital Twins, una solución de Azure IoT de inteligencia espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 08/01/2019
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736962"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178296"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Introducción a Azure Digital Twins
 
@@ -33,7 +33,7 @@ Azure Digital Twins se aplica a todo tipo de entornos, como almacenes, oficina
 - Analizar los niveles de ocupación de un edificio.
 - Encontrar la máquina registradora más ocupada del almacén.
 
-Sea cual sea su escenario empresarial real, es muy probable que se pueda aprovisionar un caso digital correspondiente mediante Azure Digital Twins.
+Sea cual sea su escenario empresarial real, es probable que se pueda aprovisionar un caso digital correspondiente mediante Azure Digital Twins.
 
 El siguiente vídeo echa un vistazo más de cerca a Azure Digital Twins.
 
@@ -45,13 +45,13 @@ Azure Digital Twins tiene las siguientes funcionalidades principales.
 
 ### <a name="spatial-intelligence-graph"></a>Grafo de inteligencia espacial
 
-El [*grafo de inteligencia espacial*](./concepts-objectmodel-spatialgraph.md#graph) o *grafo espacial* es una representación virtual del entorno físico. Lo puede utilizar para modelar las relaciones entre personas, lugares y dispositivos.
+El [*grafo de inteligencia espacial*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph) o *grafo espacial* es una representación virtual del entorno físico. Lo puede utilizar para modelar las relaciones entre personas, lugares y dispositivos.
 
 Piense en una aplicación de servicios públicos inteligentes que utiliza varios medidores del uso de la electricidad en un barrio. La empresa de servicios públicos inteligentes debe supervisar y predecir con precisión el uso y la facturación de la electricidad. Cada dispositivo y cada sensor se deben modelar con contexto sobre la ubicación y el cliente al que se va a facturar. Puede usar el grafo de inteligencia espacial para modelar estos tipos de relaciones complejas.
 
 ### <a name="digital-twin-object-models"></a>Modelos de objetos gemelos digitales
 
-Los [modelos de objetos de Digital Twins](./concepts-objectmodel-spatialgraph.md#model) son protocolos de dispositivo y esquemas de datos predefinidos. Alinean las necesidades específicas del dominio de la solución para acelerar y simplificar el desarrollo.
+Los [modelos de objetos de Digital Twins](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) son protocolos de dispositivo y esquemas de datos predefinidos. Alinean las necesidades específicas del dominio de la solución para acelerar y simplificar el desarrollo.
 
 Un ejemplo sería una aplicación de ocupación de habitaciones que podría usar tipos de espacios predefinidos, como campus, edificio, piso y habitación.
 
@@ -93,9 +93,9 @@ Azure Digital Twins es útil para representar el mundo físico y sus muchas rela
 
 Azure Digital Twins usa Azure IoT Hub para conectar los dispositivos y sensores IoT que mantienen todo actualizado con el mundo físico. En el diagrama siguiente se muestra cómo se relaciona Azure Digital Twins con otros servicios de IoT de Azure.
 
-![Azure Digital Twins es un servicio basado en Azure IoT Hub][1]
+[![Azure Digital Twins es un servicio basado en Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox).
 
-Para más información acerca de IoT, consulte [Tecnologías y soluciones IoT de Azure](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+Para más información acerca de IoT, consulte [Tecnologías y soluciones IoT de Azure](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -113,6 +113,3 @@ Conozca los conceptos básicos de Azure Digital Twins:
 
 >[!div class="nextstepaction"]
 >[Modelo de objetos de Digital Twins y grafo de inteligencia espacial](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

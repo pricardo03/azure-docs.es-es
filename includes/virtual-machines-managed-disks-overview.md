@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104294"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266915"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -43,15 +43,21 @@ Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../a
 
 Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role-based-access-control/overview.md) para asignar a uno o varios usuarios permisos concretos a un disco administrado. Los discos administrados exponen varias operaciones, entre las que se incluyen la lectura, la escritura (creación o actualización), la eliminación y la recuperación de un [identificador URI de la firma de acceso compartido (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
+### <a name="upload-your-vhd"></a>Carga de un disco duro virtual
+
+ La carga directa facilita la transferencia de un disco duro virtual a un disco administrado de Azure. Anteriormente, había que seguir un proceso más complicado que incluía el almacenamiento provisional de los datos en una cuenta de almacenamiento. Ahora, hay que dar menos pasos. Es más fácil cargar máquinas virtuales locales en Azure, cargarlas en discos administrados grandes y el proceso de copia de seguridad y restauración se simplifica. También reduce los costos, ya que permite cargar los datos en discos administrados directamente sin necesidad de conectarlos a máquinas virtuales. Puede usar la carga directa para cargar discos duros virtuales de un máximo de 32 TiB.
+
+ Para aprender a transferir un disco duro virtual a Azure, consulte los artículos acerca de la [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) o de [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+
 ## <a name="encryption"></a>Cifrado
 
-Los discos administrados ofrecen dos tipos diferentes de cifrado. El primero de ellos es Storage Service Encryption (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption, que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales.
+Los discos administrados ofrecen dos tipos diferentes de cifrado. El primero de ellos es Storage Service Encryption (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption (ADE), que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales.
 
 ### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
 
 [Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. SSE está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Visite la [página de preguntas más frecuentes sobre discos administrados](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
 
-### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Este cifrado incluye discos administrados. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. El proceso de cifrado se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, consulte [Azure Disk Encryption para máquinas virtuales IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 

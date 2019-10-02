@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721248"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211789"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#
 
@@ -60,7 +60,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     using Newtonsoft.Json.Linq;
     ```
 
-2. Cree variables para la clave de suscripción y el punto de conexión. Este es el URI que se puede usar para el reconocimiento de la entrada de lápiz. Se anexará al punto de conexión de servicio más adelante para crear la dirección URL de la solicitud de API.
+2. Cree variables para la clave de suscripción y el punto de conexión. Reemplace el punto de conexión siguiente por el que se ha generado para el recurso de Ink Recognizer. Agréguelo al URI de Ink Recognizer para conectarse a la API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,7 +70,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

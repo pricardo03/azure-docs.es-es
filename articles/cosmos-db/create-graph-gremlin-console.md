@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 0a6ddfe1337575f4f61f4bba4638a16e54b0cde6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735267"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261584"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 
@@ -60,7 +60,7 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
     nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
     connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para SSL.
-    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
+    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
 
     Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción**: ![Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ](./media/create-graph-gremlin-console/gremlin-uri.png)
 

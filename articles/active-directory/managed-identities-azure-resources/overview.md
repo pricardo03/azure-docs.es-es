@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/19/2019
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4f670f3bb14610e7f29a9201b357e73dacf09b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293219"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310020"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -68,28 +68,29 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Funcionamiento de una identidad administrada asignada por el sistema con una máquina virtual de Azure
 
 1. Azure Resource Manager recibe una solicitud para habilitar la identidad administrada asignada por el sistema de una máquina virtual.
+
 2. Entonces crea una entidad de servicio en Azure AD para la identidad de la máquina virtual. La entidad de servicio se crea en el inquilino de Azure AD que sea de confianza para la suscripción.
-3. Azure Resource Manager configura la identidad en la máquina virtual:
-    1. Actualiza el punto de conexión de la identidad de Azure Instance Metadata Service con el identificador de cliente de la entidad de servicio y el certificado.
-    1. Aprovisiona la extensión de máquina virtual (plan de desuso previsto para enero de 2019), y agrega el identificador de cliente de la entidad de servicio y el certificado. (Está previsto que este paso se ponga en desuso).
+
+3. Azure Resource Manager configura la identidad de la máquina virtual mediante la actualización del punto de conexión de identidad de Azure Instance Metadata Service con el identificador de cliente y el certificado de la entidad de servicio.
+
 4. Ahora que la máquina virtual tiene una identidad, se usa la información de la entidad de servicio para conceder a la máquina virtual acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (RBAC) de Azure AD para asignar el rol apropiado a la entidad de servicio de la máquina virtual. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
+
 5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`
     - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
     - El parámetro de versión de API especifica la versión de IMDS, use api-version=2018-02-01 o posterior.
 
-> [!NOTE]
-> El código también puede solicitar un token del punto de conexión de extensión de máquina virtual, pero está previsto que pronto esté en desuso. Para más información sobre la extensión de máquina virtual, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
-
 6. Se realiza una llamada a Azure AD para solicitar un token de acceso, tal y como se especifica en el paso 5, con el identificador de cliente y el certificado configurado en el paso 3. Azure AD devuelve un token de acceso JSON Web Token (JWT).
+
 7. El código envía el token de acceso en una llamada a un servicio que admite la autenticación de Azure AD.
 
 ### <a name="how-a-user-assigned-managed-identity-works-with-an-azure-vm"></a>Funcionamiento de una identidad administrada asignada por el usuario con una máquina virtual de Azure
 
 1. Azure Resource Manager recibe una solicitud para crear una identidad administrada asignada por el usuario.
+
 2. Luego crea una entidad de servicio en Azure AD para la identidad asignada por el usuario. La entidad de servicio se crea en el inquilino de Azure AD que sea de confianza para la suscripción.
-3. Azure Resource Manager recibe una solicitud para configurar la identidad administrada asignada por el usuario en una máquina virtual:
-    1. Actualiza el punto de conexión de la identidad de Azure Instance Metadata Service con el identificador de cliente de la entidad de servicio administrada asignada por el usuario y el certificado.
-    1. Aprovisiona la extensión de la máquina virtual y agrega el identificador de cliente de la entidad de servicio de la identidad administrada asignada por el usuario y el certificado. (Está previsto que este paso se ponga en desuso).
+
+3. Azure Resource Manager recibe una solicitud para configurar la identidad administrada asignada por el usuario en una máquina virtual y actualiza el punto de conexión de identidad de Azure Instance Metadata Service con el identificador de cliente y el certificado de la entidad de servicio de la identidad administrada asignada por el usuario.
+
 4. Una vez que se ha creado la identidad administrada asignada por el usuario, se usa la información de la entidad de servicio para conceder a la identidad acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (RBAC) de Azure AD para asignar el rol apropiado a la entidad de servicio de la identidad asignada por el usuario. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
 
    > [!Note]
@@ -99,9 +100,6 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
     - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
     - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
     - El parámetro de versión de API especifica la versión de Azure Instance Metadata Service. Use `api-version=2018-02-01` o superior.
-
-> [!NOTE]
-> El código también puede solicitar un token del punto de conexión de extensión de máquina virtual, pero está previsto que pronto esté en desuso. Para más información sobre la extensión de máquina virtual, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 6. Se realiza una llamada a Azure AD para solicitar un token de acceso, tal y como se especifica en el paso 5, con el identificador de cliente y el certificado configurado en el paso 3. Azure AD devuelve un token de acceso JSON Web Token (JWT).
 7. El código envía el token de acceso en una llamada a un servicio que admite la autenticación de Azure AD.

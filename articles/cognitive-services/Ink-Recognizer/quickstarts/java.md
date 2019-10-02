@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721228"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212686"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Java
 
@@ -58,7 +58,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     import java.nio.file.Paths;
     ```
 
-2. Cree variables para la clave de suscripción y el punto de conexión. Este es el URI que se puede usar para el reconocimiento de la entrada de lápiz. Se anexará al punto de conexión de servicio más adelante para crear la dirección URL de la solicitud de API.
+2. Cree variables para la clave de suscripción y el punto de conexión. Reemplace el punto de conexión siguiente por el que se ha generado para el recurso de Ink Recognizer. Agréguelo al URI de Ink Recognizer para conectarse a la API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,7 +66,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

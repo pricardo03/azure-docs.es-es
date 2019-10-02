@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638179"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265217"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>¿Qué es Knowledge Store en Azure Search?
 
@@ -26,13 +25,13 @@ Almacén de conocimiento es una característica de Azure Search que guarda docum
 
 Si ha usado la búsqueda cognitiva anteriormente, ya sabe que los conjuntos de aptitudes se usan para mover un documento a través de una secuencia de enriquecimientos. El resultado puede ser un índice de Azure Search o (algo nuevo en esta versión preliminar) proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son físicamente diferentes entre sí. Comparten el mismo contenido, pero se almacenan y se usan de maneras muy distintas.
 
-Físicamente, un almacén de información se crea en una cuenta de Azure Storage, ya sea como Azure Table Storage o Blog Storage, en función de cómo se configure la canalización. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
+Físicamente, un almacén de conocimiento es una cuenta de Azure Storage, ya sea como Azure Table Storage, Blog Storage, o ambos, en función de cómo se configure la canalización. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
 
 Las proyecciones son el mecanismo para estructurar los datos en un almacén de conocimiento. Por ejemplo, a través de las proyecciones, puede elegir si la salida se guarda como un solo blob o como una colección de tablas relacionadas. Una manera sencilla de ver el contenido de un almacén de conocimiento es con el [Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) integrado para Azure Storage.
 
 ![Diagrama de Knowledge Store en una canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
-Para usar Knowledge Store, agregue un elemento `knowledgeStore` a un conjunto de aptitudes que defina las operaciones escalonadas en una canalización de indexación. Durante la ejecución, Azure Search crea un espacio en la cuenta de Azure Storage y lo llena con las definiciones y el contenido creados por la canalización.
+Para usar Knowledge Store, agregue un elemento `knowledgeStore` a un conjunto de aptitudes que defina las operaciones escalonadas en una canalización de indexación. Durante la ejecución, Azure Search crea un espacio en la cuenta de Azure Storage y proyecta los documentos enriquecidos con la definición creada dentro de la canalización.
 
 ## <a name="benefits-of-knowledge-store"></a>Ventajas de Knowledge Store
 
@@ -105,6 +104,13 @@ Si ya está familiarizado con la indexación basada en IA, la definición de un 
 
             ], 
             "objects": [ 
+               
+            ]      
+        },
+        { 
+            "tables": [ 
+            ], 
+            "objects": [ 
                 { 
                 "storageContainer": "Reviews", 
                 "format": "json", 
@@ -112,7 +118,7 @@ Si ya está familiarizado con la indexación basada en IA, la definición de un 
                 "key": "/document/Review/Id" 
                 } 
             ]      
-        }    
+        }        
     ]     
     } 
 }
@@ -132,7 +138,7 @@ Los datos o los documentos que quiere enriquecer deben existir en un origen de d
 
 * [Almacenamiento de blobs de Azure](search-howto-indexing-azure-blob-storage.md)
 
-[Azure Table Storage](search-howto-indexing-azure-tables.md) puede usarse para datos de salida en un almacén de conocimientos, pero no puede usarse como recurso de datos de entrada a una canalización de indexación basada en IA.
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 ### <a name="2---azure-search-service"></a>2\. Servicio Azure Search
 
@@ -143,17 +149,17 @@ Azure Search proporciona la característica de indexador, y los indexadores se u
 | Object | API DE REST | DESCRIPCIÓN |
 |--------|----------|-------------|
 | origen de datos | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de un origen de datos)  | Recurso que identifica un origen de datos de Azure externo que proporciona los datos de origen que se usan para crear documentos enriquecidos.  |
-| conjunto de aptitudes | [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que coordina el uso de las [aptitudes integradas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
+| conjunto de aptitudes | [Crear conjunto de aptitudes (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que coordina el uso de las [aptitudes integradas](cognitive-search-predefined-skills.md) y las [aptitudes cognitivas personalizadas](cognitive-search-custom-skill-interface.md) que se usan en una canalización de enriquecimiento durante el indexado. |
 | index | [Crear índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Esquema que expresa un índice de Azure Search. Los campos del índice se asignan a los campos de los datos de origen o a los campos fabricados durante la fase de enriquecimiento (por ejemplo, un campo para los nombres de organización creado por el reconocimiento de entidades). |
 | indexador | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Recurso que define los componentes usados durante la indexación, los que incluyen un origen de datos, un conjunto de aptitudes, asociaciones de campos desde el origen y estructuras de datos intermedias con el índice de destino, además del destino mismo. La ejecución del indexador es el desencadenador del enriquecimiento y la ingesta de datos. El resultado es un índice de búsqueda basado en el esquema de índice, que se rellena con datos de origen enriquecidos a través de conjuntos de aptitudes.  |
 
 ### <a name="3---cognitive-services"></a>3\. Cognitive Services
 
-Los enriquecimientos especificados en un conjunto de aptitudes se basan en las características Computer Vision y Language de Cognitive Services. La funcionalidad de Cognitive Services se aprovecha durante la indexación a través del conjunto de aptitudes. Un conjunto de aptitudes es una composición de aptitudes, y las aptitudes están enlazadas a las características específicas Computer Vision y Language. Para integrar Cognitive Services, deberá [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) a un conjunto de aptitudes.
+Los enriquecimientos especificados en un conjunto de aptitudes son personalizados o se basan en las características Computer Vision y Language de Cognitive Services. La funcionalidad de Cognitive Services se aprovecha durante la indexación a través del conjunto de aptitudes. Un conjunto de aptitudes es una composición de aptitudes, y las aptitudes están enlazadas a las características específicas Computer Vision y Language. Para integrar Cognitive Services, deberá [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) a un conjunto de aptitudes.
 
 ### <a name="4---storage-account"></a>4\. Cuenta de almacenamiento
 
-En la cuenta de Azure Storage, Azure Search crea un contenedor de blobs o tablas, según cómo configure un conjunto de aptitudes. Si los datos proceden de Azure Blob o Table Storage, ya está listo. En caso contrario, tendrá que crear una cuenta de Azure Storage. Las tablas y los objetos en Azure Storage contienen los documentos enriquecidos creados por la canalización de indexación basada en IA.
+En la cuenta de Azure Storage, Azure Search crea un contenedor de blobs o tablas, o ambos, en función cómo configure las proyecciones dentro del conjunto de aptitudes. Si los datos proceden de Azure Blob o Table Storage, ya está listo y puede reutilizar la cuenta de almacenamiento. En caso contrario, tendrá que crear una cuenta de Azure Storage. Las tablas y los objetos en Azure Storage contienen los documentos enriquecidos creados por la canalización de indexación basada en IA.
 
 La cuenta de almacenamiento se especifica en el conjunto de aptitudes. En `api-version=2019-05-06-Preview`, la definición de un conjunto de aptitudes incluye una definición de almacén de conocimientos para que pueda proporcionar la información de la cuenta.
 
@@ -179,15 +185,13 @@ Dentro de la cuenta de almacenamiento, los enriquecimientos pueden expresarse co
 
 + Blob Storage crea una representación JSON exhaustiva de cada documento. Puede usar ambas opciones de almacenamiento en un conjunto de aptitudes para obtener una gama completa de expresiones.
 
-+ Azure Search conserva el contenido en un índice. Si su escenario no se relaciona con búsquedas, por ejemplo, si su objetivo es el análisis en otra herramienta, puede eliminar el índice que crea la canalización. Pero también puede conservar el índice y usar una herramienta integrada, como el [Explorador de búsqueda](search-explorer.md) como tercer medio (detrás del Explorador de Storage y la aplicación de análisis) para interactuar con el contenido.
-
-Junto con el contenido de los documentos, los documentos enriquecidos incluyen los metadatos de la versión del conjunto de aptitudes que generó los enriquecimientos.  
++ Azure Search conserva el contenido en un índice. Si su escenario no se relaciona con búsquedas, por ejemplo, si su objetivo es el análisis en otra herramienta, puede eliminar el índice que crea la canalización. Pero también puede conservar el índice y usar una herramienta integrada, como el [Explorador de búsqueda](search-explorer.md) como tercer medio (detrás del Explorador de Storage y la aplicación de análisis) para interactuar con el contenido.  
 
 ## <a name="inside-a-knowledge-store"></a>Dentro de un almacén de conocimientos
 
-El almacén de conocimientos consta de una caché de anotación y proyecciones. El servicio usa la *caché* internamente para almacenar en caché los resultados de las aptitudes y hacer un seguimiento de los cambios. Una *proyección* define el esquema y la estructura de los enriquecimientos que coinciden con el uso previsto. Hay una memoria caché por cada almacén de conocimientos, pero varias proyecciones. 
+ Una *proyección* define el esquema y la estructura de los enriquecimientos que coinciden con el uso previsto. Puede definir varias proyecciones si tiene aplicaciones que consuman los datos en diferentes formatos y formas. 
 
-La memoria caché es siempre un contenedor de blobs, pero las proyecciones pueden articularse como tablas u objetos:
+Las proyecciones se pueden articular como objetos o tablas:
 
 + Como objeto, la proyección se asigna a Blob Storage, donde la proyección se guarda en un contenedor, en el cual se encuentran los objetos o las representaciones jerárquicas en JSON para escenarios como una canalización de ciencia de datos.
 

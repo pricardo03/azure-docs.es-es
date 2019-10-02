@@ -5,18 +5,18 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 6d83cb76abad3923dc7f0473f4a609938093d990
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730489"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123332"
 ---
 # <a name="expressroute-overview"></a>Información general sobre ExpressRoute
-ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365.
+ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure y Office 365.
 
 La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, latencia coherentes y mayor seguridad que las conexiones normales a través de Internet. Para información sobre cómo conectar la red a Microsoft mediante ExpressRoute, consulte [ExpressRoute connectivity models](expressroute-connectivity-models.md) (Modelos de conectividad de ExpressRoute).
 
@@ -46,7 +46,6 @@ Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores perimetral
 Las conexiones ExpressRoute habilitan el acceso a los servicios siguientes:
 * Servicios de Microsoft Azure
 * Servicios de Microsoft Office 365
-* Microsoft Dynamics 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

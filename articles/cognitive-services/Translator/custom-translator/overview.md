@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0269b4e611432093ea677e2ea7e429c84ce9db87
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595511"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257661"
 ---
 # <a name="what-is-custom-translator"></a>¿Qué es Custom Translator?
 
@@ -40,7 +40,7 @@ Custom Translator proporciona diferentes características a la hora de compilar 
 
 Microsoft Translator lanzó la [traducción automática neuronal (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. La NMT proporciona avances importantes en lo que se refiere a la calidad de la traducción con respecto a la tecnología estándar de [traducción automática estadística (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Como la NMT captura mejor el contexto de oraciones completas antes de traducirlas, proporciona unas traducciones de mayor calidad, un tono más natural y más fluidas. [Custom Translator](https://portal.customtranslator.azure.ai) proporciona NMT para sus modelos personalizados lo cual da como resultado una traducción de mejor calidad.
 
-Puede usar los documentos traducidos anteriormente para crear un sistema de traducción. Estos documentos incluyen la terminología y estilo específicos de un dominio de mejor forma que lo hace un sistema de traducción genérico. Los usuarios pueden cargar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX y XLSX.
+Puede usar los documentos traducidos anteriormente para crear un sistema de traducción. Estos documentos incluyen la terminología y el estilo específicos de un dominio de mejor forma que lo hace un sistema de traducción estándar. Los usuarios pueden cargar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX y XLSX.
 
 Custom Translator acepta también datos paralelos en el nivel de documento para que la recopilación de datos y su preparación sea más eficaz. Si los usuarios tienen acceso a versiones del mismo contenido en varios idiomas, pero en documentos independientes Custom Translator podrá hace concordar automáticamente las frases de los distintos documentos.
 

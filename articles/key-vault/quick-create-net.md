@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996641"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155111"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET
 
@@ -83,7 +83,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 En este inicio rápido se usa un almacén de claves de Azure creado previamente. Puede crear un almacén de claves siguiendo los pasos descritos en el [inicio rápido de CLI de Azure](quick-create-cli.md), [inicio rápido de Azure PowerShell](quick-create-powershell.md) o [inicio rápido de Azure Portal](quick-create-portal.md). Como alternativa, puede ejecutar simplemente los siguientes comandos de la CLI de Azure.
 
 > [!Important]
-> Cada instancia de Key Vault debe tener un nombre único. En el siguiente ejemplo se crea una instancia de Key Vault llamada *myKV*, pero debe llamar a la suya de forma diferente y usar dicho nombre en todo este inicio rápido.
+> Cada almacén de claves debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"

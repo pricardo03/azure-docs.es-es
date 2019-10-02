@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0c87a6968e5c6fd0e587c240b0a5df0a73f9909b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321651"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272330"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -168,20 +168,20 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Para escribir archivos de salida en el contenedor, Batch debe usar un token de firma de acceso compartido (SAS). Cree el token con el comando [az storage account enerate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). En este ejemplo se crea un token para escribir en cualquier contenedor de blobs de la cuenta que expira el 15 de noviembre de 2018:
+Para escribir archivos de salida en el contenedor, Batch debe usar un token de firma de acceso compartido (SAS). Cree el token con el comando [az storage account enerate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). En este ejemplo se crea un token para escribir en cualquier contenedor de blobs de la cuenta que expira el 15 de noviembre de 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2019-11-15
+    --expiry 2020-11-15
 ```
 
 Tome nota del token que devuelve el comando, que tiene un aspecto similar al siguiente. Se usará en un paso posterior.
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## <a name="render-a-single-frame-scene"></a>Representar una escena de un fotograma
@@ -217,7 +217,7 @@ Modifique los elementos `blobSource` y `containerURL` del archivo JSON para que 
   "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "httpUrl": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
         "filePath": "MotionBlur-DragonFlying.max"
     }
   ],

@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105274"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155127"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -23,7 +23,7 @@ Puede repetir este proceso si está administrando recursos para varios clientes.
 Puede asociar el identificador de Microsoft Partner Network (MPN) con las suscripciones incorporadas para realizar un seguimiento de su impacto en las involucraciones de clientes y recibir el reconocimiento correspondiente. Para más información, consulte [Vinculación de un Id. de partner a cuentas de Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Tenga en cuenta que deberá realizar esta asociación en el inquilino del proveedor de servicios.
 
 > [!NOTE]
-> Los clientes se pueden incorporar automáticamente cuando compran una oferta de servicios administrados (pública o privada) publicada en Azure Marketplace. Para obtener más información, consulte [Publicar ofertas de servicios administrados en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.
+> Los clientes también se pueden incorporar cuando compran una oferta de servicios administrados (pública o privada) que haya publicado en Azure Marketplace. Para obtener más información, consulte [Publicar ofertas de servicios administrados en Azure Marketplace](publish-managed-services-offers.md). También puede usar el proceso de incorporación que se describe aquí con una oferta publicada en Azure Marketplace.
 
 El proceso de incorporación requiere que se tomen medidas desde el inquilino del proveedor de servicios y del inquilino del cliente. Todos estos pasos se describen en este artículo.
 

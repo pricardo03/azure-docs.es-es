@@ -1,135 +1,133 @@
 ---
-title: ¿Qué es Azure Active Directory B2C? | Microsoft Docs
-description: Aprenda a crear y a administrar experiencias de identidad como el registro, inicio de sesión y la administración de perfiles en la aplicación mediante Azure Active Directory B2C.
+title: ¿Qué es Azure Active Directory B2C?
+description: Obtenga información sobre cómo puede usar Azure Active Directory B2C para admitir identidades externas en las aplicaciones, como el inicio de sesión de redes sociales con Facebook, Google y otros proveedores de identidades.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 007b23f07afec6163c2158feb3f17ba71e44bdb5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065704"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120665"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
-Azure Active Directory B2C (Azure AD b2C) es un servicio de administración de identidad de negocio a consumidor. Este servicio le permite personalizar y controlar el modo en que los usuarios interactúan de forma segura con aplicaciones web, de escritorio, móviles o de página única. Con Azure AD B2C, los usuarios pueden registrarse, iniciar sesión, restablecer contraseñas y editar perfiles. Azure AD B2C implementa un formulario de los protocolos OpenID Connect y OAuth 2.0. La clave importante en la implementación de estos protocolos son los tokens de seguridad y sus notificaciones que le permiten proporcionar acceso seguro a recursos.
+Azure Active Directory B2C proporciona la identidad de negocio a cliente como servicio. Los clientes usan las identidades de la cuenta de redes sociales, corporativa o local preferidas para acceder al inicio de sesión único para sus aplicaciones y API.
 
-Un *recorrido del usuario* es una solicitud que especifica una directiva, la cual controla el comportamiento de cómo interactúan el usuario y la aplicación con Azure AD B2C. Existen dos rutas de acceso para definir los recorridos del usuario en Azure AD B2C.
+![Infografía de proveedores de identidades de Azure AD B2C y aplicaciones de nivel inferior](media/active-directory-b2c-overview/azureadb2c-overview.png)
 
-Si es un desarrollador de aplicaciones con o sin experiencia en identidad, puede definir flujos de usuario de identidad comunes mediante Azure Portal. Si es un profesional de la identidad, un integrador de sistemas, un asesor o pertenece a un equipo de identidad local, o está familiarizado con los flujos de OpenID Connect y conoce los proveedores de identidades y la autenticación basada en notificaciones, podría elegir directivas personalizadas basadas en XML.
+Azure Active Directory B2C (Azure AD B2C) es una solución de administración de acceso de identidades de clientes (CIAM) capaz de admitir millones de usuarios y miles de millones de autenticaciones al día. Se encarga del escalado y la seguridad de la plataforma de autenticación, de la supervisión y del control automático de amenazas, como la denegación de servicio, la difusión de contraseñas o los ataques por fuerza bruta.
 
-Antes de empezar a definir un recorrido del usuario, debe crear un inquilino de Azure AD B2C y registrar la aplicación y la API en él. Una vez que haya completado estas tareas, puede empezar a definir un recorrido del usuario con flujos de usuario o con directivas personalizadas. También puede, opcionalmente, agregar o cambiar proveedores de identidades o personalizar la forma en que el usuario experimenta el recorrido.
+## <a name="custom-branded-identity-solution"></a>Solución de identidad de marca personalizada
 
-## <a name="protocols-and-tokens"></a>Protocolos y tokens
+Azure AD B2C es una solución de autenticación de marca blanca. Puede personalizar toda la experiencia del usuario con su marca para que se fusione sin problemas con las aplicaciones web y móviles.
 
-Azure AD B2C admite los protocolos [OpenID Connect y OAuth 2.0](active-directory-b2c-reference-protocols.md) para los recorridos del usuario. En la implementación de OpenID Connect de Azure AD B2C, su aplicación inicia este recorrido del usuario mediante la emisión de solicitudes de autenticación a Azure AD B2C.
+Personalice todas las páginas mostradas por Azure AD B2C cuando los usuarios se registren, inicien sesión y modifiquen su información de perfil. Personalice el HTML, CSS y JavaScript en los recorridos del usuario para que la experiencia de Azure AD B2C tenga la apariencia de una parte nativa de la aplicación.
 
-El resultado de una solicitud a Azure AD B2C es un token de seguridad como, por ejemplo, un [token de identificador o un token de acceso](active-directory-b2c-reference-tokens.md). Este token de seguridad define la identidad del usuario. Los tokens se reciben de los puntos de conexión de Azure AD B2C como un punto de conexión `/token` o `/authorize`. A partir de estos tokens, podrá acceder a notificaciones que se pueden usar para validar una identidad y permitir el acceso a recursos seguros.
+![Páginas de registro e inicio de sesión personalizadas e imagen de fondo](media/active-directory-b2c-overview/sign-in-small.png)
 
-## <a name="tenants-and-applications"></a>Inquilinos y aplicaciones
+## <a name="single-sign-on-access-with-a-user-provided-identity"></a>Acceso de inicio de sesión único con una identidad proporcionada por el usuario
 
-En Azure AD B2C, un *inquilino* representa a su organización y es un directorio de usuarios. Cada inquilino de Azure AD B2C es distinto e independiente del resto de inquilinos de Azure AD B2C. Es posible que tenga ya un inquilino de Azure Active Directory, pero el inquilino de Azure AD B2C es un inquilino diferente. Un inquilino contiene información acerca de los usuarios que se han registrado para utilizar la aplicación. Por ejemplo, contraseñas, datos de perfil y permisos. Para más información, consulte [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
+Azure AD B2C utiliza protocolos de autenticación basados en estándares, como OpenID Connect, OAuth 2.0 y SAML. Se integra con la mayoría de las aplicaciones modernas y el software comercial.
 
-Antes de configurar su aplicación para usar Azure AD B2C, primero debe registrarla en el inquilino mediante Azure Portal. El proceso de registro recopila y asigna valores a la aplicación. Estos valores incluyen un identificador de aplicación que identifica de forma exclusiva a esta y una URI de redirección que se utiliza para dirigir las respuestas hacia la aplicación.
+![Diagrama de identidades de terceros que se federan en Azure AD B2C](media/active-directory-b2c-overview/scenario-singlesignon.png)
 
-La interacción de cada aplicación sigue un patrón de nivel alto similar:
+Al actuar como la entidad de autenticación central de las aplicaciones web, las aplicaciones móviles y las API, Azure AD B2C le permite crear una solución de inicio de sesión único (SSO) para todas ellas. Centralice la recopilación de información de perfiles de usuario y preferencias, y capture el análisis detallado sobre el comportamiento de inicio de sesión y la conversión de registros.
 
-1. La aplicación dirige al usuario para que ejecute una directiva.
-2. El usuario completa la directiva según la definición de la misma.
-3. La aplicación recibe un token.
-4. La aplicación utiliza el token para intentar acceder a un recurso.
-5. El servidor de recursos valida el token para asegurarse de que se puede conceder acceso.
-6. La aplicación actualiza periódicamente el token.
+## <a name="integrate-with-external-user-stores"></a>Integración con almacenes de usuarios externos
 
-Para registrar una aplicación web, realice los pasos del [Tutorial: Registro de aplicaciones para habilitar el registro y el inicio de sesión con Azure AD B2C](tutorial-register-applications.md). También puede [agregar una aplicación de API web a su inquilino de Azure Active Directory B2C](add-web-application.md) o [agregar una aplicación cliente nativa a este](add-native-application.md).
+Azure AD B2C proporciona un directorio que puede contener 100 atributos personalizados por usuario. Sin embargo, también puede integrarse con sistemas externos. Por ejemplo, use Azure AD B2C para la autenticación, pero delegue en una base de datos externa de administración de relaciones con el cliente (CRM) o de fidelización de clientes como el origen de veracidad para los datos de los clientes.
 
-## <a name="user-journeys"></a>Recorridos de usuario
+Otro escenario de almacenamiento de usuarios externo consiste en que Azure AD B2C se encargue de la autenticación de la aplicación, pero se integre con un sistema externo que almacena el perfil de usuario o los datos personales. Por ejemplo, para satisfacer los requisitos de residencia de datos, como las directivas de almacenamiento de datos regionales o locales.
 
-La directiva en un recorrido del usuario se puede definir como un [flujo de usuario](active-directory-b2c-reference-policies.md) o como una [directiva personalizada](active-directory-b2c-overview-custom.md). Los flujos de usuario predefinidos para las tareas de identidad más comunes, como el registro, el inicio de sesión y la edición de perfiles, están disponibles en Azure Portal.
+![Diagrama lógico de Azure AD B2C en el que se comunica con un almacén de usuario externo](media/active-directory-b2c-overview/scenario-remoteprofile.png)
 
-Los recorridos del usuario le permiten controlar comportamientos configurando los siguientes valores:
+Azure AD B2C puede facilitar la recopilación de la información del usuario durante el registro o la edición de perfiles y, a continuación, colocar los datos en el sistema externo. Después, durante las autenticaciones futuras, Azure AD B2C puede recuperar los datos del sistema externo y, si es necesario, incluirlos como parte de la respuesta del token de autenticación que envía a la aplicación.
 
-- Cuentas de redes sociales que el usuario emplea para registrarse en la aplicación
-- Datos recopilados del usuario como el nombre o el código postal
-- Multi-Factor Authentication
-- Apariencia de las páginas
-- Información que se devuelve a la aplicación
+## <a name="progressive-profiling"></a>Generación de perfiles progresiva
 
-Las directivas personalizadas son archivos de configuración que definen el comportamiento de [Identity Experience Framework](trustframeworkpolicy.md) en el inquilino de Azure AD B2C. Identity Experience Framework es la plataforma subyacente que establece la confianza de varias partes y completa los pasos de un recorrido del usuario.
+Otra opción de recorrido del usuario incluye la generación de perfiles progresiva. La generación de perfiles progresiva permite a los clientes completar rápidamente la primera transacción mediante la recopilación de una cantidad mínima de información. Posteriormente, se recopilarán gradualmente más datos de perfil del cliente en los inicios de sesión futuros.
 
-Las directivas personalizadas se pueden modificar para realizar muchas tareas. Una directiva personalizada consta de uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Hay un [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) disponible para directivas personalizadas para que habiliten tareas comunes de identidad.
+![Una representación visual de la generación de perfiles progresiva](media/active-directory-b2c-overview/scenario-progressive.png)
 
-Se usan directivas personalizadas o flujos de usuarios de diferentes tipos en el inquilino de Azure AD B2C según sea necesario y se pueden reutilizar en las aplicaciones. Esta flexibilidad le permite definir y modificar las experiencias de identidad del usuario con cambios mínimos o ningún cambio en el código. Se pueden utilizar las directivas si se agrega un parámetro de consulta especial en solicitudes de autenticación de HTTP. Para crear su propia directiva personalizada, consulte [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+## <a name="third-party-identity-verification-and-proofing"></a>Comprobación y prueba de identidades de terceros
 
-## <a name="identity-providers"></a>Proveedores de identidades
+Use Azure AD B2C para facilitar la comprobación de identidades y su prueba mediante la recopilación de datos de usuario y, después, pasarlos a un sistema de terceros para realizar la validación, la puntuación de confianza y la aprobación para la creación de cuentas de usuario.
 
-En las aplicaciones, es posible que quiera permitir que los usuarios inicien sesión con distintos proveedores de identidades. Un *proveedor de identidades* crea, mantiene y administra la información de identidad al tiempo que proporciona servicios de autenticación a las aplicaciones. Puede agregar proveedores de identidades compatibles con Azure AD B2C mediante Azure Portal.
+![Diagrama que muestra el flujo de usuario para la prueba de identidad de terceros](media/active-directory-b2c-overview/scenario-idproofing.png)
 
-Por lo general, solo se usa un proveedor de identidades en una aplicación, pero existe la opción de agregar más. Para configurar un proveedor de identidades en su inquilino de Azure AD B2C, primero debe crear una aplicación en el sitio para desarrolladores del proveedor de identidades, después debe registrar el identificador de aplicación o identificador de cliente, así como la contraseña o secreto de cliente desde la aplicación del proveedor de identidades que cree. Este identificador y la contraseña se utilizan entonces para configurar la aplicación.
+Estas son solo algunas de las cosas que puede hacer con Azure AD B2C como plataforma de identidad de negocio a cliente. Las siguientes secciones de esta información general le guiarán por una aplicación de demostración que usa Azure AD B2C. También va a pasar directamente a una [introducción general técnica más detallada de Azure AD B2C](technical-overview.md).
 
-Los artículos siguientes describen los pasos para agregar algunos de los proveedores de identidades más habituales a los flujos de usuarios:
+## <a name="example-woodgrove-groceries"></a>Ejemplo: WoodGrove Groceries
 
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Cuenta Microsoft](active-directory-b2c-setup-msa-app.md)
+[WoodGrove Groceries][woodgrove] es una aplicación web activa creada por Microsoft para mostrar varias características de Azure AD B2C. En las siguientes secciones se van a revisar algunas de las opciones de autenticación proporcionadas por Azure AD B2C al sitio web de WoodGrove.
 
-Los artículos siguientes describen los pasos para agregar algunos de los proveedores de identidades más habituales a directivas personalizadas:
-- [Amazon](setup-amazon-custom.md)
-- [Google](active-directory-b2c-custom-setup-goog-idp.md)
-- [Cuenta Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+### <a name="business-overview"></a>Información general empresarial
 
-Para más información, consulte [Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C](tutorial-add-identity-providers.md).
+WoodGrove es una tienda de comestibles en línea que vende comestibles tanto a clientes individuales como a clientes empresariales. Los clientes empresariales compran los comestibles en nombre de la empresa u organizaciones que administran.
 
+### <a name="sign-in-options"></a>Opciones de inicio de sesión
 
-## <a name="page-customization"></a>Personalización de una página
+WoodGrove Groceries ofrece varias opciones de inicio de sesión basadas en la relación que tienen sus clientes con la tienda:
 
-Se puede controlar la mayor parte del contenido HTML y CSS que se presenta a los clientes en un recorrido del usuario. La característica de personalización de la página sirve para personalizar la apariencia y la experiencia de cualquier directiva personalizada o flujo de usuario. También puede mantener la coherencia visual y de la marca entre la aplicación y Azure AD B2C mediante esta característica de personalización.
+* Los clientes **individuales** pueden registrarse o iniciar sesión con cuentas individuales, como un proveedor de identidades de redes sociales o una dirección de correo electrónico y una contraseña.
+* Los clientes **empresariales** pueden registrarse o iniciar sesión con las credenciales de empresa.
+* Los **asociados** y proveedores son usuarios que suministran a la tienda de comestibles productos para su venta. La identidad del asociado la proporciona [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 
-Azure AD B2C ejecuta código en el explorador del usuario y usa un enfoque moderno denominado Uso compartido de recursos entre orígenes (CORS). En primer lugar, especifique una dirección URL en una directiva con contenido HTML personalizado. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la URL y, después, muestra la página al usuario.
+![Páginas de inicio de sesión individuales (B2C), empresariales (B2C) y asociados (B2B)](media/active-directory-b2c-overview/woodgrove-overview.png)
 
-Puede enviar parámetros a Azure AD B2C en una cadena de consulta. Al pasar este parámetro al punto de conexión HTML, el contenido de la página se cambia de forma dinámica. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil.
+### <a name="authenticate-individual-customers"></a>Autenticación de clientes individuales
 
-Para personalizar las páginas de un flujo de usuario, consulte [Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C](tutorial-customize-ui.md). Para personalizar las páginas de una directiva personalizada, consulte [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md) o [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md).
+Cuando un cliente selecciona **Inicie sesión con su cuenta personal**, se le redirige a una página de inicio de sesión personalizada hospedada por Azure AD B2C. Puede ver en la siguiente imagen que hemos personalizado la interfaz de usuario para que se parezca al sitio web de WoodGrove Groceries. Los clientes de WoodGrove no deberían notar que la experiencia de autenticación está hospedada y protegida por Azure AD B2C.
 
-## <a name="developer-resources"></a>Recursos para el desarrollador
+![Página de inicio de sesión de WoodGrove personalizada hospedada por Azure AD B2C](media/active-directory-b2c-overview/sign-in.png)
 
-### <a name="client-applications"></a>Aplicaciones cliente
+WoodGrove permite a sus clientes registrarse e iniciar sesión con sus cuentas de Google, Facebook o Microsoft como proveedor de identidades. O bien, pueden registrarse con su dirección de correo electrónico y una contraseña para crear lo que se denomina una *cuenta local*.
 
-Esto incluye las aplicaciones desarrolladas para [iOS](active-directory-b2c-devquickstarts-ios.md), [Android](active-directory-b2c-devquickstarts-android.md) y .NET, entre otros. Azure AD B2C permite estas acciones y, al mismo tiempo, protege las identidades de los usuarios.
+Cuando un cliente selecciona **Regístrese con su cuenta personal** y, después, **Registrarse ahora**, se le presenta una página de registro personalizada.
 
-Si es un desarrollador de aplicaciones web ASP.NET, configure la aplicación para autenticar las cuentas mediante los pasos descritos en el [Tutorial: Habilitación de una aplicación web para autenticarse con cuentas mediante Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+![Página de registro de WoodGrove personalizada hospedada por Azure AD B2C](media/active-directory-b2c-overview/sign-up.png)
 
-Si es un desarrollador de aplicaciones de escritorio, configure la aplicación para autenticar las cuentas mediante los pasos descritos en el [Tutorial: Habilitación de la autenticación de una aplicación de escritorio con cuentas mediante Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+Después de escribir una dirección de correo electrónico y seleccionar **Enviar código de verificación**, Azure AD B2C le envía el código. Cuando escriba el código, seleccione **Verificar código** y, después, escriba la otra información en el formulario, que también debe aceptar los términos de servicio.
 
-Si es un desarrollador de aplicaciones de página única con Node.js, configure la aplicación para autenticar las cuentas mediante los pasos descritos en el [Tutorial: Habilitación de la autenticación de una aplicación de una sola página con cuentas mediante Azure AD B2C](active-directory-b2c-tutorials-spa.md).
+Al hacer clic en el botón **Crear**, Azure AD B2C redirige al usuario al sitio web de WoodGrove Groceries. Cuando se redirige, Azure AD B2C pasa un token de autenticación de OpenID Connect a la aplicación web de WoodGrove. El usuario ya ha iniciado sesión y está preparado, y su nombre para mostrar aparece en la esquina superior derecha para indicar que está conectado.
 
-### <a name="apis"></a>API existentes
-Si las aplicaciones cliente o las aplicaciones web necesitan llamar a las API, puede configurar un acceso seguro a esos recursos en Azure AD B2C.
+![Encabezado del sitio web de WoodGrove Groceries que muestra que el usuario ha iniciado sesión](media/active-directory-b2c-overview/signed-in-individual.png)
 
-Si es un desarrollador de aplicaciones web ASP.NET, configure la aplicación para llamar a una API protegida mediante los pasos descritos en el [Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C](active-directory-b2c-tutorials-web-api.md).
+### <a name="authenticate-business-customers"></a>Autenticación de los clientes empresariales
 
-Si es un desarrollador de aplicaciones de escritorio, configure la aplicación para llamar a una API protegida mediante los pasos descritos en el [Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app-webapi.md).
+Cuando un cliente selecciona una de las opciones en **Business customers** (Clientes empresariales), el sitio web de WoodGrove Groceries invoca una directiva de Azure AD B2C diferente a la de los clientes individuales.
 
-Si es desarrollador de aplicaciones de una sola página con Node.js, configure la aplicación para autenticar las cuentas mediante los pasos descritos en el [Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md).
+Esta directiva presenta al usuario una opción para usar sus credenciales corporativas para el registro y el inicio de sesión. En el ejemplo de WoodGrove, se pide a los usuarios que inicien sesión con cualquier cuenta de Office 365 o Azure AD. Esta directiva usa una [aplicación de Azure AD multiinquilino](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) y el punto de conexión de Azure AD `/common` para federar Azure AD B2C con cualquier cliente de Office 365 del mundo.
 
-### <a name="javascript"></a>JavaScript
+### <a name="authenticate-partners"></a>Autenticación de asociados
 
-Puede agregar su propio código del lado cliente de JavaScript a las aplicaciones de Azure AD B2C. Para configurar JavaScript en la aplicación, puede definir un [diseño de página](page-layout.md) y habilitar [JavaScript](javascript-samples.md) en sus flujos de usuarios o directivas personalizadas.
+El vínculo **Sign in with your supplier account** (Inicie sesión con su cuenta de proveedor) usa la funcionalidad de colaboración de Azure Active Directory B2B. Azure AD B2B es una familia de características de Azure Active Directory para administrar las identidades de los asociados. Esas identidades se pueden federar desde Azure Active Directory para el acceso a aplicaciones protegidas mediante Azure AD B2C.
 
-### <a name="user-accounts"></a>Cuentas de usuario
+Para más información sobre Azure AD B2B, consulte [¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
 
-Muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios. Quizá necesite migrar un almacén de usuario existente a un inquilino de Azure AD B2C. Puede que desee hospedar un registro de usuarios en su propia página y crear cuentas de usuario en su directorio de Azure AD B2C en segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario. [Puede realizar estas tareas mediante Graph API de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
+<!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
+### Sample code
+
+If you'd like to jump right into the code to see how the WoodGrove Groceries application is built, you can find the repository on GitHub:
+
+[Azure-Samples/active-directory-external-identities-woodgrove-demo][woodgrove-repo] (GitHub)
+-->
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Comience a configurar su aplicación para la experiencia de registro e inicio de sesión al continuar el tutorial.
+Ahora que tiene una idea de lo que es Azure AD B2C y algunos de los escenarios en los que puede ayudar, profundice un poco más en sus características y aspectos técnicos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md)
+> [Información general técnica de Azure AD B2C >](technical-overview.md)
+
+<!-- LINKS - External -->
+[woodgrove]: https://aka.ms/ciamdemo
+[woodgrove-repo]: https://github.com/Azure-Samples/active-directory-external-identities-woodgrove-demo

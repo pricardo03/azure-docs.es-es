@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: 1724e2d81f1a18da5a200637cd25636166d5cb37
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206757"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203842"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de QnA Maker para .NET
 
@@ -139,11 +139,15 @@ La última línea del código siguiente devuelve el identificador de la base de 
 
 [!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
 
+Asegúrese de incluir la función [`MonitorOperation`](#get-status-of-an-operation), a la que se hace referencia en el código anterior, con el fin de crear correctamente una base de conocimiento. 
+
 ## <a name="update-a-knowledge-base"></a>Actualización de una base de conocimientos
 
 Puede actualizar una base de conocimiento pasando el identificador de la base de conocimiento y un [UpdatekbOperationDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-dotnet) que contiene los objetos de DTO [add](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-dotnet), [update](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-dotnet) y [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-dotnet) al método [UpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet). Use el método [MonitorOperation](#get-status-of-an-operation) para determinar si la actualización se realizó correctamente.
 
 [!code-csharp[Update a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=UpdateKB&highlight=4,13)]
+
+Asegúrese de incluir la función [`MonitorOperation`](#get-status-of-an-operation), a la que se hace referencia en el código anterior, con el fin de actualizar correctamente una base de conocimiento. 
 
 ## <a name="download-a-knowledge-base"></a>Descarga de una base de conocimiento
 
@@ -182,6 +186,8 @@ _loop_ y _Task.Delay_ en el siguiente bloque de código se utilizan para simular
 
 Ejecute la aplicación con el comando `run` dotnet desde el directorio de aplicaciones.
 
+Todos los fragmentos de código de este artículo están [disponibles](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) y se pueden ejecutar como un solo archivo.
+
 ```console
 dotnet run
 ```
@@ -203,4 +209,3 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [¿Qué es QnA Maker API?](../Overview/overview.md)
 * [Editar una base de conocimiento](../how-to/edit-knowledge-base.md)
 * [Obtención de análisis de uso](../how-to/get-analytics-knowledge-base.md)
-* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs).

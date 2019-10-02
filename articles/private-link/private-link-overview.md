@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: fc3ae87ce5c4547526ae50f371684ac14dfcf266
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104655"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300746"
 ---
 # <a name="what-is-azure-private-link-preview"></a>¿Qué es Azure Private Link? (versión preliminar)
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios de asociados o clientes hospedados en Azure a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. También puede crear su propio [servicio Private Link](private-link-service-overview.md) en la red virtual y enviarlo de forma privada a los clientes. La experiencia de configuración y consumo con Azure Private Link es coherente en los servicios compartidos de PaaS de Azure, de propiedad del cliente y de asociados.
@@ -40,11 +40,11 @@ Azure Private Link proporciona las ventajas siguientes:
 
 |Escenario  |Servicios admitidos   |Regiones disponibles | Status   |
 |---------|---------|---------|---------|
-|Private Link para servicios propiedad del cliente|Servicios Private Link detrás de Standard Load Balancer |Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU., Norte de EE. UU.  |  Vista previa  |
+|Private Link para servicios propiedad del cliente|Servicios Private Link detrás de Standard Load Balancer |Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU.  |  Vista previa  |
 |Private Link para los servicios PaaS de Azure   | Azure Storage        |  Este de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU.       | Vista previa         |
 |  | Azure Data Lake Storage Gen2        |  Este de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU.       | Vista previa         |
-|  |  Azure SQL Database         | Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU., Norte de EE. UU.       |   Vista previa      |
-||Azure SQL Data Warehouse| Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU., Norte de EE. UU. |Vista previa|
+|  |  Azure SQL Database         | Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU.      |   Vista previa      |
+||Azure SQL Data Warehouse| Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU. |Vista previa|
 
 Para conocer las notificaciones más actualizadas, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network). 
 

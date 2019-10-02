@@ -1,12 +1,11 @@
 ---
-title: 'Inicio rápido de Azure Sentinel: introducción a Azure Sentinel (versión preliminar) | Microsoft Docs'
+title: 'Inicio rápido de Azure Sentinel: introducción a Azure Sentinel | Microsoft Docs'
 description: 'Inicio rápido de Azure Sentinel: introducción a Azure Sentinel'
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,23 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780482"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240085"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Inicio rápido: Introducción a Azure Sentinel (versión preliminar)
-
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
 
-En este inicio rápido, aprenderá a ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, obtendrá una visualización y un análisis instantáneos de los datos, así sabrá lo que sucede en todos los orígenes de datos conectados. Azure Sentinel ofrece paneles que le proporcionan todo el poder de las herramientas que ya están disponibles en Azure, así como tablas y gráficos que están integrados para ofrecerle análisis de sus registros y consultas. Puede usar paneles integrados o crear un panel fácilmente desde cero o a partir de un panel ya existente. 
+
+
+En este inicio rápido, aprenderá a ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, obtendrá una visualización y un análisis instantáneos de los datos, así sabrá lo que sucede en todos los orígenes de datos conectados. Azure Sentinel ofrece libros que le proporcionan toda la potencia de las herramientas que ya están disponibles en Azure, así como tablas y gráficos que están integrados para ofrecerle análisis de sus registros y consultas. Puede usar los libros integrados o crear un libro fácilmente desde cero o a partir de un libro existente. 
 
 ## <a name="get-visualization"></a>Obtener visualización
 
@@ -59,43 +56,43 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
    ![Mapa de Azure Sentinel](./media/qs-get-visibility/anomolies.png)
 
-## Uso de los paneles integrados<a name="dashboards"></a>
+## Uso de libros integrados<a name="dashboards"></a>
 
-Los paneles integrados proporcionan datos integrados procedentes de orígenes de datos conectados y le permiten analizar en profundidad los eventos generados en esos servicios. Los paneles integrados incluyen el de Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico, Office 365 y protocolos poco seguros basados en eventos de Windows.
+Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen el de Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/app/usage-workbooks.md).
 
-1. En **Settings** (Configuración), seleccione **Dashboards** (Paneles). En **Installed** (Instalado), puede ver todos los paneles instalados. En **All** (Todos), puede ver la galería entera de paneles integrados que están disponibles para su instalación. 
-2. Busque un panel específico ver la lista completa y una descripción de lo que ofrece cada uno. 
-3. Suponiendo que usa Azure AD, para comenzar a trabajar con Azure Sentinel, se recomienda que instale al menos los paneles siguientes:
+1. En **Configuración**, seleccione **Libros**. En **Instalados**, puede ver todos los libros instalados. En **Todos**, puede ver toda la galería entera de libros integrados disponibles para su instalación. 
+2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 
+3. Suponiendo que usa Azure AD, para comenzar a trabajar con Azure Sentinel, se recomienda que instale al menos los libros siguientes:
    - **Azure AD**: use uno de estos paneles o ambos:
-       - **Inicios de sesión de Azure AD**: analiza los inicios de sesión con el tiempo para ver si hay anomalías. Este panel proporciona los errores de inicio de sesión de las aplicaciones, los dispositivos y las ubicaciones de forma que pueda advertir de un vistazo si sucede algo inusual. Preste atención cuando se producen varios errores de inicio de sesión. 
+       - **Inicios de sesión de Azure AD**: analiza los inicios de sesión con el tiempo para ver si hay anomalías. Este libro proporciona los errores de inicio de sesión de aplicaciones, dispositivos y ubicaciones de forma que pueda advertir de un vistazo si sucede algo inusual. Preste atención cuando se producen varios errores de inicio de sesión. 
        - **Registros de auditoría de Azure AD**: analiza las actividades de administración, como los cambios en los usuarios (agregar, quitar, etc.), la creación de grupos y las modificaciones.  
 
-   - Agregue un panel para su firewall. Por ejemplo, agregar el panel Palo Alto. El panel analiza el tráfico de firewall, proporciona correlaciones entre los datos de firewall y los eventos de amenazas y resalta los eventos sospechosos entre entidades. Los paneles proporcionan información sobre las tendencias en el tráfico y le permite explorar en profundidad los resultados y filtrarlos. 
+   - Agregue un libro para el firewall. Por ejemplo, agregue el libro Palo Alto. El libro analiza el tráfico del firewall, lo que proporciona correlaciones entre los datos del firewall y los eventos de amenazas, y resalta los eventos sospechosos de las distintas entidades. Los libros proporcionan información sobre las tendencias en el tráfico y permite explorar en profundidad los resultados y filtrarlos. 
 
       ![Panel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Puede personalizar los paneles mediante la edición del ![botón](./media/qs-get-visibility/edit-query-button.png) de la consulta principal. Puede hacer clic en el ![botón](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/get-started-portal.md); y puede seleccionar el botón de puntos suspensivos (...) y seleccionar **Customize tile data** (Personalizar los datos del icono), que le permite editar el filtro de tiempo principal, o quitar determinados iconos del panel.
+Puede personalizar los libros mediante la edición de la consulta principal ![button](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![button](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/get-started-portal.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono** , que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
 
 Para más información sobre cómo trabajar con consultas, consulte [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Agregar un nuevo icono
 
-Si quiere agregar un nuevo icono, puede agregarlo a un panel existente (uno que haya creado o uno integrado de Azure Sentinel). 
+Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o uno integrado en Azure Sentinel). 
 1. En Log Analytics, cree un icono mediante las instrucciones que encontrará en [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Después de crear el icono, en **Pin** (Anclar), seleccione el panel en el que quiere que aparezca el icono.
+2. Después de crear el icono, en **Anclar**, seleccione el libro en el que desee que aparezca.
 
-## <a name="create-new-dashboards"></a>Creación de paneles
-Puede crear un panel desde cero o usar un panel integrado como base para un nuevo panel.
+## <a name="create-new-workbooks"></a>Creación de libros
+Puede crear un libro desde cero o usar un libro integrado como base para un nuevo libro.
 
-1. Para crear un panel desde cero, seleccione **Dashboards** (Paneles) y, a continuación, **+New dashboard** (+Nuevo panel).
-2. Seleccione la suscripción en la que se crea el panel y asígnele un nombre descriptivo. Cada panel es como cualquier otro recurso de Azure, y puede asignarle roles (RBAC) para definir y limitar quién puede tener acceso. 
-3. Para habilitarlo y mostrarlo en los paneles a los que anclar las visualizaciones, debe compartirlo. Haga clic en **Share** (Compartir) y, luego, en **Manage users** (Administrar usuarios). 
+1. Para crear un libro desde cero, seleccione **Libros** y, después, **+Nuevo libro**.
+2. Seleccione la suscripción en la que se crea el libro y asígnele un nombre descriptivo. Cada libro es un recurso de Azure como cualquier otro y puede asignarle roles (RBAC), con el fin de definir y limitar quién puede acceder. 
+3. Para habilitarlo y mostrarlo en los libros a los que se anclan las visualizaciones, tiene que compartirlo. Haga clic en **Share** (Compartir) y, luego, en **Manage users** (Administrar usuarios). 
  
-1. Use **Check access** (Comprobar acceso) y **Role assignments** (Asignaciones de roles) como haría con cualquier otro recurso de Azure. Para más información, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use **Check access** (Comprobar acceso) y **Role assignments** (Asignaciones de roles) como haría con cualquier otro recurso de Azure. Para más información, consulte [Uso compartido de libros de Azure mediante el control de acceso basado en rol](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## <a name="new-dashboard-examples"></a>Ejemplos de nuevos paneles
+## <a name="new-workbook-examples"></a>Ejemplos de libros nuevos
 
 La siguiente consulta de ejemplo le permite comparar las tendencias del tráfico entre semanas. Puede cambiar fácilmente en el proveedor de dispositivos y el origen de datos en que se ejecutará la consulta. En este ejemplo se usa SecurityEvent de Windows, pero puede cambiarlo por AzureActivity, CommonSecurityLog o cualquier otro firewall.
 
@@ -117,7 +114,7 @@ Puede que quiera crear una consulta que incorpore datos de varios orígenes. Pue
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Puede crear distintos paneles según el rol de la persona que examina los datos y lo que busca. Por ejemplo, puede crear un panel para el administrador de red que incluya los datos del firewall. También puede crear paneles según la frecuencia con la que quiera verlos, si hay cosas que quiera revisar diariamente, y otros elementos que quiera comprobar una vez cada hora; por ejemplo, podría querer examinar sus inicios de sesión de Azure AD cada hora para detectar anomalías. 
+Puede crear distintos libros en función del rol de la persona que examina los datos y lo que busca. Por ejemplo, puede crear un libro para el administrador de red que incluya los datos del firewall. También puede crear libros en función de la frecuencia con la que quiera verlos, si hay cosas que quiera revisar a diario y otros elementos que quiera comprobar cada hora; por ejemplo, podría querer examinar sus inicios de sesión de Azure AD cada hora para detectar anomalías. 
 
 ## <a name="create-new-detections"></a>Creación de nuevas detecciones
 
@@ -125,18 +122,14 @@ Genere detecciones en los [orígenes de datos que ha conectado a Azure Sentinel]
 
 Cuando cree una nueva detección, aproveche las detecciones integradas diseñadas por los investigadores de seguridad de Microsoft que se adapten a los orígenes de datos que ha conectado.
 
-1. [En la Comunidad de GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) vaya a la carpeta de **detecciones** y seleccione las carpetas pertinentes.
-   ![carpetas pertinentes](./media/qs-get-visibility/detection-folders.png)
- 
-3.  Vaya a la pestaña **Analytics** y seleccione **Agregar**.
-   ![crear regla en Log Analytics](./media/qs-get-visibility/query-params.png)
+Para ver todas las detecciones estándar, vaya a **Análisis** y, después,  **Rule templates** (Plantillas de reglas). Esta pestaña contiene todas las reglas integradas de Azure Sentinel.
 
-3.  Copie todos los parámetros en la regla y haga clic en **Crear**.
-   ![crear regla de alertas](./media/qs-get-visibility/create-alert-rule.png)
+   ![Usar las detecciones integradas para encontrar amenazas con Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
+Para más información sobre cómo obtener detecciones estándar, consulte [Tutorial: Obtención de análisis integrado](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha aprendido cómo empezar a usar Azure Sentinel. Siga con el tutorial sobre [cómo detectar amenazas](tutorial-detect-threats.md).
+En este inicio rápido, ha aprendido cómo empezar a usar Azure Sentinel. Siga con el tutorial sobre [cómo detectar amenazas](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Detecte amenazas](tutorial-detect-threats.md) para automatizar sus respuestas a estas.
+> [Cree reglas de detección de amenazas personalizadas](tutorial-detect-threats-custom.md) para automatizar las respuestas a las amenazas.
 

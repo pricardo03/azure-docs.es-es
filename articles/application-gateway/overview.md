@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564872"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146621"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -47,11 +47,11 @@ La puerta de enlace de aplicaciones de IP virtual de la versión Standard_v2 o W
 
 ## <a name="web-application-firewall"></a>Firewall de aplicaciones web
 
-Firewall de aplicaciones web (WAF) es una característica de Application Gateway que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes. Firewall de aplicaciones web se basa en las reglas contenidas en el [conjunto de reglas básicas de OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. 
+Firewall de aplicaciones web (WAF) es una característica de Application Gateway que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes. Firewall de aplicaciones web se basa en las reglas contenidas en el [conjunto de reglas básicas de OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 y 2.2.9. 
 
 Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
 
-Para más información, consulte [Firewall de aplicaciones web (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+Para más información, consulte [Firewall de aplicaciones web (WAF) en Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
 
 ## <a name="url-based-routing"></a>Enrutamiento basado en dirección URL
 
@@ -63,7 +63,7 @@ Para obtener más información, consulte [enrutamiento basado en la dirección U
 
 ## <a name="multiple-site-hosting"></a>Hospedaje de varios sitios
 
-El hospedaje de varios sitios permite configurar más de un sitio web en la misma instancia de la puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una sola puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo. Por ejemplo, la puerta de enlace de aplicaciones puede atender el tráfico para `contoso.com` y `fabrikam.com` desde dos grupos de servidores denominados ContosoServerPool y FabrikamServerPool.
+El hospedaje de varios sitios permite configurar más de un sitio web en la misma instancia de la puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una sola puerta de enlace de aplicaciones, o 40 para WAF (para un rendimiento óptimo). Cada sitio web se puede dirigir a su propio grupo. Por ejemplo, la puerta de enlace de aplicaciones puede atender el tráfico para `contoso.com` y `fabrikam.com` desde dos grupos de servidores denominados ContosoServerPool y FabrikamServerPool.
 
 Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
 
@@ -108,6 +108,8 @@ Para más información, consulte [Azure Application Gateway Ingress Controller](
 
 La purga de conexión ayuda a lograr la correcta eliminación de miembros del grupo de back-end durante las actualizaciones de servicio planeadas. Esta configuración se habilita a través de la configuración de http de back-end y se puede aplicar a todos los miembros de un grupo de back-end durante la creación de reglas. Una vez habilitado, Application Gateway garantiza que todas las instancias de anulación de registro de un grupo de back-end no reciben solicitudes nuevas y se permite que las solicitudes existentes se completen dentro de un límite de tiempo configurado. Esto se aplica a las dos instancias de back-end que se quitan explícitamente del grupo de back-end mediante una llamada API y a las instancias de back-end que se notifican como incorrectas según determinan los sondeos de estado.
 
+Para más información, consulte la sección Purga de la conexión de [Introducción a la configuración de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
+
 ## <a name="custom-error-pages"></a>Páginas de error personalizadas
 
 Application Gateway permite crear páginas de error personalizadas, en lugar de mostrar las páginas de error predeterminadas. Mediante una página de error personalizada puede usar su propia marca y diseño.
@@ -128,13 +130,13 @@ Para más información, consulte el artículo sobre la [Reescritura de encabezad
 
 ## <a name="sizing"></a>Ajuste de tamaño
 
-Las versiones Standard_v2 y WAF_v2 del SKU de Application Gateway se pueden configurar para las implementaciones de tamaño fijo o de escalabilidad automática. Estas SKU no ofrecen tamaños de instancia diferentes.
+Las versiones Standard_v2 y WAF_v2 del SKU de Application Gateway se pueden configurar para las implementaciones de tamaño fijo o de escalabilidad automática. Estas SKU no ofrecen tamaños de instancia diferentes. Para más información sobre el rendimiento y los precios de v2, consulte [SKU de escalado automático v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 Las versiones Standard y WAF del SKU de Application Gateway se ofrecen en tres tamaños: **pequeño**, **mediano** y **grande**. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
 
 Para ver una lista completa de los límites de la puerta de enlace de aplicaciones, consulte el tema sobre los [límites de servicio de Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-En la tabla siguiente se muestra un promedio de rendimiento para cada instancia de puerta de enlace de aplicaciones con descarga SSL habilitada:
+En la tabla siguiente se muestra un promedio del rendimiento para cada instancia de puerta de enlace de aplicaciones v1 con descarga SSL habilitada:
 
 | Tamaño de respuesta medio de página de back-end | Pequeña | Mediano | grande |
 | --- | --- | --- | --- |

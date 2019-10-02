@@ -4,7 +4,7 @@ description: Describe cómo realizar el pago si la suscripción de Azure tiene u
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jureid
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491450"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300287"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Saldo de la suscripción de Azure vencido
+
+Este artículo se aplica a los clientes con una cuenta de Microsoft Online Service Program.
 
 Si no se recibe su pago o no puede procesarse, es posible que reciba un correo electrónico o vea una alerta en el Centro de cuentas de Azure o en Azure Portal.
 Si es el [administrador de cuenta](billing-subscription-transfer.md#whoisaa), puede liquidar los cargos pendientes en [Azure Portal](https://portal.azure.com). Si se encuentra en un modo de factura de pago, envíe el pago a la ubicación indicada en la parte inferior de la factura.
@@ -43,6 +45,13 @@ Si es el [administrador de cuenta](billing-subscription-transfer.md#whoisaa), pu
 1. Si el método de pago seleccionado también tiene cargos pendientes de servicios de Microsoft, esto se reflejará en el saldo pendiente total. Deberá pagar esos cargos pendientes también.
 1. Haga clic en **Pagar**.
 
+## <a name="troubleshoot-declined-credit-card"></a>Solución del problema de tarjeta de crédito rechazada
+
+Si su entidad financiera rechaza el cargo en la tarjeta de crédito, póngase en contacto con ella para resolver la incidencia. Cuando lo haga compruebe que:
+- Las transacciones internacionales están habilitadas en la tarjeta.
+- La tarjeta tiene suficiente límite de crédito o fondos para liquidar el saldo.
+- Están habilitados los pagos periódicos en la tarjeta.
+
 ## <a name="not-getting-billing-email-notifications"></a>¿No se reciben notificaciones de correo electrónico de facturación?
 
 Si es el administrador de la cuenta, [compruebe qué dirección de correo electrónico se utiliza para las notificaciones](billing-how-to-change-azure-account-profile.md). Se recomienda que use una dirección de correo electrónico que consulte periódicamente. Si el correo electrónico es el adecuado, compruebe la carpeta de correo basura.
@@ -52,6 +61,7 @@ Si es el administrador de la cuenta, [compruebe qué dirección de correo electr
 Se cancelará el servicio y los recursos ya no estarán disponibles. Los datos de Azure se eliminarán a los 90 días de terminarse el servicio. Para más información, consulte el [Microsoft Trust Center: How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centro de confianza de Microsoft: Administración de los datos).
 
 Si tiene la certeza de que se ha procesado el pago pero la suscripción sigue deshabilitada, póngase en contacto con el [Soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

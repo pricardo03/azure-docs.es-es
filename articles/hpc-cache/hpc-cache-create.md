@@ -1,21 +1,21 @@
 ---
-title: Creación de una instancia de Azure HPC Cache
-description: Cómo crear una instancia de Azure HPC Cache
+title: Creación de una instancia de Azure HPC Cache (versión preliminar)
+description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a0590c14032595bea685c69962ef27dca14d1d69
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037067"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300018"
 ---
-# <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
+# <a name="create-an-azure-hpc-cache-preview"></a>Creación de una instancia de Azure HPC Cache (versión preliminar)
 
-Uso de Azure Portal para crear una memoria caché.
+Uso de Azure Portal para crear una memoria caché. 
 
 ![captura de pantalla de información general de caché en Azure Portal, con el botón crear en la parte inferior](media/hpc-cache-home-page.png)
 
@@ -23,18 +23,20 @@ Uso de Azure Portal para crear una memoria caché.
 
 ![captura de pantalla de la página de detalles del proyecto en Azure Portal](media/hpc-cache-create-basics.png)
 
-En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará Azure HPC Cache. Asegúrese de que la suscripción está en la lista de [acceso de la versión preliminar](hpc-cache-prereqs.md#azure-subscription).
+En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción está en la lista de [acceso de la versión preliminar](hpc-cache-prereqs.md#azure-subscription).
 
 En **Detalles del servicio**, establezca el nombre de la memoria caché y estos otros atributos:
 
 * Ubicación: seleccione alguna de las [regiones admitidas](hpc-cache-overview.md#region-availability).
 * Red virtual: puede optar por crear una nueva red virtual o seleccionar una existente.
-* Subred: elija o cree una subred con al menos 64 direcciones IP (/24) que solo se usarán para la instancia de Azure HPC Cache.
+* Subred: elija o cree una subred con al menos 64 direcciones IP (/24) que solo se usarán para la instancia de Azure HPC Cache.
 
 ## <a name="set-cache-capacity"></a>Establecimiento de la capacidad de la memoria caché
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-En la página **Caché**, debe establecer la capacidad de la instancia de Azure HPC Cache. Este valor determina la cantidad de datos que puede contener la memoria caché y la rapidez con la que puede atender las solicitudes de cliente. Después del período de versión preliminar pública, la capacidad también afectará al costo de la memoria caché.
+En la página **Caché**, debe establecer la capacidad de la memoria caché. Este valor determina la cantidad de datos que puede contener la memoria caché y la rapidez con la que puede atender las solicitudes de cliente. 
+
+Después del período de versión preliminar pública, la capacidad también afectará al costo de la memoria caché.
 
 La capacidad de la memoria caché se mide en operaciones de entrada/salida por segundo (IOPS). Para elegir la capacidad, establezca estos dos valores:
 
@@ -43,9 +45,9 @@ La capacidad de la memoria caché se mide en operaciones de entrada/salida por s
 
 Elija uno de los valores de rendimiento disponibles y los tamaños de almacenamiento en caché. La capacidad de IOPS se calcula y se muestra debajo de los selectores de valor.
 
-Tenga en cuenta que la velocidad de transferencia de datos real depende de la carga de trabajo, las velocidades de red y el tipo de destinos de almacenamiento. Si un archivo no está en la memoria caché o está marcado como obsoleto, el servicio usará parte del rendimiento para recuperarlo del almacenamiento back-end. El valor que elija establece el rendimiento máximo para toda la memoria caché y no todo está disponible para las solicitudes de cliente.
+Tenga en cuenta que la velocidad de transferencia de datos real depende de la carga de trabajo, las velocidades de red y el tipo de destinos de almacenamiento. El valor que elija establece el rendimiento máximo para toda la memoria caché y no todo está disponible para las solicitudes de cliente. Por ejemplo, si un cliente solicita un archivo que aún no está almacenado en la memoria caché, o si el archivo está marcado como obsoleto, la memoria caché utiliza parte de su capacidad de proceso para recuperarlo del almacenamiento back-end.
 
-Para el almacenamiento en caché, Azure HPC Cache administra los archivos que se almacenan en caché y se cargan previamente para maximizar las tasas de aciertos de caché. El contenido de la caché se evalúa continuamente y los archivos se mueven al almacenamiento a largo plazo cuando se accede a ellos con menos frecuencia. Elija un tamaño de almacenamiento en caché que pueda contener el conjunto activo de archivos de trabajo con espacio adicional para los metadatos y otras sobrecargas.
+Azure HPC Cache administra qué archivos se almacenan en caché y se cargan previamente para maximizar las tasas de aciertos de caché. El contenido de la caché se evalúa continuamente y los archivos se mueven al almacenamiento a largo plazo cuando se accede a ellos con menos frecuencia. Elija un tamaño de almacenamiento en caché que pueda contener el conjunto activo de archivos de trabajo con espacio adicional para los metadatos y otras sobrecargas.
 
 ![captura de pantalla de la página de tamaño de caché](media/hpc-cache-create-iops.png)
 
@@ -61,9 +63,9 @@ Haga clic en el **vínculo Agregar destino de almacenamiento** para definir los 
 
 Puede definir hasta diez destinos de almacenamiento diferentes.
 
-Las instrucciones paso a paso para agregar un destino de almacenamiento se pueden encontrar en el artículo [Incorporación de almacenamiento](hpc-cache-add-storage.md). El procedimiento es diferente para las exportaciones de NFS o Blob Storage.
+Las instrucciones paso a paso para agregar un destino de almacenamiento se pueden encontrar en el artículo [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md). El procedimiento es diferente para las exportaciones de NFS o Blob Storage.
 
-A continuación se incluyen algunas sugerencias: 
+A continuación se incluyen algunas sugerencias:
 
 * Para ambos tipos de almacenamiento, debe especificar cómo buscar el sistema de almacenamiento de back-end (ya sea una dirección NFS o un nombre de contenedor de blobs) y la ruta de acceso del espacio de nombres orientado al cliente.
 
@@ -73,7 +75,7 @@ A continuación se incluyen algunas sugerencias:
 
 ## <a name="add-resource-tags-optional"></a>Incorporación de etiquetas de recursos (opcional)
 
-La página **Etiquetas** permite agregar [etiquetas de recursos ](https://go.microsoft.com/fwlink/?linkid=873112) a Azure HPC Cache. 
+La página **Etiquetas** permiten agregar [etiquetas de recursos](https://go.microsoft.com/fwlink/?linkid=873112) a Azure HPC Cache.
 
 ## <a name="finish-creating-the-cache"></a>Terminar de crear la memoria caché
 

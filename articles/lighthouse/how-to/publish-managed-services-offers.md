@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105259"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155146"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicación de una oferta de servicios administrados en Azure Marketplace
 
@@ -24,6 +24,8 @@ En este artículo, aprenderá a publicar una oferta de servicios administrados p
 > Si no quiere publicar una oferta en Azure Marketplace, puede incorporar clientes manualmente mediante el uso de plantillas de Azure Resource Manager. Para obtener más información, consulte [Onboard a customer to Azure delegated resource management](onboard-customer.md) (Incorporar a un cliente en la administración de recursos delegados de Azure).
 
 Publicar una oferta de servicios administrados es similar a publicar cualquier otro tipo de oferta en Azure Marketplace. Para obtener más información sobre este proceso, consulte [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) (Guía de publicación de Azure Marketplace y AppSource) y [Administración de las ofertas del Marketplace de Azure y AppSource](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). También debe revisar [las directivas de certificación de Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies), en especial la sección [Servicios administrados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+
+Una vez que un cliente agregue su oferta, podrá delegar uno o varios grupos de recursos o suscripciones específicos, que posteriormente se [incorporarán a la administración de recursos delegados de Azure](#the-customer-onboarding-process). Para poder incorporar una suscripción (o un grupos de recursos de una suscripción), la incorporación se debe autorizar mediante el registro manual del proveedor de recursos **Microsoft.ManagedServices**.
 
 > [!IMPORTANT]
 > Cada plan de una oferta de servicios administrados incluye una sección de **detalles del manifiesto**, donde se definen las entidades Azure Active Directory (Azure AD) del inquilino que tendrán acceso a las suscripciones o los grupos de recursos delegados para los clientes que adquieran el plan. Es importante tener en cuenta que cualquier grupo (o entidad de servicio o usuario) que incluya aquí tendrá los mismos permisos para todos los clientes que compren el plan. Para asignar grupos diferentes para que trabajen con cada cliente, tendrá que publicar un plan privado independiente que sea exclusivo para cada cliente.

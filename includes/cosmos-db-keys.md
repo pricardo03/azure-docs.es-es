@@ -4,14 +4,13 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
-ms.openlocfilehash: 25ac3da36727c33cc916a208f1e7974a35c545ad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26aab287c6bf216129bdf372f7dee4d22f12f7bd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67186069"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299336"
 ---
-  Ahora vaya a la página de la cuenta de Azure Cosmos DB y haga clic en **Claves**, ya que estos valores se usan en la aplicación web creará a continuación.
+  Vaya a la página de la cuenta de Azure Cosmos DB y seleccione **Claves**. Copie los valores que se van a usar en la aplicación web que creará a continuación.
 
-![Captura de pantalla de Azure Portal con el botón Claves resaltado en la página de la cuenta de Azure Cosmos DB](./media/cosmos-db-keys/keys.png)
-
+![Captura de pantalla de Azure Portal con el botón Claves resaltado en la página de la cuenta de Azure Cosmos DB](./media/cosmos-db-keys/copy-keys.png)

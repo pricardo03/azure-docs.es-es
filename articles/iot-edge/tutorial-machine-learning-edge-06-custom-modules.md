@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840110"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299860"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Creación e implementación de módulos personalizados de IoT Edge
 
@@ -56,7 +56,7 @@ Los pasos descritos en este artículo los realiza normalmente un desarrollador e
 
 ## <a name="create-a-new-iot-edge-solution"></a>Crear una nueva solución de IoT Edge
 
-Durante la ejecución del segundo de nuestros dos cuadernos de Azure Notebooks, creamos y publicamos una imagen de contenedor que contiene nuestro modelo RUL. Azure Machine Learning, como parte del proceso de creación de imágenes, compila las piezas para garantizar que la imagen se puede implementar como un módulo de Azure IoT Edge. En este paso, se va a crear una solución de Azure IoT Edge con el módulo "Azure Machine Learning" y, después, se orientará el módulo a la imagen que publicamos mediante Azure Notebooks.
+Durante la ejecución del segundo de nuestros dos cuadernos de Azure Notebooks, creamos y publicamos una imagen de contenedor que contiene nuestro modelo RUL. Azure Machine Learning, como parte del proceso de creación de imágenes, empaqueta ese modelo para que la imagen se pueda implementar como un módulo de Azure IoT Edge. En este paso, se va a crear una solución de Azure IoT Edge con el módulo "Azure Machine Learning" y, después, se orientará el módulo a la imagen que publicamos mediante Azure Notebooks.
 
 1. Abra una sesión de Escritorio remoto en la máquina de desarrollo.
 

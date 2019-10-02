@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142075"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162451"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -91,7 +91,7 @@ La preparación tiene en cuenta varias propiedades de máquina virtual para iden
 **Propiedad** | **Detalles** | **Preparación**
 --- | --- | ---
 **Tipo de arranque** | BIOS compatible. UEFI no compatible. | Condicionalmente preparada si el tipo de arranque es UEFI.
-**Núcleos** | Núcleos de las máquinas <= número máximo de núcleos (128) admitidos para una máquina virtual de Azure.<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta los núcleos usados.<br/>Si <br/>se especifica un factor de confort en la configuración de valoración, el número de núcleos usados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
+**Núcleos** | Núcleos de las máquinas <= número máximo de núcleos (128) admitidos para una máquina virtual de Azure.<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta los núcleos usados.<br/>Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
 **Memoria** | Tamaño de memoria de la máquina <= memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) para una máquina virtual de Azure. [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria usada.<br/><br/>Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se usa la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
 **Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | Preparada si está dentro de los límites.
 **Redes** | Una máquina debe tener 32 NIC o menos conectadas. | Preparada si está dentro de los límites.
@@ -142,7 +142,7 @@ Las estimaciones de costos muestran el cálculo total y el costo de almacenamien
 
 Cada valoración basada en el rendimiento está asociada a una clasificación de confianza.
 
-- Una clasificación de confianza va de una estrella a cinco estrellas (una estrella es la más baja y cinco, la más alta).
+- La clasificación de confianza oscila entre una estrella y cinco estrellas (una estrella es la más baja y cinco la más alta).
 - La clasificación de confianza se asigna a una valoración, que se basa en la disponibilidad de puntos de datos necesarios para calcular tal valoración.
 - La clasificación de confianza de una valoración le ayuda a calcular la confiabilidad de las recomendaciones de tamaño que proporciona Azure Migrate.
 - La clasificación de confianza no está disponible para aplicarse "tal cual" a valoraciones locales.
@@ -216,7 +216,7 @@ Después de configurar un área de trabajo, descargue e instale agentes en cada 
 4. Copie la clave y el identificador de área de trabajo. Las necesitará cuando se instala MMA en la máquina local.
 
 > [!NOTE]
-> Para automatizar la instalación de agentes, puede usar cualquier herramienta de implementación, como System Center Configuration Manager, o bien la herramienta de nuestro asociado [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que proporciona una solución de implementación de agentes para Azure Migrate.
+> Para automatizar la instalación de agentes, puede usar cualquier herramienta de implementación, como System Center Configuration Manager, o bien la herramienta de alguno de nuestros asociados, como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que proporciona una solución de implementación de agentes para Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalar el agente MMA en una máquina Windows

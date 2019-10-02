@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Configuración de Apache Kafka en HDInsight mediante Azure Portal'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure Portal. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960327"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123582"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -38,8 +38,8 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Analytics** > **HDInsight**.
-   
-    ![Creación de un clúster de HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+
+    ![Creación de recursos de HDInsight en Azure Portal](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. En **Básico**, escriba o seleccione la siguiente información:
 
@@ -47,9 +47,9 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
     | --- | --- |
     | Cluster Name | Un nombre exclusivo para el clúster de HDInsight. |
     | Subscription | Seleccione su suscripción. |
-    
+
    Seleccione __Tipo de clúster__ para mostrar **Configuración del clúster**.
-   
+
    ![Configuración básica del clúster de Apache Kafka en HDInsight](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. En __Configuración del clúster__, seleccione los valores siguientes:
@@ -61,7 +61,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
     Seleccione **Seleccionar** para guardar la configuración del tipo de clúster y vuelva a __Básico__.
 
-    ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
+    ![Tipo de clúster de Apache Kafka de HDInsight](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. En __Básico__, escriba o seleccione la siguiente información:
 
@@ -77,7 +77,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
     Para lograr la alta disponibilidad de los datos, seleccione una ubicación (región) que contenga __tres dominios de error__. Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-   ![Selección de la suscripción](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Conceptos básicos de creación de clústeres de Azure Portal](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     Seleccione __Siguiente__ para finalizar la configuración básica.
 
@@ -105,7 +105,7 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
 11. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, seleccione **Crear** para crear el clúster.
 
-    ![Resumen de configuración del clúster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![Resumen de configuración del clúster de Kafka](./media/apache-kafka-get-started/kafka-configuration-summary.png)
 
     Un clúster puede tardar hasta 20 minutos en crearse.
 

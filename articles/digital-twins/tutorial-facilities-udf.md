@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622895"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300046"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con la versión preliminar de Azure Digital Twins
 
@@ -37,6 +37,9 @@ En este tutorial se supone que ha [terminado de configurar Azure Digital Twins](
 - [Versión 2.1.403 del SDK de .NET Core, o cualquier versión superior,](https://www.microsoft.com/net/download) en la máquina de desarrollo para compilar y ejecutar el ejemplo. Ejecute `dotnet --version` para comprobar que está instalada la versión correcta. 
 - Tiene [Visual Studio Code](https://code.visualstudio.com/) para explorar el código de ejemplo. 
 
+> [!TIP]
+> Use un nombre de instancia de Digital Twins único si está aprovisionando una nueva instancia.
+
 ## <a name="define-conditions-to-monitor"></a>Definición de las condiciones que se van a supervisar
 
 Puede definir un conjunto de condiciones específicas para supervisar en los datos del dispositivo o del sensor, llamado *buscador de coincidencias*. Luego, puede definir funciones llamadas *funciones definidas por el usuario*. Las funciones definidas por el usuario ejecutan lógica personalizada en los datos que proceden de los espacios y los dispositivos, cuando se producen las condiciones especificadas por los buscadores de coincidencias. Para más información, lea [Procesamiento de datos y funciones definidas por el usuario](concepts-user-defined-functions.md). 
@@ -50,25 +53,23 @@ Agregue el siguiente buscador de coincidencias debajo de los buscadores de coinc
         dataTypeValue: Temperature
 ```
 
-Este buscador de coincidencias realizará el seguimiento del sensor SAMPLE_SENSOR_TEMPERATURE que agregó en el [primer tutorial](tutorial-facilities-setup.md). 
-
-<a id="udf"></a>
+Este buscador de coincidencias realizará el seguimiento del sensor `SAMPLE_SENSOR_TEMPERATURE` que agregó en el [primer tutorial](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Creación de una función definida por el usuario
 
 Puede usar funciones definidas por el usuario para personalizar el procesamiento de los datos de los sensores. Estas funciones son código JavaScript personalizado que se puede ejecutar en la instancia de Azure Digital Twins cuando se producen determinadas condiciones que describen los buscadores de coincidencias. Se pueden crear buscadores de coincidencias y funciones definidas por el usuario para todos los sensores que quiera supervisar. Para más información, lea [Procesamiento de datos y funciones definidas por el usuario](concepts-user-defined-functions.md). 
 
-En el archivo provisionSample.yaml de ejemplo, busque una sección que comience por el tipo **userdefinedfunctions**. En esta sección se proporciona una función definida por el usuario con un **nombre** determinado. Dicha función actúa sobre la lista de buscadores de coincidencias en **matcherNames**. Tenga en cuenta que puede especificar su propio archivo de JavaScript para la UDF como **script**.
+En el archivo *provisionSample.yaml* de ejemplo, busque una sección que comience por el tipo **userdefinedfunctions**. En esta sección se proporciona una función definida por el usuario con un **nombre** determinado. Dicha función actúa sobre la lista de buscadores de coincidencias en **matcherNames**. Tenga en cuenta que puede especificar su propio archivo de JavaScript para la UDF como **script**.
 
 Fíjese también en la sección denominada **roleassignments**. Esta sección asigna el rol Administrador de espacios a la función definida por el usuario y le permite acceder a los eventos que proceden de cualquiera de los espacios aprovisionados. 
 
-1. Configure la función definida por el usuario para incluir el buscador de coincidencias de temperatura; para ello, debe agregar o quitar el comentario de la línea siguiente del nodo `matcherNames` del archivo provisionSample.yaml:
+1. Configure la UDF para incluir el buscador de coincidencias de temperatura. Para ello, debe agregar o quitar el comentario de la línea siguiente del nodo `matcherNames` del archivo *provisionSample.yaml*:
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. Abra el archivo **src\actions\userDefinedFunctions\availability.js** en el editor. Este es el archivo al que se hace referencia en el elemento **script** de provisionSample.yaml. La función definida por el usuario en este archivo busca condiciones cuando no se detecta movimiento en la sala, así como cuando los niveles de dióxido de carbono están por debajo de 1000 ppm. 
+1. Abra el archivo **src\actions\userDefinedFunctions\availability.js** en el editor. Este es el archivo al que se hace referencia en el elemento **script** de *provisionSample.yaml*. La función definida por el usuario en este archivo busca condiciones cuando no se detecta movimiento en la sala, así como cuando los niveles de dióxido de carbono están por debajo de 1000 ppm. 
 
    Modifique el archivo de JavaScript para supervisar la temperatura y otras condiciones. Agregue las siguientes líneas de código para buscar condiciones cuando no se detecte movimiento en la sala, los niveles de dióxido de carbono no lleguen a 1000 ppm y la temperatura sea inferior a 78 ºF.
 
@@ -135,15 +136,12 @@ Fíjese también en la sección denominada **roleassignments**. Esta sección as
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -182,16 +180,14 @@ Fíjese también en la sección denominada **roleassignments**. Esta sección as
    > [!IMPORTANT]
    > Para evitar el acceso no autorizado a Management API de Digital Twins, la aplicación **occupancy-quickstart** le exige que inicie sesión con las credenciales de su cuenta de Azure. Como las credenciales se guardan durante un breve periodo, es posible que no tenga que iniciar sesión cada vez que lo ejecute. La primera vez que se ejecuta este programa y, luego, cuándo expiran las credenciales guardadas, la aplicación le dirige a una página de inicio de sesión y le proporciona un código específico de la sesión para entrar en la página. Siga las indicaciones para iniciar sesión con su cuenta de Azure.
 
-1. Después de que se autentica la cuenta, la aplicación empieza a crear un grafo espacial de ejemplo como se ha configurado en provisionSample.yaml. Espere hasta que finalice el aprovisionamiento. Esta operación puede tardar unos minutos. Cuando se haya completado, observe los mensajes de la ventana de comandos y vea cómo se crea el grafo espacial. Observe cómo la aplicación crea una instancia de IoT Hub en el nodo raíz o en `Venue`.
+1. Después de que se autentica la cuenta, la aplicación empieza a crear un grafo espacial de ejemplo como se ha configurado en *provisionSample.yaml*. Espere hasta que finalice el aprovisionamiento. Esta operación puede tardar unos minutos. Cuando se haya completado, observe los mensajes de la ventana de comandos y vea cómo se crea el grafo espacial. Observe cómo la aplicación crea una instancia de IoT Hub en el nodo raíz o en `Venue`.
 
 1. En la salida de la ventana de comandos, copie el valor de `ConnectionString`, que aparece en la sección `Devices`, en el Portapapeles. Necesitará este valor para simular la conexión del dispositivo en la sección siguiente.
 
-    ![Ejemplo de aprovisionamiento](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![Ejemplo de aprovisionamiento](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Si recibe un mensaje de error que dice algo como que la operación de E/S se anuló debido a una salida de subproceso o una solicitud de aplicación en medio del aprovisionamiento, pruebe a volver a ejecutar el comando. Esto puede ocurrir si el cliente HTTP ha agotado el tiempo de espera debido a algún problema en la red.
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulación de los datos de los sensores
 
@@ -209,9 +205,9 @@ En esta sección, usará el proyecto denominado *device-connectivity* en el ejem
 
    a. **DeviceConnectionString**: asigne el valor de `ConnectionString` en la ventana de salida de la sección anterior. Copie esta cadena completamente, entre comillas, para que el simulador se conecte correctamente con la instancia de IoT Hub.
 
-   b. **HardwareId** en la matriz **Sensors**: dado que va a simular eventos procedentes de sensores aprovisionados en una instancia de Azure Digital Twins, tanto el identificador de hardware como los nombres de los sensores de este archivo deben coincidir con el nodo `sensors` del archivo provisionSample.yaml.
+   b. **HardwareId** en la matriz **Sensors**: dado que va a simular eventos procedentes de sensores aprovisionados en una instancia de Azure Digital Twins, tanto el identificador de hardware como los nombres de los sensores de este archivo deben coincidir con el nodo `sensors` del archivo *provisionSample.yaml*.
 
-      Agregue una nueva entrada para el sensor de temperatura. El nodo **Sensors** de appSettings.json debe parecerse a este:
+      Agregue una nueva entrada para el sensor de temperatura. El nodo **Sensors** de *appSettings.json* debe parecerse a este:
 
       ```JSON
       "Sensors": [{
@@ -249,9 +245,9 @@ La función definida por el usuario se ejecuta cada vez que una instancia recibe
 
 La ventana de salida muestra cómo se ejecuta la función definida por el usuario e intercepta los eventos de la simulación de dispositivos. 
 
-   ![Salida de la función definida por el usuario](./media/tutorial-facilities-udf/udf-running.png)
+   [![Salida de la función definida por el usuario](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-Si se cumple la condición supervisada, la función definida por el usuario establece el valor del espacio con el mensaje pertinente, como se ha visto [anteriormente](#udf). La función `GetAvailableAndFreshSpaces` imprime el mensaje en la consola.
+Si se cumple la condición supervisada, la función definida por el usuario establece el valor del espacio con el mensaje pertinente, como se ha visto [anteriormente](#create-a-user-defined-function). La función `GetAvailableAndFreshSpaces` imprime el mensaje en la consola.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

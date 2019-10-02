@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984881"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260291"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con Azure Portal 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/).
@@ -29,7 +29,7 @@ Para crear un recurso compartido de archivos de Azure:
 2. En la página de la cuenta de almacenamiento, en la sección **Services** (Servicios), seleccione **Files** (Archivos).
     ![Captura de pantalla de la sección de servicios de la cuenta de almacenamiento; seleccione el servicio Files](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. En el menú de la parte superior de la página **File service** (Servicio File), haga clic en **+ File Share** (+ Recurso compartido de archivos). Se abre la página **New file share** (Nuevo recurso compartido de archivos).
+3. En el menú de la parte superior de la página **File service**, haga clic en **Recurso compartido de archivos** . Se abre la página **New file share** (Nuevo recurso compartido de archivos).
 4. En **Name** (Nombre), escriba *myshare*.
 5. Haga clic en **Aceptar** para crear el recurso compartido de archivos de Azure.
 

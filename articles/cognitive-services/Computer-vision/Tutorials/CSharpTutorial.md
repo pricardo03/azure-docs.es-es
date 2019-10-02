@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141285"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170038"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -80,8 +80,8 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
    ![Página Subscription Key Management](../Images/Vision_UI_Subscription.PNG) (Administración de claves de suscripción)  
 1. Escriba la clave de suscripción en **Clave de suscripción**.
 1. Escriba la dirección URL del punto de conexión en **Punto de conexión**.  
-   Por ejemplo, si usa la clave de suscripción de la evaluación gratuita de Computer Vision, escriba la siguiente dirección URL del punto de conexión: `https://westcentralus.api.cognitive.microsoft.com`
-   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)].
+   Por ejemplo, si va a usar la clave de suscripción de la evaluación gratuita de Computer Vision, escriba la siguiente dirección URL del punto de conexión: `https://westcentralus.api.cognitive.microsoft.com`.  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Si no quiere escribir la clave de suscripción y la URL del punto de conexión la próxima vez que ejecute la aplicación de ejemplo, elija **Guardar configuración** para guardar la clave de suscripción y la URL del punto de conexión en el equipo. Si quiere eliminar la dirección URL del punto de conexión y la clave de suscripción que guardó previamente, elija **Eliminar configuración**.
 
    > [!NOTE]

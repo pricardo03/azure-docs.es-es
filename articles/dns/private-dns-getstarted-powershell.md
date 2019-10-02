@@ -1,20 +1,20 @@
 ---
-title: Creación de una zona privada de Azure DNS mediante Azure PowerShell
+title: 'Inicio rápido: Creación de una zona DNS privada de Azure mediante Azure PowerShell'
 description: En este artículo se crean y se prueban una zona DNS privada y un registro en Azure DNS. Esta es una guía paso a paso para crear y administrar la primera zona y el primer registro DNS privados con Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: quickstart
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: cf9ca1070461effc69d67614a11b1abd05363310
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854130"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162121"
 ---
-# <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Creación de una zona privada de Azure DNS mediante Azure PowerShell
+# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Inicio rápido: Creación de una zona DNS privada de Azure mediante Azure PowerShell
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -27,7 +27,7 @@ Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una zona DNS privada
+> * Crear una zona DNS privada
 > * Creación de máquinas virtuales de prueba
 > * Creación de un registro de DNS adicional
 > * Prueba de la zona privada
@@ -36,7 +36,7 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Si lo prefiere, puede realizar los pasos de este procedimiento mediante la [CLI de Azure](private-dns-getstarted-cli.md).
+Si lo prefiere, puede completar este inicio rápido mediante la [CLI de Azure](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Creación del grupo de recursos
 
@@ -46,7 +46,7 @@ En primer lugar, cree un grupo de recursos que contenga la zona DNS:
 New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
-## <a name="create-a-dns-private-zone"></a>Creación de una zona DNS privada
+## <a name="create-a-private-dns-zone"></a>Crear una zona DNS privada
 
 Una zona DNS se crea mediante el cmdlet `New-AzPrivateDnsZone` .
 
@@ -209,7 +209,5 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha implementado una zona DNS privada, ha creado un registro de DNS y ha probado la zona.
-A continuación, puede obtener más información acerca de las zonas DNS privadas.
-
-* [Uso de Azure DNS en dominios privados](private-dns-overview.md)
+> [!div class="nextstepaction"]
+> [Escenarios de Azure DNS Private Zones](private-dns-scenarios.md)

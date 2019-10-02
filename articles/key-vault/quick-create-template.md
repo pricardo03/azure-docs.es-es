@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 5a1e0329f8d0227c05924137d5eaddd9658d5b3c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076904"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161466"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
 
@@ -58,6 +58,11 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 [!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
 
+En la plantilla se definen dos recursos de Azure:
+
+* **Microsoft.KeyVault/vaults**: se crea un almacén de claves de Azure.
+* **Microsoft.KeyVault/vaults/secrets**: se crea un secreto del almacén de claves.
+
 Puede encontrar más ejemplos de plantillas de Azure Key Vault [aquí](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
@@ -82,6 +87,8 @@ Puede encontrar más ejemplos de plantillas de Azure Key Vault [aquí](https://a
 3. Seleccione **Comprar**. Una vez que el almacén de claves se haya implementado correctamente, recibirá una notificación:
 
     ![Plantilla de Resource Manager, integración de Key Vault, notificación del portal de implementación](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+
+Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 

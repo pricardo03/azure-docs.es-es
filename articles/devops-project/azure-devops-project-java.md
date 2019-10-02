@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898051"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203735"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Inicio rápido: Configuración de una canalización de CI/CD para una aplicación Java con Azure DevOps Projects
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visu
 
 2. Seleccione **Crear**.
 
-    ![Inicio de la configuración de entrega continua](_img/azure-devops-project-java/fullbrowser.png)
+    ![Creación de un recurso de Azure en DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
@@ -62,7 +62,7 @@ Los ejemplos de Java incluyen una opción de varios marcos de trabajo de la apli
 
 2. Seleccione **Examinar** para ver la aplicación en ejecución.
 
-    ![Vista de panel](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![Visualización de un nuevo panel de aplicación en Azure Portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 

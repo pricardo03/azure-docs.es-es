@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 381298abcfa4fa707af6b382565b4bfb990e96e6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5447fdcfa86c35b7c5cf079ae8446c30785e893f
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899500"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299413"
 ---
 # <a name="quickstart-use-java-to-create-and-publish-a-function-to-azure-functions"></a>Inicio rápido: Uso de Java para crear y publicar una función en Azure Functions
 
@@ -231,3 +231,6 @@ Creó una aplicación de función de Java con un desencadenador HTTP simple y la
 - Agregue funciones adicionales con desencadenadores distintos en el proyecto con el destino de Maven `azure-functions:add`.
 - Escriba y depure localmente las funciones con [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) y [Eclipse](functions-create-maven-eclipse.md). 
 - Depure las funciones implementadas en Azure con Visual Studio Code. Consulte la documentación sobre las [aplicaciones Java sin servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) de Visual Studio Code para instrucciones.
+
+> [!NOTE] 
+> También puede crear un proyecto de Azure Functions basado en Kotlin mediante el uso de azure-functions-kotlin-archetype en su lugar. Para más información, visite el [repositorio de GitHub](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype).

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883049"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162313"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
 
@@ -54,7 +54,7 @@ Siga estos pasos para crear una regla de firewall de IP de nivel de servidor par
 4. Elija **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall de IP en el nivel de servidor. Esta regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
    > [!IMPORTANT]
-   > De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Elija **OFF** (Desactivar) en esta página para deshabilitar todos los servicios de Azure.
+   > De forma predeterminada, el acceso a través del firewall de SQL Database está deshabilitado para todos los servicios de Azure. Elija **ACTIVADO** en esta página si desea habilitar el acceso para todos los servicios de Azure.
    >
 
 5. Seleccione **Guardar**. Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.

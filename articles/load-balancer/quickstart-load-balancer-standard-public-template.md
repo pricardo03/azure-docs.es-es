@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e1a04cad7fe5c9c95397ffad2faa80c7d657d0f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273794"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161397"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer para cargar máquinas virtuales de equilibrio de carga mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer para equilibrar la carga de máquinas virtuales mediante una plantilla de Azure Resource Manager
 
-El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales. En esta guía de inicio rápido se le muestra cómo implementar una plantilla de Azure Resource Manager que crea una instancia de Standard Load Balancer para cargar máquinas virtuales de equilibrio de carga.
+El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales. En esta guía de inicio rápido se le muestra cómo implementar una plantilla de Azure Resource Manager que crea una instancia de Standard Load Balancer para cargar máquinas virtuales de equilibrio de carga. El uso de una plantilla de Resource Manager requiere menos pasos que otros métodos de implementación.
+
+La [plantilla de Resource Manager](../azure-resource-manager/template-deployment-overview.md) es un archivo JSON (notación de objetos JavaScript) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. Si desea más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Resource Manager](/azure/azure-resource-manager/) y la [referencia de la plantilla](/azure/templates/microsoft.network/loadbalancers).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -32,9 +34,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Una instancia de Standard Load Balancer solo admite una dirección IP pública estándar. Cuando se crea una instancia de Standard Load Balancer, también se debe crear una nueva dirección IP pública estándar que se configura como front-end para dicha instancia.
 
-Se pueden usar muchos métodos para crear una instancia de Standard Load Balancer. En este inicio rápido, usará Azure PowerShell para implementar una [plantilla de Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución.
+La plantilla que se usa en este inicio rápido es una [plantilla de inicio rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 
-Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/). Para encontrar más plantillas relacionadas con Azure Load Balancer, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+[!code-json[<Azure Resource Manager template create standard load balancer>](~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json)]
+
+En la plantilla se han definido varios recursos de Azure:
+
+- **Microsoft.Network/loadBalancers**
+- **Microsoft.Network/publicIPAddresses**: para el equilibrador de carga.
+- **Microsoft.Network/networkSecurityGroups**
+- **Microsoft.Network/virtualNetworks**
+- **Microsoft.Compute/virtualMachines** (3 de ellas)
+- **Microsoft.Network/publicIPAddresses** (3 de ellas): para cada una de las tres máquinas virtuales.
+- **Microsoft.Network/networkInterfaces** (3 de ellas)
+- **Microsoft.Compute/virtualMachine/extensions** (3 de ellas): se usa para configurar IIS y las páginas web
+
+Para encontrar más plantillas relacionadas con Azure Load Balancer, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure.
 
@@ -65,7 +80,11 @@ Para entender los conceptos asociados a la implementación y administración de 
 
    El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado. Necesitará el nombre del grupo de recursos en la sección siguiente.
 
-Tardará unos 10 minutos en implementar la plantilla.
+Tardará unos 10 minutos en implementar la plantilla. Al finalizar, la salida es parecida a esta:
+
+![Salida de la implementación de PowerShell de la plantilla de Resource Manager de Azure Standard Load Balancer](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
+
+Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShell, también puede usar Azure Portal, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 
@@ -77,9 +96,13 @@ Tardará unos 10 minutos en implementar la plantilla.
 
 1. Seleccione el equilibrador de carga. Su nombre predeterminado es el nombre del proyecto con **-lb** anexado.
 
-1. Copie solo la parte de la dirección IP pública y, luego, péguela en la barra de direcciones del explorador. El explorador muestra la página predeterminada del servidor web de Internet Information Services (IIS).
+1. Copie solo la parte de la dirección IP pública y, luego, péguela en la barra de direcciones del explorador.
 
-   ![Servidor web IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+   ![IP pública de la plantilla de Resource Manager de Azure Standard Load Balancer](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png)
+
+    El explorador muestra la página predeterminada del servidor web de Internet Information Services (IIS).
+
+   ![Servidor web IIS](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
 
 Para ver cómo Load Balancer distribuye el tráfico entre las tres máquinas virtuales, puede forzar una actualización del explorador web desde la máquina cliente.
 
@@ -95,4 +118,3 @@ Para más información, continúe con los tutoriales para Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
- 

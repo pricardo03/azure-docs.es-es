@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827816"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300087"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Recepción de notificaciones de los espacios de Azure Digital Twins mediante Logic Apps
 
@@ -39,6 +39,9 @@ En este tutorial se supone que ha [configurado](tutorial-facilities-setup.md) y 
 - [Versión 2.1.403 del SDK de .NET Core, o cualquier versión superior](https://www.microsoft.com/net/download) en la máquina de desarrollo para ejecutar el ejemplo. Ejecute `dotnet --version` para comprobar que está instalada la versión correcta.
 - Una cuenta de Office 365 para enviar notificaciones por correo electrónico.
 
+> [!TIP]
+> Use un nombre de instancia de Digital Twins único si está aprovisionando una nueva instancia.
+
 ## <a name="integrate-events-with-event-grid"></a>Integración de eventos con Event Grid
 
 En esta sección, va a configurar [Event Grid](../event-grid/overview.md) para recopilar eventos de una instancia de Azure Digital Twins y redirigirlos a un [controlador de eventos](../event-grid/event-handlers.md) como Logic Apps.
@@ -55,13 +58,13 @@ Un [tema de Event Grid](../event-grid/concepts.md#topics) proporciona una interf
 
 1. Escriba el **nombre** del tema de Event Grid y elija la **suscripción**. Seleccione el **grupo de recursos** que usó o creó para su instancia de Digital Twins y la **ubicación**. Seleccione **Crear**. 
 
-    ![Creación de un tema de Event Grid](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![Creación de un tema de Event Grid](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. Vaya al tema de Event Grid desde el grupo de recursos, seleccione **Información general** y copie el valor de **Punto de conexión del tema** en un archivo temporal. Necesitará esta dirección URL en la siguiente sección. 
 
 1. Seleccione **Claves de acceso** y copie **YOUR_KEY_1** y **YOUR_KEY_2** en un archivo temporal. Necesitará estos valores para crear el punto de conexión en la sección siguiente.
 
-    ![Claves de Event Grid](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![Claves de Event Grid](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Creación de un punto de conexión para el tema de Event Grid
 
@@ -98,7 +101,7 @@ Un [tema de Event Grid](../event-grid/concepts.md#topics) proporciona una interf
 
    Este comando crea el punto de conexión de Event Grid. 
 
-   ![Puntos de conexión de Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![Puntos de conexión de Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="notify-events-with-logic-apps"></a>Notificación de eventos con Logic Apps
 
@@ -110,7 +113,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 1. Escriba un **Nombre** para el recurso de la aplicación lógica y seleccione su **Suscripción**, **Grupo de recursos** y **Ubicación**. Seleccione **Crear**.
 
-    ![Creación de un recurso de Logic Apps](./media/tutorial-facilities-events/create-logic-app.png)
+    [![Creación de un recurso de Logic Apps](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. Abra el recurso de Logic Apps cuando esté implementado y, después, abra el panel **Diseñador de aplicación lógica**. 
 
@@ -124,7 +127,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
    c. Seleccione el recurso de Event Grid en el cuadro de lista desplegable de **Nombre de recurso**.
 
-   ![Panel Diseñador de aplicación lógica](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![Panel Diseñador de aplicación lógica](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Seleccione el botón **Nuevo paso**.
 
@@ -156,7 +159,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
     Esta carga tiene valores ficticios. Logic Apps usa esta carga de ejemplo para generar un *esquema*.
 
-    ![Ventana de análisis de JSON de Logic Apps para Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![Ventana de análisis de JSON de Logic Apps para Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. Seleccione el botón **Nuevo paso**.
 
@@ -168,7 +171,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
    c. En el segundo cuadro de texto **Elegir un valor**, escriba `UdfCustom`.
 
-   ![Condiciones seleccionadas](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![Condiciones seleccionadas](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. En la ventana **If true**:
 
@@ -180,7 +183,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
    d. En **Cuerpo**, en la misma ventana, escriba un texto similar al siguiente: **Se ha detectado que la calidad del aire en una sala es deficiente y la temperatura debe ajustarse**. Si lo cree necesario utilice elementos de la lista **Contenido dinámico**.
 
-   ![Selecciones para el envío de un correo electrónico de Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Selecciones para el envío de un correo electrónico de Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. Seleccione el botón **Guardar** en la parte superior del panel **Diseñador de aplicación lógica**.
 
@@ -188,7 +191,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
 En pocos minutos, debería empezar a recibir notificaciones por correo electrónico de Logic Apps. 
 
-   ![Notificación por correo electrónico](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![Notificación por correo electrónico](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 Para dejar de recibir estos correos electrónicos, vaya al recurso de Logic Apps en el portal y seleccione el panel **Información general**. Seleccione **Deshabilitar**.
 

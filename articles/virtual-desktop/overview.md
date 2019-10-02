@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876776"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301007"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>¿Qué es la versión preliminar de Windows Virtual Desktop? 
 
@@ -76,6 +76,8 @@ Su infraestructura necesita cumplir los siguientes requisitos para ser compatibl
 * Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Para habilitar dicha instancia, use:
   * Azure AD Connect
   * Azure AD Domain Services
+  >[!NOTE]
+  >Windows Virtual Desktop solo admite usuarios de Azure AD Domain Services cuyo origen sea Azure Active Directory. En este momento no se admiten usuarios cuyo origen sea Windows Server AD.
 * Una suscripción a Azure, que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella.
   
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799238"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203827"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box
 
@@ -58,7 +58,7 @@ Los datos que fluyen en Data Box se protegen mediante las siguientes caracterís
 
 - Cifrado AES de 256 bits para datos en reposo.
 - Se pueden usar protocolos cifrados para los datos en movimiento.
-- Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se realiza según los estándares de NIST 800-88r1. El evento de eliminación de datos se registra en el [historial de pedidos](data-box-logs.md#download-order-history).
+- Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se ha establecido de acuerdo con las instrucciones del [Apéndice A para las unidades de disco duro ATA en el estándar NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). El evento de eliminación de datos se registra en el [historial de pedidos](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protección del servicio Data Box
 
@@ -84,7 +84,7 @@ Azure Data Box recopila y muestra la información personal en las siguientes ins
   - Dirección
   - City
   - Código postal
-  - Estado
+  - State
   - País/región/provincia
   - Número de cuenta del transportista
   - Número de seguimiento del envío
@@ -106,7 +106,7 @@ Las siguientes directrices de seguridad están implementadas en Data Box:
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para la resistencia ante las condiciones adversas de transporte          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Para la actualización segura del firmware         |
 |[FIPS 140-2 nivel 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para la protección de datos         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para el saneamiento de los datos         |
+|Apéndice A, para unidades de disco duro ATA en [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para el saneamiento de los datos         |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

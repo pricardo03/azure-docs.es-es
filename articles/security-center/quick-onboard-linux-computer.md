@@ -3,9 +3,8 @@ title: 'Guía de inicio rápido de Azure Security Center: incorporación de equi
 description: En esta guía de inicio rápido se explica cómo incorporar equipos Linux a Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.author: memildin
+ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816124"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202889"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de un agente. El agente se denomina Microsoft Monitoring Agent (MMA), pero también se conoce como agente de OMS.
@@ -82,7 +81,7 @@ Para eliminar el agente:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, se va a aprovisionar el agente en un equipo Linux. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
+En este inicio rápido, ha aprovisionado el agente en un equipo Linux. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definición y evaluación de las directivas de seguridad](tutorial-security-policy.md)

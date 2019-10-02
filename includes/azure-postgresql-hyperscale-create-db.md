@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186558"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279894"
 ---
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -38,27 +38,20 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
    > Se precisa la contraseña de administrador del servidor que especifique aquí para iniciar sesión en el servidor y sus bases de datos. Recuerde o grabe esta información para su uso posterior.
 
 5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
-7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
-8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
+6. Haga clic en **Siguiente: Redes >**  en la parte inferior de la pantalla.
 
-## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
-
-El servicio Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) usa un firewall en el nivel de servidor. De manera predeterminada, el firewall impide que todas las herramientas y aplicaciones externas se conecten al nodo de coordinación y a cualquier base de datos interna. Tenemos que agregar una regla para abrir el firewall en un intervalo específico de direcciones IP.
-
-1. Desde la sección **Salidas** donde anteriormente copió el nombre de host del nodo de coordinación, haga clic en Atrás para volver al elemento de menú **Información general**.
-
-2. Busque el nombre del grupo de servidores de la implementación y haga clic en él. (El nombre del grupo de servidores *no* tendrá un sufijo. Los elementos con nombres que terminan en, por ejemplo, "-c", "-w0" o "-w1" no son el grupo de servidores).
-
-3. Haga clic en **Firewall** en **Seguridad**, en el menú de la izquierda.
-
-4. Haga clic en el vínculo **+ Agregar regla de firewall para la dirección IP del cliente actual**.
-
-5. Por último, haga clic en el botón **Guardar**.
+7. En la pestaña **Redes**, haga clic en el botón de radio **Punto de conexión público**.
+   ![Punto de conexión público seleccionado](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. Haga clic en el vínculo **+ Agregar dirección IP del cliente actual**.
+   ![Dirección IP del cliente agregada](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 5432.
    >
+
+9. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
+10. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
+11. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
 
 ## <a name="connect-to-the-database-using-psql"></a>Conexión a la base de datos mediante psql
 

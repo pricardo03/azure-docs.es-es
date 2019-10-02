@@ -4,15 +4,15 @@ description: Los servicios administrados permiten a los proveedores de servicios
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a6fcf5f1d0ac194d60f834fb8d26db019c538410
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810879"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155268"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
@@ -20,9 +20,9 @@ En este artículo se describe el nuevo tipo de oferta de **Servicios administrad
 
 ## <a name="understand-managed-services-offers"></a>Comprender las ofertas de servicios administrados
 
-Las ofertas de servicios administrados simplifican el proceso de incorporación de clientes para la administración de recursos delegados de Azure. Una vez que un cliente adquiere una oferta en Azure Marketplace, podrá especificar qué suscripciones o grupos de recursos se deben incorporar para que los usuarios específicos de la organización puedan realizar tareas de administración para el cliente desde el inquilino de la organización.
+Las ofertas de servicios administrados simplifican el proceso de incorporación de clientes para la administración de recursos delegados de Azure. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse. Tenga en cuenta que la incorporación de la suscripción se debe autorizar de antemano mediante el registro manual del proveedor de recursos **Microsoft.ManagedServices**.
 
-Después de eso, no será necesaria ninguna acción más por parte del cliente o del proveedor de servicios para que el cliente se incorpore. Esto se debe a que, cuando define la oferta en [Cloud Partner Portal](https://cloudpartner.azure.com/), se crea un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure AD que tendrán acceso a los recursos del cliente mediante la administración de recursos delegados de Azure, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
+Después, los usuarios de la organización podrán realizar tareas de administración para esos recursos desde dentro del inquilino de la organización en función del acceso que se haya definido al crear la oferta en [Cloud Partner Portal](https://cloudpartner.azure.com/). Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure AD que tendrán acceso a los recursos del cliente mediante la administración de recursos delegados de Azure, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas y privadas
 

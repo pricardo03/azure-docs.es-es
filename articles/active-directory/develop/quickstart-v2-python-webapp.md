@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: c5817427102bf10dcd1ece932b0f582d973efaf7
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257902"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309621"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
@@ -101,48 +101,35 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 1. Abra el archivo **app_config.py**, que se puede encontrar en la carpeta raíz, y reemplace el siguiente fragmento de código:
 
 ```python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
 > Donde:
 >
 > - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
-> - `Enter_the_Tenant_Info_Here`: es una de las opciones siguientes:
->   - Si la aplicación admite **Solo mi organización**, reemplace este valor por el de **Identificador de inquilino** o el de **Nombre de inquilino** (por ejemplo, contoso.onmicrosoft.com)
->   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
->   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`
 > - `Enter_the_Client_Secret_Here`: es el valor de **Secreto de cliente** que creó en **Certificates & Secrets** (Certificados y secretos) para la aplicación registrada.
 
 #### <a name="step-4-run-the-code-sample"></a>Paso 4: Ejecución del ejemplo de código
 
-- Deberá instalar la biblioteca Python de MSAL, el marco de Flask, las sesiones de Flask para la administración de sesiones del lado servidor y solicitudes mediante pip de la manera siguiente:
+1. Deberá instalar la biblioteca Python de MSAL, el marco de Flask, las sesiones de Flask para la administración de sesiones del lado servidor y solicitudes mediante pip de la manera siguiente:
 
-```Shell
-pip install msal
-pip install flask
-pip install Flask-Session
-pip install requests
-```
+   ```Shell
+   pip install -r requirements.txt
+   ```
 
-- Si ya se ha establecido la variable de entorno de Flask: Ejecute app.py desde el shell o la línea de comandos:
+2. Ejecute app.py desde el shell o la línea de comandos:
 
-```Shell
-python app.py
-```
+   ```Shell
+   python app.py
+   ```
 
-- Si no se ha establecido la variable de entorno para Flask:
+## <a name="next-steps"></a>Pasos siguientes
 
-    1. Vaya al directorio del proyecto y escriba los siguientes comandos en el shell o la línea de comandos:
+Más información sobre las aplicaciones web que inician la sesión de los usuarios y que luego llaman a las API web:
 
-```Shell
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-flask run
-```
+> [!div class="nextstepaction"]
+> [Escenario: Aplicaciones web que inician la sesión de los usuarios](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
