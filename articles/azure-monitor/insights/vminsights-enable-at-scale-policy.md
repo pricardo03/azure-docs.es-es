@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cbb471d337bd386b6c5f2c7a960565ef29855c9c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594444"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338233"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
 
@@ -76,7 +76,7 @@ Para habilitar Azure Monitor para VM mediante Azure Policy en su inquilino:
 - Asigne la iniciativa a un ámbito: grupo de administración, suscripción o grupo de recursos.
 - Revise y corrección corrija resultados del cumplimiento.
 
-Para más información acerca de la asignación de Azure Policy, consulte [Información general de Azure Policy](../../governance/policy/overview.md#policy-assignment) y consulte la [introducción a los grupos de administración](../../governance/management-groups/index.md) antes de continuar.
+Para más información acerca de la asignación de Azure Policy, consulte [Información general de Azure Policy](../../governance/policy/overview.md#policy-assignment) y consulte la [introducción a los grupos de administración](../../governance/management-groups/overview.md) antes de continuar.
 
 ### <a name="policies-for-azure-vms"></a>Directivas para las máquinas virtuales de Azure
 

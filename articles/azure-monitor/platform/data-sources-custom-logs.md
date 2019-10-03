@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2019
+ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124123"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327461"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 
@@ -58,7 +58,7 @@ El Asistente para registros personalizados se ejecuta en Azure Portal y le permi
 
 1. En Azure Portal, seleccione las **áreas de trabajo de Log Analytics**  > su área de trabajo > **Configuración avanzada**.
 2. Haga clic en **Datos** > **Registros personalizados**.
-3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.  Si desea modificar este archivo manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis equipos Linux).
+3. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2. Carga y análisis de un registro de ejemplo

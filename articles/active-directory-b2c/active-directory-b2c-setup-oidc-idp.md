@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe49a57e74822c0b4349b2919ea8aa89cbfb458d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622292"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672920"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C
 
@@ -48,7 +48,6 @@ Los ámbitos definen la información y los permisos que quiere recopilar del pro
 El tipo de respuesta describe qué tipo de información se envía en la llamada inicial al valor `authorization_endpoint` del proveedor de identidades personalizado. Pueden usarse estos tipos de respuesta:
 
 * `code`: según el [flujo de código de autorización](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), se devolverá un código a Azure AD B2C. Azure AD B2C llama a `token_endpoint` para intercambiar el código del token.
-* `token`: se devuelve un token de acceso a Azure AD B2C desde el proveedor de identidades personalizado.
 * `id_token`: se devuelve un token de identificador a Azure AD B2C desde el proveedor de identidades personalizado.
 
 ## <a name="response-mode"></a>Modo de respuesta

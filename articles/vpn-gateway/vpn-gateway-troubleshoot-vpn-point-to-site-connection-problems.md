@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104816"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695540"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -250,32 +250,6 @@ Para resolver este problema, vuelva a descargar e implementar el paquete de punt
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Demasiados clientes de VPN conectados a la vez
 
 Se alcanza el número máximo de conexiones permitidas. Puede ver el número total de clientes conectados en Azure Portal.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>La VPN de punto a sitio agrega de forma incorrecta una ruta para 10.0.0.0/8 a la tabla de enrutamiento
-
-### <a name="symptom"></a>Síntoma
-
-Al marcar la conexión VPN en el cliente de punto a sitio, el cliente de VPN no debe agregar una ruta hacia la red virtual de Azure. El servicio auxiliar de IP debe agregar una ruta para la subred de los clientes de VPN. 
-
-El intervalo de cliente de VPN pertenece a una subred más pequeña de 10.0.0.0/8, como 10.0.12.0/24. En lugar de una ruta para 10.0.12.0/24, se agrega una ruta para 10.0.0.0/8 con una prioridad más alta. 
-
-Esta ruta incorrecta interrumpe la conectividad con otras redes locales que pueden pertenecer a otra subred del intervalo 10.0.0.0/8, por ejemplo, 10.50.0.0/24, que no tienen una ruta concreta definida. 
-
-### <a name="cause"></a>Causa
-
-Este comportamiento es así por diseño para los clientes Windows. Cuando el cliente usa el protocolo PPP IPCP, obtiene la dirección IP de la interfaz de túnel del servidor (la puerta de enlace de la VPN en este caso). Pero debido a una limitación del protocolo, el cliente no tiene la máscara de subred. Dado que no hay ninguna otra manera de obtenerla, el cliente intenta adivinar la máscara de subred en función de la clase de la dirección IP de la interfaz de túnel. 
-
-Por lo tanto, se agrega una ruta en función de la siguiente asignación estática: 
-
-Si la dirección pertenece a la clase A --> se aplica /8
-
-Si la dirección pertenece a la clase B --> se aplica /16
-
-Si la dirección pertenece a la clase C --> se aplica /24
-
-### <a name="solution"></a>Solución
-
-Haga que las rutas de otras redes se inyecten en la tabla de enrutamiento con la coincidencia de prefijo más largo o la métrica más baja (y, por tanto, la prioridad más alta) que las de la conexión de punto a sitio. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>El cliente de VPN no puede acceder a recursos compartidos de archivos de red
 

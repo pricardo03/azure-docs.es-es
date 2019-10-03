@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727567"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672630"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Patrones y procedimientos recomendados de seguridad en Azure
 
@@ -28,7 +28,7 @@ Los artículos siguientes contienen procedimientos recomendados de seguridad que
 
 Los procedimientos recomendados están diseñados como recurso para los profesionales de la TI. Aquí podrían caber diseñadores, arquitectos, desarrolladores y evaluadores que compilen e implementen soluciones seguras de Azure.
 
-* [Servicios en la nube de Microsoft y seguridad de red](network-best-practices.md)
+* [Servicios en la nube de Microsoft y seguridad de red](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Procedimientos recomendados para la seguridad de las bases de datos de Azure](database-best-practices.md)
 * [Procedimientos recomendados de cifrado y seguridad de datos en Azure](data-encryption-best-practices.md)
 * [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](identity-management-best-practices.md)

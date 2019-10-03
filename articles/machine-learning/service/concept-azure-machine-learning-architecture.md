@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170437"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710135"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -53,35 +53,116 @@ Utilice estas herramientas para Azure Machine Learning:
 > Aunque en este artículo se definen los términos y conceptos que usa Azure Machine Learning, no se definen los términos y conceptos de la plataforma Azure. Para obtener más información sobre la terminología de la plataforma Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Glosario
-
-+ <a href="#workspaces">Área de trabajo</a>
-+ <a href="#experiments">Experimentos</a>
-+ <a href="#models">Modelos</a>
-+ <a href="#run-configurations">Configuración de ejecución</a>
-+ [Estimadores](#estimators)
-+ <a href="#datasets-and-datastores">Conjunto de datos y almacenes de datos</a>
-+ <a href="#compute-targets">Destinos de proceso</a>
-+ <a href="#training-scripts">Script de entrenamiento</a>
-+ <a href="#runs">Run</a>
-+ <a href="#environments">Entornos</a>
-+ <a href="#github-tracking-and-integration">Seguimiento de GIT</a>
-+ <a href="#snapshots">Instantánea</a>
 + <a href="#activities">Actividad</a>
++ <a href="#compute-targets">Destinos de proceso</a>
++ <a href="#datasets-and-datastores">Conjunto de datos y almacenes de datos</a>
 + <a href="#deployment">Implementación</a>
-+ <a href="#web-service-deployments">Servicios web</a>
++ <a href="#environments">Entornos</a>
++ [Estimadores](#estimators)
++ <a href="#experiments">Experimentos</a>
++ <a href="#github-tracking-and-integration">Seguimiento de GIT</a>
 + <a href="#iot-module-deployments">Módulos de IoT</a>
-+ <a href="#ml-pipelines">Canalizaciones de Machine Learning</a>
 + <a href="#logging">Logging</a>
++ <a href="#ml-pipelines">Canalizaciones de Machine Learning</a>
++ <a href="#models">Modelos</a>
++ <a href="#runs">Run</a>
++ <a href="#run-configurations">Configuración de ejecución</a>
++ <a href="#snapshots">Instantánea</a>
++ <a href="#training-scripts">Script de entrenamiento</a>
++ <a href="#web-service-deployments">Servicios web</a>
++ <a href="#workspaces">Área de trabajo</a>
 
-### <a name="workspaces"></a>Áreas de trabajo
+### <a name="activities"></a>Actividades
 
-[El área de trabajo](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree al usar Azure Machine Learning. Puede compartir un área de trabajo con otros usuarios. Para una descripción detallada de las áreas de trabajo, consulte [¿Qué es un área de trabajo de Azure Machine Learning?](concept-workspace.md)
+Una actividad representa una operación de larga ejecución. Las operaciones siguientes son ejemplos de actividades:
+
+* Creación o eliminación de un destino de proceso
+* Ejecución de un script en un destino de proceso
+
+Las actividades pueden proporcionar notificaciones a través del SDK o la interfaz de usuario web para que pueda supervisar fácilmente el progreso de estas operaciones.
+
+### <a name="compute-targets"></a>Destinos de proceso
+
+Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube. Los destinos de proceso facilitan el cambio entorno de proceso sin cambiar el código.
+
+Obtenga más información sobre los [destinos de proceso disponibles para el entrenamiento y la implementación](concept-compute-target.md).
+
+### <a name="datasets-and-datastores"></a>Conjuntos de datos y almacenes de datos
+
+**Conjuntos de datos de Azure Machine Learning** (versión preliminar) hace que sea más sencillo acceder a los datos y trabajar con ellos. Los conjuntos de datos administran datos en varios escenarios, como el entrenamiento de modelos y la creación de canalizaciones. Con el SDK de Azure Machine Learning, puede acceder al almacenamiento subyacente, explorar los datos y administrar el ciclo de vida de las distintas definiciones de conjuntos de datos.
+
+Los conjuntos de datos proporcionan métodos para trabajar con datos en formatos populares, como el uso de `from_delimited_files()` o `to_pandas_dataframe()`.
+
+Para obtener más información, consulte [Creación y registro de los conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md).  Para ver más ejemplos del uso de los conjuntos de datos, consulte los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
+
+Un **almacén de datos** es una abstracción de almacenamiento en una cuenta de Azure Storage. El almacén de datos puede usar un contenedor de blobs de Azure o un recurso compartido de archivos de Azure como almacenamiento back-end. Cada área de trabajo tiene un almacén de datos predeterminado en el que puede registrar almacenes de datos adicionales. Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y recuperar archivos desde el almacén de datos.
+
+### <a name="deployment"></a>Implementación
+
+Una implementación es una instancia del modelo en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
+
+#### <a name="web-service-deployments"></a>Implementaciones del servicio web
+
+Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir del modelo, el script y los archivos asociados. Estos están encapsulados en una imagen, que proporciona el entorno de tiempo de ejecución para el servicio web. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
+
+Azure le ayuda a supervisar la implementación del servicio web mediante la recopilación de telemetría de Application Insight o telemetría de modelos, si es que ha optado por habilitar esta característica. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento y Application Insights.
+
+Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamente la escala de su implementación.
+
+Para obtener un ejemplo de implementación de un modelo como servicio web, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+#### <a name="iot-module-deployments"></a>Implementaciones de módulo de IoT
+
+Un módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
+
+Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el modelo que está en el módulo de Azure IoT Edge. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento.
+
+Azure IoT Edge garantiza que el módulo se esté ejecutando y supervisa el dispositivo que lo hospeda.
+
+### <a name="environments"></a>Entornos
+
+Los entornos de Azure ML se usan para especificar la configuración (Docker/Python/Spark/etc.) que se usa para crear un entorno reproducible para la preparación de datos, el entrenamiento de modelos y la entrega de modelos. Son entidades administradas y con control de versiones en el área de trabajo de Azure Machine Learning que permiten flujos de trabajo de aprendizaje automático reproducibles, auditables y portátiles en distintos destinos de proceso.
+
+Puede usar un objeto de entorno en el proceso local para desarrollar el script de entrenamiento, volver a usar ese mismo entorno en Proceso de Machine Learning para el entrenamiento de modelos a escala e incluso implementar el modelo con ese mismo entorno. 
+
+Descubra [cómo crear y administrar un entorno de ML reutilizable](how-to-use-environments.md) para el entrenamiento y la inferencia.
+
+### <a name="estimators"></a>Estimadores
+
+Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija (como scikit-learn).
+
+En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
+
+Para más información, consulte los siguientes artículos.
+
+* [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
+* [Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning](how-to-train-pytorch.md).
+* [Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning](how-to-train-tensorflow.md).
+* [Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning](how-to-train-chainer.md).
 
 ### <a name="experiments"></a>Experimentos
 
 Un experimento es una agrupación de varias ejecuciones de un script determinado. Siempre pertenece a un área de trabajo. Cuando envíe una ejecución, proporcione un nombre de experimento. La información de la ejecución se almacena en ese experimento. Si envía una ejecución y especifica un nombre de experimento que no existe, se crea automáticamente un experimento nuevo con ese nombre.
 
 Para obtener un ejemplo del uso de un experimento, consulte [Tutorial: Entrenamiento del primer modelo](tutorial-1st-experiment-sdk-train.md).
+
+
+### <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
+
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial. Esto funciona con ejecuciones enviadas mediante un estimador, una canalización de aprendizaje automático o una ejecución del script. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
+
+
+### <a name="logging"></a>Registro
+
+Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en el script de Python para registrar las métricas arbitrarias. Después de la ejecución, consulte las métricas para determinar si la ejecución ha generado el modelo que quiere implementar.
+
+### <a name="ml-pipelines"></a>Canalizaciones de Machine Learning
+
+Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso. 
+
+Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos subsiguientes si la salida de ese paso no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
+
+Para obtener más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
 
 ### <a name="models"></a>Modelos
 
@@ -106,48 +187,6 @@ No se puede eliminar un modelo registrado que esté usando una implementación a
 
 Para obtener un ejemplo de registro de un modelo, consulte [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### <a name="run-configurations"></a>Configuraciones de ejecución
-
-Una configuración de ejecución es un conjunto de instrucciones que define cómo se debe ejecutar un script en un destino de proceso determinado. Esta configuración incluye un amplio conjunto de definiciones de comportamiento como, por ejemplo, si quiere usar un entorno de Python existente o un entorno de Conda creado a partir de la especificación.
-
-Una configuración de ejecución puede conservarse en un archivo del directorio que contiene el script de entrenamiento o puede crearse como un objeto en la memoria y usarse para enviar una ejecución.
-
-Para ver configuraciones de ejecución de ejemplo, consulte [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
-
-### <a name="estimators"></a>Estimadores
-
-Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija (como scikit-learn).
-
-En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
-
-Para más información, consulte los siguientes artículos.
-
-* [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
-* [Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning](how-to-train-pytorch.md).
-* [Entrenamiento y registro de modelos de TensorFlow a escala con Azure Machine Learning](how-to-train-tensorflow.md).
-* [Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning](how-to-train-chainer.md).
-
-### <a name="datasets-and-datastores"></a>Conjuntos de datos y almacenes de datos
-
-**Conjuntos de datos de Azure Machine Learning** (versión preliminar) hace que sea más sencillo acceder a los datos y trabajar con ellos. Los conjuntos de datos administran datos en varios escenarios, como el entrenamiento de modelos y la creación de canalizaciones. Con el SDK de Azure Machine Learning, puede acceder al almacenamiento subyacente, explorar los datos y administrar el ciclo de vida de las distintas definiciones de conjuntos de datos.
-
-Los conjuntos de datos proporcionan métodos para trabajar con datos en formatos populares, como el uso de `from_delimited_files()` o `to_pandas_dataframe()`.
-
-Para obtener más información, consulte [Creación y registro de los conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md).  Para ver más ejemplos del uso de los conjuntos de datos, consulte los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
-
-Un **almacén de datos** es una abstracción de almacenamiento en una cuenta de Azure Storage. El almacén de datos puede usar un contenedor de blobs de Azure o un recurso compartido de archivos de Azure como almacenamiento back-end. Cada área de trabajo tiene un almacén de datos predeterminado en el que puede registrar almacenes de datos adicionales. Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y recuperar archivos desde el almacén de datos.
-
-### <a name="compute-targets"></a>Destinos de proceso
-
-Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube. Los destinos de proceso facilitan el cambio entorno de proceso sin cambiar el código.
-
-Obtenga más información sobre los [destinos de proceso disponibles para el entrenamiento y la implementación](concept-compute-target.md).
-
-### <a name="training-scripts"></a>Scripts de entrenamiento
-
-Para entrenar un modelo, especifique el directorio que contiene el script de entrenamiento y los archivos asociados. También puede especificar un nombre del experimento que se usará para almacenar la información recopilada durante el entrenamiento. Durante dicho proceso de entrenamiento, se copia todo el directorio en el entorno de entrenamiento (destino de proceso) y se inicia el script que especifique la configuración de ejecución. También se almacena una instantánea del directorio en el experimento del área de trabajo.
-
-Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="runs"></a>Ejecuciones
 
@@ -160,10 +199,13 @@ Una ejecución hace referencia a una única ejecución de un script de entrenami
 
 Una ejecución se produce cuando se envía un script para entrenar un modelo. Una ejecución puede tener cualquier número de ejecuciones secundarias. Por ejemplo, la ejecución de nivel superior puede tener dos ejecuciones secundarias, cada una de las cuales puede tener sus propias ejecuciones secundarias.
 
-### <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
+### <a name="run-configurations"></a>Configuraciones de ejecución
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial. Esto funciona con ejecuciones enviadas mediante un estimador, una canalización de aprendizaje automático o una ejecución del script. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
+Una configuración de ejecución es un conjunto de instrucciones que define cómo se debe ejecutar un script en un destino de proceso determinado. Esta configuración incluye un amplio conjunto de definiciones de comportamiento como, por ejemplo, si quiere usar un entorno de Python existente o un entorno de Conda creado a partir de la especificación.
 
+Una configuración de ejecución puede conservarse en un archivo del directorio que contiene el script de entrenamiento o puede crearse como un objeto en la memoria y usarse para enviar una ejecución.
+
+Para ver configuraciones de ejecución de ejemplo, consulte [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
 ### <a name="snapshots"></a>Instantáneas
 
 Al enviar una ejecución, Azure Machine Learning comprime el directorio que contiene el script como un archivo zip y lo envía al destino de proceso. A continuación, el archivo .zip se extrae y el script se ejecuta. Azure Machine Learning también almacena el archivo .zip como una instantánea como parte del registro de ejecución. Cualquier persona con acceso al área de trabajo puede buscar un registro de ejecución y descargar la instantánea.
@@ -171,58 +213,16 @@ Al enviar una ejecución, Azure Machine Learning comprime el directorio que cont
 > [!NOTE]
 > Para evitar que se incluyan archivos innecesarios en la instantánea, cree un archivo ignore (.gitignore o .amlignore). Ubique este archivo en el directorio de instantáneas y agréguele los nombres de archivo que se deben ignorar. El archivo .amlignore usa [la misma sintaxis y los mismos patrones que el archivo .gitignore](https://git-scm.com/docs/gitignore). Si ambos archivos existen, el archivo .amlignore tiene prioridad.
 
-### <a name="activities"></a>Actividades
+### <a name="training-scripts"></a>Scripts de entrenamiento
 
-Una actividad representa una operación de larga ejecución. Las operaciones siguientes son ejemplos de actividades:
+Para entrenar un modelo, especifique el directorio que contiene el script de entrenamiento y los archivos asociados. También puede especificar un nombre del experimento que se usará para almacenar la información recopilada durante el entrenamiento. Durante dicho proceso de entrenamiento, se copia todo el directorio en el entorno de entrenamiento (destino de proceso) y se inicia el script que especifique la configuración de ejecución. También se almacena una instantánea del directorio en el experimento del área de trabajo.
 
-* Creación o eliminación de un destino de proceso
-* Ejecución de un script en un destino de proceso
+Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-Las actividades pueden proporcionar notificaciones a través del SDK o la interfaz de usuario web para que pueda supervisar fácilmente el progreso de estas operaciones.
+### <a name="workspaces"></a>Áreas de trabajo
 
-### <a name="environments"></a>Entornos
+[El área de trabajo](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree al usar Azure Machine Learning. Puede compartir un área de trabajo con otros usuarios. Para una descripción detallada de las áreas de trabajo, consulte [¿Qué es un área de trabajo de Azure Machine Learning?](concept-workspace.md)
 
-Los entornos de Azure ML se usan para especificar la configuración (Docker/Python/Spark/etc.) que se usa para crear un entorno reproducible para la preparación de datos, el entrenamiento de modelos y la entrega de modelos. Son entidades administradas y con control de versiones en el área de trabajo de Azure Machine Learning que permiten flujos de trabajo de aprendizaje automático reproducibles, auditables y portátiles en distintos destinos de proceso.
-
-Puede usar un objeto de entorno en el proceso local para desarrollar el script de entrenamiento, volver a usar ese mismo entorno en Proceso de Machine Learning para el entrenamiento de modelos a escala e incluso implementar el modelo con ese mismo entorno. 
-
-Descubra [cómo crear y administrar un entorno de ML reutilizable](how-to-use-environments.md) para el entrenamiento y la inferencia.
-
-
-
-### <a name="deployment"></a>Implementación
-
-Una implementación es una instancia del modelo en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
-
-#### <a name="web-service-deployments"></a>Implementaciones del servicio web
-
-Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir del modelo, el script y los archivos asociados. Estos están encapsulados en una imagen, que proporciona el entorno de tiempo de ejecución para el servicio web. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
-
-Azure le ayuda a supervisar la implementación del servicio web mediante la recopilación de telemetría de Application Insight o telemetría de modelos, si es que ha optado por habilitar esta característica. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento y Application Insights.
-
-Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamente la escala de su implementación.
-
-Para obtener un ejemplo de implementación de un modelo como servicio web, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
-
-#### <a name="iot-module-deployments"></a>Implementaciones de módulo de IoT
-
-Un módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
-
-Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el modelo que está en el módulo de Azure IoT Edge. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento.
-
-Azure IoT Edge garantiza que el módulo se esté ejecutando y supervisa el dispositivo que lo hospeda.
-
-### <a name="ml-pipelines"></a>Canalizaciones de Machine Learning
-
-Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso. 
-
-Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos subsiguientes si la salida de ese paso no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
-
-Para obtener más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
-
-### <a name="logging"></a>Registro
-
-Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en el script de Python para registrar las métricas arbitrarias. Después de la ejecución, consulte las métricas para determinar si la ejecución ha generado el modelo que quiere implementar.
 
 ### <a name="next-steps"></a>Pasos siguientes
 

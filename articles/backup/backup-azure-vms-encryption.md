@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: ac101c6079eee908a6499f5e6ed8cc3aadffb75a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5968a675c3f0f9a2c6426ed73d06e2d116a8ff3b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210299"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827382"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -55,7 +55,7 @@ Azure Backup puede realizar copias de seguridad de máquinas virtuales de Azure,
 
 Antes de empezar, haga lo siguiente:
 
-1. Asegúrese de que tiene una o varias máquinas virtuales [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../security/azure-security-disk-encryption-linux.md) con ADE habilitado.
+1. Asegúrese de que tiene una o varias máquinas virtuales [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con ADE habilitado.
 2. [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquinas virtuales de Azure.
 3. [Cree](backup-azure-arm-vms-prepare.md#create-a-vault) un almacén de Backup de Recovery Services si aún no tiene uno.
 4. Si habilita el cifrado para máquinas virtuales que ya están habilitadas para la copia de seguridad, solo debe proporcionar al servicio Backup permisos para acceder al almacén de claves para que las copias de seguridad puedan continuar sin interrupciones. [Más información](#provide-permissions) sobre la asignación de estos permisos.

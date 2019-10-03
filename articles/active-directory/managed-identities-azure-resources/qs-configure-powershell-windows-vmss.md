@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fa3100cae9b1a2c9ca320776cc357f3720b3473
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304594"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309994"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configuración de identidades administradas de recursos de Azure en conjuntos de escalado de máquinas virtuales mediante PowerShell
 
@@ -61,8 +61,7 @@ Para crear un conjunto de escalado de máquinas virtuales con la identidad admin
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
-> [!NOTE]
-> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto estará en desuso. Se recomienda el uso del punto de conexión de la identidad de Instance Metadata Service de Azure para la autenticación. Para obtener más información, consulte el artículo sobre cómo [dejar de usar la extensión de máquina virtual y empezar a usar el punto de conexión de IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
+
 
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Habilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente
@@ -81,8 +80,7 @@ Si necesita habilitar una identidad administrada asignada por el sistema en un c
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-> [!NOTE]
-> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto estará en desuso. Se recomienda el uso del punto de conexión de la identidad de Instance Metadata Service de Azure para la autenticación. Para obtener más información, consulte [Migración de la extensión de máquina virtual al punto de conexión de IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
+
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Deshabilitación de la identidad administrada asignada por el sistema de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -148,7 +146,7 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre las identidades administradas de recursos de Azure](overview.md)
+- [Información general sobre las identidades administradas para recursos de Azure](overview.md)
 - Para ver guías de inicio rápido completas acerca de la creación de máquinas virtuales de Azure, consulte:
   
   - [Creación de una máquina virtual Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 

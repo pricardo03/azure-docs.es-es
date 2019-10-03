@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019547"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338900"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -83,7 +83,7 @@ En la siguiente tabla se describen las dimensiones disponibles de agrupamiento y
 | Categoría de medición | lineItem/ProductCode | Todo |   |
 | Subcategoría de medición | lineitem/UsageType | Todo |   |
 | Operación | lineItem/Operation | Todo |   |
-| Recurso | lineItem/ResourceId | Todo |   |
+| Resource | lineItem/ResourceId | Todo |   |
 | Tipo de recurso | product/instanceType | Todo | Si product/instanceType es nulo, se usa lineItem/UsageType. |
 | ResourceGuid | N/D | Todo | Identificador único global de medición de Azure. |
 | Nombre del servicio | product/ProductName | Todo | Si product/ProductName es nulo, se usa lineItem/ProductCode. |
@@ -183,4 +183,4 @@ Este error está relacionado con la definición del informe sobre uso y costes d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).
+- Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).

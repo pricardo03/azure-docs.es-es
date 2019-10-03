@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346337"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702874"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 Un desafío común al gestionar las alertas consiste en cribar el ruido para averiguar lo que realmente importa: los grupos inteligentes están diseñados para ser la solución a ese problema.  
@@ -29,7 +29,7 @@ El estado de grupo inteligente es un concepto similar al estado de alerta, que l
 
 Se admiten los siguientes estados de grupo inteligente.
 
-| Estado | DESCRIPCIÓN |
+| State | DESCRIPCIÓN |
 |:---|:---|
 | Nuevo | Se acaba de detectar el problema y todavía no se ha revisado. |
 | Confirmado | Un administrador revisó el grupo inteligente y empezó a trabajar en él. |

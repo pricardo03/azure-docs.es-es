@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 299799566f0d54cc3fa017b032e15b387fe8cdd5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467920"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709828"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas basadas en eventos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -37,7 +37,7 @@ Para implementar un flujo basado en eventos sin servidor, necesita:
 Ahora se admite la creación de una función de Azure con un desencadenador de Azure Functions para Cosmos DB en todos los IDE de Azure Functions e integraciones de la CLI:
 
 * [Extensión de Visual Studio](../azure-functions/functions-develop-vs.md) para usuarios de Visual Studio.
-* [Extensión de núcleo de Visual Studio](https://code.visualstudio.com/tutorials/functions-extension/create-function) para usuarios de Visual Studio Code.
+* [Extensión de núcleo de Visual Studio](/azure/javascript/tutorial-vscode-serverless-node-01) para usuarios de Visual Studio Code.
 * Y, finalmente, [herramientas de la CLI de Core](../azure-functions/functions-run-local.md#create-func) para una experiencia independiente del IDE multiplataforma.
 
 ## <a name="run-your-trigger-locally"></a>Ejecución local del desencadenador

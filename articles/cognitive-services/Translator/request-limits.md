@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226252"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671961"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
@@ -32,7 +32,7 @@ En la siguiente tabla se muestran los límites de caracteres y elementos de matr
 | Translate | 5\.000 | 100   | 5\.000 |
 | Transliterar | 5\.000 | 10    | 5\.000 |
 | Detect | 10 000 | 100 |   50.000 |
-| BreakSentence | 10 000    | 100 | 50 000 |
+| BreakSentence | 10 000    | 100 | 50.000 |
 | Búsqueda en diccionario| 100 |  10  | 1000 |
 | Ejemplos de diccionario | 100 para texto y 100 para traducción (200 en total)| 10|   2\.000 |
 

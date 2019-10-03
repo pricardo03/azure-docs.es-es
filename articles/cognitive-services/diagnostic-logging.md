@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516369"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827897"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitación del registro de diagnóstico para Azure Cognitive Services
 
@@ -35,7 +35,7 @@ Para habilitar el registro de diagnóstico, necesitará un lugar donde almacenar
 Comencemos por habilitar el registro de diagnóstico mediante Azure Portal.
 
 > [!NOTE]
-> Para habilitar este rol mediante PowerShell o la CLI de Azure, use las instrucciones proporcionadas en [Recopilación y consumo de datos de registro de los recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Para habilitar este rol mediante PowerShell o la CLI de Azure, use las instrucciones proporcionadas en [Recopilación y consumo de datos de registro de los recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Acceda a Azure Portal. Busque y seleccione un recurso de Cognitive Services. Por ejemplo, la suscripción a Bing Web Search.   
 2. A continuación, en el menú de navegación izquierdo, busque **Monitoring** (Supervisión) y seleccione **Diagnostic settings** (Configuración de diagnóstico). Esta pantalla contiene todas las configuraciones de diagnóstico creadas anteriormente para este recurso.

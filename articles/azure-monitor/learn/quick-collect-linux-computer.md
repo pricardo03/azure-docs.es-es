@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: cdaca0fd3e314ecb5c0b68438eaaf87fbfb699b0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933025"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703053"
 ---
-# <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recopilación de datos de un equipo Linux en un entorno híbrido con Azure Monitor
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Inicio rápido: Recopilación de datos de un equipo Linux en un entorno híbrido con Azure Monitor
 
 [Azure Monitor](../overview.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales del entorno en un área de trabajo de Log Analytics para una correlación y un análisis detallados. La instalación del [agente de Log Analytics](../platform/log-analytics-agent.md) permite a Azure Monitor recopilar datos de un centro de datos o de otro entorno en la nube. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos del servidor Linux con unos pasos sencillos. Para más información sobre las máquinas virtuales Linux de Azure, consulte [Recopilación de datos acerca de máquinas virtuales de Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 

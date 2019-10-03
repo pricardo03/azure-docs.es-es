@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307431"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316348"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -34,18 +34,18 @@ LUIS entiende expresiones en los idiomas siguientes:
 |--|--|:--:|:--:|:--:|:--:|
 | Inglés de Estados Unidos |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Neerlandés |`nl-NL` |-|  -   |-|✔|
-| Francés (Francia) |`fr-FR` |-| ✔ |✔ |✔|
+| Neerlandés |`nl-NL` |✔|  -   |-|✔|
+| Francés (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Francés (Canadá) |`fr-CA` |-|   -   |-|✔|
-| Alemán |`de-DE` |-| ✔ |✔ |✔|
+| Alemán |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italiano |`it-IT` |-| ✔ |✔|✔|
-| *[Japonés](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase clave|
-| Coreano |`ko-KR` |-|   -   |-|Solo la frase clave|
-| Portugués (Brasil) |`pt-BR` |-| ✔ |✔ |No todas las referencias culturales secundarias|
-| Español (España) |`es-ES` |-| ✔ |✔|✔|
+| Italiano |`it-IT` |✔| ✔ |✔|✔|
+| *[Japonés](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Solo la frase clave|
+| Coreano |`ko-KR` |✔|   -   |-|Solo la frase clave|
+| Portugués (Brasil) |`pt-BR` |✔| ✔ |✔ |No todas las referencias culturales secundarias|
+| Español (España) |`es-ES` |✔| ✔ |✔|✔|
 | Español (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |-|-|-|Solo opiniones|
+| Turco | `tr-TR` |✔|-|-|Solo opiniones|
 
 
 La compatibilidad con idiomas varía para las [entidades creadas previamente](luis-reference-prebuilt-entities.md) y los [dominios creados previamente](luis-reference-prebuilt-domains.md).

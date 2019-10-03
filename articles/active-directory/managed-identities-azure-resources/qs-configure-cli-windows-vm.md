@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/10/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 272315346091bacb15aef02184e1cc72d64ed49d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112883"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309812"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure
 
@@ -107,8 +107,7 @@ Si tiene una máquina virtual que ya no necesita la identidad asignada por el si
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-> [!NOTE]
-> Si ha aprovisionado la identidad administrada para la extensión de máquinas virtuales de los recursos de Azure (va a quedar en desuso), debe quitarla mediante [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
+
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
@@ -215,7 +214,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Información general sobre las identidades administradas de recursos de Azure](overview.md)
+- [Información general sobre las identidades administradas para recursos de Azure](overview.md)
 - Para ver guías de inicio rápido completas acerca de la creación de máquinas virtuales de Azure, consulte: 
   - [Creación de una máquina virtual Windows con CLI](../../virtual-machines/windows/quick-create-cli.md)  
   - [Creación de una máquina virtual Linux con PowerShell](../../virtual-machines/linux/quick-create-cli.md) 

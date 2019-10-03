@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 9/25/2019
-ms.openlocfilehash: fc635be68c87d29b21c41bb70aac4e3cbe34bcd3
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3615157543d826050b8adf0e6ae59bf62ad9cb1b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274922"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827299"
 ---
 # <a name="update-rus-for-a-cassandra-keyspace-and-table-using-azure-cli"></a>Actualización de la capacidad de proceso (RU/s) de una tabla y un espacio de claves de Cassandra con la CLI de Azure
 
@@ -44,7 +44,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea una cuenta de Azure Cosmos DB. |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Crea un espacio de claves de Cassandra para Azure Cosmos. |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Crea una tabla de Cassandra para Azure Cosmos. |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughputaz-cosmosdb-cassandra-keyspace-throughput-update) | Actualiza la capacidad de proceso (RU/s) de un espacio de claves de Cassandra para Azure Cosmos. |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az-cosmosdb-cassandra-keyspace-throughput-update) | Actualiza la capacidad de proceso (RU/s) de un espacio de claves de Cassandra para Azure Cosmos. |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Actualiza la capacidad de proceso (RU/s) de una tabla de Cassandra para Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 

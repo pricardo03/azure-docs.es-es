@@ -3,16 +3,16 @@ title: Solución de problemas de Azure Data Share, versión preliminar
 description: Aprenda a solucionar problemas relacionados con Azure Data Share, versión preliminar
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 386a5e34dccafa61859cd13c3e0ad88cd3a7ffac
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 62b386f4648074bbf1f002e162151253e5b43bc9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421466"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320292"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Solución de problemas habituales de Azure Data Share, versión preliminar
 

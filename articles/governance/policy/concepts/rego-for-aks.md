@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fdb392533e28df1d50e90c842d0117385afb254b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454607"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338362"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Cómo usar Azure Policy para Azure Kubernetes Service
 
@@ -224,4 +224,4 @@ Para eliminar el complemento de Azure Policy de su clúster de AKS, use Azure Po
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/index.md), obtendrá información sobre lo que es un grupo de administración.
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

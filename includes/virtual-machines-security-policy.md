@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843323"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830172"
 ---
 Es importante proteger la máquina virtual (VM) para las aplicaciones que se ejecutan. Proteger las máquinas virtuales puede suponer que se incluyan uno o varios servicios y características de Azure que abarcan un acceso seguro a las máquinas virtuales y al almacenamiento seguro de los datos. Este artículo proporciona información que le permite proteger las máquinas virtuales y las aplicaciones.
 
@@ -25,7 +25,7 @@ El acceso Just-In-Time de Security Center se puede aplicar en toda la implementa
 
 ## <a name="encryption"></a>Cifrado
 
-Para mejorar la seguridad y el cumplimiento en las [máquinas virtuales Windows](../articles/virtual-machines/windows/encrypt-disks.md) y [Linux](../articles/virtual-machines/linux/encrypt-disks.md), se pueden cifrar los discos virtuales en Azure. Los discos virtuales en VM Windows se cifran en reposo mediante BitLocker. Los discos virtuales en las máquinas virtuales de Linux se cifran en reposo mediante dm-crypt. 
+Para mejorar la seguridad y el cumplimiento en las [máquinas virtuales Windows](../articles/virtual-machines/windows/encrypt-disks.md) y [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), se pueden cifrar los discos virtuales en Azure. Los discos virtuales en VM Windows se cifran en reposo mediante BitLocker. Los discos virtuales en las máquinas virtuales de Linux se cifran en reposo mediante dm-crypt. 
 
 El cifrado de los discos virtuales en Azure no conlleva ningún cargo. Las claves criptográficas se almacenan en Azure Key Vault con protección de software, o puede importar o generar las claves en módulos de seguridad de hardware (HSM) certificados conforme a las normas FIPS 140-2 de nivel 2. Las claves criptográficas se usan para cifrar y descifrar los discos virtuales conectados a la máquina virtual. Estas claves criptográficas se pueden controlar y se puede auditar su uso. Como las máquinas virtuales se encienden y se apagan, una entidad de servicio de Azure Active Directory proporciona un mecanismos seguro para la emisión de estas claves criptográficas.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899780"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828554"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -102,7 +102,7 @@ La solución se integra con Azure Key Vault para controlar y administrar los sec
 Más información:
 
 * [Azure Disk Encryption para máquinas virtuales IaaS](/azure/security/azure-security-disk-encryption-overview)
-* [Inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [Inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
 

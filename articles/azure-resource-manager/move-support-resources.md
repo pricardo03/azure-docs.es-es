@@ -4,14 +4,14 @@ description: Enumera los tipos de recursos de Azure que se pueden trasladar a un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801348"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687119"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -72,7 +72,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -609,21 +608,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | labs/servicerunners | Sí | Sí |
 > | labs/virtualmachines | Sí | Sin |
 > | schedules | Sí | Sí |
-
-## <a name="microsoftdns"></a>microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | Sin | Sin |
-> | dnszones/a | Sin | Sin |
-> | dnszones/aaaa | Sin | Sin |
-> | dnszones/cname | Sin | Sin |
-> | dnszones/mx | Sin | Sin |
-> | dnszones/ptr | Sin | Sin |
-> | dnszones/srv | Sin | Sin |
-> | dnszones/txt | Sin | Sin |
-> | trafficmanagerprofiles | Sin | Sin |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 

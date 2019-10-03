@@ -1,19 +1,19 @@
 ---
 title: Cambio de la API heredada de alertas de Log Analytics a la nueva API de Alertas de Azure
 description: Información general sobre savedSearch heredadas basadas en la API de alertas de Log Analytics y el proceso para cambiar las reglas de alerta a la nueva API ScheduledQueryRules, con detalles que abordan las inquietudes comunes de los clientes.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034784"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677804"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 

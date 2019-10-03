@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013969"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336901"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Creación de funciones definidas por el usuario en Azure Digital Twins
 
@@ -197,7 +197,7 @@ Para obtener un ejemplo más complejo de código de función definida por el usu
 
 Cree una asignación de roles para que se ejecute la función definida por el usuario. Si no existe ninguna asignación de roles para la función definida por el usuario, no tendrá los permisos adecuados para interactuar con la API de Administración ni tendrá acceso para realizar acciones en objetos gráficos. Las acciones que puede realizar la función definida por el usuario se especifican y definen a través del control de acceso basado en roles dentro de las API de Administración de Azure Digital Twins. Por ejemplo, las funciones definidas por el usuario pueden limitar su ámbito mediante la especificación de determinados roles o rutas de control de acceso. Para más información, consulte la documentación de [Control de acceso basado en rol](./security-role-based-access-control.md).
 
-1. [Consulte la API del sistema](./security-create-manage-role-assignments.md#all) para que todos los roles obtengan el identificador de rol que desea asignar a la función definida por el usuario. Para ello, realice una solicitud HTTP GET autenticada a:
+1. [Consulte la API del sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) para que todos los roles obtengan el identificador de rol que desea asignar a la función definida por el usuario. Para ello, realice una solicitud HTTP GET autenticada a:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628888"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828523"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para el programa de proveedores de soluciones en la nube: Preguntas frecuentes
 
@@ -89,7 +89,7 @@ Sí. Tanto el ejecutivo de cuentas del asociado como el equipo de la cuenta de c
 Para obtener respuestas a algunas preguntas frecuentes, puede visitar el foro de StorSimple en CSP. Primero es preciso que se una al [grupo de asesores de Azure de Yammer](https://www.yammer.com/azureadvisors). Y, a continuación, busque el grupo **StorSimple Partner Advisors** (Asesores para asociados de StorSimple) y únase a él.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>¿Cómo funciona el soporte técnico de StorSimple para CSP? 
-El modelo de soporte para StorSimple en CSP es el mismo que el de otros servicios de Azure en CSP. Para más información, vaya a [Soporte al cliente](https://msdn.microsoft.com/partner-center/customer-support). 
+El modelo de soporte para StorSimple en CSP es el mismo que el de otros servicios de Azure en CSP. Para más información, vaya a [Soporte al cliente](/partner-center/csp-overview).
 
 Para más información acerca de StorSimple para CSP, vaya a:
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 ms.author: dapine
-ms.openlocfilehash: 4b8ea102c7acc55acec05234303ff4c215a4bc0f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326699"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalación y ejecución de contenedores de servicio de Voz
 
@@ -270,7 +270,9 @@ El contenedor proporciona API REST de punto de conexión, que se pueden encontra
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Al ejecutar el contenedor, este usa **stdout** y **stderr** para generar información útil para solucionar problemas que se producen al inicio o ejecución del contenedor.
+Si ejecuta el contenedor con un [montaje](speech-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturación
 

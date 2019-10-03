@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e9a53c41535c17de2d56227012160c7f6eb25c6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532984"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337618"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal
 
@@ -175,7 +175,7 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
 
-1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar el directorio de nombres para mostrar y direcciones de correo electrónico.
+1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar y direcciones de correo electrónico.
 
 1. Haga clic en **Guardar** para asignar el rol.
 
@@ -208,4 +208,4 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Siga est
 * [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
 * [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)
-* [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/index.md)
+* [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md)

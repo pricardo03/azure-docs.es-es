@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 9a751956f73ca4a88545e034a32d699c0766dd1d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855377"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710172"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -44,7 +44,7 @@ Puede usar cualquiera de estas herramientas para cargar contenido en el contened
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensión de Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Extensión de Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualización de contenido
 

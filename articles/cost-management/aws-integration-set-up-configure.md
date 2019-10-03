@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: deb13b833707849bcbce8bcae7b05aeb5e0bce3b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535188"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338877"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
@@ -172,7 +172,7 @@ Al asignar permisos de conector a los usuarios después de que se produzca la de
 
 ## <a name="take-additional-steps"></a>Pasos adicionales
 
-- [Configure grupos de administración](../governance/management-groups/index.md#initial-setup-of-management-groups), si no lo ha hecho ya.
+- [Configure grupos de administración](../governance/management-groups/overview.md#initial-setup-of-management-groups), si no lo ha hecho ya.
 - Compruebe que se agregan nuevos ámbitos para el selector de ámbitos. Seleccione **Actualizar** para ver los datos más recientes.
 - En la página **Conectores de nube**, seleccione el conector y seleccione **Ir a la cuenta de facturación** para asignar la cuenta vinculada a grupos de administración.
 
@@ -189,7 +189,7 @@ Cuando selecciona un conector en la página **Conectores de nube**, puede:
 
 ## <a name="set-up-azure-management-groups"></a>Configurar grupos de administración de Azure
 
-Coloque sus suscripciones de Azure y cuentas vinculadas de AWS en el mismo grupo de administración para crear una ubicación única en la que pueda ver la información de proveedor de toda la nube. Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).
+Coloque sus suscripciones de Azure y cuentas vinculadas de AWS en el mismo grupo de administración para crear una ubicación única en la que pueda ver la información de proveedor de toda la nube. Si aún no ha configurado el entorno de Azure con grupos de administración, consulte [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups) (Configuración inicial de los grupos de administración).
 
 Si quiere separar los costos, puede crear un grupo de administración que contenga solo las cuentas vinculadas de AWS.
 

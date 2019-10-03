@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: de215502f1ecb55bc331f29057a4f7c3f30b0132
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269208"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720173"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -66,9 +66,6 @@ Las tareas de aprendizaje automático leen o escriben artefactos en el área de 
 + Vea artefactos de aprendizaje automático como experimentos, canalizaciones, modelos o implementaciones.
 + Realice un seguimiento de los modelos y supervíselos.
 
-
-
-
 ## <a name="workspace-management"></a>Administración de áreas de trabajo
 
 También puede realizar las siguientes tareas de administración de áreas de trabajo:
@@ -80,7 +77,7 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 | Administración del acceso al área de trabajo    | **&check;**   | |  **&check;**    |
 | Creación de una máquina virtual de Notebook | **&check;**   | |     |
 
-### <a name='create-workspace'></a> Creación de un área de trabajo
+## <a name='create-workspace'></a> Creación de un área de trabajo
 
 Hay varias maneras de crear un área de trabajo.
 

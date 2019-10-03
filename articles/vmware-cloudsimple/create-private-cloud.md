@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640968"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828155"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Crear una nube privada de CloudSimple
 
@@ -46,7 +46,7 @@ Acceda al [portal de CloudSimple](access-cloudsimple-portal.md).
 
 5. En el portal de CloudSimple, proporcione un nombre para su nube privada.
 6. Seleccione la **ubicación** para la nube privada.
-7. Seleccione **tipo de nodo** de acuerdo con lo que haya comprado en Azure.  Puede elegir entre las [opciones CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Esta última opción incluye la capacidad de proceso y memoria máxima.
+7. Seleccione **tipo de nodo** de acuerdo con lo que haya comprado en Azure.
 8. Especifique el **número de nodos**.  Para crear una nube privada, se requiere un mínimo de tres nodos.
 
     ![Creación de una nube privada: información básica](media/create-private-cloud-basic-info.png)

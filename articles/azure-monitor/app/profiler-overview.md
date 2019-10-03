@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338073"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitación de Application Insights Profiler para la aplicación
@@ -36,7 +36,7 @@ Si ha habilitado Profiler, pero no ve los seguimientos, consulte nuestra [Guía 
 
 ## <a name="view-profiler-data"></a>Visualización de datos de Profiler
 
-Para que Profiler cargue los seguimientos, la aplicación debe administrar las solicitudes de forma activa. Si está realizando un experimento, puede generar solicitudes dirigidas a la aplicación web mediante [Pruebas de rendimiento de Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si acaba de habilitar Profiler, puede ejecutar una breve prueba de carga. Mientras se ejecuta la prueba de carga, presione el botón **Generar perfiles ahora** en el panel [**Profiler Settings**](profiler-settings.md#profiler-settings-pane) (Configuración de Profiler). Una vez que Profiler está en ejecución, genera perfiles aleatoriamente una vez cada hora aproximadamente y durante dos minutos. Si la aplicación está controlando un flujo constante de solicitudes, Profiler carga los seguimientos cada hora.
+Para que Profiler cargue los seguimientos, la aplicación debe administrar las solicitudes de forma activa. Si está realizando un experimento, puede generar solicitudes dirigidas a la aplicación web mediante [Pruebas de rendimiento de Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si acaba de habilitar Profiler, puede ejecutar una breve prueba de carga. Mientras se ejecuta la prueba de carga, presione el botón **Generar perfiles ahora** en el panel [**Profiler Settings**](profiler-settings.md) (Configuración de Profiler). Una vez que Profiler está en ejecución, genera perfiles aleatoriamente una vez cada hora aproximadamente y durante dos minutos. Si la aplicación está controlando un flujo constante de solicitudes, Profiler carga los seguimientos cada hora.
 
 Después de que la aplicación reciba tráfico y Profiler haya tenido tiempo de cargar los seguimientos, podrá verlos. Este proceso puede tardar entre 5 y 10 minutos. Para ver los seguimientos, vaya al panel **Performance** (Rendimiento), seleccione **Take Actions** (Realizar acciones) y, luego, seleccione el botón **Seguimientos de Profiler**.
 

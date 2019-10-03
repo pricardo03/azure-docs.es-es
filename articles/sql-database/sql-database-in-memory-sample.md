@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567999"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828206"
 ---
 # <a name="in-memory-sample"></a>Ejemplo en memoria
 
@@ -49,7 +49,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles. El script T-SQL crea los objetos en memoria necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
+3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles. El script T-SQL crea los objetos en memoria necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
 
 4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`. Por ejemplo:
 
@@ -198,7 +198,7 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>Ejecute de la carga de trabajo de esfuerzo *_inmem* en primer lugar
+### <a name="run-the-_inmem-stress-workload-first"></a>Ejecute de la carga de trabajo de esfuerzo *_inmem* en primer lugar
 
 
 Puede usar una ventana *del símbolo del sistema de RML* para ejecutar la línea de comandos de ostress.exe. Los parámetros de línea de comandos dirigen `ostress` para:
@@ -236,7 +236,7 @@ Cuando finaliza `ostress.exe`, escribe la duración de la ejecución como la úl
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>Restablezca y edite *_ondisk* y, después, vuelva a ejecutarlo
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Restablezca y edite *_ondisk* y, después, vuelva a ejecutarlo
 
 
 Una vez que tenga el resultado de la ejecución de *_inmem*, realice los pasos siguientes para la ejecución de *_ondisk*:
@@ -279,7 +279,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
    - Use ese nombre exacto.
    - Elija un nivel de servicio Premium.
 
-2. Copie [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) en el Portapapeles.
+2. Copie [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) en el Portapapeles.
    - El script T-SQL crea los objetos en memoria necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
    - El script crea la tabla de dimensiones y dos tablas de hechos. Las tablas de hechos se rellenan con 3,5 millones de filas cada una.
    - El script podría tardar 15 minutos en completarse.
@@ -302,7 +302,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Consultas cruciales para comparar el índice de almacén de columnas
 
 
-Aquí hay [varios tipos de consultas de T-SQL que se pueden ejecutar](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) para ver las mejoras de rendimiento. En el paso 2 del script T-SQL, preste atención a estas dos consultas. Difieren solo en una línea:
+Aquí hay [varios tipos de consultas de T-SQL que se pueden ejecutar](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/clustered_columnstore_sample_queries.sql) para ver las mejoras de rendimiento. En el paso 2 del script T-SQL, preste atención a estas dos consultas. Difieren solo en una línea:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`

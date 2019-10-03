@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087470"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720062"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Requisitos previos para administrar cuentas en Cloud Partner Portal 
 
@@ -28,8 +28,7 @@ Elija cuidadosamente el nombre de la cuenta.  Representa la organización, por l
 
 ## <a name="registration-steps"></a>Pasos del registro
 
-En la tabla siguiente se enumeran los pasos necesarios para registrarse completamente como un publicador de Microsoft Cloud.  Para las instrucciones completas, consulte el apartado para [convertirse en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher
-). 
+En la tabla siguiente se enumeran los pasos necesarios para registrarse completamente como un publicador de Microsoft Cloud.  Para las instrucciones completas, consulte el apartado para [convertirse en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
 
 
 |                   Paso                   |  Registro o recurso resultante                     |
