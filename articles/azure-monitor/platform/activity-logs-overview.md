@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fa1737a8627fe9561a2a84e7f0ef69aefb6deb14
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ee3a1fef379e2950172dddc389b30e0a363127ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170617"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262127"
 ---
 # <a name="overview-of-azure-activity-log"></a>Introducción al registro de actividad de Azure
 
@@ -23,10 +23,10 @@ Use el registro de actividad para dar respuesta a los interrogantes _qué_, _qui
 
 El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/RDFE.
 
-## <a name="comparison-to-diagnostic-logs"></a>Comparación con los registros de diagnóstico
-Hay un único registro de actividad para cada suscripción de Azure. Este proporciona datos sobre las operaciones en un recurso desde el exterior (el "plano de control"). Los [registros de diagnóstico](diagnostic-logs-overview.md) son emitidos por un recurso y proporcionan información sobre el funcionamiento de dicho recurso (el "plano de datos"). Debe habilitar la configuración de diagnóstico de cada recurso.
+## <a name="comparison-to-resource-logs"></a>Comparación con los registros de los recursos
+Hay un único registro de actividad para cada suscripción de Azure. Este proporciona datos sobre las operaciones en un recurso desde el exterior (el "plano de control"). Los [registros de recurso](resource-logs-overview.md) los emite un recurso y proporcionan información sobre el funcionamiento de ese recurso (el "plano de datos"). Debe crear una configuración de diagnóstico para cada recurso con el fin de recopilar registros de recurso.
 
-![Comparación entre registro de actividad y registro de diagnóstico](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Comparación entre el registro de actividad y el registro de recurso](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
@@ -54,7 +54,7 @@ Para determinados eventos del registro de actividad puede crear una [alerta](act
 ## <a name="categories-in-the-activity-log"></a>Categorías del Registro de actividad
 Cada evento del registro de actividad tiene una categoría determinada que se describe en la tabla siguiente. Para obtener todos los detalles sobre los esquemas de estas categorías, consulte [Esquema de eventos del registro de actividad de Azure](activity-log-schema.md). 
 
-| Categoría | DESCRIPCIÓN |
+| Category | DESCRIPCIÓN |
 |:---|:---|
 | Administrativo | Contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas mediante Resource Manager. Algunos ejemplos de eventos administrativos incluyen la _creación de una máquina virtual_ y la _eliminación de un grupo de seguridad de red_.<br><br>Cada acción realizada por un usuario o aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es _Write_, _Delete_ o _Action_, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. Los eventos de la categoría Administrativo también incluyen los cambios realizados en el control de acceso basado en rol de una suscripción. |
 | Service Health | Contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Ejemplo de un evento de Service Health: _SQL Azure está experimentando un tiempo de inactividad en la región Este de EE. UU._ . <br><br>Los eventos de Service Health pueden encuadrarse dentro de seis variedades: _Acción requerida_, _Recuperación asistida_, _Incidente_, _Mantenimiento_, _Información_ o _Seguridad_. Estos eventos solo se crean si tiene un recurso en la suscripción que se puede ver afectado por el evento.

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 18a19f5f853206b06c617307c761a99033c9f92a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "70174663"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266932"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación.
 
 * Las serie Ev3 tiene el mismo procesador E5-2673 v4 (Broadwell) de 2,3 GHz en una configuración de hyperthreading. Gracia a esto, proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la equipara con las máquinas virtuales de propósito general de la mayoría de las demás tecnologías de nube.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
-* Las series Eav3 y Easv3 utilizan el procesador EPYC<sup>TM</sup> 7452V de 2,35 GHz de AMD en una configuración de varios subprocesos con una caché L3 de hasta 256 MB, lo que aumenta las opciones para ejecutar la mayoría de las cargas de trabajo optimizadas para memoria.  Las series Eav3 y Easv3 tienen las mismas configuraciones de memoria y disco que las series Ev3 y Esv3.
+* Los tamaños de la versión preliminar de las series Eav3 y Easv3 utilizan el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz en una configuración de varios subprocesos con una caché L3 de hasta 256 MB, lo que aumenta las opciones para ejecutar la mayoría de las cargas de trabajo optimizadas para memoria.  Las series Eav3 y Easv3 tienen las mismas configuraciones de memoria y disco que las series Ev3 y Esv3.
 
 * La serie Mv2 ofrece el mayor número de vCPU (hasta 208 vCPU) y la memoria más grande (hasta 5,7 TiB) de todas las máquinas virtuales en la nube. Es ideal para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
 
@@ -61,13 +61,15 @@ Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
-## <a name="easv3-series"></a>Serie Easv3
+## <a name="easv3-series-preview"></a>Serie Easv3 (versión preliminar)
 
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: Compatible
 
-Los tamaños de la serie Easv3 se basan en el procesador EPYC<sup>TM</sup> 7452V de 2,35 Ghz de AME que puede alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Easv3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+Los tamaños de la serie Easv3 se basan en el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz que pueden alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Easv3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+
+[Haga clic aquí para suscribirse a la versión preliminar](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
 |---|---|---|---|
@@ -110,23 +112,25 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
-## <a name="eav3-series"></a>Serie Eav3
+## <a name="eav3-series-preview"></a>Serie Eav3 (versión preliminar)
 
 Premium Storage: No compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
 
-Los tamaños de la serie Eav3 se basan en el procesador EPYC<sup>TM</sup> 7452V de 2,35 Ghz de AME que puede alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Eav3 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños de la serie Easv3. El precio y los medidores de facturación para los tamaños Easv3 son los mismos que para la serie Eav3.
+Los tamaños de la serie Eav3 se basan en el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz que pueden alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Eav3 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños de la serie Easv3. El precio y los medidores de facturación para los tamaños Easv3 son los mismos que para la serie Eav3.
 
-| Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
-|---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   |
-| Standard_E4a_v3  | 4  | 32  | 100  |
-| Standard_E8a_v3  | 8  | 64  | 200  |
-| Standard_E16a_v3 | 16 | 128 | 400  |
-| Standard_E32a_v3 | 32 | 256 | 800  |
-| Standard_E48a_v3 | 48 | 384 | 1200 |
-| Standard_E64a_v3 | 64 | 432 | 1600 |
+[Haga clic aquí para suscribirse a la versión preliminar](http://aka.ms/azureamdpreview).
+
+| Size             | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
+|------------------|------|-------------|-------------------------|
+| Standard_E2a_v3  | 2    | 16          | 50                      |
+| Standard_E4a_v3  | 4    | 32          | 100                     |
+| Standard_E8a_v3  | 8    | 64          | 200                     |
+| Standard_E16a_v3 | 16   | 128         | 400                     |
+| Standard_E32a_v3 | 32   | 256         | 800                     |
+| Standard_E48a_v3 | 48   | 384         | 1200                    |
+| Standard_E64a_v3 | 64   | 432         | 1600                    |
 
 ## <a name="mv2-series"></a>Serie Mv2
 

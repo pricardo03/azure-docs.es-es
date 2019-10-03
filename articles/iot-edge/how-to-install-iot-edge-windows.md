@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877234"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266075"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -41,6 +41,14 @@ Utilice esta sección para revisar si el dispositivo Windows puede admitir IoT E
 ### <a name="supported-windows-versions"></a>Versiones de Windows admitidas
 
 En los escenarios de desarrollo y pruebas, Azure IoT Edge con contenedores Windows puede instalarse en cualquier versión de Windows 10 o Windows Server 2019 (compilación 17763) que admita la característica de contenedores. Para obtener información acerca de qué sistemas operativos se admiten actualmente en los escenarios de producción, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems). 
+
+Los dispositivos IoT Core deben incluir la característica opcional de contenedores de Windows IoT Core para admitir el tiempo de ejecución de IoT Edge. Use el siguiente comando en una [sesión remota de PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) para comprobar que los contenedores de Windows son compatibles con el dispositivo: 
+
+```powershell
+Get-Service vmcompute
+```
+
+Si el servicio está presente, debería obtener una respuesta correcta con el estado del servicio indicado como **en ejecución**. Si no se encuentra el servicio vmcompute, el dispositivo no cumple los requisitos de IoT Edge. Póngase en contacto con su proveedor de hardware para consultar la compatibilidad con esta característica. 
 
 ### <a name="prepare-for-a-container-engine"></a>Preparación de un motor de contenedor 
 

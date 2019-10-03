@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: db4143b3bf75d1745245d5baae267a55ce71e95f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801264"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212601"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -30,19 +30,17 @@ Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en [
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Descargue e instale estas herramientas si no las tiene aún: 
+* Descargue e instale estas herramientas si no las tiene aún:
 
-  * [Visual Studio 2019, 2017 o 2015 Community Edition o superior](https://aka.ms/download-visual-studio). 
-  Este inicio rápido usa Visual Studio Community 2017, que es gratuito.
+  * [Visual Studio 2019, 2017 o 2015 Community Edition o superior](https://aka.ms/download-visual-studio). Este inicio rápido usa Visual Studio Community 2017, que es gratuito.
 
     > [!IMPORTANT]
     > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**.
     > Para obtener más información, vea [Administración de los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
-    Para instalar Cloud Explorer para Visual Studio 2015, [descargue Cloud Explorer desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-    Para obtener más información, vea [Administración de los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    Para instalar Cloud Explorer para Visual Studio 2015, [descargue Cloud Explorer desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). Para obtener más información, vea [Administración de los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
-  * [SDK de Azure (2.9.1 o posterior)](https://azure.microsoft.com/downloads/) 
+  * [SDK de Azure (2.9.1 o posterior)](https://azure.microsoft.com/downloads/)
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -54,13 +52,11 @@ Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en [
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
-    Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender [a instalar esta extensión desde Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
-    Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
+    Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender [a instalar esta extensión desde Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
 
 * Acceso a la Web mediante el diseñador integrado de Logic Apps
 
-  El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica. 
-  Por ejemplo, si usa el conector de Dynamics CRM Online, el diseñador comprueba en la instancia de CRM si hay propiedades predeterminadas y propiedades personalizadas disponibles.
+  El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica. Por ejemplo, si usa el conector de Dynamics CRM Online, el diseñador comprueba en la instancia de CRM si hay propiedades predeterminadas y propiedades personalizadas disponibles.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -70,14 +66,13 @@ En Visual Studio, puede encontrar todas las aplicaciones lógicas que están aso
 
 1. Abra Visual Studio. En el menú **Ver**, seleccione **Cloud Explorer**.
 
-1. En Cloud Explorer, elija **Administración de cuentas**. Seleccione la suscripción de Azure asociada con las aplicaciones lógicas y, luego, elija **Aplicar**. Por ejemplo:
+1. En Cloud Explorer, seleccione **Administración de cuentas**. Seleccione la suscripción de Azure asociada con las aplicaciones lógicas y, luego, seleccione **Aplicar**. Por ejemplo:
 
-   ![Elección de "Administración de cuentas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
+   ![Seleccionar "Administración de cuentas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
 1. En función de si busca por **Grupos de recursos** o **Tipos de recursos**, siga estos pasos:
 
-   * **Grupos de recursos**: en la suscripción de Azure, Cloud Explorer muestra todos los grupos de recursos que están asociados con esa suscripción. 
-   Expanda el grupo de recursos que contiene la aplicación lógica y selecciónela.
+   * **Grupos de recursos**: en la suscripción de Azure, Cloud Explorer muestra todos los grupos de recursos que están asociados con esa suscripción. Expanda el grupo de recursos que contiene la aplicación lógica y selecciónela.
 
    * **Tipos de recursos**: en la suscripción de Azure, expanda **Logic Apps**. Una vez que Cloud Explorer muestra todas las aplicaciones lógicas implementadas que están asociadas a la suscripción, seleccione su aplicación lógica.
 
@@ -87,7 +82,7 @@ En Visual Studio, puede encontrar todas las aplicaciones lógicas que están aso
 
 En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e implementadas de manera directa mediante Azure Portal o como proyectos de grupo de recursos de Azure con Visual Studio.
 
-1. Abra Cloud Explorer y busque su aplicación lógica. 
+1. Abra Cloud Explorer y busque su aplicación lógica.
 
 1. En el menú contextual de la aplicación lógica, seleccione **Abrir con el editor Logic App**.
 
@@ -98,32 +93,30 @@ En Visual Studio, puede abrir las aplicaciones lógicas anteriormente creadas e
 
    ![Abrir aplicación lógica implementada desde Azure Portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Una vez que la aplicación lógica se abre en el diseñador de Logic Apps, en la parte inferior del diseñador, puede elegir la **Vista de código** para poder revisar la estructura de definición de aplicación lógica subyacente. 
-   Si quiere crear una plantilla de implementación para la aplicación lógica, obtenga información sobre [cómo descargar una plantilla de Azure Resource Manager](#download-logic-app) para esa aplicación lógica. Obtenga más información sobre las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md).
+   Una vez que la aplicación lógica se abre en el diseñador de Logic Apps, en la parte inferior del diseñador, puede seleccionar **Vista Código** para poder revisar la estructura de definición de aplicación lógica subyacente. Si quiere crear una plantilla de implementación para la aplicación lógica, obtenga información sobre [cómo descargar una plantilla de Azure Resource Manager](#download-logic-app) para esa aplicación lógica. Obtenga más información sobre las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Descarga de Azure
 
-Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.com) y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación. Al descargar las aplicaciones lógicas, se *parametriza* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md), que también usan la notación de objetos JavaScript (JSON).
+Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.com) y guardarlas como plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Luego puede editar de manera local las plantillas con Visual Studio y personalizar las aplicaciones lógicas para distintos entornos de implementación.  Al descargar las aplicaciones lógicas, se *parametrizan* automáticamente sus definiciones dentro de las [plantillas de Resource Manager](../azure-resource-manager/template-deployment-overview.md), que también usan la notación de objetos JavaScript (JSON).
 
-1. En Visual Studio, abra Cloud Explorer y busque y seleccione la aplicación lógica que desea descargar de Azure.
+1. En Visual Studio, abra Cloud Explorer. Busque y seleccione la aplicación lógica que desea descargar de Azure.
 
-2. En el menú contextual de la aplicación, seleccione **Abrir con el editor de Logic App**.
+1. En el menú contextual de la aplicación, seleccione **Abrir con el editor de Logic App**.
 
    > [!TIP]
    > Si no tiene este comando en Visual Studio 2019, compruebe que tiene las actualizaciones más recientes de Visual Studio.
 
-   El Diseñador de aplicaciones lógicas se abre y muestra la aplicación lógica. 
-   Para revisar la estructura y la definición subyacentes de aplicaciones lógicas, en la parte inferior del diseñador, elija la **vista Código**. 
+   El Diseñador de aplicaciones lógicas se abre y muestra la aplicación lógica. Para revisar la estructura y la definición subyacentes de aplicaciones lógicas, en la parte inferior del diseñador, seleccione **Vista Código**.
 
-3. En la barra de herramientas del diseñador, elija **Descargar**.
+1. En la barra de herramientas del diseñador, seleccione **Descargar**.
 
-   ![Elegir "Descargar"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Seleccionar "Descargar"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
-4. Cuando se le pida una ubicación, vaya a esa ubicación y guarde la plantilla de Resource Manager para la definición de aplicaciones lógicas en formato de archivo JSON (.json). 
+1. Cuando se le pida una ubicación, vaya a esa ubicación y guarde la plantilla de Resource Manager para la definición de aplicaciones lógicas en formato de archivo JSON (.json).
 
-La definición de aplicaciones lógicas aparece en la subsección `resources` de la plantilla de Resource Manager. Ahora puede editar la definición de aplicaciones lógicas y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a una solución de Visual Studio. Aprenda sobre los [proyectos de grupo de recursos de Azure para aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+   La definición de aplicaciones lógicas aparece en la subsección `resources` de la plantilla de Resource Manager. Ahora puede editar la definición de aplicaciones lógicas y la plantilla de Resource Manager con Visual Studio. También puede agregar la plantilla como un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) a una solución de Visual Studio. Aprenda sobre los [proyectos de grupo de recursos de Azure para aplicaciones lógicas en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
@@ -156,9 +149,9 @@ Cuando se establece la propiedad **Cuenta de integración** en Visual Studio y 
 
 ## <a name="refresh-from-azure"></a>Actualización desde Azure
 
-Si edita la aplicación lógica en Azure Portal y quiere mantener esos cambios, asegúrese de actualizar la versión de esa aplicación en Visual Studio con esos cambios. 
+Si edita la aplicación lógica en Azure Portal y quiere mantener esos cambios, asegúrese de actualizar la versión de esa aplicación en Visual Studio con esos cambios.
 
-* En Visual Studio, en la barra de herramientas del Diseñador de aplicaciones lógicas, elija **Actualizar**.
+* En Visual Studio, en la barra de herramientas del Diseñador de aplicaciones lógicas, seleccione **Actualizar**.
 
   O bien
 
@@ -168,13 +161,13 @@ Si edita la aplicación lógica en Azure Portal y quiere mantener esos cambios, 
 
 ## <a name="publish-logic-app-updates"></a>Publicación de actualizaciones de la aplicación lógica
 
-Cuando esté listo para implementar las actualizaciones de la aplicación lógica desde Visual Studio a Azure, en la barra de herramientas del Diseñador de aplicaciones lógicas, elija **Publicar**.
+Cuando esté listo para implementar las actualizaciones de la aplicación lógica desde Visual Studio a Azure, en la barra de herramientas del Diseñador de aplicaciones lógicas, seleccione **Publicar**.
 
 ![Publicar aplicación lógica actualizada](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
 
 ## <a name="manually-run-your-logic-app"></a>Ejecución manual de la aplicación lógica
 
-Puede desencadenar manualmente una aplicación lógica implementada en Azure desde Visual Studio. En la barra de herramientas del Diseñador de aplicaciones lógicas, elija **Ejecutar desencadenador**.
+Puede desencadenar manualmente una aplicación lógica implementada en Azure desde Visual Studio. En la barra de herramientas del Diseñador de aplicaciones lógicas, seleccione **Ejecutar desencadenador**.
 
 ![Ejecución manual de la aplicación lógica](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
@@ -191,23 +184,22 @@ Para comprobar el estado y diagnosticar problemas con las ejecuciones de la apli
    ![Historial de ejecución detallado](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
-   > Para ordenar la tabla por propiedad, elija el encabezado de columna de esa propiedad. 
+   > Para ordenar la tabla por propiedad, seleccione el encabezado de columna de esa propiedad.
 
-1. Expanda los pasos cuyas entradas y salidas desea revisar. Por ejemplo:
+1. Expanda los pasos cuyas entradas y salidas desea revisar, por ejemplo:
 
    ![Ver las entradas y salidas de cada paso](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 
 ## <a name="disable-or-enable-logic-app"></a>Deshabilitación o habilitación de la aplicación lógica
 
-Sin eliminar la aplicación lógica, puede evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora. Si deshabilita la aplicación lógica, evita que el motor de Logic Apps cree y ejecute futuras instancias de flujo de trabajo para la aplicación lógica.
-En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Deshabilitar**.
+Sin eliminar la aplicación lógica, puede evitar que el desencadenador se active la próxima vez que se cumpla una condición desencadenadora. Si deshabilita la aplicación lógica, evita que el motor de Logic Apps cree y ejecute futuras instancias de flujo de trabajo para la aplicación lógica. En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Deshabilitar**.
 
 ![Deshabilitar la aplicación lógica](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
 > [!NOTE]
-> Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen, lo que puede tardar un tiempo en realizarse. 
+> Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen, lo que puede tardar un tiempo en realizarse.
 
-Cuando esté listo para que la aplicación lógica reanude la operación, puede reactivar la aplicación lógica. En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Habilitar**.
+Para reactivar la aplicación lógica, en Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Habilitar**.
 
 ![Habilitar la aplicación lógica](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
 

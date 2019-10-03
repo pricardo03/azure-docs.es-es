@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 602623d48457498963cb5928081d24c1d1132ad4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935236"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264663"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -100,6 +100,50 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
     ```
 
 1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Time Series Insights.
+
+## <a name="common-headers-and-parameters"></a>Parámetros y encabezados comunes
+
+En esta sección, se describen los encabezados y parámetros comunes de la solicitud HTTP que se usan para realizar consultas basadas en las API de Time Series Insights GA y de versión preliminar. Los requisitos específicos de las API se describen con mayor detalle en la [documentación de referencia de la API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+
+### <a name="authentication"></a>Authentication
+
+Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
+
+> [!IMPORTANT]
+> El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).
+> * El elemento **AuthURL** de [ Cartero ](https://www.getpostman.com/) se ajusta por lo tanto a: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> Consulte el tutorial [Explorar la biblioteca de cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md#authentication) para ver cómo autenticarse con las API de Time Series Insights mediante la programación, mediante el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+
+### <a name="http-headers"></a>Encabezados HTTP
+
+Encabezados de solicitud necesarios:
+
+- `Authorization` para la autenticación y la autorización; es necesario pasar un token de portador de OAuth 2.0 válido en el encabezado de autorización. El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).
+
+Encabezados de solicitud opcionales:
+
+- `Content-type`: solo se admite `application/json`.
+- `x-ms-client-request-id`: id. de solicitud de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de la operación en todos los servicios.
+- `x-ms-client-session-id`: id. de sesión de cliente. El servicio registra este valor. Permite que el servicio realice el seguimiento de un grupo de operaciones relacionadas en todos los servicios.
+- `x-ms-client-application-name`: nombre de la aplicación que generó esta solicitud. El servicio registra este valor.
+
+Encabezados de respuesta:
+
+- `Content-type`: solo se admite `application/json`.
+- `x-ms-request-id`: id. de solicitud que creó el servidor. Se puede usar para ponerse en contacto con Microsoft para investigar una solicitud.
+
+### <a name="http-parameters"></a>Parámetros de HTTP
+
+Parámetros de la cadena de consulta la dirección URL necesarios:
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+Parámetros de la cadena de consulta de la dirección URL opcionales:
+
+- `timeout=<timeout>`: tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d881ffff81119167f54b5ef8f0c5e2c1ad1e4791
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075130"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264177"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,10 @@ En el ejemplo siguiente se actualiza un clúster a la versión *1.13.10*:
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-Dicha actualización tarda varios minutos. El tiempo exacto dependerá del número de nodos que tenga.
+Dicha actualización tarda varios minutos. El tiempo exacto dependerá del número de nodos que tenga. 
+
+> [!NOTE]
+> Hay un tiempo total permitido para que se complete la actualización de un clúster. Este tiempo se calcula tomando el producto de `10 minutes * total number of nodes in the cluster`. Por ejemplo, en un clúster de 20 nodos, las operaciones de actualización deben realizarse correctamente en 200 minutos o AKS producirá un error en la operación para evitar un estado de clúster irrecuperable. Para la recuperación en caso de error de actualización, vuelva a intentar la operación una vez alcanzado el tiempo de espera.
 
 Para confirmar que la actualización se ha realizado correctamente, use el comando [az aks show][az-aks-show]:
 

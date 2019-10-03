@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142329"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178631"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 
@@ -51,6 +51,10 @@ Puede visualizar todas las ejecuciones de depuración que están en curso para l
 ![Seleccione el icono de vista de ejecuciones de depuraciones activas](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Lista de ejemplos de ejecuciones de depuraciones activas](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+Si tiene sesiones de depuración de Data Flow activas, las verá en la parte inferior de la ventana de depuración activa. Puede seleccionar una sesión de flujo de datos activa y detener el clúster correspondiente.
+
+![Lista de ejemplos de ejecuciones de depuración de flujo de datos activas](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>Supervisión de ejecuciones de depuración
 

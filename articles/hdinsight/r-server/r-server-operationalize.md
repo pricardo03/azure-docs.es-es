@@ -1,19 +1,19 @@
 ---
 title: 'Puesta en funcionamiento de ML Services en HDInsight: Azure'
 description: Aprenda a poner en funcionamiento un modelo de datos para realizar predicciones con ML Services en Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967676"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123561"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -50,31 +50,31 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
 
-    ![un cuadro op1](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![Selección en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
 
-    ![un cuadro op2](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Puesta en marcha en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Cuando se le solicite, escriba dos veces la contraseña de un usuario administrador local.
 
 1. Debería ver resultados que indican que la operación se realizó correctamente. También se le pedirá que seleccione otra opción del menú. Seleccione E para volver al menú principal.
 
-    ![un cuadro op3](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Operación correcta en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
 
     a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnóstico en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. En el menú de pruebas de diagnóstico, seleccione **A**. Cuando se le solicite, escriba la contraseña que ha proporcionado para el usuario administrador local.
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Prueba en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Compruebe que el resultado muestra que el estado general es Pass (Aprobado).
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Superación de prueba en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. En las opciones de menú que se muestran, escriba **E** para volver al menú principal y, luego, escriba **8** para salir de la utilidad de administración.
 
@@ -148,7 +148,7 @@ Siga estos pasos para retirar nodos de trabajo:
 
 1. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento**. Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
 
-   ![retirar nodos de trabajo](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Activación de modo de mantenimiento en Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Retirar**.
 * Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Retirar**.

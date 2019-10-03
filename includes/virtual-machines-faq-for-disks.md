@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541540"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266881"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -183,8 +183,26 @@ No, la compatibilidad con Azure Backup aún no está disponible.
 **¿Puedo conectar un disco Ultra a una máquina virtual que se ejecuta en un conjunto de disponibilidad?**
 No, esto aún no es posible.
 
-**¿Puedo habilitar Azure Site Recovery (ASR) para máquinas virtuales que usan discos Ultra?**
-No, ASR todavía no es compatible con discos Ultra.
+**¿Puedo habilitar Azure Site Recovery para máquinas virtuales que usan discos Ultra?**
+No, Azure Site Recovery todavía no es compatible con discos Ultra.
+
+## <a name="uploading-to-a-managed-disk"></a>Carga en un disco administrado
+
+**¿Puedo cargar datos en un disco administrado existente?**
+
+No, la carga solo se puede usar durante la creación de un nuevo disco vacío con el estado **ReadyToUpload**.
+
+**¿Cómo se carga en un disco administrado?**
+
+Cree un disco administrado con la propiedad [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) establecida en "Upload" y, después, puede cargar datos en él.
+
+**¿Puedo conectar un disco a una máquina virtual mientras se encuentra en un estado de carga?**
+
+No.
+
+**¿Se puede tomar una instantánea de un disco administrado en un estado de carga?**
+
+No.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD estándar
 

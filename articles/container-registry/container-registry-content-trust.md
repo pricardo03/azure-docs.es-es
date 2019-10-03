@@ -1,6 +1,6 @@
 ---
 title: Confianza en el contenido en Azure Container Registry
-description: Obtenga información sobre cómo habilitar la confianza en el contenido para Azure Container Registry y cómo insertar y extraer imágenes firmadas.
+description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f14d4d32d2423b12786095da17305af605088fb7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959177"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300421"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 

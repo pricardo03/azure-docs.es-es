@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 10e8edcd3a1e781866eaee2cbe48d1536dbc1229
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073579"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219496"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -78,7 +78,8 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 | Sampling (%) [Muestreo (%)]                        | decimal                           | Valores de 0 a 100 (porcentaje). <br/> Especifica el porcentaje de solicitudes que se registrarán en Azure Application Insights. Un muestreo del 0 % significa que no se registrará ninguna solicitud, mientras que un muestreo del 100 % se traduce en que se registrarán todas las solicitudes. <br/> Este valor se usa para reducir las consecuencias que tiene en el rendimiento registrar solicitudes en Azure Application Insights (consulte la sección siguiente). |
 | Always log errors (Registrar errores siempre)                   | boolean                           | Si se selecciona esta opción, se registrarán todos los errores en Azure Application Insights, independientemente del valor de **Sampling**.                                                                                                                                                                                                                  |
 | Opciones básicas: encabezados              | list                              | Especifica los encabezados que se registrarán en Azure Application Insights para las solicitudes y las respuestas.  Predeterminado: no se registra ningún encabezado.                                                                                                                                                                                                             |
-| Opciones básicas: Primeros bytes del cuerpo  | integer                           | Especifica cuántos primeros bytes del cuerpo se registrarán en Azure Application Insights para las solicitudes y las respuestas.  Predeterminado: el cuerpo no se registra.                                                                                                                                                                                              |
+| Opciones básicas: Primeros bytes del cuerpo  | integer                           | Especifica cuántos primeros bytes del cuerpo se registrarán en Azure Application Insights para las solicitudes y las respuestas.  Predeterminado: el cuerpo no se registra.                                                                                                                                                                                                    |
+| Opciones avanzadas: Nivel de detalle         |                                   | Especifica el nivel de detalle. Solo se registrarán los seguimientos personalizados de mayor nivel de gravedad. Valor predeterminado: información.                                                                                                                                                                                                                               |
 | Opciones avanzadas: Solicitud de front-end  |                                   | Especifica si las *solicitudes de front-end* se registran en Azure Application Insights y cuántas se registran. *Frontend request* es una solicitud que entra al servicio de Azure API Management.                                                                                                                                                                        |
 | Opciones avanzadas: Respuesta de front-end |                                   | Especifica si las *respuestas de front-end* se registran en Azure Application Insights y cuántas se registran. *Frontend response* es una respuesta que sale del servicio de Azure API Management.                                                                                                                                                                   |
 | Opciones avanzadas: Solicitud de back-end   |                                   | Especifica si las *solicitudes de back-end* se registran en Azure Application Insights y cuántas se registran. *Backend request* es una solicitud que sale del servicio de Azure API Management.                                                                                                                                                                        |

@@ -1,5 +1,5 @@
 ---
-title: Administración de presupuestos de Cloudyn en Azure | Microsoft Docs
+title: Administración de presupuestos de Cloudyn en Azure
 description: Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 9223f6d20f4f5e3901465379fe53c7b9c338e53f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969168"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259237"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Administración de presupuestos de Azure con Cloudyn
 

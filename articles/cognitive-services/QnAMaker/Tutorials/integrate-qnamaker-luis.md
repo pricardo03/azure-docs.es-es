@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053168"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272411"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Uso de bot con QnA Maker y LUIS para distribuir la base de conocimiento
 A medida que el tamaño de la base de conocimiento de QnA Maker aumenta, resulta complicado mantenerla como un único conjunto monolítico y es necesario dividir la base de conocimiento en fragmentos lógicos más pequeños.
@@ -51,7 +51,7 @@ En el escenario anterior, QnA Maker primero obtiene la intención de la pregunta
 
 ## <a name="web-app-bot"></a>Bot de aplicación web
 
-1. [Cree un bot de aplicación web básico](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que incluya automáticamente una aplicación de LUIS. Seleccione el SDK 4.x y el lenguaje de programación C#.
+1. [Cree un bot de aplicación web básico](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que incluya automáticamente una aplicación de LUIS. Seleccione el lenguaje de programación C#.
 
 1. Una vez creado el bot de aplicación web, selecciónelo en Azure Portal.
 1. Haga clic en **Configuración de la aplicación** en la navegación del servicio bot de aplicación web y después desplácese hacia abajo hasta la sección **Configuración de la aplicación** de las opciones disponibles.

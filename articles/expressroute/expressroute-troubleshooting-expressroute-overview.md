@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117860"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123454"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
@@ -22,10 +22,10 @@ En este artículo encontrará información útil para comprobar y solucionar pro
 -   Red del proveedor
 -   Centro de datos de Microsoft
 
-El propósito de este documento es ayudar a los usuarios a identificar dónde (o incluso si) existe un problema de conectividad y la zona en la que se encuentra, con lo que podrá buscar ayuda del equipo adecuado para solucionar el problema. Si se necesita soporte técnico de Microsoft para resolver un problema, abra una incidencia de soporte técnico con el [soporte técnico de Microsoft][Support].
+El propósito de este documento es ayudar a los usuarios a identificar dónde (o incluso si) existe un problema de conectividad y la zona en la que se encuentra, con lo que podrá buscar ayuda del equipo adecuado para solucionar el problema. Si se necesita soporte técnico de Microsoft para resolver un problema, abra una incidencia de soporte técnico dirigida al [Soporte técnico de Microsoft][Support].
 
 > [!IMPORTANT]
-> Este documento está pensado para ayudarle a diagnosticar y corregir problemas sencillos. No pretende sustituir al soporte técnico de Microsoft. Abra una incidencia de soporte técnico dirigida al [soporte técnico de Microsoft][Support] si no puede resolver el problema siguiendo estas instrucciones.
+> Este documento está pensado para ayudarle a diagnosticar y corregir problemas sencillos. No pretende sustituir al soporte técnico de Microsoft. Abra una incidencia de soporte técnico dirigida al [Soporte técnico de Microsoft][Support] si no puede resolver el problema siguiendo estas instrucciones.
 >
 >
 
@@ -66,7 +66,7 @@ Para validar un circuito ExpressRoute, se realizan los pasos siguientes (con el 
 En el futuro se agregarán más validaciones y comprobaciones, por lo que recomienda realizar una comprobación mensual.
 
 ## <a name="validate-circuit-provisioning-and-state"></a>Validación del aprovisionamiento y el estado del circuito
-Independientemente del modelo de conectividad, debe crearse un circuito ExpressRoute y, por tanto, una clave de servicio generada para el aprovisionamiento del circuito. El aprovisionamiento de un circuito ExpressRoute establece conexiones redundantes de capa 2 entre los PE-MSEE (4) y los MSEE (5). Para obtener más información acerca de cómo crear, modificar, aprovisionar y comprobar un circuito ExpressRoute, consulte el artículo [Creación y modificación de un circuito ExpressRoute][CreateCircuit].
+Independientemente del modelo de conectividad, debe crearse un circuito ExpressRoute y, por tanto, una clave de servicio generada para el aprovisionamiento del circuito. El aprovisionamiento de un circuito ExpressRoute establece conexiones redundantes de capa 2 entre los PE-MSEE (4) y los MSEE (5). Para más información acerca de cómo crear, modificar, aprovisionar y comprobar un circuito ExpressRoute, consulte el artículo [Creación y modificación de un circuito ExpressRoute][CreateCircuit].
 
 >[!TIP]
 >Una clave de servicio identifica de forma única un circuito ExpressRoute. Esta clave es necesaria para la mayoría de los comandos de Powershell que se mencionan en este documento. Además, si necesita asistencia de Microsoft o de un asociado de ExpressRoute para solucionar un problema de ExpressRoute, especifique la clave de servicio para identificar inmediatamente el circuito.
@@ -83,7 +83,7 @@ En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circui
 Para que un circuito ExpressRoute sea operativo, el valor de *Circuit status* (Estado del circuito) debe ser *Enabled* (Habilitado) y *Provider status* (Estado del proveedor) debe ser *Provisioned* (Aprovisionado)
 
 > [!NOTE]
-> Si el valor de *Circuit status* (Estado del circuito) no es Enabled (Habilitado), póngase en contacto con el [soporte técnico de Microsoft][Support]. Si el valor de *Provider status*(Estado del proveedor) no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
+> Si el valor de *Estado del circuito* no es Habilitado, póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *Provider status*(Estado del proveedor) no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
 >
 >
 
@@ -132,7 +132,7 @@ Para confirmar si un circuito ExpressRoute está operativo, preste especial aten
     ServiceProviderProvisioningState : Provisioned
 
 > [!NOTE]
-> Si el valor de *CircuitProvisioningState* no es Enabled (Habilitado), póngase en contacto con el [soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
+> Si el valor de *CircuitProvisioningState* no es Enabled (Habilitado), póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
 >
 >
 
@@ -160,12 +160,12 @@ Una respuesta de ejemplo es:
 Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState: Estado aprovisionado                           : habilitado
 
 > [!NOTE]
-> Si el valor de *Status* (Estado) no es Enabled (Habilitado), póngase en contacto con el [soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
+> Si el valor de *Status* (Estado) no es Enabled (Habilitado), póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
 >
 >
 
 ## <a name="validate-peering-configuration"></a>Validación de la configuración de emparejamiento
-Cuando el proveedor de servicios haya completado el aprovisionamiento del circuito ExpressRoute, puede crearse una configuración de enrutamiento a través del circuito ExpressRoute entre los MSEE-PR (4) y los MSEE (5). Cada circuito ExpressRoute puede tener uno, dos o tres contextos de enrutamiento habilitados: emparejamiento privado de Azure (tráfico a las redes privadas virtuales de Azure), emparejamiento público de Azure (tráfico a direcciones IP públicas de Azure) y emparejamiento de Microsoft (tráfico a Office 365 y Dynamics 365). Para obtener más información sobre cómo crear y modificar la configuración de enrutamiento, consulte el artículo [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+Cuando el proveedor de servicios haya completado el aprovisionamiento del circuito ExpressRoute, puede crearse una configuración de enrutamiento a través del circuito ExpressRoute entre los MSEE-PR (4) y los MSEE (5). Cada circuito ExpressRoute puede tener uno, dos o tres contextos de enrutamiento habilitados: emparejamiento privado de Azure (tráfico a las redes privadas virtuales de Azure), emparejamiento público de Azure (tráfico a las direcciones IP públicas de Azure) y emparejamiento de Microsoft (tráfico a Office 365). Para más información sobre cómo crear y modificar la configuración de enrutamiento, consulte el artículo [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Comprobación a través de Azure Portal
 
@@ -181,7 +181,7 @@ En Azure Portal, puede comprobar el estado de un circuito ExpressRoute seleccion
 Como se indicó en el ejemplo anterior, el contexto de enrutamiento de emparejamiento privado de Azure está habilitado, mientras que los contextos de enrutamiento de emparejamientos públicos de Azure y de emparejamiento de Microsoft no lo están. Un contexto de emparejamiento correctamente habilitado también mostrará las subredes de punto a punto principales y secundarias (necesario para BGP). Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y PE-MSEE. 
 
 > [!NOTE]
-> Si no está habilitado un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración de los PE-MSEE. Si no es así, para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering]
+> Si no está habilitado un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración de los PE-MSEE. Si no es así, para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 >
 >
 
@@ -276,7 +276,7 @@ Para obtener los detalles de configuración del emparejamiento de Microsoft, use
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validación de ARP entre Microsoft y el proveedor de servicios
-Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción. Para solucionar problemas con los comandos de Azure Resource Manager, vea el documento [Getting ARP tables in the Resource Manager deployment model][ARP] (Obtención de tablas ARP en el modelo de implementación de Resource Manager).
+Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción. Para solucionar problemas con los comandos de Azure Resource Manager, consulte el documento [Obtención de tablas ARP en el modelo de implementación de Resource Manager][ARP].
 
 > [!NOTE]
 >Para obtener ARP, se pueden usar los comandos de PowerShell tanto de Azure Portal como de Azure Resource Manager. Si se producen errores con los comandos de PowerShell de Azure Resource Manager, los comandos de PowerShell clásico deben funcionar también con circuitos ExpressRoute de Azure Resource Manager.

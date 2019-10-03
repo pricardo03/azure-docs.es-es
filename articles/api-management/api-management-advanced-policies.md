@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: efc439d56ee864d940942369b3d226ed2a94a383
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072627"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219550"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -38,8 +38,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Establecer método de solicitud](#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.
 -   [Establecimiento de código de estado](#SetStatus): cambia el código de estado HTTP al valor especificado.
 -   [Establecimiento de variable](api-management-advanced-policies.md#set-variable): conserva un valor en una variable [context](api-management-policy-expressions.md#ContextVariables) con nombre para su posterior acceso.
--   [Seguimiento](#Trace): agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).
--   [Espera](#Wait): espera a que se completen las directivas adjuntas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) o [flujo de control](api-management-advanced-policies.md#choose) antes de continuar.
+-   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de diagnóstico.
+-   [Wait](#Wait) (Esperar): espera a que se completen las directivas adjuntas [Send request](api-management-advanced-policies.md#SendRequest) (Enviar solicitud), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) (Obtener el valor de caché) o [Control flow](api-management-advanced-policies.md#choose) (Flujo de control) antes de continuar.
 
 ## <a name="choose"></a> Flujo de control
 
@@ -913,16 +913,31 @@ Las expresiones usadas en la directiva `set-variable` deben devolver uno de los 
 
 ## <a name="Trace"></a> Seguimiento
 
-La directiva `trace` agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/). La directiva se ejecutará solamente cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en `true`, y cuando el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida asociada a la cuenta de administrador.
+La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de diagnóstico. 
+
+* La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento. 
+* La directiva crea una telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) en Application Insights cuando está habilitada la integración de [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico. 
+* La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de diagnóstico](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es o igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.  
+
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a> Ejemplo
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### <a name="elements"></a>Elementos
@@ -930,12 +945,17 @@ La directiva `trace` agrega una cadena a la salida de [API Inspector](https://az
 | Elemento | DESCRIPCIÓN   | Obligatorio |
 | ------- | ------------- | -------- |
 | trace   | Elemento raíz. | Sí      |
+| message | Cadena o expresión que se va a registrar. | Sí |
+| metadata | Agrega una propiedad personalizada a la telemetría [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) de Application Insights. | Sin |
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo | DESCRIPCIÓN                                                                             | Obligatorio | Valor predeterminado |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | de origen    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje. | Sí      | N/D     |
+| severity    | Especifica el nivel de gravedad del seguimiento. Los valores permitidos son `verbose`, `information` y `error` (de menor a mayor). | Sin      | Detallado     |
+| Nombre    | Nombre de la propiedad. | Sí      | N/D     |
+| value    | Valor de la propiedad. | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 

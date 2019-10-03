@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596129"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240880"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -95,7 +95,7 @@ Microsoft y los clientes comparten la responsabilidad sobre los nodos de trabajo
   * Demonio de Docker o Moby
 
 > [!NOTE]
-> En un nodo de trabajo, si un componente del plano de control no está operativo, el equipo de AKS podría necesitar reiniciar el nodo por completo. Debido a su acceso restringido a los datos y las cargas de trabajo activos del cliente, el equipo de AKS reinicia un nodo de trabajo solo si el cliente escala el problema. Siempre que sea posible, el equipo de AKS trabaja para evitar que el reinicio necesario afecte a la aplicación.
+> En un nodo de trabajo, si un componente del plano de control no está operativo, el equipo de AKS podría necesitar reiniciar componentes individuales o el nodo de trabajo por completo. Estas operaciones de reinicio se automatizan y proporcionan corrección automática de los problemas comunes. Estos reinicios solo se producen a nivel de _nodo_ y no en el clúster, a menos que se produzca una interrupción o un mantenimiento de emergencia.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilidades del cliente sobre los nodos de trabajo de AKS
 

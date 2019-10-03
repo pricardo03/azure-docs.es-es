@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073802"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273540"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -122,7 +122,7 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 
 | NOMBRE      | DESCRIPCIÓN                                                                                                                                                                                                                                                                                              | Obligatorio |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| set-limit | Elemento raíz.                                                                                                                                                                                                                                                                                            | Sí      |
+| rate-limit | Elemento raíz.                                                                                                                                                                                                                                                                                            | Sí      |
 | api       | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | Sin       |
 | operation | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá. | Sin       |
 
@@ -185,9 +185,9 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 
 ### <a name="elements"></a>Elementos
 
-| NOMBRE      | DESCRIPCIÓN   | Obligatorio |
-| --------- | ------------- | -------- |
-| set-limit | Elemento raíz. | Sí      |
+| NOMBRE              | DESCRIPCIÓN   | Obligatorio |
+| ----------------- | ------------- | -------- |
+| rate-limit-by-key | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 

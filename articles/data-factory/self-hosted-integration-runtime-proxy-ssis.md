@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2f65303cd5cda50a95c3563422c059b985ecf28a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737322"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200307"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory
 En este artículo se describe cómo ejecutar paquetes de SQL Server Integration Services (SSIS) en Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF) con el modo de entorno de ejecución de integración autohospedado configurado como proxy.  Esta característica permite acceder a los datos locales sin necesidad de [unir la instancia de Azure-SSIS IR a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Esto resulta útil cuando la red corporativa tiene una directiva de configuración o restrictiva demasiado compleja para que pueda insertar la instancia de Azure-SSIS IR en ella.
@@ -86,9 +86,11 @@ Las primeras tareas de almacenamiento provisional que se ejecutan en el entorno 
 Las segundas tareas de almacenamiento provisional que se ejecutan en Azure-SSIS IR no se facturarán por separado, pero la instancia de Azure-SSIS IR en ejecución se facturará tal como se especifica en el artículo sobre [precios de Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/).
 
 ## <a name="current-limitations"></a>Limitaciones actuales
-- Actualmente solo se admiten administradores de conexiones de OLEDB o de archivo plano y orígenes de OLEDB y de archivo plano.
+
+- Actualmente solo se admiten administradores de conexiones de OLEDB o de archivo plano y orígenes de OLEDB y de archivo plano. 
 - Solo se admiten actualmente los servicios vinculados de Azure Blob Storage configurados con la autenticación de **clave de cuenta**/**URI SAS**/**entidad de servicio**.
 - Actualmente solo se admite el entorno de ejecución de integración autohospedado aprovisionado en el mismo ADF en el que se ha aprovisionado la instancia de Azure-SSIS IR.
+- No se admite el uso de parámetros o variables de SSIS dentro de las propiedades de los orígenes ni de los administradores de conexiones de OLEDB o de archivo plano.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando configure el entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR, puede implementar y ejecutar los paquetes para acceder a los datos locales como actividades de ejecución de paquetes SSIS en las canalizaciones de ADF; consulte [Ejecución de un paquete de SSIS mediante la actividad de ejecución de paquete de SSIS en las canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

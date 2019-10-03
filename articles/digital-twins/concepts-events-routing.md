@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a013525109fe85ad70e5aaa5895da20f5abc3237
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638538"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177083"
 ---
 # <a name="routing-events-and-messages"></a>Enrutamiento de eventos y mensajes
 
@@ -29,7 +29,7 @@ Azure Digital Twins ofrece dos formas para conectar eventos de IoT con otros ser
 
 Los usuarios pueden especificar uno o varios puntos de conexión de salida para enviar eventos o para reenviar mensajes. Los eventos y mensajes se enviarán a los puntos de conexión según estas preferencias de enrutamiento predefinidas. En otras palabras, los usuarios pueden especificar un punto de conexión determinado para recibir eventos de operación de grafos, otro para recibir eventos de telemetría de dispositivo, y así sucesivamente.
 
-![Enrutamiento de eventos de Azure Digital Twins][1]
+[![Enrutamiento de eventos de Azure Digital Twins](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 El enrutamiento a Event Hubs se realiza en el orden de envío de los mensajes de telemetría. Por esto, llegan al punto de conexión en el mismo orden de recepción. Event Grid y Service Bus no garantizan que los puntos de conexión reciban los eventos en el mismo orden en que se produjeron. Sin embargo, el esquema del evento incluye una marca de tiempo que se puede utilizar para identificar el orden después de que los eventos lleguen al punto de conexión.
 
@@ -67,6 +67,3 @@ Azure Digital Twins actualmente admite los siguientes **EventTypes** que se envi
 - Para información acerca de los límites de la versión preliminar de Azure Digital Twins, consulte [Límites de servicio de la versión preliminar pública](concepts-service-limits.md).
 
 - Para probar un ejemplo de Azure Digital Twins, consulte la [guía de inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325807"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178555"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementación de un grupo de varios contenedores con un archivo YAML
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325807"
 
 Azure Container Instances admite la implementación de varios contenedores en un solo host mediante un [grupo de contenedores](container-instances-container-groups.md). Un grupo de contenedores es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesite un segundo proceso asociado.
 
-En este tutorial, seguirá los pasos para ejecutar una configuración de sidecar sencilla de dos contenedores mediante la implementación de un archivo YAML con la CLI de Azure. Un archivo YAML proporciona un formato conciso para especificar la configuración de instancias. Aprenderá a:
+En este tutorial seguirá los pasos para ejecutar una configuración de sidecar sencilla de dos contenedores mediante la implementación de un [archivo YAML](container-instances-reference-yaml.md) con la CLI de Azure. Un archivo YAML proporciona un formato conciso para especificar la configuración de instancias. Aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar un archivo YAML

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688043"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240846"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Causa
 
 Es posible que se produzcan errores de implementación por uno de los siguientes motivos:
@@ -52,6 +60,7 @@ Es posible que se produzcan errores de implementación por uno de los siguientes
 2. Hay una directiva en vigor que no permite la implementación de la solución Start/Stop VMs.
 3. Los tipos de recursos `Microsoft.OperationsManagement`, `Microsoft.Insights` o `Microsoft.Automation` no están registrados.
 4. Su área de trabajo de Log Analytics tiene un bloqueo.
+5. Tiene una versión no actualizada de los módulos de AzureRM o la solución de inicio o detención.
 
 ### <a name="resolution"></a>Resolución
 
@@ -66,6 +75,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
 
    Consulte [Resolución de errores del registro del proveedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para más información acerca de errores al registrar los proveedores.
 4. Si tiene un bloqueo en el área de trabajo de Log Analytics, vaya al área de trabajo de Azure Portal y quite los bloqueos en el recurso.
+5. Si las soluciones anteriores no resuelven su problema, siga las instrucciones que aparecen en [Actualizar la solución](../automation-solution-vm-management.md#update-the-solution) para volver a implementar la solución de inicio o detención.
 
 ## <a name="all-vms-fail-to-startstop"></a>Escenario: Error al iniciar o detener todas las máquinas virtuales
 

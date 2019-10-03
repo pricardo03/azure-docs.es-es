@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962635"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300318"
 ---
 # <a name="animated-character-detection-preview"></a>Detección de personajes animados (versión preliminar)
 
@@ -91,8 +91,13 @@ Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar 
     1. Después de escribir el nuevo nombre, haga clic en el icono de verificación junto a él. Esto guarda el nuevo nombre en el modelo en Video Indexer.
     1. Una vez que haya terminado de editar todos los nombres que desee, debe entrenar el modelo.
 
-        Abra la página de personalización y haga clic en la pestaña de **personajes animados**. En el modelo pertinente, haga clic en el vínculo **Edit in Custom Vision** (Editar en Custom Vision). Se le derivará entonces a la página del modelo en Custom Vision. Haga clic en el botón **Entrenar** para entrenar el modelo. 
-    1. Una vez entrenado, cualquier vídeo que se indexe o se vuelva a indexar con ese modelo reconocerá los personajes entrenados. 
+        Abra la página de personalización y haga clic en la pestaña de personalización; a continuación, haga clic en la pestaña **Caracteres animados** y haga clic en el botón **Entrenar** para entrenar el modelo.
+         
+        Si tiene una cuenta de pago, puede hacer clic en el vínculo **Administrar modelos en Custom Vision** (tal como se muestra a continuación). Se le derivará entonces a la página del modelo en **Custom Vision**.
+ 
+        ![Personalización del modelo de contenido](./media/animated-characters-recognition/content-model-customization-tab.png)
+
+     1. Una vez entrenado, cualquier vídeo que se indexe o se vuelva a indexar con ese modelo reconocerá los personajes entrenados. 
     Las cuentas de pago que tienen acceso a su cuenta de Custom Vision pueden ver los modelos y las imágenes etiquetadas allí. Obtenga más información [sobre cómo mejorar el clasificador en Custom Vision.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)
 
 1. Elimine un personaje animado.

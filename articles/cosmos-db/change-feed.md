@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615678"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219895"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -42,7 +42,7 @@ La característica actualmente es compatible con los siguientes SDK de cliente y
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 
-Hoy en día, verá todas las operaciones en la fuente de cambios. La funcionalidad con la que puede controlar la fuente de cambios para operaciones específicas, tales como solo actualizaciones y no inserciones (las cuales aún no están disponibles). Puede agregar un "marcador temporal" en el elemento para las actualizaciones y filtrar los elementos basándose en dicho marcador durante el procesamiento en la fuente de cambios. Actualmente, la fuente de cambios no registra las eliminaciones. Al igual que en el ejemplo anterior, puede agregar un marcador temporal a los elementos que va a eliminar; por ejemplo, puede agregar un atributo "eliminado" al elemento y establecerlo en "true" para, posteriormente, agregar un período de vida al elemento, de forma que se elimine automáticamente. Puede leer la fuente de cambios en busca de los elementos del historial; por ejemplo, elementos que se agregaron hace cinco años. Si no se eliminó el elemento, puede leer la fuente de cambios hasta el origen del contenedor.
+Hoy en día, verá todas las operaciones en la fuente de cambios. La funcionalidad con la que puede controlar la fuente de cambios para operaciones específicas, tales como solo actualizaciones y no inserciones (las cuales aún no están disponibles). Puede agregar un "marcador temporal" en el elemento para las actualizaciones y filtrar los elementos basándose en dicho marcador durante el procesamiento en la fuente de cambios. Actualmente, la fuente de cambios no registra las eliminaciones. Al igual que en el ejemplo anterior, puede agregar un marcador temporal a los elementos que va a eliminar; por ejemplo, puede agregar un atributo "eliminado" al elemento y establecerlo en "true" para, posteriormente, agregar un período de vida al elemento, de forma que se elimine automáticamente. Puede leer la fuente de cambios para los elementos históricos (el cambio más reciente que corresponde al elemento no incluye los cambios intermedios), por ejemplo, los que se agregaron hace cinco años. Si no se eliminó el elemento, puede leer la fuente de cambios hasta el origen del contenedor.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Criterio de ordenación de los elementos en la fuente de cambios
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098469"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260152"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -309,7 +309,10 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
 > |secret|Encabezado|El valor de la variable de entorno MSI_SECRET. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).|
-> |clientid|Consultar|(Opcional) El identificador de la identidad asignada por el usuario que se usará. Si se omite, se usa la identidad asignada por el sistema.|
+> |clientid|Consultar|(Opcional a menos que lo haya asignado el usuario) El id. de la identidad que asignó el usuario que se va a usar. Si se omite, se usa la identidad asignada por el sistema.|
+
+> [!IMPORTANT]
+> Si intenta obtener tokens para las identidades que asignó el usuario, debe incluir la propiedad `clientid`. De lo contrario, el servicio de token intentará obtener un token para una identidad que haya asignado el sistema, la cual puede existir o no.
 
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 

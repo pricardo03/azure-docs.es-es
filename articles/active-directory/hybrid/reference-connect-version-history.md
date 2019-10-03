@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0b210868c87b06a6b7caf55aece74cba956b406a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097596"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290777"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -46,7 +46,13 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 ## <a name="14x0"></a>1.4.X.0
 
 >[!IMPORTANT]
->Anteriormente, había casos en los que los equipos de nivel inferior de Windows unidos a AD local se sincronizaban incorrectamente en la nube. Por ejemplo, se rellenaba el valor del atributo userCertificate de los dispositivos de nivel inferior de Windows en AD. Sin embargo, estos dispositivos de Azure AD siempre permanecían en estado "pendiente", ya que estas versiones del sistema operativo no estaban diseñadas para registrarse en Azure AD mediante Sincronización de AAD. En esta versión de Azure AD Connect, Sincronización de AAD dejará de sincronizar los equipos de nivel inferior de Windows con Azure AD y también quitará los dispositivos de nivel inferior de Windows que anteriormente se sincronizaban incorrectamente desde Azure AD. Tenga en cuenta que este cambio no elimina ningún dispositivo de nivel inferior de Windows que se haya registrado correctamente en Azure AD mediante el paquete MSI. Esos dispositivos seguirán funcionando según lo previsto para el acceso condicional basado en el dispositivo. Algunos clientes pueden ver que algunos o todos sus dispositivos de nivel inferior de Windows desaparecen de Azure AD. Esto no es motivo de preocupación dado que estas identidades de los dispositivos nunca se usaron realmente en Azure AD durante la autorización de acceso condicional. Puede que estos clientes tengan que volver a visitar https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan y registrar correctamente sus dispositivos de nivel inferior de Windows para asegurarse de que dichos dispositivos puedan participar completamente en el acceso condicional basado en el dispositivo. Tenga en cuenta que si ve que estas eliminaciones de objetos de equipo o dispositivo de nivel inferior en Azure AD superan el umbral de eliminación de la exportación, se aconseja al cliente que permita su paso.
+>Los equipos Windows registrados como "Unión a Azure AD híbrido" se representan en Azure AD como objetos de dispositivo. Estos objetos de dispositivo se pueden usar para obtener el acceso condicional. Los equipos con Windows 10 se sincronizan con la nube a través de Azure AD Connect, los equipos de Windows de nivel inferior, en cambio, se registran directamente con AD FS o con un inicio de sesión único de conexión directa.
+>
+>Se supone que Azure AD Connect solo sincroniza los equipos con Windows 10 con un valor de atributo de tipo userCertificate específico que haya configurado la Unión a Azure AD híbrido.  En versiones anteriores de Azure AD Connect este requisito no se aplicaba rigurosamente, lo que generaba objetos de dispositivo innecesarios en Azure AD. Estos dispositivos de Azure AD siempre se han mantenido en el estado "pendiente", ya que estos equipos no debían estar registrados con Azure AD.
+>
+>Esta versión de Azure AD Connect solo sincronizará los equipos de Windows 10 que estén configurados correctamente para Unión a Azure AD híbrido. Azure AD Connect nunca debe sincronizar [dispositivos Windows de nivel inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Los dispositivos de Azure AD sincronizados previamente se eliminarán de Azure AD.  Sin embargo, este cambio no eliminará ningún dispositivo de Windows que se haya registrado correctamente con Azure AD para Unión a Azure AD híbrido. 
+>
+>Algunos clientes pueden ver que algunos o todos sus dispositivos Windows desaparecen de Azure AD. Esto no es motivo de preocupación dado que estas identidades de los dispositivos nunca se usaron en Azure AD durante la autorización de acceso condicional. Es posible que algunos clientes tengan que volver a visitar [Instrucciones: Planificar la implementación híbrida de Azure Active Directory](../../active-directory/devices/hybrid-azuread-join-plan.md) para registrar los equipos con Windows correctamente y asegurarse de que dichos dispositivos puedan participar plenamente en el acceso condicional basado en dispositivos. Si Azure AD Connect está intentando eliminar [dispositivos Windows de nivel inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices), entonces el dispositivo no es el que creó [Microsoft Workplace Join para MSI que no sean equipos con Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) y lo podrás usar ninguna otra característica de Azure AD.  Tenga en cuenta que si ve que estas eliminaciones de objetos de equipo o de dispositivo en Azure AD superan el umbral de eliminación de la exportación, se aconseja al cliente que permita su paso.
 
 ### <a name="release-status"></a>Estado de la versión
 10/09/2019: Publicada solo para actualización automática
@@ -57,7 +63,7 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 - Se debe informar a los clientes de que ahora se han quitado los puntos de conexión WMI en desuso para MIIS_Service. Las operaciones de WMI ahora deben realizarse mediante cmdlets de PS.
 - Mejora de la seguridad mediante el restablecimiento de la delegación restringida en el objeto AZUREADSSOACC.
 - Al agregar o editar una regla de sincronización, si hay atributos que se usan en la regla que se encuentran en el esquema del conector pero no se agregan al conector, los atributos se agregan al conector. Lo mismo se aplica al tipo de objeto al que afecta la regla. Si se agrega algo al conector, este se marcará para la importación completa en el siguiente ciclo de sincronización.
-- Ya no se admite el uso de un administrador de dominio o de empresa como cuenta de conector.
+- El uso de un administrador de empresa o dominio como la cuenta del conector ya no se admite en las nuevas implementaciones de AAD Connect. Las implementaciones actuales de AAD Connect que usan un administrador de dominio o de empresa como cuenta de conector no se verán afectadas por esta versión.
 - En el administrador de sincronización, se ejecuta una sincronización completa durante la creación, la edición y la eliminación de la regla. Con cualquier cambio de la regla aparecerá una ventana emergente que notifica al usuario si se va a ejecutar la importación completa o la sincronización completa.
 - Se han agregado pasos para la mitigación de los errores de contraseña a la página "conectores > propiedades > conectividad".
 - Se ha agregado una advertencia de desuso para el administrador de servicios de sincronización en la página de propiedades del conector. Esta advertencia informa al usuario de que deben realizarse cambios mediante el asistente para AADC.
@@ -1272,7 +1278,7 @@ Fecha de publicación: Diciembre de 2014
 **Nuevas características:**
 
 * Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para más información, consulte el artículo sobre la [sincronización de contraseñas con filtrado](how-to-connect-sync-configure-filtering.md).
-* El atributo ms-DS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Office 365. Utiliza OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
+* El atributo ms-DS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Office 365. Usa OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
 

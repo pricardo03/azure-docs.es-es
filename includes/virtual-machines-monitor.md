@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186288"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266847"
 ---
 Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -54,12 +54,12 @@ Estas son algunas de las tareas que puede hacer con el registro de actividad:
 
 También puede tener acceso a datos de registro de actividad mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) o las [API de REST de Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Diagnostic Logs](../articles/azure-monitor/platform/diagnostic-logs-overview.md) son registros emitidos por una máquina virtual que proporcionan datos exhaustivos y frecuentes acerca de su funcionamiento. Los registros de diagnóstico se diferencian del registro de actividad en que proporcionan una visión general acerca de las operaciones realizadas dentro de la máquina virtual.
+[Los registros de recursos de Azure](../articles/azure-monitor/platform/resource-logs-overview.md) son registros emitidos por una máquina virtual que proporcionan datos exhaustivos y frecuentes acerca de su funcionamiento. Los registros de recursos se diferencian del registro de actividad en que proporcionan una visión general acerca de las operaciones realizadas dentro de la máquina virtual.
 
 Estas son algunas de las cosas que puede hacer con los registros de diagnóstico:
 
 - [Guardarlos en una cuenta de almacenamiento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante Configuración de diagnóstico de recursos.
-- [Transmitirlos a Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+- [Transmitirlos a Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 - Analizarlos con [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada

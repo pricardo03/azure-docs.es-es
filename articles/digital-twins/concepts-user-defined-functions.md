@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638461"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178253"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 
@@ -23,7 +23,7 @@ Azure Digital Twins ofrece funcionalidades avanzadas de proceso. Los desarrollad
 
 Una vez que los dispositivos envían datos de telemetría a Azure Digital Twins, los desarrolladores pueden procesar los datos en cuatro fases: *validación*, *coincidencia*, *proceso* y *distribución*.
 
-![Flujo de procesamiento de datos de Azure Digital Twins][1]
+[![Flujo de procesamiento de datos de Azure Digital Twins](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. La fase de validación transforma el mensaje de telemetría entrante en un formato de [objeto de transferencia de datos](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) reconocido. Esta fase también ejecuta la validación de dispositivos y sensores.
 1. La fase coincidencia busca las funciones definidas por el usuario adecuadas para ejecutarse. Los buscadores de coincidencias predefinidos buscan las funciones definidas por el usuario según la información del dispositivo, del sensor y del espacio a partir del mensaje entrante de telemetría.
@@ -34,9 +34,7 @@ Una vez que los dispositivos envían datos de telemetría a Azure Digital Twins,
 
 El procesamiento de datos en Azure Digital Twins consiste en definir tres objetos: *buscadores de coincidencias*, *funciones definidas por el usuario* y *asignaciones de roles*.
 
-![Objetos de procesamiento de datos de Azure Digital Twins][2]
-
-<div id="matcher"></div>
+[![Objetos de procesamiento de datos de Azure Digital Twins](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Buscadores de coincidencias
 
@@ -92,7 +90,7 @@ Los buscadores de coincidencias definen un conjunto de condiciones que evalúan 
 
 ### <a name="user-defined-functions"></a>Funciones definidas por el usuario
 
-Una función definida por el usuario es una función personalizada que se ejecuta en un entorno aislado en Azure Digital Twins. Las funciones definidas por el usuario tienen acceso al mensaje de telemetría sin formato del sensor, que se ha recibido. También tienen acceso al grafo espacial y al servicio de distribuidor. Una vez que se registra la función definida por el usuario dentro del grafo, debe crearse un buscador de coincidencias (detallado [anteriormente](#matcher)) para especificar cuándo se debe ejecutar dicha función. Por ejemplo, cuando Azure Digital Twins recibe nuevos datos de telemetría de un sensor determinado, la función definida por el usuario coincidente puede calcular una media móvil de las últimas lecturas del sensor.
+Una función definida por el usuario es una función personalizada que se ejecuta en un entorno aislado en Azure Digital Twins. Las funciones definidas por el usuario tienen acceso al mensaje de telemetría sin formato del sensor, que se ha recibido. También tienen acceso al grafo espacial y al servicio de distribuidor. Una vez que se registra la función definida por el usuario dentro del grafo, debe crearse un buscador de coincidencias (detallado [anteriormente](#matchers)) para especificar cuándo se debe ejecutar dicha función. Por ejemplo, cuando Azure Digital Twins recibe nuevos datos de telemetría de un sensor determinado, la función definida por el usuario coincidente puede calcular una media móvil de las últimas lecturas del sensor.
 
 Las funciones definidas por el usuario se pueden escribir en JavaScript. Los métodos auxiliares interactúan con el grafo en el entorno de ejecución definido por el usuario. Los desarrolladores pueden ejecutar fragmentos de código personalizados en relación con los mensajes de telemetría de los sensores. Algunos ejemplos son:
 
@@ -103,14 +101,11 @@ Las funciones definidas por el usuario se pueden escribir en JavaScript. Los mé
 
 Para más información, consulte [Uso de funciones definidas por el usuario](./how-to-user-defined-functions.md).
 
-
 #### <a name="examples"></a>Ejemplos
 
 El [repositorio de GitHub para el ejemplo de C# de Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contiene algunos ejemplos de las funciones definidas por el usuario:
 - [Esta función](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) busca dióxido de carbono, movimiento y valores de temperatura para determinar si una sala está disponible con estos valores del intervalo. En los [tutoriales para Digital Twins](tutorial-facilities-udf.md) se explora esta función de forma más detallada. 
 - [Esta función](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) busca datos de varios sensores de movimiento y determina la disponibilidad del espacio si ninguno de ellos detecta movimiento alguno. Puede reemplazar con facilidad la función definida por el usuario usada en la [guía de inicio rápido](quickstart-view-occupancy-dotnet.md) o en los [tutoriales](tutorial-facilities-setup.md), realizando los cambios mencionados en la sección de comentarios del archivo. 
-
-
 
 ### <a name="role-assignment"></a>Asignación de roles
 
@@ -125,7 +120,3 @@ Es posible que un buscador de coincidencias desencadene una función definida po
 - Para más información sobre cómo crear buscadores de coincidencias, funciones definidas por el usuario y asignaciones de roles, lea la [guía para la creación de funciones definidas por el usuario](./how-to-user-defined-functions.md).
 
 - Revise la [documentación de referencia de biblioteca de cliente de funciones definidas por el usuario](./reference-user-defined-functions-client-library.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

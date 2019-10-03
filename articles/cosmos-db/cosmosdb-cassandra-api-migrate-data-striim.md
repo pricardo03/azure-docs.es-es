@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003083"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266057"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migración de los datos a una cuenta de Cassandra API de Azure Cosmos DB mediante Striim
 
@@ -155,11 +155,13 @@ En esta sección, configurará la cuenta de Cassandra API de Azure Cosmos DB com
 
    ![Conectar a destino](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Antes de configurar el destino, asegúrese de que ha agregado un [certificado raíz de Baltimore al entorno de Java de Striim](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+1. Antes de configurar el destino, asegúrese de que ha agregado un [certificado raíz de Baltimore al entorno de Java de Striim](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Escriba las propiedades de configuración de su instancia de Azure Cosmos DB de destino y seleccione **Guardar** para continuar. Estos son los parámetros clave a tener en cuenta:
 
    * **Adaptador**: use **DatabaseWriter**. Cuando se escribe en Cassandra API de Azure Cosmos DB, se requiere DatabaseWriter. El controlador de Cassandra 3.6.0 está incluido en Striim. Si DatabaseWriter supera el número de RU aprovisionadas en el contenedor de Azure Cosmos, la aplicación se bloqueará.
+
+   * **Dirección URL de conexión** : especifique la URL de conexión JDBC de Azure Cosmos DB. La dirección URL está en el formato     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * **Nombre de usuario**: especifique el nombre de la cuenta de Azure Cosmos.
    

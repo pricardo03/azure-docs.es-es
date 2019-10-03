@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274817"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147343"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274817"
 >[!NOTE] 
 >Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](load-balancer-standard-overview.md).
 
-Los equilibradores de carga con conexión a Internet pueden implementarse con una dirección IPv6. Además de la conectividad de IPv4, esto permite las siguientes capacidades:
+Los equilibradores de carga con conexión a Internet de la SKU básica pueden implementarse con una dirección IPv6. Además de la conectividad de IPv4, esto permite las siguientes capacidades:
 
 * Conectividad IPv6 nativa de un extremo a otro entre los clientes de Internet públicos y Azure Virtual Machines a través del equilibrador de carga.
 * Conectividad IPv6 nativa saliente de un extremo a otro entre máquinas virtuales y los clientes de Internet públicos con IPv6 habilitado.
@@ -79,6 +79,7 @@ Limitaciones
 * El cambio del parámetro loadDistributionMethod de IPv6 **no se admite actualmente**.
 * Las direcciones IP de reserva de IPv6 (donde IPAllocationMethod = static) **no se admiten actualmente**.
 * NAT64 (traducción de IPv6 a IPv4) no se admite.
+* Los equilibradores de carga de la SKU estándar no admiten actualmente direcciones IPv6.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

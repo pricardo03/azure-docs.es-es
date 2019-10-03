@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699576"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260210"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Procedimientos para crea un recurso compartido de archivos de Azure premium
 Los recursos compartidos de archivos Premium se ofrecen en medios de almacenamiento de discos de estado sólido (SSD) y son útiles para cargas de trabajo de E/S intensiva, incluido el hospedaje de bases de datos y de informática de alto rendimiento (HPC). Los recursos compartidos de archivos Premium se hospedan en un tipo de cuenta de almacenamiento de propósito especial denominada cuenta FileStorage. Los recursos compartidos de archivos Premium están diseñados para aplicaciones de alto rendimiento y escala empresarial, que proporcionan recursos compartidos coherentes de baja latencia, IOPS alta y alto rendimiento.
@@ -59,7 +59,7 @@ Una vez que se ha creado el recurso de la cuenta de almacenamiento, vaya hasta �
 ### <a name="create-a-premium-file-share"></a>Creación de un recurso compartido de archivos premium
 
 1. En el menú de la izquierda de la cuenta de almacenamiento, desplácese a la sección **Servicio de archivo** y, después, seleccione **Archivos**.
-1. Seleccione **+Recurso compartido de archivos** para crear un recurso compartido de archivos Premium.
+1. Seleccione **Recurso compartido de archivos** para crear un recurso compartido de archivos Premium.
 1. Escriba un nombre y una cuota deseada para el recurso compartido de archivos y luego seleccione **Crear**.
 
 > [!NOTE]

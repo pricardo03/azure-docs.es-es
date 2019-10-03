@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091727"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179093"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escrituras aceleradas de Azure HDInsight para Apache HBase
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Siga los mismos pasos al reducir verticalmente el clúster: vacíe las tablas y deshabilite las tablas para detener los datos de entrada. No puede reducir verticalmente el clúster a menos de tres nodos.
+
+Al seguir estos pasos, se asegurará de que el proceso de reducción vertical se realiza correctamente y evitará la posibilidad de que un nodo de nombre entre en modo seguro debido a archivos temporales o subreplicados.
+
+Si el nodo de nombre entra en modo seguro después de una reducción vertical, use los comandos de HDFS para volver a replicar los bloques subreplicados y conseguir que HDFS salga del modo seguro. Esta nueva replicación permitirá reiniciar HBase correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

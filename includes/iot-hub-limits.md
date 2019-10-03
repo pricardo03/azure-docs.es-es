@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186710"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148492"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Recurso | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
+| Resource | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
 | --- | --- | --- | --- | --- |
 | Mensajes por día |400.000 |6\.000.000 |300.000.000 |8\.000 |
 | Unidades máximas |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de IoT Hub:
 
-| Recurso | Límite |
+| Resource | Límite |
 | --- | --- |
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure |50 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
@@ -38,6 +38,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Tamaño máximo de mensaje de nube a dispositivo |64 KB |
 | TTL máximo para los mensajes de nube a dispositivo |2 días |
 | Número máximo de entregas para los mensajes de nube a dispositivo <br/> messages |100 |
+| Profundidad máxima de la cola de la nube al dispositivo por dispositivo |50 |
 | Número máximo de entregas de mensajes de comentarios <br/> en respuesta a un mensaje de nube a dispositivo |100 |
 | TTL máximo para los mensajes de comentarios en <br/> respuesta a un mensaje de nube a dispositivo |2 días |
 | [Tamaño máximo del dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (etiquetas, propiedades notificadas y propiedades deseadas) | 8 KB |

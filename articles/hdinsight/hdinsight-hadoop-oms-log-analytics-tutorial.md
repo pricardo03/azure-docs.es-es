@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816036"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240366"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -109,6 +109,15 @@ Dado que el clúster es un clúster nuevo de marca, el informe no muestra ningun
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
 
 Azure Monitor también admite la recopilación y el análisis de las métricas de rendimiento de los nodos del clúster. Para obtener más información sobre cómo habilitar y configurar esta característica, consulte [Orígenes de datos de rendimiento de Linux en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+
+## <a name="cluster-auditing"></a>Auditoría de clústeres
+
+HDInsight admite la auditoría de clústeres con registros de Azure Monitor, mediante la importación de los siguientes tipos de registros:
+
+* `log_gateway_audit_CL`: esta tabla proporciona registros de auditoría de nodos de puerta de enlace de clúster que muestran intentos de inicio de sesión correctos y erróneos.
+* `log_auth_CL`: esta tabla proporciona registros SSH con intentos de inicio de sesión correctos y erróneos.
+* `log_ambari_audit_CL`: esta tabla proporciona registros de auditoría de Ambari.
+* `log_ranger_audti_CL`: esta tabla proporciona registros de auditoría de Apache Ranger en clústeres ESP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

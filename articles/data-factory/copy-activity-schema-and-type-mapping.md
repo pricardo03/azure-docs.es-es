@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b705123dc6492466c30b3c1ddaf4b330b0d684a1
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875814"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272258"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 
-Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos desde datos de origen hasta datos receptores al ejecutar la copia de datos.
+Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos de los datos de origen a los datos receptores al ejecutar la copia de datos.
 
 ## <a name="schema-mapping"></a>Asignación de esquemas
 
@@ -92,9 +92,9 @@ Se admiten las siguientes propiedades en `translator` -> `mappings` -> objeto co
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nombre de la columna de origen o receptor.                           | Sí      |
 | ordinal  | Índice de columna. Comienza con 1. <br>Se aplica y es obligatoria cuando se usa texto delimitado sin línea de encabezado. | Sin       |
-| path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Se aplica para los datos jerárquicos; por ejemplo, MongoDB o REST.<br>Para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sin       |
+| path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Se aplica para los datos jerárquicos; por ejemplo, MongoDB o REST.<br>Para los campos situados bajo el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos incluidos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sin       |
 | type     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. | Sin       |
-| culture  | Cultura de la columna de origen o receptor.Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. <br>Apply when type is <ph id="ph1">`Datetime`</ph> or <ph id="ph2">`Datetimeoffset`</ph>. El valor predeterminado es `en-us`. | Sin       |
+| culture  | Cultura de la columna de origen o receptor. <br>Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin       |
 | format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin       |
 
 Se admiten las siguientes propiedades en `translator` -> `mappings`, así como en un objeto con `source` y `sink`:
@@ -105,7 +105,7 @@ Se admiten las siguientes propiedades en `translator` -> `mappings`, así como e
 
 ### <a name="alternative-column-mapping"></a>Asignación de columnas alternativa
 
-Puede especificar actividad de copia -> `translator` -> `columnMappings` para realizar asignaciones de datos en forma tabular. En este caso, la sección "structure" es necesaria para los conjuntos de datos de entrada y salida. La asignación de columnas admite **la asignación de todas las columnas o un subconjunto de ellas del conjunto de datos de origen "structure" a todas las columnas del conjunto de datos receptor "structure"** . Las siguientes son las condiciones de error que tienen como resultado una excepción:
+Puede especificar actividad de copia -> `translator` -> `columnMappings` para realizar asignaciones de datos en forma tabular. En este caso, la sección "structure" es necesaria tanto para los conjuntos de datos de entrada como para los de salida. La asignación de columnas admite **la asignación de todas las columnas o un subconjunto de ellas del conjunto de datos de origen "structure" a todas las columnas del conjunto de datos receptor "structure"** . Las siguientes son las condiciones de error que tienen como resultado una excepción:
 
 * El resultado de la consulta del almacén de datos de origen no tiene un nombre de columna que se especifique en la sección "structure" del conjunto de datos de entrada.
 * El almacén de datos receptor (si está en el esquema predefinido) no tiene un nombre de columna que se especifique en la sección "structure" del conjunto de datos de salida.

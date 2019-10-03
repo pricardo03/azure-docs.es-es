@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101429"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241004"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
 
@@ -50,7 +50,7 @@ El siguiente diagrama es una introducción de alto nivel de la solución conecta
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* La conectividad entre nubes en versión preliminar está limitada a las regiones de Este de EE. UU. (eastus) de Azure y OCI de Ashburn OCI (us-ashburn-1).
+* La conectividad entre nubes en la versión preliminar se limita a las regiones Este de EE. UU. de Azure (eastus) y Sur de Reino Unido (uksouth) y las regiones OCI de Ashburn (Este de EE. UU.) y Londres (Sur de Reino Unido). Para el Sur de Reino Unido, use el dominio de disponibilidad 1 (AD 1) en OCI al implementar las conexiones para las latencias más bajas.
 
 ## <a name="networking"></a>Redes
 

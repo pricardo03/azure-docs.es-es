@@ -6,19 +6,21 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325598"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300455"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
-En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Consulte también las [preguntas más frecuentes](container-instances-faq.md).
+En este artículo se muestra cómo solucionar problemas habituales al administrar o implementar contenedores en Azure Container Instances. Consulte también las [preguntas más frecuentes](container-instances-faq.md). 
+
+Si necesita soporte adicional, consulte las opciones disponibles de **Ayuda y soporte técnico** en [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
@@ -28,7 +30,7 @@ Al definir la especificación de contenedor, ciertos parámetros requieren tener
 | --- | --- | --- | --- | --- | --- |
 | Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Puertos del contenedor | Entre 1 y 65 535 |Entero |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
+| Puertos del contenedor | Entre 1 y 65 535 |Integer |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
 | Etiqueta de nombre DNS | 5-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>` |`frontend-site1` |
 | Variable de entorno | 1-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion bajo (_) en cualquier lugar, excepto el primer o último carácter |`<name>` |`MY_VARIABLE` |
 | Nombre del volumen | 5-63 |No distingue mayúsculas de minúsculas |Letras minúsculas, números y guiones en cualquier lugar, excepto el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |
@@ -200,9 +202,28 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 
 Azure Container Instances no expone acceso directo a la infraestructura subyacente que hospeda los grupos de contenedores. Esto incluye el acceso a la API de Docker que se ejecuta en el host del contenedor y la ejecución de contenedores con privilegios elevados. Si se requiere la interacción de Docker, compruebe la [documentación de referencia de REST](https://aka.ms/aci/rest) para ver lo que admite la API de ACI. Si falta algo, envíe una solicitud en los [foro de comentarios de ACI](https://aka.ms/aci/feedback).
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Las direcciones IP pueden no estar accesibles debido a que los puertos no coinciden
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Las direcciones IP del grupo de contenedores pueden no estar accesibles debido a que los puertos no coinciden
 
-Azure Container Instances no admite actualmente la asignación de puertos con la configuración normal de docker; sin embargo, esta revisión está en la hoja de ruta. Si encuentra direcciones IP no accesibles que cree que deberían serlo, asegúrese de que ha configurado la imagen de contenedor para que escuche a los mismos puertos que expone en el grupo de contenedores con la propiedad `ports`.
+Azure Container Instances no admite aún la asignación de puertos con la configuración normal de Docker. Si encuentra una dirección IP de grupo de contenedores no accesible y cree que debería serlo, asegúrese de que ha configurado la imagen de contenedor para que escuche a los mismos puertos que expone en el grupo de contenedores con la propiedad `ports`.
+
+Si desea confirmar que Azure Container Instances escucha en el puerto que configuró en la imagen de contenedor, pruebe una implementación de la imagen `aci-helloworld` que expone el puerto. Ejecute también la aplicación `aci-helloworld` para que escuche en el puerto. `aci-helloworld` acepta una variable de entorno opcional `PORT` para invalidar el puerto 80 predeterminado en el que escucha. Por ejemplo, para probar el puerto 9000:
+
+1. Configure el grupo de contenedores para que exponga el puerto 9000 y pase el número de puerto como valor de la variable de entorno:
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Busque la dirección IP del grupo de contenedores en la salida del comando de `az container create`. Busque el valor de **ip**. 
+1. Una vez aprovisionado el contenedor correctamente, vaya a la dirección IP y al puerto de la aplicación contenedora en el explorador, por ejemplo, `192.0.2.0:9000`. 
+
+    Debería ver el mensaje "Welcome to Azure Container Instances!" (Bienvenida a Azure Container Instances) que muestra la aplicación web.
+1. Cuando haya terminado con el contenedor, elimínelo con el comando `az container delete`:
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

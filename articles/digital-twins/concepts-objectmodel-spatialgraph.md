@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638498"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177074"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Descripción de los modelos de objetos de Digital Twins y del grafo de inteligencia espacial
 
@@ -23,9 +23,7 @@ Los modelos de objetos de Digital Twins describen conceptos específicos de domi
 
 Con los modelos de objetos de Digital Twins y la ontología preparados, puede rellenar un _grafo espacial_. Los grafos espaciales son representaciones virtuales de las muchas relaciones entre espacios, dispositivos y personas importantes para una solución de IoT. En este diagrama se muestra un ejemplo de un grafo espacial que usa una ontología de edificio inteligente.
 
-![Creación de un grafo espacial con Digital Twins][1]
-
-<a id="model"></a>
+[![Creación de un grafo espacial con Digital Twins](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 El grafo espacial reúne los espacios, los dispositivos, los sensores y los usuarios. Cada uno de ellos se vincula de forma que modele el mundo real. En este ejemplo, el lugar 43 tiene cuatro pisos, cada uno con diferentes áreas. Los usuarios se relacionan con las estaciones de trabajo y se les concede acceso a partes del grafo. Un administrador tiene derechos para realizar cambios en el grafo espacial, mientras que un visitante solo puede ver determinados datos del edificio.
 
@@ -55,8 +53,6 @@ Otras categorías de objetos son:
   - Enviar notificaciones cuando se cumplen las condiciones predefinidas. Actualmente, las UDF pueden escribirse en JavaScript.
 - **Buscadores de coincidencias**: objetos que determinan qué UDF se ejecuta para un mensaje de telemetría determinado.
 - **Puntos de conexión**: ubicaciones donde pueden enrutarse los mensajes de telemetría y los eventos de Digital Twins, como `Event Hub`, `Service Bus` y `Event Grid`.
-
-<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Grafo de inteligencia espacial
 
@@ -89,7 +85,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
  El formato de dirección URL completo que aparece en esta imagen.
 
-![API de Administración del portal de Digital Twins][2]
+(![API de Administración del portal de Digital Twins](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Para más detalles sobre cómo usar los grafos de inteligencia espacial, consulte la versión preliminar de las API de Administración de Azure Digital Twins.
 
@@ -106,7 +102,3 @@ Todas las llamadas a API se deben autenticar mediante [OAuth](https://docs.micro
 - Para más información sobre la conectividad de los dispositivos y cómo enviar mensajes de telemetría a Digital Twins, lea [Entrada de datos de telemetría y conectividad de dispositivo](concepts-device-ingress.md).
 
 - Para más información sobre las limitaciones de la API de administración y las demás, lea el artículo sobre [limitaciones y administración de API de Azure Digital Twins](concepts-service-limits.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

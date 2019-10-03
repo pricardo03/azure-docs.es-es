@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883205"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123378"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.
@@ -29,7 +29,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
    
    * Habilitar el emparejamiento privado en Azure: habilite este emparejamiento para conectarse a VM/servicios en la nube implementados en redes virtuales.
 
-   * Habilitar el emparejamiento de Microsoft: habilítelo para acceder a Office 365 y Dynamics 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft.
+   * Habilitar el emparejamiento de Microsoft: habilítelo para acceder a Office 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft.
      
      > [!IMPORTANT]
      > Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.

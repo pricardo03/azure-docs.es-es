@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348504"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178669"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformación Dinamizar de Azure Data Factory
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -55,6 +55,12 @@ Use el lenguaje de expresiones de ADF Data Flow para describir las transformacio
 ## <a name="pivot-metadata"></a>Metadatos dinámicos
 
 La transformación Dinamizar generará nuevos nombres de columna que serán dinámicos en función de los datos entrantes. La clave dinámica genera los valores de cada nombre de columna nuevo. Si no especifica valores individuales y quiere crear nombres de columna dinámicos para cada valor único en la clave dinámica, la interfaz de usuario no mostrará los metadatos en Inspeccionar y no se producirá ninguna propagación de columna para la transformación Receptor. Si establece los valores de clave dinámica, ADF puede determinar los nombres de columna nuevos, que estarán disponibles en las asignaciones de Inspeccionar y Receptor.
+
+### <a name="generate-a-new-model-from-dynamic-columns"></a>Generación de un nuevo modelo a partir de columnas dinámicas
+
+Dinamizar genera nuevos nombres de columna de forma dinámica en función de los valores de fila. Estas nuevas columnas se pueden convertir en metadatos a los que se puede hacer referencia posteriormente en el flujo de datos. Para ello, haga clic en la pestaña Vista previa de datos. Las nuevas columnas generadas por la transformación Dinamizar aparecen con un icono de desviación en el encabezado de la tabla. Haga clic en el botón "Map drifted" (Asignar desviadas) para convertir esas nuevas columnas en metadatos, haciendo así que pasen a formar parte del modelo de flujo de datos.
+
+![Columnas dinamizadas](media/data-flow/newpivot1.png "Asignar columnas dinamizadas desviadas")
 
 ### <a name="landing-new-columns-in-sink"></a>Aterrizaje de nuevas columnas e Receptor
 

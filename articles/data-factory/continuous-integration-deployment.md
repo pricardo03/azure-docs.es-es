@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002401"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265985"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
@@ -669,7 +669,7 @@ Si no tiene GIT configurado, las plantillas vinculadas son accesibles a través 
 
 ## <a name="hot-fix-production-branch"></a>Rama de producción de revisión
 
-Si implementa una factoría para la producción y se da cuenta de que hay un error que debe corregirse de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión.
+Si implementa una factoría para la producción y se da cuenta de que hay un error que debe corregirse de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión. Este enfoque se conoce como ingeniería de corrección rápida o QFE. 
 
 1.  En Azure DevOps, vaya a la versión que se implementó en producción y busque la última confirmación que se implementó.
 
@@ -705,8 +705,11 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 
 ## <a name="unsupported-features"></a>Características no admitidas
 
--   No se pueden publicar recursos individuales. Las entidades de factoría de datos dependen unas de otras y el seguimiento de las dependencias puede ser difícil y provocar un comportamiento inesperado. Por ejemplo, los desencadenadores dependen de las canalizaciones, las canalizaciones dependen de los conjuntos de datos y otras canalizaciones, y así sucesivamente. Si fuera posible publicar solo un subconjunto del conjunto de cambios completo, podrían producirse determinados errores imprevistos.
+- Por naturaleza, ADF _no_ permite confirmaciones de selección exclusiva ni la publicación selectiva de recursos. Las publicaciones incluirán **todos** los cambios realizados en la factoría de datos.
+
+    - Las entidades de la factoría de datos dependen unas de otras; por ejemplo, los desencadenadores dependen de las canalizaciones, las canalizaciones dependen de los conjuntos de datos y de otras canalizaciones, etc. La publicación selectiva de un subconjunto de recursos _puede_ provocar comportamientos y errores inesperados.
+    - En las contadas ocasiones en las que se requiere la publicación selectiva, puede considerar la posibilidad de aplicar una corrección. Para más información, consulte [Rama de producción de revisión](#hot-fix-production-branch).
 
 -   No es posible publicar desde ramas privadas.
 
--   No es posible hospedar proyectos en Bitbucket.
+-   A partir de ahora, no puede hospedar proyectos en Bitbucket.

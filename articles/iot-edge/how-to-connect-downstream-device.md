@@ -4,17 +4,17 @@ description: Se describe cómo configurar dispositivos de bajada o dispositivos 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999404"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266116"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -33,6 +33,10 @@ Este artículo identifica problemas comunes con las conexiones de los dispositiv
 * Ejemplos de Azure IoT en varios lenguajes que le ayudarán a comenzar. 
 
 En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge* hacen referencia a un dispositivo IoT Edge configurado como una puerta de enlace transparente. 
+
+## <a name="prerequisites"></a>Requisitos previos 
+
+Debe disponer del archivo de certificado **azure-iot-test-only.root.ca.cert.pem** generado en [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md) en su dispositivo de bajada. El dispositivo de bajada usa este certificado para validar la identidad del dispositivo de puerta de enlace. 
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
@@ -89,6 +93,14 @@ Verá un mensaje que dice "Updating certificates in /etc/ssl/certs... 1 added, 0
 ### <a name="windows"></a>Windows
 
 Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Windows. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación del dispositivo de bajada.
+
+Puede instalar certificados con [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) de PowerShell como administrador:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+También puede instalar certificados mediante la utilidad **certlm**: 
 
 1. En el menú Inicio, busque y seleccione **Administrar certificados de equipo**. Se abre una utilidad llamada **certlm**.
 2. Vaya a **Certificados: equipo local** > **Entidades de certificación raíz de confianza**.

@@ -1,18 +1,18 @@
 ---
 title: Descripción del funcionamiento de los efectos
-description: La definición de Azure Policy tiene varios efectos que determinan cómo se administra y notifica el cumplimiento.
+description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231530"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146996"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -27,13 +27,14 @@ Actualmente, se admiten estos efectos en una definición de directiva:
 - [DeployIfNotExists](#deployifnotexists)
 - [Deshabilitada](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) (versión preliminar)
+- [Modify](#modify)
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
 En primer lugar, Azure Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Azure Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Azure Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Azure Policy.
 
 - Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
-- Luego se evalúa **Append**. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.
+- Después se evalúan **Append** y **Modify**. Ambos efectos podrían alterar la solicitud; así, un cambio realizado por ellos podría impedir la activación de un efecto audit o deny.
 - Luego se evalúa **deny**. La evaluación de deny antes de audit impide el doble registro de un recurso no deseado.
 - A continuación, se evalúa **audit** antes de que la solicitud vaya al proveedor de recursos.
 
@@ -47,7 +48,10 @@ Este efecto es útil para probar situaciones o cuando la definición de directiv
 
 ## <a name="append"></a>Append
 
-Append se utiliza para agregar campos adicionales al recurso solicitado durante la creación o actualización. Un ejemplo común consiste en agregar etiquetas en recursos como costCenter o especificar direcciones IP para un recurso de almacenamiento.
+Append se utiliza para agregar campos adicionales al recurso solicitado durante la creación o actualización. Un ejemplo habitual es la especificación de direcciones IP permitidas para un recurso de almacenamiento.
+
+> [!IMPORTANT]
+> Append está pensado para su uso con propiedades que no son de etiqueta. Aunque Append puede agregar etiquetas a un recurso durante una solicitud de creación o actualización, se recomienda usar en su lugar el efecto [Modify](#modify) para las etiquetas.
 
 ### <a name="append-evaluation"></a>Evaluación de append
 
@@ -61,36 +65,7 @@ Un efecto append solo tiene una matriz **details**, que es necesaria. Como **det
 
 ### <a name="append-examples"></a>Ejemplos de append
 
-Ejemplo 1: un único par **campo/valor** para anexar una etiqueta.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-Ejemplo 2: varios pares **campo/valor** para anexar un conjunto de etiquetas.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-Ejemplo 3: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) distinto de- **[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+Ejemplo 1: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) distinto de- **[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -105,7 +80,7 @@ Ejemplo 3: un único par **campo/valor** que usa un [alias](definition-structure
 }
 ```
 
-Ejemplo 4: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]** , el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz no existe aún, se creará.
+Ejemplo 2: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]** , el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz todavía no existe, se creará.
 
 ```json
 "then": {
@@ -117,6 +92,122 @@ Ejemplo 4: un único par **campo/valor** que usa un [alias](definition-structure
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>Modificar
+
+Modify se usa para agregar, actualizar o quitar etiquetas de un recurso durante la creación o actualización. Un ejemplo habitual es la actualización de etiquetas en recursos como costCenter. Una directiva Modify siempre debe tener `mode` establecido en _Indexed_. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md).
+Una sola regla de Modify puede tener cualquier número de operaciones.
+
+> [!IMPORTANT]
+> Actualmente, Modify solo se usa con etiquetas. Si está administrando etiquetas, se recomienda usar Modify en lugar de Append, ya que Modify proporciona tipos de operación adicionales y la capacidad de corregir los recursos existentes. Sin embargo, se recomienda Append si no se puede crear una identidad administrada.
+
+### <a name="modify-evaluation"></a>Evaluación de Modify
+
+Modify se evalúa antes de que un proveedor de recursos procese la solicitud durante la creación o actualización de un recurso. Modify agrega o actualiza etiquetas en un recurso cuando se cumple la condición **if** de la regla de directiva.
+
+Cuando una definición de directiva que utiliza el efecto Modify se ejecuta como parte de un ciclo de evaluación, no realiza cambios en los recursos que ya existen. En su lugar, marca cualquier recurso que cumple la condición **if** como no conforme.
+
+### <a name="modify-properties"></a>Propiedades de Modify
+
+La propiedad **details** del efecto Modify tiene todas las subpropiedades que definen los permisos necesarios para la corrección y las propiedades **operations** que se usan para agregar, actualizar o quitar valores de etiqueta.
+
+- **roleDefinitionIds** [obligatorio]
+  - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
+  - El rol definido debe incluir todas las operaciones concedidas al rol [Colaborador](../../../role-based-access-control/built-in-roles.md#contributor).
+- **operations** [obligatorio]
+  - Una matriz de todas las operaciones de etiqueta que se van a llevar a cabo en los recursos coincidentes.
+  - Propiedades:
+    - **operation** [obligatorio]
+      - Define qué acción se va a realizar en un recurso coincidente. Las opciones son: _addOrReplace_, _Add_, _Remove_. _Add_ se comporta de forma similar al efecto [Append](#append).
+    - **field** [obligatorio]
+      - La etiqueta que se va a agregar, reemplazar o quitar. Los nombres de etiqueta deben seguir la misma convención de nomenclatura que otros [campos](./definition-structure.md#fields).
+    - **value** (opcional)
+      - Valor en el que se va a establecer la etiqueta.
+      - Esta propiedad es necesaria si **operation** es _addOrReplace_ o _Add_.
+
+### <a name="modify-operations"></a>Operaciones de Modify
+
+La matriz de propiedades **operations** permite modificar varias etiquetas de maneras diferentes a partir de una única definición de directiva. Cada operación se compone de las propiedades **operation**, **field** y **value**. Operation determina qué hace la tarea de corrección en las etiquetas, field determina qué etiqueta se modifica y value define el nuevo valor de la etiqueta. En el ejemplo siguiente se realizan los siguientes cambios en la etiqueta:
+
+- Se establece la etiqueta `environment` en "Test", incluso si ya existe con un valor diferente.
+- Se quita la etiqueta `TempResource`.
+- Se establece la etiqueta `Dept` en el parámetro de directiva _DeptName_ configurado en la asignación de directiva.
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+La propiedad **operation** tiene las siguientes opciones:
+
+|Operación |DESCRIPCIÓN |
+|-|-|
+|addOrReplace |Agrega la etiqueta y el valor definidos al recurso, incluso si la etiqueta ya existe con un valor diferente. |
+|Sumar |Agrega la etiqueta y el valor definidos al recurso. |
+|Remove |Quita la etiqueta definida del recurso. |
+
+### <a name="modify-examples"></a>Ejemplos de Modify
+
+Ejemplo 1: se agrega la etiqueta `environment` y se reemplazan las etiquetas `environment` existentes por "Test":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+Ejemplo 2: se quita la etiqueta `env` y se agrega la etiqueta `environment` o se reemplazan las etiquetas `environment` existentes por un valor parametrizado:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -234,7 +325,7 @@ Ejemplo: evalúa Virtual Machines para determinar si existe la extensión Antima
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-Similar a AuditIfNotExists, DeployIfNotExists ejecuta una implementación de plantilla cuando se cumple la condición.
+Similar a AuditIfNotExists, una definición de directiva DeployIfNotExists ejecuta una implementación de plantilla cuando se cumple la condición.
 
 > [!NOTE]
 > Las [plantillas anidadas](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) son compatibles con **deployIfNotExists**, pero las [plantillas vinculadas](../../../azure-resource-manager/resource-group-linked-templates.md) no son compatibles actualmente.
@@ -247,7 +338,7 @@ Durante un ciclo de evaluación, las definiciones de directiva con un efecto Dep
 
 ### <a name="deployifnotexists-properties"></a>Propiedades de DeployIfNotExists
 
-La propiedad **details** de los efectos de DeployIfNotExists tiene todas las subpropiedades que definen los recursos relacionados para coincidir y la implementación de plantilla para ejecutar.
+La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropiedades que definen los recursos relacionados con los que se establece la coincidencia y la implementación de plantilla que se ejecuta.
 
 - **Type** [obligatorio]
   - Especifica el tipo del recurso relacionado para coincidir.
@@ -348,7 +439,7 @@ Este efecto se usa con un *modo* de definición de directiva de `Microsoft.Conta
 
 ### <a name="enforceregopolicy-evaluation"></a>Evaluación de EnforceRegoPolicy
 
-El controlador de admisión del Agente de directivas abierto evalúa cualquier solicitud nueva en el clúster en tiempo real.
+El controlador de admisión de Open Policy Agent evalúa cualquier solicitud nueva del clúster en tiempo real.
 Cada 5 minutos, se completa un análisis completo del clúster y los resultados se envían a Azure Policy.
 
 ### <a name="enforceregopolicy-properties"></a>Propiedades de EnforceRegoPolicy

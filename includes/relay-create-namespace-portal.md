@@ -4,39 +4,37 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186543"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210342"
 ---
-1. Inicie sesión en [Azure Portal][Azure portal].
-2. En el menú de la izquierda, seleccione **+ Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha. 
-3. En **Crear espacio de nombres**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-4. En el campo **Suscripción**, elija la suscripción de Azure en la que se va a crear el espacio de nombres.
-5. En el cuadro [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), seleccione un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno nuevo.  
-6. En **Ubicación**, seleccione el país o región donde se debe hospedar el espacio de nombres.
-   
+1. Inicie sesión en el [Azure Portal][Azure portal].
+1. Seleccione **Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha.
+1. Seleccione **Crear** y escriba un nombre de espacio de nombres en el campo **Nombre**. Azure Portal comprueba si el nombre está disponible.
+1. Elija la suscripción de Azure en la que se va a crear el espacio de nombres.
+1. En [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), elija un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno.  
+1. Seleccione el país o región donde se debe hospedar el espacio de nombres.
+
     ![Crear un espacio de nombres][create-namespace]
-7. Seleccione **Crear**. El sistema crea el espacio de nombres y lo habilita. Tras unos minutos, el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+
+1. Seleccione **Crear**. Azure Portal crea ahora el espacio de nombres del servicio y lo habilita. Tras unos minutos, el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="get-management-credentials"></a>Obtención de las credenciales de administración
 
-1. Haga clic en **Todos los recursos** y, después, seleccione el nombre del espacio de nombres recién creado.
-2. En el espacio de nombres de Relay, seleccione **Directivas de acceso compartido**.  
-3. En **Directivas de acceso compartido**, seleccione **RootManageSharedAccessKey**.
-   
-    ![información de conexión][connection-info]
-4. En la **directiva: RootManageSharedAccessKey**, haga clic en el botón **Copiar** situado junto a **Cadena de conexión: clave principal**. La cadena de conexión se copia en el Portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
-   
-    ![connection-string][connection-string]
+1. Seleccione **Todos los recursos** y, después, seleccione el nombre del espacio de nombres recién creado.
+1. Seleccione **Directivas de acceso compartido**.  
+1. En **Directivas de acceso compartido**, seleccione **RootManageSharedAccessKey**.
+1. En **Directiva SAS: RootManageSharedAccessKey**, haga clic en el botón **Copiar** situado junto a **Cadena de conexión principal**. Esta acción copia la cadena de conexión en el Portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
+1. Repita el paso anterior para copiar y pegar el valor de **Clave principal** en una ubicación temporal para su uso posterior.  
 
-5. Repita el paso anterior para copiar y pegar el valor de **Clave principal** en una ubicación temporal para su uso posterior.  
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace-vs2019.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877184"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147356"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -25,13 +25,17 @@ El enrutamiento de mensajes le permite enviar mensajes desde los dispositivos a 
 
 * **Filtrar los datos antes de enrutarlos a los diferentes puntos de conexión** mediante la aplicación de consultas enriquecidas. El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Más información sobre el uso de [consultas en el enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
 
-IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Al configurar la solución de IoT por primera vez, es posible que deba supervisar los puntos de conexión adicionales y realizar los ajustes necesarios para la carga real.
+IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Por ejemplo, si usa Event Hubs como punto de conexión personalizado, debe configurar las **unidades de procesamiento** para ese centro de eventos de forma que pueda controlar la entrada de eventos que planea enviar a través del enrutamiento de mensajes de IoT Hub. Del mismo modo, cuando se usa una cola de Service Bus como punto de conexión, debe configurar el **tamaño máximo** para asegurarse de que la cola puede contener todos los datos ingresados, hasta que los consumidores los extraigan. Al configurar la solución de IoT por primera vez, es posible que deba supervisar los puntos de conexión adicionales y realizar los ajustes necesarios para la carga real.
 
 IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube a fin de generar interoperabilidad entre protocolos. Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o el tema de Service Bus. En las colas con particiones, la afinidad de partición garantiza el orden de los mensajes. Use este tutorial para aprender a [configurar el enrutamiento de mensajes](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Puntos de conexión de enrutamiento
 
-Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensajes y eventos**) que es compatible con Event Hubs. Puede crear [puntos de conexión personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) a los que enrutar mensajes vinculando otros servicios de la suscripción al centro de IoT. IoT Hub admite actualmente los siguientes servicios como puntos de conexión personalizados:
+Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensajes y eventos**) que es compatible con Event Hubs. Puede crear [puntos de conexión personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) a los que enrutar mensajes vinculando otros servicios de la suscripción al centro de IoT. 
+
+Cada mensaje se enruta a todos los puntos de conexión cuyas consultas se correspondan con el mensaje. En otras palabras, un mensaje se puede enrutar a varios puntos de conexión.
+
+IoT Hub admite actualmente los siguientes servicios como puntos de conexión personalizados:
 
 ### <a name="built-in-endpoint"></a>Punto de conexión integrado
 
@@ -43,9 +47,9 @@ IoT Hub admite la escritura de datos en Azure Blob Storage con los formatos [Apa
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub también admite el enrutamiento de mensajes a cuentas de ADLS Gen2, que son cuentas de almacenamiento habilitadas para [espacios de nombres jerárquicos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) que se basan en Blob Storage. Esta funcionalidad está en versión preliminar pública y está disponible para las nuevas cuentas de ADLS Gen2 en las regiones Oeste de EE. UU. 2 y Centro-oeste de EE. UU. Esta funcionalidad se implementará pronto en todas las regiones de la nube.
+IoT Hub también admite el enrutamiento de mensajes a cuentas de [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2, que son cuentas de almacenamiento habilitadas para [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md) que se basan en Blob Storage. Esta funcionalidad está en versión preliminar pública y está disponible para las nuevas cuentas de ADLS Gen2 en las regiones Oeste de EE. UU. 2 y Centro-oeste de EE. UU. [Regístrese](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) para obtener la versión preliminar. Esta funcionalidad se implementará pronto en todas las regiones de la nube. 
 
-IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando el lote llega a cierto tamaño o después de transcurrir cierta cantidad de tiempo. IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente:
+IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando el lote llega a cierto tamaño o después de transcurrir cierta cantidad de tiempo. IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}

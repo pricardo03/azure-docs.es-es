@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034740"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211984"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -35,6 +35,8 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 * Ámbito para la configuración de opciones, como el [plan de tarifa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 En este artículo se proporciona información general detallada acerca de las consideraciones de diseño y migración, información general sobre el control de acceso y una descripción de las implementaciones de diseño que recomendamos para su organización de TI.
+
+
 
 ## <a name="important-considerations-for-an-access-control-strategy"></a>Consideraciones importantes para una estrategia de control de acceso
 
@@ -129,6 +131,19 @@ En la tabla siguiente se resumen los modos de acceso:
     > Si un usuario solo tiene permisos de recurso en el área de trabajo, solo podrá acceder al área de trabajo mediante el modo contexto del recurso, siempre que el modo de acceso al área de trabajo esté establecido en **Usar permisos de recurso o de área de trabajo**.
 
 Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Configuración del modo de control de acceso](manage-access.md#configure-access-control-mode).
+
+## <a name="ingestion-volume-rate-limit"></a>Límite de velocidad por volumen de ingesta
+
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El umbral de velocidad de ingesta predeterminado se establece en **500 MB/min** por área de trabajo. Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede abrir una solicitud de soporte técnico para solicitar un aumento en el área de trabajo.
+ 
+Para recibir notificaciones de este tipo de evento en el área de trabajo, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta con la base de la lógica de alerta en el número de resultados mayor que cero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>Recomendaciones
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852686"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268345"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Escenario: Aplicación de escritorio que llama a las API web
 
@@ -32,7 +32,7 @@ Aprenda a crear una aplicación de escritorio que llame a las API web
 
 ## <a name="getting-started"></a>Introducción
 
-Si aún no lo ha hecho, cree su primera aplicación siguiendo el inicio rápido del escritorio de .NET o el inicio rápido de UWP:
+Si aún no lo ha hecho, cree su primera aplicación siguiendo el inicio rápido de escritorio de .NET, el inicio rápido de UWP o el inicio rápido de aplicación nativa de macOS:
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
@@ -41,13 +41,16 @@ Si aún no lo ha hecho, cree su primera aplicación siguiendo el inicio rápido 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de UWP](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación nativa de macOS](./quickstart-v2-ios.md)
+
 ## <a name="overview"></a>Información general
 
 Escribe una aplicación de escritorio y desea que los usuarios inicien sesión en la aplicación y llama a las API web como Microsoft Graph, otras API de Microsoft o su propia API web. Tiene varias posibilidades:
 
 - Puede utilizar la adquisición interactiva de tokens:
 
-  - Si la aplicación de escritorio admite controles gráficos, por ejemplo, si es una aplicación Windows.Form o una aplicación WPF.
+  - Si la aplicación de escritorio admite controles gráficos, por ejemplo, si es una aplicación Windows.Form, una aplicación WPF o una aplicación nativa de macOS.
   - O si se trata de una aplicación .NET Core y está de acuerdo en que la interacción de autenticación con Azure AD suceda en el explorador del sistema
 
 - En el caso de las aplicaciones hospedadas en Windows, también es posible que las aplicaciones que se ejecutan en equipos unidos a un dominio de Windows o unidos a AAD adquieran un token de forma silenciosa mediante el uso de la autenticación integrada de Windows.

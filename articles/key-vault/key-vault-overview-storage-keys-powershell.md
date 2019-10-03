@@ -6,47 +6,63 @@ ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
-ms.date: 03/01/2019
-ms.openlocfilehash: 7968c045a59e86ecb89c0cc797936210b9cfb07d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: 225d9b715c56e4813a8e26d881c876e7bd498155
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883292"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204222"
 ---
-# <a name="azure-key-vault-managed-storage-account---powershell"></a>Cuenta de almacenamiento administrado por Azure Key Vault: PowerShell
+# <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 
-> [!NOTE]
-> [Integración de Azure Storage con Azure Active Directory (Azure AD) está ahora en versión preliminar](../storage/common/storage-auth-aad.md). Se recomienda usar Azure AD para la autenticación y autorización, que proporciona acceso basado en tokens OAuth2 a Azure Storage, al igual que Azure Key Vault. Esto le permite:
-> - Autenticar la aplicación cliente mediante una identidad de aplicación o usuario, en lugar de las credenciales de cuenta de almacenamiento. 
-> - Usar una [identidad administrada de Azure AD](/azure/active-directory/managed-identities-azure-resources/) cuando se ejecuta en Azure. Las identidades administradas eliminan la necesidad de autenticación del cliente en conjunto y de almacenar las credenciales en la aplicación o con ella.
-> - Utilice el control de acceso basado en rol (RBAC) para administrar la autorización, que también es compatible con Key Vault.
-> - Por el momento, el acceso de AAD a la cuenta de almacenamiento no sirve para acceder a las tablas.
+Una cuenta de Azure Storage usa credenciales que constan de un nombre de cuenta y una clave. La clave se genera automáticamente y actúa como una contraseña y no como una clave criptográfica. Key Vault administra las claves de cuenta de almacenamiento guardándolas como [secretos de Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+Puede usar la característica de clave de cuenta de almacenamiento administrada de Key Vault para mostrar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (girar) las claves periódicamente. Puede administrar claves para las cuentas de almacenamiento y las cuentas de almacenamiento clásicas.
+
+Cuando use la característica de clave de cuenta de almacenamiento administrada, tenga en cuenta los puntos siguientes:
+
+- Los valores de clave nunca se devuelven como respuesta a un autor de la llamada.
+- Solo Key Vault debe administrar las claves de cuenta de almacenamiento. No administre las claves por su cuenta y evite interferir en los procesos de Key Vault.
+- Solo un único objeto de Key Vault debe administrar las claves de cuenta de almacenamiento. No permita la administración de claves desde varios objetos.
+- Puede solicitar a Key Vault que administre la cuenta de almacenamiento con una entidad de seguridad de usuario, pero no con una entidad de servicio.
+- Regenere las claves solo con Key Vault. No regenere manualmente las claves de cuenta de almacenamiento.
+
+Es recomendable usar la integración de Azure Storage con Azure Active Directory (Azure AD), el servicio de administración de acceso y de identidades basado en la nube de Microsoft. La integración de Azure AD está disponible para los [Blobs y las colas de Azure](../storage/common/storage-auth-aad.md) y proporciona acceso basado en tokens de OAuth2 a Azure Storage (al igual que Azure Key Vault).
+
+Azure AD le permite autenticar la aplicación cliente mediante una identidad de aplicación o usuario, en lugar de las credenciales de cuenta de almacenamiento. Puede usar una [identidad administrada de Azure AD](/azure/active-directory/managed-identities-azure-resources/) cuando realice la ejecución en Azure. Las identidades administradas eliminan la necesidad de autenticación del cliente y de almacenar las credenciales en la aplicación o con ella.
+
+Azure AD usa el control de acceso basado en rol (RBAC) para administrar la autorización, que también es compatible con Key Vault.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Una [cuenta de Azure Storage](/azure/storage/storage-create-storage-account) utiliza una credencial que consta de un nombre de cuenta y una clave. La clave se genera automáticamente y actúa más como una "contraseña " que como una clave criptográfica. Key Vault puede administrar estas claves de cuenta de almacenamiento guardándolas como [secretos de Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+## <a name="service-principal-application-id"></a>Id. de aplicación de la entidad de servicio
 
-## <a name="overview"></a>Información general
+Un inquilino de Azure AD proporciona a cada aplicación registrada una [entidad de servicio](/azure/active-directory/develop/developer-glossary#service-principal-object). La entidad de servicio se usa como id. de aplicación, que se utiliza durante la configuración de la autorización para acceder a otros recursos de Azure mediante RBAC.
 
-La característica de cuenta de almacenamiento administrada de Key Vault realiza varias funciones de administración en su nombre:
+Key Vault es una aplicación de Microsoft que previamente se ha registrado en todos los inquilinos de Azure AD. Key Vault está registrado con el mismo identificador de aplicación en cada nube de Azure.
 
-- Muestra las claves (sincronización) con una cuenta de Azure Storage.
-- Vuelve a generar (rotar) las claves periódicamente.
-- Administra las claves de las cuentas de almacenamiento y de las cuentas de almacenamiento clásicas.
-- Los valores de clave nunca se devuelven como respuesta al autor de la llamada.
+| Inquilinos | Nube | Identificador de aplicación |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-Cuando use la característica de clave de cuenta de almacenamiento administrada:
+## <a name="prerequisites"></a>Requisitos previos
 
-- **Permita que solo Key Vault administre las claves de cuenta de almacenamiento**. No intente administrarlas usted mismo, ya que interferirá con los procesos de Key Vault.
-- **No permita que más de un objeto de Key Vault administre las claves de cuenta de almacenamiento**.
-- **No regenere manualmente las claves de cuenta de almacenamiento**. Se recomienda que las regenere a través de Key Vault.
+Para completar esta guía, antes debe completar los pasos siguientes:
 
-El siguiente ejemplo muestra cómo permitir que Key Vault administre las claves de su cuenta de almacenamiento.
+- [Instale el módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
+- [Creación de un Almacén de claves](quick-create-powershell.md)
+- [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). El nombre de la cuenta de almacenamiento solo debe contener letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres.
+      
 
-## <a name="connect-to-your-azure-account"></a>Conexión a la cuenta de Azure
+## <a name="manage-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento
+
+### <a name="connect-to-your-azure-account"></a>Conexión a la cuenta de Azure
 
 Autentique la sesión de PowerShell mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0). 
+
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
@@ -56,31 +72,33 @@ Si tiene varias suscripciones de Azure, puede enumerarlas con el cmdlet [Get-AzS
 Set-AzContext -SubscriptionId <subscriptionId>
 ```
 
-## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorice a Key Vault el acceso a la cuenta de almacenamiento
+### <a name="set-variables"></a>Configuración de variables
 
-> [!IMPORTANT]
-> Un inquilino de Azure AD proporciona a cada aplicación registrada una **[entidad de servicio](/azure/active-directory/develop/developer-glossary#service-principal-object)** , que actúa como la identidad de la aplicación. El identificador de aplicación de la entidad de servicio se usa cuando se le proporciona autorización para acceder a otros recursos de Azure, mediante control de acceso basado en rol (RBAC). Dado que Key Vault es una aplicación de Microsoft, está registrada previamente en todos los inquilinos de Azure AD con el mismo identificador de aplicación, dentro de cada nube de Azure:
-> - Los inquilinos de Azure AD de la nube de Azure Government usan el identificador de aplicación `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Los inquilinos de Azure AD de la nube pública de Azure y todos los demás usan el identificador de aplicación `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+En primer lugar, establezca las variables que usarán los cmdlets de PowerShell en los pasos siguientes. Asegúrese de actualizar los marcadores de posición <YourResourceGroupName>, <YourStorageAccountName> y <YourKeyVaultName> y establezca $keyVaultSpAppId en `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (según se especifica en [Id. de aplicación de la entidad de servicio](#service-principal-application-id) anteriormente).
 
-Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol RBAC integrado [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
-
-Para asignar este rol a la entidad de servicio de Key Vault, que limita el ámbito a la cuenta de almacenamiento, siga estos pasos. Asegúrese de actualizar las variables `$resourceGroupName`, `$storageAccountName`, `$storageAccountKey` y `$keyVaultName` antes de ejecutar el script:
+También usaremos los cmdlets [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) y [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) de Azure PowerShell para obtener su identificador de usuario y el contexto de su cuenta de Azure Storage.
 
 ```azurepowershell-interactive
-# TODO: Update with the resource group where your storage account resides, your storage account name, the name of your active storage account key, and your Key Vault instance name
-$resourceGroupName = "rgContoso"
-$storageAccountName = "sacontoso"
+$resourceGroupName = <YourResourceGroupName>
+$storageAccountName = <YourStorageAccountName>
+$keyVaultName = <YourKeyVaultName>
+$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
 $storageAccountKey = "key1"
-$keyVaultName = "kvContoso"
-$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
-# Get your User Id for later commands
+# Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+```
 
+### <a name="give-key-vault-access-to-your-storage-account"></a>Proporcionar a Key Vault acceso a la cuenta de almacenamiento
+
+Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol RBAC integrado [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+
+Para asignar este rol a la entidad de servicio de Key Vault, que limita el ámbito a la cuenta de almacenamiento, use el cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) de Azure PowerShell.
+
+```azurepowershell-interactive
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
@@ -101,12 +119,9 @@ CanDelegate        : False
 
 Si Key Vault ya se ha agregado al rol en la cuenta de almacenamiento, recibirá un error *"La asignación de roles ya existe."* . También puede comprobar la asignación de roles con la página "Control de acceso (IAM)" de la cuenta de almacenamiento en Azure Portal.  
 
-## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concesión del permiso de cuenta de usuario a las cuentas de almacenamiento administradas
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concesión del permiso de cuenta de usuario a las cuentas de almacenamiento administradas
 
->[!TIP] 
-> Del mismo modo que Azure AD proporciona una **entidad de servicio** para la identidad de una aplicación, se proporciona una **entidad de seguridad de usuario** para la identidad de un usuario. La entidad de seguridad de usuario puede recibir luego autorización de acceso a Key Vault a través de los permisos de la directiva de acceso de Key Vault.
-
-Con la misma sesión de PowerShell, actualice la directiva de acceso de Key Vault para las cuentas de almacenamiento administradas. Este paso aplica los permisos de la cuenta de almacenamiento a su cuenta de usuario, lo que garantiza que tiene acceso a las características de la cuenta de almacenamiento administrada: 
+Use el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.6.0) de Azure PowerShell para actualizar la directiva de acceso de Key Vault y conceder permisos de cuenta de almacenamiento a su cuenta de usuario.
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -116,12 +131,13 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -
 
 Tenga en cuenta que los permisos para las cuentas de almacenamiento no están disponibles en la página "Directivas de acceso" de la cuenta de almacenamiento en Azure Portal.
 
-## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adición de una cuenta de almacenamiento administrada a la instancia de Key Vault
+### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adición de una cuenta de almacenamiento administrada a la instancia de Key Vault
 
-Con la misma sesión de PowerShell, cree una cuenta de almacenamiento administrada en la instancia de Key Vault. El modificador `-DisableAutoRegenerateKey` especifica que no se deben regenerar las claves de la cuenta de almacenamiento.
+Use el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para crear una cuenta de almacenamiento administrada en la instancia de Key Vault. El modificador `-DisableAutoRegenerateKey` especifica que no se deben regenerar las claves de la cuenta de almacenamiento.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
+
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
@@ -143,10 +159,11 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Habilitación de la regeneración de clave
 
-Si quiere que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Después de tres días, Key Vault volverá a generar "key2" y cambiará la clave activa de "key2" a "key1".
+Si desea que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede usar el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Después de tres días, Key Vault volverá a generar "key2" y cambiará la clave activa de "key2" a "key1".
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
+
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
@@ -165,6 +182,85 @@ Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
+
+## <a name="shared-access-signature-tokens"></a>Tokens de firma de acceso compartido
+
+También puede pedir a Key Vault que genere tokens de firma de acceso compartido. Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede conceder a los clientes acceso a los recursos de su cuenta de almacenamiento sin compartir las claves de la cuenta. Una firma de acceso compartido le proporciona una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta.
+
+Los comandos de esta sección completan las acciones siguientes:
+
+- Establecer una definición de firma de acceso compartido de cuenta. 
+- Crear un token de firma de acceso compartido de cuenta para los servicios Blob, File, Table y Queue. El token se crea para los tipos de recurso Servicio, Contenedor y Objeto. El token se crea con todos los permisos, a través de https, y con las fechas de inicio y finalización especificadas.
+- Establecer una definición de firma de acceso compartido de almacenamiento administrado de Key Vault en el almacén. La definición tiene el URI de plantilla del token de firma de acceso compartido que se creó. La definición tiene el tipo de firma de acceso compartido `account` y es válido durante N días.
+- Compruebe que la firma de acceso compartido se haya guardado en el almacén de claves como secreto.
+- 
+### <a name="set-variables"></a>Configuración de variables
+
+En primer lugar, establezca las variables que usarán los cmdlets de PowerShell en los pasos siguientes. Asegúrese de actualizar los marcadores de posición <YourStorageAccountName> y <YourKeyVaultName>.
+
+También usaremos el cmdlet [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) de Azure PowerShell para obtener el contexto de su cuenta de Azure Storage.
+
+```azurepowershell-interactive
+$storageAccountName = <YourStorageAccountName>
+$keyVaultName = <YourKeyVaultName>
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+```
+
+### <a name="create-a-shared-access-signature-token"></a>Creación de un token de firma de acceso compartido
+
+Cree una definición de firma de acceso compartido mediante el cmdlet [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken?view=azps-2.6.0) de Azure PowerShell.
+ 
+```azurepowershell-interactive
+$start = [System.DateTime]::Now.AddDays(-1)
+$end = [System.DateTime]::Now.AddMonths(1)
+
+$sasToken = New-AzStorageAccountSasToken -Service blob,file,Table,Queue -ResourceType Service,Container,Object -Permission "racwdlup" -Protocol HttpsOnly -StartTime $start -ExpiryTime $end -Context $storageContext
+```
+El valor de $sasToken tendrá un aspecto similar al siguiente.
+
+```console
+?sv=2018-11-09&sig=5GWqHFkEOtM7W9alOgoXSCOJO%2B55qJr4J7tHQjCId9S%3D&spr=https&st=2019-09-18T18%3A25%3A00Z&se=2019-10-19T18%3A25%3A00Z&srt=sco&ss=bfqt&sp=racupwdl
+```
+
+### <a name="generate-a-shared-access-signature-definition"></a>Generación de una definición de firma de acceso compartido
+
+Use el cmdlet [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) de Azure PowerShell para crear una definición de firma de acceso compartido.  Puede proporcionar el nombre que elija al parámetro `-Name`.
+
+```azurepowershell-interactive
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
+```
+
+### <a name="verify-the-shared-access-signature-definition"></a>Comprobación de la definición de firma de acceso compartido
+
+Puede comprobar que la definición de la firma de acceso compartido se ha almacenado en el almacén de claves mediante el cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-2.6.0) de Azure PowerShell.
+
+En primer lugar, busque la definición de la firma de acceso compartido en el almacén de claves.
+
+```azurepowershell-interactive
+Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+```
+
+El secreto correspondiente a la definición de SAS tendrá estas propiedades:
+
+```console
+Vault Name   : <YourKeyVaultName>
+Name         : <SecretName>
+...
+Content Type : application/vnd.ms-sastoken-storage
+Tags         :
+```
+
+Ahora puede usar el cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) y la propiedad `Name` del secreto para ver el contenido del secreto.
+
+```azurepowershell-interactive
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+
+Write-Host $secret.SecretValueText
+```
+
+La salida de este comando mostrará la cadena de definición de SAS.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

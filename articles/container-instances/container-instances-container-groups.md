@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68326053"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178582"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -41,9 +41,11 @@ Este grupo de contenedores de ejemplo:
 
 ## <a name="deployment"></a>Implementación
 
-Estas son dos formas habituales de implementar un grupo de varios contenedores: use una [plantilla de Resource Manager][resource-manager template] o un [archivo YAML][yaml-file]. Se recomienda usar una plantilla de Resource Manager cuando se necesite implementar recursos adicionales de un servicio de Azure (por ejemplo, un [recurso compartido de Azure Files][azure-files]) al implementar instancias de contenedor. Dada la naturaleza más concisa del formato YAML, se recomienda usar un archivo YAML cuando la implementación incluya solo instancias de contenedor.
+Estas son dos formas habituales de implementar un grupo de varios contenedores: use una [plantilla de Resource Manager][resource-manager template] o un [archivo YAML][yaml-file]. Se recomienda usar una plantilla de Resource Manager cuando se necesite implementar recursos adicionales de un servicio de Azure (por ejemplo, un [recurso compartido de Azure Files][azure-files]) al implementar instancias de contenedor. Dada la naturaleza más concisa del formato YAML, se recomienda usar un archivo YAML cuando la implementación incluya solo instancias de contenedor. Para más información sobre las propiedades que se pueden establecer, consulte la documentación de [referencia de la plantilla de Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) o de [referencia de YAML](container-instances-reference-yaml.md).
 
 Para conservar la configuración de un grupo de contenedores, puede exportar la configuración a un archivo YAML mediante el comando de la CLI de Azure [az container export][az-container-export]. La exportación permite almacenar las configuraciones de grupos de contenedores en el control de versiones para la "configuración como código". O bien, use el archivo exportado como punto de partida al desarrollar una nueva configuración en YAML.
+
+
 
 ## <a name="resource-allocation"></a>Asignación de recursos
 
