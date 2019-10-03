@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fd4bf602cb5ca409b957e9dbd6f963d88428a63f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103397"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694643"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C
 
@@ -54,23 +54,13 @@ Los recursos de API web tienen que registrarse en el inquilino antes de que pued
 
 Los ámbitos proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, los usuarios de la API web pueden tener ambos accesos de lectura y de escritura, o pueden tener solo acceso de lectura. En este tutorial, utilizará ámbitos para definir los permisos de lectura y escritura para la API web.
 
-1. Seleccione **Aplicaciones** y, a continuación, *webapi1*.
-2. Seleccione **Ámbitos publicados**.
-3. Como **ámbito**, escriba `Hello.Read` y para la descripción, escriba `Read access to hello`.
-4. Como **ámbito**, escriba `Hello.Write` y para la descripción, escriba `Write access to hello`.
-5. Haga clic en **Save**(Guardar).
-
-Los ámbitos publicados se pueden utilizar para conceder a una aplicación cliente permiso para la API web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Concesión de permisos
 
 Para llamar a una API web protegida desde una aplicación, deberá conceder permisos de aplicación a la API. En el tutorial de requisitos previos, ha creado una aplicación web en Azure AD B2C denominada *webapp1*. Puede usar esta aplicación para llamar a la API web.
 
-1. Seleccione **Aplicaciones** y, a continuación, seleccione *webapp1*.
-2. Seleccione **Acceso de API** y, a continuación, seleccione **Agregar**.
-3. En el menú desplegable **Seleccionar API**, seleccione *webapi1*.
-4. En el menú desplegable **Seleccionar ámbitos**, seleccione los ámbitos **Hello.Read** y **Hello.Write** que definió previamente.
-5. Haga clic en **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 La aplicación está registrada para llamar a la API web protegida. Un usuario se autentica con Azure AD B2C para utilizar la aplicación. La aplicación de escritorio obtiene una concesión de autorización de Azure AD B2C para acceder a la API web protegida.
 
@@ -79,8 +69,6 @@ La aplicación está registrada para llamar a la API web protegida. Un usuario s
 Ahora que se ha registrado la API web y tiene ámbitos definidos, debe configurar la API web para usar el inquilino de Azure AD B2C. En este tutorial, configurará una API web de ejemplo. La API web de ejemplo se incluye en el proyecto que descargó en el tutorial indicado en los requisitos previos.
 
 Hay dos proyectos en la solución de ejemplo:
-
-Los dos proyectos siguientes están en la solución de ejemplo:
 
 * **TaskWebApp**: para crear y editar una lista de tareas. El ejemplo utiliza el flujo de usuario de **registro o de inicio de sesión** para que los usuarios se registren o inicien sesión.
 * **TaskService**: admite la funcionalidad para crear, leer, actualizar y eliminar la lista de tareas. Azure AD B2C protege la API y TaskWebApp la llama.
@@ -99,8 +87,8 @@ Los dos proyectos siguientes están en la solución de ejemplo:
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### <a name="configure-the-web-api"></a>Configuración de la API web
@@ -128,8 +116,8 @@ Los dos proyectos siguientes están en la solución de ejemplo:
 1. Configure los ámbitos para que coincidan con lo que ha creado en el portal.
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo

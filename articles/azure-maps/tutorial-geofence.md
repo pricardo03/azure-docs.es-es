@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934188"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694925"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
 
@@ -148,10 +148,24 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla del sitio
    }
    ```
 
-5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. El encabezado de ubicación contiene el identificador URI para acceder o descargar los datos para su uso futuro. También contiene un `udId` único para los datos cargados.
+5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado **Location** (Ubicación) contendrá el identificador URI de estado para comprobar el estado actual de la solicitud de carga. El identificador URI de estado tendrá el siguiente formato. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copie el identificador URI de estado y anéxele un parámetro `subscription-key`, cuyo valor es la clave de suscripción de la cuenta de Azure Maps. El formato del identificador URI de estado debe ser como el siguiente:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Para obtener `udId`, abra una pestaña nueva en la aplicación Postman, seleccione el método GET HTTP en la pestaña del generador y realice una solicitud GET en el identificador URI de estado. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de la respuesta. Copie el UDID para su uso posterior.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configuración de un controlador de eventos
