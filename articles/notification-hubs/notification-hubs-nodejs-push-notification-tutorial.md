@@ -4,9 +4,9 @@ description: Aprenda a usar Notification Hubs para enviar notificaciones de inse
 keywords: notificación push,notificaciones push,inserción de node.js,inserción de ios
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706225"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213193"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 
@@ -46,7 +48,7 @@ Azure Notification Hubs proporciona una infraestructura multiplataforma escalabl
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 
-El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si quiere instrucciones sobre cómo crear una aplicación Node.js, vea [Creación de una aplicación web de Node.js en Azure][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service] mediante Windows PowerShell o [Sitio web con WebMatrix][webmatrix].
+El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web de Node.js en Azure][nodejswebsite], [Servicio en la nube de Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configuración de la aplicación para usar Notification Hubs
 

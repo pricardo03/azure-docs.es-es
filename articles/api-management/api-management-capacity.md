@@ -11,18 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836963"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299459"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
 La **capacidad** la [métrica de Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) más importante para tomar decisiones informadas acerca de si se debe escalar una instancia de API Management para acomodar más carga. Su construcción es compleja e impone un comportamiento concreto.
 
 En este artículo se explica lo que es la **capacidad** y su comportamiento. Muestra cómo acceder a la métrica de **capacidad** en Azure Portal y sugiere cuándo hay que considerar la posibilidad de escalar o actualizar una instancia de API Management.
+
+> [!IMPORTANT]
+> En este artículo se describe cómo puede supervisar y escalar su instancia de Azure API Management en función de su métrica de capacidad. Sin embargo, es igualmente importante comprender lo que ocurre cuando una instancia individual de API Management ha *alcanzado* realmente su capacidad. Azure API Management no aplicará ninguna limitación de nivel de servicio para evitar una sobrecarga física de las instancias. Cuando una instancia alcanza su capacidad física, se comporta de forma similar a cualquier servidor web sobrecargado que no puede procesar las solicitudes entrantes: la latencia aumentará, se eliminarán las conexiones, se producirán errores de tiempo de espera, etc. Es decir, los clientes de API deben estar preparados para hacer frente a esta posibilidad de manera similar a como ocurre con cualquier otro servicio externo (por ejemplo, mediante la aplicación de directivas de reintento).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,7 +46,8 @@ Para seguir los pasos de este artículo, debe tener:
 
 La **capacidad** es un indicador de la carga de una instancia de API Management. Refleja el uso de los recursos (CPU y memoria) y las longitudes de cola de la red. El uso de la CPU y la memoria revela el consumo de recursos por parte de:
 
-+ Los servicios de API Management, como las acciones de administración o el procesamiento de solicitudes, lo que puede incluir el reenvío de solicitudes o la ejecución de una directiva
++ Los servicios de plano de datos de API Management, como el procesamiento de solicitudes, lo que puede incluir el reenvío de solicitudes o la ejecución de una directiva.
++ Los servicios de plano de datos de API Management, como las acciones de administración aplicadas a través de Azure Portal o ARM, o la carga procedente del [portal para desarrolladores](api-management-howto-developer-portal.md).
 + Procesos seleccionados del sistema operativo, entre los que se incluyen los procesos que implican el costo de los protocolos de enlace de SSL en las nuevas conexiones.
 
 La **capacidad** total es un promedio de sus propios valores de cada unidad de una instancia de API Management.
@@ -73,7 +78,7 @@ Una **métrica de capacidad** baja no implica necesariamente que la instancia de
 ![Métrica de capacidad](./media/api-management-capacity/capacity-metric.png)  
 
 1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Métrica (vista previa)** .
+2. Seleccione **Métricas**.
 3. En la sección púrpura, seleccione la métrica **Capacidad** y deje la agregación **Avg** predeterminada.
 
     > [!TIP]

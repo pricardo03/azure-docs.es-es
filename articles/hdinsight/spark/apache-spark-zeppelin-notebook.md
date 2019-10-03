@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813974"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180738"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
 
@@ -23,7 +23,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
-* El esquema de URI para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Blob Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Blob Storage o Data Lake Storage Gen2, el URI sería `wasbs://` o `abfss://`, respectivamente.  Consulte también, [Solicitar la transferencia segura en Azure Storage](../../storage/common/storage-require-secure-transfer.md) para obtener más información.
+* El esquema de URI para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Blob Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Blob Storage, el identificador URI sería `wasbs://`.  Consulte también, [Solicitar la transferencia segura en Azure Storage](../../storage/common/storage-require-secure-transfer.md) para obtener más información.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Inicio de un cuaderno de Apache Zeppelin
 
@@ -118,7 +118,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
 10. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.  Seleccione **Aceptar** cuando se le solicite.
 
-    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
+    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppelin")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Uso de paquetes externos con el cuaderno
 Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight si quiere usar paquetes externos que haya aportado la comunidad y que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](https://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](https://spark-packages.org/)(Paquetes Spark).
@@ -169,7 +169,7 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 
 2. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.
 
-    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
+    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppelin")
 
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 

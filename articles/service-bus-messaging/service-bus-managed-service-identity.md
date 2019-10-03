@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 139ebe02727bab8cc80f6f0c6bbbd2156f025c21
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 86721907352f19cc7ed69fba1f1a021dcf1ed1b7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70992304"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299640"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -31,7 +31,7 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
  1. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. El nombre del recurso para solicitar un token es `https://servicebus.azure.net`.
  1. Luego, el token se pasa como parte de una solicitud al servicio Service Bus para autorizar el acceso al recurso especificado.
 
-El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. Para más información sobre cómo autenticar solicitudes realizadas por una identidad administrada al servicio Service Bus, consulte [Identidades administradas para recursos de Azure con Service Bus](service-bus-managed-service-identity.md). 
+El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. 
 
 El paso de autorización exige que se asignen uno o varios roles RBAC a la entidad de seguridad. Azure Service Bus proporciona roles RBAC que abarcan conjuntos de permisos para recursos de Service Bus. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de RBAC a Azure Service Bus, consulte [Roles RBAC integrados para Azure Service Bus](#built-in-rbac-roles-for-azure-service-bus). 
 
@@ -55,7 +55,14 @@ Antes de asignar un rol RBAC a una entidad de seguridad, determine el ámbito de
 
 En la lista siguiente se describen los niveles en los que puede definir el ámbito de acceso a recursos Service Bus, empezando por el ámbito más restringido:
 
-- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles RBAC de Service Bus en el nivel de suscripción. 
+- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles RBAC de Service Bus en el nivel de suscripción. Este es un ejemplo del uso del comando de la CLI de Azure [az-role-assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para asignar una identidad a un rol RBAC de Service Bus: 
+
+    ```azurecli
+    az role assignment create \
+        --role $service_bus_role \
+        --assignee $assignee_id \
+        --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
+    ```
 - **Espacio de nombres de Service Bus**: la asignación de roles abarca toda la topología de Service Bus en el espacio de nombres y el grupo de consumidores que tiene asociado.
 - **Grupo de recursos**: la asignación de roles se aplica a todos los recursos de Service Bus del grupo de recursos.
 - **Suscripción**: la asignación de roles se aplica a todos los recursos de Service Bus de todos los grupos de recursos de la suscripción.

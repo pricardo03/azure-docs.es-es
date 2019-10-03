@@ -10,17 +10,17 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531831"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300963"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Creación de programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza Azure Scheduler, que se va a retirar. Para programar trabajos, [pruebe Azure Logic Apps en su lugar](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
 
 En un trabajo de [Azure Scheduler](../scheduler/scheduler-intro.md), la programación es el núcleo que determina cuándo y cómo el servicio Scheduler ejecuta el trabajo. Con Scheduler puede configurar varias programaciones únicas o periódicas para un trabajo. Las programaciones únicas se ejecutan solo una vez en un momento determinado; básicamente son programaciones periódicas que se ejecutan solo una vez. Las programaciones periódicas se ejecutan con una frecuencia determinada. Gracias a esta flexibilidad, puede usar Scheduler en varios escenarios empresariales, como:
 

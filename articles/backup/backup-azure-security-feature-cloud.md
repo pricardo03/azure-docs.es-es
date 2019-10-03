@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018183"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129336"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
@@ -122,9 +122,9 @@ La recuperación seguida de la operación de reanudación volverá a proteger el
 
 No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Solo podrá eliminar el almacén después de que se hayan purgado todos los elementos eliminados temporalmente.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Cómo puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
 
-No existe ninguna manera de purgar los datos antes de los 14 días posteriores a la eliminación. Si esto supone un problema de cumplimiento o un impedimento, póngase en contacto con el soporte técnico de Microsoft.
+No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si necesita volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con el servicio de soporte técnico de Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>¿Se pueden realizar operaciones de eliminación temporal en PowerShell o la CLI?
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443907"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203592"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database para MySQL
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -46,7 +46,7 @@ Para permitir que las aplicaciones de Azure se conecten al servidor Azure Databa
 ## <a name="programmatically-managing-firewall-rules"></a>Administración mediante programación de reglas de firewall
 Además de Azure Portal, las reglas de firewall se pueden administrar mediante programación con la CLI de Azure. Consulte también la información sobre la [creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md).
 
-## <a name="troubleshooting-the-database-firewall"></a>Solución de problemas del firewall de la base de datos
+## <a name="troubleshooting-firewall-issues"></a>Solución de problemas de firewall
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor de Microsoft Azure Database for MySQL no se comporte de la manera prevista:
 
 * **Los cambios en la lista de permitidos aún no se han aplicado:** puede que se produzca un retraso de hasta cinco minutos hasta que se apliquen los cambios de configuración del firewall del servidor de Azure Database for MySQL.
@@ -55,9 +55,11 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 * **Dirección IP dinámica:** si tiene una conexión a Internet con direccionamiento IP dinámico y tiene problemas con el firewall, puede probar una de las soluciones siguientes:
 
-* Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for MySQL y agréguelo como regla de firewall.
+   * Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for MySQL y agréguelo como regla de firewall.
 
-* Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
+   * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
+
+* **La dirección IP del servidor parece ser pública:** Las conexiones con el servidor de Azure Database for MySQL se enrutan mediante una puerta de enlace de Azure de acceso público. Sin embargo, la dirección IP real del servidor está protegida por el firewall. Para más información, consulte el [artículo de arquitectura de conectividad](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309013"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259955"
 ---
 # <a name="marketplace-faqs"></a>Preguntas más frecuentes de Marketplace
 
@@ -244,6 +244,14 @@ Póngase en contacto con el proveedor del anunciante para todo el soporte técni
 Las compras realizadas en [Azure Marketplace](https://azuremarketplace.microsoft.com/) no se pueden devolver, pero sí se pueden cancelar o eliminar. Las ofertas basadas en el consumo se facturan según el uso, así que cuando este se detiene, también se detienen los cargos. Las suscripciones se cancelan y no se cobrarán pasado el período de facturación actual. Si se cancela una suscripción poco después de la compra (24 horas si es mensual y 14 días si es anual), se proporciona un reembolso completo.
 
 Los clientes deben ponerse en contacto directamente con el anunciante en el caso de problemas técnicos relacionados con su servicio o compra en Marketplace. Puede encontrar información de contacto del anunciante o un vínculo al sitio web de soporte técnico en la página de detalles de la solución en Azure Marketplace.
+
+**¿Cómo se controla la incorporación de licencias al incrementarse la mitad del período?**
+
+Las licencias agregadas a una suscripción existente están prorrateadas para el recordatorio de la duración de la suscripción.
+
+**¿Cómo se controla la retirada de licencias a medio plazo?**
+
+Las licencias que se cancelen estarán sujetas a la directiva de reembolso encontrada en esta sección de preguntas frecuentes.  Todas las licencias que se cancelen se retirarán inmediatamente de su cuenta y dejarán de estar disponibles para su uso.
 
 ## <a name="faq-for-publishers"></a>Preguntas frecuentes para anunciantes
 

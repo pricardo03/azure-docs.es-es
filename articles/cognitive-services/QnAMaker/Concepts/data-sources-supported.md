@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615978"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130113"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -202,6 +202,15 @@ Nueva línea entre dos oraciones.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Listas anidadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Puede anidar listas ordenadas y sin ordenar juntas. La pestaña, `\t`, indica el nivel de sangría del elemento secundario.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato de la lista sin ordenar anidada](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato de la lista ordenada anidada](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker no procesa la imagen de ninguna manera. Es el rol de la aplicación cliente para representar la imagen. 
+
+Si quiere agregar contenido mediante las API de base de conocimiento de actualización y sustitución y el contenido o el archivo incluyen etiquetas HTML, puede conservar el código HTML en el archivo si se asegura de que la apertura y el cierre de las etiquetas se convierten en el formato codificado.
+
+| Conservar HTML  | Representación en la solicitud de API  | Representación en la base de conocimiento |
+|-----------|---------|-------------------------|
+| Sí | \&lt;br\&gt; | &lt;br&gt; |
+| Sí | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+Además, CR LF(\r\n) se convierte en \n en la base de conocimiento. LF(\n) se queda como está. Si quiere escapar cualquier secuencia de escape, como \t o \n, puede usar una barra diagonal inversa, por ejemplo: "\\\\r\\\\n" y "\\\\t".
 
 ## <a name="editing-your-knowledge-base-locally"></a>Edición de la base de conocimiento localmente
 

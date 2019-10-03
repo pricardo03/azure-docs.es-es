@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515422"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299668"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -95,6 +95,9 @@ Debe haber una subred delegada en Azure NetApp Files.
 
     * **Ruta de acceso de unidad organizativa**  
         Se trata de la ruta de acceso LDAP para la unidad organizativa (UO) donde se crearán las cuentas de máquina del servidor SMB. Es decir, UO=segundo nivel, UO=primer nivel. 
+
+        Si usa Azure NetApp Files con Azure Active Directory Domain Services, la ruta de acceso de la unidad organizativa es `OU=AADDC Computers` cuando configura Active Directory para su cuenta de NetApp.
+        
     * Las credenciales, incluidos el **nombre de usuario** y la **contraseña**
 
     ![Unir Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
@@ -118,7 +121,9 @@ Debe haber una subred delegada en Azure NetApp Files.
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 
-        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.
+        Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.   
+
+        No se puede usar `default` como nombre del volumen.
 
     * **Grupo de capacidad**  
         Especifique el grupo de capacidad en el que desee que el volumen se cree.

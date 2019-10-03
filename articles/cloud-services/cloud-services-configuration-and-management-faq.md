@@ -4,7 +4,7 @@ description: En este artículo se enumeran las preguntas frecuentes sobre la con
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945465"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154716"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -207,7 +207,7 @@ Estos pasos se pueden automatizar mediante una tarea de inicio para que, cada ve
 Una vez hecho esto, puede verificar si se ha habilitado HTTP/2 o no mediante alguno de los métodos siguientes:
 
 - Habilite la versión del protocolo en los registros de IIS y busque en dichos registros. Mostrará HTTP/2 en los registros. 
-- Habilite la herramienta de desarrollo F12 en Internet Explorer/Microsoft Edge y cambie a la pestaña Red para comprobar el protocolo. 
+- Habilite la herramienta de desarrollo F12 en Internet Explorer o Microsoft Edge y cambie a la pestaña Red para comprobar el protocolo. 
 
 Para más información, vea [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 en IIS).
 

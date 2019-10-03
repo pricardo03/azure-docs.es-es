@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098400"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130166"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -164,6 +164,13 @@ Hay dos formas de eliminar los datos de copia de seguridad de una máquina virtu
 
   > [!NOTE]
   > Si elimina los datos de copia de seguridad, se eliminarán todos los puntos de recuperación asociados. No puede elegir puntos de recuperación específicos para su eliminación.
+
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Elemento de copia de seguridad en el que ya no existe el origen de datos principal
+
+- Si las máquinas virtuales de Azure configuradas para Azure Backup se eliminan o se mueven sin detener la protección, los trabajos de copia de seguridad programados y a petición (ad hoc) producirán el error UserErrorVmNotFoundV2. La comprobación previa de la copia de seguridad aparecerá como crítica solo para los trabajos de copia de seguridad ad hoc con error (no se muestran los trabajos programados con error). 
+- Estos elementos de copia de seguridad permanecen activos en el sistema que se adhiere a la directiva de copia de seguridad y retención establecida por el usuario. Los datos de copia de seguridad de estas máquinas virtuales de Azure se conservarán según la directiva de retención. Los puntos de recuperación expirados (excepto el último punto de recuperación) se limpian según el intervalo de retención establecido en la directiva de copia de seguridad.
+- Si los datos o elementos de copia de seguridad de los recursos de eliminación ya no son necesarios, ya que el último punto de recuperación se mantiene indefinidamente y al usuario se le cobra según los precios de copia de seguridad aplicables, se recomienda a los usuarios eliminar los elementos de copia de seguridad en los que ya no exista el origen de datos principal para evitar costos adicionales.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre cómo [crear la copia de seguridad de máquinas virtuales de Azure desde la configuración de la máquina virtual](backup-azure-vms-first-look-arm.md).

@@ -1,31 +1,24 @@
 ---
-title: Guía de solución de problemas de Azure DNS | Microsoft Docs
+title: Guía de solución de problemas de Azure DNS
 description: Cómo solucionar problemas comunes con DNS de Azure
 services: dns
-documentationcenter: na
-author: genlin
-manager: cshepard
-editor: ''
-ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
+author: vhorne
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/20/2017
+ms.date: 09/20/2019
 ms.author: genli
-ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885d41c9cea11805b08b19ec9c3cc4e533813673
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823902"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162064"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guía de solución de problemas de Azure DNS
 
-Esta página proporciona información para solucionar problemas para preguntas que se plantean con frecuencia sobre Azure DNS.
+En este artículo se proporciona información para solucionar problemas para preguntas que se plantean con frecuencia sobre Azure DNS.
 
-Si estos pasos no resuelven el problema, también puede buscar o publicar su problema en nuestro [foro de soporte técnico de la comunidad en MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Como alternativa, abra una solicitud de soporte técnico de Azure.
+Si estos pasos no resuelven el problema, también puede buscar o publicar su problema en nuestro [foro de soporte técnico de la comunidad en MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). O bien, puede abrir una solicitud de soporte técnico de Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>No puedo crear una zona DNS
@@ -35,14 +28,13 @@ Para resolver problemas habituales, pruebe uno o varios de los pasos siguientes:
 1.  Revise los registros de auditoría de Azure DNS para determinar el motivo del error.
 2.  Cada nombre de zona DNS debe ser único dentro de su grupo de recursos. Es decir, dos zonas DNS con el mismo nombre no pueden compartir un grupo de recursos. Intente usar otro nombre de zona u otro grupo de recursos.
 3.  Es posible que vea el mensaje "Se alcanzó o superó el número máximo de zonas en la suscripción {ID de la suscripción}". Use otra suscripción de Azure, elimine algunas zonas o póngase en contacto con el soporte técnico de Azure para aumentar el límite de su suscripción.
-4.  Es posible que vea el mensaje "La zona '{nombre de la zona}' no está disponible". Este error significa que Azure DNS no pudo asignar servidores de nombres para esta zona DNS. Pruebe a usar otro nombre de zona. O bien, si es el propietario del nombre de dominio, póngase en contacto con el soporte técnico de Azure, que puede asignarle servidores de nombres.
+4.  Es posible que vea el mensaje "La zona '{nombre de la zona}' no está disponible". Este error significa que Azure DNS no pudo asignar servidores de nombres para esta zona DNS. Pruebe a usar otro nombre de zona. O bien, si es el propietario del nombre de dominio, puede ponerse en contacto con el soporte técnico de Azure para que le asignen servidores de nombres.
 
 
-### <a name="recommended-documents"></a>**Documentos recomendados**
+### <a name="recommended-articles"></a>Artículos recomendados
 
-[Registros y zonas DNS](dns-zones-records.md)
-<br>
-[Creación de una zona DNS](dns-getstarted-create-dnszone-portal.md)
+* [Registros y zonas DNS](dns-zones-records.md)
+* [Creación de una zona DNS](dns-getstarted-create-dnszone-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>No puedo crear un registro de DNS
 
@@ -55,11 +47,10 @@ Para resolver problemas habituales, pruebe uno o varios de los pasos siguientes:
 5.  ¿Ha alcanzado el límite en el número de conjuntos de registros permitido en una zona DNS? En Azure Portal se muestra el número actual y el número máximo de conjuntos de registros, en las propiedades de la zona. Si ha alcanzado este límite, elimine algunos conjuntos de registros o póngase en contacto con el soporte técnico de Azure para aumentar el límite de conjuntos de registros para esta zona y vuelva a intentarlo. 
 
 
-### <a name="recommended-documents"></a>**Documentos recomendados**
+### <a name="recommended-articles"></a>Artículos recomendados
 
-[Registros y zonas DNS](dns-zones-records.md)
-<br>
-[Creación de una zona DNS](dns-getstarted-create-dnszone-portal.md)
+* [Registros y zonas DNS](dns-zones-records.md)
+* [Creación de una zona DNS](dns-getstarted-create-dnszone-portal.md)
 
 
 
@@ -76,9 +67,9 @@ La resolución de nombres de DNS es un proceso de varios pasos que puede generar
 4.  Una vez completado lo anterior, el registro de DNS ahora debe resolverse correctamente. Para comprobarlo, puede volver a usar [digwebinterface](https://digwebinterface.com), pero esta vez con la configuración predeterminada del servidor de nombres.
 
 
-### <a name="recommended-documents"></a>**Documentos recomendados**
+### <a name="recommended-articles"></a>Artículos recomendados
 
-[Delegación de un dominio en DNS de Azure](dns-domain-delegation.md)
+* [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md)
 
 
 
@@ -91,13 +82,11 @@ Ejemplo de nombres de registros SRV (nombre de servicio "sip", protocolo "tcp"):
 - \_sip.\_tcp (crea un conjunto de registros en el vértice de la zona)
 - \_sip.\_tcp.sipservice (crea un conjunto de registros con el nombre "sipservice")
 
-### <a name="recommended-documents"></a>**Documentos recomendados**
+### <a name="recommended-articles"></a>Artículos recomendados
 
-[Registros y zonas DNS](dns-zones-records.md)
-<br>
-[Creación de registros y conjuntos de registros de DNS mediante Azure Portal](dns-getstarted-create-recordset-portal.md)
-<br>
-[Tipo de registro SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+* [Registros y zonas DNS](dns-zones-records.md)
+* [Creación de registros y conjuntos de registros de DNS mediante Azure Portal](dns-getstarted-create-recordset-portal.md)
+* [Tipo de registro SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

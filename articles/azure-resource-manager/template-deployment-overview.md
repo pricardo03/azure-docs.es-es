@@ -4,14 +4,14 @@ description: Describe cómo usar las plantillas de Azure Resource Manager para l
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965309"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300150"
 ---
 # <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
@@ -47,9 +47,11 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
 * **Planos técnicos de implementación**: Puede aprovechar las ventajas de los [Planos técnicos](../governance/blueprints/overview.md) proporcionados por Microsoft para cumplir los estándares de cumplimiento normativo. Estos planos técnicos incluyen plantillas precompiladas para distintas arquitecturas.
 
+* **Integración de CI/CD**: Puede integrar plantillas en sus herramientas de integración e implementación continuas (CI/CD), que pueden automatizar las canalizaciones de versión para llevar a cabo actualizaciones de infraestructura y aplicaciones rápidas y confiables. Mediante la tarea de plantilla de Resource Manager y Azure DevOps puede usar Azure Pipelines para compilar e implementar proyectos de plantillas de Azure Resource Manager de manera continua. Para obtener más información, consulte [Proyecto de VS con canalizaciones](./vs-resource-groups-project-devops-pipelines.md) e [Integración continua con Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+
 * **Código exportable**: Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](export-template-portal.md).
 
-* **Herramientas de creación**: Puede crear plantillas con [Visual Studio Code](resource-manager-tools-vs-code.md) y la extensión de la herramienta de plantillas. Podrá utilizar IntelliSense, el resaltado de sintaxis, la ayuda en línea y muchas otras funciones de lenguaje.
+* **Herramientas de creación**: Puede crear plantillas con [Visual Studio Code](resource-manager-tools-vs-code.md) y la extensión de la herramienta de plantillas. Podrá utilizar IntelliSense, el resaltado de sintaxis, la ayuda en línea y muchas otras funciones de lenguaje. Además de Visual Studio Code, también puede usar [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="template-file"></a>Archivo de plantilla
 
@@ -124,7 +126,4 @@ Para más información acerca de las plantillas anidadas, consulte [Uso de plant
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre las propiedades en los archivos de plantilla, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para establecer explícitamente las dependencias de modo que un recurso se implemente antes que otro, consulte [Definición de dependencias en las plantillas de Azure Resource Manager](resource-group-define-dependencies.md).
-* Puede agregar un recurso a la plantilla y, opcionalmente, implementarlo. Para obtener más información, consulte [Implementación condicional con plantillas de Resource Manager](conditional-resource-deployment.md).
-* En lugar de repetir bloques de código JSON varias veces en la plantilla, puede especificar más de una instancia de una variable, propiedad o recurso. Para obtener más información, consulte [Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager](resource-group-create-multiple.md).
 * Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md).

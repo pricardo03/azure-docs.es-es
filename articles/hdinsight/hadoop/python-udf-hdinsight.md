@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 49fd69c124ff9053f3934aefd349e039b437df0d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354963"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180749"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
@@ -29,7 +29,7 @@ HDInsight incluye también Jython, que es una implementación de Python escrita 
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería wasb:// para Azure Storage, abfs:// para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el URI sería wasbs:// o abfss:// respectivamente. Vea también [Transferencia segura](../../storage/common/storage-require-secure-transfer.md).
+* El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería wasbs://.  Consulte también el artículo acerca de la [transferencia segura](../../storage/common/storage-require-secure-transfer.md).
 * **Posible cambio en la configuración de almacenamiento.**  Vea [Configuración de almacenamiento](#storage-configuration) si usa el tipo de cuenta de almacenamiento `BlobStorage`.
 * Opcional.  Si tiene previsto usar PowerShell, necesitará tener instalado el [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 

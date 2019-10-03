@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967850"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155498"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -42,7 +42,7 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de Java 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
 Asegúrese de que ha instalado [Azure SDK para Java][Azure SDK for Java] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][Azure Toolkit for Eclipse], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
 
-![Captura de pantalla de la pestaña Bibliotecas, donde puede agregar bibliotecas](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Incorporación de bibliotecas de Microsoft Azure para Java al proyecto de Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Agregue las siguientes instrucciones `import` al principio del archivo Java:
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102298"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129965"
 ---
-# <a name="configure-recognize-text-docker-containers"></a>Configuración de contenedores de Docker de Reconocer texto
+# <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
 
-El entorno en tiempo de ejecución del contenedor de **Reconocer texto** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
+El entorno de ejecución del contenedor de Computer Vision se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
 ## <a name="configuration-settings"></a>Valores de configuración
 
@@ -65,7 +65,7 @@ No olvide agregar la ruta `vision/v1.0` al URI de punto de conexión, tal como s
 
 ## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Opción de configuración Logging
  
@@ -84,37 +84,37 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 |No permitida| `Input` | Cadena | Los contenedores de Computer Vision no usan esto.|
 |Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
+## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run
 
 Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](computer-vision-how-to-install-containers.md#stop-the-container).
 
 * **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
 * **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
-No olvide agregar la ruta `vision/v1.0` al URI de punto de conexión, tal como se muestra en la tabla siguiente. 
-
 Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-| **{CLAVE_API}** | La clave del punto de conexión del recurso `Computer Vision` en la página Claves de Azure `Computer Vision`. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{CLAVE_API}** | La clave del punto de conexión del recurso `Computer Vision` en la página Claves de `Computer Vision` de Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Computer Vision`.| Consulte el apartado de [recopilación de los parámetros necesarios](computer-vision-how-to-install-containers.md#gathering-required-parameters) para ejemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](computer-vision-how-to-install-containers.md#billing).
-> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Cognitive Services`. 
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Cognitive Services`.
 
-## <a name="recognize-text-container-docker-examples"></a>Ejemplos de Docker del contenedor de Reconocer texto
+## <a name="container-docker-examples"></a>Ejemplos de contenedor de Docker
 
-En los siguientes ejemplos de Docker encontrará el contenedor de Reconocer texto. 
+#### <a name="readtabread"></a>[Lectura](#tab/read)
 
-### <a name="basic-example"></a>Ejemplo básico 
+Los siguientes ejemplos de Docker son del contenedor Lectura.
+
+### <a name="basic-example"></a>Ejemplo básico
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -123,7 +123,32 @@ En los siguientes ejemplos de Docker encontrará el contenedor de Reconocer text
 ### <a name="logging-example"></a>Ejemplo de registro 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
+  Logging:Console:LogLevel:Default=Information
+  ```
+
+#### <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
+
+Los siguientes ejemplos de Docker son del contenedor Reconocer texto.
+
+### <a name="basic-example"></a>Ejemplo básico
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
+  ```
+
+### <a name="logging-example"></a>Ejemplo de registro
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
   Billing={ENDPOINT_URI} \
@@ -131,6 +156,8 @@ En los siguientes ejemplos de Docker encontrará el contenedor de Reconocer text
   Logging:Console:LogLevel:Default=Information
   ```
 
+***
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Instalación y ejecución de contenedores](computer-vision-how-to-install-containers.md)
+* Consulte [Instalación y ejecución de contenedores](computer-vision-how-to-install-containers.md).

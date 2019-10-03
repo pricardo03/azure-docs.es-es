@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 2f5029ccbf80551721ecc363aa4c3930961d9154
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993068"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122773"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante la CLI de Azure y API REST
 
@@ -44,7 +44,12 @@ El comando `az mariadb server replica create` requiere los siguientes parámetro
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 | source-server | mydemoserver | Nombre o identificador del servidor principal existente desde el que replicar. |
 
-Para crear una réplica de lectura entre regiones, use el parámetro `--location`. El siguiente ejemplo de la CLI crea la réplica en Oeste de EE. UU.
+Para crear una réplica de lectura entre regiones, use el parámetro `--location`. 
+
+> [!NOTE]
+> La replicación entre regiones está en versión preliminar.
+
+El siguiente ejemplo de la CLI crea la réplica en Oeste de EE. UU.
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus

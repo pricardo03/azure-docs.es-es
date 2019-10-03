@@ -1,18 +1,18 @@
 ---
 title: Método Bring Your Own Key para Apache Kafka en Azure HDInsight
 description: En este artículo se describe el método para que use su propia clave desde Azure Key Vault para cifrar los datos almacenados en Apache Kafka en Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000101"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122682"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Método Bring Your Own Key para Apache Kafka en Azure HDInsight
 
@@ -22,7 +22,7 @@ Todos los discos administrados en HDInsight están protegidos con Azure Storage 
 
 El cifrado de BYOK es un proceso de un paso controlado durante la creación del clúster sin ningún costo adicional. Solo necesita registrar HDInsight como una identidad administrada con Azure Key Vault y agregar la clave de cifrado al crear el clúster.
 
-Todos los mensajes en el clúster de Kafka (incluidas las réplicas mantenidas por Kafka) se cifran con una clave de cifrado de datos (DEK) simétrica. La DEK está protegida mediante la clave de cifrado de claves (KEK) del almacén de claves. Azure HDInsight controla completamente los procesos de cifrado y descifrado. 
+Todos los mensajes en el clúster de Kafka (incluidas las réplicas mantenidas por Kafka) se cifran con una clave de cifrado de datos (DEK) simétrica. La DEK está protegida mediante la clave de cifrado de claves (KEK) del almacén de claves. Azure HDInsight controla completamente los procesos de cifrado y descifrado.
 
 Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se rota una clave, el clúster de HDInsight Kafka comienza a usar la clave nueva en cuestión de minutos. Habilite la característica de protección de claves "Eliminación temporal" para protegerse frente a los escenarios de ransomware y la eliminación accidental. No se admiten almacenes de claves sin esta característica de protección.
 
@@ -46,6 +46,7 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
    1. Para crear un nuevo almacén de claves, siga la guía de inicio rápido de [Azure Key Vault](../../key-vault/key-vault-overview.md). Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
    2. Habilite la característica "Eliminación temporal" en el almacén de claves mediante el comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) de la CLI.
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -58,16 +59,16 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 
         b. Establezca **Opciones** en **Generar** y asigne un nombre a la clave.
 
-        ![Generar el nombre de la clave](./media/apache-kafka-byok/apache-kafka-create-key.png "Generate key name")
+        ![Apache Kafka: generación del nombre de la clave](./media/apache-kafka-byok/apache-kafka-create-key.png "Generar el nombre de la clave")
 
         c. Seleccione la clave que creó en la lista de claves.
 
-        ![Lista de claves de Azure Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Apache Kafka: lista de claves del almacén de claves](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. Cuando usa su propia clave de cifrado del clúster de Kafka, tiene que proporcionar la URI de la clave. Copie el **identificador de clave** y guárdelo en algún lugar hasta que vaya a crear el clúster.
 
-        ![Copiar el identificador de clave](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Apache Kafka: obtener el identificador de la clave](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. Agregue identidades administradas a la directiva de acceso del almacén de claves.
 
         a. Cree una directiva de acceso de Azure Key Vault.
@@ -99,6 +100,7 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
    Durante la creación del clúster, proporcione la dirección URL completa de la clave, de forma que incluya también la versión de la clave. Por ejemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. También deberá asignar la identidad administrada al clúster y proporcionar el URI de la clave.
 
 ## <a name="rotating-the-encryption-key"></a>Rotación de la clave de cifrado
+
    Puede haber escenarios en los que quiera cambiar las claves de cifrado que se usan en el clúster de Kafka una vez creado. Esta tarea se puede realizar fácilmente en el portal. En esta operación, el clúster debe tener acceso a la clave actual y a la clave nueva deseada; si no, se producirá un error en la operación de rotación de la clave.
 
    Para rotar la clave, debe tener la dirección URL completa de la nueva clave (vea el paso 3 de [Configuración de Key Vault y las claves](#setup-the-key-vault-and-keys)). Cuando lo tenga, vaya a la sección de propiedades del clúster de Kafka en el portal y haga clic en **Cambiar clave** en **Disk Encryption Key URL** (URL de clave de cifrado de disco). Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
@@ -122,7 +124,7 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 **¿Qué ocurre si el clúster pierde el acceso al almacén de claves o a la clave?**
 Si el clúster pierde acceso a la clave, se mostrarán advertencias en el portal de Apache Ambari. En este estado, la operación **Cambiar clave** dará error. Cuando se restaura el acceso a la clave, las advertencias de Ambari desaparecen y operaciones como la rotación de claves se pueden realizar correctamente.
 
-   ![Alerta de Ambari de acceso a la clave de Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Apache Kafka: alerta de Ambari de acceso a la clave](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **¿Cómo puedo recuperar el clúster si se eliminan las claves?**
 

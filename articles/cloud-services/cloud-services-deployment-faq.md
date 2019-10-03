@@ -4,7 +4,7 @@ description: En este artículo se enumeran las preguntas frecuentes sobre la imp
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fff70cc0c80d26d5454e54e43a6ef6c0b39b5cac
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 2ffa6d7b1cf0550c97a60614f3f00ddc4b955218
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941726"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154798"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -45,7 +45,7 @@ Una nueva implementación en un servicio en la nube vacío se puede asignar medi
 Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>¿Por qué cambiar el tamaño de máquina virtual o agregar una nueva a un servicio en la nube existente produce a veces un error de asignación?
-Los clústeres de un centro de datos pueden tener configuraciones de tipos de máquina diferentes (p. ej., serie A, serie Av2, serie D, serie Dv2, serie G, serie H, etc.). Pero no todos los clústeres tienen necesariamente todos los tipos de máquina virtual. Por ejemplo, si intenta agregar una máquina virtual serie D a un servicio en la nube que ya se ha implementado en un clúster de serie A únicamente, se producirá un error de asignación. Esto también sucede si se intenta cambiar los tamaños de SKU de máquina virtual (por ejemplo, de una serie A a una serie D).
+Los clústeres de un centro de datos pueden tener configuraciones de tipos de máquina diferentes (por ejemplo, serie A, serie Av2, serie D, serie Dv2, serie G, serie H, etc.). Pero no todos los clústeres tienen necesariamente todos los tipos de máquina virtual. Por ejemplo, si intenta agregar una máquina virtual serie D a un servicio en la nube que ya se ha implementado en un clúster de serie A únicamente, se producirá un error de asignación. Esto también sucede si se intenta cambiar los tamaños de SKU de máquina virtual (por ejemplo, de una serie A a una serie D).
 
 Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 

@@ -1,5 +1,5 @@
 ---
-title: Conectar datos de Fortinet a Azure Sentinel, versión preliminar | Microsoft Docs
+title: Conectar datos de Fortinet a Azure Sentinel| Microsoft Docs
 description: Aprenda a conectar datos de Fortinet a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 339b8c1b59720989016f68fdb94fae30c26b42f0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 20079fd0c95da3e3aec9518f194ea39561a5e662
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679278"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240700"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Conectar el dispositivo Fortinet
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se proporciona sin un acuerdo de nivel de servicio. No es aconsejable para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Puede conectar Azure Sentinel a cualquier dispositivo Fortinet guardando los archivos de registro como Common Event Format (CEF) de Syslog. Con la integración con Azure Sentinel, puede ejecutar análisis y consultas fácilmente en los datos de archivo de registro de Fortinet. Para obtener más información sobre cómo ingiere Azure Sentinel datos CEF, consulte el artículo sobre cómo [conectar dispositivos CEF](connect-common-event-format.md).
 
@@ -147,5 +145,5 @@ Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a conectar dispositivos Fortinet a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

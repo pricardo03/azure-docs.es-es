@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992350"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180859"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -90,6 +90,13 @@ Al hacer clic en ese icono se mostrará el plan de ejecución y el perfil de ren
 * En el Diseñador de Data Flow, use la pestaña Data Preview (Vista previa de los datos) en las transformaciones para ver los resultados de la lógica de transformación.
 * Para realizar pruebas unitarias de los flujos de datos desde el diseñador de canalizaciones, coloque una actividad de Data Flow en el lienzo de diseño de la canalización y use el botón "Debug" (Depurar) para realizar la prueba.
 * La realización de pruebas en modo de depuración funcionará en un entorno de clúster preparado activo, sin necesidad de esperar al desarrollo just-in-time del clúster.
+* Durante la depuración de la vista previa de datos dentro de la experiencia del diseñador de Data Flow, puede limitar la cantidad de datos que se prueban para cada origen. Para ello, establezca el límite de filas en el vínculo de configuración de depuración en la interfaz de usuario del diseñador del flujo de datos. Tenga en cuenta que primero debe activar el modo de depuración.
+
+![Configuración de depuración](media/data-flow/debug-settings.png "Debug Settings")
+
+* Al probar los flujos de datos desde una ejecución de depuración de canalización, puede limitar el número de filas que se usan para las pruebas estableciendo el tamaño de muestreo en cada uno de los orígenes. Asegúrese de deshabilitar el muestreo al programar las canalizaciones según una programación operativa normal.
+
+![Muestreo de filas](media/data-flow/source1.png "Row Sampling")
 
 ### <a name="disable-indexes-on-write"></a>Deshabilitación de índices durante la escritura
 * Use una actividad de procedimiento almacenado de canalización de ADF antes de la actividad de Data Flow que deshabilita los índices en las tablas de destino en las que se escribe desde el receptor.
@@ -140,6 +147,10 @@ Por ejemplo, si tengo una lista de archivos de datos de julio de 2019 que quiero
 ```DateFiles/*_201907*.txt```
 
 Esto funcionará mejor que una búsqueda contra el almacén de blobs en una canalización que luego itera en todos los archivos coincidentes con ForEach que incluya una actividad de ejecución de Data Flow.
+
+### <a name="increase-the-size-of-your-debug-cluster"></a>Aumento del tamaño del clúster de depuración
+
+De forma predeterminada, al activar la depuración se usará el entorno Azure Integration Runtime predeterminado que se crea automáticamente para cada factoría de datos. Este Azure IR predeterminado se establece para 8 núcleos, 4 para un nodo de controlador y 4 para un nodo de trabajo, mediante propiedades de proceso generales. A medida que pruebe con datos de mayor tamaño, puede aumentar el tamaño del clúster de depuración mediante la creación de un nuevo Azure IR con configuraciones más grandes y elegir este nuevo Azure IR al activar la depuración. Esto indicará a ADF que use este Azure IR para la vista previa de los datos y la depuración de la canalización con flujos de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

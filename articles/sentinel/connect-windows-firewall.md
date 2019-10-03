@@ -1,5 +1,5 @@
 ---
-title: Conectar datos de Firewall de Windows a Azure Sentinel, versión preliminar | Microsoft Docs
+title: Conectar datos de Firewall de Windows a Azure Sentinel| Microsoft Docs
 description: Aprenda a conectar datos de Firewall de Windows a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,26 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a863910ee338da5655e9f3b5610b0a8049b8b2a9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620772"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240623"
 ---
 # <a name="connect-windows-firewall"></a>Conexión del firewall de Windows
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 El conector de Firewall de Windows le permite conectarse fácilmente a los registros de los Firewall de Windows, si están conectados al área de trabajo Azure Sentinel. Esta conexión le permite ver paneles, crear alertas personalizadas y mejorar la investigación, de modo que dispondrá de más información sobre la red de la organización y de mejores capacidades de seguridad. La solución recopila eventos de firewall de Windows de las máquinas de Windows en las que está instalado un agente de Log Analytics. 
 
 
 > [!NOTE]
-> Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que se ejecute Azure Sentinel.
+> Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que Azure Sentinel se ejecute.
 
 ## <a name="enable-the-connector"></a>Habilitar el conector 
 
@@ -61,5 +59,5 @@ Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Firewall de Windows a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

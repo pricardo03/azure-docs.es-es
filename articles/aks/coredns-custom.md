@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 909b32890ea7ff33d6b5b5db3bb55f36f7007c6b
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018658"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130017"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalización de CoreDNS con Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) usa el proyecto [CoreDNS][coredns] para la admini
 
 Dado que AKS es un servicio administrado, no puede modificar la configuración principal para CoreDNS (un archivo *CoreFile*). En vez de eso, use un archivo *ConfigMap* de Kubernetes para invalidar la configuración predeterminada. Para ver los archivos ConfigMap de CoreDNS predeterminados de AKS, use el comando `kubectl get configmaps --namespace=kube-system coredns -o yaml`.
 
-En este artículo se muestra cómo usar los archivos ConfigMap para las opciones de personalización básica de CoreDNS en AKS.
+En este artículo se muestra cómo usar los archivos ConfigMap para las opciones de personalización básica de CoreDNS en AKS. Este enfoque difiere de la configuración de CoreDNS en otros contextos, como el uso de CoreFile. Compruebe la versión de CoreDNS que ejecuta, ya que los valores de configuración pueden cambiar entre versiones.
 
 > [!NOTE]
 > `kube-dns` ofrecía [opciones de personalización][kubednsblog] diferentes a través de una asignación de configuración de Kubernetes. CoreDNS **no** es compatible con versiones anteriores de kube-dns. Todas las personalizaciones que usó anteriormente deben actualizarse para su uso con CoreDNS.
@@ -31,7 +31,7 @@ En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clú
 
 ## <a name="what-is-supportedunsupported"></a>Elementos admitidos y no admitidos
 
-Se admiten todos los complementos de CoreDNS integrados. No se admiten los complementos de terceros o complementarios. 
+Se admiten todos los complementos de CoreDNS integrados. No se admiten los complementos de terceros o complementarios.
 
 ## <a name="rewrite-dns"></a>Reescritura de DNS
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: b574f7c4f30c3bce8bd7d0e234cb523c965772e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3d6b1ed2a3800058acba9fe5df2137811afed74a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727577"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300780"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendaciones de seguridad para imágenes de Azure Marketplace
 
@@ -56,7 +56,7 @@ Estas recomendaciones también pueden ser útiles para las organizaciones que no
 | Seguridad                                                         | Usar una imagen base de sistema operativo segura. El disco duro virtual que se usa para el origen de cualquier imagen basada en Windows Server debe pertenecer a las imágenes del sistema operativo de Windows Server que se proporcionan a través de Microsoft Azure. |
 | Seguridad                                                         | Instalar todas las actualizaciones de seguridad.                                                                                                                                     |
 | Seguridad                                                         | Las aplicaciones no deben depender de nombres de usuario con permisos restringidos, como administrador y raíz.                                                                |
-| Seguridad                                                         | No se admite el Cifrado de unidad BitLocker en el disco duro del sistema operativo. BitLocker puede usarse en discos de datos.                                                            |
+| Seguridad                                                         | El cifrado de unidad BitLocker está habilitado tanto para las unidades de disco duro del sistema operativo como para las unidades de disco duro de datos.                                                             |
 | Seguridad                                                         | Limitar la superficie expuesta a ataques al mantener una superficie mínima habilitando solo los roles, las características, los servicios y los puertos de red de Windows Server necesarios.                         |
 | Seguridad                                                         | Examinar el código fuente y la imagen de máquina virtual resultante en busca de malware.                                                                                                                     |
 | Seguridad                                                         | Establecer la actualización de seguridad de las imágenes de Windows Server para que se actualicen automáticamente.                                                                                                                |

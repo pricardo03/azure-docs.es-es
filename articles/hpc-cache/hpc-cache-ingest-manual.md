@@ -1,19 +1,19 @@
 ---
-title: 'Ingesta de datos de Azure HPC Cache: copia manual'
+title: 'Ingesta de datos de Azure HPC Cache (versión preliminar): copia manual'
 description: Uso de comandos cp para trasladar datos a un destino de almacenamiento de Azure Blob Storage en Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775040"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299990"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingesta de datos de Azure HPC Cache: método de copia manual
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingesta de datos de Azure HPC Cache (versión preliminar): método de copia manual
 
 En este artículo se proporcionan instrucciones detalladas para copiar manualmente los datos en un contenedor de Azure Blob Storage y usarlos con Azure HPC Cache. Se utilizan operaciones paralelas multiproceso para optimizar la velocidad de copia.
 
@@ -23,7 +23,7 @@ Para más información sobre cómo mover datos a Azure Blob Storage para Azure H
 
 Puede crear una copia de varios subprocesos de forma manual en un cliente; para ello, ejecute más de un comando de copia a la vez en segundo plano en los conjuntos predefinidos de archivos o rutas.
 
-El comando ``cp`` de Linux/UNIX incluye el argumento ``-p`` que se usa para conservar la propiedad y los metadatos de tipo "mtime". Agregar este argumento a los comandos que tiene a continuación es opcional. (Recuerde que si agrega el argumento aumentará a su vez la cantidad de llamadas del sistema de archivos que se envían desde el cliente al sistema de archivos de destino para la modificación de metadatos).
+El comando ``cp`` de Linux/UNIX incluye el argumento ``-p`` que se usa para conservar la propiedad y los metadatos de tipo "mtime". Agregar este argumento a los comandos que tiene a continuación es opcional. Recuerde que si agrega el argumento aumentará a su vez la cantidad de llamadas del sistema de archivos que se envían desde el cliente al sistema de archivos de destino para la modificación de metadatos.
 
 En este simple ejemplo se copian dos archivos en paralelo:
 
@@ -83,7 +83,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 Una vez que haya suficientes subprocesos paralelos en un único punto de montaje del sistema de archivos de destino, llegará a un punto en el que el simple hecho de agregar más subprocesos no proporcionará más rendimiento. (El rendimiento se medirá en archivos/segundo o bytes/segundo, según el tipo de datos). O, lo que es peor, el exceso de subprocesos puede causar una degradación del rendimiento.  
 
-Si le sucede esto, puede agregar puntos de montaje del lado cliente a otras direcciones de montaje de Azure HPC Cache; para ello, use la misma ruta de montaje remota del sistema de archivos:
+Si le sucede esto, puede agregar puntos de montaje del lado cliente a otras direcciones de montaje de Azure HPC Cache; para ello, use la misma ruta de montaje remota del sistema de archivos:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)

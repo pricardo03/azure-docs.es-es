@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663372"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154665"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 
@@ -25,7 +25,7 @@ Personalizer entrena sus modelos de Machine Learning mediante la evaluación de 
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Uso de Reward API para enviar la puntuación de recompensa a Personalizer
 
-Las recompensas se envían a Personalizer mediante [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Una recompensa es un número comprendido entre -1 y 1. Personalizer entrena el modelo para lograr la suma más alta posible de recompensas a la largo del tiempo.
+Las recompensas se envían a Personalizer mediante [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Normalmente, una recompensa es un número comprendido entre 0 y 1. Una recompensa negativa, con el valor de -1, es posible en ciertos escenarios y solo debe usarse si tiene experiencia con el aprendizaje de refuerzo (RL). Personalizer entrena el modelo para lograr la suma más alta posible de recompensas a la largo del tiempo.
 
 Las recompensas se envían después de que se haya producido el comportamiento del usuario, lo que podría ser días más tarde. El tiempo máximo que esperará Personalizer hasta que se considere que un evento no tiene ninguna recompensa o una recompensa predeterminada se configura con el [Tiempo de espera de las recompensas](#reward-wait-time) en Azure Portal.
 
@@ -56,7 +56,7 @@ Si no se recibe ninguna recompensa dentro del [Tiempo de espera de las recompens
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>Creación de recompensas con varios factores  
 
-Para una personalización efectiva, puede compilar la puntuación de recompensa (cualquier número entre -1 y 1) en función de varios factores. 
+Para una personalización efectiva, puede compilar la puntuación de recompensa en función de varios factores. 
 
 Por ejemplo, podría aplicar estas reglas para personalizar una lista de contenido de vídeo:
 
@@ -80,7 +80,7 @@ Configuración de la suma:
 
 Todas las recompensas de un evento, que se reciben después del **Tiempo de espera de las recompensas**, se descartan y no afectan al entrenamiento de los modelos.
 
-Al sumar las puntuaciones de recompensa, su recompensa final puede ser mayor que 1 o menor que -1. Esto no provocará un error del servicio.
+Al sumar las puntuaciones de recompensa, su recompensa final puede estar fuera del intervalo de puntuación esperado. Esto no provocará un error del servicio.
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?

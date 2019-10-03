@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142896"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202902"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -44,11 +44,14 @@ Azure Migrate utiliza la solución [Service Map](../operations-management-suite/
     ![Incorporación de un área de trabajo](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
-  - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+  - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Puede elegir la [región](https://azure.microsoft.com/global-infrastructure/regions/) en que se creará el área de trabajo.
   - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Tenga en cuenta que solo se enumeran las áreas de trabajo que se crearon en una región donde [se admita Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Para poder asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
   > [!NOTE]
   > Una vez asociada el área de trabajo a un proyecto, no podrá cambiarla más adelante.
+
+  > [!NOTE]
+  > Actualmente, Azure Migrate admite la creación de un área de trabajo de OMS en las regiones Este de EE. UU., Sudeste Asiático y Oeste de Europa. Si el área de trabajo se crea fuera de Azure Migrate en cualquier otra región, actualmente no se puede asociar a un proyecto de Azure Migrate. 
 
 - El área de trabajo asociada se etiqueta con la clave **Proyecto de migración** y el valor **Nombre del proyecto**, que se puede usar para buscar en Azure Portal.
 - Para navegar al área de trabajo asociada al proyecto, puede ir a la sección **Essentials** de la página **Introducción** del proyecto y acceder al área de trabajo.

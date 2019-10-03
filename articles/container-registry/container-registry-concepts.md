@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: danlep
-ms.openlocfilehash: a14f0a2a86c5e4922fcddf3c92d48c6dfb1497a3
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9a3d4a7d9c3fd4a0465d4e780024559a71372d9d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799937"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300196"
 ---
 # <a name="about-registries-repositories-and-images"></a>Acerca de los registros, repositorios e imágenes
 
@@ -94,7 +94,7 @@ Cada imagen de contenedor o artefacto que se inserta en un registro de contenedo
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-Por ejemplo, enumere los códigos hash de manifiesto del repositorio "acr-helloworld":
+Por ejemplo, enumere los manifiestos del repositorio "acr-helloworld":
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -137,8 +137,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> Si inserta repetidamente imágenes modificadas con etiquetas idénticas, puede crear imágenes huérfanas: imágenes que están sin etiquetas, pero consumen espacio en el registro. Las imágenes sin etiquetas no se muestran en la CLI de Azure ni en Azure Portal al enumerar o visualizar las imágenes por etiqueta. Sin embargo, sus capas existen y consumen espacio en el registro. Para más información acerca de cómo liberar el espacio usado mediante imágenes sin etiquetar, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
-
+> Si inserta repetidamente imágenes modificadas con etiquetas idénticas, puede crear imágenes huérfanas: imágenes que están sin etiquetas, pero consumen espacio en el registro. Las imágenes sin etiquetas no se muestran en la CLI de Azure ni en Azure Portal al enumerar o visualizar las imágenes por etiqueta. Sin embargo, sus capas existen y consumen espacio en el registro. La eliminación de una imagen sin etiqueta libera espacio del registro cuando el manifiesto es el único, o el último, que apunta a una capa determinada. Para más información acerca de cómo liberar el espacio usado mediante imágenes sin etiquetar, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

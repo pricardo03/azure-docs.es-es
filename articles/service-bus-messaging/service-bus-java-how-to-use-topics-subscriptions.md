@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 7cd7bcd4bd10152ecd2fa60e4e8418f17db16b61
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967828"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155584"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Uso de temas y suscripciones de Service Bus con Java
 
@@ -41,7 +41,7 @@ En esta guía de inicio rápido, puede escribir código de Java para enviar mens
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
 Asegúrese de que ha instalado [Azure SDK para Java][Azure SDK for Java] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][Azure Toolkit for Eclipse], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
 
-![Bibliotecas de la ruta de acceso de compilación de Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Incorporación de bibliotecas de Microsoft Azure para Java al proyecto de Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 También deberá agregar los archivos JAR siguientes a la ruta de acceso de compilación de Java:
 

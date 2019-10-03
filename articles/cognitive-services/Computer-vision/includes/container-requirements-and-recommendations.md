@@ -6,20 +6,35 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 8/26/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 5da088bf0356dd54d98ec5393fd2db8068f9c666
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 47c889a428ec2916dc8cad73e30ef5ff630372a7
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034487"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129820"
 ---
-En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Reconocer texto.
+> [!NOTE]
+> Los requisitos y las recomendaciones se basan en pruebas comparativas con una única solicitud por segundo, con una imagen de 8 MB de una carta comercial digitalizada que contiene 29 líneas y un total de 803 caracteres.
+
+#### <a name="readtabread"></a>[Lectura](#tab/read)
+
+En la tabla siguiente se describe la asignación mínima y recomendada de recursos para cada contenedor de lectura.
 
 | Contenedor | Mínima | Recomendado |TPS<br>(mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Reconocer texto|1 núcleo, 8 GB de memoria, 0,5 TPS|2 núcleos, 8 GB de memoria, 1 TPS|0,5, 1|
+| Lectura | 1 núcleo, 8 GB de memoria, 0,24 TPS | 8 núcleos, 16 GB de memoria, 1,17 TPS | 0,24, 1,17 |
+
+#### <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
+
+En la tabla siguiente se describe la asignación mínima y recomendada de recursos para cada contenedor Reconocer texto.
+
+| Contenedor | Mínima | Recomendado |TPS<br>(mínimo, máximo)|
+|-----------|---------|-------------|--|
+| Reconocer texto | 1 núcleo, 8 GB de memoria, 0,12 TPS | 8 núcleos, 16 GB de memoria, 0,60 TPS | 0,12, 0,60 |
+
+***
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 * TPS: transacciones por segundo

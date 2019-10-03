@@ -3,23 +3,23 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239182"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181188"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
 Azure Policy usa las definiciones de directivas de recursos para establecer convenciones para los recursos. Cada definición describe la compatibilidad de recursos y el efecto que debe realizarse cuando un recurso no es compatible.
 La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. Si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
-El esquema utilizado por Azure Policy puede encontrarse aquí: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+El esquema utilizado por Azure Policy puede encontrarse aquí: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
@@ -398,6 +398,7 @@ Azure Policy admite los siguientes tipos de efecto:
 - **DeployIfNotExists**: implementa un recurso si todavía no existe.
 - **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
 - **EnforceRegoPolicy**: configura el controlador de admisiones Open Policy Agent en Azure Kubernetes Service (versión preliminar)
+- **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso.
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
@@ -424,6 +425,8 @@ El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en
     ]
 }
 ```
+
+Igualmente **Modify** requiere la propiedad **roleDefinitionId** en la parte **details** de la regla de directivas para la [tarea de corrección](../how-to/remediate-resources.md). **Modify** también requiere una matriz **operations** para definir las acciones que deben realizarse en las etiquetas de recursos.
 
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de Azure Policy](effects.md).
 

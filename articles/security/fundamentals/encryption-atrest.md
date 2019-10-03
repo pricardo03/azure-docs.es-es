@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 3c4c70aeed833e25eb75a9eaa385e2299c2a4b7e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984848"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300758"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -178,7 +178,7 @@ Para obtener una clave para usar al cifrar o descifrar datos en reposo, la ident
 - El cliente tiene responsabilidad total para la administración del ciclo de vida de las claves
 - Sobrecarga de configuración e instalación adicional
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Cifrado del lado servidor mediante claves administradas del servicio en el hardware controlado por el cliente
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Cifrado del lado servidor mediante claves administradas por el cliente en el hardware controlado por el cliente
 
 Algunos servicios de Azure permiten el modelo de administración de claves Host Your Own Key (HYOK). Este modo de administración es útil en escenarios donde hay una necesidad para cifrar los datos en reposo y administrar las claves en un repositorio patentado fuera del control de Microsoft. En este modelo, el servicio debe recuperar la clave de un sitio externo. Las garantías de rendimiento y disponibilidad se ven afectadas y la configuración es más compleja. Además, puesto que el servicio tiene acceso a la DEK durante las operaciones de cifrado y descifrado de las garantías de seguridad general de este modelo son similares a cuando las claves son administradas en Azure Key Vault por el cliente.  Como resultado, este modelo no es adecuado para la mayoría de las organizaciones a menos que tengan requisitos específicos de administración de claves. Debido a estas limitaciones, la mayoría de los servicios de Azure no admiten el cifrado del lado del servidor mediante claves de servidor administradas en el hardware controlado por el cliente.
 
@@ -262,7 +262,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante claves administradas por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
-| Azure Search                     | Sí                | -                  | -                  |
+| Azure Search                     | Sí                | Vista previa            | -                  |
 | Servicio Azure Machine Learning   | Sí                | -                  | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
 | Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |

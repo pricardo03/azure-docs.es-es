@@ -1,33 +1,35 @@
 ---
-title: 'Ejemplos de consultas mediante la sintaxis de búsqueda "simple": Azure Search'
-description: Ejemplos de consultas simplificadas para búsqueda de texto completo, búsqueda filtrada, búsqueda geográfica, búsqueda por facetas y otras cadenas de consulta que se usan para consultar un índice de Azure Search.
+title: 'Creación de una consulta simple: Azure Search'
+description: Aprenda por ejemplo mediante la ejecución de consultas basadas en la sintaxis simple para la búsqueda de texto completo, la búsqueda filtrada, la búsqueda geográfica o la búsqueda por facetas en un índice de Azure Search.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647630"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179196"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Ejemplos de consultas mediante la sintaxis de búsqueda "simple" en Azure Search
+# <a name="create-a-simple-query-in-azure-search"></a>Creación de una consulta simple en Azure Search
 
-La [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice de Azure Search. El analizador de consultas simplificadas es rápido y gestiona escenarios comunes en Azure Search, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. En este artículo, revise ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis simplificada.
+En Azure Search, la [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
 
-La sintaxis de consulta alternativa es [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), compatible con estructuras de consulta más complejas, como la búsqueda aproximada y la búsqueda con caracteres comodín, por lo que puede tardar más tiempo en procesarse. Para más información y ejemplos que muestran la sintaxis completa, consulte [Ejemplos de consulta de sintaxis de Lucene](search-query-lucene-examples.md).
+En este artículo, usamos ejemplos para ilustrar la sintaxis simple.
+
+Una sintaxis de consulta alternativa es [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), compatible con estructuras de consulta más complejas, como la búsqueda aproximada y la búsqueda con caracteres comodín, por lo que puede tardar más tiempo en procesarse. Para más información y ejemplos que muestran la sintaxis completa, consulte [Uso de la sintaxis comleta de Lucene](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formulación de solicitudes en Postman
 
 Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Search para probar estas consultas.
 
-Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte el artículo sobre la [exploración con clientes REST](search-get-started-postman.md).
+Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Inicio rápido: Exploración de la API REST de Azure Search mediante Postman](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Establecimiento del encabezado de solicitud
 

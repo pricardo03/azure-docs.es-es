@@ -3,16 +3,16 @@ title: Cómo crear una directiva de configuración de invitados
 description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/26/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8fd50ed571e42a1eb6673c56a61314d2adfe27f2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194629"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172454"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
@@ -54,9 +54,45 @@ La configuración de invitados usa el módulo de recursos **GuestConfiguration**
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>Crear opciones personalizadas de la configuración de invitados
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Creación de recursos y opciones personalizados para la configuración de invitados
 
 El primer paso para crear una directiva personalizada para la configuración de invitados es crear la configuración de DSC. Para obtener información general sobre los conceptos y la terminología consulte [Información general de DSC de PowerShell](/powershell/dsc/overview/overview).
+
+Si la configuración solo requiere recursos integrados con la instalación del agente de configuración de invitados, solo tiene que crear un archivo MOF de configuración. Si necesita ejecutar scripts adicionales, deberá crear un módulo de recursos personalizado.
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisitos para los recursos personalizados de configuración de invitados
+
+Cuando la configuración de invitados audita una máquina, primero se ejecuta `Test-TargetResource` para determinar si se encuentra en el estado correcto. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible. Si el valor booleano es `$false` para cualquier recurso de la configuración, el proveedor ejecutará `Get-TargetResource`. Si el valor booleano es `$true`, no se llama a `Get-TargetResource`.
+
+La función `Get-TargetResource` tiene requisitos especiales para la configuración de invitados que no se han necesitado para Windows Desired State Configuration.
+
+- La tabla hash que se devuelve debe incluir una propiedad denominada **Reasons**.
+- La propiedad Reasons debe ser una matriz.
+- Cada elemento de la matriz debe ser una tabla hash con claves denominadas **Code** y **Phrase**.
+
+El servicio utiliza la propiedad Reasons para estandarizar el modo en que se presenta la información cuando una máquina no cumple los requisitos. Puede pensar en cada elemento de Reasons como un "motivo" por el que el recurso no es compatible. La propiedad es una matriz porque un recurso podría no cumplir los requisitos por más de un motivo.
+
+El servicio espera las propiedades **Code** y **Phrase**. Al crear un recurso personalizado, establezca el texto (normalmente stdout) que le gustaría mostrar como el motivo por el que el recurso no es compatible como el valor de **Phrase**. **Code** tiene requisitos de formato específicos, por lo que los informes pueden mostrar claramente información sobre el recurso que se usó para realizar la auditoría. Esta solución hace que la configuración de invitados sea extensible. Se puede ejecutar cualquier comando para auditar una máquina siempre que la salida se pueda capturar y devolver como un valor de cadena para la propiedad **Phrase**.
+
+- **Code** (cadena): el nombre del recurso, repetido, y luego un nombre corto sin espacios como identificador del motivo. Estos tres valores deben estar delimitados por signos de dos puntos sin espacios.
+  - Un ejemplo sería `registry:registry:keynotpresent`
+- **Phrase** (cadena): texto legible para explicar el motivo por el que la configuración no es compatible.
+  - Un ejemplo sería `The registry key $key is not present on the machine.`
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>Aplicación de la técnica scaffolding a un proyecto de configuración de invitados
+
+Para los desarrolladores que desean acelerar el proceso de introducción y trabajar desde código de ejemplo, existe un proyecto de la comunidad denominado **Proyecto de configuración de invitados** como una plantilla para el módulo [Plaster](https://github.com/powershell/plaster) de PowerShell. Esta herramienta se puede usar para aplicar scaffolding a un proyecto, incluida una configuración de trabajo y un recurso de ejemplo, y un conjunto de pruebas [Pester](https://github.com/pester/pester) para validar el proyecto. La plantilla también incluye ejecutores de tareas para Visual Studio Code para automatizar la compilación y validación del paquete de configuración de invitados. Para más información, consulte el proyecto de GitHub [Proyecto de configuración de invitados](https://github.com/microsoft/guestconfigurationproject).
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
 
@@ -139,15 +175,23 @@ El paquete completado debe almacenarse en una ubicación a la que puedan obtener
 
 En la configuración de invitados de Azure Policy, la manera óptima de administrar los secretos que se usan en tiempo de ejecución es almacenarlos en Azure Key Vault. Este diseño se implementa en los recursos de DSC personalizados.
 
-En primer lugar, cree una identidad administrada que haya asignado el usuario en Azure. Las máquinas usan la identidad para acceder a los secretos almacenados en Key Vault. Para obtener los pasos detallados, consulte [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+1. En primer lugar, cree una identidad administrada que haya asignado el usuario en Azure.
 
-A continuación, cree una instancia de Key Vault. Para obtener los pasos detallados, consulte [Establecimiento y recuperación de un secreto: PowerShell](../../../key-vault/quick-create-powershell.md).
-Asigne permisos a la instancia para conceder a la identidad que haya asignado el usuario acceso a los secretos almacenados en Key Vault. Para obtener los pasos detallados, consulte [Establecimiento y recuperación de un secreto: .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
+   Las máquinas usan la identidad para acceder a los secretos almacenados en Key Vault. Para obtener los pasos detallados, consulte [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
-A continuación, asigne a la máquina la identidad asignada por el usuario. Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-A escala, asigne esta identidad mediante Azure Resource Manager a través de Azure Policy. Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante una plantilla](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+1. Cree una instancia de Key Vault.
 
-Por último, en el recurso personalizado, use el id. de cliente generado anteriormente para obtener acceso a Key Vault mediante el token disponible en la máquina. El valor de `client_id` y la dirección URL a la instancia de Key Vault se pueden llevar al recurso como [propiedades](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) para que no sea necesario actualizar el recurso en varios entornos o si es necesario cambiar los valores.
+   Para obtener los pasos detallados, consulte [Establecimiento y recuperación de un secreto: PowerShell](../../../key-vault/quick-create-powershell.md).
+   Asigne permisos a la instancia para conceder a la identidad que haya asignado el usuario acceso a los secretos almacenados en Key Vault. Para obtener los pasos detallados, consulte [Establecimiento y recuperación de un secreto: .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
+
+1. Asigne a la máquina la identidad asignada por el usuario.
+
+   Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+   A escala, asigne esta identidad mediante Azure Resource Manager a través de Azure Policy. Para obtener los pasos detallados, consulte [Configurar identidades administradas de recursos de Azure en una VM de Azure mediante una plantilla](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+
+1. Por último, en el recurso personalizado, use el id. de cliente generado anteriormente para obtener acceso a Key Vault mediante el token disponible en la máquina.
+
+   El valor de `client_id` y la dirección URL a la instancia de Key Vault se pueden llevar al recurso como [propiedades](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) para que no sea necesario actualizar el recurso en varios entornos o si es necesario cambiar los valores.
 
 El siguiente ejemplo de código se puede usar en un recurso personalizado para recuperar los secretos de Key Vault mediante una identidad que haya asignado el usuario. El valor devuelto de la solicitud a Key Vault es texto sin formato. Como procedimiento recomendado, almacénelo en un objeto de tipo Credential.
 
@@ -226,8 +270,7 @@ Si quiere usar este comando para aplicar técnicas de scaffolding a un proyecto 
 
 La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan a través de Azure Policy y no afectan al modo en que se crean o se compilan las configuraciones.
 
-Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parameters**.
-Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea automáticamente todas las secciones necesarias de los archivos que se usan para crear cada definición de Azure Policy.
+Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parameters**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea automáticamente todas las secciones necesarias de los archivos que se usan para crear cada definición de Azure Policy.
 
 En el ejemplo siguiente se crea una instancia de Azure Policy para auditar un servicio que el usuario selecciona de una lista de servicios en el momento de la asignación de la directiva.
 
@@ -256,7 +299,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-En el caso de las directivas de Linux, incluya la propiedad `AttributesYmlContent` en la configuración y sobrescriba los valores según corresponda. El agente de configuración de invitados crea automáticamente el archivo YaML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
+En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según corresponda. El agente de configuración de invitados crea automáticamente el archivo YaML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -318,23 +361,19 @@ Con las definiciones de directivas e iniciativas creadas en Azure, el último pa
 
 Después de haber publicado una directiva de Azure Policy personalizada mediante el paquete de contenido personalizado, hay dos campos que deben actualizarse si quiere publicar una nueva versión.
 
-- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.  La propiedad actualiza la versión de la asignación de la configuración de invitados en el nuevo archivo de la directiva para que la extensión reconozca que se ha actualizado el paquete.
-- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad.  Es un valor hash del paquete que creó `New-GuestConfigurationPackage`.  La propiedad debe ser correcta para el archivo `.zip` que se publica.  Si solo se actualiza la propiedad `contentUri`, como en el caso donde alguien pueda efectuar un cambio manual en la definición de la directiva desde el portal, la extensión no aceptará el paquete de contenido.
+- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de la configuración de invitados en el nuevo archivo de la directiva para que la extensión reconozca que se ha actualizado el paquete.
+- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, como en el caso donde alguien pueda efectuar un cambio manual en la definición de la directiva desde el portal, la extensión no aceptará el paquete de contenido.
 
-La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado.
-Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
+La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversión del contenido de la directiva de grupo de Windows a la configuración de invitado de Azure Policy
 
-La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration.
-La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC.
-Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite.
-Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration. La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite. Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
 Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy serán los mismos que para cualquier contenido de DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>OPCIONAL: Firma de paquetes de configuración de invitados
 
-De forma predeterminada, las directivas personalizadas de configuración de invitados usan el hash SHA256 para confirmar que el paquete de directivas no ha cambiado desde que se publicó hasta que lo lea servidor que se está auditando.
+De forma predeterminada, las directivas personalizadas de configuración de invitados usan el hash SHA256 para confirmar que el paquete de directivas no ha cambiado desde que se publicó hasta que lo lea el servidor que se está auditando.
 Opcionalmente, los clientes también pueden usar un certificado para firmar paquetes y forzar a la extensión de configuración de invitados a permitir solo el contenido firmado.
 
 Para habilitar este escenario, hay dos pasos que debe completar. Ejecute el cmdlet para firmar el paquete de contenido y anexe una etiqueta a las máquinas que deben solicitar la firma del código.
@@ -365,15 +404,13 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 Una buena referencia para la creación de claves GPG para usarlas con máquinas Linux se proporciona en el artículo de Github [Generar una clave GPG nueva](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Esta etiqueta se puede entregar a escala mediante Azure Policy. Consulte el ejemplo [Aplicar una etiqueta y su valor predeterminado](../samples/apply-tag-default-value.md).
-Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.
+Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Esta etiqueta se puede entregar a escala mediante Azure Policy. Consulte el ejemplo [Aplicar una etiqueta y su valor predeterminado](../samples/apply-tag-default-value.md). Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.
 
 ## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[Versión preliminar] Solución de problemas de asignaciones de directivas de configuración de invitados
 
-Hay una herramienta disponible en versión preliminar para ayudarle a solucionar problemas en las asignaciones de configuración de invitados de Azure Policy.
-La herramienta se encuentra en versión preliminar y se ha publicado en la Galería de PowerShell con el nombre de módulo [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/) (Solucionador de problemas de configuración de invitados).
+Hay una herramienta disponible en versión preliminar para ayudarle a solucionar problemas en las asignaciones de configuración de invitados de Azure Policy. La herramienta se encuentra en versión preliminar y se ha publicado en la Galería de PowerShell con el nombre de módulo [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/) (Solucionador de problemas de configuración de invitados).
 
-Para más información sobre los cmdlets de esta herramienta, use el comando Get-Help en PowerShell para mostrar la guía integrada.  Como la herramienta tiene actualizaciones frecuentes, es la mejor manera de obtener la información más reciente.
+Para más información sobre los cmdlets de esta herramienta, use el comando Get-Help en PowerShell para mostrar la guía integrada. Como la herramienta tiene actualizaciones frecuentes, es la mejor manera de obtener la información más reciente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959937"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268664"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -43,23 +43,24 @@ Después de que la característica se haya ejecutado en modo de auditoría duran
 ## <a name="deployment-requirements"></a>Requisitos de implementación
 
 * Los requisitos de licencia para la protección con contraseña de Azure AD se encuentran en el artículo [Eliminación de contraseñas incorrectas en su organización](concept-password-ban-bad.md#license-requirements).
-* Todos los controladores de dominio que obtienen el servicio de agente de controlador de dominio para la protección con contraseña de Azure AD instalada deben ejecutar Windows Server 2012 o una versión posterior. Este requisito no implica que el dominio o el bosque de Active Directory también debe estar en el nivel funcional del dominio o bosque de Windows Server 2012. Tal como se mencionó en [los principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), no se necesita ningún DFL o FFL mínimo para la ejecución del agente de controlador de dominio o software de proxy.
+* Todas las máquinas donde se instalará el software del agente de controlador de dominio de Protección con contraseña de Azure AD deben ejecutar Windows Server 2012 o posterior. Este requisito no implica que el dominio o el bosque de Active Directory también debe estar en el nivel funcional del dominio o bosque de Windows Server 2012. Tal como se mencionó en [los principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), no se necesita ningún DFL o FFL mínimo para la ejecución del agente de controlador de dominio o software de proxy.
 * Todos los equipos en los que se instala el servicio de agente de controlador de dominio deben tener instalado .NET 4.5.
-* Todos los equipos en los que se instala el servicio de proxy para la protección con contraseña de Azure AD deben ejecutar Windows Server 2012 R2 o una versión posterior.
+* Todas las máquinas en las que se instalará el servicio de proxy de Protección con contraseña de Azure AD deben ejecutar Windows Server 2012 R2 o posterior.
    > [!NOTE]
-   > La implementación del proxy de servicio es un requisito obligatorio para la implementación de la protección con contraseña de Azure AD, aunque el controlador de dominio pueda tener conectividad saliente directa a Internet. 
+   > La implementación del servicio de proxy es un requisito obligatorio para la implementación de Protección con contraseña de Azure AD, aunque el controlador de dominio pueda tener conectividad saliente directa a Internet. 
    >
 * Todos los equipos en los que se instalará donde se instalará el servicio de proxy de protección con contraseña de Azure AD deben tener .NET 4.7 instalado.
   NET 4.7 ya debería estar instalado en un servidor Windows completamente actualizado. Si este no es el caso, descargue y ejecute el instalador que se encuentra en [el instalador sin conexión de .NET Framework 4.7 para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* Todos los equipos, incluidos los controladores de dominio, en los que se instalen los componentes de protección con contraseña de Azure AD deben tener instalado Universal C Runtime. Puede obtener el tiempo de ejecución al asegurarse de que tenga todas las actualizaciones de Windows Update. O bien, puede obtenerlo en un paquete de actualización del sistema operativo específico. Para más información, consulte [Actualización para Universal C RunTime en Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Todos los equipos, incluidos los controladores de dominio, en los que se instalen los componentes de Protección con contraseña de Azure AD deben tener instalado Universal C Runtime. Puede obtener el tiempo de ejecución al asegurarse de que tenga todas las actualizaciones de Windows Update. O bien, puede obtenerlo en un paquete de actualización del sistema operativo específico. Para más información, consulte [Actualización para Universal C RunTime en Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy para la protección con contraseña. Esta conectividad debe permitir que el controlador de dominio acceda al puerto 135 del asignador de puntos de conexión RPC y al puerto del servidor RPC del servicio de proxy. De manera predeterminada, el puerto del servidor RPC es un puerto RPC dinámico, pero se puede configurar para [usar un puerto estático](#static).
-* Todos los equipos que hospedan el servicio de proxy deben tener acceso de red a los puntos de conexión siguientes:
+* Todas las máquinas donde se instalará el servicio de proxy de Protección con contraseña de Azure AD deben tener acceso de red a los puntos de conexión siguientes:
 
     |**Punto de conexión**|**Propósito**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Solicitudes de autenticación|
     |`https://enterpriseregistration.windows.net`|Funcionalidad de protección de contraseña de Azure AD|
 
+  También debe habilitar acceso de red para el conjunto de puertos y direcciones URL especificados en los [procedimientos de configuración del entorno del proxy de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). Estos pasos de configuración son necesarios para que el servicio Agent Updater de Microsoft Azure AD Connect pueda funcionar (este servicio está instalado en paralelo con el servicio de proxy). No se recomienda instalar el proxy de aplicación y el proxy de Protección con contraseña de Azure AD en paralelo en la misma máquina debido a incompatibilidades entre las versiones del software Agent Updater de Microsoft Azure AD Connect.
 * Todas las máquinas que hospedan el servicio de proxy para la protección con contraseña deben estar configuradas para conceder a los controladores de dominio la posibilidad de iniciar sesión en el servicio de proxy. Este comportamiento se controla a través de la asignación del privilegio "Tener acceso a este equipo desde la red".
 * Todos los equipos que hospedan el servicio de proxy para la protección con contraseña deben configurarse para permitir el tráfico saliente de HTTP de TLS 1.2.
 * Una cuenta de administrador global para registrar el servicio de proxy para la protección con contraseña y el bosque con Azure AD.
@@ -71,7 +72,7 @@ Después de que la característica se haya ejecutado en modo de auditoría duran
   [Guía de migración de replicación de SYSVOL: Replicación de FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
   > [!WARNING]
-  > El software del agente de DC de protección con contraseña de Azure AD se instalará actualmente en los controladores de dominio de los dominios que usan aún FRS (la tecnología predecesora a DFSR) para la replicación de SYSVOL, pero NO funcionará correctamente en este entorno. Los efectos secundarios adicionales negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Debe migrar el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR y también para desbloquear la implementación de la protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
+  > El software del agente de DC de protección con contraseña de Azure AD se instalará actualmente en los controladores de dominio de los dominios que usan aún FRS (la tecnología predecesora a DFSR) para la replicación de SYSVOL, pero NO funcionará correctamente en este entorno. Los efectos secundarios adicionales negativos incluyen archivos que no se pueden replicar y procedimientos de restauración de SYSVOL que aparentemente funcionan pero que en realidad no pueden replicar todos los archivos. Migre el dominio para usar DFSR lo antes posible, tanto por las ventajas inherentes de DFSR como también para desbloquear la implementación de Protección con contraseña de Azure AD. Las versiones futuras del software se deshabilitarán automáticamente cuando se ejecuten en un dominio que aún use FRS.
 
 * El servicio de distribución de claves debe habilitarse en todos los controladores de dominio del dominio que ejecutan Windows Server 2012. De manera predeterminada, este servicio se habilita a través de inicio de un desencadenador manual.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441990"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181113"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -124,11 +124,9 @@ Cuando use __Azure Storage__, utilice uno de los siguientes esquemas de URI:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
 
-Cuando use __Azure Data Lake Storage Gen2__, utilice uno de los siguientes esquemas de URI:
+Cuando use __Azure Data Lake Storage Gen2__, utilice el siguiente esquema de URI:
 
-* `abfs:///`: acceso al almacenamiento predeterminado mediante comunicación sin cifrar.
-
-* `abfss:///`: acceso al almacenamiento predeterminado mediante comunicación cifrada.  El esquema abfss solo se admite en la versión 3.6 y posteriores de HDInsight.
+* `abfs://`: acceso al almacenamiento predeterminado mediante comunicación cifrada.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
 

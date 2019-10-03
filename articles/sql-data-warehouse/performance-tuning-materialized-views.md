@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985287"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172785"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas 
 Las vistas materializadas de Azure SQL Data Warehouse proporcionan un método de bajo mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
@@ -84,19 +84,21 @@ Esta es la guía general sobre el uso de vistas materializadas para mejorar el r
 
 **Diseño en función de la carga de trabajo**
 
-- Antes de empezar a crear vistas materializadas, es importante tener una comprensión profunda de la carga de trabajo en cuanto a los patrones de consulta, la importancia, la frecuencia y el tamaño de los datos resultantes.  
+Antes de empezar a crear vistas materializadas, es importante tener una comprensión profunda de la carga de trabajo en cuanto a los patrones de consulta, la importancia, la frecuencia y el tamaño de los datos resultantes.  
 
-- Los usuarios pueden ejecutar la instrucción SQL EXPLAIN WITH_RECOMMENDATIONS para las vistas materializadas recomendadas por el optimizador de consultas.  Dado que estas recomendaciones son específicas de la consulta, una vista materializada que beneficia a una sola consulta puede no ser óptima para otras consultas de la misma carga de trabajo.  Evalúe estas recomendaciones teniendo en cuenta las necesidades de la carga de trabajo.  Las vistas materializadas ideales son las que benefician el rendimiento de la carga de trabajo.  
+Los usuarios pueden ejecutar la instrucción SQL EXPLAIN WITH_RECOMMENDATIONS para las vistas materializadas recomendadas por el optimizador de consultas.  Dado que estas recomendaciones son específicas de la consulta, una vista materializada que beneficia a una sola consulta puede no ser óptima para otras consultas de la misma carga de trabajo.  Evalúe estas recomendaciones teniendo en cuenta las necesidades de la carga de trabajo.  Las vistas materializadas ideales son las que benefician el rendimiento de la carga de trabajo.  
 
 **Tenga en cuenta el equilibrio entre consultas más rápidas y el costo** 
 
-- Para cada vista materializada, hay un costo de almacenamiento y un costo por el mantenimiento de la vista que realiza el motor de tupla. Hay un motor de tupla por cada instancia de servidor de Azure SQL Data Warehouse.  Cuando hay demasiadas vistas materializadas, la carga de trabajo del motor de tupla aumentará y el rendimiento de las consultas que aprovechan las vistas materializadas podría degradarse si el motor de tupla no puede mover los datos a los segmentos de índice lo suficientemente rápido.  Los usuarios deben comprobar si el costo producido por todas las vistas materializadas se puede compensar con la ganancia de rendimiento de las consultas.  Ejecute esta consulta para obtener la lista de vistas materializadas de una base de datos: 
+Para cada vista materializada, hay un costo de almacenamiento de datos y un costo por el mantenimiento de la vista.  A medida que cambian los datos en las tablas base, el tamaño de la vista materializada aumenta y su estructura física también cambia.  Para evitar la degradación del rendimiento de las consultas, el motor de almacenamiento de datos mantiene por separado cada vista materializada, lo que incluye el movimiento de filas del almacén delta a los segmentos de índice de almacén de columnas y la consolidación de los cambios de datos.  La carga de trabajo de mantenimiento es más alta cuando aumenta el número de vistas materializadas y de cambios de la tabla base.   Los usuarios deben comprobar si el costo producido por todas las vistas materializadas se puede compensar con la ganancia de rendimiento de las consultas.  
+
+Puede ejecutar esta consulta para obtener la lista de vistas materializadas de una base de datos: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Opciones para reducir el número de vistas materializadas: 
 

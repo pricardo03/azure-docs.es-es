@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984872"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173587"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -210,6 +210,7 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 | Delimitador |Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato |Solo se aplica para el tipo JSON. La opción **Separado por líneas** especifica que en el formato de la salida cada objeto JSON está separado por una línea nueva. La opción **Matriz** especifica que el formato de la salida es una matriz de objetos JSON. |
 | Columnas de propiedades | Opcional. Columnas separadas por comas que necesitan agregarse como propiedades de usuario del mensaje saliente, en lugar de la carga útil. Puede obtener más información sobre esta característica en la sección [Propiedades de metadatos personalizadas para la salida](#custom-metadata-properties-for-output). |
+| Columnas de propiedades del sistema | Opcional. Pares de clave-valor de las propiedades del sistema y los nombres de columna correspondientes que se deben adjuntar al mensaje saliente en lugar de a la carga. En la sección [Propiedades del sistema para las salidas de cola y tema de Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs) hay más información sobre esta característica.  |
 
 El número de particiones se [basa en la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.
 
@@ -229,6 +230,7 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 | Encoding |Si usa el formato CSV o JSON, debe especificar una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
 | Delimitador |Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Columnas de propiedades | Opcional. Columnas separadas por comas que necesitan agregarse como propiedades de usuario del mensaje saliente, en lugar de la carga útil. Puede obtener más información sobre esta característica en la sección [Propiedades de metadatos personalizadas para la salida](#custom-metadata-properties-for-output). |
+| Columnas de propiedades del sistema | Opcional. Pares de clave-valor de las propiedades del sistema y los nombres de columna correspondientes que se deben adjuntar al mensaje saliente en lugar de a la carga. En la sección [Propiedades del sistema para las salidas de cola y tema de Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs) hay más información sobre esta característica. |
 
 El número de particiones se [basa en la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.
 
@@ -294,6 +296,25 @@ En el ejemplo siguiente, agregamos los dos campos `DeviceId` y `DeviceStatus` a 
 La siguiente captura de pantalla muestra las propiedades del mensaje de salida en el centro de eventos mediante el [explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ![Propiedades de evento personalizadas](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Propiedades del sistema para las salidas de cola y tema de Service Bus 
+Puede adjuntar columnas de consulta como [propiedades del sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) a los mensajes salientes de cola y tema de Service Bus. Estas columnas no entran en la carga; en su lugar, la [propiedad del sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondiente se rellena con los valores de la columna de consulta.
+Se admiten estas propiedades del sistema: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Los valores de cadena de estas columnas se analizan como el tipo de valor de propiedad del sistema correspondiente y los errores de análisis se tratan como errores de datos.
+Este campo se proporciona como un formato de objeto JSON. Los detalles sobre este formato son los siguientes:
+* Rodeado de llaves {}.
+* Escrito en pares de clave-valor.
+* Las claves y los valores deben ser cadenas.
+* La clave es el nombre de la propiedad del sistema y el valor es el nombre de la columna de consulta.
+* Las claves y los valores se separan por el signo de dos puntos.
+* Los pares de clave-valor están separados entre ellos por una coma.
+
+A continuación se muestra cómo utilizar esta propiedad:
+
+* Consulta: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Columnas de propiedades del sistema: `{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+Esto establece `MessageId` en los mensajes de cola de Service Bus con los valores de `column1` y PartitionKey se establece con los valores de `column2`.
 
 ## <a name="partitioning"></a>Creación de particiones
 

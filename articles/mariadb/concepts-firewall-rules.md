@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/22/2019
+ms.openlocfilehash: 94efc87cdea8e1d9b63361d4652b63909c6ce3e7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734445"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203596"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for MariaDB
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -48,7 +48,7 @@ Además de Azure Portal, las reglas de firewall se pueden administrar mediante p
 
 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
-## <a name="troubleshooting-the-database-firewall"></a>Solución de problemas del firewall de la base de datos
+## <a name="troubleshooting-firewall-issues"></a>Solución de problemas de firewall
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor de Microsoft Azure Database for MariaDB no se comporte de la manera prevista:
 
 * **Los cambios en la lista de permitidos aún no se han aplicado:** puede que se produzca un retraso de hasta cinco minutos hasta que se apliquen los cambios de configuración del firewall del servidor de Azure Database for MariaDB.
@@ -57,9 +57,11 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 * **Dirección IP dinámica:** si tiene una conexión a Internet con un direccionamiento IP dinámico y tiene problemas al acceder al firewall, puede probar una de las soluciones siguientes:
 
-* Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for MariaDB y agréguelo como regla de firewall.
+   * Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for MariaDB y agréguelo como regla de firewall.
 
-* Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
+   * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
+
+* **La dirección IP del servidor parece ser pública:** Las conexiones con el servidor de Azure Database for MariaDB se enrutan mediante una puerta de enlace de Azure de acceso público. Sin embargo, la dirección IP real del servidor está protegida por el firewall. Para más información, consulte el [artículo de arquitectura de conectividad](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md) (Creación y administración de reglas de firewall de Azure Database for MariaDB mediante Azure Portal)

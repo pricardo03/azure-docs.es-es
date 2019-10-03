@@ -1,6 +1,6 @@
 ---
-title: 'Responder a solicitudes HTTP: Azure Logic Apps'
-description: Responder a eventos en tiempo real a través de HTTP mediante Azure Logic Apps
+title: 'Recepción de llamadas HTTPS y respuesta a ellas: Azure Logic Apps'
+description: Administre las solicitudes y los eventos HTTPS en tiempo real mediante Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,20 +12,22 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914328"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122710"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Responder a solicitudes HTTP mediante Azure Logic Apps
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitudes integrado o la acción de respuesta, puede crear tareas automatizadas y flujos de trabajo que reciban las solicitudes HTTP y respondan a ellas en tiempo real. Por ejemplo, puede hacer que la aplicación lógica:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitud o la acción de respuesta integrados, puede crear tareas y flujos de trabajo automatizados que reciben solicitudes HTTP y respondan a ellas en tiempo real. Por ejemplo, puede hacer que la aplicación lógica:
 
-* Responda a una solicitud HTTP de datos en una base de datos local.
+* Reciba una solicitud HTTP de datos en una base de datos local, y responda a ella.
 * Desencadene un flujo de trabajo cuando se produzca un evento de webhook externo.
-* Llame a una aplicación lógica desde otra aplicación lógica.
+* Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
+
+El desencadenador de solicitud *solo* admite HTTPS. En cambio, para realizar llamadas HTTP o HTTPS salientes, use el [desencadenador o la acción HTTP](../connectors/connectors-native-http.md) integrados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,15 +37,15 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>Adición de un desencadenador de solicitud
+## <a name="add-request-trigger"></a>Agregar un desencadenador de solicitud
 
-Este desencadenador integrado crea un punto de conexión invocable manualmente que puede recibir una solicitud HTTP entrante. Cuando se produce este evento, el desencadenador se activa y ejecuta la aplicación lógica. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, consulte el [tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y los [flujos de trabajo de llamada, desencadenador o anidamiento con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Este desencadenador integrado crea un punto de conexión HTTPS invocable manualmente que *solo* puede recibir solicitudes HTTPS entrantes. Cuando se produce este evento, el desencadenador se activa y ejecuta la aplicación lógica. Para más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, consulte el [tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y los [flujos de trabajo de llamada, desencadenador o anidamiento con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
 1. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "http request". En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**, que es el primer paso del flujo de trabajo de la aplicación lógica.
 
-   ![Selección del desencadenador de solicitud HTTP](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Seleccionar desencadenador de solicitud](./media/connectors-native-reqres/select-request-trigger.png)
 
    El desencadenador de solicitud muestra estas propiedades:
 
@@ -52,10 +54,10 @@ Este desencadenador integrado crea un punto de conexión invocable manualmente q
    | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
    |---------------|--------------------|----------|-------------|
    | **URL de HTTP POST** | {none} | Sí | URL del punto de conexión que se genera después de guardar la aplicación lógica y se usa para llamar a la aplicación lógica. |
-   | **Esquema JSON del cuerpo de la solicitud** | `schema` | Sin | Esquema JSON que describe las propiedades y los valores del cuerpo de la solicitud HTTP de entrada. |
+   | **Esquema JSON del cuerpo de la solicitud** | `schema` | Sin | Esquema JSON que describe las propiedades y los valores del cuerpo de la solicitud entrante. |
    |||||
 
-1. En el cuadro **Esquema JSON del cuerpo de la solicitud**, también puede escribir un esquema JSON que describa el cuerpo de la solicitud HTTP en la solicitud entrante, por ejemplo:
+1. En el cuadro **Esquema JSON de cuerpo de solicitud**, también puede especificar un esquema JSON que describa el cuerpo de la solicitud HTTP en la solicitud entrante, por ejemplo:
 
    ![Ejemplo de esquema JSON](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -105,7 +107,7 @@ Este desencadenador integrado crea un punto de conexión invocable manualmente q
    }
    ```
 
-   Al escribir un esquema JSON, el diseñador muestra un recordatorio para incluir el encabezado en la solicitud y establecer el valor del encabezado en . Para obtener más información, consulte [Control de tipos de contenido](../logic-apps/logic-apps-content-type.md).
+   Al escribir un esquema JSON, el diseñador muestra un recordatorio para incluir el encabezado `Content-Type` en la solicitud y establecer el valor del encabezado en `application/json`. Para obtener más información, consulte [Control de tipos de contenido](../logic-apps/logic-apps-content-type.md).
 
    ![Recordatorio para incluir el encabezado "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -216,7 +218,7 @@ La aplicación lógica solo mantiene la solicitud entrante abierta durante un mi
 
    ![Detalles de la acción de respuesta](./media/connectors-native-reqres/response-details.png)
 
-   Para ver los encabezados en formato JSON, seleccione Switch to text view (Cambiar a la vista de texto).
+   Para ver los encabezados en formato JSON, seleccione **Switch to text view** (Cambiar a la vista de texto).
 
    ![Encabezados: cambiar a la vista de texto](./media/connectors-native-reqres/switch-to-text-view.png)
 
@@ -224,7 +226,7 @@ La aplicación lógica solo mantiene la solicitud entrante abierta durante un mi
 
    | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | DESCRIPCIÓN |
    |---------------|--------------------|----------|-------------|
-   | **Código de estado** | `statusCode` | Sí | Código de estado HTTP que se devolverá en la respuesta |
+   | **Código de estado** | `statusCode` | Sí | Código de estado que se devolverá en la respuesta |
    | **Encabezados** | `headers` | Sin | Objeto JSON que describe uno o más encabezados que se incluirán en la respuesta |
    | **Cuerpo** | `body` | Sin | Cuerpo de la respuesta |
    |||||

@@ -1,6 +1,6 @@
 ---
-title: Conexión con puntos de conexión HTTP o HTTPS desde Azure Logic Apps
-description: Supervisión de los puntos de conexión HTTP o HTTPS en tareas, procesos y flujos de trabajo automatizados mediante Azure Logic Apps
+title: 'Llamada a puntos de conexión HTTP y HTTPS: Azure Logic Apps'
+description: Envío de solicitudes salientes a puntos de conexión HTTP y HTTPS mediante Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,18 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234372"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122697"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envío de llamadas salientes a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector integrado de HTTP, puede automatizar los flujos de trabajo que llaman periódicamente a cualquier punto de conexión HTTP o HTTPS mediante la compilación de aplicaciones lógicas. Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación especificada. Cuando se produce un evento específico en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones especificadas.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador o la acción HTTP integrados, puede crear tareas y flujos de trabajo automatizados que envían periódicamente solicitudes a cualquier punto de conexión HTTP o HTTPS. En cambio, para recibir llamadas HTTP o HTTPS entrantes o responder a ellas, use el [desencadenador de solicitud o la acción de respuesta integrados](../connectors/connectors-native-reqres.md).
+
+Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación especificada. Cuando se produce un evento específico en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones especificadas.
 
 Puede usar el desencadenador HTTP como primer paso del flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación periódica. En cada comprobación, el desencadenador envía una llamada o *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa a lo largo de todo el contenido desde la respuesta hasta las acciones en la aplicación lógica.
 
@@ -87,7 +89,7 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ## <a name="content-with-multipartform-data-type"></a>Contenido con el tipo multipart/form-data
 
@@ -148,8 +150,8 @@ Aquí tiene más información acerca de las salidas de un desencadenador o una a
 
 | Nombre de propiedad | type | DESCRIPCIÓN |
 |---------------|------|-------------|
-| headers | objeto | Encabezados de la solicitud |
-| body | objeto | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| headers | object | Encabezados de la solicitud |
+| body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
 |||
 

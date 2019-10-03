@@ -1,19 +1,19 @@
 ---
 title: Aumento de escala de Apache Kafka en Azure HDInsight
 description: Aprenda a configurar discos administrados para clústeres de Apache Kafka en Azure HDInsight para aumentar la escalabilidad.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a3c4f78e9d3b46b66cb2a893c4eed39f865172dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef32a5d3a1439cded6cd092f076e7b26c178cb7a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711720"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122104"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configuración del almacenamiento y la escalabilidad de Apache Kafka en HDInsight
 
@@ -23,7 +23,7 @@ Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúste
 
 El diagrama siguiente proporciona una comparación entre Kafka en HDInsight antes de usar Managed Disks y Kafka en HDInsight ya con este:
 
-![Diagrama que muestra a Kafka en HDInsight con un solo disco duro virtual por cada máquina virtual frente al uso de varios discos administrados por máquina virtual](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+![Arquitectura de Kafka con discos administrados](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>Configuración de discos administrados: Portal de Azure
 
@@ -34,7 +34,7 @@ El diagrama siguiente proporciona una comparación entre Kafka en HDInsight ante
     > [!NOTE]  
     > El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
-    ![Imagen de la sección Tamaño de clúster con los discos por nodo de trabajo resaltados](./media/apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Sección de tamaño del clúster con los discos por nodo de trabajo resaltada](./media/apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configuración de discos administrados: Plantilla de Resource Manager
 

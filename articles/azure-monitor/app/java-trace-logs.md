@@ -12,19 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061234"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299246"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de Java en Application Insights
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
+## <a name="using-the-application-insights-java-agent"></a>Uso del agente de Java de Application Insights
+
+Puede configurar el agente de Java de Application Insights para capturar automáticamente los registros, habilitando la característica en el archivo `AI-Agent.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+Como alternativa, puede seguir las instrucciones a continuación.
+
 ## <a name="install-the-java-sdk"></a>Instalación del SDK de Java
 
-Siga las instrucciones para instalar el [SDK de Application Insights para Java][java], si aún no ha hecho.
+Siga las instrucciones para instalar el [SDK de Application Insights para Java][java], si aún no lo ha hecho.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Incorporación de bibliotecas de registro al proyecto
 *Elija la forma adecuada para su proyecto.*

@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170561"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299390"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
 El tiempo de ejecución de Azure Functions admite [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Esta guía contiene información acerca de las complejidades de la escritura de Azure Functions con Java.
 
-Una función Java es un método `public` decorado con la anotación `@FunctionName`. Este método define la entrada de una función Java, y debe ser única en un paquete determinado. 
+Como sucede con otros lenguajes, una aplicación de funciones puede tener una o varias funciones. Una función Java es un método `public` decorado con la anotación `@FunctionName`. Este método define la entrada de una función Java, y debe ser única en un paquete determinado. Una aplicación de funciones escrita en Java puede tener varias clases con varios métodos públicos anotados con `@FunctionName`.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). También debe completar el inicio rápido de Functions para crear su primera función, mediante [Visual Studio Code](functions-create-first-function-vs-code.md) o [Maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modelo de programación 
 
 Los conceptos de [desencadenadores y enlaces](functions-triggers-bindings.md) son fundamentales en Azure Functions. Los desencadenadores inician la ejecución del código. Los enlaces, por otro lado, proporcionan una manera de pasar y devolver datos de una función, sin tener que escribir un código de acceso a datos personalizados.
+
+## <a name="project-scaffolding"></a>Creación del scaffolding del proyecto
+
+La manera más sencilla de crear el scaffolding de un proyecto de Azure Functions basado en Java es usar arquetipos `Apache Maven`. También puede buscar asistentes de generación de proyectos en Visual Studio Code y Azure Toolkit for Eclipse y para IntelliJ.
+
+Actualmente hay dos arquetipos de Azure Functions para Maven:
+
+### <a name="java-archetype"></a>Arquetipo de Java
+
+Este arquetipo se publica en el siguiente identificador de grupo e identificador de artefacto [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Arquetipo de Kotlin (versión preliminar)
+
+Este arquetipo se publica en el siguiente identificador de grupo e identificador de artefacto [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+El código fuente de estos arquetipos puede encontrarse en el [repositorio de GitHub de arquetipos de Azure Maven](https://github.com/microsoft/azure-maven-archetypes).
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 
@@ -55,6 +83,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* El proyecto de Kotlin tiene un aspecto muy similar porque todavía sigue en Maven_.
 
 Puede usar un archivo [host.json](functions-host-json.md) compartido para configurar la aplicación de funciones. Cada función tiene su propio archivo de código (.java) y archivo de configuración de enlace (function.json).
 

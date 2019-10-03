@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo migrar todos los contenedores sin 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: d51c200ebff0d92b1bcdf2c8e3e0325103e214b7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615033"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300117"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
 
@@ -19,12 +19,12 @@ Azure Cosmos DB admite la creación de contenedores sin una clave de partición.
 
 Los contenedores sin particiones son heredados y debe migrar los contenedores sin particiones existentes a los contenedores con particiones para escalar el almacenamiento y el rendimiento. Azure Cosmos DB proporciona un mecanismo definido por el sistema para migrar los contenedores sin particiones a contenedores con particiones. En este documento se explica cómo todos los contenedores sin particiones existentes se migran automáticamente a contenedores con particiones. Puede aprovechar la característica de migración automática solo si usa la versión V3 de los SDK en todos los idiomas.
 
-> [!NOTE] 
-> Actualmente, no puede migrar las cuentas de Azure Cosmos DB MongoDB y API de Gremlin mediante el uso de los pasos descritos en este documento. 
+> [!NOTE]
+> Actualmente, no puede migrar las cuentas de Azure Cosmos DB MongoDB y API de Gremlin mediante el uso de los pasos descritos en este documento.
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migración de contenedores con la clave de partición definida por el sistema
 
-Para admitir la migración, Azure Cosmos DB define una clave de partición definida por el sistema denominada `/_partitionkey` en todos los contenedores que no tienen una clave de partición. No se puede cambiar la definición de la clave de partición después de haber migrado los contenedores. Por ejemplo, la definición de un contenedor que se migra a un contenedor con particiones será como sigue: 
+Para admitir la migración, Azure Cosmos DB define una clave de partición definida por el sistema denominada `/_partitionkey` en todos los contenedores que no tienen una clave de partición. No se puede cambiar la definición de la clave de partición después de haber migrado los contenedores. Por ejemplo, la definición de un contenedor que se migra a un contenedor con particiones será como sigue:
 
 ```json
 {
@@ -37,10 +37,10 @@ Para admitir la migración, Azure Cosmos DB define una clave de partición defin
   },
 }
 ```
- 
-Después de migrar el contenedor, puede crear documentos rellenando la propiedad `_partitionKey` junto con las demás propiedades del documento. La propiedad `_partitionKey` representa la clave de partición de los documentos. 
 
-Elegir la clave de partición correcta es importante para usar de forma óptima el rendimiento aprovisionado. Para obtener más información, vea el artículo sobre [cómo elegir una clave de partición correcta](partitioning-overview.md). 
+Después de migrar el contenedor, puede crear documentos rellenando la propiedad `_partitionKey` junto con las demás propiedades del documento. La propiedad `_partitionKey` representa la clave de partición de los documentos.
+
+Elegir la clave de partición correcta es importante para usar de forma óptima el rendimiento aprovisionado. Para obtener más información, vea el artículo sobre [cómo elegir una clave de partición correcta](partitioning-overview.md).
 
 > [!NOTE]
 > Puede aprovechar la clave de partición definida por el sistema solo si usa la versión V3 o la más reciente de los SDK en todos los idiomas.
@@ -65,37 +65,37 @@ public class DeviceInformationItem
     [JsonProperty(PropertyName = "deviceId")]
     public string DeviceId { get; set; }
 
-    [JsonProperty(PropertyName = "_partitionKey")]
+    [JsonProperty(PropertyName = "_partitionKey", NullValueHandling = NullValueHandling.Ignore)]
     public string PartitionKey {get {return this.DeviceId; set; }
 }
 
 CosmosContainer migratedContainer = database.Containers["testContainer"];
 
 DeviceInformationItem deviceItem = new DeviceInformationItem() {
-  Id = "1234", 
+  Id = "1234",
   DeviceId = "3cf4c52d-cc67-4bb8-b02f-f6185007a808"
-} 
+}
 
-CosmosItemResponse<DeviceInformationItem > response = 
-  await migratedContainer.Items.CreateItemAsync(
+ItemResponse<DeviceInformationItem > response = 
+  await migratedContainer.CreateItemAsync<DeviceInformationItem>(
     deviceItem.PartitionKey, 
     deviceItem
   );
 
 // Read back the document providing the same partition key
-CosmosItemResponse<DeviceInformationItem> readResponse = 
-  await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+ItemResponse<DeviceInformationItem> readResponse = 
+  await migratedContainer.ReadItemAsync<DeviceInformationItem>( 
     partitionKey:deviceItem.PartitionKey, 
     id: device.Id
-  ); 
+  );
 
 ```
 
-Para obtener un ejemplo completo, vea el repositorio de GitHub de [ejemplos de .Net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples). 
+Para obtener un ejemplo completo, vea el repositorio de GitHub de [ejemplos de .Net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples).
                       
 ## <a name="migrate-the-documents"></a>Migración de los documentos
 
-Mientras que la definición del contenedor se mejora con una propiedad de clave de partición, los documentos del contenedor no se migran automáticamente. Lo que significa que la ruta `/_partitionKey` de la propiedad de la clave de partición del sistema no se agrega automáticamente a los documentos existentes. Deberá volver a particionar los documentos existentes mediante la lectura de los documentos que se crearon sin una clave de partición y volver a escribirlos con la propiedad `_partitionKey` en los documentos. 
+Mientras que la definición del contenedor se mejora con una propiedad de clave de partición, los documentos del contenedor no se migran automáticamente. Lo que significa que la ruta `/_partitionKey` de la propiedad de la clave de partición del sistema no se agrega automáticamente a los documentos existentes. Deberá volver a particionar los documentos existentes mediante la lectura de los documentos que se crearon sin una clave de partición y volver a escribirlos con la propiedad `_partitionKey` en los documentos.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Acceso a los documentos que no tienen una clave de partición
 
@@ -104,7 +104,7 @@ Las aplicaciones pueden tener acceso a los documentos existentes que no tienen u
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
 await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
-  partitionKey: CosmosContainerSettings.NonePartitionKeyValue, 
+  partitionKey: PartitionKey.None, 
   id: device.Id
 ); 
 

@@ -1,5 +1,5 @@
 ---
-title: Conexión de datos de Symantec ICDx a la versión preliminar de Azure Sentinel | Microsoft Docs
+title: Conexión de datos de Symantec ICDx a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos de Symantec ICDx a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673748"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240646"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Conexión de su dispositivo Symantec ICDx 
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 El conector de Symantec ICDx permite conectar fácilmente todos los registros de la solución de seguridad de Symantec con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación, de modo que dispondrá de más información sobre la red de la organización y de mejores capacidades de seguridad. La integración entre Symantec ICDx y Azure Sentinel usa la API REST.
 
@@ -79,5 +77,5 @@ Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Symantec ICDx a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

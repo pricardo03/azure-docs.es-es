@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873205"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300187"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminación de imágenes de contenedor en Azure Container Registry con la CLI de Azure
 
@@ -259,9 +259,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Purga automática de etiquetas y manifiestos (versión preliminar)
 
 Como alternativa a los comandos de la CLI de Azure de scripting, ejecute una instancia de ACR Tasks a petición o programada para eliminar todas las etiquetas que tengan más de una duración determinada o que coincidan con un filtro de nombre especificado. Para más información, consulte [Automatically purge images from an Azure Container Registry](container-registry-auto-purge.md) (Purga automática de imágenes a partir de una instancia de Azure Container Registry).
+
+Opcionalmente, establezca una [directiva de retención](container-registry-retention-policy.md) para cada registro con el fin de administrar los manifiestos sin etiquetar. Cuando se habilita una directiva de retención, los manifiestos de imagen del registro que no tienen etiquetas asociadas, y los datos de la capa subyacentes, se eliminan automáticamente después de un período establecido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

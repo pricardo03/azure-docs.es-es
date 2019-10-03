@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: dc113417be3df97b9ab9509c30a1f23e1eeaf35b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086278"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155069"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -31,6 +31,9 @@ Los enlaces de SendGrid se proporcionan en el paquete NuGet [Microsoft.Azure.Web
 ## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
 
 Los enlaces de SendGrid se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) de GitHub.
+
+> [!NOTE]
+> La versión 2.x no crea el tema o la suscripción configurada en la instancia `ServiceBusTrigger`. La versión 2.x se basa en [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) y no controla la administración de colas.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 

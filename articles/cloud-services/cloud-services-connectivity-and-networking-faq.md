@@ -4,7 +4,7 @@ description: En este artículo se enumeran las preguntas frecuentes sobre conect
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941750"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154867"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -103,7 +103,7 @@ Para asegurarse de que la dirección IP pública de un servicio en la nube (tamb
 - [Reserva de la dirección IP de un servicio en la nube existente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Si tiene más de una instancia para sus roles, la asociación de RIP a su servicio en la nube no debería producir ningún tiempo de inactividad. Como alternativa, puede incluir el intervalo IP de su centro de datos de Azure en la lista de autorizados. Puede encontrar todos los intervalos IP de Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Si tiene más de una instancia para los roles, la asociación de RIP al servicio en la nube no debería provocar ningún tiempo de inactividad. Como alternativa, puede agregar el intervalo de direcciones IP de su centro de datos de Azure a una lista de permitidas. Puede encontrar todos los intervalos de direcciones IP de Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana. Descargue el nuevo archivo .xml cada semana y realice los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute podrían apreciar que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes.
 

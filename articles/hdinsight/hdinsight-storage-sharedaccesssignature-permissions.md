@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409557"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180828"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -41,7 +41,7 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 * Si usa C#, debe usar la versión 2013 de Visual Studio o superior.
 
-* El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para la cuenta de almacenamiento. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el URI sería `wasbs://` o `abfss://`, respectivamente; vea también [Transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para la cuenta de almacenamiento. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
 * Un clúster de HDInsight existente al que agregar una firma de acceso compartido. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 

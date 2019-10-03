@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414596"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299843"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica
 
@@ -100,11 +100,14 @@ Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado i
 
    1. Seleccione **Guardar**.
 
-Ahora que existe una inscripción para este dispositivo, el entorno de ejecución de Azure IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación. Asegúrese de copiar el valor **Clave principal** de la inscripción para usarlo al crear la clave del dispositivo.
+Ahora que existe una inscripción para este dispositivo, el entorno de ejecución de Azure IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación. Asegúrese de copiar el valor de **Clave principal** de la inscripción para usarlo al instalar el entorno de ejecución de Azure IoT Edge, o bien si va a crear claves de dispositivo para usarse con una inscripción de grupo.
 
 ## <a name="derive-a-device-key"></a>Derivación de una clave de dispositivo
 
-En el dispositivo se usa la clave de dispositivo derivada con el identificador de registro único para realizar la atestación de clave simétrica con la inscripción durante el aprovisionamiento. Para generar la clave del dispositivo, use la clave que ha copiado de la inscripción de DPS para calcular un valor [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro único del dispositivo y convierta el resultado a formato Base64.
+> [!NOTE]
+> Esta sección solo es necesaria si se usa una inscripción de grupo.
+
+Cada dispositivo usa la clave de dispositivo derivada con el identificador de registro único para realizar la atestación de clave simétrica con la inscripción durante el aprovisionamiento. Para generar la clave del dispositivo, use la clave que ha copiado de la inscripción de DPS para calcular un valor [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro único del dispositivo y convierta el resultado a formato Base64.
 
 No incluya la clave principal o secundaria de la inscripción en el código del dispositivo.
 
@@ -159,7 +162,10 @@ Al aprovisionar el dispositivo necesitará la información siguiente:
 
 * El valor **Ámbito de id.** del DPS
 * El **Id. de registro** del dispositivo que ha creado
-* La clave de dispositivo derivada del dispositivo para la atestación de clave simétrica
+* La **clave principal** que copió de la inscripción de DPS
+
+> [!TIP]
+> Para las inscripciones de grupo, necesita la clave [derivada](#derive-a-device-key) de cada dispositivo en lugar de la clave de inscripción de DPS.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 

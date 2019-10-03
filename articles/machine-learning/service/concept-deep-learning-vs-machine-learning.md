@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035506"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123136"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático
 
@@ -37,7 +37,7 @@ Tenga en cuenta las siguientes definiciones para comprender el aprendizaje profu
 
 - La  **inteligencia artificial (IA)** es una técnica que permite a los equipos imitar la inteligencia humana. Incluye el aprendizaje automático. 
  
-Es importante conocer la relación entre la inteligencia artificial, el aprendizaje automático y el aprendizaje profundo. El aprendizaje automático es una forma de lograr inteligencia artificial. Al usar el aprendizaje automático y las técnicas de aprendizaje profundo, puede compilar sistemas y aplicaciones de equipos que realicen tareas que normalmente se asocian a la inteligencia humana. Estas tareas incluyen la percepción visual, el reconocimiento de voz, la toma de decisiones y la traducción de idiomas.
+Es importante conocer la relación entre la inteligencia artificial, el aprendizaje automático y el aprendizaje profundo. El aprendizaje automático es una forma de lograr inteligencia artificial. Al usar el aprendizaje automático y las técnicas de aprendizaje profundo, puede compilar sistemas y aplicaciones de equipos que realicen tareas que normalmente se asocian a la inteligencia humana. Estas tareas incluyen el reconocimiento de imágenes, el reconocimiento de voz y la traducción de idiomas.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Técnicas del aprendizaje profundo y del aprendizaje automático 
 
@@ -47,12 +47,12 @@ En la tabla siguiente se comparan las dos técnicas con más detalle:
 
 | |Todo el aprendizaje automático |Solo aprendizaje profundo|
 |---|---|---|
-|  **Número de puntos de datos** | Puede usar pequeñas cantidades de datos que proporcionan los usuarios. | Requiere una gran cantidad de datos de entrenamiento para sacar conclusiones concisas. |
+|  **Número de puntos de datos** | Puede usar pequeñas cantidades de datos para hacer predicciones. | Necesita usar grandes cantidades de datos de entrenamiento para hacer predicciones. |
 |  **Dependencias del hardware** | Puede trabajar en equipos lentos. No necesita una gran cantidad de potencia de cálculo. | Depende de máquinas rápidas. Realiza intrínsecamente un gran número de operaciones de multiplicación de matrices. Una GPU puede optimizar eficazmente estas operaciones. |
 |  **Proceso de características** | Requiere que los usuarios creen e identifiquen con precisión las características. | Aprende las características de alto nivel de los datos y crea nuevas características automáticamente. |
-|  **Enfoque del aprendizaje** | Divide las tareas en pequeñas partes y, después, combina los resultados recibidos para sacar una conclusión. | Resuelve el problema de forma global. |
-|  **Tiempo de ejecución** | Comparativamente, tarda menos tiempo en entrenarse; puede tardar unos segundos o unas pocas horas. | Tarda demasiado tiempo en entrenarse, porque los algoritmos de aprendizaje profundo tienen muchos parámetros. |
-|  **Salida** | La salida suele ser un valor numérico, como una puntuación o una clasificación. | La salida puede ser una puntuación, un texto, un elemento o un sonido. |
+|  **Enfoque del aprendizaje** | Divide el proceso de aprendizaje en pasos más pequeños. Luego, combina los resultados de cada paso en una salida. | Pasa por el proceso de aprendizaje mediante la resolución del problema de un extremo a otro. |
+|  **Tiempo de ejecución** | Comparativamente, tarda menos tiempo en entrenarse; puede tardar unos segundos o unas pocas horas. | Normalmente, tarda demasiado tiempo en entrenarse, porque los algoritmos de aprendizaje profundo tienen muchas capas. |
+|  **Salida** | La salida suele ser un valor numérico, como una puntuación o una clasificación. | La salida puede tener varios formatos, como texto, una puntuación o un sonido. |
 
 ## <a name="deep-learning-use-cases"></a>Casos de uso del aprendizaje profundo
 
@@ -62,7 +62,7 @@ En los párrafos siguientes se describen algunas de las aplicaciones más comune
 
 ### <a name="named-entity-recognition"></a>Reconocimiento de entidades con nombre
 
-Un uso de las redes de aprendizaje profundo es el reconocimiento de entidades con nombre, que es una manera de extraer determinados tipos de información de datos no estructurados y sin etiquetar. Esta información varía entre personas, lugares, empresas o cosas. Asimismo, esa información se puede almacenar en un esquema estructurado para compilar una lista de direcciones, o puede servir como banco de pruebas de un motor de validación de identidades.
+El reconocimiento de entidades con nombre es un método de aprendizaje profundo que toma un fragmento de texto como entrada y lo transforma en una clase especificada previamente. Esta nueva información podría ser un código postal, una fecha y un identificador de producto. Asimismo, esa información se puede almacenar en un esquema estructurado para compilar una lista de direcciones, o puede servir como banco de pruebas de un motor de validación de identidades.
 
 ### <a name="object-detection"></a>Detección de objetos
 
@@ -72,17 +72,21 @@ La detección de objetos ya se está usando en sectores como los videojuegos, lo
 
 ### <a name="image-caption-generation"></a>Generación de subtítulos para imágenes
 
-De forma similar a la tarea de reconocimiento de imágenes, la generación de subtítulos para imágenes es la tarea en que, para una imagen determinada, el sistema debe generar un subtítulo que describa el contenido de la imagen. Cuando puede detectar y etiquetar objetos en fotografías, el siguiente paso es convertir esas etiquetas en oraciones descriptivas y coherentes. Por lo general, los sistemas de subtítulos para imágenes implican el uso de redes neuronales convolucionales muy grandes para la detección de objetos en las fotografías; asimismo, también necesitan una red neuronal recurrente (RNN) para convertir las etiquetas en oraciones coherentes.
+De forma similar a la tarea de reconocimiento de imágenes, la generación de subtítulos para imágenes es la tarea en que, para una imagen determinada, el sistema debe generar un subtítulo que describa el contenido de la imagen. Una vez que puede detectar y etiquetar objetos en fotografías, el siguiente paso es convertir esas etiquetas en oraciones descriptivas. 
+
+Normalmente, las aplicaciones de subtítulos para imágenes emplean redes neuronales circunvolucionales para identificar los objetos en una imagen y, luego, usan una red neuronal recurrente para convertir las etiquetas en oraciones coherentes.
 
 ### <a name="machine-translation"></a>Traducción automática
 
-La traducción automática toma palabras, frases u oraciones de un idioma y las traduce automáticamente a otro. La traducción automática lleva mucho tiempo utilizándose, pero el aprendizaje profundo está obteniendo magníficos resultados en dos áreas específicas: la traducción automática de texto (y de voz a texto) y la traducción automática de imágenes. 
+La traducción automática toma palabras u oraciones de un idioma y las traduce automáticamente a otro. La traducción automática lleva mucho tiempo utilizándose, pero el aprendizaje profundo está obteniendo magníficos resultados en dos áreas específicas: la traducción automática de texto (y de voz a texto) y la traducción automática de imágenes.
 
-Con la transformación apropiada de los datos, una red profunda es capaz de comprender texto, audio y señales visuales. La traducción automática se puede usar para identificar fragmentos de sonido en archivos de audio mayores y transcribir la palabra hablada o la imagen como texto.
+Con la transformación apropiada de los datos, una red neuronal es capaz de comprender texto, audio y señales visuales. La traducción automática se puede usar para identificar fragmentos de sonido en archivos de audio mayores y transcribir la palabra hablada o la imagen como texto.
 
 ### <a name="text-analytics"></a>Text Analytics
 
-Una tarea importante del aprendizaje profundo es la detección electrónica. Las empresas usan análisis de texto basándose en el aprendizaje profundo para detectar las actividades comerciales y el cumplimiento normativo de las regulaciones gubernamentales. Los fondos de cobertura usan el análisis de texto para explorar en profundidad los repositorios de documentos más grandes con el fin de obtener detalles precisos acerca del rendimiento de las inversiones en el futuro y poder analizar la opinión del mercado. El caso de uso del análisis de texto basado en el aprendizaje profundo gira en torno a su capacidad de analizar grandes cantidades de datos de texto y realizar análisis o suspender agregaciones.
+El análisis de texto basado en métodos de aprendizaje profundo implica el análisis de grandes cantidades de datos de texto (por ejemplo, documentos médicos o recibos de gastos), el reconocimiento de patrones y la creación de información organizada y concisa como resultado de dicho análisis.
+
+Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas. 
 
 ## <a name="artificial-neural-networks"></a>Redes neuronales artificiales
 
@@ -92,17 +96,17 @@ En las secciones que tiene a continuación, se describen las tipologías de rede
 
 ### <a name="feedforward-neural-network"></a>Red neuronal del tipo feedforward
 
-La red neuronal de tipo feedforward es el tipo más básico de red neuronal artificial. En una red de tipo feedforward, la información se desplaza solo en una dirección desde la capa de entrada a la de salida. Las redes neuronales de tipo feedforward transforman una entrada pasándola por una serie de capas ocultas. Cada capa consta de un conjunto de neuronas, donde cada capa está totalmente conectada a todas los neuronas de la capa anterior. Por último, hay una última capa totalmente conectada (la capa de salida) que representa las predicciones generadas.
+La red neuronal de tipo feedforward es el tipo más básico de red neuronal artificial. En una red de tipo feedforward, la información se desplaza solo en una dirección: desde la capa de entrada a la de salida. Las redes neuronales de tipo feedforward transforman una entrada pasándola por una serie de capas ocultas. Cada capa consta de un conjunto de neuronas, donde cada capa está totalmente conectada a todas los neuronas de la capa anterior. Por último, hay una última capa totalmente conectada (la capa de salida) que representa las predicciones generadas.
 
 ### <a name="recurrent-neural-network"></a>Redes neuronales recurrentes
 
-Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Se usan ampliamente en tareas complejas, como el aprendizaje de escritura a mano y el reconocimiento de idiomas.
+Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Se usan ampliamente en tareas complejas, como la previsión de series temporales, el aprendizaje de la escritura a mano y el reconocimiento de idiomas.
 
 ### <a name="convolutional-neural-networks"></a>Redes neuronal convolucionales
 
 Una red neuronal convolucional es un tipo especialmente eficaz de red neuronal artificial que presenta una arquitectura única. Las capas se organizan en tres dimensiones: ancho, alto y profundo. Además, las neuronas de una capa no se conectan con todas las neuronas de la capa siguiente, sino que solo se conectan a una pequeña región de la misma. Asimismo, la salida final se reducirá a un solo vector de puntuaciones de probabilidad, organizadas a lo largo de la dimensión de profundidad. 
 
-Estas redes neuronales se han utilizado en áreas como el reconocimiento y la clasificación de imágenes.
+Las redes neuronales circunvolucionadas se han usado en áreas como el reconocimiento de vídeo, el reconocimiento de imágenes y los sistemas de recomendación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

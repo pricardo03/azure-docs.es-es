@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55e3f073c1d22ef09784f699dc2decb0492d9edf
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b610a62e9ca9b964482638c2c0302461996c0bf2
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162307"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145690"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Habilitar el registro de información de seguridad combinado (vista preliminar)
 
@@ -30,7 +30,7 @@ Antes de habilitar la nueva experiencia, revise el artículo [Registro de inform
 |     |
 
 > [!NOTE]
-> Las organizaciones que habilitaron la versión preliminar anterior para registrar y administrar la información de seguridad deben completar los pasos siguientes para habilitar la versión preliminar mejorada. En las organizaciones que no realicen el cambio, el 25 de septiembre de 2019, Microsoft cambiará a los usuarios de la versión preliminar anterior para registrar y administrar la información de seguridad en la mejorada. 
+> Las organizaciones que habilitaron la versión preliminar anterior para registrar y administrar la información de seguridad deben completar los pasos siguientes para habilitar la versión preliminar mejorada. En las organizaciones que no realicen el cambio, el 8 de octubre de 2019, Microsoft cambiará a los usuarios de la versión preliminar anterior para registrar y administrar la información de seguridad en la mejorada. 
 > 
 > Si no ha habilitado ninguna versión preliminar, la organización no se verá afectada.
 

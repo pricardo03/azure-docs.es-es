@@ -15,17 +15,17 @@ ms.lasthandoff: 09/11/2019
 ms.locfileid: "70910700"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilidad de Gremlin de Azure Cosmos DB
-El motor Azure Cosmos DB Graph sigue estrechamente la especificación de pasos transversales de Apache TinkerPop, pero con algunas diferencias.
+El motor Graph de Azure Cosmos DB sigue estrechamente la especificación de pasos transversales de [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), pero con algunas diferencias.
 
 ## <a name="behavior-differences"></a>Diferencias de comportamiento
 
-* El motor Azure Cosmos DB Graph ejecuta el recorrido centrando la prioridad en la amplitud, mientras que Gremlin de TinkerPop lo hace centrando la prioridad en la profundidad. Este comportamiento logra un mejor rendimiento en un sistema escalable horizontalmente como Cosmos DB. 
+* El motor Graph de Azure Cosmos DB ejecuta el recorrido centrando la ***prioridad en la amplitud***, mientras que Gremlin de TinkerPop lo hace centrando la prioridad en la profundidad. Este comportamiento logra un mejor rendimiento en un sistema escalable horizontalmente como Cosmos DB. 
 
 ## <a name="unsupported-features"></a>Características no admitidas
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** es una especificación independiente del lenguaje de programación para recorridos de grafos. Cosmos DB Graph todavía no lo admite. Use ```GremlinClient.SubmitAsync()``` y pase el recorrido como una cadena de texto.
 
-* ****************************************************************************************************************************** En su lugar, use ```property(list, 'xyz', 1)```.
+* Actualmente, no se admite el establecimiento de la cardinalidad ***```property(set, 'xyz', 1)```***. En su lugar, use ```property(list, 'xyz', 1)```.
 
 * ***```match()```*** permite consultar grafos mediante la coincidencia de patrones declarativos. Esta funcionalidad no está disponible.
 

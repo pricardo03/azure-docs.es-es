@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 43cb2f0c3ef0f845afcd309dccb35bc632ffd324
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390951"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300275"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -89,7 +89,13 @@ La dirección URL del punto de conexión tiene varios valores que se deben pasar
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>Omitir los errores ortográficos
-Si no quiere usar el servicio Bing Spell Check API v7, puede etiquetar las expresiones que contienen errores ortográficos para que LUIS pueda aprender la ortografía correcta, así como los errores tipográficos. Esta opción requiere más esfuerzo de etiquetado que el uso de un corrector ortográfico.
+
+Si no desea usar el servicio Bing Spell Check API v. 7, debe agregar la ortografía correcta e incorrecta. 
+
+Hay dos soluciones:
+
+* Etiquete las expresiones de ejemplo que tengan todas las diferentes ortografías para que LUIS pueda aprender la correcta, así como los errores tipográficos. Esta opción requiere más esfuerzo de etiquetado que el uso de un corrector ortográfico.
+* Cree una lista de frases con todas las variaciones de la palabra. Con esta solución, no es necesario etiquetar las variaciones de palabras en las expresiones de ejemplo. 
 
 ## <a name="publishing-page"></a>Página de publicación
 La página de [publicación](luis-how-to-publish-app.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión. 

@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 21204e85adf1c68264ea448360c9e1120567ef3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f418a78f80d65cbb784685804a4cc6790c28b99
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530916"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300899"
 ---
 # <a name="what-is-azure-scheduler"></a>¿Qué es Azure Scheduler?
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se va a retirar. Para programar trabajos, [pruebe Azure Logic Apps en su lugar](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, [migre a Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) cuanto antes.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) le ayuda a crear [trabajos](../scheduler/scheduler-concepts-terms.md) que se ejecutan en la nube mediante la descripción declarativa de acciones. Posteriormente, el servicio programa y ejecuta esas acciones de forma automática. Por ejemplo, puede llamar a servicios dentro y fuera de Azure, como llamar a puntos de conexión HTTP o HTTPS, y también publicar mensajes en colas de Azure Storage y colas o temas de Azure Service Bus. Puede ejecutar trabajos de inmediato o en un momento posterior. Scheduler admite [programaciones complejas y periodicidad avanzada](../scheduler/scheduler-advanced-complexity.md) con facilidad. Scheduler especifica cuándo se debe ejecutar los trabajos, mantiene un historial con los resultados del trabajo que puede revisar y, a continuación, programa de forma predecible y confiable cargas de trabajo para que se ejecuten.
 

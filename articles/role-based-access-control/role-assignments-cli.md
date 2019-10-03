@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b898f42fa6f66fba7c84daa67769249642bd986
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3420374e90790bd1ffe4c845c19de1bfed317302
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996483"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173733"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure
 
@@ -369,6 +369,22 @@ En el ejemplo siguiente se asigna el rol *Lector de facturación* al usuario *al
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+### <a name="create-a-role-assignment-for-a-new-service-principal"></a>Creación de una asignación de roles para una nueva entidad de servicio
+
+Si crea una entidad de servicio e inmediatamente intenta asignarle un rol, esa asignación de roles puede producir un error en algunos casos. Por ejemplo, si usa un script para crear una identidad administrada y luego intenta asignarle un rol a esa entidad de servicio, la asignación de roles podría producir un error. Es probable que el motivo de este error sea un retraso en la replicación. La entidad de servicio se crea en una región; sin embargo, la asignación de roles puede tener lugar en una región distinta que todavía no haya replicado la entidad de servicio. Para abordar este escenario, debe especificar el tipo de entidad de seguridad al crear la asignación de roles.
+
+Para crear una asignación de roles, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), especifique un valor para `--assignee-object-id` y establezca `--assignee-principal-type` en `ServicePrincipal`.
+
+```azurecli
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+En el ejemplo siguiente, se asigna el rol *Colaborador de la máquina virtual* a la identidad administrada *msi-test* en el ámbito del grupo de recursos *pharma-sales*:
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>Quitar acceso

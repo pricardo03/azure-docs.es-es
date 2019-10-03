@@ -1,25 +1,25 @@
 ---
-title: Crear variables para guardar valores - Azure Logic Apps | Microsoft Docs
-description: Cómo guardar y administrar valores mediante la creación de variables en Azure Logic Apps
+title: Creación y administración de variables para guardar valores - Azure Logic Apps
+description: Creación y administración de valores mediante el uso de variables en Azure Logic Apps
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.topic: article
-ms.date: 05/30/2018
 ms.service: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 09/20/2019
+ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004591"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180786"
 ---
-# <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Crear variables para guardar y administrar valores en Azure Logic Apps
+# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Creación y administración de valores mediante el uso de variables en Azure Logic Apps
 
-En este artículo se muestra la manera de almacenar y trabajar con valores de la aplicación lógica mediante la creación de variables. Por ejemplo, las variables pueden ayudarle a contar el número de veces que se ejecuta un bucle. Al iterar una matriz o al comprobar una matriz para buscar un elemento específico, puede usar una variable para hacer referencia al número de índice de cada elemento de la matriz. 
+En este artículo se muestra cómo crear y trabajar con variables que se usan para almacenar valores en su aplicación lógica. Por ejemplo, las variables pueden ayudarle a hacer un seguimiento del número de veces que se ejecuta un bucle. Al iterar una matriz o al comprobar una matriz para buscar un elemento específico, puede usar una variable para hacer referencia al número de índice de cada elemento de la matriz.
 
 Puede crear variables para tipos de datos como, por ejemplo, "entero", "float", "booleano", "cadena", "matriz" y "objeto". Después de crear una variable, puede realizar otras tareas; por ejemplo:
 
@@ -28,22 +28,20 @@ Puede crear variables para tipos de datos como, por ejemplo, "entero", "float", 
 * Asignar un valor diferente a la variable.
 * Insertar o *anexar* el valor de la variable como la última hora en una cadena o una matriz.
 
-Las variables solo existen y son globales en la instancia de la aplicación lógica que las crea. Además, persisten en todas las iteraciones de bucle de una instancia de esa aplicación lógica. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción. 
+Las variables solo existen y son globales en la instancia de la aplicación lógica que las crea. Además, persisten en todas las iteraciones de bucle de una instancia de esa aplicación lógica. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción.
 
 > [!IMPORTANT]
-> De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralelo. Cuando se usan variables en bucles, ejecute el bucle [secuencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que las variables devuelvan resultados predecibles. 
-
-Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+> De forma predeterminada, los ciclos de un bucle "Para cada uno" se ejecutan en paralelo. Cuando se usan variables en bucles, ejecute el bucle [secuencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que las variables devuelvan resultados predecibles.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder seguir los pasos de este artículo, estos son los elementos que necesita:
+* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-* La aplicación lógica en la que desea crear una variable. 
+* La aplicación lógica en la que desea crear una variable.
 
   Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que será el primer paso de la aplicación lógica. 
+* Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que será el primer paso de la aplicación lógica.
 
   Antes de poder agregar acciones para crear y trabajar con variables, debe iniciar la aplicación lógica con un desencadenador.
 
@@ -51,37 +49,38 @@ Para poder seguir los pasos de este artículo, estos son los elementos que neces
 
 ## <a name="initialize-variable"></a>Inicializar la variable
 
-Puede crear una variable y declarar el tipo de datos y el valor inicial de la misma; todo mediante una sola acción de la aplicación lógica. Solo se pueden declarar variables en el nivel global, y no en los ámbitos, condiciones y bucles. 
+Puede crear una variable y declarar el tipo de datos y el valor inicial de la misma; todo mediante una sola acción de la aplicación lógica. Solo se pueden declarar variables en el nivel global, y no en los ámbitos, condiciones y bucles.
 
-1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a> o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. 
+1. En [Azure Portal](https://portal.azure.com) o Visual Studio, abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
    En este ejemplo se usa Azure Portal y una aplicación lógica con un desencadenador existente.
 
-2. En la aplicación lógica, en el paso donde quiere agregar una variable, siga uno de estos pasos: 
+1. En la aplicación lógica, en el paso donde quiere agregar una variable, siga uno de estos pasos: 
 
-   * Para agregar una acción en el último paso, elija **Nuevo paso** > **Agregar una acción**.
+   * Para agregar una acción en el último paso, elija **Nuevo paso**.
 
      ![Agregar una acción](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más (+) aparezca. 
-   Haga clic en el signo más y, a continuación, elija **Agregar una acción**.
+   * Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
 
-3. En el cuadro de búsqueda, escriba "variables" como filtro. En la lista de acciones, seleccione **Variables: Inicializar variable**.
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `variables` como filtro. En la lista de acciones, seleccione **Inicializar variable**.
 
    ![Acción Select](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
-4. Proporcione esta información para la variable:
+1. Proporcione esta información sobre su variable tal y como se describe a continuación:
 
    | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Type | Sí | <*variable-type*> | El tipo de datos de la variable | 
-   | Value | Sin | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
-   ||||| 
+   | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar |
+   | **Tipo** | Sí | <*variable-type*> | El tipo de datos de la variable |
+   | **Valor** | Sin | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. |
+   |||||
+
+   Por ejemplo:
 
    ![Inicializar la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-5. Ahora continúe agregando las acciones que quiera. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
+1. Ahora continúe agregando las acciones que quiera. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Inicializar variable** aparece en la definición de la aplicación lógica, que se encuentra en formato de notación de objetos JavaScript (JSON):
 
@@ -100,6 +99,9 @@ Si cambia del diseñador al editor de la vista de código, esta es la manera en 
    }
 },
 ```
+
+> [!NOTE]
+> Aunque la acción **Inicializar variable** tiene una sección `variables` que está estructurada como una matriz, la acción solo puede crear una variable a la vez. Cada nueva variable requiere una acción **Inicializar variable** individual.
 
 Aquí tiene ejemplos de otros tipos de variable:
 
@@ -179,10 +181,9 @@ Aquí tiene ejemplos de otros tipos de variable:
 
 ## <a name="get-the-variables-value"></a>Obtener el valor de la variable
 
-Para recuperar o hacer referencia al contenido de una variable, también puede usar la [función variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) del Diseñador de la aplicación lógica y el editor de la vista de código.
-Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción. 
+Para recuperar o hacer referencia al contenido de una variable, también puede usar la [función variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) del Diseñador de la aplicación lógica y el editor de la vista de código. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción.
 
-Por ejemplo, esta expresión obtiene los elementos de la variable de la matriz [que se creó anteriormente en este artículo](#append-value) mediante la función **variables()** . La función **string()** devuelve el contenido de la variable en formato de cadena: `"1, 2, 3, red"`
+Por ejemplo, esta expresión obtiene los elementos de la variable de la matriz [que se creó anteriormente en este artículo](#append-value) mediante la función `variables()`. La función `string()` devuelve el contenido de la variable en formato de cadena: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -192,33 +193,33 @@ Por ejemplo, esta expresión obtiene los elementos de la variable de la matriz [
 
 ## <a name="increment-variable"></a>Incrementar variable 
 
-Para aumentar o *incrementar* una variable con un valor constante, agregue la acción **Variables: incrementar variable** a la aplicación lógica. Esta acción solo funciona con las variables de enteros y flotantes.
+Para aumentar o *incrementar* una variable con un valor constante, agregue la acción **Incrementar variable** a la aplicación lógica. Esta acción solo funciona con las variables de enteros y flotantes.
 
-1. En el Diseñador de la aplicación de lógica, en el paso donde quiera aumentar una variable existente, elija **Nuevo paso** > **Agregar una acción**. 
+1. En el Diseñador de aplicaciones lógicas, en el paso donde quiera aumentar una variable existente, elija **Nuevo paso**. 
 
    Por ejemplo, esta aplicación lógica ya tiene un desencadenador y una acción que creó una variable. Por lo tanto, agregue una nueva acción según estos pasos:
 
    ![Agregar una acción](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
-   Para agregar una acción entre pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más (+) aparezca. Haga clic en el signo más y, a continuación, elija **Agregar una acción**.
+   Para agregar una acción entre pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más (+) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
 
-2. En el cuadro de búsqueda, escriba "incrementar variable" como filtro. En la lista de acciones, seleccione **Variables: Incrementar variable**.
+1. En el cuadro de búsqueda, escriba "incrementar variable" como filtro. En la lista de acciones, seleccione **Incrementar variable**.
 
    ![Seleccione la acción "Incrementar variable".](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
-3. Proporcione esta información para la incrementar la variable:
+1. Proporcione esta información para la incrementar la variable:
 
    | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Value | Sin | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
-   |||| 
+   | **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar |
+   | **Valor** | Sin | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. |
+   ||||
 
-   Por ejemplo: 
-   
+   Por ejemplo:
+
    ![Ejemplo del valor incremental](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-4. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador. 
+1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Incrementar variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON:
 
@@ -239,64 +240,65 @@ Si cambia del diseñador al editor de la vista de código, esta es la manera en 
 
 Las variables se usan habitualmente para contar el número de veces que se ejecuta un bucle. En este ejemplo se muestra cómo crear y usar variables para esta tarea, mediante la creación de un bucle que cuente los datos adjuntos de un correo electrónico.
 
-1. En Azure Portal, cree una aplicación lógica en blanco. Agregue un desencadenador que compruebe si hay correos electrónicos y datos adjuntos nuevos. 
+1. En Azure Portal, cree una aplicación lógica en blanco. Agregue un desencadenador que compruebe si hay correos electrónicos y datos adjuntos nuevos.
 
-   En este ejemplo usaremos el desencadenador de Office 365 Outlook **cuando llegue un nuevo correo electrónico**. 
-   Puede configurar este desencadenador para que solo active cuando el correo electrónico tenga datos adjuntos.
-   Sin embargo, puede usar cualquier conector que compruebe si hay correos electrónicos con datos adjuntos nuevos; por ejemplo, el conector de Outlook.com.
+   En este ejemplo usaremos el desencadenador de Office 365 Outlook **cuando llegue un nuevo correo electrónico**. Puede configurar este desencadenador para que solo active cuando el correo electrónico tenga datos adjuntos. Sin embargo, puede usar cualquier conector que compruebe si hay correos electrónicos con datos adjuntos nuevos; por ejemplo, el conector de Outlook.com.
 
-2. En el desencadenador, elija **Mostrar opciones avanzadas**. Para que el desencadenador compruebe si hay datos adjuntos y los pase al flujo de trabajo de la aplicación lógica, seleccione **Sí** en estas propiedades:
-   
-   * **Tiene datos adjuntos** 
-   * **Include Attachments** (Incluir datos adjuntos) 
+1. Para que el desencadenador compruebe si hay datos adjuntos y los pase al flujo de trabajo de la aplicación lógica, seleccione **Sí** en estas propiedades:
+
+   * **Tiene datos adjuntos**
+   * **Include Attachments** (Incluir datos adjuntos)
 
    ![Buscar e incluir datos adjuntos](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-3. Agregue la acción [**Inicializar variable**](#create-variable). Cree una variable de entero denominada **Recuento** con un valor de inicio de cero.
+1. Agregue la acción [**Inicializar variable**](#create-variable). Cree una variable de entero denominada `Count` con un valor de inicio de cero.
 
    ![Agregar la acción "Inicializar variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-4. Para desplazarse a través de los datos adjuntos, agregue un bucle *Para cada uno*; para ello, elija **Nuevo paso** > **Más** > **Agregar Para cada uno**.
+1. Para recorrer cada archivo adjunto, agregue un bucle *para cada uno*.
 
-   ![Agregar un bucle "Para cada uno"](./media/logic-apps-create-variables-store-values/add-loop.png)
+   1. En la acción **Inicializar variable**, elija **Nuevo paso**.
 
-5. En el bucle, haga clic en la casilla de **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores). Cuando aparezca la lista de contenido dinámico, elija **Datos adjuntos**. 
+   1. En **Elegir una acción**, seleccione **Integrado**. En el cuadro de búsqueda, escriba "`for each` como filtro y seleccione **Para cada uno**.
+
+      ![Agregar un bucle "Para cada uno"](./media/logic-apps-create-variables-store-values/add-loop.png)
+
+1. En el bucle, haga clic en la casilla de **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores). Cuando aparezca la lista de contenido dinámico, elija **Datos adjuntos**.
 
    ![Seleccionar "Attachments" (Datos adjuntos)](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-   El campo **Datos adjuntos**  pasa una matriz que tiene los datos adjuntos del correo electrónico del resultado del desencadenador al bucle.
+   La propiedad **Datos adjuntos**  pasa una matriz que tiene los datos adjuntos del correo electrónico del resultado del desencadenador al bucle.
 
-6. En el bucle "para cada uno", seleccione **Add an action** (Agregar una acción). 
+1. En el bucle **Para cada uno**, seleccione **Agregar una acción**.
 
    ![Seleccione "Add an action" (Agregar una acción).](./media/logic-apps-create-variables-store-values/add-action-2.png)
 
-7. En el cuadro de búsqueda, escriba "incrementar variable" como filtro. En la lista de acciones, seleccione **Variables: Incrementar variable**.
+1. En el cuadro de búsqueda, escriba "incrementar variable" como filtro. En la lista de acciones, seleccione **Incrementar variable**.
 
    > [!NOTE]
    > Asegúrese de que la acción **Incrementar variable** aparezca dentro del bucle. Si la acción aparece fuera del bucle, arrástrela al mismo.
 
-8. En la acción **Incrementar variable** de la lista **Nombre**, seleccione la variable **Recuento**. 
+1. En la acción **Incrementar variable** de la lista **Nombre**, seleccione la variable **Recuento**.
 
    ![Seleccione la variable "Recuento".](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
 
-9. En el bucle, agregue cualquier acción que le envíe la cantidad de datos adjuntos. En la acción, incluya el valor de la variable **Recuento** como, por ejemplo: 
+1. En el bucle, agregue cualquier acción que le envíe la cantidad de datos adjuntos. En la acción, incluya el valor de la variable **Recuento** como, por ejemplo:
 
    ![Agregar una acción que envíe resultados](./media/logic-apps-create-variables-store-values/send-email-results.png)
 
-10. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**. 
+1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ### <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-1. Si la aplicación lógica aún no está habilitada, en el menú de aplicación lógica, elija **Introducción**. En la barra de herramientas, elija **Habilitar**. 
+1. Si la aplicación lógica no está habilitada, en el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, seleccione **Enable** (Habilitar).
 
-2. En la barra de herramientas del Diseñador de aplicación lógica, elija **Ejecutar**. Con este paso, se inicia manualmente la aplicación lógica.
+1. En la barra de herramientas del Diseñador de aplicaciones lógicas, elija **Ejecutar**. Con este paso, se inicia manualmente la aplicación lógica.
 
-3. Envíe un correo electrónico con uno o varios datos adjuntos a la cuenta de correo electrónico que usó en este ejemplo.
+1. Envíe un correo electrónico con uno o varios datos adjuntos a la cuenta de correo electrónico que usó en este ejemplo.
 
-   En este paso se activa el desencadenador de la aplicación lógica, que crea y ejecuta una instancia para el flujo de trabajo de la aplicación lógica.
-   Como resultado, la aplicación lógica envía un mensaje o un correo electrónico que muestra el número de datos adjuntos del correo electrónico que envió.
+   En este paso se activa el desencadenador de la aplicación lógica, que crea y ejecuta una instancia para el flujo de trabajo de la aplicación lógica. Como resultado, la aplicación lógica envía un mensaje o un correo electrónico que muestra el número de datos adjuntos del correo electrónico que envió.
 
-Si cambia del diseñador al editor de la vista de código, esta es la manera en que el bucle "para cada uno" aparece con la acción **Incrementar variable** en la definición de la aplicación lógica, que se encuentra en formato JSON.
+Si cambia del diseñador al editor de la vista de código, esta es la manera en que el bucle **Para cada uno** aparece con la acción **Incrementar variable** en la definición de la aplicación lógica, que se encuentra en formato JSON.
 
 ```json
 "actions": {
@@ -324,14 +326,14 @@ Si cambia del diseñador al editor de la vista de código, esta es la manera en 
 
 ## <a name="decrement-variable"></a>Reducir variable
 
-Para disminuir o *reducir* una variable con un valor constante, siga los pasos para [aumentar una variable](#increment-value); en este caso encontrará y deberá seleccionar la acción **Variables: reducir variable**. Esta acción solo funciona con las variables de enteros y flotantes.
+Para disminuir o *reducir* una variable con un valor constante, siga los pasos para [aumentar una variable](#increment-value); en este caso encontrará y deberá seleccionar la acción **Reducir variable**. Esta acción solo funciona con las variables de enteros y flotantes.
 
 Estas son las propiedades para la acción **Reducir variable**:
 
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
-| Name | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
-| Value | Sin | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
+| **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
+| **Valor** | Sin | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. |
 ||||| 
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Reducir variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
@@ -349,36 +351,34 @@ Si cambia del diseñador al editor de la vista de código, esta es la manera en 
 },
 ```
 
-
 <a name="assign-value"></a>
 
 ## <a name="set-variable"></a>Establecer la variable
 
-Para asignar un valor diferente a una variable existente, siga los pasos para [aumentar una variable](#increment-value), pero tendrá que realizar lo siguiente: 
+Para asignar un valor diferente a una variable existente, siga los pasos para [aumentar una variable](#increment-value), pero tendrá que realizar lo siguiente:
 
-1. Buscar y seleccionar la acción **Variables: establecer variable**. 
+1. Buscar y seleccionar la acción **Establecer variable**.
 
-2. Proporcionar el nombre de la variable y el valor que quiere asignar. Tanto el nuevo valor como la variable deben tener los mismos tipos de datos.
-El valor es necesario porque esta acción no tiene un valor predeterminado. 
+1. Proporcionar el nombre de la variable y el valor que quiere asignar. Tanto el nuevo valor como la variable deben tener los mismos tipos de datos. El valor es necesario porque esta acción no tiene un valor predeterminado.
 
 Estas son las propiedades para la acción **Establecer variable**:
 
-| Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
-|----------|----------|-------|--------------| 
-| Name | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Value | Sí | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
+| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+|----------|----------|-------|--------------|
+| **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a establecer |
+| **Valor** | Sí | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. |
 ||||| 
 
 > [!NOTE]
 > A menos que esté incrementando o reduciendo variables, el cambio de variables dentro de los bucles *podría*  crear resultados inesperados, porque los bucles se ejecutan en paralelo o de forma simultánea, de manera predeterminada. Para estos casos, intente configurar el bucle para que se ejecute secuencialmente. Por ejemplo, cuando quiera hacer referencia al valor de la variable dentro del bucle y esperar el mismo valor al inicio y al final de esa instancia de bucle, siga estos pasos para cambiar la forma en que se ejecuta el bucle: 
 >
-> 1. En la esquina superior derecha del bucle, elija el botón de los puntos suspensivos .(...) y, a continuación, elija **Configuración**.
+> 1. En la esquina superior derecha del bucle, elija el botón de los puntos suspensivos ( **...** ) y, a continuación, elija **Configuración**.
 > 
 > 2. En **Control de simultaneidad**, cambie la opción **Invalidar el valor predeterminado** en **Activado**.
 >
 > 3. Arrastre el control deslizante **Degree of Parallelism** (Grado de paralelismo) a **1**.
 
-Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Establecer variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON. En este ejemplo se cambia el valor actual de la variable "Recuento" a otro valor. 
+Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Establecer variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON. En este ejemplo se cambia el valor actual de la variable `Count` a otro valor.
 
 ```json
 "actions": {
@@ -414,22 +414,20 @@ En cuanto a las variables que almacenan cadenas o matrices, puede insertar o *an
 
 1. Busque y seleccione una de estas acciones en función de si la variable es una cadena o una matriz: 
 
-   * **Variables: anexar a la variable de cadena**
-   * **Variables: anexar a la variable de matriz** 
+   * **Anexar a la variable de cadena**
+   * **Anexar a la variable de matriz** 
 
-2. Proporcione el valor que se anexa como el último elemento de la cadena o matriz. 
-   Este valor es necesario. 
+1. Proporcione el valor que se anexa como el último elemento de la cadena o matriz. Este valor es necesario.
 
 Estas son las propiedades para la acción **Anexar a...** :
 
-| Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
-|----------|----------|-------|--------------| 
-| Name | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Value | Sí | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
-|||||  
+| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
+|----------|----------|-------|--------------|
+| **Nombre** | Sí | <*variable-name*> | El nombre de la variable que se va a establecer |
+| **Valor** | Sí | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. |
+|||||
 
-Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Anexar a la variable de la matriz** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
-En este ejemplo se crea una variable de matriz y se agrega otro valor como el último elemento de la matriz. El resultado es una variable actualizada que contiene esta matriz: `[1,2,3,"red"]`. 
+Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Anexar a la variable de la matriz** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON. En este ejemplo se crea una variable de matriz y se agrega otro valor como el último elemento de la matriz. El resultado es una variable actualizada que contiene esta matriz: `[1,2,3,"red"]`.
 
 ```json
 "actions": {
@@ -456,11 +454,6 @@ En este ejemplo se crea una variable de matriz y se agrega otro valor como el ú
    }
 },
 ```
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

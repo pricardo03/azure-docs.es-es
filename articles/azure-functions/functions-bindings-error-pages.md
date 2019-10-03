@@ -1,6 +1,6 @@
 ---
-title: Instrucciones de control de errores de Azure Functions | Microsoft Docs
-description: Se proporcionan instrucciones generales para controlar los errores que se producen cuando se ejecutan funciones, y vínculos a temas de errores específicos de enlace.
+title: Guía de control de errores de Azure Functions
+description: Aprenda a controlar los errores en Azure Functions con vínculos a errores específicos de enlace.
 services: functions
 cloud: ''
 documentationcenter: ''
@@ -9,26 +9,28 @@ manager: gwallace
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: fdfee3442986322f242da730bb9ceccbc9f9e250
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d301940998175adb6469e46cff2de918b5cae9df
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097482"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155276"
 ---
 # <a name="azure-functions-error-handling"></a>Control de errores de Azure Functions
 
-En este tema se proporcionan instrucciones generales para controlar los errores que se producen cuando se ejecutan funciones. También se proporcionan vínculos a temas que describen los errores específicos de enlace que pueden producirse. 
+El control de los errores en Azure Functions es importante para evitar la pérdida de datos, eventos perdidos y para supervisar el estado de la aplicación.
 
-## <a name="handling-errors-in-functions"></a>Control de errores en funciones
+En este artículo se describen las estrategias generales para el control de errores junto con vínculos a errores específicos de enlace.
+
+## <a name="handling-errors"></a>Control de errores
+
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
- 
 ## <a name="binding-error-codes"></a>Códigos de error de enlace
 
-Cuando se realizan integraciones con los servicios de Azure, pueden surgir errores que se originan desde las API de los servicios subyacentes. Encontrará vínculos a la documentación de códigos de error para estos servicios en la sección acerca de las **excepciones y códigos de retorno** de los siguientes temas de referencia de enlaces y desencadenadores:
+Cuando se realizan integraciones con los servicios de Azure, pueden originarse errores desde las API de los servicios subyacentes. La información relacionada con los errores específicos de enlace está disponible en la sección **Excepciones y códigos de retorno** de los siguientes artículos:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

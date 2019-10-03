@@ -5,14 +5,14 @@ services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693297"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169936"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Estado de Terraform en Azure Storage
 
@@ -28,7 +28,7 @@ Terraform incluye el concepto de un back-end de estado, que se trata de almacena
 
 Antes de usar Azure Storage como back-end, se debe crear una cuenta de almacenamiento. La cuenta de almacenamiento puede crearse con Azure Portal, PowerShell, la CLI de Azure o Terraform. Use el ejemplo siguiente para configurar la cuenta de almacenamiento con la CLI de Azure.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -67,13 +67,13 @@ Cada uno de estos valores puede especificarse en el archivo de configuración de
 
 Cree una variable de entorno denominada `ARM_ACCESS_KEY` con el valor de la clave de acceso de Azure Storage.
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Para proteger aún más la clave de acceso de la cuenta de Azure Storage, almacénela en Azure Key Vault. A continuación, se puede establecer la variable de entorno con un comando similar al siguiente. Para obtener más información acerca de Azure Key Vault, consulte la [documentación de Azure Key Vault][azure-key-vault].
+Para proteger aún más la clave de acceso de la cuenta de Azure Storage, almacénela en Azure Key Vault. A continuación, se puede establecer la variable de entorno con un comando similar al siguiente. Para más información sobre Azure Key Vault, consulte la [documentación de Azure Key Vault][azure-key-vault].
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
@@ -81,7 +81,7 @@ Para configurar Terraform para usar el back-end, incluya una configuración de *
 
 En el ejemplo siguiente se configura un back-end de Terraform y se crea un grupo de recursos de Azure. Reemplace los valores por los de su entorno.
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"
@@ -100,7 +100,7 @@ Ahora, inicialice la configuración con *Terraform init* y, después, ejecute la
 
 ## <a name="state-locking"></a>Estado bloqueado
 
-Cuando se usa una instancia de Azure Storage Blob para el almacenamiento de estados, el blob se bloquea automáticamente antes de cualquier operación que escriba el estado. Esta configuración evita varias operaciones de estado simultáneas que pueden causar daños. Para obtener más información sobre Terraform, consulte la sección acerca del [estado bloqueado][terraform-state-lock] en la documentación de Terraform.
+Cuando se usa una instancia de Azure Storage Blob para el almacenamiento de estados, el blob se bloquea automáticamente antes de cualquier operación que escriba el estado. Esta configuración evita varias operaciones de estado simultáneas que pueden causar daños. Para más información, consulte [Bloqueo del estado][terraform-state-lock] en la documentación de Terraform.
 
 El bloqueo puede verse al examinar el blob a través de Azure Portal o cualquier otra herramienta de administración de Azure.
 
@@ -110,7 +110,7 @@ El bloqueo puede verse al examinar el blob a través de Azure Portal o cualquier
 
 De forma predeterminada, los datos almacenados en un blob de Azure se cifran antes de enviarse a la infraestructura de almacenamiento. Cuando Terraform necesita un estado, se recupera del back-end y se almacena en la memoria de su sistema de desarrollo. En esta configuración, el estado se protege en Azure Storage y no se escribe en el disco local.
 
-Para obtener más información acerca del cifrado de Azure Storage, consulte [Azure Storage Service Encryption para datos en reposo][azure-storage-encryption].
+Para más información acerca del cifrado de Azure Storage, consulte [Cifrado de Azure Storage para datos en reposo][azure-storage-encryption].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

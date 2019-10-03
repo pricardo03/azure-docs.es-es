@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141142"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300656"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** o **Almacenamiento optimizado**.
@@ -45,7 +45,7 @@ Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades
 
 ## <a name="index-limits"></a>Límites de índice
 
-| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 o 15 |50 |200 |200 |1000 GB por partición o 3000 por servicio |10 |10 |
 | Campos simples máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -62,11 +62,13 @@ Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades
 
 ## <a name="document-limits"></a>Límites de documento 
 
-A partir de octubre de 2018, ya no existen límites de documentos para ningún nuevo servicio creado en ningún nivel facturable (Básico, S1, S2, S3, S3 HD) en ninguna región. Aunque la mayoría de las regiones han tenido un número ilimitado de documentos desde noviembre o diciembre de 2017, hubo cinco regiones que continuaron imponiendo límites a los documentos. Dependiendo de cuándo y dónde haya creado un servicio de búsqueda, es posible que esté ejecutando un servicio que todavía esté sujeto a límites de documentos.
+A partir de octubre de 2018, ya no existen límites de documentos<sup>1</sup> para ningún nuevo servicio creado en ningún nivel facturable (Básico, S1, S2, S3, S3 HD) en ninguna región. Aunque la mayoría de las regiones han tenido un número ilimitado de documentos desde noviembre o diciembre de 2017, hubo cinco regiones que continuaron imponiendo límites a los documentos. Dependiendo de cuándo y dónde haya creado un servicio de búsqueda, es posible que esté ejecutando un servicio que todavía esté sujeto a límites de documentos.
 
 Para determinar si su servicio tiene límites de documentos, compruebe el icono de uso de la página de información general de su servicio. Los recuentos de documentos son ilimitados o están sujetos a un límite basado en el nivel.
 
   ![Icono de Uso](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+<sup>1</sup> Aunque no hay ningún límite de documentos específico de SKU, cada índice sigue sujeto a un límite máximo de seguridad para garantizar la estabilidad del servicio. Este límite proviene de Lucene. Cada documento de Azure Search se indexa internamente como uno o más documentos Lucene. El número de documentos Lucene por documento de Azure Search depende del número total de elementos en campos de colección complejos. Cada elemento se indexa como un documento Lucene independiente. Por ejemplo, un documento con tres elementos en un campo de colección complejo se indexará como cuatro documentos Lucene: uno para el documento en sí y tres para los elementos. El número máximo de documentos Lucene es aproximadamente 25 mil millones por índice.
 
 ### <a name="regions-previously-having-document-limits"></a>Regiones que anteriormente tenían límites de documentos
 
@@ -103,7 +105,7 @@ Para mantener el tamaño del documento reducido, no olvide excluir los datos no 
 Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabilidad al servicio como un todo, pero es posible que los conjuntos de datos más grandes necesiten más tiempo de indexación que el que permite el máximo. Si un trabajo de indexación no se puede completar en el tiempo máximo permitido, intente ejecutarlo en una programación. El programador realiza un seguimiento del estado de la indexación. Si un trabajo programado de indexación se interrumpe por cualquier motivo, el indizador puede reanudarlo donde se quedó en la siguiente ejecución programada.
 
 
-| Recurso | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Orígenes de datos máximos |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
@@ -129,7 +131,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 
 El número máximo de asignaciones de sinónimos permitidas varía según el nivel de precios. Cada regla puede tener hasta 20 expansiones, donde una expansión es un término equivalente. Por ejemplo, dado el término "gato", la asociación con "gatito", "felino" y "felis" (el género de gatos) contaría como 3 expansiones.
 
-| Recurso | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| Resource | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Asignaciones máximas de sinónimos |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de reglas por asignación |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |

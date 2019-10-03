@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993468"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123097"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -160,6 +160,12 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
    |GP_S_Gen5_1|Uso general|Gen5|1|
    |GP_S_Gen5_2|Uso general|Gen5|2|
    |GP_S_Gen5_4|Uso general|Gen5|4|
+   |GP_S_Gen5_6|Uso general|Gen5|6|
+   |GP_S_Gen5_8|Uso general|Gen5|8|
+   |GP_S_Gen5_10|Uso general|Gen5|10|
+   |GP_S_Gen5_12|Uso general|Gen5|12|
+   |GP_S_Gen5_14|Uso general|Gen5|14|
+   |GP_S_Gen5_16|Uso general|Gen5|16|
 
 2. Opcionalmente, especifique el mínimo de núcleos virtuales y la demora de pausa automática para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
 

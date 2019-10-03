@@ -3,9 +3,8 @@ title: Supervisión de identidad y acceso en Azure Security Center | Microsoft D
 description: Aprenda a usar la funcionalidad de identidad y acceso de Azure Security Center para supervisar los problemas relacionados con la actividad de acceso e identidad de los usuarios.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: memildin
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905337"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268861"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
-
-> [!NOTE]
-> El vínculo "View *classic* Identity & Access" se retirará el 31 de julio de 2019. Haga clic [aquí](security-center-features-retirement-july2019.md#menu_classicidentity) para obtener información acerca de servicios alternativos.
 
 > [!NOTE]
 > La supervisión de la identidad y el acceso se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
@@ -68,7 +64,7 @@ En **Identidad y acceso**, hay dos pestañas:
 ### <a name="overview-section"></a>Sección Información general
 En **Información general**, hay una lista de recomendaciones. La primera columna muestra la recomendación. La segunda columna muestra el número total de suscripciones a las que afecta dicha recomendación. La tercera columna muestra la gravedad del problema.
 
-1. Seleccione una recomendación. La ventana de la recomendación se abre y muestra:
+1. Seleccione una recomendación. La ventana de las recomendaciones se abre y muestra:
 
    - La descripción de la recomendación
    - Una lista de suscripciones correctas e incorrectas
@@ -81,7 +77,7 @@ En **Información general**, hay una lista de recomendaciones. La primera column
 ### <a name="subscriptions-section"></a>Sección Suscripciones
 En **Suscripciones**, hay una lista de suscripciones. La primera columna muestra las suscripciones. La segunda columna muestra el número total de recomendaciones para cada suscripción. La tercera columna muestra la gravedad de los problemas.
 
-![Pestaña de la suscripción][4]
+![Pestaña Suscripciones][4]
 
 1. Seleccione una suscripción. Se abre una vista de resumen con tres pestañas:
 
@@ -126,13 +122,13 @@ Use la tabla siguiente como referencia para ayudarle a conocer las recomendacion
 > Si ha creado una directiva de acceso condicional que necesita MFA pero tiene exclusiones establecidas, la evaluación de la recomendación de MFA de Security Center considera la directiva no compatible, ya que permite que algunos usuarios inicien sesión en Azure sin MFA.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
+Para más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
 - [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
 - [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
 
-Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+Para más información sobre Security Center, consulte los siguientes artículos:
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a las preguntas más frecuentes acerca de Security Center.

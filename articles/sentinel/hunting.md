@@ -1,5 +1,5 @@
 ---
-title: Capacidades de búsqueda en Azure Sentinel, versión preliminar | Microsoft Docs
+title: Capacidades de búsqueda en Azure Sentinel| Microsoft Docs
 description: En este artículo se describe cómo usar las capacidades de búsqueda de Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780460"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240612"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Búsqueda de amenazas con Azure Sentinel, versión preliminar
+# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Si es un investigador que quiere ser proactivo a la hora de buscar amenazas de seguridad, use las eficaces herramientas de búsqueda y consulta de Azure Sentinel para encontrar amenazas de seguridad en cualquier origen de datos de la organización. Pero los sistemas y dispositivos de seguridad generan infinidad de datos que pueden ser difíciles de analizar y filtrar para hallar eventos significativos. Para ayudar a los analistas de seguridad a buscar proactivamente nuevas anomalías que las aplicaciones de seguridad no han sido capaces de identificar, las consultas de búsqueda integradas de Azure Sentinel servirán de guía para formular las preguntas adecuadas para detectar problemas en los datos que ya hay en la red. 
 
@@ -41,8 +39,7 @@ Con la función de búsqueda de Azure Sentinel, puede aprovechar las siguientes 
 
 - Lenguaje de consulta eficaz con IntelliSense: se basa en un lenguaje de consulta que le reporta la flexibilidad que necesita para llevar la búsqueda al siguiente nivel.
 
-- Creación de marcadores propios: durante el proceso de búsqueda, puede encontrar coincidencias, hallazgos, paneles o actividades que tienen un aspecto sospechoso o poco usual. A fin de marcar esos elementos de forma que se pueda volver a ellos en el futuro, utilice la funcionalidad de marcador. Los marcadores permiten guardar los elementos para usarlos más adelante para crear un incidente de investigación. Para obtener más información sobre los marcadores, vea el tema sobre el uso de marcadores de búsqueda.
-
+- Creación de marcadores propios: durante el proceso de búsqueda, puede encontrar coincidencias, hallazgos, paneles o actividades que tienen un aspecto sospechoso o poco usual. A fin de marcar esos elementos de forma que se pueda volver a ellos en el futuro, utilice la funcionalidad de marcador. Los marcadores permiten guardar los elementos para usarlos más adelante para crear un incidente de investigación. Para obtener más información sobre los marcadores, vea el tema sobre el [uso de marcadores de búsqueda](hunting.md).
 - Uso de cuadernos para automatizar la investigación: los cuadernos son cuadernos de estrategias pormenorizados que se pueden crear para recorrer paso a paso un proceso investigación y de búsqueda.  Los cuadernos aglutinan todos los pasos de búsqueda en un cuaderno de estrategias reutilizable que se puede compartir con otras personas de la organización. 
 - Consulta de los datos almacenados: los datos están accesibles en las tablas para que se puedan consultar. Así, por ejemplo, se puede consultar la creación de procesos, los eventos DNS y otros muchos tipos de eventos.
 

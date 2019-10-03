@@ -1,27 +1,27 @@
 ---
-title: 'Ejemplos de operaciones de datos: Azure Logic Apps | Microsoft Docs'
-description: Ejemplos de código para definiciones de acción de operaciones de datos en Azure Logic Apps
+title: 'Ejemplos de operaciones de datos: Azure Logic Apps'
+description: Ejemplos de código para acciones de operaciones de datos en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 07/25/2018
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.topic: reference
+ms.date: 09/01/2019
+ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203112"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179153"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Ejemplos de código de operaciones de datos para Azure Logic Apps
 
 Estos son ejemplos de código de definiciones de acción de operaciones de datos del artículo [Realización de operaciones de datos](../logic-apps/logic-apps-perform-data-operations.md). Puede usar estos ejemplos para probarlos con la definición de flujo de trabajo subyacente de su propia aplicación lógica, su suscripción de Azure o sus conexiones de API. Solo tiene que copiar y pegar estas definiciones de acción en el editor de vista de código para la definición de flujo de trabajo de su aplicación lógica y luego modificar las definiciones para su flujo de trabajo específico. 
 
-Según los estándares de notación de objetos JavaScript (JSON), estas definiciones de acción aparecen en orden alfabético. Sin embargo, en el Diseñador de aplicación lógica, cada definición aparece en la secuencia correcta dentro del flujo de trabajo porque la propiedad `runAfter` de cada definición de acción especifica el orden de ejecución. 
+Según los estándares de notación de objetos JavaScript (JSON), estas definiciones de acción aparecen en orden alfabético. Sin embargo, en el Diseñador de aplicación lógica, cada definición aparece en la secuencia correcta dentro del flujo de trabajo porque la propiedad `runAfter` de cada definición de acción especifica el orden de ejecución.
 
 <a name="compose-action-example"></a>
 
@@ -366,11 +366,6 @@ Para probar la acción de ejemplo [ **Seleccionar**](../logic-apps/logic-apps-pe
    }
 },
 ```
-
-## <a name="get-support"></a>Obtención de soporte técnico
-
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

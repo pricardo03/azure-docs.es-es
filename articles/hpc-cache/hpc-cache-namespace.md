@@ -1,24 +1,25 @@
 ---
-title: Creación de una instancia de Azure HPC Cache
+title: Creación de una instancia de Azure HPC Cache (versión preliminar)
 description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036842"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299933"
 ---
-# <a name="configure-aggregated-namespace"></a>Configuración del espacio de nombres agregado
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
-Azure HPC Cache permite que los clientes accedan a diversos sistemas de almacenamiento a través de un espacio de nombres virtual que oculta los detalles del sistema de almacenamiento back-end.
+Azure HPC Cache (versión preliminar) permite que los clientes accedan a diversos sistemas de almacenamiento a través de un espacio de nombres virtual que oculta los detalles del sistema de almacenamiento back-end.
 
-Cuando agrega un destino de almacenamiento, establece la ruta de archivo orientada al cliente. Los equipos cliente montan esta ruta de archivo. Puede cambiar el destino de almacenamiento asociado a esa ruta de acceso. Por ejemplo, podría reemplazar un sistema de almacenamiento en hardware por almacenamiento en la nube sin necesidad de volver a escribir los procedimientos orientados al cliente.
+Cuando agrega un destino de almacenamiento, establece la ruta de acceso de archivo orientada al cliente. Las máquinas cliente montan esta ruta de acceso de archivo y pueden crear solicitudes de lectura de archivos en la memoria caché en lugar de montar el sistema de almacenamiento directamente.
+
+Dado que la memoria caché de Azure HPC Cache administra este sistema de archivos virtual, puede cambiar el destino de almacenamiento sin cambiar la ruta de acceso orientada al cliente. Por ejemplo, podría reemplazar un sistema de almacenamiento en hardware por almacenamiento en la nube sin necesidad de volver a escribir los procedimientos orientados al cliente.
 
 ## <a name="aggregated-namespace-example"></a>Ejemplo de espacio de nombres agregado
 
@@ -31,7 +32,7 @@ Los datos de plantilla se almacenan en un centro de datos y la información nece
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-El sistema de almacenamiento del centro de datos expone estas exportaciones: 
+El sistema de almacenamiento del centro de datos expone estas exportaciones:
 
     /
     /goldline
@@ -41,20 +42,22 @@ Los datos que se van a analizar se han copiado en un contenedor de Azure Blob St
 
 Para permitir un acceso sencillo a través de la memoria caché, puede crear destinos de almacenamiento con estas rutas de acceso de espacio de nombres virtual:
 
-| Ruta de archivos NFS back-end o contenedor de blobs | Ruta de acceso del espacio de nombres virtual |
+| Sistema de almacenamiento de back-end <br/> (ruta de acceso de archivos NFS o contenedor de blobs) | Ruta de acceso del espacio de nombres virtual |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | recopilaciónDeOrigen                        | /source/               |
 
-Dado que las rutas de acceso de origen NFS son subdirectorios de la misma exportación, deberá definir varias rutas de acceso de espacio de nombres desde el mismo destino de almacenamiento. 
+Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio de nombres virtual, siempre y cuando cada una haga referencia a una ruta de acceso de exportación única.
+
+Dado que las rutas de acceso de origen NFS son subdirectorios de la misma exportación, deberá definir varias rutas de acceso de espacio de nombres desde el mismo destino de almacenamiento.
 
 | Nombre de host de destino de almacenamiento  | Ruta de exportación NFS      | Ruta de acceso del subdirectorio | Ruta de acceso del espacio de nombres    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *Dirección IP o nombre de host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Dirección IP o nombre de host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Una aplicación cliente puede montar la memoria caché y acceder fácilmente a las rutas de archivo del espacio de nombres agregado /source, /templates/sku798 y /templates/sku980.
+Una aplicación cliente puede montar la memoria caché y acceder fácilmente a las rutas de archivo del espacio de nombres agregado ``/source``, ``/templates/sku798`` y ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
