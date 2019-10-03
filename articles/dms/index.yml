@@ -1,91 +1,167 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentación sobre Azure Database Migration Service
+### YamlMime:Landing
+title: Documentación de Azure Database Migration Service
+summary: Azure Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. El servicio utiliza Data Migration Assistant para generar informes de evaluación que proporcionan recomendaciones que le guían por los cambios necesarios antes de realizar una migración. Cuando esté listo para comenzar el proceso de migración, Azure Database Migration Service realizará todos los pasos necesarios.
 metadata:
-  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
-  title: 'Documentación sobre Azure Database Migration Service: Tutoriales | Microsoft Docs'
-  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
-  services: functions
+  description: " Aprenda a habilitar migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure con un tiempo de inactividad mínimo mediante Azure Database Migration Service."
   author: HJToland3
   ms.author: jtoland
-  manager: craigg
-  ms.reviewer: craigg
+  ms.date: 10/02/2019
   ms.service: dms
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 09/22/2019
-abstract:
-  description: 'Azure Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. El servicio utiliza Data Migration Assistant para generar informes de evaluación que proporcionen recomendaciones que le guíen a través de los cambios necesarios antes de realizar una migración. Cuando esté listo para comenzar el proceso de migración, Azure Database Migration Service realizará todos los pasos necesarios.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/video-thumb-intro2dms.png
-      width: 250
-    title: 'Introducción a Azure DMS (1:30)'
-    href: 'https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu'
-    width: 250
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a migrar instancias locales de SQL Server a Azure SQL Database mediante Azure Database Migration Service:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/dms/quickstart-create-data-migration-service-portal
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a migrar bases de datos con Azure Database Migration Service:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migración de SQL Server a Azure SQL Database sin conexión</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migración de SQL Server a Azure SQL Database en línea</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migración de SQL Server a una instancia administrada de Azure SQL Database en línea</a>
-          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea</a>
-          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migración de MySQL a Azure Database for MySQL en línea</a>
-          - html: <a href="/azure/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online">Migración de RDS MySQL a Azure Database for MySQL en línea</a>
-          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migración de PostgreSQL a Azure Database for PostgreSQL en línea</a>
-          - html: <a href="/azure/dms/tutorial-rds-postgresql-server-azure-db-for-postgresql-online">Migración de RDS PostgreSQL a Azure Database for PostgreSQL en línea</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migración de MongoDB a la API de Mongo de Azure Cosmos DB sin conexión</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migración de MongoDB a la API de Mongo de Azure Cosmos DB en línea</a>
-          - html: <a href="/azure/dms/tutorial-oracle-azure-postgresql-online">Migración de Oracle a Azure Database for PostgreSQL en línea</a>
-  - title: Vídeos
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/">Uso de la Guía de Database Migration</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/">El proceso de migración y herramientas y servicios recomendados</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/">Abordar los requisitos previos y crear una instancia de DMS</a>'
-          - html: "<a href=\"https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/\">Migración de SQL\_Server\_2008 a una instancia administrada de Azure SQL Database</a>"
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/">Migración de PostgreSQL a Azure Database for PostgreSQL</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/">Supervisión de una migración en línea y realización de migración total</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/">Migración de Oracle a Azure SQL Database</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/">Migración de MongoDB a Azure Cosmos DB</a>'
-  - title: Ejemplos
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell</a>
-          - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Migración de SQL Server local a Instancia administrada de Azure SQL Database mediante Azure PowerShell</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/dms/resource-scenario-status">Estado de los escenarios de migración que admite Azure Database Migration Service</a>
-          - html: <a href="/azure/dms/pre-reqs">Información general sobre los requisitos previos para usar Azure Database Migration Service</a>
-          - html: <a href="/azure/dms/faq">Preguntas más frecuentes sobre el uso de Azure Database Migration Service</a>
-          - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB</a>
-          - html: <a href="/azure/dms/dms-tools-matrix">Servicios y herramientas para escenarios de migración de datos</a>
+  ms.openlocfilehash: e3688c4795590fa2b74421055a6cf6f80d2d2d17
+  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71802141"
+landingContent:
+- title: Acerca de Azure Database Migration Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Database Migration Service?
+      url: dms-overview.md
+  - linkListType: get-started
+    links:
+    - text: Estado del escenario de migración de bases de datos
+      url: resource-scenario-status.md
+    - text: Introducción sobre requisitos previos
+      url: pre-reqs.md
+  - linkListType: quickstart
+    links:
+    - text: 'Creación del servicio: portal'
+      url: quickstart-create-data-migration-service-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Supervisión de la actividad de migración
+      url: how-to-monitor-migration-activity.md
+    - text: Solución de problemas y errores comunes
+      url: known-issues-troubleshooting-dms.md
+    - text: Solución de problemas de conectividad de base de datos de origen
+      url: known-issues-troubleshooting-dms-source-connectivity.md
+  - linkListType: video
+    links:
+    - text: Introducción a Azure Data Migration Service
+      url: https://www.microsoft.com/videoplayer/embed/RE2IqVu
+    - text: Uso de la Guía de Database Migration
+      url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
+    - text: El proceso de migración y herramientas y servicios recomendados
+      url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
+    - text: Abordar los requisitos previos y crear una instancia de DMS
+      url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
+    - text: Supervisión de una migración en línea y realización de migración total
+      url: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
+  - linkListType: whats-new
+    links:
+    - text: Consultar nuestro blog
+      url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
+- title: Migración de SQL Server a una base de datos única de Azure SQL Database
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migración de SQL Server a una base de datos única de Azure SQL DB en línea
+      url: tutorial-sql-server-azure-sql-online.md
+    - text: Migración de SQL Server a una base de datos única de Azure SQL DB sin conexión
+      url: tutorial-sql-server-to-azure-sql.md
+    - text: Migración de RDS SQL Server a una base de datos única de Azure SQL DB o a una instancia administrada de Azure SQL DB en línea
+      url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de PowerShell para migrar SQL Server a una base de datos única de Azure SQL DB
+      url: howto-sql-server-to-azure-sql-powershell.md
+    - text: Migración de paquetes de SQL Server Integration Services a una base de datos única de Azure SQL Database
+      url: how-to-migrate-ssis-packages.md
+  - linkListType: concept
+    links:
+    - text: 'Problemas conocidos: migración en línea a una base de datos única de Azure SQL DB'
+      url: known-issues-azure-sql-online.md
+- title: Migración de SQL Server a una instancia administrada de Azure SQL Database
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migración de SQL Server a una instancia administrada de Azure SQL DB en línea
+      url: tutorial-sql-server-managed-instance-online.md
+    - text: Migración de SQL Server a una instancia administrada de Azure SQL DB sin conexión
+      url: tutorial-sql-server-to-managed-instance.md
+    - text: Migración de RDS SQL Server a una base de datos única de Azure SQL DB o a una instancia administrada de Azure SQL DB en línea
+      url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de PowerShell para migrar SQL Server a una instancia administrada de Azure SQL DB
+      url: howto-sql-server-to-azure-sql-mi-powershell.md
+    - text: Reimplementación de paquetes de SSIS a una instancia administrada de Azure SQL Database
+      url: how-to-migrate-ssis-packages-managed-instance.md
+  - linkListType: concept
+    links:
+    - text: Topologías de red para migraciones a una instancia administrada de Azure SQL DB
+      url: resource-network-topologies.md
+  - linkListType: video
+    links:
+    - text: Migración de SQL Server 2008 a una instancia administrada de Azure SQL Database
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
+- title: 'Migración de PostgreSQL a Azure Database for PostgreSQL: servidor individual'
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 'Migración de PostgreSQL a Azure DB for PostgreSQL: servidor único en línea'
+      url: tutorial-postgresql-azure-postgresql-online.md
+    - text: 'Migración de RDS PostgreSQL a Azure Database for PostgreSQL: servidor individual en línea'
+      url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+  - linkListType: concept
+    links:
+    - text: 'Problemas conocidos: migración en línea a Azure DB for PostgreSQL (servidor individual)'
+      url: known-issues-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: Migración de PostgreSQL a Azure Database for PostgreSQL
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+- title: Migración de MySQL a Azure Database for MySQL
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migración de MySQL a Azure DB for MySQL en línea
+      url: tutorial-mysql-azure-mysql-online.md
+    - text: Migración de RDS MySQL a Azure DB for MySQL en línea
+      url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+  - linkListType: concept
+    links:
+    - text: 'Problemas conocidos: migración en línea a Azure Database for MySQL'
+      url: known-issues-azure-mysql-online.md
+- title: Migración de MongoDB a Azure Cosmos DB
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migración de MongoDB a Azure Cosmos DB en línea
+      url: tutorial-mongodb-cosmos-db-online.md
+    - text: Migración de MongoDB a Azure Cosmos DB sin conexión
+      url: tutorial-mongodb-cosmos-db.md
+  - linkListType: video
+    links:
+    - text: Migración de MongoDB a Azure Cosmos DB
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
+- title: Migración de Oracle a Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 'Migración de Oracle a Azure DB for PostgreSQL: servidor individual en línea'
+      url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: Migración de Oracle a una base de datos única de Azure SQL Database
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+- title: Herramientas y guía
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Servicio y herramientas disponibles para escenarios de migración de datos
+      url: dms-tools-matrix.md
+    - text: Guía sobre Database Migration
+      url: https://datamigration.microsoft.com/
+    - text: Data Migration Assistant
+      url: https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017
+    - text: SQL Server Migration Assistant
+      url: https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017
+    - text: Asistente para experimentación con bases de datos
+      url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
+    - text: Kit de herramientas de migración de acceso a datos
+      url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit

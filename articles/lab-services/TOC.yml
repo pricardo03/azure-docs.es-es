@@ -72,7 +72,7 @@
   items:
     - name: 'Laboratorios educativos: tipos de clase'
       items:
-        - name: Tipos de clase
+        - name: Información general sobre tipos de clase
           href: classroom-labs/class-types.md
         - name: Aprendizaje profundo en el procesamiento natural
           href: classroom-labs/class-type-deep-learning-natural-processing.md
@@ -220,6 +220,8 @@
               href: connect-environment-lab-virtual-network.md
             - name: Configuración de entornos de prueba con plantillas anidadas
               href: deploy-nested-template-environments.md
+            - name: Uso de identidades administradas de Azure para implementar entornos
+              href: use-managed-identities-environments.md
         - name: Administración de plantillas reutilizables
           items:
             - name: Imágenes personalizadas en comparación con fórmulas

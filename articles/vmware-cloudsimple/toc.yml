@@ -10,6 +10,8 @@
     - name: Guía de inicio rápido
       expanded: true
       items:
+        - name: Planeamiento de red
+          href: cloudsimple-network-checklist.md
         - name: Inicialización y aprovisionamiento de capacidad
           href: quickstart-create-cloudsimple-service.md
         - name: Configuración del entorno de la nube privada
@@ -144,6 +146,8 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migración de máquinas virtuales de cargas de trabajo a una nube privada
               href: migrate-workloads.md
+            - name: Migración mediante Azure Data Box
+              href: migration-using-azure-data-box.md
             - name: Garantía de alta disponibilidad de la aplicación en VMware en Azure
               href: ensuring-high-availability.md
             - name: Elección de la solución de equilibrio de carga

@@ -113,7 +113,7 @@
       href: concept-generating-thumbnails.md
     - name: Reconocimiento de texto manuscrito e impreso
       href: concept-recognizing-text.md
-    - name: Detección de contenido para adultos y subido de tono
+    - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md
 - name: Guías de procedimientos
   items:

@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Azure DB para MariaDB?
       href: overview.md
+    - name: ¿Qué opción de MariaDB debo elegir?
+      href: select-right-deployment-type.md
 - name: Guías de inicio rápido
   expanded: true
   items:
