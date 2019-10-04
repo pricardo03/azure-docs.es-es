@@ -8,25 +8,24 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910572"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202207"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>Retirada de características de Security Center (julio de 2019)
+
 > [!NOTE]
 > En este documento se detalla la lista de características que se retiraron de Azure Security Center el 31 de julio de 2019.
 >
 >
 
-
-# <a name="retirement-of-security-center-features-july-2019"></a>Retirada de características de Security Center (julio de 2019)
-
 Se realizaron varias [mejoras](https://azure.microsoft.com/updates/?product=security-center) en Azure Security Center durante los seis meses previos.
 Con estas funcionalidades mejoradas, se quitaron algunas características redundantes y las API relacionadas de Security Center el 31 de julio de 2019.
 
-La mayoría de estas características que se retiran se pueden reemplazar por nuevas funcionalidades en Azure Security Center o Azure Log Analytics. Se pueden implementar otras características mediante [Azure Sentinel (versión preliminar)](https://azure.microsoft.com/services/azure-sentinel/).
+La mayoría de estas características que se retiran se pueden reemplazar por otras funcionalidades en Azure Security Center o Azure Log Analytics. Se pueden implementar otras características mediante [Azure Sentinel (versión preliminar)](https://azure.microsoft.com/services/azure-sentinel/).
 
 Las características de Security Center retiradas son:
 
@@ -104,11 +103,11 @@ Se ha quitado el botón **Ir al mapa de eventos de seguridad** y el panel por á
 
 ![Mapa de alertas de seguridad: botón][10]
 
-Cuando selecciona el botón **Ir al mapa de eventos de seguridad**, se abre el panel de inteligencia de amenazas. Se ha retirado el panel de inteligencia sobre amenazas.
+Cuando selecciona el botón **Ir al mapa de eventos de seguridad**, se abre el panel de inteligencia sobre amenazas (retirado actualmente).
 
 ![Panel Inteligencia sobre amenazas][11]
 
-Cuando elige un área de trabajo para ver su panel de inteligencia de amenazas, se abre la pantalla de mapa de alertas de seguridad (versión preliminar) en Log Analytics. Se ha retirado esta pantalla.
+Cuando elige un área de trabajo para ver su panel de inteligencia sobre amenazas, se abre la pantalla de mapa de alertas de seguridad (retirado actualmente) en Log Analytics.
 
 ![Mapa de alertas de seguridad en Log Analytics][12]
 

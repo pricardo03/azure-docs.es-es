@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/29/2019
+ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5460033902b71174dc3a10615811f657081f0e4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186305"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290963"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -48,10 +48,15 @@ Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también ne
 
 - **Cuenta de SA de SQL (opcional)** : usada para crear la base de datos ADSync cuando se usa la versión completa de SQL Server.  Este servidor SQL Server puede ser local o remoto a la instalación de Azure AD Connect.  Esta cuenta puede ser la misma cuenta que la del administrador de empresa.  El administrador de SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarla con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md)
 
+<<<<<<< HEAD
+>[!IMPORTANT]
+> A partir de la compilación 1.4.###.#, ya no se admite el uso de una cuenta de administrador de organización o de administrador de dominio como cuenta de AD DS Connector.  Si intenta especificar una cuenta que sea administrador de organización o administrador de dominio al especificar **usar cuenta existente**, recibirá un error.
+=======
 > [!NOTE]
 > Se admite la administración de las cuentas administrativas que se usan en Azure AD Connect desde un bosque administrativo ESAE (también conocido como "bosque rojo").
 > Los bosques administrativos dedicados permiten a las organizaciones hospedar cuentas administrativas, estaciones de trabajo y grupos en un entorno que tiene controles de seguridad más seguros que el entorno de producción.
 > Para más información acerca de los bosques administrativos dedicados, consulte [Enfoque de diseño de bosque administrativo ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+>>>>>>> e683a61b0ed62ae739941410f658a127534e2481
 
 ## <a name="installing-azure-ad-connect"></a>Instalación de Azure AD Connect
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:

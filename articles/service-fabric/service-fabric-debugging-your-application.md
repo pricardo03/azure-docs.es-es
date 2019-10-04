@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 682059914b5d86f5e670e373a4acf3e4ac6246ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428216"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300678"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]
@@ -61,6 +61,13 @@ Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Servic
 8. Depurar servicios es parecido a depurar cualquier otra aplicación. Para facilitar el proceso, lo normal es establecer puntos de interrupción a través de Visual Studio. Aunque las instancias de Reliable Collections se replican en varios nodos, siguen implementando IEnumerable. Esta implementación significa que puede usar la vista de resultados en Visual Studio durante la depuración para ver lo que ha almacenado dentro. Para ello, establezca un punto de interrupción en el código.
    
     ![Empezar a depurar una aplicación][breakpoint]
+
+
+### <a name="running-a-script-as-part-of-debugging"></a>Ejecutar un script como parte de la depuración
+En determinados escenarios, puede que tenga que ejecutar un script como parte del inicio de una sesión de depuración (por ejemplo, cuando no usa los servicios predeterminados).
+
+En Visual Studio, puede agregar un archivo denominado **Start-Service.ps1** en la carpeta **Scripts** del proyecto Aplicación de Service Fabric (.sfproj). Se invocará este script una vez que se haya creado la aplicación en el clúster local.
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

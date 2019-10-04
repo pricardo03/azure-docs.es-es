@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034861"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258465"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
@@ -60,13 +60,9 @@ El perfil de registro define lo siguiente.
 Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado, las directivas de retención no surten ningún efecto. Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas.
 
 
-
-> [!WARNING]
-> El formato de los datos de registro de la cuenta de almacenamiento ha cambiado a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > Es posible que reciba un error al crear un perfil de registro si el proveedor de recursos de Microsoft.Insights no está registrado. Para registrar este proveedor y tipos, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Creación del perfil de registro mediante Azure Portal
 
@@ -118,7 +114,7 @@ Si ya existe un perfil de registro, primero debe quitarlo y luego crear uno nuev
     | serviceBusRuleId |Sin |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen centros de eventos. Se trata de una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
     | RetentionInDays |Sí |Número de días que deben retenerse los eventos en la cuenta de almacenamiento, entre 1 y 365. Con el valor cero, se almacenan los registros indefinidamente. |
-    | Categoría |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
+    | Category |Sin |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son _Write_, _Delete_ y _Action_. |
 
 ### <a name="example-script"></a>Script de ejemplo
 A continuación se muestra un script de ejemplo de PowerShell para crear un perfil de registro que escribe el registro de actividad en una cuenta de almacenamiento y en un centro de eventos.
@@ -167,6 +163,9 @@ Si ya existe un perfil de registro, primero debe quitar el perfil de registro ex
 
 ## <a name="activity-log-schema"></a>Esquema de registro de actividad
 Ya sea que se envíen al almacenamiento de Azure o al centro de eventos, los datos del registro de actividad se escribirán en JSON con el siguiente formato.
+
+
+> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Prepararse para el cambio de formato a los registros de diagnóstico de Azure Monitor archivados en una cuenta de almacenamiento](diagnostic-logs-append-blobs.md) para más información sobre este cambio de formato.
 
 ``` JSON
 {

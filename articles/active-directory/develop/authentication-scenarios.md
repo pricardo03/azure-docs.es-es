@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622700"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272540"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
@@ -59,6 +59,25 @@ En el escenario de ejemplo anterior, puede clasificar las aplicaciones según es
 
 * Aplicaciones que necesitan acceso seguro a recursos
 * Aplicaciones que desempeñan el rol del propio recurso
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
+
+En función de cómo se compile el cliente, puede usar uno o varios de los flujos de autenticación admitidos por la Plataforma de identidad de Microsoft.  Estos flujos pueden generar diversos tokens (id_tokens, tokens de actualización, tokens de acceso) además de códigos de autorización, y requieren distintos tokens para que funcionen. En este gráfico se ofrece una información general:
+
+|Flujo | Requiere | ID_token | de la aplicación Twitter | Token de actualización | código de autorización | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flujo de código de autorización](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flujo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Flujo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Redención de token de actualización](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | Token de actualización | x | x | x| |
+|[Flujo en nombre de](v2-oauth2-on-behalf-of-flow.md) | de la aplicación Twitter| x| x| x| |
+|[Flujo de código de dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
+|[Credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (solo aplicación)| | |
+
+**Notas**:
+
+Los tokens emitidos a través del modo implícito tienen una limitación de longitud debido a que se pasan al explorador a través de la dirección URL (donde `response_mode` es `query` o `fragment`).  Algunos exploradores tienen un límite en el tamaño de la dirección URL que se puede colocar en la barra del explorador y producen un error cuando es demasiado larga.  Por lo tanto, estos tokens no tienen notificaciones `groups` ni `wids`. 
+
 
 Ahora que ya tiene información general sobre los conceptos básicos, siga leyendo para comprender la API y el modelo de aplicaciones de identidad, el funcionamiento del aprovisionamiento en la plataforma de identidad de Microsoft y vínculos a información detallada sobre los escenarios comunes que admite esta plataforma.
 

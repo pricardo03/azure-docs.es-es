@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774580"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204200"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -69,7 +69,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -100,6 +100,9 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 
 > [!NOTE]
 > Solo se puede instalar una versión de una extensión en una máquina virtual en un momento dado. Si se especifica el script personalizado dos veces en la misma plantilla de Resource Manager para la misma máquina virtual, se produce un error.
+
+> [!NOTE]
+> Este esquema se puede usar dentro del recurso VirtualMachine o como un recurso independiente. El nombre del recurso debe tener el formato "virtualMachineName/extensionName" si se usa esta extensión como recurso independiente en la plantilla de ARM. 
 
 ### <a name="property-values"></a>Valores de propiedad
 

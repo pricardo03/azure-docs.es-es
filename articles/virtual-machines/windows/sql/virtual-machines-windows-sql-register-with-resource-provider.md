@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743915"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262880"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -27,11 +27,21 @@ En este artículo se describe cómo registrar una máquina virtual con SQL Serv
 
 La implementación de una imagen de Azure Marketplace de una máquina virtual con SQL Server mediante Azure Portal registra la máquina virtual con SQL Server con el proveedor de recursos. Si elige instalar automáticamente SQL Server en una máquina virtual de Azure, en lugar de elegir una imagen de Azure Marketplace, o si aprovisiona una máquina virtual de Azure desde un disco duro virtual personalizado con SQL Server, debe registrar la máquina virtual con SQL Server con el proveedor de recursos para:
 
-- **Cumplimiento**: según los términos de los productos de Microsoft, los clientes deben indicar a Microsoft que usan [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para ello, deben registrarse con el proveedor de recursos de máquina virtual con SQL Server. 
+- **Simplificar la administración de licencias**: según los términos de los productos de Microsoft, los clientes deben indicar a Microsoft que usan [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). El registro en el proveedor de recursos de máquina virtual de SQL simplifica la administración de licencias de SQL Server y permite identificar rápidamente máquinas virtuales con SQL Server mediante Ventaja híbrida de Azure en el [portal](virtual-machines-windows-sql-manage-portal.md) o la CLI de Azure: 
+
+   ```azurecli-interactive
+   $vms = az sql vm list | ConvertFrom-Json
+   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
+   ```
 
 - **Ventajas de las características**: al registrar de una máquina virtual con SQL Server con el proveedor de recursos, se desbloquean la [aplicación automática de revisiones](virtual-machines-windows-sql-automated-patching.md), la [copia de seguridad automática](virtual-machines-windows-sql-automated-backup-v2.md) y las funcionalidades de supervisión y administración. También se desbloquean las [licencias](virtual-machines-windows-sql-ahb.md) y la flexibilidad de [ediciones](virtual-machines-windows-sql-change-edition.md). Anteriormente, estas características solo estaban disponibles para las imágenes de máquina virtual con SQL Server de Azure Marketplace.
 
+- **Administración gratuita**:  El registro en el proveedor de recursos de máquina virtual de SQL y todos los modos de administración son completamente gratis. No hay costos adicionales asociados al proveedor de recursos o al cambio de modo de administración. 
+
 Para utilizar el proveedor de recursos de VM de SQL, también debe registrarlo con su suscripción. Para ello, puede usar Azure Portal, PowerShell o la CLI de Azure. 
+
+  > [!NOTE]
+  > No hay requisitos de licencias adicionales asociados al registro en el proveedor de recursos. El registro en el proveedor de recursos de máquina virtual de SQL ofrece un método simplificado para satisfacer el requisito de notificar a Microsoft que se ha habilitado Ventaja híbrida de Azure, en el lugar de administrar los formularios de registro de licencias para cada recurso. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -172,13 +182,13 @@ Un error indica que la VM con SQL Server no se ha registrado en el proveedor de 
 
 ## <a name="change-management-modes"></a>Modos de la administración de cambios
 
-Hay tres modos de administración para la extensión IaaS de SQL Server: 
+Hay tres modos de administración de la manejabilidad para la extensión IaaS de SQL Server: 
 
-- El modo **Full** ofrece todas las funcionalidades, pero requiere reiniciar los permisos de administrador del sistema y SQL Server. Esta es la opción que se instala de manera predeterminada. Úselo para administrar una VM con SQL Server con una sola instancia. 
+- El modo **Full** ofrece todas las funcionalidades, pero requiere reiniciar los permisos de administrador del sistema y SQL Server. Esta es la opción que se instala de manera predeterminada. Úselo para administrar una VM con SQL Server con una sola instancia. El modo completo instala dos servicios de Windows que tienen un impacto mínimo en la memoria y la CPU (se pueden supervisar mediante el administrador de tareas). No hay ningún costo asociado al uso del modo de administración completa. 
 
-- El modo **Lightweight** no requiere reiniciar SQL Server, pero solo permite cambiar la edición y el tipo de licencia de SQL Server. Use esta opción para VM con SQL Server con varias instancias o para participar en una instancia de clúster de conmutación por error (FCI). 
+- El modo **Lightweight** no requiere reiniciar SQL Server, pero solo permite cambiar la edición y el tipo de licencia de SQL Server. Use esta opción para VM con SQL Server con varias instancias o para participar en una instancia de clúster de conmutación por error (FCI). Si se usa el modo ligero, no se produce ningún impacto en la memoria ni en la CPU. No hay ningún costo asociado al uso del modo de administración ligera. 
 
-- El modo **NoAgent** está dedicado a SQL Server 2008 y SQL Server 2008 R2 instalados en Windows Server 2008. 
+- El modo **NoAgent** está dedicado a SQL Server 2008 y SQL Server 2008 R2 instalados en Windows Server 2008. Si se usa el modo NoAgent, ni la memoria ni la CPU resultan afectadas. No hay ningún costo asociado al uso del modo de administración NoAgent. 
 
 Puede ver el modo actual del Agente de IaaS de SQL Server mediante PowerShell: 
 
@@ -359,6 +369,12 @@ Sí. Las instancias de clúster de conmutación por error de SQL Server en una 
 **¿Puedo registrar mi máquina virtual con el proveedor de recursos de máquina virtual con SQL si el grupo de disponibilidad AlwaysOn está configurado?**
 
 Sí. No hay ninguna restricción para registrar una instancia de SQL Server instalada en una máquina virtual de Azure con el proveedor de recursos de máquina virtual con SQL si participa en una configuración de grupo de disponibilidad AlwaysOn.
+
+**¿Cuál es el costo del registro en el proveedor de recursos de máquina virtual de SQL o de la actualización al modo de administración completa?**
+Ninguno. No hay ningún precio asociado al registro en el proveedor de recursos de máquina virtual de SQL ni al uso de ninguno de los tres modos de manejabilidad. La administración de una VM con SQL Server con el proveedor de recursos es totalmente gratuita. 
+
+**¿Como afecta el uso de los distintos modos de administración al rendimiento?**
+El uso de los modos de manejabilidad *NoAgent* y *ligero* no tiene ningún impacto en el rendimiento. Si se usa el modo de manejabilidad *completa* desde dos servicios instalados en el sistema operativo, el impacto es mínimo. Dichos servicios se pueden supervisar desde el administrador de tareas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

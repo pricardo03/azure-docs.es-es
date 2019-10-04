@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618374"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291029"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar y administrar un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -294,7 +294,15 @@ Solo se puede cancelar una solicitud pendiente que aún no se haya entregado.
 
 ## <a name="copy-my-access-portal-link"></a>Copiar el vínculo del portal Mi acceso
 
-La mayoría de los usuarios del directorio pueden iniciar sesión en el portal Mi acceso y ver automáticamente una lista de paquetes de acceso que pueden solicitar. Pero para los usuarios de socios comerciales externos que aún no están en el directorio, deberá enviarles un vínculo que pueden usar para solicitar un paquete de acceso. Siempre que el paquete de acceso esté habilitado para los usuarios externos y tenga una directiva para el directorio del usuario externo, este puede utilizar el vínculo del portal Mi acceso para solicitar el paquete de acceso.
+La mayoría de los usuarios del directorio pueden iniciar sesión en el portal Mi acceso y ver automáticamente una lista de paquetes de acceso que pueden solicitar. Pero para los usuarios de socios comerciales externos que aún no están en el directorio, deberá enviarles un vínculo que pueden usar para solicitar un paquete de acceso. 
+
+Es importante que copie todo el vínculo al portal Mi acceso cuando lo envíe a un partner comercial interno. De este modo, se garantiza que el partner obtendrá acceso al portal del directorio para realizar su solicitud. 
+
+El vínculo comenzará por "myaccess" (mi acceso), incluirá una sugerencia de directorio y terminará con un identificador de paquete de acceso. Asegúrese de que el vínculo incluya todos los elementos siguientes:
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+Siempre que el paquete de acceso esté habilitado para los usuarios externos y tenga una directiva para el directorio del usuario externo, este puede utilizar el vínculo del portal Mi acceso para solicitar el paquete de acceso.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 

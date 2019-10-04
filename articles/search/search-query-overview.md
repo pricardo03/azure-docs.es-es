@@ -7,73 +7,57 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647972"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178017"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Tipos y composición de consultas en Azure Search
 
-En Azure Search, una consulta es una especificación completa de una operación de ida y vuelta. Los parámetros en la consulta proporcionan los criterios de coincidencia para buscar documentos en un índice, instrucciones de ejecución para el motor y directivas de estructuración de la respuesta. 
+En Azure Search, una consulta es una especificación completa de una operación de ida y vuelta. Los parámetros de la solicitud proporcionan criterios de coincidencia para buscar documentos en un índice, qué campos incluir o excluir, instrucciones de ejecución pasadas al motor y directivas de estructuración de la respuesta. Una consulta sin especificar (`search=*`) se ejecuta en todos los campos que permiten búsqueda como una operación de búsqueda de texto completo, que devuelve un conjunto de resultados sin puntuar en orden aleatorio.
 
-Una solicitud de consulta es un constructor enriquecido, que especifica los campos que pertenecen al ámbito, la búsqueda, los campos que se van a devolver, el filtrado y la ordenación, etc. Una consulta sin especificar se ejecuta en todos los campos de búsqueda como una operación de búsqueda de texto completo, devolviendo un conjunto de resultados sin puntuar en orden aleatorio.
-
-## <a name="apis-and-tools-for-testing"></a>API y herramientas de pruebas
-
-En la tabla siguiente se enumeran las API y los métodos basados en herramientas para el envío de consultas.
-
-| Metodología | DESCRIPCIÓN |
-|-------------|-------------|
-| [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. <br/>[Más información.](search-get-started-portal.md#query-index) | 
-| [Postman o Fiddler](search-get-started-postman.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que puede usarse para consultar un índice de Azure Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Documentos de búsqueda (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET o POST en un índice, con parámetros de consulta para entradas adicionales.  |
-
-## <a name="a-first-look-at-query-requests"></a>Primer vistazo a las solicitudes de consulta
-
-Los ejemplos son útiles para introducir nuevos conceptos. Esta consulta representativa construida en la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), es un ejemplo cuyo destino es el [índice de la demostración de bienes inmuebles](search-get-started-portal.md) e incluye parámetros comunes.
+El ejemplo siguiente es una consulta representativa creada en la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este ejemplo tiene como destino el [índice de demostración de hoteles](search-get-started-portal.md) e incluye parámetros comunes.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** establece el analizador, que en Azure Search puede ser el [analizador de consultas sencillo predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador completo de consultas de Lucene](search-query-lucene-examples.md) utilizado para construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
++ **`queryType`** establece el analizador, que es el [analizador de consultas sencillas predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador de consultas completas de Lucene](search-query-lucene-examples.md) usado en construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
 
 + **`search`** proporciona los criterios de coincidencia, normalmente texto, pero a menudo acompañado por operadores booleanos. Los términos individuales y sencillos constituyen las consultas por *término*. Las consultas entrecomilladas de varias partes son las consultas de *frases clave*. Búsqueda puede ser indefinida, como en **`search=*`** , pero es más probable que consta de operadores comunes similares a lo que aparece en el ejemplo, frases y términos.
 
-+ **`searchFields`** es opcional, se usa para restringir la ejecución de consultas a campos específicos.
++ **`searchFields`** restringe la ejecución de consultas a campos específicos. Cualquier campo que tenga el atributo *que permite búsquedas* en el esquema de índice es un candidato para este parámetro.
 
-Las respuestas también están formadas por los parámetros que incluya en la consulta. En el ejemplo, el conjunto de resultados se compone de campos que aparecen en la instrucción **`select`** . En esta consulta se devuelven solo los 10 primeros puestos, pero **`count`** indica cuántos documentos coinciden en general. En esta consulta, las filas se ordenan por daysOnMarket.
+Las respuestas también están formadas por los parámetros que incluya en la consulta. En el ejemplo, el conjunto de resultados se compone de campos que aparecen en la instrucción **`select`** . Solo los campos marcados como *recuperable* se pueden usar en una instrucción $select. Además, en esta consulta solo se devuelven los 10 resultados **`top`** , mientras que **`count`** indica cuántos documentos coinciden en general, lo que puede ser un número mayor que los que se devuelven. En esta consulta, las filas se ordenan por clasificación en orden descendente.
 
 En Azure Search, la ejecución de la consulta se realiza siempre en un índice, que se autentica mediante una clave de API proporcionada en la solicitud. En REST, ambos se proporcionan en los encabezados de solicitud.
 
 ### <a name="how-to-run-this-query"></a>Ejecución de esta consulta
 
-Para ejecutar esta consulta, utilice el [explorador de búsqueda y el índice de demostración de bienes inmuebles](search-get-started-portal.md). 
+Para ejecutar esta consulta, use el [Explorador de búsqueda y el índice de demostración de hoteles](search-get-started-portal.md). 
 
-Puede pegar esta cadena de consulta en la barra de búsqueda del explorador: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+Puede pegar esta cadena de consulta en la barra de búsqueda del explorador: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Habilitación de las operaciones de consulta según el índice
 
 El diseño del índice y de la consulta están estrechamente unidos en Azure Search. Es crucial saber de antemano que el *esquema de índice*, con los atributos en cada campo, determina el tipo de consulta que se puede compilar. 
 
-Los atributos de índice de un campo establecen las operaciones permitidas: si es un campo *que permite búsquedas* en el índice, *recuperable* en los resultados, *ordenable*, *filtrable*,etc. En la cadena de consulta de ejemplo, `"$orderby": "daysOnMarket"` solo funciona porque el campo daysOnMarket está marcado como *ordenable* en el esquema de índice. 
+Los atributos de índice de un campo establecen las operaciones permitidas: si es un campo *que permite búsquedas* en el índice, *recuperable* en los resultados, *ordenable*, *filtrable*,etc. En la cadena de consulta de ejemplo, `"$orderby": "Rating"` solo funciona porque el campo Clasificación está marcado como *ordenable* en el esquema de índice. 
 
-![Definición del índice en el ejemplo de bienes inmuebles](./media/search-query-overview/realestate-sample-index-definition.png "Definición del índice en el ejemplo de bienes inmuebles")
+![Definición del índice en el ejemplo de hoteles](./media/search-query-overview/hotel-sample-index-definition.png "Index definition for the hotel sample")
 
-La captura de pantalla anterior es una lista parcial de atributos de índice para el ejemplo de bienes inmuebles. En el portal puede ver el esquema de índice completo. Para más información acerca de los atributos de índice, consulte el artículo sobre la [creación de índices con la API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
+La captura de pantalla anterior es una lista parcial de atributos de índice para el ejemplo de hoteles. En el portal puede ver el esquema de índice completo. Para más información acerca de los atributos de índice, consulte el artículo sobre la [creación de índices con la API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
 > Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas son algunas de las que se incluyen: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones del proveedor de sugerencias (para Autocompletar y consultas sugeridas)](index-add-suggesters.md), [puntuación lógica para la clasificación de resultados](index-add-scoring-profiles.md).
@@ -92,22 +76,33 @@ Entre los elementos obligatorios en una solicitud de consulta se incluyen los si
 
 Todos los demás parámetros de búsqueda son opcionales. Para la lista completa de atributos, consulte el artículo de [creación de índices (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para una visión más detallada de cómo se usan los parámetros durante el procesamiento, consulte [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
 
+## <a name="choose-apis-and-tools"></a>Selección de API y herramientas
+
+En la tabla siguiente se enumeran las API y los métodos basados en herramientas para el envío de consultas.
+
+| Metodología | DESCRIPCIÓN |
+|-------------|-------------|
+| [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. Recomendado para exploración, prueba y validación. <br/>[Más información.](search-get-started-portal.md#query-index) | 
+| [Postman u otras herramientas de REST](search-get-started-postman.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que puede usarse para consultar un índice de Azure Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Documentos de búsqueda (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET o POST en un índice, con parámetros de consulta para entradas adicionales.  |
+
 ## <a name="choose-a-parser-simple--full"></a>Elección del analizador: básico | completo
 
 Azure Search se basa en Apache Lucene y le permite elegir entre dos analizadores de consulta para gestionar consultas típicas y especializadas. Las solicitudes se formulan mediante el analizador básico con [sintaxis de consulta simplificada](query-simple-syntax.md), seleccionada como predeterminada por su velocidad y eficacia para las consultas de texto libre. Esta sintaxis admite varios operadores de búsqueda comunes entre los que se incluyen los operadores de frase, sufijo, precedencia, AND, OR y NOT.
 
 La [sintaxis de consulta completa de Lucene](query-Lucene-syntax.md#bkmk_syntax), que se habilita al agregar `queryType=full` a la solicitud, permite usar el expresivo lenguaje de consulta adoptado ampliamente desarrollado en [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La sintaxis completa amplía la sintaxis simplificada. Cualquier consulta que escriba con sintaxis simplificada se ejecuta en el analizador de Lucene completo. 
 
-Los ejemplos siguientes ilustran el punto: misma consulta, pero con valores de queryType distintos, producen resultados diferentes. En la primera consulta, `^3` se trata como parte del término de búsqueda.
+Los ejemplos siguientes ilustran el punto: misma consulta, pero con valores de queryType distintos, producen resultados diferentes. En la primera consulta, `^3` después de `historic` se trata como parte del término de búsqueda. El resultado clasificado en primer lugar en esta consulta es "Marquis Plaza & Suites", que tiene *ocean* en su descripción.
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-La misma consulta con el analizador de Lucene completo interpreta el aumento en el campo "ranch", aumentando así la clasificación de búsqueda de los resultados que contengan ese término específico.
+La misma consulta con el analizador de Lucene completo interpreta `^3` como impulsor de términos en el campo. Los analizadores de conmutación cambian la clasificación, de forma que los resultados que contienen el término *historic* se mueven al principio.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>

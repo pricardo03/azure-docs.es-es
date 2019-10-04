@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876696"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147285"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -24,15 +24,17 @@ Estas ofertas de servicios de consultoría son interacciones específicas del cl
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Servicios de consultoría en Azure Marketplace vs AppSource Storefront
 Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los productos en la nube de Microsoft para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada escaparate ofrece opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. En la tabla siguiente se resumen estas opciones:
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**Audiencia**   |**Profesionales de TI y desarrolladores de la nube**|**Usuarios de negocios y responsables de la línea de negocio**|
 |Relevancia de la solución     |Aplicaciones técnicas integradas o desarrolladas para Azure|Aplicaciones empresariales que aprovechan o extienden D365, Power BI, O365 o Azure. (Complemento o complementos de aplicaciones terminadas)|
-|Opciones de publicación     |Contacto, versión de prueba, transacción o servicios de consultoría|Contacto, versión de prueba o servicios de consultoría|
+|Opciones de publicación     |Ponerse en contacto conmigo, versión de prueba, transacción o servicios para Azure|Ponerse en contacto conmigo, versión de prueba, transacción o servicios para Dynamics 365 y Power BI|
 |Experiencia de producto      |Portal de administración de Azure|Aplicaciones cliente de Office, Dynamics 365, Office 365| 
-|Otros      |Publicación local mediante de Azure Stack|Servicios de consultoría de Dynamics y Power BI|
+|Otros      |Publicación local a través de Azure Stack, servicios de consultoría para Azure, servicios administrados para Azure|Servicios de consultoría de Dynamics y Power BI|
 
-Las ofertas de servicios basadas en Microsoft Dynamics 365, Office 365 y Power BI son aptas para ser anunciadas en AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Las ofertas de servicios de consultoría basadas en Microsoft Dynamics 365 y Power BI son aptas para anunciarse en Microsoft AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+Las ofertas de servicios de consultoría y servicios administrados que se basan en Microsoft Azure son aptas para anunciarse en Azure Marketplace. Para más información, consulte los artículos sobre [la publicación de un servicio de consultoría](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) y [la publicación de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure*. ** Los servicios de consultoría en AppSource deben aprovechar las ofertas orientadas a su experiencia en entregar soluciones de calidad para Dynamics 365, Power BI o PowerApps para enumerar sus ofertas de servicios de consultoría en AppSource

@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860884"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268405"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Aplicación de escritorio que llama a las API web: registro de la aplicación
 
@@ -51,6 +51,7 @@ Los URI de redireccionamiento que se utilizarán en la aplicación de escritorio
   > [!IMPORTANT]
   > Hoy en día, MSAL.NET usa otro URI de redirección de forma predeterminada en las aplicaciones de escritorio que se ejecutan en Windows (`urn:ietf:wg:oauth:2.0:oob`). En el futuro, querremos cambiar este comportamiento predeterminado y, por lo tanto, le recomendamos que use `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
+- Si va a compilar una aplicación nativa de Objective-C o Swift para macOS, será conveniente registrar el valor de redirectUri en función del identificador de lote de la aplicación en el formato siguiente: **msauth.<su.app.bundle.ID>://auth** (reemplazar <su.app.bundle.ID> con el identificador de lote de la aplicación)
 - Si la aplicación solo utiliza la autenticación integrada de Windows o el nombre de usuario o contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Estos flujos hacen un recorrido de ida y vuelta al punto de conexión de la plataforma de identidad de Microsoft v2.0 y no se volverá a llamar a su aplicación en ningún URI específico.
 - Para distinguir el flujo de código de dispositivo, la autenticación integrada de Windows y el nombre de usuario y la contraseña de un flujo de la aplicación cliente confidencial, que tampoco tiene URI de redireccionamiento (corresponde al flujo de credenciales de cliente usado en aplicaciones de demonio), deberá expresar que se trata de una aplicación cliente pública. Para lograr esta configuración, vaya a la sección **Autenticación** de su aplicación. A continuación, en la subsección **Configuración avanzada**, en el párrafo **Tipo de cliente predeterminado**, seleccione **Sí** para **tratar la aplicación como cliente público**.
 

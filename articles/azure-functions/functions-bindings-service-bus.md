@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7dcc69434e017d6564030d83b14098344bc8ac0d
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114375"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178344"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -33,6 +33,9 @@ Los enlaces de Service Bus se proporcionan en el paquete NuGet [Microsoft.Azure.
 ## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
 
 Los enlaces de Service Bus se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) de GitHub.
+
+> [!NOTE]
+> La versión 2.x no crea el tema o la suscripción configurados en la instancia de `ServiceBusTrigger`. La versión 2.x se basa en [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) y no controla la administración de colas.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 

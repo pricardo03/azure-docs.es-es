@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910441"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266407"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -193,6 +193,7 @@ Invitado/servidor: adición/eliminación de disco en caliente | Sin
 Invitado/servidor: disco de exclusión | Sí
 Varias rutas (MPIO) de invitado/servidor | Sin
 Particiones GPT de invitado/servidor | Se admiten cinco particiones desde el [paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/) (versión 9.25 de Mobility Service) y versiones posteriores. Antes se admitían cuatro.
+ReFS | El sistema de archivos resistente es compatible con Mobility Service versión 9.23 o posterior
 Arranque de EFI/UEFI de invitado/servidor | - Se admite si se está ejecutando la versión de Mobility Service 9.13 o posterior.<br/> - Se admite al migrar máquinas virtuales de VMware o servidores físicos que ejecutan Windows Server 2012 o versiones posteriores a Azure.<br/> - Solo puede replicar máquinas virtuales para la migración. No se admite la conmutación por recuperación a entornos locales.<br/> - Solo se admite NTFS. <br/> - No se admite el tipo de arranque seguro de UEFI. <br/> - El tamaño de sector de disco debe ser de 512 bytes por sector físico.
 
 ## <a name="replication-channels"></a>Canales de replicación

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065420"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256903"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Administración de amenazas en los recursos y los datos en Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ Los diez primeros períodos de bloqueo son de un minuto. Los diez períodos de b
 
 Para administrar la configuración de protección con contraseña, incluido el umbral de bloqueo:
 
-1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio + suscripción** en el menú superior derecho del portal y, después, seleccione el inquilino de Azure AD B2C.
-1. Seleccione **Azure Active Directory** en el menú de la izquierda (o seleccione **Todos los servicios** en la sección superior izquierda del portal y, después, busque y seleccione *Azure Active Directory*).
-1. En **Seguridad**, seleccione **Métodos de autenticación**, a continuación, seleccione **Protección con contraseña**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. En **Seguridad**, seleccione **Métodos de autenticación (Vista preliminar)** y, a continuación, seleccione **Protección con contraseña**.
 1. Especifique la configuración de protección con contraseña deseada y después seleccione **Guardar**.
 
     ![Página Protección con contraseña de Azure Portal en la configuración de Azure AD](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

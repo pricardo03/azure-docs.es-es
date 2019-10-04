@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237645"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258384"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararse para el cambio de formato a los registros de diagnóstico de Azure Monitor archivados en una cuenta de almacenamiento
 
@@ -29,11 +29,11 @@ Azure Monitor ofrece una funcionalidad que permite enviar datos de diagnóstico 
 * A las 12:00 de la noche (UTC) del jueves 1 de noviembre de 2018, el formato de blob se cambiará a [JSON Lines](http://jsonlines.org/). Esto significa que todos los registros se delimitarán mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON.
 * El formato de blob cambia para todas las configuraciones de diagnóstico en todas las suscripciones a la vez. En el primer archivo PT1H.json emitido para el 1 de noviembre se usará este formato nuevo. Los nombres de blobs y contenedores se mantienen sin cambios.
 * Si se establece una configuración de diagnóstico entre hoy y el 1 de noviembre, se continúa con la emisión de los datos en el formato actual hasta el 1 de noviembre.
-* Este cambio se producirá al mismo tiempo en todas las regiones de la nube pública. El cambio no se producirá todavía en las nubes de Azure China, Azure Alemania o Azure Government.
+* Este cambio se producirá al mismo tiempo en todas las regiones de la nube pública. El cambio no se producirá aún en Microsoft Azure operado por 21Vianet, Azure Alemania o nubes de Azure Government.
 * Este cambio afecta a los tipos de datos siguientes:
-  * [Registros de diagnóstico de recursos de Azure](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([vea aquí la lista de los recursos](./../../azure-monitor/platform/diagnostic-logs-schema.md)).
-  * [Métricas de recursos de Azure que se exportan mediante la configuración de diagnóstico](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
-  * [Datos del registro de actividad de Azure que se exportan mediante perfiles de registro](./../../azure-monitor/platform/archive-activity-log.md).
+  * [Registros de diagnóstico de recursos de Azure](archive-diagnostic-logs.md) ([vea aquí la lista de los recursos](diagnostic-logs-schema.md)).
+  * [Métricas de recursos de Azure que se exportan mediante la configuración de diagnóstico](diagnostic-settings.md).
+  * [Datos del registro de actividad de Azure que se exportan mediante perfiles de registro](archive-activity-log.md).
 * Este cambio no afecta a:
   * Los registros de flujo de red.
   * Los registros de servicio de Azure que todavía no están disponible a través de Azure Monitor (por ejemplo, los registros de diagnóstico de Azure App Service y los de análisis de almacenamiento).

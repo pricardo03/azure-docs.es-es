@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501359"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200459"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
 Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric que la extensión de máquina virtual Microsoft.Azure.ServiceFabric instala en cada máquina virtual del conjunto de escalado. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
@@ -78,7 +78,7 @@ Estas son las descripciones de la propiedad:
 | **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | name | string | --- | nombre único para la extensión |
-| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
+| Tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
 | autoUpgradeMinorVersion | true o false | --- | Habilita la actualización automática de las versiones secundarias del tiempo de ejecución de SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nombre del editor de la extensión de Service Fabric |
 | clusterEndpont | string | --- | URI:PUERTO al punto de conexión de administración |

@@ -6,14 +6,14 @@ author: ellacroi
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561490"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300335"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Aplicaciones de Azure: guía de publicación de ofertas de plantillas de solución
 
@@ -21,7 +21,7 @@ Las plantillas de solución son uno de los principales mecanismos para publicar 
 
 Use el tipo de oferta Aplicación de Azure: plantilla de solución cuando la solución requiera automatización adicional de implementación y configuración para algo más que una sola máquina virtual. Puede automatizar el aprovisionamiento de una o más VM con plantillas de solución de aplicaciones de Azure. También puede aprovisionar los recursos de redes y almacenamiento. El tipo de oferta Aplicaciones de Azure: plantillas de solución ofrece ventajas de automatización para VM únicas y soluciones completas basadas en IaaS.
 
-Estas plantillas de solución son ofertas de transacción que se implementan y facturan a través de Marketplace. La llamada a la acción que el usuario ve es "Obtener ahora".
+Estas plantillas de solución no son ofertas de transacción, pero se pueden usar para implementar las ofertas de máquina virtual de pago facturadas mediante Marketplace comercial de Microsoft. La llamada a la acción que el usuario ve es "Obtener ahora".
 
 
 ## <a name="requirements-for-solution-templates"></a>Requisitos para las plantillas de solución

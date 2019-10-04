@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0a776c793bab9aee76cf338bc19c560ab700e787
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063938"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258205"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
@@ -84,7 +84,7 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | scope | Sin | Ámbito de la solicitud definida según la especificación OpenID Connect Core 1.0. Por ejemplo, `openid`, `profile` y `email`. |
 | HttpBinding | Sin | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
 | ValidTokenIssuerPrefixes | Sin | Clave que puede usarse para iniciar sesión en todos los inquilinos al usar un proveedor de identidades multiinquilino, como Azure Active Directory. |
-| UsePolicyInRedirectUri | Sin | Indica si se usará una directiva al crear el URI de redireccionamiento. Al configurar la aplicación en el proveedor de identidades, necesita especificar el URI de redireccionamiento. El URI de redireccionamiento apunta a Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com se puede cambiar por your-tenant-name.b2clogin.com).  Si especifica `false`, tendrá que agregar un URI de redireccionamiento por cada directiva que use. Por ejemplo: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | Sin | Indica si se usará una directiva al crear el URI de redireccionamiento. Al configurar la aplicación en el proveedor de identidades, necesita especificar el URI de redireccionamiento. El URI de redireccionamiento apunta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Si especifica `false`, tendrá que agregar un URI de redireccionamiento por cada directiva que use. Por ejemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | Sin | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
 | DiscoverMetadataByTokenIssuer | Sin | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
 
@@ -98,28 +98,10 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 
-Al configurar el URI de redireccionamiento del proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Asegúrese de reemplazar **tenant** por el nombre del inquilino (por ejemplo, contosob2c.onmicrosoft.com) o por el id. del inquilino. El URI de redireccionamiento necesita estar escrito todo en minúsculas.
-
-Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, asegúrese de usar b2clogin.com en lugar de login.microsoftonline.com.
+Al configurar el URI de redireccionamiento del proveedor de identidades, escriba `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Asegúrese de reemplazar `{your-tenant-name}` por el nombre del inquilino. El URI de redireccionamiento necesita estar escrito todo en minúsculas.
 
 Ejemplos:
 
 - [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
 - [Iniciar sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
 - [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

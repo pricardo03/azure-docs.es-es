@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2aa2dd8373a9568478a02691ca5e6a43e80cd408
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951916"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289422"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -234,8 +234,8 @@ ResultCode | Igual que OperationResult | Este campo indica el resultado de la op
 OperationType | 1: instalación<br> 0: buscar y descargar.| La instalación es el único valor de OperationType que se muestra en los resultados de forma predeterminada.
 WindowsUpdateQuery | El valor predeterminado es "IsInstalled=0" |La consulta de Windows Update que se utilizó para buscar actualizaciones. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | true: se requiere reinicio<br> false: no se requiere reinicio | Indica si se requiere reiniciar para completar la instalación de actualizaciones.
-operationStartTime | Datetime | Indica la hora a la que se inició la operación (descarga/instalación).
-OperationTime | Datetime | Indica la hora a la que se completó la operación (descarga/instalación).
+operationStartTime | DateTime | Indica la hora a la que se inició la operación (descarga/instalación).
+OperationTime | DateTime | Indica la hora a la que se completó la operación (descarga/instalación).
 HResult | 0: correcto<br> otro: error| Indica el motivo del error de la actualización de Windows con updateID "7392acaf-6a85-427c-8a8d-058c25beb0d6".
 
 Si todavía no hay ninguna actualización programada, el resultado JSON está vacío.
@@ -273,7 +273,11 @@ NodeAgentNTService crea [tareas de reparación](https://docs.microsoft.com/dotne
 
     [ ![Imagen del estado de revisión del clúster](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
-4. Una vez que el nodo está deshabilitado, la tarea de reparación se mueve al estado de En ejecución. Tenga en cuenta que una tarea de reparación bloqueada en el estado de En preparación, porque un nodo está detenido en el estado de desactivación, puede provocar el bloqueo de una nueva tarea de reparación y, por lo tanto, detener la aplicación de revisiones al clúster.
+4. Una vez que el nodo está deshabilitado, la tarea de reparación se mueve al estado de En ejecución.
+   
+   >[!NOTE]
+   > Un nodo bloqueado en un estado deshabilitado puede bloquear una nueva tarea de reparación, lo cual detendrá la operación de aplicación de revisiones en el clúster.
+
 5. Una vez que la tarea de reparación está en estado de En ejecución, comienza la instalación de la revisión de ese nodo. Una vez instalada la revisión, el nodo puede o no reiniciarse dependiendo de la misma. Publique que la tarea de reparación se ha movido al estado de restauración, lo que habilitará de nuevo el nodo y luego se marcará como completada.
 
    En la versión v1.4.0 y superiores de la aplicación, se puede encontrar el estado de la actualización en los eventos de estado de NodeAgentService con la propiedad "WUOperationStatus- [NodeName]". Las secciones resaltadas en las imágenes que tiene a continuación muestran el estado de la actualización de Windows en el nodo "poanode_0" y "poanode_2":
@@ -293,7 +297,7 @@ NodeAgentNTService crea [tareas de reparación](https://docs.microsoft.com/dotne
 
    Si todavía hay más por encontrar, inicie sesión en las máquinas virtuales específicas para encontrar más información sobre el problema mediante los registros de eventos de Windows. La tarea de reparación mencionada anteriormente solo puede tener estos subestados de ejecutor:
 
-      ExecutorSubState | Detalles
+      ExecutorSubState | Detail
     -- | -- 
       None=1 |  Implica que no hubo una operación en curso en el nodo. Transiciones de estado posibles.
       DownloadCompleted=2 | Implica que la operación de descarga se completó correctamente, con un error parcial o con error.

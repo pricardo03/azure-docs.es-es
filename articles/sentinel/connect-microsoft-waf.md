@@ -1,5 +1,5 @@
 ---
-title: Conectar datos de firewall de aplicaciones web de Microsoft a Azure Sentinel, versión preliminar | Microsoft Docs
+title: Conexión de datos de firewall de aplicaciones web de Microsoft a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos de firewall de aplicaciones web de Microsoft a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611349"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240032"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar datos del firewall de aplicaciones web de Microsoft
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Los registros de firewall de aplicaciones web (WAF) de Microsoft de Azure Application Gateway se pueden transmitir. Este WAF protege las aplicaciones de vulnerabilidades web comunes, como la inyección de código SQL o los ataques de scripts de sitios, y permite personalizar reglas para reducir los falsos positivos. Siga estas instrucciones para transmitir los registros de firewall de aplicaciones web de Microsoft a Azure Sentinel.
 
@@ -53,4 +51,4 @@ Cuando el firewall de aplicaciones web de Microsoft esté implementado y obtenie
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar un firewall de aplicaciones de web de Microsoft a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).

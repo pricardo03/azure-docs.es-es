@@ -1,6 +1,6 @@
 ---
-title: 'Creación de una canalización de integración continua en Azure: Team Data Science Process'
-description: 'DevOps para aplicaciones de inteligencia artificial (IA): Creación de una canalización de integración continua en Azure con Docker y Kubernetes'
+title: 'Creación de una canalización de CI/CD con Azure Pipelines: Proceso de ciencia de datos en equipo'
+description: Creación de una canalización de integración continua y entrega continua para aplicaciones de Inteligencia artificial (IA) mediante Docker y Kubernetes.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -8,63 +8,61 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 09/06/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62103583"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260660"
 ---
-# <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Creación de una canalización de integración continua en Azure mediante Docker, Kubernetes y una aplicación de Python Flask
-Para una aplicación de IA, suele haber dos flujos de trabajo: los científicos de datos, que crean modelos de aprendizaje automático, y los desarrolladores de aplicaciones, que crean la aplicación y la exponen a los usuarios finales para que la consuman. En este artículo, se muestra cómo implementar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de IA. Una aplicación de IA es una combinación de código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para este artículo, obtenemos un modelo previamente entrenado de una cuenta de almacenamiento de blobs de Azure privada; también podría ser una cuenta de AWS S3. Usaremos una aplicación web sencilla de Python Flask para el artículo.
+# <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creación de canalizaciones de CI/CD para aplicaciones de inteligencia artificial con Azure Pipelines, Docker y Kubernetes
+
+Una aplicación de inteligencia artificial (IA) es un código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para una aplicación de inteligencia artificial siempre hay dos flujos de trabajo: Los científicos de datos crean el modelo de ML y los desarrolladores de aplicaciones compilan la aplicación y la exponen a los usuarios finales para su consumo. En este artículo se describe cómo implementar una canalización de integración continua y entrega continua (CI/CD) para una aplicación de inteligencia artificial que inserta el modelo de ML en el código fuente de la aplicación. En el código de ejemplo y el tutorial se usa una aplicación web sencilla de Python Flask y se captura un modelo previamente entrenado de una cuenta privada de Azure Blob Storage. También puede usar una cuenta de almacenamiento de AWS S3.
 
 > [!NOTE]
-> Esta es una de las diferentes maneras de llevar a cabo CI/CD. Hay alternativas a las herramientas y otros requisitos previos que se mencionan más adelante. A medida que desarrollamos contenido adicional, los iremos publicando.
->
->
+> El siguiente proceso es una de las diversas formas de realizar integración continua o entrega continua. Existen alternativas a esta herramienta y a los requisitos previos.
 
-## <a name="github-repository-with-document-and-code"></a>Repositorio de GitHub con el documento y el código
-Puede descargar el código fuente de [GitHub](https://github.com/Azure/DevOps-For-AI-Apps). También se encuentra disponible un [tutorial detallado](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md).
+## <a name="source-code-tutorial-and-prerequisites"></a>Código fuente, tutorial y requisitos previos
 
-## <a name="pre-requisites"></a>Requisitos previos
-Estos son los requisitos previos para seguir la canalización de CI/CD que se describe a continuación:
-* [Organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Clúster de Azure Container Service (AKS) donde se ejecuta Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Cuenta de Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
-* [Instale Kubectl para ejecutar comandos en clústeres de Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Necesitaremos esta opción para obtener la configuración del clúster de ACS. 
-* Bifurque el repositorio de GitHub a su cuenta de GitHub.
+Puede descargar un [código fuente](https://github.com/Azure/DevOps-For-AI-Apps) y un [tutorial en detalle](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) desde GitHub. Siga los pasos del tutorial para implementar una canalización de CI/CD para su propia aplicación.
 
-## <a name="description-of-the-cicd-pipeline"></a>Descripción de la canalización de CI/CD
-La canalización se inicia para cada nueva confirmación; se ejecuta el conjunto de pruebas; si la prueba se supera, toma la compilación más reciente y la empaqueta en un contenedor de Docker. Después, el contenedor se implementa mediante Azure Container Service (ACS) y las imágenes se almacenan de forma segura en Azure Container Registry (ACR). ACS ejecuta Kubernetes para la administración de clúster de contenedor, pero puede elegir Docker Swarm o Mesos.
+Para usar el código fuente y el tutorial, necesita los siguientes requisitos previos: 
 
-La aplicación extrae el modelo más reciente de forma segura desde una cuenta de Azure Storage y lo empaqueta como parte de la aplicación. La aplicación implementada tiene el código de aplicación y el modelo ML empaquetados como un solo contenedor. Esto desacopla los desarrolladores de aplicación y los científicos de datos, para asegurarse de que su aplicación de producción siempre ejecuta el código más reciente con el modelo ML más reciente.
+- El [repositorio de código fuente](https://github.com/Azure/DevOps-For-AI-Apps) bifurcado a su cuenta de GitHub
+- Una [organización de Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
+- [CLI de Azure](/cli/azure/install-azure-cli)
+- Un [clúster de Azure Container Service para Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para ejecutar comandos y capturar la configuración del clúster de AKS 
+- Una [cuenta de Azure Container Registry (ACR)](/azure/container-registry/container-registry-get-started-portal)
 
-La arquitectura de canalización se indica a continuación. 
+## <a name="cicd-pipeline-summary"></a>Resumen de la canalización de CI/CD
 
-![Arquitectura](./media/ci-cd-flask/Architecture.PNG?raw=true)
+Cada nueva confirmación de Git inicia la canalización de compilación. La compilación extrae de forma segura el último modelo de ML automático de una cuenta de almacenamiento de blobs y lo empaqueta con el código de la aplicación en un único contenedor. Este desacoplamiento del desarrollo de aplicaciones y de los flujos de secuencias de ciencia de datos garantiza que la aplicación de producción siempre ejecuta el código más reciente con el último modelo de ML. Si la aplicación pasa las pruebas, la canalización almacena de forma segura la imagen de compilación en un contenedor de Docker en Azure Container Registry. A continuación, la canalización de versión implementa el contenedor mediante AKS. 
 
-## <a name="steps-of-the-cicd-pipeline"></a>Pasos de la canalización de CI/CD
-1. El programador trabaja en el IDE que prefiere en el código de aplicación.
-2. Confirman el código en el control de código fuente que eligen (Azure DevOps tiene buena compatibilidad con diversos controles de código fuente).
-3. Por separado, los científicos de datos trabajan en el desarrollo de su modelo.
-4. Una vez satisfechos, publican el modelo en un repositorio de modelos; en este caso, usamos una cuenta de almacenamiento de blobs. 
-5. Se inicia una compilación en Azure DevOps según la confirmación en GitHub.
-6. La canalización de compilación de Azure DevOps extrae el último modelo del contenedor de blobs y crea un contenedor.
-7. Azure DevOps inserta la imagen en el repositorio de imágenes privado en Azure Container Registry.
-8. En una programación establecida (por la noche), se inicia la canalización de versión.
-9. La imagen más reciente de ACR se extrae y se implementa en el clúster de Kubernetes en ACS.
-10. La solicitud de los usuarios para la aplicación va a través del servidor DNS.
-11. El servidor DNS pasa la solicitud al equilibrador de carga y devuelve la respuesta al usuario.
+## <a name="cicd-pipeline-steps"></a>Pasos de la canalización de CI/CD
 
-## <a name="next-steps"></a>Pasos siguientes
-* Consulte el [tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) para seguir los detalles e implemente su propia canalización de CI/CD para su aplicación.
+En el diagrama y los pasos siguientes se describe la arquitectura de canalización de CI/CD:
 
-## <a name="references"></a>Referencias
-* [Proceso de ciencia de datos en equipo (TDSP)](https://aka.ms/tdsp)
-* [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Azure DevOps](https://www.visualstudio.com/vso/)
-* [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+![Arquitectura de canalización de CI/CD](./media/ci-cd-flask/architecture.png)
+
+1. Los desarrolladores trabajan en el código de aplicación en el entorno de desarrollo integrado que prefieran.
+2. Los desarrolladores confirman el código a Azure Repos, GitHub u otro proveedor de control de código fuente de Git. 
+3. Por separado, los científicos de datos trabajan en el desarrollo de su modelo de ML.
+4. Los científicos de datos publican el modelo acabado en un repositorio de modelos; en este caso, una cuenta de almacenamiento de blobs. 
+5. Azure Pipelines inicia una compilación basada en la confirmación de Git.
+6. La canalización de compilación extrae el modelo más reciente de ML del almacenamiento de blobs y crea un contenedor.
+7. La canalización envía la imagen de compilación al repositorio de imágenes privadas de ACR.
+8. La canalización de versión se inicia basándose en la compilación correcta.
+9. La canalización extrae la imagen más reciente de ACR y la implementa en el clúster de Kubernetes en AKS.
+10. Las solicitudes de usuario para la aplicación pasan por el servidor DNS.
+11. El servidor DNS pasa la solicitud al equilibrador de carga y devuelve las respuestas al usuario.
+
+## <a name="see-also"></a>Otras referencias
+
+- [Proceso de ciencia de datos en equipo (TDSP)](/azure/machine-learning/team-data-science-process/)
+- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Azure DevOps](https://azure.microsoft.com/services/devops/)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

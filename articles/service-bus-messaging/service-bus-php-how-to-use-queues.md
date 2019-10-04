@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992080"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147236"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -35,10 +35,10 @@ En este tutorial, obtendrá información sobre cómo crear aplicaciones de PHP p
 
         > [!NOTE]
         > Creará una **cola** en el espacio de nombres de Service Bus con PHP en este tutorial. 
-3. [SDK de Azure para PHP](../php-download-sdk.md)
+3. [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
-El único requisito a la hora de crear una aplicación PHP para obtener acceso a Azure Blob service es que el código haga referencia a clases de [Azure SDK para PHP](../php-download-sdk.md) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso a Azure Blob service es que el código haga referencia a clases de [Azure SDK para PHP](https://github.com/Azure/azure-sdk-for-php) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
 
 > [!NOTE]
 > La instalación de PHP debe tener también la [extensión OpenSSL](https://php.net/openssl) instalada y habilitada.
@@ -51,7 +51,7 @@ En esta guía, utilizará funciones del servicio a las que se puede llamar desde
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
 Para usar las API de la cola de Service Bus de Azure, siga estos pasos:
 
-1. Haga referencia al archivo autocargador mediante la instrucción [require_once][require_once].
+1. Haga referencia al archivo cargador automático mediante la instrucción [require_once][require_once].
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase `ServicesBuilder`.

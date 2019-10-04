@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018164"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268770"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -233,7 +233,11 @@ La realización de estos pasos hace que se vuelva a instalar la extensión duran
 
 ### <a name="clean_up_restore_point_collection"></a> Eliminación de la colección de puntos de restauración
 
-Después de quitar el bloqueo, los puntos de restauración deben limpiarse. Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
+Después de quitar el bloqueo, los puntos de restauración deben limpiarse.
+
+Si elimina el grupo de recursos de la máquina virtual o la propia máquina virtual, las instantáneas de restauración inmediata de discos administrados permanecen activas y expiran según el conjunto de retención. Para eliminar las instantáneas de restauración inmediata (si ya no las necesita) almacenadas en la colección de puntos de restauración, limpie la colección de puntos de restauración según los pasos que se indican a continuación.
+
+Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
 
 - [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Eliminación de la colección de puntos de restauración desde Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>

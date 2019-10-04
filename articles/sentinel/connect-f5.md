@@ -1,5 +1,5 @@
 ---
-title: Conexión de datos F5 a la versión preliminar de Azure Sentinel | Microsoft Docs
+title: Conexión de datos de F5 con Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos F5 a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679296"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240012"
 ---
 # <a name="connect-your-f5-appliance"></a>Conexión del dispositivo de F5
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Puede conectar Azure Sentinel a cualquier dispositivo de F5 guardando los archivos de registro como CEF de Syslog. La integración con Azure Sentinel permite ejecutar análisis y consultas fácilmente en los datos de archivo de registro de F5. Para obtener más información sobre cómo ingiere Azure Sentinel datos CEF, consulte el artículo sobre cómo [conectar dispositivos CEF](connect-common-event-format.md).
 
@@ -130,5 +128,5 @@ Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar dispositivos de F5 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 4b627b13fb79cd5105a95d9161d9239f28f2e062
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567504"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273555"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinación del tamaño de la red virtual y la subred para Instancia administrada de Azure SQL Database
 
@@ -29,7 +29,7 @@ Cuando se crea una instancia administrada, Azure asigna un número de máquinas 
 Por definición, una instancia administrada necesita un mínimo de 16 direcciones IP en una subred y puede utilizar hasta 256 direcciones IP. En consecuencia, puede utilizar una máscara de subred entre /28 y /24 al definir los intervalos IP de la subred. Un bit de máscara de red de /28 (14 hosts por red) es un tamaño adecuado para un solo propósito general o para una implementación crítica para la empresa. Un bit de máscara de /27 (30 hosts por red) es ideal para varias implementaciones de instancia administrada dentro de la misma red virtual. Una configuración de bits de máscara de /26 (62 hosts) y /24 (254 hosts) permite el escalabilidad horizontal de la red virtual para admitir instancias administradas adicionales.
 
 > [!IMPORTANT]
-> Un tamaño de subred con 16 direcciones IP es el mínimo imprescindible con potencial limitado para obtener una mayor escalabilidad horizontal de las instancias administradas. Se recomienda elegir una subred con el prefijo /27 o uno inferior.
+> Un tamaño de subred con 16 direcciones IP es el mínimo con un potencial limitado, en el que no se admite una operación de escalado como el cambio de tamaño de núcleo virtual. Se recomienda elegir una subred con el prefijo /27 o uno más largo.
 
 ## <a name="determine-subnet-size"></a>Determinación del tamaño de la subred
 

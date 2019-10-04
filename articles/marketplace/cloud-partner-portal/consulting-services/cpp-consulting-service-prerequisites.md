@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: bd32f68037e29e38fffb0b716772040d22fdfff0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59ca917f31a3e20b6ad02363a5015f16340924e2
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942760"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147145"
 ---
 # <a name="consulting-service-prerequisites"></a>Requisitos previos de los servicios de consultoría
 
@@ -20,6 +20,7 @@ Revise la descripción y los requisitos para este tipo de oferta en [Servicios d
 
 |     Tipo de oferta   |    Requisito   |
 |     ----------   |    -----------   |
+| Microsoft Azure | Los asociados tienen que tener una certificación Silver o Gold para la [competencia Cloud Platform](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | Dynamics 365 for Customer Engagement | los asociados deben tener una certificación Silver o Gold para acceder a la [competencia Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). |
 | Dynamics 365 for Finance & Operations | los asociados deben tener una certificación Silver o Gold para acceder a la [competencia Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). Los asociados también deben tener unos ingresos mínimos de 25 000 USD en operaciones de nube en los 12 meses anteriores. |
 | Dynamics 365 Business Central | los asociados deben haber actuado como proveedor de soluciones en la nube (CSP) o partner digital de registro (DPOR) al menos con un cliente. <br/> Para obtener información sobre cómo conseguir un CSP, consulte [Get started as a CSP](https://partner.microsoft.com/cloud-solution-provider/get-started) (Primeros pasos como CSP). <br/> Para conocer los requisitos de DPOR, consulte la [introducción a DPOR](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1). |

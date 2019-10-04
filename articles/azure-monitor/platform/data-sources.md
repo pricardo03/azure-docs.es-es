@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564756"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262043"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -90,7 +90,7 @@ El [registro de actividad de Azure](activity-logs-overview.md) incluye registros
 
 
 ## <a name="azure-resources"></a>Recursos de Azure
-Los registros de diagnóstico de nivel de recursos y las métricas proporcionan información sobre el funcionamiento _interno_ de recursos de Azure. Están disponibles para la mayoría de servicios de Azure, y las perspectivas y soluciones de administración proporcionan datos adicionales para determinados servicios.
+Los registros de métricas y recursos proporcionan información sobre el funcionamiento _interno_ de los recursos de Azure. Están disponibles para la mayoría de servicios de Azure, y las perspectivas y soluciones de administración proporcionan datos adicionales para determinados servicios.
 
 ![Colección de recursos de Azure](media/data-sources/azure-resources.png)
 
@@ -101,19 +101,19 @@ La mayoría de los servicios de Azure generarán [métricas de plataforma](data-
 | Destino | DESCRIPCIÓN | Referencia |
 |:---|:---|:---|
 | Métricas de Azure Monitor | Las métricas de la plataforma se escribirán en la base de datos de métricas de Azure Monitor sin ninguna configuración. Acceda a las métricas de la plataforma del Explorador de métricas.  | [Introducción al Explorador de métricas de Azure](metrics-getting-started.md)<br>[Métricas compatibles con Azure Monitor](metrics-supported.md) |
-| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](diagnostic-logs-stream-log-store.md) |
+| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](resource-logs-collect-workspace.md) |
 | Event Hubs | Transmita métricas a otras ubicaciones mediante Event Hubs. |[Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) |
 
-### <a name="diagnostic-logs"></a>Registros de diagnóstico
-Los [registros de Diagnostics](diagnostic-logs-overview.md) proporcionan perspectivas en la operación _interna_ de un recurso de Azure.  Los registros de Diagnostics no están habilitados de forma predeterminada. Debe habilitarlos y especificar un destino para cada recurso. 
+### <a name="resource-logs"></a>Registros del recurso
+Los [registros de recursos](resource-logs-overview.md) proporcionan información detallada sobre el funcionamiento _interno_ de un recurso de Azure.  Los registros de recursos se crean automáticamente, pero debe crear una configuración de diagnóstico para especificar un destino para que se recopilen de cada recurso.
 
-Los requisitos de configuración y el contenido de los registros de Diagnostics varían según el tipo de recurso, y no todos los servicios crean registros de diagnóstico. Consulte [Servicios, esquemas y categorías compatibles para registros de Azure Diagnostics](diagnostic-logs-schema.md) para obtener información sobre los servicios y vínculos a los procedimientos de configuración detallados. Si el servicio no aparece en este artículo, el servicio no realiza aún operaciones de escritura en los registros de Diagnostics.
+Los requisitos de configuración y el contenido de los registros de recursos varían según el tipo de recurso, y no todos los servicios los crean. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](diagnostic-logs-schema.md) para más información sobre los servicios y obtener vínculos a los procedimientos de configuración detallados. Si el servicio no aparece en este artículo, significa que se servicio no crea actualmente registros de recursos.
 
 | Destino | DESCRIPCIÓN | Referencia |
 |:---|:---|:---|
-| Registros de Azure Monitor | Envíe registros de diagnóstico a registros de Azure Monitor para el análisis con otros datos de registro recopilados. Algunos recursos pueden escribir directamente en Azure Monitor, mientras que otros escriben en una cuenta de almacenamiento antes de importarse a un área de trabajo de Log Analytics. | [Transmisión de registros de Azure Diagnostics a un área de trabajo de Log Analytics en Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Uso de Azure Portal para recopilar registros de Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| Storage | Envíe registros de diagnóstico a Azure Storage para realizar procedimientos de archivado. | [Archivo de registros de Azure Diagnostics](archive-diagnostic-logs.md) |
-| Event Hubs | Transmita los registros de diagnóstico a otras ubicaciones mediante Event Hubs. |[Transmisión de registros de Azure Diagnostics a un centro de eventos](diagnostic-logs-stream-event-hubs.md) |
+| Registros de Azure Monitor | Envíe registros de recursos a registros de Azure Monitor para el análisis con otros datos de registro recopilados. | [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](resource-logs-collect-storage.md) |
+| Storage | Envíe registros de recursos a Azure Storage para archivarlos. | [Archivado de registros de recursos de Azure](resource-logs-collect-workspace.md) |
+| Event Hubs | Transmita registros de recursos a otras ubicaciones mediante Event Hubs. |[Transmisión de registros de recursos de Azure a un centro de eventos](resource-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>Sistema operativo (invitado)
 Los recursos de proceso en Azure, en otras nubes y en el entorno local tienen un sistema operativo invitado para supervisar. Con la instalación de uno o más agentes, puede recopilar datos de telemetría del invitado en Azure Monitor para analizarlos con las mismas herramientas de supervisión que los propios servicios de Azure.

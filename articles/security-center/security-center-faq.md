@@ -3,9 +3,8 @@ title: Preguntas más frecuentes sobre Azure Security Center | Microsoft Docs
 description: Estas preguntas más frecuentes responden a las preguntas sobre el Centro de seguridad de Azure.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.author: memildin
+ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873410"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202288"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -55,7 +54,7 @@ Security Center evalúa la configuración de los recursos para identificar probl
 Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Recopilación de datos, agentes y áreas de trabajo
-Security Center recopila datos de las máquinas virtuales de Azure (VM), los conjuntos de escalado de máquinas virtuales (VMSS), los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
+Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>¿Se me facturan los registros de Azure Monitor en las áreas de trabajo que creada Security Center?
 No. Las áreas de trabajo que crea Security Center, mientras estén configuradas para los registros de Azure Monitor por facturación de nodo, no incurren en gastos de registros de Azure Monitor. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
@@ -133,10 +132,10 @@ El hospedaje múltiple del agente todavía no es compatible con las máquinas Li
 
 Para las máquinas existentes en suscripciones incorporadas a Security Center antes del 17-03-2019, cuando se detecte un agente existente, no se instalará la extensión de Microsoft Monitoring Agent y la máquina no se modificará. Para estas máquinas, consulte la recomendación "Resolver incidencias de supervisión de estado del agente en las máquinas" con el fin de resolver las incidencias de instalación del agente en estas máquinas.
 
- Para más información, consulte la sección siguiente [¿Qué ocurre si ya hay un agente directo de SCOM o OMS instalado en mi máquina virtual?](#scomomsinstalled)
+ Para más información, consulte la sección siguiente [¿Qué ocurre si ya hay un agente directo de System Center Operations Manager o OMS instalado en mi máquina virtual?](#scomomsinstalled)
 
-### ¿Qué ocurre si un agente de System Center Operations Manager (SCOM) ya está instalado en mi máquina virtual?<a name="scomomsinstalled"></a>
-Security Center instalará la extensión de Microsoft Monitoring Agent en paralelo a la versión del agente existente de System Center Operations Manager. El agente existente de SCOM continuará generando informes con normalidad para el servidor de System Center Operations Manager. Tenga en cuenta que el agente de System Center Operations Manager y Microsoft Monitoring Agent comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso. Nota: Si se instala la versión 2012 del agente de System Center Operations Manager, no active el aprovisionamiento automático (las funcionalidades de administración pueden perderse cuando el servidor de System Center Operations Manager también es de la versión 2012).
+### ¿Qué ocurre si un agente de System Center Operations Manager ya está instalado en mi máquina virtual?<a name="scomomsinstalled"></a>
+Security Center instalará la extensión de Microsoft Monitoring Agent en paralelo a la versión del agente existente de System Center Operations Manager. El agente existente continuará generando informes con normalidad para el servidor de System Center Operations Manager. Tenga en cuenta que el agente de Operations Manager y Microsoft Monitoring Agent comparten bibliotecas en tiempo de ejecución, las cuales se actualizarán a la versión más reciente durante este proceso. Nota: Si se instala la versión 2012 del agente de Operations Manager, no active el aprovisionamiento automático (las funcionalidades de administración pueden perderse si el servidor de Operations Manager también es de la versión 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>¿Qué impacto tiene quitar estas extensiones?
 Si quita la extensión de Microsoft Monitoring, Security Center no será capaz de recopilar datos de seguridad de la VM y algunas recomendaciones de seguridad y las alertas no estarán disponibles. En un plazo de 24 horas, Security Center determina que la VM no tiene la extensión y vuelve a instalarla.
@@ -160,8 +159,8 @@ Puede desactivar el aprovisionamiento automático en las suscripciones en la dir
 
 Quizá desee rechazar el aprovisionamiento automático si lo siguiente es aplicable en su caso:
 
-- La instalación automática del agente de Security Center se aplica a toda la suscripción.  No se puede aplicar la instalación automática a un subconjunto de máquinas virtuales. Si hay máquinas virtuales críticas en las que no se puede instalar Microsoft Monitoring Agent, debe rechazar el aprovisionamiento automático.
-- La instalación de la extensión Microsoft Monitoring Agent (MMA) actualiza la versión del agente. Esto se aplica a un agente directo y a un agente SCOM (en este último, SCOM y MMA comparten bibliotecas de tiempo de ejecución comunes, que se actualizarán en el proceso). Si el agente de SCOM instalado es la versión 2012 y se actualiza, las funcionalidades de administración pueden perderse cuando la versión del servidor SCOM sea también 2012. Plantéese rechazar el aprovisionamiento automático en caso de que la versión instalada del agente de SCOM sea 2012.
+- La instalación automática del agente de Security Center se aplica a toda la suscripción. No se puede aplicar la instalación automática a un subconjunto de máquinas virtuales. Si hay máquinas virtuales críticas en las que no se puede instalar Microsoft Monitoring Agent, debe rechazar el aprovisionamiento automático.
+- La instalación de la extensión Microsoft Monitoring Agent (MMA) actualiza la versión del agente. Esto se aplica a un agente directo y a un agente de System Center Operations Manager (en este último, Operations Manager y MMA comparten bibliotecas de tiempo de ejecución comunes, que se actualizarán en el proceso). Si el agente de Operations Manager instalado es de la versión 2012 y se actualiza, las funcionalidades de administración pueden perderse si la versión del servidor de Operations Manager es también 2012. Plantéese rechazar el aprovisionamiento automático en caso de que la versión instalada del agente de Operations Manager sea 2012.
 - Si tiene un área de trabajo personalizada externa a la suscripción (centralizada) debe rechazar el aprovisionamiento automático. Puede instalar manualmente la extensión Microsoft Monitoring Agent y conectarla al área de trabajo sin que Security Center invalide la conexión.
 - Si desea evitar la creación de varias áreas de trabajo por suscripción y tiene su propia área de trabajo personalizada en la suscripción, tiene dos opciones:
 
@@ -298,7 +297,7 @@ Azure Security Center es un servicio de Azure que no deja de supervisar el entor
 Azure Security Center supervisa los siguientes recursos de Azure:
 
 * Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-* Conjunto de escalado de máquinas virtuales (VMSS)
+* Conjuntos de escalado de máquinas virtuales
 * Instancias de Azure Virtual Network
 * Servicio de SQL Azure
 * Cuenta de Azure Storage

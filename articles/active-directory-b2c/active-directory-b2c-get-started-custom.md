@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7eb004dbeba499e6f67f98165b72d7ec8615f1b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8e858869d742120138e7997ce21d9e4cca93ed9b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065843"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264360"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -25,44 +25,45 @@ Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son arc
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
+- Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
+- Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](active-directory-b2c-setup-fb-app.md) para configurar una aplicación de Facebook.
 
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Identity Experience Framework**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. En la página de introducción, seleccione **Identity Experience Framework**.
 
 ### <a name="create-the-signing-key"></a>Crear la clave de firma
 
 1. Seleccione **Claves de directiva** y luego **Agregar**.
-2. En **Opciones**, elija `Generate`.
-3. En **Nombre**, escriba `TokenSigningKeyContainer`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-4. En **Tipo de clave**, seleccione **RSA**.
-5. En **Uso de claves**, seleccione **Firma**.
-6. Haga clic en **Create**(Crear).
+1. En **Opciones**, elija `Generate`.
+1. En **Nombre**, escriba `TokenSigningKeyContainer`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
+1. En **Tipo de clave**, seleccione **RSA**.
+1. En **Uso de claves**, seleccione **Firma**.
+1. Seleccione **Crear**.
 
 ### <a name="create-the-encryption-key"></a>Crear la clave de cifrado
 
 1. Seleccione **Claves de directiva** y luego **Agregar**.
-2. En **Opciones**, elija `Generate`.
-3. En **Nombre**, escriba `TokenEncryptionKeyContainer`. Es posible que se agregue automáticamente el prefijo `B2C_1A`_.
-4. En **Tipo de clave**, seleccione **RSA**.
-5. En **Uso de la clave**, seleccione **Cifrado**.
-6. Haga clic en **Create**(Crear).
+1. En **Opciones**, elija `Generate`.
+1. En **Nombre**, escriba `TokenEncryptionKeyContainer`. Es posible que se agregue automáticamente el prefijo `B2C_1A`_.
+1. En **Tipo de clave**, seleccione **RSA**.
+1. En **Uso de la clave**, seleccione **Cifrado**.
+1. Seleccione **Crear**.
 
 ### <a name="create-the-facebook-key"></a>Crear la clave de Facebook
 
-Si ya tiene un [secreto de aplicación de Facebook](active-directory-b2c-setup-fb-app.md), agréguelo como clave de directiva al inquilino. De lo contrario, debe crear la clave con un valor de marcador de posición para que las directivas pasen la validación.
+Agregue el [secreto de la aplicación](active-directory-b2c-setup-fb-app.md) de la aplicación de Facebook como una clave de directiva. Puede usar el secreto de aplicación de la aplicación que creó como parte de los requisitos previos de este artículo.
 
 1. Seleccione **Claves de directiva** y luego **Agregar**.
-2. En **Opciones**, elija `Manual`.
-3. En **Nombre**, escriba `FacebookSecret`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-4. En **Secreto**, escriba el secreto de Facebook de developers.facebook.com o `0` como marcador de posición. Este valor es el secreto, no el identificador de la aplicación.
-5. En **Uso de claves**, seleccione **Firma**.
-6. Haga clic en **Create**(Crear).
+1. En **Opciones**, elija `Manual`.
+1. En **Nombre**, escriba `FacebookSecret`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
+1. En **Secreto**, escriba el *secreto de aplicación* de la aplicación de Facebook de developers.facebook.com. Este valor es el secreto, no el identificador de la aplicación.
+1. En **Uso de claves**, seleccione **Firma**.
+1. Seleccione **Crear**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Registro de las aplicaciones del marco de experiencia de identidad
 
@@ -78,19 +79,19 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 1. En **Nombre**, escriba `IdentityExperienceFramework`.
 1. En **Tipo de aplicación**, elija **Aplicación web o API**.
 1. En **URL de inicio de sesión**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C. Todas las direcciones URL ahora deberían estar utilizando [b2clogin.com](b2clogin.md).
-1. Haga clic en **Create**(Crear). Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
+1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar la aplicación ProxyIdentityExperienceFramework
 
 1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
-2. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
-3. En **Tipo de aplicación**, elija **Nativa**.
-4. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
-5. Haga clic en **Create**(Crear). Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
-6. En la página Configuración, seleccione **Permisos necesarios** y luego **Agregar**.
-7. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
-9. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
-10. Seleccione **Conceder permisos** y haga clic en **Sí** para confirmar.
+1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
+1. En **Tipo de aplicación**, elija **Nativa**.
+1. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
+1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
+1. Seleccione **Configuración**, **Permisos necesarios** y, después, **Agregar**.
+1. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
+1. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
+1. Seleccione **Conceder permisos** y, después, seleccione **Sí** para confirmar.
 
 ## <a name="custom-policy-starter-pack"></a>Paquete de inicio de directivas personalizadas
 
@@ -160,7 +161,6 @@ A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada un
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
 
-1. Complete los pasos descritos en [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook](active-directory-b2c-setup-fb-app.md) para configurar una aplicación de Facebook.
 1. En el archivo `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
 
    ```xml
@@ -172,7 +172,7 @@ A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada un
 
 1. Cargue el archivo *TrustFrameworkExtensions.xml* en el inquilino.
 1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
-1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada. También puede invocar la directiva directamente desde la aplicación registrada.
+1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

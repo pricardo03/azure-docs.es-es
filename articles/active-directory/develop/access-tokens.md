@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 780ec85438990959b7b0ac686e05ad5db3f9eedf
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074325"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291081"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -114,6 +114,11 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `rh` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `ver` | Cadena, `1.0` o `2.0` | Indica la versión del token de acceso. |
+
+
+> [!Notificaciones por encima del límite de grupos] Para asegurarse de que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que incluye en la demanda de grupos. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Graph API para recuperar la pertenencia a grupos del usuario.
+> { ... "_claim_names": { "groups": "src1" }, { "_claim_sources": { "src1": { "endpoint":"[Url de Graph para obtener el grupo de este usuario]" } }    
+    ... } Puede usar el `BulkCreateGroups.ps1` proporcionado en la carpeta [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) para ayudar a probar los escenarios de uso por encima del límite.
 
 #### <a name="v10-basic-claims"></a>Notificaciones básicas de la versión 1.0
 

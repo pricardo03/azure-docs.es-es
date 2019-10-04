@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 4da91150999864c64ead28b74242e85d23a51ead
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310447"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169481"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -459,6 +459,10 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 * Asegúrese de que la versión del SDK es 2.0 o superior.
 * Compruebe que establece el mismo porcentaje de muestreo en el cliente y el servidor.
 
+### <a name="sampling-in-azure-functions"></a>Muestro en Azure Functions
+
+Siga las instrucciones de [este artículo](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) para configurar el muestreo de las aplicaciones que se ejecutan en Azure Functions.
+
 ## <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
 *¿Cuál es el comportamiento de muestreo predeterminado en el SDK de ASP.NET y ASP.NET Core?*
@@ -515,13 +519,19 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
-* La mejor forma de lograrlo es escribir un objeto [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering) personalizado, que establece el objeto `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Esto garantiza que todas las técnicas de muestreo pasarán por alto este elemento de todas las consideraciones sobre el muestreo.
+* La mejor forma de lograrlo es escribir un objeto [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) personalizado, que establece `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Cuando se garantiza que los inicializadores se ejecutan antes que los procesadores de telemetría (incluido el muestreo), se tiene la seguridad de que todas las técnicas de muestreo omitirán este elemento de cualquier consideración de muestreo.
 
 ```csharp
-    if(somecondition)
-    {
-        ((ISupportSampling)item).SamplingPercentage = 100;
-    }
+     public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+         public void Initialize(ITelemetry telemetry)
+        {
+            if(somecondition)
+            {
+                ((ISupportSampling)item).SamplingPercentage = 100;
+            }
+        }
+      }
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

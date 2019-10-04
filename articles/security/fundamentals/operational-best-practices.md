@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129327"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219510"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -95,7 +95,7 @@ El nivel Gratis de Security Center ofrece seguridad limitada solo para los recur
 
 Use Security Center para obtener una vista centralizada del estado de seguridad de todos los recursos de Azure. Compruebe que los controles de seguridad adecuados se han implementado y configurado correctamente, e identifique de un vistazo cualquier recurso que demande atención.
 
-Security Center también se integra con [Protección contra amenazas avanzada (ATP) de Windows Defender](../../security-center/security-center-wdatp.md), que proporciona funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Con la integración de ATP de Windows Defender, puede detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor supervisados por Security Center.
+Security Center también se integra con [Advanced Threat Protection (ATP) de Microsoft Defender](../../security-center/security-center-wdatp.md), que proporciona funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Con la integración de ATP de Microsoft Defender, puede detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor supervisados por Security Center.
 
 Casi todas las organizaciones empresariales tienen un sistema de administración de eventos e información de seguridad (SIEM) para facilitar la identificación de las amenazas emergentes mediante la consolidación de la información de registro de distintos dispositivos de recopilación de señales. Después, un sistema de análisis de datos analiza los registros para ayudar a identificar lo que es "interesante" del ruido que es inevitable en todas las soluciones de análisis y recopilación de registros.
 
@@ -121,7 +121,7 @@ La puntuación segura, que se basa en controles del Centro de seguridad de Inter
 **Detalles**: Use [Azure Monitor para recopilar y exportar datos](/azure/azure-monitor/overview#integrate-and-export-data). Este procedimiento es fundamental para habilitar la investigación de incidentes de seguridad, y la retención de registro en línea es limitada. Si usa Azure Sentinel, vea [Conexión de orígenes de datos](../../sentinel/connect-data-sources.md).
 
 **Procedimiento recomendado**: Acelere los procesos de investigación y búsqueda, y reduzca los falsos positivos mediante la integración de funciones de detección y respuesta (EDR) de puntos de conexión en la investigación del ataque.   
-**Detalles**: [Habilite la integración de ATP de Windows Defender](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) a través de la directiva de seguridad de Security Center. Considere la posibilidad de usar Azure Sentinel para la búsqueda de amenazas y la respuesta a los incidentes.
+**Detalles**: [Habilite la integración de ATP de Microsoft Defender](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) mediante la directiva de seguridad de Security Center. Considere la posibilidad de usar Azure Sentinel para la búsqueda de amenazas y la respuesta a los incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Supervisión de redes de un extremo a otro basada en escenarios
 Los clientes crean una red de un extremo a otro en Azure mediante la combinación de recursos de red como una red virtual, ExpressRoute, Application Gateway y equilibradores de carga. Se puede supervisar cada uno de los recursos de la red.

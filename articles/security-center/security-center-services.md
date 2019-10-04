@@ -3,23 +3,22 @@ title: Características compatibles disponibles en Azure Security Center | Mic
 description: En este documento se proporciona una lista de servicios compatibles con Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0d2b417dd01e26f0f93722be66d82972b52aca83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 09/24/2019
+ms.author: memildin
+ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234571"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218261"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Características compatibles disponibles en Azure Security Center
 
@@ -42,7 +41,7 @@ En las secciones siguientes se muestran las características disponibles en Secu
 ||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**|
 |Alertas de detección de amenazas de VMBA|✔|✔|✔|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
 |Alertas de detección de amenazas basadas en red|✔|✔|X|✔|✔|X|Estándar|
-|Integración con ATP de Windows Defender|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|X|X|X|Estándar|
+|Integración de Microsoft Defender ATP|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|X|X|X|Estándar|
 |Revisiones que faltan|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configuraciones de seguridad|✔|✔|✔|✔|✔|✔|Gratuito|
 |Evaluación de EndPoint Protection|✔|✔|✔|X|X|X|Gratuito|

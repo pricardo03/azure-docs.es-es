@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c642fe4a4453d72303470b5149d6d94436cdfa46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65774242"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262296"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -41,7 +41,7 @@ Application Performance Management (APM) de AppDynamics permite a los propietari
 
 ArcSight tiene un conector inteligente para los centros de eventos de Azure Monitor.
 
-[Obtenga más información.][arcsight-doc]
+[Más información.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -53,7 +53,7 @@ Puede crear incidencias JIRA de alertas de Azure Monitor.
 
 ## <a name="botmetric"></a>Botmetric
 
-[Obtenga más información.][botmetric-doc]
+[Más información.][botmetric-doc]
 
 ## <a name="circonus"></a>Circonus
 
@@ -68,9 +68,9 @@ Circonus es una plataforma de análisis y supervisión de microservicios integra
 ![Logotipo de CloudHealth](./media/partners/cloudhealth.png)
 
 
-Una y automatice la nube con una plataforma creada para ahorrar tiempo y dinero. CloudHealth proporciona visibilidad, optimización intuitiva y prácticas de gobernanza sólidas para la administración en la nube. La plataforma Cloudhealth permite que tanto las empresas como los MSP maximicen la rentabilidad de las inversiones en la nube. Tome decisiones seguras relacionadas con el costo, el uso, el rendimiento y la seguridad.
+Una y automatice la nube con una plataforma creada para ahorrar tiempo y dinero. CloudHealth proporciona visibilidad, optimización intuitiva y prácticas de gobernanza sólidas para la administración en la nube. La plataforma CloudHealth permite que las empresas y los MSP maximicen la rentabilidad de las inversiones en la nube. Tome decisiones seguras relacionadas con el costo, el uso, el rendimiento y la seguridad.
 
-[Más información.][cloudhealth-doc]
+[Más información][cloudhealth-doc].
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -150,7 +150,7 @@ Moogsoft se ejecuta en el entorno de Azure con integración con herramientas de 
 
 ![Logotipo de NewRelic](./media/partners/newrelic.png)
 
-[Obtenga más información.][newrelic-doc]
+[Más información.][newrelic-doc]
 
 ## <a name="opsgenie"></a>OpsGenie
 
@@ -172,7 +172,7 @@ PagerDuty, la solución líder de administración de incidentes, ofrece soporte 
 
 ![Logotipo de QRadar](./media/partners/qradar.png)
 
-Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). [Aquí encontrará más información acerca de la integración con Azure aquí][qradar-doc].
+Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). [Más información sobre la integración con Azure aquí][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 
@@ -180,7 +180,7 @@ Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descarga
 
 ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima generación para administrar cualquier tecnología y en cualquier lugar. ScienceLogic ofrece la escala, seguridad, automatización y resistencia necesarias para simplificar las tareas de administración de recursos, servicios y aplicaciones de TI. La plataforma de ScienceLogic usa las API de Azure para comunicarse con Microsoft Azure. ScienceLogic le proporciona visibilidad en tiempo real sobre los servicios y recursos de Azure. Para que pueda saber cuándo algo no funciona y lo pueda corregir con mayor rapidez. También puede administrar Azure junto con otras nubes y otros sistemas de centros de datos y servicios.
 
-[Obtenga más información.][sciencelogic-doc]
+[Más información.][sciencelogic-doc]
 
 ## <a name="serverless360"></a>Serverless360
 
@@ -188,7 +188,7 @@ ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima ge
 
 Serverless360 es una herramienta de plataforma para operar, administrar y supervisar los componentes sin servidor de Azure. La facilidad de uso es uno de los principales desafíos de las implementaciones sin servidor. Existen cientos de pequeños y discretos servicios sin servidor dispersos en varios lugares; la administración y el funcionamiento de estas soluciones son complejos. Serverless360 resuelve estos desafíos con un amplio conjunto de herramientas sofisticadas. Puede supervisar servicios sin servidor como Azure Functions, Logic Apps, Event Grids, colas de Service Bus, temas, Relays, Event Hubs, colas de Storage, archivos, blobs y tablas. Serverless360 está disponible en Azure Marketplace. Estas funcionalidades están disponibles en el hospedaje privado (hospedado en su propio entorno) y de SaaS.  
 
-[Obtenga más información.][serverless360-doc]
+[Más información.][serverless360-doc]
 
 ## <a name="signalfx"></a>SignalFx
 
@@ -207,7 +207,7 @@ SIGNL4: aplicación de alertas móviles para equipos de operaciones. Es la forma
 
 ## <a name="solarwinds"></a>SolarWinds
 
-[Obtenga más información.][solarwinds-doc]
+[Más información.][solarwinds-doc]
 
 ## <a name="splunk"></a>Splunk
 
@@ -223,7 +223,7 @@ El complemento Azure Monitor para Splunk está [disponible en Splunkbase aquí](
 
 Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en la nube, dado que ofrece inteligencia continua en tiempo real a partir de datos estructurados, semiestructurados y no estructurados desde la pila y el ciclo de vida de toda la aplicación. Más de mil clientes de todo el mundo confían en Sumo Logic para las tareas de análisis y recopilación de datos relevantes con el objetivo de generar, ejecutar y proteger sus aplicaciones e infraestructuras en la nube. Con Sumo Logic, los clientes obtienen una ventaja basada en un modelo de servicio y multiinquilino para aumentar la ventaja competitiva, el valor del negocio y el crecimiento.
 
-[Obtenga más información.][sumologic-doc]
+[Más información.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
 
@@ -231,13 +231,13 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 
 Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya que optimiza simultáneamente el rendimiento, costo y cumplimiento en tiempo real. Turbonomic ayuda a aumentar la elasticidad del estado de Azure de las organizaciones mediante la optimización continua del estado para garantizar que las aplicaciones obtienen constantemente los recursos que necesitan para cumplir su Acuerdo de Nivel de Servicio y nada más en relación con el proceso, el almacenamiento y la red para la capa de IaaS y PaaS. Las organizaciones pueden simular migraciones, escalar cargas de trabajo correctamente y retirar recursos del centro de datos para realizar responsablemente la migración a Azure de forma puntual y sin salirse del presupuesto, al mismo tiempo que se garantizan el rendimiento y el cumplimiento. Turbonomic es un producto controlado por API y se ejecuta como una VM sin agente en Azure y en local.
 
-[Obtenga más información.][turbonomic-doc]
+[Más información.][turbonomic-doc]
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Obtener más información sobre Azure Monitor](../../azure-monitor/overview.md)
 - [Acceder a métricas mediante la API de REST](rest-api-walkthrough.md)
 - [Transmitir el registro de actividad a un servicio que no es de Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmitir los registros de diagnóstico a un servicio que no es de Microsoft](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+- [Transmitir los registros de diagnóstico a un servicio que no es de Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

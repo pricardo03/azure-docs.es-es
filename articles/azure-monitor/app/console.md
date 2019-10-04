@@ -13,17 +13,22 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795450"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169442"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
+
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) permite supervisar la disponibilidad, el rendimiento y el uso de una aplicación web.
 
 Necesita una suscripción a [Microsoft Azure](https://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, Xbox Live u otros servicios en la nube de Microsoft. Si su equipo tiene una suscripción organizativa a Azure, el propietario puede agregarle a esta con la cuenta de Microsoft.
+
+> [!NOTE]
+> Hay un nuevo SDK de Application Insights en versión beta llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md). Este paquete va dirigido a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.0 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
+Este documento quedará en desuso una vez que se lance una versión estable de este nuevo paquete.
 
 ## <a name="getting-started"></a>Introducción
 

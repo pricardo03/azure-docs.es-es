@@ -1,33 +1,30 @@
 ---
-title: Explorador de búsqueda para consultar datos en Azure Portal - Azure Search
-description: Utilice las herramientas de Azure Portal como el explorador de búsqueda para realizar consultas de índices en Azure Search. Escriba los términos de búsqueda o cadenas de búsqueda completa con sintaxis avanzada.
+title: Uso de la herramienta Explorador de búsqueda para consultar datos en Azure Portal (Azure Search)
+description: El Explorador de búsqueda está integrado en Azure Portal y resulta útil para explorar el contenido y validar las consultas en Azure Search. Especifique cadenas para la búsqueda de términos o frases, o expresiones de búsqueda completas con sintaxis avanzada.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649965"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178136"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Explorador de búsqueda para consultar datos en Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Uso del Explorador de búsqueda en Azure Portal para consultar documentos en Azure Search 
 
-En este artículo se muestra cómo consultar un índice existente de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede usar para enviar cadenas de consulta de Lucene simples o completas para cualquier índice existente en el servicio. 
+En este artículo se muestra cómo consultar un índice existente de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede iniciar desde la barra de comandos para enviar expresiones de consulta de Lucene simples o completas a cualquier índice existente en el servicio. 
 
    ![Comando del explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-
-Para obtener ayuda para empezar, consulte [Iniciar el explorador de búsqueda](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Cadenas de búsqueda básica
 
-En los ejemplos siguientes se utiliza el índice realestate de ejemplo integrado. Para obtener ayuda para crear este índice, vea [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md) (Quickstart: importación, creación de índices y consultas en Azure Portal).
+En los ejemplos siguientes se asume que se usa el índice de ejemplo integrado de bienes inmuebles. Puede crear este índice mediante el Asistente para la importación de datos en el portal; para ello, elija **Ejemplos** como origen de datos.
 
 ### <a name="example-1---empty-search"></a>Ejemplo 1: búsqueda vacía
 

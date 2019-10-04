@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 09/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 6293fc84969c4e246c05da4482f76142263db230
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e3d6312be0936f14ece5d30a2bbf3e4235031c0e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985559"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154064"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Administración del acceso de lectura anónimo a contenedores y blobs
 
@@ -27,22 +27,15 @@ De forma predeterminada, solo un usuario al que se han concedido los permisos ad
 
 Puede configurar un contenedor con los permisos siguientes:
 
-* **Sin acceso de lectura público:** Solo puede acceder al contenedor y a sus blobs el propietario de cuenta de almacenamiento. Este es el valor predeterminado para todos los contenedores nuevos.
-* **Acceso de lectura público solo para blobs:** Los blobs dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes anónimos no pueden enumerar los blobs dentro del contenedor.
-* **Acceso de lectura público para contenedores y blobs:** Todos los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
-
-Puede usar lo siguiente para establecer permisos de contenedor:
-
-* [Azure Portal](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [CLI de Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* Mediante programación, con una de las bibliotecas de cliente de almacenamiento o la API de REST.
+- **Sin acceso de lectura público:** Solo puede acceder al contenedor y a sus blobs el propietario de cuenta de almacenamiento. Este es el valor predeterminado para todos los contenedores nuevos.
+- **Acceso de lectura público solo para blobs:** Los blobs dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes anónimos no pueden enumerar los blobs dentro del contenedor.
+- **Acceso de lectura público para contenedores y blobs:** Todos los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>Establecer el nivel de acceso público de contenedor en Azure Portal
 
 Desde [Azure Portal](https://portal.azure.com), puede actualizar el nivel de acceso público para uno o varios contenedores:
 
-1. Vaya a la cuenta de almacenamiento en Azure Portal.
+1. Vaya a la información general de su cuenta de almacenamiento en Azure Portal.
 1. En **Blob service** en la hoja de menú, seleccione **Blobs**.
 1. Seleccione los contenedores para el que quiere establecer el nivel de acceso público.
 1. Use el botón **Cambiar nivel de acceso** para mostrar la configuración de acceso público.
@@ -57,16 +50,28 @@ En la siguiente captura de pantalla se muestra cómo cambiar el nivel de acceso 
 
 ### <a name="set-container-public-access-level-with-net"></a>Establecer el nivel de acceso público de contenedor con .NET
 
-Para configurar permisos para un contenedor con C# y la Biblioteca del cliente de almacenamiento para .NET, primero recupere los permisos existentes del contenedor llamando al método **GetPermissions**. A continuación, establezca la propiedad **PublicAccess** para el objeto **BlobContainerPermissions** devuelto por el método **GetPermissions**. Por último, llame al método **SetPermissions** con los permisos actualizados.
+Para establecer los permisos de un contenedor mediante la biblioteca cliente de Azure Storage para .NET, lo primero que debe hacer es recuperar los permisos existentes del contenedor llamando a uno de los siguientes métodos:
+
+- [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
+- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
+
+Luego, establezca la propiedad **PublicAccess** en el objeto [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) devuelto por el método **GetPermissions**.
+
+Por último, llame a uno de los métodos siguientes para actualizar los permisos del contenedor:
+
+- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
 
 El ejemplo siguiente establece los permisos del contenedor para el acceso de lectura público completo. Para establecer permisos de acceso de lectura público solo para blobs, establezca la propiedad **PublicAccess** en **BlobContainerPublicAccessType.Blob**. Para quitar todos los permisos para los usuarios anónimos, establezca la propiedad en **BlobContainerPublicAccessType.Off**.
 
 ```csharp
-public static void SetPublicContainerPermissions(CloudBlobContainer container)
+private static async Task SetPublicContainerPermissions(CloudBlobContainer container)
 {
-    BlobContainerPermissions permissions = container.GetPermissions();
+    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
     permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-    container.SetPermissions(permissions);
+    await container.SetPermissionsAsync(permissions);
+
+    Console.WriteLine("Container {0} - permissions set to {1}", container.Name, permissions.PublicAccess);
 }
 ```
 
@@ -81,13 +86,15 @@ Puede crear un nuevo objeto de cliente de servicio para el acceso anónimo propo
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob storage endpoint.
-    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+    // Create the client object using the Blob storage endpoint for your account.
+    CloudBlobClient blobClient = new CloudBlobClient(
+        new Uri(@"https://storagesamples.blob.core.windows.net"));
 
     // Get a reference to a container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read the container's properties. 
+    // Note this is only possible when the container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -102,9 +109,11 @@ Si tiene la dirección URL de un contenedor que está disponible de forma anóni
 public static void ListBlobsAnonymously()
 {
     // Get a reference to a container that's available for anonymous access.
-    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+    CloudBlobContainer container = new CloudBlobContainer(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
 
     // List blobs in the container.
+    // Note this is only possible when the container supports full public read access.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -119,45 +128,14 @@ Si tiene la dirección URL a un blob que está disponible para el acceso anónim
 ```csharp
 public static void DownloadBlobAnonymously()
 {
-    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+    CloudBlockBlob blob = new CloudBlockBlob(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>Características disponibles para los usuarios anónimos
-
-En la siguiente tabla se indican las operaciones a las que puede llamar de forma anónima cuando un contenedor se ha configurado para el acceso público.
-
-| Operación REST | Acceso de lectura público a un contenedor | Acceso de lectura público solo a los blobs |
-| --- | --- | --- |
-| List Containers | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Create Container | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Container Properties | Se permiten solicitudes anónimas | Solo las solicitudes autorizadas |
-| Get Container Metadata | Se permiten solicitudes anónimas | Solo las solicitudes autorizadas |
-| Set Container Metadata | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Container ACL | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Set Container ACL | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Delete Container | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| List Blobs | Se permiten solicitudes anónimas | Solo las solicitudes autorizadas |
-| Put Blob | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Blob | Se permiten solicitudes anónimas | Se permiten solicitudes anónimas |
-| Get Blob Properties | Se permiten solicitudes anónimas | Se permiten solicitudes anónimas |
-| Set Blob Properties | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Blob Metadata | Se permiten solicitudes anónimas | Se permiten solicitudes anónimas |
-| Set Blob Metadata | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Put Block | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Block List (solo bloques confirmados) | Se permiten solicitudes anónimas | Se permiten solicitudes anónimas |
-| Get Block List (solo bloques sin confirmar o todos los bloques) | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Put Block List | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Delete Blob | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Copia de blobs | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Instantánea de blob | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Lease Blob | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Put Page | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-| Get Page Ranges | Se permiten solicitudes anónimas | Se permiten solicitudes anónimas |
-| Append Blob | Solo las solicitudes autorizadas | Solo las solicitudes autorizadas |
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Authorization for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services) (Autorización para los servicios de Azure Storage)
-* [Uso de Firmas de acceso compartido (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Autorización del acceso a Azure Storage](../common/storage-auth.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
+- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)

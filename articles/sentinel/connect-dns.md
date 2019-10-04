@@ -1,5 +1,5 @@
 ---
-title: Conectar datos de DNS a Azure Sentinel, versión preliminar | Microsoft Docs
+title: Conexión de datos de DNS a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar datos de DNS a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1c79aad557efb85a8797584c33c74983ef645d07
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611316"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262727"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar con el servidor de nombres de dominio
 
 > [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El conector de datos de DNS en Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede conectar a Azure Sentinel cualquier servidor de nombres de dominio (DNS) que se ejecute en Windows. Para ello, hay que instalar un agente en el equipo DNS. Si se usan registros de DNS, se puede obtener información relacionada con la seguridad, el rendimiento y las operaciones de la infraestructura de DNS de la organización, ya que recopilan, analizan y correlacionan registros de auditoría y análisis, además de otros datos relacionados de los servidores DNS.
 
@@ -55,7 +55,7 @@ La solución permite recopilar inventario y datos relacionados con eventos de DN
 
 ## <a name="connect-your-dns-appliance"></a>Conectar el dispositivo DNS
 
-1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y elija el icono de **DNS**.
+1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y elija el icono de **DNS (versión preliminar)** .
 1. Si los equipos DNS están en Azure:
     1. Haga clic en **Install agent on Azure Windows virtual machine** (Instalar el agente en la máquina virtual Windows de Azure).
     1. En la lista **Virtual machines** (Máquinas virtuales), seleccione el equipo DNS que quiera transmitir a Azure Sentinel. Asegúrese de que se trata de una máquina virtual Windows.
@@ -76,4 +76,4 @@ En Log Analytics, busque el esquema **DnsEvents** y asegúrese de que hay evento
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar dispositivos locales DNS a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).

@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092469"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147171"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
 El registro de auditoría de actividades de base de datos en Azure Database for PostgreSQL con un único servidor está disponible a través de la extensión de auditoría de PostgreSQL: [pgAudit](https://www.pgaudit.org/). pgAudit proporciona un registro de auditoría de objeto o sesión detallado.
 
 > [!NOTE]
-> pgAudit solo se puede habilitar en servidores optimizados para memoria y de uso general.
+> pgAudit se encuentra en versión preliminar en Azure Database for PostgreSQL.
+> Esta extensión se puede habilitar en servidores optimizados para memoria y de uso general.
 
 ## <a name="usage-considerations"></a>Consideraciones de uso
 De forma predeterminada, las instrucciones de registro de pgAudit se emiten junto con las instrucciones de registro normales mediante el uso de la utilidad de registro estándar de Postgres. En Azure Database for PostgreSQL, estos archivos. log se pueden descargar mediante Azure Portal o la CLI. El almacenamiento máximo de la colección de archivos es de 1 GB y cada archivo está disponible durante un máximo de siete días (el valor predeterminado es tres días). Este servicio es una opción de almacenamiento a corto plazo.
@@ -54,7 +55,7 @@ Mediante [Azure Portal](https://portal.azure.com):
 
 ## <a name="pgaudit-settings"></a>Configuración de pgAudit
 
-pgAudit le permite configurar el registro de auditoría de objeto o sesión. [El registro de auditoría de sesión](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emite registros detallados de las instrucciones ejecutadas. [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ Puede optar por configurar uno o ambos tipos de registro. 
+pgAudit le permite configurar el registro de auditoría de objeto o sesión. [El registro de auditoría de sesión](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emite registros detallados de las instrucciones ejecutadas. [El registro de auditoría de objetos](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) es una auditoría con un ámbito limitado a relaciones específicas. Puede optar por configurar uno o ambos tipos de registro. 
 
 > [!NOTE]
 > La configuración de pgAudit se especifica globalmente y no se puede en el nivel de base de datos o rol.

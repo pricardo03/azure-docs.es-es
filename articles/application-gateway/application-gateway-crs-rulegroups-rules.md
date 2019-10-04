@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613309"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240337"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS del firewall de aplicaciones web
 
@@ -197,6 +197,7 @@ Los grupos de reglas y reglas siguientes están disponibles al usar Application 
 |942270|Búsqueda de inyección de código SQL básico Cadena de ataque común para Oracle MySQL y otras bases de datos|
 |942290|Búsqueda de intentos de inyección de código SQL MongoDB básico|
 |942300|Detecta comentarios, condiciones e inyecciones de caracteres de MySQL|
+|942310|Detecta los intentos de inyección de SQL encadenado 2/2|
 |942320|Detección de inyecciones de funciones o procedimientos almacenados de MySQL y PostgreSQL|
 |942330|Detecta sondeos clásicos de inyección de código SQL (1/2)|
 |942340|Detecta intentos básicos de omisión de la autenticación SQL (3/3)|

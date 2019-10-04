@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 33f3b03ba76a0c3fd33e057d0f15b2ab7a0f44e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089496"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273860"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -205,9 +205,9 @@ Puede crear una imagen administrada a partir de una instantánea de una VM gener
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Creación de una imagen a partir de un VHD en una cuenta de almacenamiento
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Creación de una imagen a partir de una máquina virtual que usa una cuenta de almacenamiento
 
-Cree una imagen administrada a partir de un VHD del sistema operativo generalizado en una cuenta de almacenamiento. Es necesario el URI del VHD en la cuenta de almacenamiento, que se encuentra en formato https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. En este ejemplo, el VHD está en *mystorageaccount*, en un contenedor denominado *vhdcontainer*, y el nombre de archivo de VHD es *vhdfilename.vhd*.
+Para crear una imagen administrada a partir de una máquina virtual que no usa discos administrados, se necesita el identificador URI del disco duro virtual del sistema operativo de la cuenta de almacenamiento en el siguiente formato: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. En este ejemplo, el VHD está en *mystorageaccount*, en un contenedor denominado *vhdcontainer*, y el nombre de archivo de VHD es *vhdfilename.vhd*.
 
 
 1.  Cree algunas variables.

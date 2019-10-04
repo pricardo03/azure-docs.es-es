@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fc25cffde264a5c9c9e9627bbf4b72ccda60673
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298757"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290863"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -237,9 +237,10 @@ Azure AD Connect no puede hacer coincidir parcialmente un objeto de usuario de A
 ### <a name="how-to-fix"></a>Solución
 Para resolver este problema, realice una de las siguientes acciones:
 
-
-- cambiar el nombre de UserPrincipalName a un valor que no coincida con el de un usuario administrador en Azure AD, lo que creará un nuevo usuario en Azure AD con el valor de UserPrincipalName correspondiente
-- quitar el rol administrativo del usuario administrador en Azure AD, lo que permitirá la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD existente.
+ - Quite la cuenta de Azure AD (propietario) de todos los roles de administrador. 
+ - **Elimine de forma rígida** el objeto en cuarentena en la nube. 
+ - El siguiente ciclo de sincronización se encargará de realizar una coincidencia parcial entre el usuario en el entorno local y la cuenta en la nube (ya que el usuario en la nube ya no es una disponibilidad general global). 
+ - Restaure las pertenencias a roles para el propietario. 
 
 >[!NOTE]
 >Puede asignar el rol administrativo al objeto de usuario existente después de que se haya completado la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD.

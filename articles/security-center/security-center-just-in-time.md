@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910602"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202017"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -38,7 +38,7 @@ Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en
 
 Cuando se habilita Just-In-Time, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de NSG. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos los controla la solución Just-In-Time.
 
-Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tiene permisos de [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) que le permite solicitar correctamente acceso a una máquina virtual. Si la solicitud se aprueba, Security Center configura automáticamente los grupos de seguridad de red (NSG) y Azure Firewall para permitir el tráfico entrante a los puertos seleccionados y a las direcciones o rangos IP de origen durante el periodo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. Pero las conexiones que ya están establecidas no se interrumpen.
+Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tenga permisos de [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) para la máquina virtual. Si la solicitud se aprueba, Security Center configura automáticamente los grupos de seguridad de red (NSG) y Azure Firewall para permitir el tráfico entrante a los puertos seleccionados y a las direcciones o rangos IP de origen durante el periodo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. Pero las conexiones que ya están establecidas no se interrumpen.
 
  > [!NOTE]
  > Si se aprueba una solicitud de acceso JIT para una VM detrás de una instancia de Azure Firewall, Security Center cambia automáticamente las reglas de directiva de NSG y el firewall. Para la cantidad de tiempo que se especificó, las reglas permiten tráfico entrante a los puertos seleccionados y las direcciones o rangos IP de origen solicitados. Una vez transcurrido el tiempo, Security Center restaura las reglas del firewall y NSG a su estado anterior.

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876763"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300715"
 ---
 # <a name="remote-desktop-client-connections"></a>Conexiones de cliente de Escritorio remoto
 
@@ -152,6 +152,11 @@ Siga estas instrucciones para solucionar problemas generales para los códigos d
 **Causa:** Las VM a las que el usuario intenta conectarse no están unidas a un dominio.
 
 **Solución:** Una todas las VM que forman parte de un grupo de hosts al controlador de dominio.
+
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Error: ConnectionFailedUserSIDInformationMismatch
+**Causa:** El identificador de seguridad del token de Azure Active Directory (AD) del usuario no coincide con el que ha devuelto el controlador de dominio al intentar habilitar el usuario para el inicio de sesión remoto. Este error suele producirse al intentar iniciar sesión en un entorno de Azure Active Directory Domain Services (Azure AD DS) con un usuario cuyo origen era originalmente Windows Server AD.
+
+**Solución:** Este escenario no se admite en este momento. Los usuarios que provengan de Azure Active Directory son los únicos que pueden iniciar sesión en máquinas virtuales de Windows Virtual Desktop conectadas a Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>El usuario se conecta, pero no se muestra nada (ninguna fuente)
 

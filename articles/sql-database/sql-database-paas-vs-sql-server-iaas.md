@@ -98,7 +98,7 @@ Con las **máquinas virtuales SQL**, puede usar cualquiera de las imágenes de S
 
 Cuando se comienza a usar una plataforma en la nube, el coste de ejecución de la aplicación incluye los costos de nuevo desarrollo y de administración continua, además de los costos de servicio de la plataforma en la nube pública.
 
-Para obtener más información sobre precios, consulte los siguientes recursos:
+Para obtener más información sobre los precios, consulte los siguientes recursos:
 
 - [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)

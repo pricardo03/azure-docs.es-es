@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952996"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240276"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -198,7 +198,7 @@ La siguiente tabla muestra los límites del elemento sometido a seguimiento por 
 |---|---|---|
 |Archivo|500||
 |Registro|250||
-|Software de Windows|250|No se incluye el costo de las actualizaciones de software.|
+|Software de Windows|250|No se incluyen las revisiones de software.|
 |Paquetes Linux|1250||
 |Services|250||
 |Daemon|250||

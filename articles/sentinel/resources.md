@@ -1,5 +1,5 @@
 ---
-title: Recursos útiles al trabajar con Azure Sentinel, versión preliminar | Microsoft Docs
+title: Recursos útiles al trabajar con Azure Sentinel | Microsoft Docs
 description: En este documento encontrará una lista de recursos de gran utilidad al trabajar con Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036242"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71239978"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Recursos útiles al trabajar con Azure Sentinel, versión preliminar
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 En este artículo se enumeran los recursos que sirven para obtener más información sobre cómo trabajar con Azure Sentinel.
 
 Conectores de Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 
-## <a name="vendor-documentation"></a>Documentación del proveedor
 
+## <a name="auditing-and-reporting"></a>Informes y auditoría
+Los registros de auditoría de Azure Sentinel se mantienen en los [registros de actividades de Azure](../azure-monitor/platform/activity-logs-overview.md).
+
+
+## <a name="vendor-documentation"></a>Documentación del proveedor
 
 | **Proveedor**  | **Uso de incidentes en Azure Sentinel** | **Vínculo**|
 |----|----|----|

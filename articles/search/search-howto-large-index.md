@@ -6,49 +6,50 @@ author: HeidiSteen
 manager: nitinme
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 09/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: a98d716562f53488e9adb5d485a1dbf7fafc3102
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: aaf0d5edb91d60be85360746f76c4ca1f8db8978
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648172"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257026"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Cómo indexar grandes conjuntos de datos en Azure Search
 
-A medida que los volúmenes de datos aumentan o las necesidades de procesamiento cambian, es posible que las estrategias de indización predeterminadas ya no le parezcan prácticas. Para Azure Search, existen varios enfoques para adaptar los grandes conjuntos de datos, que van desde cómo estructurar una solicitud de carga de datos hasta usar un indizador específico del origen para las cargas de trabajo programadas y distribuidas.
+A medida que los volúmenes de datos aumentan o las necesidades de procesamiento cambian, es posible que las estrategias de indexación simples o predeterminadas ya no sean prácticas. Para Azure Search, existen varios enfoques para adaptar los grandes conjuntos de datos, que van desde cómo estructurar una solicitud de carga de datos hasta usar un indizador específico del origen para las cargas de trabajo programadas y distribuidas.
 
-Las mismas técnicas para datos de gran tamaño también se pueden aplicar a los procesos de larga ejecución. En concreto, los pasos que se describen en [indización paralela](#parallel-indexing) son útiles para la indización de cálculo intensivo, como el análisis de imágenes o el procesamiento de lenguaje natural en la [canalización de Cognitive Search](cognitive-search-concept-intro.md).
+Las mismas técnicas también se aplican a procesos de ejecución prolongada. En concreto, los pasos que se describen en [indización paralela](#parallel-indexing) son útiles para la indización de cálculo intensivo, como el análisis de imágenes o el procesamiento de lenguaje natural en la [canalización de Cognitive Search](cognitive-search-concept-intro.md).
 
-## <a name="batch-indexing"></a>Indización por lotes
+En las secciones siguientes se exploran tres técnicas para indexar grandes cantidades de datos.
 
-Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Suponiendo que se usa la [API REST para agregar o actualizar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), podría empaquetar 1000 documentos en el cuerpo de la solicitud.
+## <a name="option-1-pass-multiple-documents"></a>Opción 1: Pasar varios documentos
 
-La indización por lotes se implementa para las solicitudes individuales con REST o. NET, o a través de indizadores. Algunos indizadores funcionan bajo distintos límites. En concreto, la indización de Azure Blob establece el tamaño de lote en 10 documentos en reconocimiento al tamaño máximo medio de los documentos. Para los indizadores basados en la [API REST para crear indizadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), puede establecer el argumento `BatchSize` para personalizar esta configuración de modo que se adapte mejor a las características de los datos. 
+Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) como el [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
+
+La indización por lotes se implementa para las solicitudes individuales con REST o. NET, o a través de indizadores. Algunos indizadores funcionan bajo distintos límites. En concreto, la indización de Azure Blob establece el tamaño de lote en 10 documentos en reconocimiento al tamaño máximo medio de los documentos. Para los indizadores basados en la [API REST para crear indizadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), puede establecer el argumento `BatchSize` para personalizar esta configuración de modo que se adapte mejor a las características de los datos. 
 
 > [!NOTE]
-> Para mantener el tamaño del documento reducido, no olvide excluir los datos no consultables de la solicitud. Las imágenes y otros datos binarios no se pueden buscar directamente y no se deben almacenar en el índice. Para integrar los datos no consultables en los resultados de búsqueda, debe definir un campo que no admita búsquedas que almacene una referencia de dirección URL al recurso.
+> Para mantener un tamaño de documento reducido, evite agregar datos no consultables a un índice. Las imágenes y otros datos binarios no se pueden buscar directamente y no se deben almacenar en el índice. Para integrar los datos no consultables en los resultados de búsqueda, debe definir un campo que no admita búsquedas que almacene una referencia de dirección URL al recurso.
 
-## <a name="add-resources"></a>Adición de recursos
+## <a name="option-2-add-resources"></a>Opción 2: Adición de recursos
 
 Los servicios que se aprovisionan en uno de los [planes de tarifa Estándar](search-sku-tier.md) a menudo tienen una capacidad infrautilizada de almacenamiento y cargas de trabajo (consultas o indización), lo que hace que [aumentar los recuentos de particiones y réplicas ](search-capacity-planning.md) sea una solución obvia para adaptarse a los grandes conjuntos de datos. Para obtener mejores resultados, necesita dos recursos: las particiones para el almacenamiento y las réplicas para el trabajo de ingesta de datos.
 
-Aumentar las réplicas y particiones son eventos facturables que aumentan el costo, pero a menos que indexe continuamente bajo la carga máxima, puede agregar escala para el tiempo que dure el proceso de indización y, a continuación, reducir los niveles de recursos cuando el proceso finalice.
+Aumentar las réplicas y las particiones son eventos facturables que aumentan el costo; sin embargo, salvo que indexe continuamente por debajo de la carga máxima, puede agregar escala para el tiempo que dure el proceso de indexación y, luego, reducir los niveles de recursos cuando el proceso finalice.
 
-## <a name="use-indexers"></a>Uso de indizadores
+## <a name="option-3-use-indexers"></a>Opción 3: Uso de indizadores
 
-Los [indizadores](search-indexer-overview.md) sirven para rastrear los orígenes de datos externos en busca de contenido utilizable en búsquedas. Aunque no se diseñaron específicamente para el indexado a gran escala, varias funcionalidades de los indizadores son especialmente útiles para adaptar grandes conjuntos de datos:
+Los [indexadores](search-indexer-overview.md) sirven para rastrear en los orígenes de datos de Azure admitidos contenido que permite búsquedas. Aunque no se diseñaron específicamente para el indexado a gran escala, varias funcionalidades de los indizadores son especialmente útiles para adaptar grandes conjuntos de datos:
 
 + Los programadores le permiten empaquetar la indexación en intervalos regulares para que se pueda distribuir con el tiempo.
 + Puede reanudar la indexación programada en el último punto de detención conocido. Si un origen de datos no se rastrea completamente en un plazo de 24 horas, el indizador reanudará la indexación en el segundo día donde se quedó.
-+ Particionar los datos en orígenes de datos individuales más pequeños permite realizar procesamientos en paralelo. Puede dividir un conjunto de datos grande en conjuntos de datos más pequeños y, a continuación, crear varias definiciones de origen de datos que se pueden indizar en paralelo.
++ Particionar los datos en orígenes de datos individuales más pequeños permite realizar procesamientos en paralelo. Puede dividir los datos de origen en componentes más pequeños, por ejemplo, en varios contenedores en Azure Blob Storage y, luego, crear [varios orígenes de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source) correspondientes en Azure Search que se puedan indexar en paralelo.
 
 > [!NOTE]
 > Los indizadores son específicos del origen de datos, por lo que un enfoque con indizadores solo es posible para algunos orígenes de datos en Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md) y [Cosmos DB](search-howto-index-cosmosdb.md).
 
-## <a name="scheduled-indexing"></a>Indexación programada
+### <a name="scheduled-indexing"></a>Indexación programada
 
 La programación de indizadores es un mecanismo importante para procesar conjuntos de datos de gran tamaño y realizar procesos de ejecución lenta, como el análisis de imágenes en una canalización de Cognitive Search. El procesamiento de los indexadores funciona dentro de una ventana de 24 horas. Si el procesamiento no se completa en menos de 24 horas, los comportamientos de la programación de los indexadores pueden resultar beneficiosos. 
 
@@ -58,7 +59,7 @@ En la práctica, para cargas de índice que abarcan varios días, puede poner el
 
 <a name="parallel-indexing"></a>
 
-## <a name="parallel-indexing"></a>Indexación en paralelo
+### <a name="parallel-indexing"></a>Indexación en paralelo
 
 La estrategia de indexación en paralelo se basa en la indexación de varios orígenes de datos al unísono, donde cada definición de origen de datos especifica un subconjunto de los datos. 
 

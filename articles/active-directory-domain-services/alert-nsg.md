@@ -1,60 +1,90 @@
 ---
-title: 'Azure Active Directory Domain Services: Solución de problemas de los grupos de seguridad de red | Microsoft Docs'
-description: Solución de problemas de configuración de grupos de seguridad de red en Azure AD Domain Services
+title: Resolución de alertas de grupo de seguridad de red en Azure AD DS | Microsoft Docs
+description: Información sobre cómo resolver problemas de alertas de configuración de grupo de seguridad de red para Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
-manager: ''
-editor: ''
+manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2019
+ms.topic: troubleshooting
+ms.date: 09/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "70743421"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258000"
 ---
-# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de red no válida para el dominio administrado
-Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la red que generan el mensaje de alerta siguiente:
+# <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de configuración de red en Azure Active Directory Domain Services
+
+Para permitir que las aplicaciones y los servicios se comuniquen correctamente con Azure Active Directory Domain Services (Azure AD DS), los puertos de red específicos deben estar abiertos para permitir el flujo de tráfico. En Azure, puede controlar el flujo de tráfico mediante grupos de seguridad de red. El estado de mantenimiento de un dominio administrado de Azure AD DS muestra una alerta si las reglas de grupo de seguridad de red necesarias no están en su lugar.
+
+Este artículo le ayuda a comprender y resolver alertas comunes de problemas de configuración de grupos de seguridad de red.
 
 ## <a name="alert-aadds104-network-error"></a>Alerta AADDS104: Error de red
-**Mensaje de alerta:** *Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.*
 
-Las configuraciones de NSG no válidas son la causa más común de los errores de red en Azure AD Domain Services. El grupo de seguridad de red (NSG) configurado para la red virtual debe permitir el acceso a [puertos específicos](network-considerations.md#network-security-groups-and-required-ports). Si estos puertos están bloqueados, Microsoft no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado. Al crear el NSG, mantenga abiertos estos puertos para evitar la interrupción del servicio.
+### <a name="alert-message"></a>Mensaje de alerta
 
-### <a name="checking-your-nsg-for-compliance"></a>Comprobación del cumplimiento del grupo de seguridad de red
+*Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.*
 
-1. Vaya a la página [Grupos de seguridad de red](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) en Azure Portal.
-2. En la tabla, elija el NSG asociado con la subred en que está habilitado el dominio administrado.
-3. En **Configuración** en el panel de la izquierda, haga clic en **Reglas de seguridad de entrada**.
-4. Revise las reglas vigentes e identifique las que bloquean el acceso a [estos puertos](network-considerations.md#network-security-groups-and-required-ports)
-5. Edite el grupo de seguridad de red para garantizar su cumplimiento mediante la eliminación de la regla, la incorporación de otra o la creación de un grupo de seguridad de red totalmente nuevo. Los pasos para [agregar una regla](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o crear un grupo de seguridad de red conforme se encuentran a continuación.
+Las reglas de grupo de seguridad de red no válidas son la causa más común de los errores de red en Azure AD DS. El grupo de seguridad de red para la red virtual debe permitir el acceso a puertos y protocolos específicos. Si estos puertos están bloqueados, la plataforma Azure no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado de Azure AD DS. Asegúrese de mantener abiertos los puertos predeterminados para evitar la interrupción del servicio.
 
-## <a name="sample-nsg"></a>NSG de ejemplo
-En la tabla siguiente se muestra un NSG de ejemplo que mantendría protegido el dominio administrado al permitir que Microsoft supervise, administre y actualice la información.
+## <a name="default-security-rules"></a>reglas de seguridad predeterminadas
 
-![NSG de ejemplo](./media/active-directory-domain-services-alerts/default-nsg.png)
+Las siguientes reglas de seguridad de entrada y salida predeterminadas se aplican al grupo de seguridad de red para un dominio administrado de Azure AD DS. Estas reglas mantienen Azure AD DS seguro y permiten que la plataforma de Azure supervise, administre y actualice el dominio administrado. También puede tener una regla adicional que permita el tráfico entrante si [configura LDAP seguro][configure-ldaps].
+
+### <a name="inbound-security-rules"></a>Reglas de seguridad de entrada
+
+| Priority | NOMBRE | Port | Protocolo | Source | Destino | . |
+|----------|------|------|----------|--------|-------------|--------|
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Any | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Allow |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Any | Allow |
+| 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
+| 65500    | DenyAllInBound | Any | Any | Any | Any | Denegar |
+
+### <a name="outbound-security-rules"></a>Reglas de seguridad de entrada
+
+| Priority | NOMBRE | Port | Protocolo | Source | Destino | . |
+|----------|------|------|----------|--------|-------------|--------|
+| 65000    | AllVnetOutBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerOutBound | Any | Any |  Any | Internet | Allow |
+| 65500    | DenyAllOutBound | Any | Any | Any | Any | Denegar |
 
 >[!NOTE]
-> Azure AD Domain Services requiere acceso saliente sin restricciones desde la red virtual. No se recomienda crear ninguna regla de NSG adicional que restrinja el acceso saliente para la red virtual.
+> Azure AD DS necesita un acceso saliente sin restricciones desde la red virtual. No se recomienda crear ninguna regla adicional que restrinja el acceso saliente para la red virtual.
 
-## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Incorporación de una regla en un grupo de seguridad de red con Azure Portal
-Si no desea usar PowerShell, puede agregar reglas únicas de manera manual en grupos de seguridad de red con Azure Portal. Para crear reglas en el grupo de seguridad de red, complete estos pasos:
+## <a name="verify-and-edit-existing-security-rules"></a>Comprobación y edición de las reglas de seguridad existentes
 
-1. Vaya a la página [Grupos de seguridad de red](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) en Azure Portal.
-2. En la tabla, elija el NSG asociado con la subred en que está habilitado el dominio administrado.
-3. En **Configuración** del panel de la izquierda, haga clic en **Reglas de seguridad de entrada** o en **Reglas de seguridad de salida**.
-4. Para crear la regla, haga clic en **Agregar** y rellene la información. Haga clic en **OK**.
-5. Para comprobar que se creó la regla, ubíquela en la tabla de reglas.
+Para comprobar las reglas de seguridad existentes y asegurarse de que los puertos predeterminados están abiertos, siga estos pasos:
 
+1. En Azure Portal, busque y seleccione **Grupos de seguridad de red**.
+1. Elija el grupo de seguridad de red asociado a su dominio administrado, como *AADDS-contoso. com-NSG*.
+1. En la página **Información general**, se muestra la lista de reglas de seguridad de entrada y salida existentes.
 
-## <a name="need-help"></a>¿Necesita ayuda?
-Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](contact-us.md).
+    Revise las reglas de entrada y de salida, y compárelas con la lista de reglas necesarias en la sección anterior. Si es necesario, seleccione las reglas personalizadas que bloqueen el tráfico necesario y, a continuación, elimínelas. Si falta alguna de las reglas necesarias, agregue una regla en la sección siguiente.
+
+    Tras agregar o elimina las reglas para permitir el tráfico requerido, el estado del dominio administrado de Azure AD DS se actualiza automáticamente en dos horas y quita la alerta.
+
+### <a name="add-a-security-rule"></a>Agregar una regla de seguridad
+
+Para agregar una regla de seguridad que falta, realice los pasos siguientes:
+
+1. En Azure Portal, busque y seleccione **Grupos de seguridad de red**.
+1. Elija el grupo de seguridad de red asociado a su dominio administrado, como *AADDS-contoso. com-NSG*.
+1. En **Configuración** del panel de la izquierda, haga clic en *Reglas de seguridad de entrada* o en *Reglas de seguridad de salida*.
+1. Seleccione **Agregar** y, después, cree la regla necesaria según el puerto, el protocolo, la dirección, etc. Cuando esté preparado, seleccione **Aceptar**.
+
+La regla de seguridad tarda unos segundos en agregarse y mostrarse en la lista.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Si los problemas persisten, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional de solución de problemas.
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-ldaps]: tutorial-configure-ldaps.md

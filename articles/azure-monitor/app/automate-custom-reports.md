@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067658"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146742"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -95,7 +95,9 @@ availabilityResults
 5. Seleccione la **_plantilla de resumen programada de Application Insights_** .
 
      > [!NOTE]
-     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [orientarse a la versión del tiempo de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x para usar la plantilla de resumen de programación de Application Insights.
+     > De forma predeterminada, las aplicaciones de función se crean con la versión 2.x del entorno en tiempo de ejecución. Debe [dirigirse a la versión del entorno de ejecución de Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** para usar la plantilla de resumen programado de Application Insights.  ![captura de pantalla del entorno de ejecución](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+
+
 
    ![Captura de pantalla de la plantilla de Application Insights de la nueva función](./media/automate-custom-reports/function-app-04.png)
 

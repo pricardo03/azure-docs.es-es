@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875199"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258568"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
-Ahora, habilitar la supervisión en las aplicaciones web basadas en .NET y .NET Core que se ejecutan en [Azure App Service](https://docs.microsoft.com/azure/app-service/) es más fácil que nunca. Mientras que antes era necesario instalar manualmente una extensión de sitio, ahora el agente o la extensión más reciente están integrados en la imagen de App Service de manera predeterminada. En este artículo le guiaremos a través de la habilitación de la supervisión de Application Insights y proporcionaremos instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
+Ahora, habilitar la supervisión en las aplicaciones web basadas en ASP.NET y ASP.NET Core que se ejecutan en [Azure App Services](https://docs.microsoft.com/azure/app-service/) es más fácil que nunca. Mientras que antes era necesario instalar manualmente una extensión de sitio, ahora el agente o la extensión más reciente están integrados en la imagen de App Service de manera predeterminada. En este artículo le guiaremos a través de la habilitación de la supervisión de Application Insights y proporcionaremos instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 
 > [!NOTE]
 > Agregar manualmente una extensión de sitio de Application Insights a través de **Herramientas de desarrollo** > **Extensiones** está en desuso. Este método de instalación de extensiones dependía de actualizaciones manuales para cada nueva versión. La versión estable más reciente de la extensión ahora viene [preinstalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones basadas en agentes para habilitar la supervisión a continuación, se quitará automáticamente la extensión en desuso.
@@ -37,7 +37,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
     * Si necesita realizar llamadas de API personalizadas para supervisar eventos o dependencias no capturados de manera predeterminada con la supervisión basada en agentes, deberá usar este método. Consulte el [artículo API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para obtener más información.
 
 > [!NOTE]
-> Si se detecta tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar datos duplicados del contenido enviado. Para obtener más información sobre este tema, consulte la [sección Solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) a continuación.
+> Si se detecta tanto la supervisión basada en agentes como la instrumentación manual basada en SDK, solo se respetará la configuración de la instrumentación manual. Esto es para evitar datos duplicados del contenido enviado. Para más información sobre este tema, consulte la [sección Solución de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) a continuación.
 
 ## <a name="enable-agent-based-monitoring-for-net-applications"></a>Habilitación de la supervisión basada en agentes para aplicaciones .NET
 
@@ -325,6 +325,9 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
 > [!NOTE]
 > Las aplicaciones de Java y Node.js solo se admiten en Azure App Services a través de la instrumentación manual basada en SDK y, por tanto, los pasos siguientes no se aplican a estos escenarios.
+
+> [!NOTE]
+> No se admiten las aplicaciones ASP.NET Core 3.0. Para estas aplicaciones, siga la [instrumentación manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) mediante código.
 
 1. Compruebe que la aplicación se supervisa a través de `ApplicationInsightsAgent`.
     * Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".
