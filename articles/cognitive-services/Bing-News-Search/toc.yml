@@ -49,8 +49,8 @@
     - name: Controlar resaltado de referencias
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Noticias de página
-      href: paging-news.md
+    - name: Navegar por las páginas de resultados de la búsqueda.
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Cambio de tamaño y recorte de miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

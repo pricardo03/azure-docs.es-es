@@ -101,10 +101,6 @@
             - name: 2. Adición de telemetría a Application Insights
               displayName: 'Application insight, kusto'
               href: luis-tutorial-bot-nodejs-appinsights.md
-- name: Ejemplos
-  items:
-    - name: Ejemplos de código
-      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
 - name: Conceptos
   items:
     - name: Procedimientos recomendados
@@ -411,6 +407,8 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Recursos
   items:
+    - name: Ejemplos de código
+      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Compatibilidad de idioma y región

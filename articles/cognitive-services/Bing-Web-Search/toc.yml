@@ -54,7 +54,7 @@
     - name: Controlar resaltado de referencias
       href: hit-highlighting.md
     - name: Paginar por los resultados
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: Cambio de tamaño y recorte de miniaturas
       href: resize-and-crop-thumbnails.md
     - name: Actualizar de v5 a v7

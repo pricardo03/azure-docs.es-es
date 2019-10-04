@@ -1,18 +1,18 @@
 ---
-title: Novedades de Azure Site Recovery | Microsoft Docs
+title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las características nuevas presentadas en Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146895"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212799"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -24,16 +24,56 @@ Puede seguirla y suscribirse a las notificaciones de actualizaciones de Site Rec
 
 En el caso de los componentes de Site Recovery, se admiten las versiones N-4, donde N es la versión de lanzamiento más reciente. Estos se resumen en la siguiente tabla.
 
-**Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services** 
---- | --- | --- | --- | ---
+**Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
+--- | --- | --- | --- | --- | ---
+[Paquete acumulativo 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Paquete acumulativo 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Paquete acumulativo 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [Paquete acumulativo 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[Paquete acumulativo 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
+
+
+## <a name="updates-september-2019"></a>Actualizaciones (septiembre de 2019)
+
+### <a name="update-rollup-40"></a>Paquete acumulativo de actualizaciones 40
+
+El [Paquete acumulativo de actualizaciones 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones)
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
+En la tabla se resumen las nuevas características de recuperación ante desastres de las máquinas virtuales de Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**Limpieza después de la conmutación por recuperación** | Después de conmutar por error en la región secundaria de Azure y, a continuación, conmutar por recuperación a la región primaria, Site Recovery limpia automáticamente las máquinas de la región secundaria. No es necesario eliminar manualmente las máquinas virtuales y las tarjetas de red.
+**La conmutación por error de prueba conserva la dirección IP** | Ahora puede conservar la dirección IP de la máquina virtual de origen durante un simulacro de recuperación ante desastres y seleccionar una dirección IP estática para una conmutación por error de prueba.
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VMware
+
+Las características que se agregaron este mes se resumen en la tabla.
+
+**Característica** | **Detalles**
+--- | ---
+Nuevas alertas del servidor de procesos | Hemos agregado nuevas alertas del servidor de procesos. [Más información](vmware-physical-azure-monitor-process-server.md). 
+
+### <a name="hyper-v-disaster-recovery"></a>Recuperación ante desastres de Hyper-V
+
+Las características que se agregaron este mes se resumen en la tabla.
+
+**Característica** | **Detalles**
+--- | ---
+Cuenta de almacenamiento | Site Recovery admite ahora el uso de cuentas de almacenamiento con el firewall habilitado para la recuperación ante desastres de Hyper-V en Azure.  Puede seleccionar cuentas de almacenamiento con firewall habilitado como una cuenta de destino o para almacenamiento en caché. Si usa la cuenta de almacenamiento con firewall habilitado, asegúrese de habilitar la opción de permitir servicios de Microsoft de confianza.
 
 
 ## <a name="updates-august-2019"></a>Actualizaciones (agosto de 2019)
@@ -71,7 +111,7 @@ El [Paquete acumulativo de actualizaciones 38](https://support.microsoft.com/hel
 
 ### <a name="general"></a>General
 
-Site Recovery ahora admite la utilización de cuentas de almacenamiento de uso general versión 2 para el almacenamiento en caché o el almacenamiento de destino. Anteriormente solo se admitía la versión 1.
+Site Recovery ahora admite la utilización de cuentas de almacenamiento de uso general versión 2 para el almacenamiento en caché o el almacenamiento de destino. Anteriormente solo se admitía la versión 1.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Recuperación ante desastres de VMware a Azure
 

@@ -60,8 +60,9 @@
     - name: Controlar resaltado de referencias
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Paginación mediante páginas web
-      href: page-webpages.md
+    - name: Navegar por las páginas de resultados de la búsqueda.
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Referencia
   items:
     - name: Referencia de Bing Custom Autosuggest API

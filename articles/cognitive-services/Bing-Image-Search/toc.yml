@@ -50,10 +50,11 @@
       href: image-insights.md
     - name: Obtención de imágenes .gif
       href: gif-images.md
-    - name: Obtención de imágenes de tendencia
+    - name: Obtención de imágenes populares
       href: trending-images.md
-    - name: Paginar por las imágenes
-      href: paging-images.md
+    - name: Navegar por las páginas de resultados de la búsqueda.
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: Cambio de tamaño y recorte de miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

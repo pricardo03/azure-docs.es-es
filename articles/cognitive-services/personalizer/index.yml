@@ -3,7 +3,7 @@ title: Documentación de Personalizer
 summary: Aprenda a usar el Personalizer para permitir que una aplicación elija la mejor experiencia, se la muestre a los usuarios y aprenda de su comportamiento en tiempo real.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/10/2019
+  ms.date: 10/03/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentación de Personalizer
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.
-  ms.openlocfilehash: fd1b4a7c093beeb8d33579accee9178744b6fe50
-  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
+  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70882905"
+  ms.lasthandoff: 10/04/2019
+  ms.locfileid: "71950040"
 landingContent:
 - title: Acerca de Personalizer
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: ¿Qué es Personalizer?
       url: what-is-personalizer.md
+  - linkListType: whats-new
+    links:
+    - text: Novedades
+      url: whats-new.md
   - linkListType: concept
     links:
     - text: Funcionamiento de Personalizer

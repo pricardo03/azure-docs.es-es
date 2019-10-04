@@ -50,7 +50,8 @@
     - name: Obtener vídeos de tendencia
       href: trending-videos.md
     - name: Vídeos de página
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Cambio de tamaño y recorte de miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
