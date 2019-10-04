@@ -448,8 +448,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Configuración de la seguridad de las replicaciones geográficas
           href: sql-database-geo-replication-security-config.md
-        - name: Configuración de un grupo de conmutación por error
-          href: sql-database-configure-failover-group.md
         - name: Prueba de las características en memoria
           href: sql-database-in-memory-sample.md
         - name: Habilitación del ajuste automático
@@ -588,6 +586,8 @@
               href: sql-database-xevent-code-ring-buffer.md
     - name: Configuración de características
       items:
+        - name: Configuración de un grupo de conmutación por error
+          href: sql-database-configure-failover-group.md
         - name: Configuración de la autenticación de Azure AD
           href: sql-database-aad-authentication-configure.md
         - name: Acceso condicional

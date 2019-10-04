@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 3c4c70aeed833e25eb75a9eaa385e2299c2a4b7e
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300758"
+ms.locfileid: "71316777"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -273,7 +273,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Azure Data Catalog               | Sí                | -                  | -                  |
 | Apache Kafka en Azure HDInsight  | Sí                | Todas las longitudes de RSA.   | -                  |
 | Explorador de datos de Azure              | Sí                | -                  | -                  |
-| Azure Data Factory               | Sí                | -                  | -                  |
+| Azure Data Factory               | Sí                | Sí                | -                  |
 | Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
 | **Contenedores**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Sí                | -                  | -                  |

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264663"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828760"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -107,7 +107,7 @@ En esta sección, se describen los encabezados y parámetros comunes de la solic
 
 ### <a name="authentication"></a>Authentication
 
-Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
+Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
 
 > [!IMPORTANT]
 > El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).

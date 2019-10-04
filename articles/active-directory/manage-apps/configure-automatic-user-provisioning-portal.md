@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170465"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315266"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -88,7 +88,6 @@ Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio
 Seleccione la casilla **Borrar el estado actual y reiniciar la sincronización** y seleccione **Guardar** para:
 
 * Detener el servicio de aprovisionamiento
-* Volcar los datos almacenados en caché sobre las cuentas que Azure AD administra
 * Reiniciar los servicios y ejecutar de nuevo el ciclo inicial
 
 Esta opción permite a los administradores iniciar el proceso de implementación de aprovisionamiento de nuevo.

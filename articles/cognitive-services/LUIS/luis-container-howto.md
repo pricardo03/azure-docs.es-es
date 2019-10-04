@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172331"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695290"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -309,7 +309,9 @@ Para apagar el contenedor, en el entorno de la línea de comandos en la que se e
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Si ejecuta el contenedor con un [montaje](luis-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor. 
+Si ejecuta el contenedor con un [montaje](luis-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturación
 
@@ -323,7 +325,6 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 El contenedor más reciente, publicado en 2019 //Build, será compatible con:
 
-* Bing Spell Check: solicitudes al punto de conexión de predicción de consultas con los parámetros de cadena de consulta `&spellCheck=true&bing-spell-check-subscription-key={bingKey}`. Use el [tutorial de Bing Spell Check v7](luis-tutorial-bing-spellcheck.md) para obtener más información. Si se usa esta característica, el contenedor envía la expresión al recurso de Bing Spell Check V7.
 * [Nuevos dominios creados previamente](luis-reference-prebuilt-domains.md): estos dominios empresariales incluyen entidades, expresiones de ejemplo y patrones. Amplíe estos dominios para su propio uso. 
 
 <a name="unsupported-dependencies"></a>
@@ -341,6 +342,7 @@ Configuraciones de aplicaciones no admitidas|Detalles|
 |Entidades no compatibles con la referencia cultural Inglés (en-US)|Entidades [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) pregeneradas|
 |Preparación para la voz|El contenedor no admite dependencias externas.|
 |análisis de opiniones|El contenedor no admite dependencias externas.|
+|Bing Spell Check|El contenedor no admite dependencias externas.|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

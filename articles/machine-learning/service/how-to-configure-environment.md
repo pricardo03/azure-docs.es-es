@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bd4b1d969de0b54a1836048b5cb5910470f1ffa
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b4d7a21e8d9b660463f508513c158032be81a35c
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269220"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686977"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -188,7 +188,7 @@ Cuando use un equipo local (que también podría ser una máquina virtual remota
     Este comando instala el SDK básico de Azure Machine Learning con elementos adicionales de cuadernos y `automl`. El elemento adicional `automl` es una instalación de gran tamaño y puede quitarse de los corchetes si no se van a ejecutar experimentos automatizados de aprendizaje automático. El elemento adicional `automl` también incluye de forma predeterminada el SDK de preparación de datos de Azure Machine Learning como una dependencia.
 
     ```shell
-    pip install azureml-sdk[notebooks, automl]
+    pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
