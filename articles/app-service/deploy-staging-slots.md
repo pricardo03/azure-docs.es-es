@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070600"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129715"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -220,6 +220,9 @@ También puede personalizar el comportamiento de la preparación con una o ambas
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: ruta de acceso para hacer ping y así preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Un ejemplo es `/statuscheck`. El valor predeterminado es `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Un ejemplo sería `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.
 
+> [!NOTE]
+> `<applicationInitialization>` es parte del inicio de cada aplicación, donde estas dos configuraciones de aplicación solo van dirigidas a los intercambios de ranura.
+
 Si tiene problemas, consulte [Solución de problemas con los intercambios](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Supervisión de un intercambio
@@ -368,6 +371,8 @@ Estos son algunos errores de intercambio habituales:
     </conditions>
     ```
 - Algunas [reglas de restricción de IP](app-service-ip-restrictions.md) pueden impedir que durante el intercambio se envíen solicitudes HTTP a la aplicación. Los intervalos de direcciones IPv4 que empiezan por `10.` y `100.` son internos de la implementación. Debe permitir que se conecten a la aplicación.
+
+- Después de los intercambios de ranura, la aplicación puede experimentar reinicios inesperados. El motivo es que después de un intercambio, la configuración de enlace del nombre de host deja de estar sincronizada, lo que de por sí no provoca reinicios. Sin embargo, algunos eventos de almacenamiento subyacentes (como las conmutaciones por error de volúmenes de almacenamiento) pueden detectar estas discrepancias y forzar el reinicio de todos los procesos de trabajo. Para reducir estos tipos de reinicios, establezca la configuración de la aplicación [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) en *todas las ranuras*. Sin embargo, esta configuración de la aplicación *no* funciona con aplicaciones de Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Bloqueo del acceso a espacios que no sean de producción](app-service-ip-restrictions.md)

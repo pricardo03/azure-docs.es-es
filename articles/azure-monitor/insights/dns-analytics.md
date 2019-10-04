@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982584"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265162"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -179,6 +179,12 @@ En la página Búsqueda de registros, puede crear una consulta. Puede filtrar lo
 1. En el **cuadro de consulta de búsqueda**, escriba `DnsInventory` para ver todos los datos relacionados con el inventario de DNS de los servidores DNS administrados por la solución. Los resultados muestran los datos del registro para los servidores DNS, las zonas DNS y los registros de recursos.
 
     ![Búsqueda de registros de DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>solución de problemas
+
+Pasos para solucionar problemas comunes:
+
+1. Faltan datos de búsquedas de DNS: para solucionar este problema, intente restablecer la configuración o simplemente cargar la página de configuración una vez en el portal. Para restablecerla, solo tiene que cambiar el valor de una opción por otro y luego volver al valor original y guardar la configuración.
 
 ## <a name="feedback"></a>Comentarios
 
