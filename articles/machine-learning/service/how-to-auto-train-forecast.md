@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035042"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170406"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -95,10 +95,12 @@ El objeto `AutoMLConfig` define la configuración y los datos necesarios para un
 |`time_column_name`|Se utiliza para especificar la columna de fecha y hora en los datos de entrada utilizada que se usa para compilar la serie temporal y se deduce su frecuencia.|✓|
 |`grain_column_names`|Nombres que definen los grupos de series individuales en los datos de entrada. Si no se define el nivel de detalle, el conjunto de datos se presupone una serie temporal.||
 |`max_horizon`|Define el horizonte de previsión máximo deseado en unidades de frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento, p. ej., semanales, mensuales, que debe predecir el pronosticador.|✓|
-|`target_lags`|*n* períodos para diferir los valores de destino antes del entrenamiento del modelo.||
-|`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento.||
+|`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. Se representa como una lista o un entero único. El retardo se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. Por ejemplo, al intentar pronosticar la demanda de un producto, la demanda de cualquier mes puede depender del precio de determinados artículos 3 meses antes. En este ejemplo, es posible que desee retrasar el destino (demanda) negativamente en 3 meses para que el modelo esté entrenando en la relación correcta.||
+|`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo.||
 
-Cree la configuración de la serie temporal como objeto de diccionario. Establezca `time_column_name` en el campo `day_datetime` en el conjunto de datos. Defina el parámetro `grain_column_names` para asegurarse de que se crean **dos grupos de series temporales diferentes** para los datos; uno para el almacén A y otro para el B. Por último, establezca `max_horizon` en 50 para predecir el conjunto de prueba completo. Establezca un intervalo de previsión de 10 períodos con `target_rolling_window_size` y difiera los valores de destino 2 períodos con el parámetro `target_lags`.
+Vea la [documentación de referencia](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para más información.
+
+Cree la configuración de la serie temporal como objeto de diccionario. Establezca `time_column_name` en el campo `day_datetime` en el conjunto de datos. Defina el parámetro `grain_column_names` para asegurarse de que se crean **dos grupos de series temporales diferentes** para los datos; uno para el almacén A y otro para el B. Por último, establezca `max_horizon` en 50 para predecir el conjunto de prueba completo. Establezca un intervalo de previsión de diez períodos y especifique un retardo único en los valores de destino para dos períodos por delante con el parámetro.
 
 ```python
 time_series_settings = {
@@ -111,8 +113,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
-> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se usa el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
+> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
+
+Mediante la definición de `grain_column_names` en el fragmento de código anterior, AutoML creará dos grupos de series temporales independientes, también conocidas como series temporales múltiples. Si no se define el nivel de detalle, AutoML asumirá que el conjunto de datos es una sola serie temporal. Para más información sobre las series temporales únicas, vea [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+
 
 Ahora cree un objeto `AutoMLConfig` estándar y especifique el tipo de tarea `forecasting`; a continuación, envíe el experimento. Una vez finalizado el modelo, recupere la iteración con la mejor ejecución.
 
@@ -141,8 +149,8 @@ best_run, fitted_model = local_run.get_output()
 Consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obtener ejemplos de código detallados de la configuración de predicciones avanzada, que incluye:
 
 * detección y caracterización de festividades;
-* validación cruzada de origen variable;
-* retardos configurables;
+* validación cruzada de origen variable
+* retardos configurables
 * características de agregado en periodos acumulados.
 
 ### <a name="view-feature-engineering-summary"></a>Visualización del resumen de ingeniería de las características
