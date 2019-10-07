@@ -147,6 +147,8 @@
   items:
     - name: API de REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Notas de la versión
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Características y retirada de API (julio de 2019)
       href: security-center-features-retirement-july2019.md
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión

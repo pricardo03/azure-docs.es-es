@@ -114,22 +114,34 @@
           href: sisense.md
     - name: administración
       items:
-        - name: Comprobación del estado del clúster
-          href: check-cluster-health.md
-        - name: Selección de SKU de máquina virtual de clúster
-          href: manage-cluster-choose-sku.md
-        - name: Administración del escalado horizontal de clústeres
-          href: manage-cluster-horizontal-scaling.md
-        - name: Administración del escalado vertical de clústeres
-          href: manage-cluster-vertical-scaling.md
-        - name: Administración de la seguridad del clúster
-          href: manage-cluster-security.md
-        - name: Administración de permisos de la base de datos
-          href: manage-database-permissions.md
-        - name: Eliminación de datos
-          href: delete-data.md
-        - name: Tratamiento de datos duplicados
-          href: dealing-with-duplicates.md
+        - name: Clúster
+          items:
+            - name: Selección de SKU de máquina virtual de clúster
+              href: manage-cluster-choose-sku.md
+            - name: Administración del escalado horizontal de clústeres
+              href: manage-cluster-horizontal-scaling.md
+            - name: Administración del escalado vertical de clústeres
+              href: manage-cluster-vertical-scaling.md
+            - name: Administración de la seguridad del clúster
+              href: manage-cluster-security.md
+            - name: Comprobación del estado del clúster
+              href: check-cluster-health.md
+        - name: Base de datos
+          items:
+            - name: Administración de permisos de la base de datos
+              href: manage-database-permissions.md
+            - name: Directivas
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Datos
+          items:
+            - name: Eliminación de datos
+              href: delete-data.md
+            - name: Tratamiento de datos duplicados
+              href: dealing-with-duplicates.md
     - name: Supervisión
       items:
         - name: Uso de registros de diagnóstico para supervisar la ingesta
