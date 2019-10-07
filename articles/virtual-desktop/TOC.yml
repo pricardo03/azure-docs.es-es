@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Configuración de GPU para Windows Virtual Desktop
       href: configure-vm-gpu.md
-    - name: Escalado automático de los host de sesiones
+    - name: Escalado dinámico de host de sesiones
       href: set-up-scaling-script.md
     - name: Personalización de fuente para usuarios de Windows Virtual Desktop
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'
       href: troubleshoot-set-up-overview.md
-    - name: Identificación de problemas con la característica de diagnóstico
+    - name: Identificación y diagnóstico de problemas
       href: diagnostics-role-service.md
     - name: Creación de los grupos de inquilinos y de host
       href: troubleshoot-set-up-issues.md
