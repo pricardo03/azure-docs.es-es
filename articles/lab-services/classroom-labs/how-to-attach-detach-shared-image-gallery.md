@@ -68,7 +68,7 @@ En el procedimiento siguiente se muestra cómo asociar una galería de imágenes
 1. En la página **Cuenta de laboratorio**, seleccione **Galería de imágenes compartidas** en el menú de la izquierda y **Asociar** en la barra de herramientas. 
 
     ![Galería de imágenes compartidas: botón Agregar](../media/how-to-use-shared-image-gallery/sig-attach-button.png)
-5. En la página  **	Asociar una galería de imágenes compartidas existente**, seleccione la galería de imágenes compartidas y después **Aceptar**.
+5. En la página **Asociar una galería de imágenes compartidas existente**, seleccione la galería de imágenes compartidas y después **Aceptar**.
 
     ![Selección de una galería existente](../media/how-to-use-shared-image-gallery/select-image-gallery.png)
 6. Verá la pantalla siguiente: 
