@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991132"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326440"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Inicio del Lector inmersivo con el proyecto de ejemplo de Python
 
@@ -113,7 +113,7 @@ pip install jinja2
 Instale virtualenv. Se trata de una herramienta para crear entornos de Python aislados.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Instale virtualenvwrapper-win. Con virtualenvwrapper se quiere facilitar el uso de virtualenv.
@@ -126,6 +126,12 @@ Instale el módulo requests. Requests es una biblioteca HTTP con licencia de Apa
 
 ```cmd
 pip install requests
+```
+
+Instale el módulo python-dotenv. Este módulo lee el par clave-valor del archivo .env y los agrega a la variable de entorno.
+
+```cmd
+pip install python-dotenv
 ```
 
 Cree un entorno virtual.
@@ -251,6 +257,12 @@ Instale el módulo requests. Requests es una biblioteca HTTP con licencia de Apa
 
 ```bash
 pip install requests --user
+```
+
+Instale el módulo python-dotenv. Este módulo lee el par clave-valor del archivo .env y los agrega a la variable de entorno.
+
+```bash
+pip install python-dotenv --user
 ```
 
 Elija la carpeta donde desea conservar los entornos virtuales y ejecute este comando.

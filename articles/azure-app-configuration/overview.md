@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408680"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687041"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
@@ -75,3 +75,4 @@ La manera más fácil de agregar un almacén de App Configuration a la aplicaci�
 * [Inicio rápido de Azure Functions](./quickstart-azure-function-csharp.md)
 * [Inicio rápido de Java Spring](./quickstart-java-spring-app.md)
 * [Inicio rápido sobre las marcas de características de ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Inicio rápido de la de marca de características de Spring Boot](./quickstart-feature-flag-spring-boot.md)

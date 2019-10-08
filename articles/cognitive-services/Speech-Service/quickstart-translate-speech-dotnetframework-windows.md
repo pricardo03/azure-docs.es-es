@@ -1,27 +1,27 @@
 ---
 title: 'Inicio rápido: Traducción de voz en C# para .NET Framework y Windows (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, creará una sencilla aplicación de .NET Framework para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
+description: En este inicio rápido, creará una aplicación de .NET Framework para capturar la voz del usuario, traducirla a otro idioma y mostrar el texto en la línea de comandos. Esta guía está diseñada para usuarios de Windows.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/28/2019
 ms.author: erhopf
-ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb710a3e3adb13aa3999c13043c8bb93f6b885f1
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327340"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Inicio rápido: Traducción de voz con el SDK de Voz para .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework-windows"></a>Inicio rápido: Traducción de voz con el SDK de Voz para .NET Framework (Windows)
 
-También hay inicios rápidos disponibles para la [conversión de voz en texto ](quickstart-csharp-dotnet-windows.md) y [de texto en voz](quickstart-text-to-speech-dotnet-windows.md).
+También hay guías de inicio rápido para el [reconocimiento](quickstart-csharp-dotnet-windows.md) y la [síntesis de voz](quickstart-text-to-speech-dotnet-windows.md).
 
-En este inicio rápido, creará una sencilla aplicación de .NET Framework que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
+En este inicio rápido, creará una aplicación de .NET Framework que captura la voz del usuario procedente del micrófono del equipo, la traduce y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación se puede ejecutar en Windows de 32 bits o de 64 bits, y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2019.
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
@@ -29,7 +29,7 @@ Para obtener una lista completa de los idiomas disponibles para la traducción d
 
 Esta guía de inicio rápido requiere:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
@@ -38,29 +38,25 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Abra `Program.cs` y reemplace todo el código que contiene por lo siguiente.
+1. Abra el archivo **Program.cs** y sustituya todo el código existente por el siguiente.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
+1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción.
 
-1. Además, reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a su suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Busque la cadena `YourServiceRegion` y reemplácela por la [ región ](regions.md) asociada a su suscripción. Por ejemplo, si usa la suscripción de evaluación gratuita, la región es `westus`.
 
-1. Guarde los cambios en el proyecto.
+1. En la barra de menús, elija **Archivo** > **Guardar todo**.
 
-## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
+## <a name="build-and-run-the-application"></a>Compilación y ejecución de la aplicación
 
-1. Compile la aplicación. En la barra de menús, elija **Compilar** > **Compilar solución**. El código se debería compilar sin errores ahora.
+1. En la barra de menús, elija **Compilar** > **Compilar solución** para compilar la aplicación. El código se debería compilar sin errores ahora.
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Generar solución resaltada](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Compilación correcta")
+1. Elija **Depurar** > **Iniciar depuración** (o seleccione **F5**) para iniciar la aplicación **helloworld**.
 
-1. Inicie la aplicación. En la barra de menús, elija **Depurar** > **Iniciar depuración** o bien presione **F5**.
+1. Diga una expresión o frase en inglés en el micrófono del dispositivo. La aplicación transmite su voz al servicio de voz, que la traduce y la transcribe a texto en otro idioma, en este caso, a alemán. El servicio de voz envía el texto traducido de nuevo a la aplicación, que muestra la traducción en la ventana.
 
-    ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar la aplicación en depuración")
-
-1. Aparece una ventana de consola que le pide decir algo. Diga una oración o frase en inglés. Lo que diga se transmitirá al servicio Voz, se traducirá y se transcribirá como texto que aparecerá en la misma ventana.
-
-    ![Captura de pantalla de la salida de la consola después de una traducción correcta](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Console output after successful translation")
+   ![Interfaz de usuario de la traducción de voz](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -71,5 +67,4 @@ Se pueden encontrar ejemplos adicionales como, por ejemplo, leer voz desde un ar
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Entrenamiento de un modelo de Custom Speech](how-to-custom-speech-train-model.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/24/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 16e1c96da8fa35a4e8aaa8ce91da1c7976291079
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a7114044f5e29af4bbf8e7c38b390b833ac818ec
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261922"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803497"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante C#
 
@@ -27,10 +27,12 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Obtención de los detalles de la operación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Versión de [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/) más reciente.
-* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal. 
 
 > [!NOTE] 
 > Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).

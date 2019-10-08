@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155111"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718984"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET
 
@@ -93,7 +93,8 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Autenticación entre servicios en Azure Key Vault mediante .NET](service-to-service-authentication.md) para más información. Sin embargo, para simplificar, en este inicio rápido se va a crear una aplicación de consola de .NET. La autenticación de una aplicación de escritorio con Azure requiere el uso de una entidad de servicio.
+La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](managed-identity.md) para más información. Sin embargo, para simplificar, en este inicio rápido se va a crear una aplicación de consola de .NET. La autenticación de una aplicación de escritorio con Azure requiere el uso de una entidad de servicio y una directiva de control de acceso.
+
 Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
 
 ```azurecli

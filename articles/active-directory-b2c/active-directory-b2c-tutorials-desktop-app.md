@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9a3c11c7303d467a1a993c49d983131639683239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3740a032db6ca9fd0fb88ce348610684d9f895bc
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064875"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326329"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación cliente nativa mediante Azure Active Directory B2C
 
@@ -37,20 +37,9 @@ En este tutorial, aprenderá a:
 
 ## <a name="add-the-native-client-application"></a>Agregar la aplicación cliente nativa
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Aplicaciones** y **Agregar**.
-5. Escriba un nombre para la aplicación. Por ejemplo, *nativeapp1*.
-6. En **Incluir aplicación web o API web**, seleccione **No**.
-7. En **Incluir cliente nativo**, seleccione **Sí**.
-8. En **URI de redirección**, escriba un URI de redirección válido con un esquema personalizado. Hay dos aspectos importantes que se deben tener en cuenta al elegir un URI de redirección:
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-    - **Único**: el esquema del identificador URI de redirección debe ser único para todas las aplicaciones. En el ejemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` es el esquema. Se debe seguir este patrón. Si dos aplicaciones comparten el mismo esquema, el usuario tiene opción de elegir una aplicación. Si el usuario realiza una elección incorrecta, no será posible iniciar sesión.
-    - **Completo**: el URI de redirección debe tener un esquema y una ruta de acceso. La ruta de acceso debe contener al menos una barra diagonal después del dominio. Por ejemplo, `//contoso/` sirve y `//contoso` produce un error. Asegúrese de que el URI de redirección no incluya caracteres especiales, como caracteres de subrayado.
-
-9. Haga clic en **Create**(Crear).
-10. En la página de propiedades, registre el identificador de la aplicación que usará cuando configure el ejemplo.
+Anote el valor de **ID. DE APLICACIÓN** para usarlo en un paso posterior.
 
 ## <a name="configure-the-sample"></a>Configuración del ejemplo
 

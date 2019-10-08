@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553651"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803280"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para iOS mediante el SDK de Voz
+
+También hay inicios rápidos disponibles para la [síntesis de voz](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ Antes de comenzar, presentamos una lista de requisitos previos:
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtención del SDK de Voz para iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La versión actual del SDK de Speech de Cognitive Services es `1.6.0`.
 
 En la actualidad, el SDK de Voz de Cognitive Services para iOS se distribuye como marco de Cocoa.
 Se puede descargar [aquí](https://aka.ms/csspeech/iosbinary). Descargue el archivo en el directorio principal.
@@ -87,7 +87,7 @@ Reemplace el código XML generado automáticamente por este código:
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>Compilación y ejecución del ejemplo
+## <a name="build-and-run-the-sample"></a>Compilación y ejecución del ejemplo
 
 1. Haga visible la salida de depuración (**Ver** > **Área de depuración** > **Activar consola**).
 1. Elija el simulador de iOS o un dispositivo iOS conectado a la máquina de desarrollo como destino para la aplicación en la lista del menú **Producto** > **Destino**.

@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9f9bc3bfe0c8eb023dcc9cca879eeb92175fc094
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2b98949ca93be5ec0324561a053df730705af152
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801527"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671877"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
+# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
 <a name="HOLTop"></a>
 
 En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Node.JS.

@@ -4,18 +4,18 @@ description: En este tutorial rápido se proporcionan ejemplos de código Node.j
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: ad022f6ac9cebbe92cdca3a4b368524d828a9cbb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5ad6fecc3cc06d2c4e2962640201ffcd6f96d87e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931572"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672510"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de Node.js para conectarse a los datos y consultarlos
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Node.js para conectar y consultar datos en Azure Database for MySQL
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante [Node.js](https://nodejs.org/) desde las plataformas Windows, Ubuntu Linux y Mac. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante Node.js y que nunca ha usado Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Requisitos previos

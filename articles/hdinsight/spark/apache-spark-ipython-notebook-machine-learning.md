@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Compilación de aplicaciones de aprendizaje automático de Spark en Azure HDInsight'
 description: 'Tutorial: Instrucciones detalladas acerca de cómo compilar una aplicación de aprendizaje automático de Apache Spark en clústeres Spark de HDInsight mediante Jupyter Notebook.'
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1a52072ab3309454742d2d3e8582b58a33666e3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327011"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight
 
 En este tutorial, aprenderá a usar [Jupyter Notebook](https://jupyter.org/) para compilar una aplicación de aprendizaje de automático de [Azure Spark](https://spark.apache.org/) para Apache HDInsight.
 
@@ -43,7 +43,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
 1. Cree un cuaderno de Jupyter Notebook con el kernel de PySpark. Para las instrucciones, consulte [Creación de un cuaderno de Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Importe los tipos necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**. 
+1. Importe los tipos necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +60,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
     from numpy import array
     ```
 
-3. Cargue los datos (hvac.csv), analícelos y úselos para entrenar el modelo. 
+1. Cargue los datos (hvac.csv), analícelos y úselos para entrenar el modelo.
 
     ```PySpark
     # Define a type called LabelDocument
@@ -72,7 +72,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
@@ -87,7 +87,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
     En el fragmento de código, se define una función que compara la temperatura real con la temperatura de destino. Si la temperatura real es mayor, el edificio está cálido, lo que viene indicado por el valor **1.0**. De lo contrario, el edificio está frío, lo que se indica con el valor **0.0**.
 
-4. Configure la canalización de aprendizaje automático de Spark, que consta de tres fases: tokenizer, hashingTF e lr.
+1. Configure la canalización de aprendizaje automático de Spark, que consta de tres fases: tokenizer, hashingTF e lr.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -98,18 +98,18 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
     Para más información acerca de las canalizaciones y cómo funcionan, consulte [Canalización de aprendizaje automático de Apache Spark](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
-5. Ajuste la canalización al documento de formación.
+1. Ajuste la canalización al documento de formación.
 
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. Compruebe el documento de aprendizaje para controlar el progreso con la aplicación.
+1. Compruebe el documento de aprendizaje para controlar el progreso con la aplicación.
 
     ```PySpark
     training.show()
     ```
-   
+
     La salida es parecida a esta:
 
     ```output
@@ -145,7 +145,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
     Observe que la temperatura real es menor que la temperatura objetivo, lo que indica que el edificio está frío. Por lo tanto, en la salida de aprendizaje, el valor de **label** en la primera fila es **0.0**, lo que significa que la temperatura del edificio no es cálida.
 
-7. Prepare un conjunto de datos con el que ejecutar el modelo entrenado. Para ello, deberá pasar un identificador del sistema y la antigüedad del sistema (representados como **SystemInfo** en la salida de entrenamiento), y el modelo predecirá si el edificio con ese identificador y esa antigüedad del sistema es más cálido (indicado por 1.0) o frío (indicado por 0.0).
+1. Prepare un conjunto de datos con el que ejecutar el modelo entrenado. Para ello, deberá pasar un identificador del sistema y la antigüedad del sistema (representados como **SystemInfo** en la salida de entrenamiento), y el modelo predecirá si el edificio con ese identificador y esa antigüedad del sistema es más cálido (indicado por 1.0) o frío (indicado por 0.0).
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -159,7 +159,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
         .map(lambda x: Document(*x)).toDF()
     ```
 
-8. Por último, realice predicciones basadas en los datos de prueba.
+1. Por último, realice predicciones basadas en los datos de prueba.
 
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -182,9 +182,10 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
    En la primera fila de la predicción, puede ver que, en un sistema HVAC con el identificador 20 y una antigüedad de 25 años, el edificio tiene una temperatura cálida (**prediction=1.0**). El primer valor de DenseVector (0.49999) corresponde a la predicción 0.0 y el segundo, (0.5001), corresponde a la predicción 1.0. En la salida, aunque el segundo valor solo es levemente superior, el modelo muestra **prediction=1.0**.
 
-10. Cierre el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). Con esta acción se cerrará el cuaderno.
+1. Cierre el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). Con esta acción se cerrará el cuaderno.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Uso de la biblioteca scikit-learn de Anaconda para el aprendizaje automático de Spark
+
 Los clústeres Apache Spark de HDInsight incluyen bibliotecas de Anaconda. También incluyen la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para obtener ejemplos sobre el uso de la biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -201,7 +202,7 @@ Si no va a seguir usando esta aplicación, elimine el clúster que creó mediant
 
 1. Seleccione **Eliminar**. Seleccione **Sí**.
 
-![Eliminación de un clúster de HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+![Eliminación en Azure Portal de un clúster de HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 ## <a name="next-steps"></a>Pasos siguientes
 

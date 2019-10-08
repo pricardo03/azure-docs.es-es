@@ -9,20 +9,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: 8e87bcb9f7d05fd5041623693c96f8c737758c32
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e382b4bf12b53573f3506474837093456f9b84c6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490978"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709628"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Cambio de la suscripción de Azure a una oferta distinta
 
 Un cliente con una [suscripción individual con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) puede cambiar la suscripción de Azure a otra oferta en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Por ejemplo, esta característica se puede utilizar para aprovechar los [créditos mensuales de que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-**¿Solo desea actualizar desde la evaluación gratuita?** Consulte cómo [actualizar la suscripción](billing-upgrade-azure-subscription.md).
+**¿Solo desea actualizar desde la evaluación gratuita?** Consulte [Actualización de la suscripción](billing-upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Lo que se admite:
 
@@ -60,7 +60,7 @@ Puede cambiar de una suscripción individual con tarifas de pago por uso a:
 1. Puede cambiar el nombre de la suscripción. De manera predeterminada, se establece en el nombre de la oferta nueva. Haga clic en **Cambiar oferta** para completar el proceso.
 
    ![Hacer clic en el botón verde](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. ¡Éxito! Ya se ha cambiado la suscripción a la nueva oferta.
+1. ¡Hecho! Ya se ha cambiado la suscripción a la nueva oferta.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 En las secciones siguientes se responden las preguntas más frecuentes.
@@ -101,7 +101,7 @@ Cuando cambia las ofertas, se restablece cualquier [aumento de límite o cuota p
 
 El mismo día que se realiza el cambio se genera una factura por todos los cargos pendientes. Posteriormente, la suscripción se factura según los términos de precios de la nueva oferta. La fecha de facturación de la suscripción pasa a ser la fecha del cambio de oferta. Los datos de uso y facturación anteriores al cambio de oferta no se conservan, por lo que se recomienda descargar una copia de los mismos antes de realizar el cambio.
 
-### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>¿Puedo migrar desde una suscripción con tarifas de pago por uso a [Proveedor de soluciones en la nube](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>¿Puedo migrar desde una suscripción con tarifas de pago por uso a Proveedor de soluciones en la nube (CSP) o Contrato Enterprise (EA)?
 
 * Para migrar a CSP, consulte [Migrar las suscripciones de Azure de Pago por uso a CSP de Azure](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA. Para más información, consulte [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Asociar una cuenta existente) en el portal EA.

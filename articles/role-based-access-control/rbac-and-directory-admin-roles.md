@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1fe1d50f24c70c89ea0fbaa952673cdeacc4f1bf
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037521"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803154"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -45,7 +45,7 @@ Administrador de cuenta, administrador de servicios y coadministrador son las tr
 | Administrador de suscripciones clásicas | Límite | Permisos | Notas |
 | --- | --- | --- | --- |
 | Administrador de cuenta | 1 por cuenta de Azure | <ul><li>Acceder al [Centro de cuentas de Azure](https://account.azure.com/Subscriptions)</li><li>Administrar todas las suscripciones en una cuenta</li><li>Crear nuevas suscripciones</li><li>Cancelar suscripciones</li><li>Cambiar la facturación de una suscripción</li><li>Cambiar el administrador de servicios</li></ul> | Desde un punto de vista conceptual, el propietario de la facturación de la suscripción.<br>El administrador de cuenta no tiene acceso a Azure Portal. |
-| Administrador de servicios | 1 por cada suscripción de Azure | <ul><li>Administrar servicios en [Azure Portal](https://portal.azure.com)</li><li>Asignar a usuarios al rol de coadministrador</li></ul> | De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.<br>El administrador de servicios tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción.<br>El administrador de servicios tiene permiso total de acceso a Azure Portal. |
+| Administrador de servicios | 1 por cada suscripción de Azure | <ul><li>Administrar servicios en [Azure Portal](https://portal.azure.com)</li><li>Cancelación de la suscripción</li><li>Asignar a usuarios al rol de coadministrador</li></ul> | De forma predeterminada, en una nueva suscripción, el administrador de cuenta es también el administrador de servicios.<br>El administrador de servicios tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción.<br>El administrador de servicios tiene permiso total de acceso a Azure Portal. |
 | Coadministrador | 200 por suscripción | <ul><li>Mismos privilegios de acceso que el administrador de servicios, pero no puede cambiar la asociación de suscripciones a directorios de Azure</li><li>Asignar usuarios al rol de coadministrador, pero no puede cambiar el administrador de servicios</li></ul> | El coadministrador tiene el acceso equivalente a un usuario al que se le asigna el rol de propietario en el ámbito de la suscripción. |
 
 En Azure Portal, puede administrar coadministradores o ver el administrador de servicios mediante la pestaña **Administradores clásicos**.
@@ -63,6 +63,8 @@ Para más información, consulte el artículo sobre los [Administradores clásic
 Una cuenta de Azure representa una relación de facturación. Una cuenta de Azure es una identidad de usuario, una o varias suscripciones de Azure y un conjunto asociado de recursos de Azure. La persona que crea la cuenta es el administrador de cuenta para todas las suscripciones creadas en esa cuenta. Esa persona también es el administrador de servicios predeterminado de la suscripción.
 
 Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por oficina, departamento o proyecto, entre otros. Cada servicio pertenece a una suscripción y el identificador de la suscripción puede ser necesario para las operaciones de programación.
+
+Cada suscripción está asociada a un directorio de Azure AD. Para encontrar el directorio al que está asociada la suscripción, abra **Suscripciones** en Azure Portal y, a continuación, seleccione una suscripción para ver el directorio.
 
 Las cuentas y suscripciones se administran en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions).
 

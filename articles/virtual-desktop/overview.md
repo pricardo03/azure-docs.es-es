@@ -1,22 +1,22 @@
 ---
-title: ¿Qué es la versión preliminar de Windows Virtual Desktop?  - Azure
-description: Información general de la versión preliminar de Windows Virtual Desktop.
+title: ¿Qué es Windows Virtual Desktop?  - Azure
+description: Una información general de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301007"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676564"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>¿Qué es la versión preliminar de Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
-La versión preliminar de Windows Virtual Desktop, ahora disponible públicamente, es un servicio de escritorio y de virtualización de aplicaciones que se ejecuta en la nube.
+Windows Virtual Desktop es un servicio de virtualización de escritorio y de aplicaciones que se ejecuta en la nube.
 
 A continuación se indica lo que puede hacer al ejecutar Windows Virtual Desktop en Azure:
 
@@ -88,7 +88,19 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cum
 >[!NOTE]
 >Si necesita una suscripción a Azure, puede [registrarse para obtener una evaluación gratuita por un mes](https://azure.microsoft.com/free/). Si usa la versión de evaluación gratuita de Azure, debe utilizar Azure AD Domain Services para mantener sincronizada su instancia de Windows Server Active Directory con Azure Active Directory.
 
-Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Durante la versión preliminar pública, se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas máquinas virtuales residirán en los Estados Unidos (región Este de EE. UU. 2). Como resultado, se puede producir una transferencia de datos a los Estados Unidos mientras prueba el servicio durante la versión preliminar pública. Una vez disponible con carácter general, se comenzará a escalar horizontalmente la solución de administración y la localización de los datos a todas las regiones de Azure.
+Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a TCP 443 de salida a las siguientes direcciones URL:
+
+* *.wvd.microsoft.com
+* \* .blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure AD.
+
+Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales de cualquier región de Azure, y la solución de administración y los datos de estas máquinas virtuales residirán en Estados Unidos (región Este de EE. UU. 2). Esto puede dar lugar a la transferencia de datos a Estados Unidos.
 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 
@@ -108,11 +120,28 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 Windows Virtual Desktop admite las imágenes de SO siguiente:
 
 * Sesión múltiple de Windows 10 Enterprise
+* Windows 10 Enterprise
+* Windows 7 Enterprise
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente: 
+
+|Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|Actualizaciones del agente de Windows Virtual Desktop|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|Automático|
+|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|Sin|Automático|
+|Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|Automático|
+|Windows 10 Enterprise, versión 1809|Sí|Sí|No|Sin|Automático|
+|Windows 7 Enterprise|Sí|Sí|No|Sin|Manual|
+|Windows Server 2019|Sí|Sí|No|Sin|Automático|
+|Windows Server 2016|Sí|Sí|Sí|Sí|Automático|
+|Windows Server 2012 R2|Sí|Sí|No|Sin|Automático|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para comenzar, deberá crear un inquilino. Para más información sobre cómo crear un inquilino, siga con el tutorial de creación de inquilinos.
 
 > [!div class="nextstepaction"]
-> [Creación de un inquilino en Windows Virtual Desktop (versión preliminar)](tenant-setup-azure-active-directory.md)
+> [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

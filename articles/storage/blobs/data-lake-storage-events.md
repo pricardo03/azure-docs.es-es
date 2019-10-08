@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de eventos de Azure Data Lake Storage Gen2 para actualizar una tabla de Databricks Delta | Microsoft Docs'
+title: 'Tutorial: Implementación del patrón de captura de Data Lake para actualizar una tabla de Azure Databricks Delta | Microsoft Docs'
 description: En este tutorial se muestra cómo usar una suscripción a Event Grid, una función de Azure y un trabajo de Azure Databricks para insertar filas de datos en una tabla almacenada en Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326986"
 ---
-# <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>Tutorial: Uso de eventos de Azure Data Lake Storage Gen2 para actualizar una tabla de Databricks Delta
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementación del patrón de captura de Data Lake para actualizar una tabla de Databricks Delta
 
 En este tutorial se muestra cómo controlar eventos en una cuenta de almacenamiento que tiene un espacio de nombres jerárquico.
 

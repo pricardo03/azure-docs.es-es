@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261584"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815969"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 
@@ -55,8 +55,8 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
 
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmos.azure.com]|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.
-    puerto|443|Se establece en 443.
+    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|Vea la siguiente captura de pantalla. Este es el valor de **URI de Gremlin** de la página Información general de Azure Portal, entre corchetes, sin la terminación :443/. Nota: Asegúrese de usar el valor de Gremlin, **no** el identificador URI que termina en [*account-name*.documents.azure.com], lo que probablemente daría como resultado la excepción "Host did not respond in a timely fashion" (El host no respondió a tiempo) al intentar ejecutar consultas Gremlin después. 
+    port|443|Se establece en 443.
     nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
     connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para SSL.
@@ -85,7 +85,7 @@ asegúrese de que encapsular el valor del parámetro de hosts entre corchetes []
 1. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse a App Service.
 
     > [!TIP]
-    > Si recibe el error `No appenders could be found for logger` asegúrese de que ha actualizado el valor de serializador en el archivo remote-secure.yaml tal como se describe en el paso 2. 
+    > Si recibe el error `No appenders could be found for logger` asegúrese de que ha actualizado el valor de serializador en el archivo remote-secure.yaml tal como se describe en el paso 2. Si la configuración es correcta, esta advertencia se puede omitir sin problemas, ya que no debería afectar al uso de la consola. 
 
 1. A continuación ejecute `:remote console` para redirigir todos los comandos de la consola al servidor remoto.
 

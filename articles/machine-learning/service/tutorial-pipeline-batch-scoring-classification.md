@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Canalizaciones de aprendizaje automático de Azure para la puntuación por lotes'
+title: 'Tutorial: Canalizaciones de ML para la puntuación por lotes'
 titleSuffix: Azure Machine Learning
-description: Cree una canalización de aprendizaje automático para ejecutar la puntuación por lotes en un modelo de clasificación de imágenes. Las canalizaciones de aprendizaje automático optimizan el flujo de trabajo con velocidad, portabilidad y reutilización para que pueda centrarse en sus conocimientos, el aprendizaje automático, en lugar de hacerlo en la infraestructura y la automatización.
+description: Compile una canalización de aprendizaje automático para ejecutar puntuaciones por lotes en un modelo de clasificación de imágenes e Azure Machine Learning. Las canalizaciones de aprendizaje automático optimizan el flujo de trabajo con velocidad, portabilidad y reutilización para que pueda centrarse en sus conocimientos, el aprendizaje automático, en lugar de hacerlo en la infraestructura y la automatización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,20 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 15a11ba74262ec5a354f0cb3fe22c09167c8d5a6
-ms.sourcegitcommit: d15b23e23328ce7502dd3d2846b49fd2d6d8209c
+ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71005394"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695613"
 ---
-# <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Uso de canalizaciones de Azure Machine Learning para la puntuación por lotes
+# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Compilación y uso de canalizaciones de Azure Machine Learning para la puntuación por lotes
 
-En este tutorial, usará canalizaciones de Azure Machine Learning para ejecutar un trabajo de puntuación por lotes. En este ejemplo se usa el modelo Tensorflow de red neuronal de circunvolución [Inception-V3](https://arxiv.org/abs/1512.00567) para clasificar las imágenes sin etiquetar. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
+En este tutorial usará una canalización de Azure Machine Learning para ejecutar un trabajo de puntuación por lotes. En este ejemplo se usa el modelo Tensorflow de red neuronal de circunvolución [Inception-V3](https://arxiv.org/abs/1512.00567) para clasificar las imágenes sin etiquetar. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
 
 Las canalizaciones de aprendizaje automático optimizan el flujo de trabajo con velocidad, portabilidad y reutilización para que pueda centrarse en sus conocimientos, el aprendizaje automático, en lugar de hacerlo en la infraestructura y la automatización. [Más información sobre las canalizaciones de aprendizaje automático](concept-ml-pipelines.md).
 
-En este tutorial, aprenderá a realizar las tareas siguientes:
+En este tutorial, va a completar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Configurar el área de trabajo y descargar datos de ejemplo
@@ -38,16 +38,16 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Complete la [parte 1 del tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
-* Después de completar el tutorial de instalación, abra el cuaderno **tutorials/tutorial-pipeline-batch-scoring-classification.ipynb** mediante el mismo servidor de cuadernos.
+* Una vez terminado el tutorial de instalación, use el mismo servidor de cuadernos para abrir el cuaderno *tutorials/tutorial-pipeline-batch-scoring-classification.ipynb*.
 
-Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Ejecute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obtener los paquetes requeridos.
+Si desea ejecutar el tutorial de instalación en su propio [entorno local](how-to-configure-environment.md#local) puede acceder al tutorial en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Ejecute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` para obtener los paquetes requeridos.
 
-## <a name="configure-workspace-and-create-datastore"></a>Configuración del área de trabajo y creación del almacén de datos
+## <a name="configure-workspace-and-create-a-datastore"></a>Configuración del área de trabajo y creación de un almacén de datos
 
-Cree un objeto de área de trabajo a partir del área de trabajo de Azure Machine Learning existente. 
-+ Un [área de trabajo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) es una clase que acepta la información de recursos y suscripciones de Azure. También crea un recurso en la nube para supervisar y realizar un seguimiento de las ejecuciones del modelo. 
+Cree un objeto de área de trabajo a partir del área de trabajo de Azure Machine Learning existente.
 
-+ `Workspace.from_config()` lee el archivo **config.json** y carga los detalles de autenticación en un objeto denominado `ws`. En el resto del código de este tutorial se usa `ws`.
+- Un [área de trabajo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) es una clase que acepta la información de recursos y suscripciones de Azure. También crea un recurso en la nube que puede usar para supervisar y realizar el seguimiento de las ejecuciones del modelo. 
+- `Workspace.from_config()` lee el archivo `config.json` y carga los detalles de autenticación en un objeto denominado `ws`. El objeto `ws` se usa en el código en todo el tutorial.
 
 ```python
 from azureml.core import Workspace
@@ -56,7 +56,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-datastore-for-sample-images"></a>Creación de un almacén de datos para las imágenes de ejemplo
 
-Obtenga el ejemplo de datos públicos de evaluación de ImageNet del contenedor de blobs público `sampledata` de la cuenta `pipelinedata`. Al llamar a `register_azure_blob_container()`, los datos están disponibles en el área de trabajo con el nombre `images_datastore`. Después, especifique el almacén de datos predeterminado del área de trabajo como almacén de datos de salida, que se usará para puntuar la salida en la canalización.
+En la cuenta `pipelinedata`, obtenga el ejemplo de datos públicos de evaluación de ImageNet del contenedor de blobs público `sampledata`. Una llamada a `register_azure_blob_container()` hace que los datos estén disponibles en el área de trabajo con el nombre `images_datastore`. A continuación, establezca el almacén de datos predeterminado del área de trabajo como almacén de datos de salida y úselo para puntuar las salidas de la canalización.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -72,16 +72,16 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-data-objects"></a>Creación de objetos de datos
 
-Al compilar canalizaciones, se usan objetos `DataReference` para leer datos de los almacenes de datos del área de trabajo, y objetos `PipelineData` para transferir los datos intermedios entre los pasos de la canalización.
+Al compilar una canalización, un objeto `DataReference` lee los datos del almacén de datos del área de trabajo. Un objeto `PipelineData` transfiere los datos intermedios entre los pasos de canalización.
 
 > [!Important]
-> En este ejemplo de puntuación por lotes solo se usa un paso de canalización, pero en los casos de uso con varios pasos, el flujo habitual incluirá:
+> En el ejemplo de puntuación por lotes de este tutorial solo se usa un paso de canalización. En los casos de uso con varios pasos, el flujo típico incluirá los siguientes:
 >
-> 1. El uso de objetos `DataReference` como **entradas** para capturar datos sin procesar, algunas transformaciones y, luego, la **generación** de un objeto `PipelineData`.
+> 1. Use objetos `DataReference` como *entradas* para capturar datos sin procesar, realizar algunas transformaciones y generar un objeto `PipelineData` de *salida*.
 >
-> 2. El uso del **objeto de salida** `PipelineData` del paso anterior como *objeto de entrada*, repetido en los siguientes pasos.
+> 2. Use el *objeto de salida* `PipelineData` del paso anterior como *objeto de entrada*. Repítalo en pasos posteriores.
 
-En este escenario se crean objetos `DataReference` correspondientes a los directorios del almacén de datos para las imágenes de entrada y las etiquetas de clasificación (valores de prueba y). También se crea un objeto `PipelineData` para los datos de salida de puntuación por lotes.
+En este escenario se crean objetos `DataReference` correspondientes a los directorios del almacén de datos para las imágenes de entrada y las etiquetas de clasificación (valores de la prueba de la y). También se crea un objeto `PipelineData` para los datos de salida de puntuación por lotes.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -106,7 +106,7 @@ output_dir = PipelineData(name="scores",
 
 ## <a name="download-and-register-the-model"></a>Descarga y registro del modelo
 
-Descargue el modelo Tensorflow previamente entrenado para usarlo en la puntuación por lotes de la canalización. En primer lugar, cree un directorio local donde almacenar el modelo y, luego, descárguelo y extráigalo.
+Descargue el modelo Tensorflow previamente entrenado para usarlo en la puntuación por lotes de una canalización. En primer lugar, cree un directorio local donde almacenar el modelo y, luego, descárguelo y extráigalo.
 
 ```python
 import os
@@ -121,7 +121,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall("models")
 ```
 
-Ahora, registrará el modelo en el área de trabajo, lo que le permite recuperarlo fácilmente en el proceso de canalización. En la función estática `register()`, el parámetro `model_name` es la clave que se usa para buscar el modelo en todo el SDK.
+A continuación registrará el modelo en el área de trabajo para poder recuperarlo fácilmente en el proceso de canalización. En la función estática `register()`, el parámetro `model_name` es la clave que se usa para buscar el modelo en todo el SDK.
 
 ```python
 from azureml.core.model import Model
@@ -133,9 +133,11 @@ model = Model.register(model_path="models/inception_v3.ckpt",
                        workspace=ws)
 ```
 
-## <a name="create-and-attach-remote-compute-target"></a>Creación y asociación del destino de proceso remoto
+## <a name="create-and-attach-the-remote-compute-target"></a>Creación y asociación del destino de proceso remoto
 
-Dado que las canalizaciones de aprendizaje automático no se pueden ejecutar localmente, debe ejecutarlas en recursos en la nube. Nos referimos a ellos como destinos de proceso remotos, que son entornos de proceso virtuales reutilizables en los que se ejecutan experimentos y flujos de trabajo de aprendizaje automático. Ejecute el código siguiente para crear un destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target) para más información sobre los destinos de proceso.
+Las canalizaciones de aprendizaje automático no se pueden ejecutar en un entorno local, por lo que debe ejecutarlas en recursos en la nube o *destinos de proceso remotos*. Un destino de proceso remoto es un entorno de proceso virtual reutilizable en el que se ejecutan los experimentos y los flujos de trabajo de aprendizaje automático. 
+
+Ejecute el código siguiente para crear un destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU y asócielo al área de trabajo. Consulte el [artículo conceptual](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target) para más información sobre los destinos de proceso.
 
 
 ```python
@@ -158,17 +160,17 @@ except ComputeTargetException:
 
 ## <a name="write-a-scoring-script"></a>Escritura de un script de puntuación
 
-Para realizar la puntuación, creará un script de puntuación por lotes `batch_scoring.py` y lo escribirá en el directorio actual. El script toma imágenes de entrada, aplica el modelo de clasificación y envía las predicciones a un archivo de resultados.
+Para realizar la puntuación, cree un script de puntuación por lotes llamado `batch_scoring.py` y escríbalo en el directorio actual. El script toma imágenes de entrada, aplica el modelo de clasificación y envía las predicciones a un archivo de resultados.
 
 El script `batch_scoring.py` toma los siguientes parámetros, que se pasan desde el paso de canalización que se crea más adelante en este tutorial:
 
-- `--model_name`: el nombre del modelo que se usa.
-- `--label_dir`: el directorio que contiene el archivo `labels.txt`. 
-- `--dataset_path`: el directorio que contiene las imágenes de entrada.
-- `--output_dir`: el script ejecutará el modelo en los datos y enviará `results-label.txt` a este directorio.
-- `--batch_size`: el tamaño del lote que se usa para ejecutar el modelo
+- `--model_name`: nombre del modelo que se usa.
+- `--label_dir`: directorio que contiene el archivo `labels.txt`.
+- `--dataset_path`: directorio que contiene las imágenes de entrada.
+- `--output_dir`: directorio de salida del archivo `results-label.txt` después de que el script ejecute el modelo en los datos.
+- `--batch_size`: tamaño del lote que se usa para ejecutar el modelo.
 
-La infraestructura de canalizaciones usa la clase `ArgumentParser` para pasar los parámetros a los pasos de canalización. Por ejemplo, en el código siguiente al primer argumento `--model_name` se le da el identificador de propiedad `model_name`. En la función `main()`, se accede a esta propiedad mediante `Model.get_model_path(args.model_name)`.
+La infraestructura de la canalización usa la clase `ArgumentParser` para pasar los parámetros a los pasos de canalización. Por ejemplo, en el código siguiente, al primer argumento `--model_name` se le da el identificador de propiedad `model_name`. En la función `main()` se utiliza `Model.get_model_path(args.model_name)` para acceder a esta propiedad.
 
 
 ```python
@@ -290,11 +292,11 @@ if __name__ == "__main__":
 ```
 
 > [!TIP]
-> La canalización de este tutorial solo tiene un paso y escribe la salida en un archivo, pero para canalizaciones de varios pasos, también se usa `ArgumentParser` para definir un directorio y escribir los datos de salida para la entrada en los pasos posteriores. Consulte el [cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) para ver un ejemplo de cómo pasar datos entre varios pasos de la canalización mediante el modelo de diseño `ArgumentParser`.
+> La canalización de este tutorial solo tiene un paso y escribe la salida en un archivo. En el caso de las canalizaciones de varios pasos, también se usa `ArgumentParser` para definir un directorio en el que escribir los datos de salida para la entrada en pasos posteriores. Consulte el [cuaderno`ArgumentParser` para ver un ejemplo de cómo pasar datos entre varios pasos de la canalización mediante el modelo de diseño ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
 ## <a name="build-and-run-the-pipeline"></a>Compilación y ejecución de la canalización
 
-Antes de ejecutar la canalización, creará un objeto que defina el entorno de Python y las dependencias que necesita el script `batch_scoring.py`. La dependencia principal requerida es Tensorflow, pero también se instala `azureml-defaults` para los procesos en segundo plano desde el SDK. Cree un objeto `RunConfiguration` con las dependencias y especifique también la compatibilidad con Docker y GPU de Docker.
+Antes de ejecutar la canalización, cree un objeto que defina el entorno de Python y cree las dependencias que necesita el script `batch_scoring.py`. La dependencia principal requerida es Tensorflow, pero también se instala `azureml-defaults` para los procesos en segundo plano desde el SDK. Cree un objeto `RunConfiguration` con las dependencias. Además, especifique la compatibilidad con Docker y Docker-GPU.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -310,9 +312,9 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="parameterize-the-pipeline"></a>Parametrización de la canalización
 
-Defina un parámetro personalizado para que la canalización controle el tamaño del lote. Después de que la canalización se ha publicado y expuesto mediante un punto de conexión REST, también se exponen los parámetros configurados, que se pueden especificar en la carga útil de JSON al volver a ejecutar la canalización con una solicitud HTTP.
+Defina un parámetro personalizado para que la canalización controle el tamaño del lote. Una vez publicada la canalización y expuesta mediante un punto de conexión REST, también se exponen los parámetros configurados. Puede especificar parámetros personalizados en la carga de JSON cuando vuelva a ejecutar la canalización mediante una solicitud HTTP.
 
-Cree un objeto `PipelineParameter` para habilitar este comportamiento y defina un nombre y un valor predeterminado.
+Cree un objeto `PipelineParameter` para habilitar este comportamiento y definir un nombre y un valor predeterminado.
 
 ```python
 from azureml.pipeline.core.graph import PipelineParameter
@@ -328,9 +330,9 @@ Un paso de canalización es un objeto que encapsula todo lo que necesita para ej
 * Los datos de entrada y salida, y cualquier parámetro personalizado
 * Referencia a un script o a una lógica del SDK que se ejecutará durante el paso
 
-Hay varias clases que se heredan de la clase principal [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) para ayudar con la compilación de un paso mediante determinadas plataformas y pilas. En este ejemplo, se usa la clase [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) para definir la lógica del paso con un script de Python personalizado. Tenga en cuenta que si un argumento del script es una entrada al paso o una salida del paso, se deben definir **ambos** en la matriz `arguments`, **así como** en el parámetro `input` o `output`, respectivamente. 
+Varias clases heredan de la clase primaria [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). Puede elegir clases para usar marcos o pilas concretos para compilar un paso. En este ejemplo, se usa la clase [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) para definir la lógica del paso con un script de Python personalizado. Si un argumento del script es una entrada al paso o una salida del paso, se debe definir el argumento *tanto* en la matriz `arguments`, *como* en el parámetro `input` o `output`, respectivamente. 
 
-En escenarios con más de un paso, una referencia a un objeto de la matriz `outputs` está disponible como una **entrada** en un paso posterior de la canalización.
+En escenarios con más de un paso, las referencias a un objeto de la matriz `outputs` estarán disponibles como *entrada* en un paso posterior de la canalización.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -350,16 +352,16 @@ batch_score_step = PythonScriptStep(
 )
 ```
 
-Para ver una lista de todas las clases para los diferentes tipos de pasos, consulte el [paquete de pasos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
+Para ver una lista de todas las clases que se pueden usar para los diferentes tipos de pasos, consulte el [paquete de pasos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-Ahora ejecute la canalización. En primer lugar, cree un objeto `Pipeline` con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos y, en este caso, solo hay un paso para la puntuación por lotes. Para compilar canalizaciones con varios pasos, se colocan los pasos en orden en esta matriz.
+Ahora ejecute la canalización. En primer lugar, cree un objeto `Pipeline` con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la puntuación por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
 
-Luego, use la función `Experiment.submit()` para enviar la canalización para su ejecución. También se especifica el parámetro personalizado `param_batch_size`. La función `wait_for_completion` generará registros durante el proceso de compilación de la canalización, lo que le permite ver el progreso actual.
+Luego, use la función `Experiment.submit()` para enviar la canalización para su ejecución. También se especifica el parámetro personalizado `param_batch_size`. La función `wait_for_completion` genera registros durante el proceso de compilación de la canalización que puede usar para ver el progreso.
 
 > [!IMPORTANT]
-> La primera ejecución de la canalización tarda aproximadamente **15 minutos**, ya que se deben descargar todas las dependencias, se crea una imagen de Docker y se aprovisiona o se crea el entorno de Python. Cuando se ejecuta de nuevo, tarda mucho menos, ya que se reutilizan esos recursos. Sin embargo, el tiempo de ejecución total depende de la carga de trabajo de los scripts y de los procesos que se ejecutan en cada paso de la canalización.
+> La primera ejecución de canalización tarda aproximadamente *15 minutos*. Se deben descargar todas las dependencias, se crea una imagen de Docker y se aprovisiona y se crea el entorno de Python. La repetición de la ejecución de la canalización tarda mucho menos, ya que esos recursos se reutilizan en lugar de crearse. Sin embargo, el tiempo de ejecución total de la canalización depende de la carga de trabajo de los scripts y de los procesos que se ejecutan en cada paso de la canalización.
 
 ```python
 from azureml.core import Experiment
@@ -408,7 +410,7 @@ df.head(10)
     <tr>
       <td>0</td>
       <td>ILSVRC2012_val_00000102.JPEG</td>
-      <td>Rhodesian ridgeback</td>
+      <td>Rhodesian Ridgeback</td>
     </tr>
     <tr>
       <td>1</td>
@@ -459,11 +461,11 @@ df.head(10)
 </table>
 </div>
 
-## <a name="publish-and-run-from-rest-endpoint"></a>Publicación y ejecución desde el punto de conexión REST
+## <a name="publish-and-run-from-a-rest-endpoint"></a>Publicación y ejecución desde un punto de conexión REST
 
-Ejecute el código siguiente para publicar la canalización en el área de trabajo. En el área de trabajo del portal, puede ver los metadatos de la canalización, incluidos el historial de ejecución y las duraciones. También puede ejecutar la canalización manualmente desde el portal.
+Ejecute el código siguiente para publicar la canalización en el área de trabajo. En el área de trabajo de Azure Portal puede ver los metadatos de la canalización, incluidos el historial de ejecución y las duraciones. También puede ejecutar la canalización manualmente desde el portal.
 
-Además, la publicación de la canalización permite a un punto de conexión REST volver a ejecutar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
+La publicación de la canalización permite a un punto de conexión REST volver a ejecutar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -472,11 +474,11 @@ published_pipeline = pipeline_run.publish_pipeline(
 published_pipeline
 ```
 
-Para ejecutar la canalización desde el punto de conexión REST, primero necesita un encabezado de autenticación de tipo portador de OAuth2. En este ejemplo se usa la autenticación interactiva con fines ilustrativos, pero en la mayoría de los escenarios de producción que requieren autenticación automatizada o desatendida, use la autenticación de la entidad de servicio tal y como se [describe en este cuaderno](https://aka.ms/pl-restep-auth).
+Para ejecutar la canalización desde el punto de conexión REST, necesita un encabezado de autenticación de tipo portador de OAuth2. En el ejemplo siguiente se usa la autenticación interactiva, con fines ilustrativos; en la mayoría de los escenarios de producción que requieren autenticación automatizada o desatendida, use la autenticación de la entidad de servicio tal y como se [describe en este cuaderno](https://aka.ms/pl-restep-auth).
 
-La autenticación de la entidad de servicio implica crear un **registro de aplicaciones** en **Azure Active Directory**, generar un secreto de cliente y conceder luego al **rol de la entidad de servicio acceso** al área de trabajo de aprendizaje automático. Luego, usará la clase [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para administrar el flujo de autenticación. 
+La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para administrar el flujo de autenticación. 
 
-Tanto `InteractiveLoginAuthentication` como `ServicePrincipalAuthentication` se heredan de `AbstractAuthentication`, y en ambos casos se usa la función `get_authentication_header()` de la misma manera para capturar el encabezado.
+Tanto `InteractiveLoginAuthentication` como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función `get_authentication_header()` de la misma manera que para capturar el encabezado:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -485,9 +487,11 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenga la dirección URL de REST de la propiedad `endpoint` del objeto de canalización publicado. También puede encontrar la dirección URL de REST en el área de trabajo del portal. Cree una solicitud HTTP POST al punto de conexión y especifique el encabezado de autenticación. Además, agregue un objeto de carga JSON con el nombre del experimento y el parámetro de tamaño de lote. Como recordatorio, `param_batch_size` se pasa a su script `batch_scoring.py` porque lo definió como un objeto `PipelineParameter` en la configuración del paso.
+Obtenga la dirección URL de REST de la propiedad `endpoint` del objeto de canalización publicado. También puede encontrar la dirección URL de REST en el área de trabajo de Azure Portal. 
 
-Realice la solicitud para desencadenar la ejecución. Acceda a la clave `Id` desde el diccionario de respuesta para obtener el valor del identificador de ejecución.
+Compile una solicitud HTTP POST para el punto de conexión. Especifique el encabezado de autenticación en la solicitud. Agregue un objeto de carga JSON con el nombre del experimento y el parámetro de tamaño de lote. Como se indicó anteriormente en el tutorial, `param_batch_size` se pasa a su script `batch_scoring.py`, ya que se definió como objeto `PipelineParameter` en la configuración del paso.
+
+Realice la solicitud para desencadenar la ejecución. Incluya código para acceder a la clave `Id` desde el diccionario de respuestas para obtener el valor del identificador de ejecución.
 
 ```python
 import requests
@@ -500,7 +504,9 @@ response = requests.post(rest_endpoint,
 run_id = response.json()["Id"]
 ```
 
-Use el identificador de ejecución para supervisar el estado de la nueva ejecución. Esta operación tardará otros 10 o 15 minutos en ejecutarse y se parecerá a la ejecución de la canalización anterior por lo que, si no necesita ver otra ejecución de la canalización, puede omitir la visualización de la salida completa.
+Use el identificador de ejecución para supervisar el estado de la nueva ejecución. La nueva ejecución tardará otros 10-15 minutos 
+
+y su aspecto será similar al de la canalización que se ejecutó anteriormente en el tutorial. Puede elegir no ver la salida completa.
 
 ```python
 from azureml.pipeline.core.run import PipelineRun
@@ -516,19 +522,19 @@ No complete esta sección si planea ejecutar otros tutoriales de Azure Machine L
 
 ### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
 
-Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando no la esté usando a fin de reducir el costo.
+Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando no la esté usando para reducir los costos:
 
 1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
-1. En la lista, seleccione la máquina virtual.
+1. En la lista de máquinas virtuales, seleccione la máquina virtual que desee detener.
 1. Seleccione **Detener**.
 1. Cuando esté listo para volver a usar el servidor, seleccione **Iniciar**.
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 
-Si no va a usar los recursos creados, elimínelos para no incurrir en cargos.
+Si no va a usar los recursos creados, elimínelos para no incurrir en cargos:
 
-1. En Azure Portal, seleccione **Grupos de recursos** a la izquierda del todo.
-1. En la lista, seleccione el grupo de recursos que creó.
+1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
+1. En la lista de grupos de recursos, seleccione el que ha creado.
 1. Seleccione **Eliminar grupo de recursos**.
 1. Escriba el nombre del grupo de recursos. A continuación, seleccione **Eliminar**.
 
@@ -543,4 +549,4 @@ En este tutorial de canalizaciones de aprendizaje automático, realizó las sigu
 > * Creó un script de puntuación para ejecutar predicciones por lotes con un modelo Tensorflow entrenado previamente.
 > * Publicó una canalización y la habilitó para ejecutarla desde un punto de conexión REST.
 
-Consulte el [repositorio de cuadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) para ver otros ejemplos de creación de canalizaciones con el SDK de aprendizaje automático.
+Para más ejemplos de cómo crear canalizaciones mediante el SDK de aprendizaje automático, consulte el [repositorio de cuadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).

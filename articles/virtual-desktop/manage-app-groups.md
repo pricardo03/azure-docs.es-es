@@ -1,22 +1,22 @@
 ---
-title: 'Administración de grupos de aplicaciones para la versión preliminar de Windows Virtual Desktop: Azure'
-description: Se describe cómo configurar los inquilinos de la versión preliminar de Windows Virtual Desktop en Azure Active Directory.
+title: 'Administración de grupos de aplicaciones de Windows Virtual Desktop: Azure'
+description: Se describe cómo configurar los inquilinos de Windows Virtual Desktop en Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163246"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679448"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Administración de grupos de aplicaciones para la versión preliminar de Windows Virtual Desktop
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Administración de grupos de aplicaciones de Windows Virtual Desktop
 
-El grupo de aplicaciones predeterminado creado para un nuevo grupo host de la versión preliminar de Windows Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individualesl de menú **Inicio**.
+El grupo de aplicaciones predeterminado creado para un nuevo grupo host de Windows Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individualesl de menú **Inicio**.
 
 En este tutorial, aprenderá a:
 

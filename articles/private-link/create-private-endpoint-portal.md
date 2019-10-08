@@ -7,18 +7,22 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130284"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687052"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creación de un punto de conexión privado mediante Azure Portal
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure PowerShell. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+
+> [!NOTE]
+> No se permiten puntos de conexión privados junto con los puntos de conexión de servicio en la misma subred.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -37,12 +41,12 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Valor |
     | ------- | ----- |
-    | NOMBRE | Escriba *miRedVirtual*. |
+    | NOMBRE | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Location | Seleccione **WestCentralUS**.|
-    | Subred: nombre | Escriba *miSubred*. |
+    | Subred: nombre | Escriba *mySubnet*. |
     | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
     |||
 1. Deje el resto tal como está y seleccione **Crear**.
@@ -60,7 +64,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
-    | Nombre de la máquina virtual | Escriba *miVM*. |
+    | Nombre de la máquina virtual | Escriba *myVm*. |
     | Region | Seleccione **WestCentralUS**. |
     | Opciones de disponibilidad | Deje el valor predeterminado **No se requiere redundancia de la infraestructura**. |
     | Imagen | Seleccione **Windows Server 2019 Datacenter**. |
@@ -83,9 +87,9 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Valor |
     | ------- | ----- |
-    | Virtual network | Deje el valor predeterminado **miRedVirtual**.  |
+    | Virtual network | Deje el valor predeterminado **MyVirtualNetwork**.  |
     | Espacio de direcciones | Deje el valor predeterminado **10.1.0.0/24**.|
-    | Subnet | Deje el valor predeterminado **miSubred (10.1.0.0/24)** .|
+    | Subnet | Deje el valor predeterminado **mySubnet (10.1.0.0/24)** .|
     | Dirección IP pública | Deje el valor predeterminado **(new) myVm-ip**. |
     | Puertos de entrada públicos | Seleccione **Permitir los puertos seleccionados**. |
     | Selección de puertos de entrada | Seleccione **HTTP** y **RDP**.|
@@ -122,7 +126,7 @@ En esta sección, va a crear un servidor de SQL Database en Azure.
     | Location | Seleccione la región de Azure en la que desea que se encuentre la instancia de SQL Server. |
     
 7. Seleccione **Aceptar**. 
-8. Seleccione **Revisar y crear**. Se le remite a la página **Revisar y crear** , donde Azure valida la configuración. 
+8. Seleccione  **Revisar y crear**. Se le remite a la página **Revisar y crear** , donde Azure valida la configuración. 
 9. Cuando reciba el mensaje Validación superada, seleccione  **Crear**. 
 10. Cuando reciba el mensaje Validación superada, seleccione Crear. 
 
@@ -161,13 +165,13 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | ------- | ----- |
     |**REDES**| |
     | Virtual network| Seleccione *MyVirtualNetwork*. |
-    | Subnet | Seleccione *miSubred*. |
+    | Subnet | Seleccione  *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.database.windows.net* |
     |||
 
-1. Seleccione **Revisar y crear**. Se le remite a la página **Revisar y crear** , donde Azure valida la configuración. 
+1. Seleccione **Revisar y crear**. Se le remite a la página  **Revisar y crear** , donde Azure valida la configuración. 
 2. Cuando reciba el mensaje **Validación superada** , seleccione  **Crear**. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
@@ -181,7 +185,7 @@ Después de crear **myVm*, conéctese a ella desde Internet como se indica a con
 
 1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
-1. Abre el archivo downloaded.rdp*.
+1. Abra el archivo downloaded.rdp*.
 
     1. Cuando se le pida, seleccione **Conectar**.
 
@@ -210,30 +214,31 @@ Después de crear **myVm*, conéctese a ella desde Internet como se indica a con
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. Instale [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. En  **Conectar con el servidor**, escriba o seleccione esta información:
 
-    | Setting | Value |
+    | Configuración | Valor |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | Tipo de servidor| Seleccione **Motor de base de datos**.|
+    | Nombre de servidor| Seleccione *myserver.database.windows.net*. |
+    | Nombre de usuario | Escriba una contraseña proporcionada durante la creación del servidor SQL Server. |
+    |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor SQL Server. |
+    |Recordar contraseña|Seleccione **Sí**.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. Seleccione  **Conectar**.
+2. Examine las bases de datos en el menú izquierdo.
+3. (Opcionalmente) Cree o consulte la información de mydatabase.
+4. Cierre la conexión de Escritorio remoto a  *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+Cuando haya terminado mediante el punto de conexión privado, el servidor SQL y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
+1. Escriba *myResourceGroup* en el cuadro  **Buscar**  de la parte superior del portal y seleccione  *myResourceGroup* en los resultados de búsqueda. 
+2. Seleccione  **Eliminar grupo de recursos**. 
+3. Escriba myResourceGroup para  **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+En este inicio rápido, ha creado una máquina virtual en una red virtual, un servidor de SQL Database y un punto de conexión privado para el acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura al servidor de SQL Database mediante el vínculo privado. Para más información sobre los puntos de conexión privados, consulte [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).
 

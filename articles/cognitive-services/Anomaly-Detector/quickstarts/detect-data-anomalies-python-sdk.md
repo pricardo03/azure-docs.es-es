@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725556"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694909"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para Python
 
-Comience a usar la biblioteca cliente de Anomaly Detector para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
+Comience a usar la biblioteca cliente de Anomaly Detector para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
 Use la biblioteca cliente de Anomaly Detector para Python para las siguientes acciones:
 
@@ -70,7 +70,7 @@ La respuesta de Anomaly Detector es un objeto [LastDetectResponse](https://docs.
 
 ## <a name="code-examples"></a>Ejemplos de código 
 
-Estos fragmentos de código muestran cómo realizar las siguientes acciones con la biblioteca cliente de Anomaly Detector para .NET:
+Estos fragmentos de código muestran cómo realizar las siguientes acciones con la biblioteca cliente de Anomaly Detector para Python:
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Cargar un conjunto de datos de serie temporal desde un archivo](#load-time-series-data-from-a-file)

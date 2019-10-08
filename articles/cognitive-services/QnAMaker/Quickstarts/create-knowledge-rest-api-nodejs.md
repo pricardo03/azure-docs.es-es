@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad7986a0c4b0d59322ccebcaa6b1c70776164c48
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4393609bf426c6ae99c48a5d84162526aeff6fb7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015707"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803513"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Inicio rápido: API REST de QnA Maker para Node.js
 
@@ -32,10 +32,13 @@ Use las API REST de QnA Maker para Node.js para:
 
 [Documentación de referencia](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Ejemplos de Node.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [Node.js](https://nodejs.org).
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -43,7 +46,7 @@ Use las API REST de QnA Maker para Node.js para:
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para QnA Maker mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. 
 
-Después de obtener una clave del recurso, [cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para el recurso, llamadas `QNAMAKER_RESOURCE_KEY` y `QNAMAKER_AUTHORING_ENDPOINT`. Use la clave y los valores de host que se encuentran en la página **Inicio rápido** del recurso en Azure Portal.
+Después de obtener una clave del recurso, [cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para el recurso, llamadas `QNAMAKER_RESOURCE_KEY` y `QNAMAKER_AUTHORING_ENDPOINT`. Use los valores de clave y punto de conexión que se encuentran en la página **Inicio rápido** de Azure Portal.
 
 ### <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
 

@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Uso compartido de datos con clientes y asociados mediante Azure Data Share, versión preliminar'
+title: 'Tutorial: Uso compartido fuera de la organización mediante Azure Data Share, versión preliminar'
 description: 'Tutorial: Uso compartido de datos con clientes y asociados mediante Azure Data Share, versión preliminar'
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838413"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327412"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Tutorial: Uso compartido de datos mediante Azure Data Share, versión preliminar
 
-En este tutorial aprenderá a configurar una nueva instancia de Azure Data Share y a empezar a compartir sus datos con clientes y asociado externos a la organización de Azure. 
+En este tutorial aprenderá a configurar una nueva instancia de Azure Data Share y a empezar a compartir sus datos con clientes y asociados externos a la organización de Azure. 
 
 En este tutorial, aprenderá a:
 

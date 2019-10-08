@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: a1e53b21a3168e9745d36e191cc86ba9d20192b5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b271de5437ee58c8b01c762c3ee770b2a5d0746b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308161"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802892"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con Go
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Go 1.10.1](https://golang.org/dl/)
-* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal.
 
 * Identificador de la base de conocimiento (KB) de QnA Maker encontrado en la dirección URL en el parámetro de cadena de consulta de KBID, como se muestra a continuación.
 

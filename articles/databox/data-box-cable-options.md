@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 661cec672aa02f62b479b7f5831adfdaff9e6b21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077554"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316549"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opciones de cableado para Azure Data Box
 
@@ -74,7 +74,7 @@ Realice los pasos siguientes para cablear el dispositivo.
 
 Realice los pasos siguientes para cablear el dispositivo.
 
-1. Use un cable Ethernet RJ45 directamente desde el servidor al puerto MGMT para configuración.
+1. Use un cable Ethernet RJ45 directamente desde el equipo independiente al puerto MGMT para la configuración.
 2. Utilice un cable RJ45 para DATA 3 o cables SFP+ para conectar DATA 1 o DATA 2 al servidor. Se recomienda usar los puertos DATA 1 o DATA 2 de 10 GbE para un buen rendimiento. Los puertos de datos se conectan mediante un conmutador de 10 GbE al servidor que tiene los datos.
 3. Configure el adaptador Ethernet del portátil que usa para conectarse al dispositivo con:
 

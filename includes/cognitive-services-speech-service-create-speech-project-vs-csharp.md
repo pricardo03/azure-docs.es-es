@@ -2,32 +2,44 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/05/2019
+ms.date: 08/30/2019
 ms.author: wolfma
-ms.openlocfilehash: 308ee2ef121648cb45152948926c5fd7fb934744
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362616"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327057"
 ---
+Para crear un proyecto de Visual Studio para el desarrollo de Windows, debe crear el proyecto, configurar Visual Studio para el desarrollo de escritorio de .NET, instalar el SDK de Voz y elegir la arquitectura de destino.
+
+### <a name="create-the-project-and-add-the-workload"></a>Creación del proyecto e incorporación de la carga de trabajo
+
+Para empezar, cree el proyecto en Visual Studio y asegúrese de que Visual Studio está configurado para el desarrollo de escritorio de .NET:
+
 1. Abra Visual Studio 2019.
 
 1. En la ventana Inicio, seleccione **Crear un proyecto**. 
 
-1. Seleccione **Aplicación de consola (.NET Framework)** y **Siguiente**.
+1. En la ventana **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
 
-1. En el **nombre del proyecto**, escriba `helloworld` y, a continuación, seleccione **Crear**.
+1. En la ventana **Configure su nuevo proyecto**, escriba *helloworld* en **Nombre del proyecto** , elija o cree la ruta de acceso del directorio en **Ubicación** y seleccione **Crear**.
 
-1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Get Tools and Features** (Obtener herramientas y características) y asegúrese de que la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si aún no se ha instalado la carga de trabajo, active la casilla y seleccione **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
+1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Obtener herramientas y características**, que abre el Instalador de Visual Studio y muestra el cuadro de diálogo **Modificando**.
 
-   Si la casilla que está junto a **Desarrollo de escritorio de .NET** está seleccionada, puede cerrar el cuadro de diálogo ahora.
+1. Compruebe si la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si la carga de trabajo aún no se ha instalado, active la casilla que hay al lado y seleccione **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
+
+   Si la casilla que está junto a **Desarrollo de escritorio de .NET** ya está seleccionada, seleccione **Cerrar** para salir del cuadro de diálogo.
 
    ![Habilitación del desarrollo de escritorio .NET](../articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
+1. Cierre el Instalador de Visual Studio.
+
+### <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
+
 El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) para que pueda hacer referencia a él en el código.
 
-1. En el explorador de soluciones, haga clic con el botón derecho en `helloworld` y seleccione **Manage NuGet Packages** (Administrar paquetes NuGet) para mostrar el administrador de paquetes NuGet.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **helloworld** y seleccione **Administrar paquetes NuGet** para mostrar el Administrador de paquetes NuGet.
 
    ![Administrador de paquetes NuGet](../articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
@@ -35,15 +47,17 @@ El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https:/
 
 1. En la esquina superior izquierda, seleccione **Examinar**.
 
-1. En el cuadro de búsqueda, escriba `Microsoft.CognitiveServices.Speech` y presione Entrar.
+1. En el cuadro de búsqueda, escriba *Microsoft.CognitiveServices.Speech* y seleccione **Entrar**.
 
-1. Seleccione `Microsoft.CognitiveServices.Speech` e **Instalar** para instalar la versión estable más reciente.
+1. En los resultados de la búsqueda, seleccione el paquete **Microsoft.CognitiveServices.Speech** y, después, seleccione **Instalar** para instalar la versión estable más reciente.
 
    ![Instalación del paquete NuGet Microsoft.CognitiveServices.Speech](../articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Acepte todos los contratos y licencias para iniciar la instalación.
 
    Después de instalar el paquete aparecerá una confirmación en la ventana **Consola del administrador de paquetes**.
+
+### <a name="choose-the-target-architecture"></a>Elección de la arquitectura de destino
 
 Ahora, para compilar y ejecutar la aplicación de consola, cree una configuración de plataforma que coincida con la arquitectura del equipo.
 

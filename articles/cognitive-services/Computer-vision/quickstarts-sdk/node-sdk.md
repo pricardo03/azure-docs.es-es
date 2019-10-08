@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/18/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: bcce9c53e2618f9501dde63905fb834bce7985ee
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204442"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719507"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Computer Vision para Node.js
 
@@ -171,9 +171,9 @@ Defina la función auxiliar `formatRectFaces`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
-### <a name="detect-adult-or-racy-content"></a>Detección de contenido para adultos o subido de tono
+### <a name="detect-adult-racy-or-gory-content"></a>Detección de contenido para adultos, explícito o sangriento
 
-El código siguiente imprime la presencia detectada de contenido para adultos o subido de tono en la imagen. Consulte [Contenido para adultos o subido de tono](../concept-detecting-adult-content.md) para más detalles.
+El siguiente código imprime la presencia detectada de contenido para adultos en la imagen. Para más información, consulte [Contenido para adultos, subido de tono y sangriento](../concept-detecting-adult-content.md).
 
 Defina la dirección URL de la imagen que se va a usar:
 

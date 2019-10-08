@@ -8,16 +8,16 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563153"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703120"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Inicio rápido: Consulta de un punto de conexión de predicción con el SDK de .NET de C#
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Inicio rápido: Consulta de un punto de conexión de predicción V2 con el SDK de .NET de C#
 
 Use el SDK de .NET, que se encuentra en [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar una expresión de usuario a Language Understanding (LUIS) y recibir una predicción de la intención del usuario. 
 

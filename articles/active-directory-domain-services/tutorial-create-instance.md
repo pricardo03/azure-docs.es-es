@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336860"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services
 
@@ -42,7 +42,8 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Necesita privilegios de *administrador global* en el inquilino de Azure AD para habilitar Azure AD DS.
 * Necesita privilegios de *colaborador* en la suscripción de Azure para crear los recursos de Azure AD DS necesarios.
-* El inquilino de Azure AD debe estar [configurado para el autoservicio de restablecimiento de contraseña][configure-sspr].
+
+Aunque no es necesario para Azure AD DS, se recomienda [configurar el autoservicio de restablecimiento de contraseña (SSPR) ][configure-sspr] para el inquilino de Azure AD. Los usuarios pueden cambiar su contraseña sin SSPR, pero este les ayuda si olvidan la contraseña y necesitan restablecerla.
 
 > [!IMPORTANT]
 > Después de crear un dominio administrado de Azure AD DS, no puede trasladar la instancia a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar la instancia de Azure AD DS.

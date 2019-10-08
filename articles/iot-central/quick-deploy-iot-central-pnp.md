@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9d242c48068e96498a811f52dbc599abd32bc936
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 72d02cecf37c631e6f8097b220848425c5e1fe9c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382999"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719135"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Creación de una aplicación de Azure IoT Central (características en versión preliminar)
 
@@ -27,32 +27,34 @@ En este inicio rápido se muestra cómo crear una aplicación de Azure IoT Centr
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 
-Vaya al sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral). Luego, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
+Vaya al sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral). Después, inicie sesión con una cuenta Microsoft personal, profesional o educativa.
 
 Para empezar a crear una nueva aplicación de Azure IoT Central, seleccione **New Application** (Nueva aplicación). Este vínculo le lleva a la página **Create an application** (Crear aplicación).
 
-![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central-pnp/iotcentralcreate.png)
+![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central-pnp/iotcentralcreate-pnp.png)
 
 Para crear una aplicación de Azure IoT Central que incluya características en versión preliminar, como IoT Plug and Play, siga estos pasos:
 
 1. Elija un plan de pago:
-   - Las aplicaciones de **versión de prueba** son gratuitas durante siete días y luego expiran. Se pueden convertir a pago por uso en cualquier momento antes. Si crea una aplicación de **evaluación gratuita**, deberá escribir la información de contacto y elegir si desea recibir información y sugerencias de Microsoft.
+   - Las aplicaciones de **versión de prueba** son gratuitas durante siete días y luego expiran. Se pueden convertir a **pago por uso** en cualquier momento antes de que expiren. Si crea una aplicación de **evaluación gratuita**, deberá escribir la información de contacto y elegir si desea recibir información y sugerencias de Microsoft.
    - Las aplicaciones de **Pago por uso** se cobran por dispositivo y los cinco primeros dispositivos son gratuitos. Si crear una aplicación de **pago por uso**, deberá seleccionar su *directorio*, *suscripción de Azure* y *región*:
-      - El *Directorio* es la instancia de Azure Active Directory (AD) para crear la aplicación. Contiene las identidades de usuario, las credenciales y otra información de la organización. Si no tiene un inquilino de Azure AD, se crea uno automáticamente al crearse una suscripción de Azure.
-      - Una *suscripción de Azure* permite crear instancias de los servicios de Azure. IoT Central aprovisionará los recursos de su suscripción. Si no tiene una suscripción de Azure, puede crear una en [la página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción de Azure, vuelva a la página **Crear aplicación**. La nueva suscripción aparecerá en el cuadro de lista desplegable **Suscripción de Azure**.
-      - *Región* es la ubicación física donde desea crear la aplicación. Durante la versión preliminar pública, las únicas regiones disponibles para una **Aplicación de versión preliminar** son **Norte de Europa** y **Centro de EE. UU.** .
+        - El *Directorio* es la instancia de Azure Active Directory (AD) para crear la aplicación. Contiene las identidades de usuario, las credenciales y otra información de la organización. Si no tiene un inquilino de Azure AD, se crea uno automáticamente al crearse una suscripción de Azure.
+        - Una *suscripción de Azure* permite crear instancias de los servicios de Azure. IoT Central aprovisionará los recursos de su suscripción. Si no tiene una suscripción de Azure, puede crear una en [la página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción de Azure, vuelva a la página **Crear aplicación**. La nueva suscripción aparecerá en el cuadro de lista desplegable **Suscripción de Azure**.
+        - *Región* es la ubicación física donde desea crear la aplicación. Normalmente, se debe elegir la región más cercana físicamente a los dispositivos a fin de obtener un rendimiento óptimo. Durante la versión preliminar pública, las únicas regiones disponibles para una **Aplicación de versión preliminar** son **Norte de Europa** y **Centro de EE. UU.** . Una vez que elija una región, no podrá mover la aplicación a otra región más adelante.
 
-      Obtenga más información sobre los precios en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+        Obtenga más información sobre los precios en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-1. Elija un nombre de aplicación descriptivo, como **Contoso IoT**. Azure IoT Central genera un prefijo de dirección URL único. Puede cambiar este prefijo de dirección URL por algo más fácil de recordar.
+1. Seleccione la plantilla **Preview application** (Aplicación de versión preliminar). Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar.
 
-1. Elija la plantilla **Preview application** (Aplicación de versión preliminar). Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar.
+1. Azure IoT Central sugiere automáticamente un nombre de aplicación basado en la plantilla de aplicación que ha seleccionado. Puede aceptar este nombre o escribir su propio nombre descriptivo de aplicación, como **Contoso IoT**. Azure IoT Central también genera un prefijo de dirección URL único, en función del nombre de la aplicación. Cambiar si lo desea este prefijo de dirección URL por algo más fácil de recordar.
+
+1. Rellene la información adicional necesaria para el plan de pago que seleccionó anteriormente en el paso 1.
 
 1. En la parte inferior de la página, seleccione **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado una aplicación de IoT Central que usa las características en versión preliminar. El siguiente paso que le sugerimos es:
+En este inicio rápido, ha creado una aplicación de IoT Central que usa las características en versión preliminar. Este es el siguiente paso que le sugerimos:
 
 > [!div class="nextstepaction"]
 > [Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

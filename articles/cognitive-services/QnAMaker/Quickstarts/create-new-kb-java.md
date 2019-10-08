@@ -8,20 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 06e2a772bfad7b1964f813a6cb6266efe61c6ccf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c5a1af0b26f30cac39a76c4480848fbe1d75477b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206858"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803114"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Java
 
 Esta guía de inicio rápido describe la creación mediante programación de una base de conocimiento de QnA Maker de ejemplo. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/data-sources-supported.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API.
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Go 1.10.1](https://golang.org/dl/)
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal.
+
+El [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) está disponible en el repositorio de GitHub para QnA Maker con Java.
 
 ## <a name="create-a-knowledge-base-file"></a>Creación de un archivo de base de conocimiento
 
@@ -34,7 +43,11 @@ En la parte superior de `CreateKB.java`, agregue las líneas siguientes para agr
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Incorporación de las constantes necesarias
-Después de agregar las dependencias necesarias anteriores, agregue las constantes necesarias a la clase `CreateKB` para acceder a QnA Maker. Sustituya el valor de la variable `subscriptionKey` por su propia clave de QnA Maker. No es necesario agregar la última llave para finalizar la clase; se encuentra en el fragmento de código final al final de esta guía de inicio rápido.
+Después de agregar las dependencias necesarias anteriores, agregue las constantes necesarias a la clase `CreateKB` para acceder a QnA Maker. 
+
+Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** en Azure Portal en el recurso de QnA Maker. 
+
+No es necesario agregar la última llave para finalizar la clase; se encuentra en el fragmento de código final al final de esta guía de inicio rápido.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859271"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703295"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Inicio rápido:  Implementación de una aplicación de Java en Azure Service Fabric con Linux
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido se explica cómo implementar la primera aplicaci
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores.
 
-![Captura de pantalla de la aplicación](./media/service-fabric-quickstart-java/votingapp.png)
+![Ejemplo de votación de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
@@ -62,22 +62,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     El inicio del clúster local tarda algún tiempo. Para confirmar que el clúster está totalmente operativo, acceda a Service Fabric Explorer en **http://localhost:19080** . Los cinco nodos con estado correcto indican que el clúster local está en funcionamiento.
 
-    ![Estado correcto del clúster local](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Azure Service Fabric Explorer muestra nodos correctos](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Abra Eclipse.
 3. Seleccione **Archivo** > **Importar** > **Gradle** > **Existing Gradle Project (Proyecto existente de Gradle)** y siga los pasos del asistente.
 4. Seleccione **Directorio** y elija el directorio `Voting` de la carpeta `service-fabric-java-quickstart` que clonó de GitHub. Seleccione **Finalizar**.
 
-    ![Cuadro de diálogo de importación de Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Importación de un proyecto de Gradle en Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Ahora tiene el proyecto `Voting` en el Explorador de paquetes para Eclipse.
 6. Haga clic con el botón derecho en el proyecto y seleccione **Publish Application** (Publicar aplicación) en el menú desplegable **Service Fabric**. Elija **PublishProfiles/Local.json** como el perfil de destino y seleccione **Publish** (Publicar).
 
-    ![Cuadro de diálogo local Publicar](./media/service-fabric-quickstart-java/localjson.png)
+    ![Publicación de JSON local en Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. Abra el explorador web favorito y acceda a la aplicación a través de `http://localhost:8080`.
 
-    ![Front-end local de la aplicación](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Host local de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 Ahora puede agregar una serie de opciones de votación y empezar a recibir votos. La aplicación se ejecuta y almacena todos los datos en el clúster de Service Fabric, sin necesidad de una base de datos independiente.
 
@@ -92,14 +92,14 @@ Para escalar el servicio front-end web, realice estas operaciones:
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `https://localhost:19080`.
 2. Seleccione el botón de puntos suspensivos ( **...** ) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
-    ![Escalar servicio de Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Escalado de un servicio de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     Ahora puede escalar el número de instancias del servicio front-end web.
 
 3. Cambie el número a **2** y seleccione **Scale Service** (Escalar servicio).
 4. Seleccione el nodo **fabric:/Voting/VotingWeb** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
 
-    ![Escalar servicio de Service Fabric Explorer completado](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Servicio escalado en Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     Ahora puede ver que el servicio tiene dos instancias, y en la vista de árbol verá en qué nodos se ejecutan las instancias.
 

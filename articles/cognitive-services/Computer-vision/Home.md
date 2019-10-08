@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967053"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719537"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
-El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información. Para analizar una imagen, puede cargarla o especificar la dirección URL de la misma. Los algoritmos de procesamiento de imágenes pueden analizar el contenido de diferentes formas, en función de las características visuales que le interesen a usted. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido explícito o para adultos, o puede buscar todos los rostros en una imagen.
+El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información. Para analizar una imagen, puede cargarla o especificar la dirección URL de la misma. Los algoritmos de procesamiento de imágenes pueden analizar el contenido de diferentes formas, en función de las características visuales que le interesen a usted. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido para adultos o buscar todos los rostros en una imagen.
 
 Puede usar Computer Vision en la aplicación mediante el uso de un SDK nativo o invocar la API REST directamente. Esta página cubre ampliamente lo que puede hacer con Computer Vision.
 
@@ -52,7 +52,7 @@ También puede usar la API de [reconocimiento óptico de caracteres (OCR)](conce
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 
-Puede usar Computer Vision para [detectar contenido explícito y para adultos](concept-detecting-adult-content.md) en una imagen y devolver una puntuación de confianza para ambos. Puede establecer el filtro para la detección de contenido para adultos o subido de tono en una escala deslizante con el fin de que pueda ajustarlo a sus preferencias.
+Puede usar Computer Vision para [detectar contenido para adultos](concept-detecting-adult-content.md) en una imagen y devolver puntuaciones de confianza en las distintas clasificaciones. El umbral para el etiquetado de contenido se puede establecer en una escala deslizante, con el fin de que pueda ajustarlo a sus preferencias.
 
 ## <a name="use-containers"></a>Uso de contenedores
 
@@ -75,6 +75,6 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 Introducción a Computer Vision, con una guía de inicio rápido:
 
-- [Inicio rápido: SDK de .NET para Computer Vision](quickstarts-sdk/csharp-sdk.md)
+- [Inicio rápido: SDK de Computer Vision para .NET](quickstarts-sdk/csharp-sdk.md)
 - [Inicio rápido: SDK de Python para Computer Vision](quickstarts-sdk/python-sdk.md)
 - [Inicio rápido: SDK de Java para Computer Vision](quickstarts-sdk/java-sdk.md)

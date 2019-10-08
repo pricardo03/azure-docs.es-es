@@ -1,41 +1,40 @@
 ---
 title: 'Inicio rápido: Síntesis de voz en Unity (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
-description: Use esta guía para crear una aplicación de conversión de texto a voz con Unity y SDK de Voz para Unity (Beta). Cuando termine, puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo.
+description: Use esta guía para crear una aplicación de conversión de texto a voz con Unity y el SDK de Voz para Unity. Cuando termine, puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be5f07b8ea58d0d62c70e0e9dc8ab187ce4a0f63
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553619"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803199"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Inicio rápido: Síntesis de voz con el SDK de Voz para Unity (Beta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity"></a>Inicio rápido: Síntesis de Voz con el SDK de voz para Unity
 
 También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-csharp-unity.md).
 
-Use esta guía para crear una aplicación de conversión de texto a voz con [Unity](https://unity3d.com/) y Speech SDK para Unity (Beta).
+Use esta guía para crear una aplicación de conversión de texto a voz mediante [Unity](https://unity3d.com/) y el SDK de Voz para Unity.
 Cuando termine, puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo.
 Si no está familiarizado con Unity, se recomienda que consulte el [manual del usuario de Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de iniciar el desarrollo de aplicaciones.
 
 > [!NOTE]
-> El SDK de Voz para Unity está actualmente en versión beta.
-> Es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64) y Android (x86, ARM32/64).
+> Es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64), Android (x86, ARM32/64) e iOS (simulador de x64, ARM32 y ARM64).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este proyecto necesitará lo siguiente:
 
 * [Unity 2018.3 o posterior](https://store.unity.com/) con [Unity 2019.1 que agrega soporte para UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obtener soporte de ARM64, instale las [herramientas de compilación opcionales para ARM64 y el SDK de Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/). 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). La versión 15.9 o posterior de Visual Studio 2017 también es aceptable.
+* Para obtener compatibilidad con Windows ARM64, instale las [herramientas de compilación opcionales para ARM64 y el SDK de Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Una clave de suscripción para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Creación de un proyecto de Unity

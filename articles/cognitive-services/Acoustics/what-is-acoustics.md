@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390304"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351135"
 ---
 # <a name="what-is-project-acoustics"></a>¿Qué son los elementos acústicos de un proyecto?
 Project Acoustics es un motor de acústica de ondas para experiencias interactivas en 3D. Modela los efectos de onda como los de oclusión, portaling y reverberación en escenas complejas sin necesidad de marcado manual de la zona o de trazado de rayos que usan mucho la CPU. También incluye la integración de middleware de audio y motor de juego. La idea detrás de Project Acoustics es similar a la iluminación estática: simular mediante "bake" y sin conexión, características físicas en detalle para proporcionar una base de referencia física y usar un tiempo de ejecución ligero con controles de diseño expresivo para lograr objetivos artísticos para el mundo virtual.
@@ -31,7 +31,7 @@ La innovación clave de Project Acoustics es que une la simulación acústica ba
 ![Animación que muestra un sector horizontal 2D de propagación de onda a través de una escena](media/wave-simulation.gif)
 
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Presentación en vídeo de GDC 2019 (~ 30 min)
-[![Vídeo de Project Acoustics](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Haga clic para reproducir vídeo")
+[![Vídeo acerca de Project Acoustics](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Haga clic para reproducir vídeo")
 
 ## <a name="setup"></a>Configuración
 [Integración de Project Acoustics con Unitiy](unity-integration.md) es un recurso de arrastrar y colocar, e incluye un complemento de motor de audio de Unity. Aumente los controles de origen de audio de Unity adjuntando un componente de controles C# de Project Acoustics a cada objeto de audio.
@@ -58,11 +58,10 @@ El complemento del editor Project Acoustics está disponible para las plataforma
 ## <a name="download"></a>Descargar
 * [Complementos y muestras de Project Acoustics para Unity](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Complementos y muestras de Project Acoustics para Unreal y Wwise](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Para los archivos binarios de Xbox y soporte técnico, póngase en contacto con nosotros mediante el formulario de registro a continuación
+  * Para obtener los archivos binarios de Xbox y realizar otras labores de soporte técnico, póngase en contacto con nosotros mediante el [foro](https://github.com/microsoft/ProjectAcoustics/issues).
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 * [Debate sobre Project Acoustics e informes de problemas](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Regístrese para recibir las actualizaciones sobre Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Pruebe un [Inicio rápido de Project Acoustics para Unity](unity-quickstart.md) o para [Unreal](unreal-quickstart.md)

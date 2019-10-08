@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores, microservicios y Node.js en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8148f7858ac9de458daa1c15220507b0de1bad19
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b53e18d4b759bc86dd0bc8f913e02b9523fb328b
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772638"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815811"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Inicio rápido: Depure e itere con Visual Studio Code y Node.js en Kubernetes con Azure Dev Spaces
 
@@ -24,6 +24,11 @@ En esta guía, aprenderá a:
 - Configurar Azure Dev Spaces con un clúster de Kubernetes administrado en Azure.
 - Desarrollar código de forma iterativa en contenedores con Visual Studio Code.
 - Depurar el código en el espacio de desarrollo de Visual Studio Code.
+
+Azure Dev Spaces también permite depurar e iterar mediante:
+- [Java y Visual Studio Code](quickstart-java.md)
+- [.NET Core y Visual Studio Code](quickstart-netcore.md)
+- [.NET Core y Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,6 +49,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
 
 Use el comando `use-dev-spaces` para habilitar Dev Spaces en el clúster de AKS y siga las indicaciones. El siguiente comando permite habilitar Dev Spaces en el clúster *MyAKS* del grupo *MyResourceGroup* y crea un espacio de desarrollo *predeterminado*.
+
+> [!NOTE]
+> El comando `use-dev-spaces` también instalará la CLI de Azure Dev Spaces si aún no se ha instalado. La CLI de Azure Dev Spaces no se puede instalar en Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

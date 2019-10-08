@@ -7,12 +7,12 @@ ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64f0517eece5efcd928b18c7f040fb88c3c36546
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 35bc0445494c1d72b833eecd9a8e5bec7ab10423
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350786"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM
 
@@ -87,7 +87,7 @@ La funcionalidad de detección y clasificación de datos de seguridad avanzada d
 
 ## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>Acceso remoto AC-17 (1) | Control y supervisión automatizados
 
-Este proyecto le ayuda a supervisar y controlar el acceso remoto mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para supervisar que la depuración remota de la aplicación de Azure App Service está desactivada y para auditar las máquinas virtuales Linux que permiten las conexiones remotas desde cuentas sin contraseñas. Este proyecto también asigna una definición de Azure Policy que le ayuda a supervisar el acceso sin restricciones a las cuentas de almacenamiento. La supervisión de estos indicadores puede ayudarle a garantizar que los métodos de acceso remoto cumplan con la directiva de seguridad.
+Este plano técnico le ayuda a supervisar y controlar el acceso remoto mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para supervisar que la depuración remota de la aplicación Azure App Service está desactivada. El plano técnico también asigna definiciones de directiva que auditan las máquinas virtuales Linux que permiten conexiones remotas desde cuentas sin contraseñas. Además, el plano técnico asigna una definición de Azure Policy que le ayuda a supervisar el acceso sin restricciones a las cuentas de almacenamiento. La supervisión de estos indicadores puede ayudarle a garantizar que los métodos de acceso remoto cumplan con la directiva de seguridad.
 
 - \[Versión preliminar\]: auditoría de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - \[Versión preliminar\]: implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña

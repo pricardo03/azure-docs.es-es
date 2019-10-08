@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/28/2019
-ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 09/25/2019
+ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004054"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828033"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 
@@ -25,44 +25,65 @@ En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en el siguiente tutorial.
+> * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
 > * Cree una VM de Jupyter Notebook basada en la nube que tenga instalado y preconfigurado el SDK de Python de Azure Machine Learning.
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del SDK. Si ya tiene un área de trabajo de Azure Machine Learning, vaya a la [siguiente sección](#azure). En caso contrario, créela ahora.
+Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
+
+Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Creación de un servidor de cuadernos en la nube
+>[!IMPORTANT] 
+> Tome nota del **área de trabajo** y de la **suscripción**. Los necesitará para asegurarse de que crea el experimento en el lugar correcto. 
+
+
+## <a name="azure"></a>Clonación de una carpeta de un cuaderno
 
 En este ejemplo se usa el servidor de cuadernos en la nube en el área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
 
-En el área de trabajo puede crear un recurso en la nube para empezar a trabajar con cuadernos de Jupyter Notebook. Este recurso es una máquina virtual Linux basada en la nube configurada previamente con todo lo necesario para ejecutar Azure Machine Learning.
+Complete los siguientes pasos de configuración y ejecución del experimento en la página de aterrizaje del área de trabajo (versión preliminar), una interfaz consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de aptitud.
 
-1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com/).  Si no está seguro de cómo localizar el área de trabajo en el portal, consulte cómo [encontrar el área de trabajo](how-to-manage-workspace.md#view).
+1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/).
 
-1. En la página del área de trabajo en Azure Portal, seleccione **Máquinas virtuales de Notebook** a la izquierda.
+1. Seleccione la suscripción y el área de trabajo que ha creado.
 
-1. Seleccione **+Nuevo** para crear una máquina virtual de Jupyter Notebook.
+1. Seleccione **Notebooks and Files** (Cuadernos y archivos) en la parte izquierda.
 
-     ![Seleccionar nueva máquina virtual](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
+1. Abra la carpeta **samples** (ejemplos).
 
-1. Proporcione un nombre para la máquina virtual. 
-   + El nombre de la máquina virtual del cuaderno debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el carácter -.  
-   + El nombre también debe ser único en la suscripción de Azure.
+1. Seleccione **"..."** a la derecha de la carpeta **tutorials** (tutoriales) y seleccione **Clone** (Clonar).
 
-1. Seleccione **Crear**. La configuración de la máquina virtual puede tardar un momento.
+    ![Carpeta clonada](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. Espere hasta que el estado cambie a **En ejecución**.
-   Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas virtuales de Notebook** para iniciar la interfaz web de Jupyter.
+1. Se muestra una carpeta para cada usuario que accede al área de trabajo.  Seleccione la carpeta donde se va a clonar la carpeta **tutorial**.
 
-1. Seleccione **Jupyter** en la columna **URI** de la máquina virtual.
+## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Selección de una máquina virtual para ejecutar el cuaderno
 
-    ![Iniciar el servidor de Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+1. En **User files** (Archivos de usuario), abra su carpeta y, después, la carpeta clonada **tutorials** (tutoriales).
 
-   El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
+    ![Apertura de la carpeta tutorials (tutoriales)](media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+
+    > [!IMPORTANT]
+    > Puede ver los cuadernos en la carpeta **samples** (ejemplos), pero no puede ejecutar un cuaderno desde aquí.  Para ejecutar un cuaderno, asegúrese de que abre la versión clonada del cuaderno en la sección **User Files** (Archivos de usuario).
+    
+1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials** (tutoriales).
+
+1. En la barra superior, seleccione una máquina virtual de Notebook para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con todo lo necesario para ejecutar Azure Machine Learning. Puede seleccionar una máquina virtual creada por cualquier usuario del área de trabajo. 
+
+1. Si no encuentra ninguna máquina virtual, seleccione **+ New VM** (+ Nueva VM) para crearla.
+
+    ![Crear una VM](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+
+    1. Al crear una máquina virtual, proporciónele un nombre;  este debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el guion (-), y también deben ser únicos en toda la suscripción de Azure.
+
+    1. Seleccione **Crear**. La configuración de la máquina virtual puede tardar aproximadamente 5 minutos.
+
+1. Una vez disponible, se mostrará en la barra de herramientas superior.  Ahora puede ejecutar el cuaderon con **Run all** (Ejecutar todo) de la barra de herramientas o **Mayús + Entrar** en las celdas de código del cuaderno.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

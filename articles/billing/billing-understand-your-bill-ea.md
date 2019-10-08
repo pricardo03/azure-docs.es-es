@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326946"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -31,7 +31,7 @@ Esta sección no se aplica a los clientes de Azure en Australia, Japón ni Singa
 Recibe una factura de Azure cuando se produce alguno de estos eventos durante el ciclo de facturación:
 
 - **Uso por encima del límite del servicio**: los gastos por uso de la organización superan el saldo de crédito.
-- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios independientemente del saldo de crédito:
+- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios a pesar del saldo de crédito:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -43,7 +43,7 @@ Recibe una factura de Azure cuando se produce alguno de estos eventos durante el
     - Visual Studio Enterprise (anual)
     - Visual Studio Professional (mensual)
     - Visual Studio Professional (anual)
-- **Cargos de Marketplace**: las compras y el uso de Azure Marketplace no están incluidos en el crédito de la organización. Por lo tanto, los cargos de Marketplace se le facturan independientemente del saldo de crédito. En Enterprise Portal, un administrador de Enterprise puede habilitar y deshabilitar las compras de Marketplace.
+- **Cargos de Marketplace**: las compras y el uso de Azure Marketplace no están incluidos en el crédito de la organización. Por lo tanto, los cargos de Marketplace se le facturan a pesar del saldo de crédito. En Enterprise Portal, un administrador de Enterprise puede habilitar y deshabilitar las compras de Marketplace.
 
 ## <a name="review-charges-for-most-customers"></a>Revisión de cargos para la mayoría de los clientes
 Esta sección no se aplica a los clientes de Azure en Australia, Japón ni Singapur. Si está en uno de esos países, consulte [Revisión de cargos para otros clientes](#review-charges-for-other-customers).
@@ -56,7 +56,7 @@ Compare el importe total combinado que se muestra en Enterprise Portal en **Info
 
 1. Inicie sesión en [Enterprise Portal](https://ea.azure.com).
 1. Seleccione **Informes**.
-1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de tiempo de la factura.  
+1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de la factura.  
     ![Captura de pantalla que muestra la opción M + C en Resumen de uso](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png).
 1. El importe combinado del **uso total** y **Azure Marketplace** debe coincidir con el **importe total extendido** en la factura.
 1. Para más detalles sobre los cargos, vaya a **Descarga del uso**.  
@@ -69,7 +69,7 @@ Esta sección solo se aplica a los clientes de Azure en Australia, Japón o Sing
 Recibirá una o más facturas de Azure cuando se produzcan los siguientes eventos:
 
 - **Uso por encima del límite del servicio**: los gastos por uso de la organización superan el saldo de crédito.
-- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios independientemente del saldo de crédito:
+- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturarán los siguientes servicios:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -97,7 +97,7 @@ Compare el importe total por uso en Enterprise Portal en **Informes** > **Resume
 
 1. Inicie sesión en [Enterprise Portal](https://ea.azure.com).
 1. Seleccione **Informes**.
-1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de tiempo de la factura.  
+1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de la factura.  
     ![Captura de pantalla que muestra la opción M + C en Resumen de uso](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png).
 1. El importe de **Uso total** debe coincidir con el **Importe total extendido** en la factura por un uso por encima del límite del servicio.  
 1. Para más información sobre los gastos, vaya a **Descargar uso** > **Descargar informe avanzado**. El informe no incluye los impuestos ni los gastos por reservas o de Marketplace.  
@@ -121,7 +121,7 @@ Compare el total de Azure Marketplace en **Informes** > **Resumen de uso** en En
 
 1. Inicie sesión en [Enterprise Portal](https://ea.azure.com).
 1. Seleccione **Informes**.
-1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de tiempo de la factura.  
+1. En la esquina superior derecha de la pestaña, cambie la vista de **M** a **C** y haga que coincida con el período de la factura.  
      ![Captura de pantalla que muestra la opción M + C en Resumen de uso.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. El importe total de **Azure Marketplace** debe coincidir con el importe **Total venta** en su factura de Marketplace.
 1. Para más información sobre los gastos basados en el uso, vaya a **Descargar uso**. En **Gastos de Marketplace**, seleccione **Descargar**. Este informe no incluye los impuestos ni las compras únicas.  

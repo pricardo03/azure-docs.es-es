@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 138d3fd74b95fe8d51593fcbb2cedda017e35d80
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202150"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676394"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,8 +72,8 @@ Si el aprovisionamiento automático está habilitado, Security Center instala Mi
 
 Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 
-1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. En la fila de la suscripción, seleccione **Editar configuración>** .
+1. En el menú principal de Security Center, seleccione **Precios y configuración**.
+2. En la fila de la suscripción, haga clic en la suscripción en la que desea cambiar la configuración.
 3. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
 4. Seleccione **Guardar**.
 ---
@@ -86,15 +86,15 @@ Con esta nueva información sobre VM de Azure, Security Center puede proporciona
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
 
-1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. En la fila de la suscripción que desea que vuelva al nivel Gratis, seleccione **Editar configuración >** .
+1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
+2. Haga clic en la suscripción que desea cambiar al nivel gratis.
 3. Seleccione **Plan de tarifa** y **Gratis** para cambiar la suscripción del nivel Estándar a Gratis.
 5. Seleccione **Guardar**.
 
 Si desea deshabilitar el aprovisionamiento automático:
 
-1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. En la fila de la suscripción en que desee deshabilitar el aprovisionamiento automático, seleccione **Editar configuración>** .
+1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
+2. Limpie la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
 3. En la pestaña **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Desactivado**.
 4. Seleccione **Guardar**.
 

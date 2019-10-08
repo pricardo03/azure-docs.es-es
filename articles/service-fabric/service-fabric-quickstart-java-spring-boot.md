@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2aa5879ee3960bd5d26855ac7e7c3e12994ee54e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ec6addb348b8c13f124ec225e056d2003a93c38
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861331"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703517"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Inicio rápido: Creación de una aplicación de Spring Boot de Java en Azure Service Fabric
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido se muestra cómo implementar una aplicación de 
 
 Este tutorial rápido se usa el ejemplo [Getting Started](https://spring.io/guides/gs/spring-boot/) del sitio web de Spring. Al utilizar las conocidas herramientas de línea de comandos, esta guía de inicio rápido le guía a través de la implementación del ejemplo de Spring Boot como una aplicación de Service Fabric. Cuando haya terminado, tendrá el ejemplo Getting Started de Spring Boot funcionando en Service Fabric.
 
-![Captura de pantalla de la aplicación](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+![Ejemplo de Service Fabric de Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
@@ -79,7 +79,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. Escriba la siguiente información para cada mensaje.
 
-    ![Entradas de Yeoman](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
+    ![Entradas de Yeoman de Spring boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
 1. En la carpeta `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code`, cree un archivo llamado `entryPoint.sh`. Agregue al archivo `entryPoint.sh` lo siguiente. 
 
@@ -147,7 +147,7 @@ En este punto, ha creado una aplicación de Service Fabric del ejemplo Getting S
 
     El inicio del clúster local tarda algún tiempo. Para confirmar que el clúster está totalmente operativo, acceda a Service Fabric Explorer en **http://localhost:19080** . Los cinco nodos con estado correcto indican que el clúster local está en funcionamiento. 
     
-    ![Estado correcto del clúster local](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
+    ![Service Fabric Explorer muestra nodos correctos](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
 1. Abra la carpeta `gs-spring-boot/SpringServiceFabric`.
 1. Ejecute el comando siguiente para conectarse a su clúster local.
@@ -161,9 +161,9 @@ En este punto, ha creado una aplicación de Service Fabric del ejemplo Getting S
     ./install.sh
     ```
 
-1. Abra el explorador web que prefiera y acceda a la aplicación a través de `http://localhost:8080`.
+1. Abra el explorador web favorito y acceda a la aplicación a través de `http://localhost:8080`.
 
-    ![Front-end local de la aplicación](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+    ![Ejemplo de Service Fabric de Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Ahora puede acceder a la aplicación de Spring Boot que se implementó en un clúster de Service Fabric.
 
@@ -178,7 +178,7 @@ Para escalar el servicio front-end web, realice estas operaciones:
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
 1. Seleccione los puntos suspensivos ( **...** ) al lado del nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y seleccione **Escalar servicio**.
 
-    ![Escalar servicio de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
+    ![Ejemplo del servicio de escalado de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     Ahora puede escalar el número de instancias del servicio.
 
@@ -196,7 +196,7 @@ Para escalar el servicio front-end web, realice estas operaciones:
 
 1. Seleccione el nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
 
-    ![Escalar servicio de Service Fabric Explorer completado](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
+    ![Escalar servicio de Service Fabric Explorer completado](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
 
     El servicio tiene tres instancias y la vista de árbol muestra en qué nodos se ejecutan las instancias.
 
@@ -209,10 +209,10 @@ Para demostrar la conmutación por error del servicio, se simula un reinicio del
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
 1. Seleccione los puntos suspensivos ( **...** ) junto al nodo que ejecuta la instancia del servicio y reinicie el nodo.
 
-    ![Reinicio del nodo de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+    ![Reinicio del nodo de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. La instancia del servicio se moverá a otro nodo y la aplicación no tendrá ningún tiempo de inactividad.
 
-    ![Reinicio del nodo de Service Fabric Explorer completado](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
+    ![Reinicio del nodo de Service Fabric Explorer correcto](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

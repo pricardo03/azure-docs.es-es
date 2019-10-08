@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: f50d784b7518bd01a3a0069cb474296d359420a8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200065"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677845"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -21,6 +21,7 @@ Empiece a trabajar con la instancia de Data Science Virtual Machine para Ubuntu.
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para crear una instancia de Microsoft Data Science Virtual Machine, debe tener una suscripción de Azure. [Pruebe Azure gratis](https://azure.com/free).
+Tenga en cuenta que las cuentas gratuitas de Azure no admiten los SKU de máquinas virtuales habilitadas para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creación de la instancia de Data Science Virtual Machine para Linux
 

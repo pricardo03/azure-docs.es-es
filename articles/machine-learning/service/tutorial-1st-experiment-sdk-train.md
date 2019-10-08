@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004036"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828028"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -35,21 +35,15 @@ El único requisito previo es ejecutar la parte primera de este tutorial, [Confi
 
 En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experiment-sdk-train.ipynb` en el cuaderno de Jupyter Notebook de ejemplo que se abrió al final de la parte uno. Este artículo le guía a través del mismo código que se encuentra en el cuaderno.
 
-## <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
+## <a name="open-the-notebook"></a>Apertura del cuaderno
 
-1. En la página del área de trabajo en Azure Portal, seleccione **Máquinas virtuales de Notebook** a la izquierda.
+1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/).
 
-1. Seleccione **Jupyter** en la columna**URI** de la máquina virtual que creó en la primera parte de este tutorial.
+1. Abra **tutorial-1st-experiment-sdk-train.ipynb** en la carpeta, tal y como se muestra en la [primera parte](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Iniciar el servidor de Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-   El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual. Cada usuario del área de trabajo debe crear su propia máquina virtual.
-
-1. En la página web de Jupyter Notebook, seleccione el nombre de la carpeta principal, que tiene su nombre de usuario.  
-
-   Esta carpeta existe en la [cuenta de almacenamiento](concept-workspace.md#resources) del área de trabajo, en lugar de en la propia máquina virtual del cuaderno.  Si elimina la máquina virtual del cuaderno, conservará todo el trabajo.  Cuando cree una máquina virtual de cuaderno más adelante, se cargará esta misma carpeta. Si comparte el área de trabajo con otras personas, estas verán su carpeta y usted las suyas.
-
-1. Abra el subdirectorio `samples-*` y abra el cuaderno de Jupyter Notebook`tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **no** el `.yml`archivo con el mismo nombre. 
+> [!Warning]
+> **No** debe crear un cuaderno *nuevo* en la interfaz de Jupyter. El cuaderno `tutorials/tutorial-1st-experiment-sdk-train.ipynb` incluye **todo código y los datos necesarios** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conexión con el área de trabajo y creación de un experimento
 
@@ -57,7 +51,7 @@ En esta parte del tutorial, ejecutará el código `tutorials/tutorial-1st-experi
 > El resto de este artículo contiene el mismo contenido que se ve en el cuaderno.  
 >
 > Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código. 
-> Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Celda > Ejecutar todo** en el menú superior.
+> Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
 
 Importe la clase `Workspace` y cargue la información de suscripción del archivo `config.json` mediante la función `from_config().`. Esto busca el archivo JSON en el directorio actual de forma predeterminada, pero también puede especificar un parámetro de ruta de acceso para que apunte al archivo utilizando `from_config(path="your/file/path")`. En un servidor de cuadernos en la nube, el archivo se encuentra automáticamente en el directorio raíz.
 

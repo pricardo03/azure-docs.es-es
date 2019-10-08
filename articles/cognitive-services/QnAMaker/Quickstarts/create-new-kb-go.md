@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: a6ee10c998af564630ae1aefd01ec2f4e360abf8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8c96bea6fc55d45a7e2d790f355f6fe19323029d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563049"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803452"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Go
 
@@ -25,10 +25,14 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Creación de una base de conocimiento](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Obtención de los detalles de la operación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Go 1.10.1](https://golang.org/dl/)
-* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal.
+
+El [código de ejemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go) está disponible en el repositorio de GitHub para QnA Maker con Go.
 
 ## <a name="create-a-knowledge-base-go-file"></a>Creación de un archivo de Go de base de conocimiento
 

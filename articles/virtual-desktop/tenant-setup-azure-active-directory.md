@@ -1,22 +1,22 @@
 ---
-title: 'Creación de un inquilino en Windows Virtual Desktop (versión preliminar): Azure'
-description: Se describe cómo configurar los inquilinos de la versión preliminar de Windows Virtual Desktop en Azure Active Directory.
+title: 'Creación de un inquilino en Windows Virtual Desktop: Azure'
+description: Se describe cómo configurar los inquilinos de Windows Virtual Desktop en Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 04a65442e86168239f08fb71303b8d9e9e152e72
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734463"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679469"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop (versión preliminar)
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop
 
-Crear un inquilino en la versión preliminar de Windows Virtual Desktop es el primer paso hacia la compilación de su primera solución de virtualización de escritorio. Un inquilino es un grupo de uno o varios grupos host. Cada grupo host se compone de varios hosts de sesión, que se ejecutan como máquinas virtuales en Azure y que están registrados en el servicio Windows Virtual Desktop. Cada grupo host consta también de uno o varios grupos de aplicaciones que se usan para publicar recursos del escritorio remoto y de la aplicación remota para los usuarios. Con un inquilino, puede crear grupos host, crear grupos de aplicaciones, asignar usuarios y realizar conexiones en el servicio.
+Crear un inquilino en Windows Virtual Desktop es el primer paso hacia la compilación de la primera solución de virtualización de escritorio. Un inquilino es un grupo de uno o varios grupos host. Cada grupo host se compone de varios hosts de sesión, que se ejecutan como máquinas virtuales en Azure y que están registrados en el servicio Windows Virtual Desktop. Cada grupo host consta también de uno o varios grupos de aplicaciones que se usan para publicar recursos del escritorio remoto y de la aplicación remota para los usuarios. Con un inquilino, puede crear grupos host, crear grupos de aplicaciones, asignar usuarios y realizar conexiones en el servicio.
 
 En este tutorial, aprenderá a:
 
@@ -107,7 +107,7 @@ Para buscar el identificador de suscripción de Azure:
 3. Busque el **identificador de suscripción** y luego mantenga el puntero sobre el valor hasta que aparezca el icono del Portapapeles. Seleccione el icono del Portapapeles y péguelo en una ubicación práctica para que pueda usarlo más adelante como el valor de **AzureSubscriptionId**.
    ![Captura de pantalla de las propiedades de la suscripción de Azure. El puntero se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de suscripción.](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Creación de un inquilino en Windows Virtual Desktop (versión preliminar)
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Creación de un inquilino de Windows Virtual Desktop
 
 Ahora que ha concedido los permisos al servicio Windows Virtual Desktop para consultar Azure Active Directory y le ha asignado el rol TenantCreator a una cuenta de usuario, puede crear un inquilino de Windows Virtual Desktop.
 

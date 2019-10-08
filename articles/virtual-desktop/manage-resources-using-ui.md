@@ -1,25 +1,25 @@
 ---
 title: 'Implementación de una herramienta de administración: Azure'
-description: Cómo instalar una herramienta de interfaz de usuario para administrar los recursos de la versión preliminar de Windows Virtual Desktop.
+description: Cómo instalar una herramienta de interfaz de usuario para administrar los recursos de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816511"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679488"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
 
-La herramienta de administración proporciona una interfaz de usuario para administrar recursos de la versión preliminar de Microsoft Virtual Desktop. En este tutorial, obtendrá información sobre cómo implementar y conectarse a la herramienta de administración.
+La herramienta de administración proporciona una interfaz de usuario para administrar los recursos de Microsoft Virtual Desktop. En este tutorial, obtendrá información sobre cómo implementar y conectarse a la herramienta de administración.
 
 >[!NOTE]
->Estas instrucciones son específicas de una configuración de Windows Virtual Desktop, versión preliminar, concreta que se puede usar con los procesos existentes de su organización.
+>Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 ## <a name="important-considerations"></a>Consideraciones importantes
 

@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309636"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345539"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -94,11 +94,11 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 > 1. Extraiga el archivo ZIP y abra el proyecto en XCode.
 > 1. Edite **ViewController.swift** y reemplace la línea que empieza con "let kClientID" por el siguiente fragmento de código: No olvide actualizar el valor de `kClientID` con el identificador de cliente que guardó al registrar la aplicación en el portal anteriormente en el inicio rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra la configuración del proyecto. En la sección **Identidad**, escriba el **identificador de agrupación** que especificó en el portal.
 > 1. Solo en iOS, haga clic con el botón derecho en **Info.plist** y seleccione **Abrir como** > **Código fuente**.
-> 1. Solo en iOS, en el nodo raíz dict, reemplace `Enter_the_bundle_Id_Here` por el ***identificador de agrupación*** que escribió en el portal.
+> 1. Solo en iOS, en el nodo raíz dict, reemplace `CFBundleURLSchemes` por el valor de ***Id. de agrupación*** que escribió en el portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,7 +120,7 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 > 1. Extraiga el archivo ZIP y abra el proyecto en XCode.
 > 1. Edite **ViewController.swift** y reemplace la línea que empieza con "let kClientID" por el siguiente fragmento de código: No olvide actualizar el valor de `kClientID` con el identificador de cliente que guardó al registrar la aplicación en el portal anteriormente en este inicio rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra la configuración del proyecto. En la sección **Identidad**, escriba el **identificador de agrupación** que especificó en el portal.
 > 1. Solo en iOS, haga clic con el botón derecho en **Info.plist** y seleccione **Abrir como** > **Código fuente**.

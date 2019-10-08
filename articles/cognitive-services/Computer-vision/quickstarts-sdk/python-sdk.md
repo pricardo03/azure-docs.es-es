@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967001"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719493"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Computer Vision para Python
 
@@ -64,7 +64,7 @@ A continuación, cree variables para el punto de conexión y la clave de Azure d
 Puede instalar la biblioteca cliente con lo siguiente:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>Modelo de objetos
@@ -128,7 +128,7 @@ El código siguiente detecta objetos comunes en la imagen y los imprime en la co
 
 El código siguiente detecta marcas corporativas y logotipos en la imagen y los imprime en la consola. Consulte [Detección de marcas](../concept-brand-detection.md) para más información.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Detección de caras
 
@@ -136,9 +136,9 @@ El código siguiente devuelve las caras detectadas en la imagen con sus coordena
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>Detección de contenido para adultos o subido de tono
+### <a name="detect-adult-racy-or-gory-content"></a>Detección de contenido para adultos, explícito o sangriento
 
-El código siguiente imprime la presencia detectada de contenido para adultos o subido de tono en la imagen. Consulte [Contenido para adultos o subido de tono](../concept-detecting-adult-content.md) para más detalles.
+El siguiente código imprime la presencia detectada de contenido para adultos en la imagen. Para más información, consulte [Contenido para adultos, subido de tono y sangriento](../concept-detecting-adult-content.md).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

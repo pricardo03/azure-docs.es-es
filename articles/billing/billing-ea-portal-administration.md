@@ -4,16 +4,16 @@ description: En este artículo se explican las tareas comunes que un administrad
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105479"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308104"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -31,7 +31,7 @@ Cuando se agregan nuevos propietarios de la cuenta a una inscripción del Contra
 
 Cuando un administrador de Contrato Enterprise de Azure crea un departamento, el administrador puede agregar administradores de departamento y asociar cada uno de ellos a un departamento. Un administrador de departamento puede crear nuevas cuentas. Se necesitan nuevas cuentas para que se creen las suscripciones del Contrato Enterprise de Azure.
 
-Para más información sobre cómo agregar un departamento, consulte la sección sobre creación de un departamento del Contrato Enterprise de Azure.
+Para más información sobre cómo agregar un administrador de departamento, consulte [Creación de un administrador de departamento del Contrato Enterprise de Azure](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## <a name="enterprise-user-roles"></a>Roles de los usuarios de empresa
 
@@ -124,8 +124,8 @@ No hay ningún tiempo de inactividad durante la transferencia de la cuenta. Se p
 
 Al solicitar una transferencia de inscripciones, proporcione la siguiente información:
 
-- Para la inscripción de origen, el número de inscripción y la cuenta que se va a transferir
-- Para la inscripción de destino, el número de inscripción al que se va a transferir
+- Para la inscripción de origen, el número de inscripción y la cuenta que se va a transferir.
+- Para la inscripción de destino, el número de inscripción al que se va a transferir.
 - Para la fecha de vigencia de la transferencia de inscripción, puede ser la fecha de inicio de la inscripción de destino o después de ella. La fecha elegida no puede afectar al uso de ninguna factura por uso por encima del límite ya emitida.
 
 Otros puntos que hay que tener en cuenta antes de una transferencia de inscripciones:
@@ -208,7 +208,7 @@ Si un usuario no recibe una notificación, compruebe que la configuración de no
 6. Agregue un contacto, si es necesario, y haga clic en **Add** (Agregar).
 7. Haga clic en **Save**(Guardar).
 
-![Ejemplo que muestra la opción de agregar un contacto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Ejemplo que muestra el cuadro Agregar contacto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta Patrocinio de Azure
 La oferta Patrocinio de Azure es una cuenta de Microsoft Azure patrocinada limitada. Está disponible solo mediante invitación por correo electrónico a clientes limitados seleccionados por Microsoft. Si es apto para la oferta Patrocinio de Microsoft Azure, recibirá una invitación por correo electrónico a su identificador de cuenta.

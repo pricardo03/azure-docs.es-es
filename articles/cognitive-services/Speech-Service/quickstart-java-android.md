@@ -10,19 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559497"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803316"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
+
+También hay inicios rápidos disponibles para la [síntesis de voz](quickstart-text-to-speech-java-android.md) y el [Asistente virtual por voz](quickstart-virtual-assistant-java-android.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, aprenderá a desarrollar una aplicación Java en Android mediante el SDK de Voz de Cognitive Services para convertir voz en texto.
-La aplicación se basa en el paquete de Maven del SDK de Voz, versión 1.6.0, y en Android Studio 3.3.
+La aplicación se basa en el paquete Maven del SDK de Voz y en Android Studio 3.3.
 El SDK de Voz es compatible actualmente con dispositivos Android que tienen procesadores ARM de 32 o 64 bits o Intel x86 o x64.
 
 > [!NOTE]

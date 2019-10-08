@@ -1,22 +1,22 @@
 ---
-title: 'Creación de entidades de servicio de la versión preliminar de Windows Virtual Desktop y de asignaciones de roles con PowerShell: Azure'
-description: Creación de entidades de servicio y asignación de roles con PowerShell en la versión preliminar de Windows Virtual Desktop.
+title: 'Creación de entidades de servicio de Windows Virtual Desktop y de asignaciones de roles con PowerShell: Azure'
+description: Creación de entidades de servicio y asignación de roles con PowerShell en Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985001"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679632"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
-Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En la versión preliminar de Windows Virtual Desktop, puede crear una entidad de servicio para:
+Las entidades de servicio son identidades que puede crear en Azure Active Directory para asignar roles y permisos para un propósito específico. En Windows Virtual Desktop puede crear una entidad de servicio para:
 
 - Automatizar tareas de administración específicas de Windows Virtual Desktop.
 - Usarla como credenciales en lugar de los usuarios necesarios para la autenticación multifactor al ejecutar cualquier plantilla de Azure Resource Manager para Windows Virtual Desktop.

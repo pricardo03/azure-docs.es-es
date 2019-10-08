@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553666"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803238"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Inicio rápido: Conversión de texto a voz con Python
 
@@ -101,7 +101,7 @@ A continuación, deberá agregar los encabezados necesarios para la solicitud. A
 A continuación, cree el cuerpo de solicitud mediante el lenguaje de marcado de síntesis de voz (SSML). Este ejemplo define la estructura y usa la entrada `tts` que creó anteriormente.
 
 >[!NOTE]
-> Este ejemplo se utiliza la fuente de voz `ZiraRUS`. Para obtener una lista completa de los idiomas y las voces que proporciona Microsoft, consulte [Compatibilidad con idiomas](language-support.md).
+> Este ejemplo se utiliza la fuente de voz `Guy24KRUS`. Para obtener una lista completa de los idiomas y las voces que proporciona Microsoft, consulte [Compatibilidad con idiomas](language-support.md).
 > Si está interesado en crear una voz única y reconocible para su marca, vea [Crear fuentes de voz personalizada](how-to-customize-voice-font.md).
 
 Por último, deberá realizar una solicitud al servicio. Si la solicitud es correcta y se devuelve un código de estado 200, la respuesta de voz se escribe en un archivo con marca de tiempo.
@@ -173,5 +173,6 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 ## <a name="see-also"></a>Otras referencias
 
 * [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Uso de Python y el SDK de Voz para convertir texto a voz](quickstart-text-to-speech-python.md)
 * [Crear fuentes de voz personalizada](how-to-customize-voice-font.md)
 * [Grabación de muestras de voz para crear una voz personalizada](record-custom-voice-samples.md)

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338498"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Inicio del Lector inmersivo (Node.js)
 
@@ -68,7 +68,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Una vez que tenga estos valores, cree un nuevo archivo llamado _.env_ y pegue el siguiente código en él, proporcionando sus valores de propiedad personalizados desde arriba.
+Una vez que tenga estos valores, cree un nuevo archivo llamado _.env_ y pegue el siguiente código en él, proporcionando sus valores de propiedad personalizados desde arriba. No incluya comillas ni los caracteres "{" y "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -85,44 +85,50 @@ Después, abra el archivo _app.js_ y agregue lo siente en la parte superior. Est
 require('dotenv').config();
 ```
 
-Abra el archivo _routes\index.js_ y agregue el código siguiente en la parte superior del archivo:
+Abra el archivo _routes\index.js_y reemplace su contenido por el código siguiente.
+
+Este código crea un punto de conexión de la API que adquiere un token de autenticación de Azure AD mediante la contraseña de la entidad de servicio. También recupera el subdominio. Luego, devuelve un objeto que contiene el token y el subdominio.
 
 ```javascript
 var request = require('request');
-```
+var express = require('express');
+var router = express.Router();
 
-Después, agregue el código siguiente directamente después de esa línea. Este código crea un punto de conexión de la API que adquiere un token de autenticación de Azure AD mediante la contraseña de la entidad de servicio y, a continuación, devuelve dicho token. También hay un segundo punto de conexión para recuperar el subdominio.
-
-```javascript
-router.get('/getimmersivereadertoken', function(req, res) {
-  request.post ({
-          headers: {
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
-          form: {
-              grant_type: 'client_credentials',
-              client_id: process.env.CLIENT_ID,
-              client_secret: process.env.CLIENT_SECRET,
-              resource: 'https://cognitiveservices.azure.com/'
-          }
-      },
-      function(err, resp, token) {
-          if (err) {
-              return res.status(500).send('CogSvcs IssueToken error');
-          }
-
-          return res.send(JSON.parse(token).access_token);
-      }
+router.get('/getimmersivereaderlaunchparams', function(req, res) {
+    request.post ({
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                },
+                url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+                form: {
+                    grant_type: 'client_credentials',
+                    client_id: process.env.CLIENT_ID,
+                    client_secret: process.env.CLIENT_SECRET,
+                    resource: 'https://cognitiveservices.azure.com/'
+                }
+        },
+        function(err, resp, tokenResponse) {
+                if (err) {
+                    return res.status(500).send('CogSvcs IssueToken error');
+                }
+        
+                const token = JSON.parse(tokenResponse).access_token;
+                const subdomain = process.env.SUBDOMAIN;
+                return res.send({token: token, subdomain: subdomain});
+        }
   );
 });
-
-router.get('/subdomain', function (req, res) {
-    return res.send(process.env.SUBDOMAIN);
+ 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
+
+module.exports = router;
+
 ```
 
-El punto de conexión de la API **getimmersivereadertoken** debe estar protegido mediante algún tipo de autenticación (por ejemplo, [OAuth](https://oauth.net/2/)) para evitar que usuarios no autorizados obtengan tokens para utilizarlos contra el servicio Lector inmersivo y su facturación; este trabajo está fuera del ámbito de este tutorial.
+El punto de conexión de la API **getimmersivereaderlaunchparams** debe estar protegido mediante algún tipo de autenticación (por ejemplo, [OAuth](https://oauth.net/2/)) para evitar que usuarios no autorizados obtengan tokens para utilizarlos contra el servicio Lector inmersivo y su facturación; este trabajo está fuera del ámbito de este tutorial.
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar el Lector inmersivo con contenido de muestra
 
@@ -139,52 +145,42 @@ El punto de conexión de la API **getimmersivereadertoken** debe estar protegido
     extends layout
 
     block content
-      h2(id='title') Geography
-      p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-      div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
-      script.
-
-        function getImmersiveReaderTokenAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/getimmersivereadertoken',
-                    type: 'GET',
-                    success: token => {
-                        resolve(token);
-                    },
-                    error: err => {
-                        console.log('Error in getting token!', err);
-                        reject(err);
-                    }
-                });
-            });
-        }
-
-        function getSubdomainAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/subdomain',
-                    type: 'GET',
-                    success: subdomain => { resolve(subdomain); },
-                    error: err => { reject(err); }
-                });
-            });
-        }
-
-        async function launchImmersiveReader() {
-            const content = {
-                title: document.getElementById('title').innerText,
-                chunks: [{
-                    content: document.getElementById('content').innerText + '\n\n',
-                    lang: 'en'
-                }]
-            };
-
-            const token = await getImmersiveReaderTokenAsync();
-            const subdomain = await getSubdomainAsync();
-
-            ImmersiveReader.launchAsync(token, subdomain, content);
-        }
+          h2(id='title') Geography
+          p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+          div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
+          script.
+        
+            function getImmersiveReaderLaunchParamsAsync() {
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                                url: '/getimmersivereaderlaunchparams',
+                                type: 'GET',
+                                success: data => {
+                                        resolve(data);
+                                },
+                                error: err => {
+                                        console.log('Error in getting token and subdomain!', err);
+                                        reject(err);
+                                }
+                        });
+                    });
+            }
+        
+            async function launchImmersiveReader() {
+                    const content = {
+                            title: document.getElementById('title').innerText,
+                            chunks: [{
+                                    content: document.getElementById('content').innerText + '\n\n',
+                                    lang: 'en'
+                            }]
+                    };
+            
+                    const launchParams = await getImmersiveReaderLaunchParamsAsync();
+                    const token = launchParams.token;
+                    const subdomain = launchParams.subdomain;
+            
+                    ImmersiveReader.launchAsync(token, subdomain, content);
+            }
     ```
 
 3. Nuestra aplicación web ya está lista. Inicie la aplicación; para ello, ejecute:
@@ -220,13 +216,13 @@ El Lector inmersivo es compatible con numerosos lenguajes diferentes. Para espec
 
 De forma predeterminada, el idioma de la interfaz del Lector inmersivo coincide con la configuración de idioma del explorador. También puede especificar el idioma de la interfaz del Lector inmersivo con el código siguiente.
 
-1. En _views\index.pug_, reemplace la llamada a `ImmersiveReader.launchAsync(token, content)` por el código siguiente.
+1. En _views\index.pug_, reemplace la llamada a `ImmersiveReader.launchAsync(token, subdomain, content)` por el código siguiente.
 
     ```javascript
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, content, options);
+    ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
 2. Vaya a _http://localhost:3000_ . Al iniciar el Lector inmersivo, se mostrará la interfaz en francés.

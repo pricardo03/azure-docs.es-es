@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 57249bd2fa4d3c8aefe19a85ec9a2b6b584b00d2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350906"
 ---
 # <a name="azure-storage-samples-using-net"></a>Ejemplos de Azure Storage con .NET
 
@@ -98,5 +98,6 @@ Consulte las guías siguientes si busca instrucciones sobre cómo instalar las b
 Para información sobre ejemplos para otros lenguajes:
 
 * Java: [Azure Storage samples using Java](storage-samples-java.md) (Ejemplos de Azure Storage con Java)
+* JavaScript/Node.js: [Ejemplos de Azure Storage con JavaScript](storage-samples-javascript.md)
 * Python: [Ejemplos de Azure Storage con Python](storage-samples-python.md)
 * El resto de lenguajes: [Ejemplos de Azure Storage](../storage-samples.md)

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100329"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674986"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Información acerca de la administración de máquinas virtuales Windows con Azure PowerShell
 
@@ -235,8 +235,8 @@ En este tutorial, ha creado una imagen de máquina virtual personalizada. Ha apr
 > * Proteger los recursos críticos con bloqueos
 > * Etiquetar recursos para la facturación y la administración
 
-Avance al siguiente tutorial para obtener información sobre máquinas virtuales de alta disponibilidad.
+Pase al siguiente tutorial para aprender a identificar los cambios y administrar las actualizaciones de paquetes en una máquina virtual Linux.
 
 > [!div class="nextstepaction"]
-> [Supervisión de máquinas virtuales](tutorial-monitoring.md)
+> [Administración de máquinas virtuales](tutorial-config-management.md)
 

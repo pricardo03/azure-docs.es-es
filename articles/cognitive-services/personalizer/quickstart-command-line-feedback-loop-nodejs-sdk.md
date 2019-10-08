@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265956"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345251"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Inicio rápido: Personalización de la biblioteca de cliente para Node.js
 
@@ -31,11 +31,21 @@ Introducción a la biblioteca de cliente de Personalizer para Node.js. Siga esto
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* La versión actual de [Node.js](https://nodejs.org).
+* La versión actual de [Node.js](https://nodejs.org) y NPM.
 
-## <a name="setting-up"></a>Instalación
+## <a name="using-this-quickstart"></a>Uso de este inicio rápido
 
-### <a name="create-a-personalizer-azure-resource"></a>Creación de un recurso de Azure para Personalizer
+
+Hay que dar varios pasos para usar este inicio rápido:
+
+* En Azure Portal, cree un recurso de Personalizer
+* En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie la frecuencia de actualización del modelo
+* En un editor de código, cree un archivo de código y edítelo
+* En la línea de comandos o en el terminal, instale el SDK desde la línea de comandos
+* En la línea de comandos o en el terminal, ejecute el archivo de código
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Creación de un recurso de Azure para Personalizer
 
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Personalizer mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
@@ -50,7 +60,7 @@ Después de obtener una clave del recurso o la suscripción de evaluación, cree
 En Azure Portal, los valores de clave y punto de conexión están disponibles en la página **Inicio rápido**.
 
 
-### <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
+## <a name="create-a-new-nodejs-application"></a>Creación de una aplicación Node.js
 
 En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para la aplicación y vaya a él. 
 
@@ -64,7 +74,7 @@ Ejecute el comando `npm init -y` para crear un archivo `package.json`.
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>Instalación de la biblioteca de Node.js para Personalizer
+## <a name="install-the-nodejs-library-for-personalizer"></a>Instalación de la biblioteca de Node.js para Personalizer
 
 Instale la biblioteca cliente de Personalizer para Node.js con el siguiente comando:
 
@@ -78,9 +88,9 @@ Instale los paquetes de NPM restantes para este inicio rápido:
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
+## <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
 
-En el recurso Personalizer de Azure Portal, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) en 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
+En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
 
 ![Cambiar la frecuencia de actualización del modelo](./media/settings/configure-model-update-frequency-settings.png)
 

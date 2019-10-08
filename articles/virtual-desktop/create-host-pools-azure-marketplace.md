@@ -1,22 +1,22 @@
 ---
-title: 'Creación de un grupo de hosts de Windows Virtual Desktop (versión preliminar) con Azure Marketplace: Azure'
-description: Creación de un grupo de hosts de Windows Virtual Desktop (versión preliminar) con Azure Marketplace.
+title: 'Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace: Azure'
+description: Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208387"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676707"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
-Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilinos de Windows Virtual Desktop (versión preliminar). Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
 En este tutorial se describe cómo crear un grupo de hosts dentro de un inquilino de Windows Virtual Desktop con una oferta de Microsoft Azure Marketplace. Dichas tareas incluyen:
 
@@ -80,7 +80,7 @@ En la hoja **Configuración de la máquina virtual**:
 3. Seleccione la red virtual que tenga conectividad con el servidor de Active Directory y, después, elija la subred donde se hospedarán las máquinas virtuales.
 4. Seleccione **Aceptar**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Información del inquilino de Windows Virtual Desktop (versión preliminar)
+### <a name="windows-virtual-desktop-tenant-information"></a>Información del inquilino de Windows Virtual Desktop
 
 En la hoja **Información del inquilino de Windows Virtual Desktop**:
 
