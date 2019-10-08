@@ -87,7 +87,8 @@
           href: concepts-connectivity-architecture.md
     - name: Continuidad del negocio
       items:
-        - name: Información general
+        - name: Introducción a la continuidad empresarial
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
           href: concepts-business-continuity.md
         - name: Copia de seguridad y restauración
           href: concepts-backup.md
@@ -231,7 +232,7 @@
       href: /rest/api/mysql
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: Procedimientos almacenados de Azure
+    - name: Procedimientos almacenados de administración
       href: reference-stored-procedures.md
 - name: Recursos
   items:

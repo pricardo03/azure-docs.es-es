@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390868"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802818"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
 
@@ -41,7 +41,7 @@ En este inicio rápido se llama a las siguientes API REST de QnA Maker:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Versión de [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/) más reciente.
-* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el nombre del recurso, seleccione **Inicio rápido** en Azure Portal en el recurso de QnA Maker. 
 
 > [!NOTE] 
 > Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -146,13 +146,13 @@ La llamada API devuelve un estado 204 en caso de publicación correcta sin ning�
 Para cualquier otra respuesta, esa respuesta se devuelve sin modificar.
 
 ## <a name="generating-an-answer"></a>Generación de una respuesta
-Para acceder a la base de datos de conocimiento para enviar una pregunta y recibir la mejor respuesta, el programa necesita el _host del punto de conexión_ de la base de conocimiento de la API de detalles API y la _clave del punto de conexión principal_ de la API de los puntos de conexión. Estos métodos están en las secciones siguientes junto con el método para generar una respuesta. 
+Para acceder a la base de datos de conocimiento para enviar una pregunta y recibir la mejor respuesta, el programa necesita el <bpt id="p1">_</bpt>nombre del recurso<ept id="p1">_</ept> de la API de detalles de la KB y la <bpt id="p2">_</bpt>clave del punto de conexión principal<ept id="p2">_</ept> de Endpoints API. Estos métodos están en las secciones siguientes junto con el método para generar una respuesta. 
 
 En la tabla siguiente se muestra cómo se usan los datos para construir el identificador URI:
 
 |Generar plantilla de identificador URI de respuesta|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**nombre-de-su-recurso**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 El _punto de conexión principal_ se pasa como encabezado para autenticar la solicitud para generar una respuesta:
 
@@ -169,7 +169,7 @@ El cuerpo de la solicitud debe usar el JSON adecuado:
 ```
 
 ## <a name="get-kb-details"></a>Obtención de los detalles de la base de conocimiento
-Agregue el método siguiente para obtener los detalles de la base de conocimiento. Estos detalles contienen el nombre de host de la base de conocimiento. El nombre de host es el nombre del servicio web de Azure QnA Maker que especificó al crear el recurso de QnA Maker. 
+Agregue el método siguiente para obtener los detalles de la base de conocimiento. Estos detalles contienen el nombre del recurso de KB, conocido como `hostName` en el siguiente JSON. El nombre del recurso es el nombre del recurso de QnA Maker que especificó al crear el recurso de QnA Maker. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

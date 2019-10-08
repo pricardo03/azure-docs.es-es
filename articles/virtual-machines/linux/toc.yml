@@ -111,6 +111,14 @@
           href: acu.md
         - name: Cuotas de vCPU
           href: quotas.md
+        - name: Instancias reservadas
+          items:
+            - name: Pago de máquinas virtuales por adelantado
+              href: prepay-reserved-vm-instances.md
+            - name: ¿Qué son las reservas de Azure?
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: Flexibilidad de tamaño de instancia de máquina virtual
+              href: reserved-vm-instance-size-flexibility.md
         - name: Puntuaciones de pruebas comparativas
           href: compute-benchmark-scores.md
     - name: Distribuciones aprobadas
@@ -302,16 +310,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Crear alertas del registro
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Administrar costos
-      items:
-        - name: 'Pago por adelantado de máquinas virtuales: Azure Reservations'
-          href: prepay-reserved-vm-instances.md
-        - name: Pago por adelantado de planes de software de Azure
-          href: prepay-suse-software-charges.md
-        - name: ¿Qué son las reservas de Azure?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibilidad de tamaño de instancia de máquina virtual
-          href: reserved-vm-instance-size-flexibility.md
     - name: Uso de imágenes
       items:
         - name: Galerías de imágenes compartidas
@@ -378,8 +376,6 @@
           href: manage-availability.md
         - name: Creación de un grupo de selección de ubicación por proximidad
           href: proximity-placement-groups.md
-        - name: Escalado vertical
-          href: vertical-scaling-automation.md
         - name: Creación de máquinas virtuales en una zona de disponibilidad
           href: create-cli-availability-zone.md
     - name: Uso de herramientas de automatización

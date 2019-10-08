@@ -6,52 +6,75 @@
       href: resource-group-overview.md
     - name: Introducción a las plantillas
       href: template-deployment-overview.md
-- name: Guías de inicio rápido
-  expanded: true
-  items:
-    - name: 'Creación de plantillas: portal'
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: 'Creación de plantillas: VS Code'
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: 'Creación de plantillas: Visual Studio'
-      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
-    - name: 'Creación de plantillas: IntelliJ IDEA'
-      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutoriales
   items:
-    - name: Utilización de la referencia de la plantilla
-      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-    - name: Creación de varias instancias
-      displayName: 'iteration,copy'
-      href: resource-manager-tutorial-create-multiple-instances.md
-    - name: Establecimiento del orden de implementación de los recursos
-      displayName: 'dependent resources, dependency'
-      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - name: Condiciones de uso
-      href: resource-manager-tutorial-use-conditions.md
-    - name: Integración de Key Vault
-      displayName: secrets
-      href: resource-manager-tutorial-use-key-vault.md
-    - name: Creación de plantillas vinculadas
-      href: resource-manager-tutorial-create-linked-templates.md
-    - name: Implementación de extensiones de máquina virtual
-      displayName: virtual machine extensions
-      href: resource-manager-tutorial-deploy-vm-extensions.md
-    - name: Implementación de extensiones de SQL
-      href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Protección de artefactos
-      href: resource-manager-tutorial-secure-artifacts.md
-    - name: Integración continua con Azure Pipelines
-      displayName: DevOps
-      href: resource-manager-tutorial-use-azure-pipelines.md
-    - name: Uso de procedimientos de implementación seguros
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: Uso de la comprobación de estado en el Administrador de implementaciones
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
-    - name: Solución de problemas de las implementaciones de plantillas
-      href: resource-manager-tutorial-troubleshoot.md
+    - name: Principiante
+      items:
+        - name: '1: creación de la primera plantilla'
+          href: template-tutorial-create-first-template.md
+        - name: '2: incorporación de un recurso'
+          href: template-tutorial-add-resource.md
+        - name: '3: incorporación de parámetros'
+          href: template-tutorial-add-parameters.md
+        - name: '4: incorporación de funciones de plantillas'
+          href: template-tutorial-add-functions.md
+        - name: '5: incorporación de variables'
+          href: template-tutorial-add-variables.md
+        - name: '6: incorporación de salidas'
+          href: template-tutorial-add-outputs.md
+        - name: '7: uso de una plantilla exportada'
+          href: template-tutorial-export-template.md
+        - name: '8: uso de una plantilla de inicio rápido'
+          href: template-tutorial-quickstart-template.md
+        - name: '9: incorporación de etiquetas'
+          href: template-tutorial-add-tags.md
+        - name: '10: uso de un archivo de parámetros'
+          href: template-tutorial-use-parameter-file.md
+    - name: Avanzado
+      items:
+        - name: 'Creación de plantillas: portal'
+          href: resource-manager-quickstart-create-templates-use-the-portal.md
+        - name: 'Creación de plantillas: VS Code'
+          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+        - name: 'Creación de plantillas: Visual Studio'
+          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+        - name: 'Creación de plantillas: IntelliJ IDEA'
+          href: resource-manager-quickstart-create-templates-use-intellij.md
+        - name: Utilización de la referencia de la plantilla
+          href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+        - name: Creación de varias instancias
+          displayName: 'iteration,copy'
+          href: resource-manager-tutorial-create-multiple-instances.md
+        - name: Establecimiento del orden de implementación de los recursos
+          displayName: 'dependent resources, dependency'
+          href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+        - name: Condiciones de uso
+          href: resource-manager-tutorial-use-conditions.md
+        - name: Integración de Key Vault
+          displayName: secrets
+          href: resource-manager-tutorial-use-key-vault.md
+        - name: Creación de plantillas vinculadas
+          href: resource-manager-tutorial-create-linked-templates.md
+        - name: Implementación de extensiones de máquina virtual
+          displayName: virtual machine extensions
+          href: resource-manager-tutorial-deploy-vm-extensions.md
+        - name: Implementación de extensiones de SQL
+          href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+        - name: Protección de artefactos
+          href: resource-manager-tutorial-secure-artifacts.md
+        - name: Integración continua con Azure Pipelines
+          displayName: DevOps
+          href: resource-manager-tutorial-use-azure-pipelines.md
+        - name: Uso de procedimientos de implementación seguros
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: Uso de la comprobación de estado en el Administrador de implementaciones
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: Actualización de un script de implementación de VS a Az PowerShell
+          href: vs-azure-tools-update-deploy-script-to-az-powershell.md
+        - name: Solución de problemas de las implementaciones de plantillas
+          href: resource-manager-tutorial-troubleshoot.md
 - name: Ejemplos
   items:
     - name: Plantillas de Resource Manager
@@ -76,8 +99,8 @@
           href: deployment-manager-health-check.md
     - name: Implementación de Resource Manager y clásica
       href: resource-manager-deployment-model.md
-    - name: Controles de seguridad integrados
-      href: azure-resource-manager-security-controls.md
+    - name: Atributos comunes de seguridad de Azure
+      href: azure-resource-manager-security-attributes.md
 - name: Procedimientos
   items:
     - name: Crear plantillas
@@ -120,14 +143,17 @@
           displayName: deployment
           href: resource-group-template-deploy-portal.md
         - name: 'Implementación: CLI'
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-cli.md
         - name: 'Implementación: PowerShell'
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy.md
         - name: 'Implementación: API REST'
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Nueva implementación si se produce un error
+          displayName: rollback
+          href: rollback-on-error.md
         - name: Protección de plantillas con un token de SAS
           href: secure-template-with-sas-token.md
         - name: Implementación en varios grupos de recursos o suscripciones
@@ -221,8 +247,6 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Problemas de implementación de Linux
