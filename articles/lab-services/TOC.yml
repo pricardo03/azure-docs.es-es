@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Asociación o desasociación de una galería de imágenes compartidas
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Creación y configuración de laboratorios educativos (instructor)
           items:
             - name: Creación y administración de laboratorios educativos
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
           items:
             - name: Acceso a laboratorios educativos
