@@ -34,6 +34,8 @@
           href: sql-database-server-level-firewall-rule.md
         - name: Configuración de un punto de conexión público en una instancia administrada
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: Configuración de tipos de conexión en una instancia administrada
+          href: sql-database-managed-instance-connection-type.md
         - name: Conexión de máquina virtual de cliente a una instancia administrada
           href: sql-database-managed-instance-configure-vm.md
         - name: Conexión de punto a sitio a una instancia administrada

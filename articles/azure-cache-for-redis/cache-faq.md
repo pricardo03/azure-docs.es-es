@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42d0d7dcc4e10e6f9bfad02a68f3ec176b8a7fb4
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052057"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315992"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -104,12 +104,12 @@ Cada oferta de Azure Cache for Redis proporciona diferentes niveles de **tamaño
 
 Las siguientes son consideraciones para elegir una oferta de caché.
 
-* **Memoria**: los niveles Básico y Estándar ofrecen de 250 MB a 53 GB. El nivel Premium ofrece hasta 530 GB. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/).
+* **Memoria**: los niveles Básico y Estándar ofrecen de 250 MB a 53 GB. El nivel premium ofrece hasta 1,2 TB (como clúster) o 120 GB (sin clúster). Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/).
 * **Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Prémium ofrece más ancho de banda en comparación con los niveles Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, consulte la [tabla siguiente](#cache-performance).
 * **Rendimiento**: el nivel Prémium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanzan los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para más información, vea la tabla siguiente.
 * **Alta disponibilidad/Acuerdo de Nivel de Servicio**: Azure Cache for Redis garantiza que la caché de los niveles Estándar y Prémium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro Acuerdo de Nivel de Servicio, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
 * **Persistencia de datos de Redis**: El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. Los problemas con la infraestructura subyacente podrían provocar una pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Prémium).
-* **Clúster en Redis**: para crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Prémium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, consulte [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para una instancia de Azure Cache for Redis Prémium).
+* **Clúster en Redis**: para crear memorias caché de más de 120 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, consulte [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para una instancia de Azure Cache for Redis Prémium).
 * **Seguridad y aislamiento de red mejorados**: La implementación de Azure Virtual Network aporta más seguridad y aislamiento de su instancia de Azure Cache for Redis, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, consulte [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md) (Configuración de la compatibilidad con Virtual Network para una instancia de Azure Cache for Redis Prémium).
 * **Configuración de Redis**: tanto en los niveles Estándar como Prémium, puede configurar Redis para las notificaciones de Keyspace.
 * **Número máximo de conexiones de cliente**: el nivel Prémium ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/).
@@ -133,7 +133,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes:
 * Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 400 000 * 10 = 4 millones de solicitudes por segundo.
 * El rendimiento para los tamaños de clave más grandes es mayor en el nivel Premium que en el nivel Estándar.
 
-| Plan de tarifa | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB | Tamaño del valor de 1 kB |
+| Plan de tarifa | Size | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB | Tamaño del valor de 1 kB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL** |**Solicitudes por segundo (RPS) SSL** |
 | C0 | 250 MB | Compartido | 100 / 12.5  |  15 000 |   7500 |
@@ -278,7 +278,7 @@ Para más información sobre el uso de Azure Cache for Redis como caché de la s
 
 ### <a name="what-are-redis-databases"></a>¿Cuáles son las bases de datos de Redis?
 
-Las bases de datos de Redis son simplemente una separación lógica de los datos en la misma instancia de Redis. La memoria caché se comparte entre todas las bases de datos y el consumo real de una base de datos depende de los pares clave-valor almacenados en esa base de datos. Por ejemplo, una caché C6 tiene 53 GB de memoria. Puede elegir colocar todos los 53 GB en una base de datos o dividirlo entre varias bases de datos. 
+Las bases de datos de Redis son simplemente una separación lógica de los datos en la misma instancia de Redis. La memoria caché se comparte entre todas las bases de datos y el consumo real de una base de datos depende de los pares clave-valor almacenados en esa base de datos. Por ejemplo, una caché de C6 tiene 53 GB de memoria y una de P5 tiene 120 GB. Puede elegir colocar los 53 GB o los 120 GB en una base de datos o dividirlos entre varias bases de datos. 
 
 > [!NOTE]
 > Cuando se utiliza una instancia Prémium de Azure Cache for Redis con clústeres habilitados, solo está disponible la base de datos 0. Se trata de una limitación de Redis intrínseca y no es específica de Azure Cache for Redis. Para más información, consulte [Configuración de Caché en Redis de Azure](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
@@ -470,7 +470,7 @@ A continuación se indican algunas razones habituales por las que se desconecta 
 >
 
 ### <a name="azure-cache-for-redis"></a>Azure Cache for Redis
-Azure Cache for Redis está disponible con carácter general en tamaños de hasta 53 GB y tiene un Acuerdo de Nivel de Servicio de disponibilidad del 99,9 %. El nuevo [nivel Premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
+Azure Cache for Redis está disponible con carácter general en tamaños de hasta 120 GB y tiene un Acuerdo de Nivel de Servicio de disponibilidad del 99,9 %. El nuevo [nivel Premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 1,2 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
 
 Azure Cache for Redis ofrece acceso a una instancia de Azure Cache for Redis especializada y segura administrada por Microsoft. Con esta oferta, puede aprovechar el variado conjunto de características y ecosistema proporcionados por Redis, junto con el hospedaje y la supervisión confiables que Microsoft pone a su disposición.
 

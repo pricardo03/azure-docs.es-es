@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146598"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695039"
 ---
 # <a name="troubleshooting"></a>solución de problemas
 
@@ -44,7 +44,7 @@ En este artículo se proporciona ayuda para solucionar problemas comunes que pue
 |    |Se están redirigiendo determinadas direcciones IP a través de equilibradores de carga, administradores de tráfico geográfico o Azure Express Route. 
 |    |Si usa Azure ExpressRoute, hay escenarios en los que los paquetes se podrían descartar cuando se produce un [enrutamiento asimétrico](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Error de prueba intermitente con un error de infracción de protocolo
+## <a name="test-failure-with-a-protocol-violation-error"></a>Error de prueba con un error de infracción de protocolo.
 
 |Síntoma/mensaje de error| Causas posibles| Posibles resoluciones |
 |----|---------|-----|

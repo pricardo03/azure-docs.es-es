@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647673"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719879"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -79,10 +79,9 @@ Si no utiliza indizadores, usaría el código de aplicación para enviar objetos
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Dado que Azure Search no es una solución de almacenamiento de datos principal, no se proporcionan un mecanismo formal para realizar procesos de copias de seguridad y restauración automáticos. El código de aplicación que se usa para crear y rellenar un índice es la opción de restauración de facto si elimina por error un índice. 
+Dado que Azure Search no es una solución de almacenamiento de datos principal, no se proporcionan un mecanismo formal para realizar procesos de copias de seguridad y restauración automáticos. Sin embargo, puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice y una instantánea en una serie de archivos JSON y, después, usar esos archivos para restaurar el índice, en caso de que sea necesario. Esta herramienta también se puede usar para mover índices entre niveles de servicio.
 
-Para volver a generar un índice, elimínelo (si existe), vuelva a crear el índice en el servicio y cárguelo de nuevo recuperando los datos del almacén de datos principal.
-
+De lo contrario, el código de aplicación que se usa para crear y rellenar un índice es la opción de restauración de facto si elimina por error un índice. Para volver a generar un índice, elimínelo (si existe), vuelva a crear el índice en el servicio y cárguelo de nuevo recuperando los datos del almacén de datos principal.
 
 <a id="scale"></a>
 

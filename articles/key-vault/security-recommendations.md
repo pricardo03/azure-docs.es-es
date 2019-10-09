@@ -6,15 +6,15 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: deefbf049d5f8daa004db942f60ff5e31bda0fe8
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219650"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695409"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendaciones de seguridad para Azure Key Vault
 
@@ -25,16 +25,31 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 - Para más información sobre las recomendaciones de seguridad de Azure Security Center, consulte [Recomendaciones de seguridad en Azure Security Center](../security-center/security-center-recommendations.md).
 - Para más información sobre Azure Security Center, consulte [¿Qué es Azure Security Center?](../security-center/security-center-intro.md)
 
-## <a name="recommendations"></a>Recomendaciones
+## <a name="data-protection"></a>Protección de datos
 
-| Category | Recomendación | Comentarios | Security Center |
-|-|-|----|--|
-| Protección de datos |Habilitación de la eliminación temporal | La [eliminación temporal](key-vault-ovw-soft-delete.md) permite recuperar almacenes y objetos de almacén eliminados. |  - |
-| Protección de datos | Limitación del acceso a datos de almacén  | Siga el principio de privilegios mínimos y limite qué miembros de su organización tienen acceso a los datos del almacén. |  - |
-| Administración de identidades y acceso | Limitación del número de usuarios con acceso de colaborador | Si un usuario tiene permisos de colaborador en un plano de administración de Key Vault, el usuario se puede conceder a sí mismo acceso al plano de datos estableciendo una directiva de acceso de Key Vault. Debe controlar estrechamente quién tiene acceso de rol de colaborador a los almacenes de claves. Asegúrese de que solo las personas autorizadas que necesiten acceso puedan acceder a sus almacenes y administrarlos. Puede consultar [Protección del acceso a un almacén de claves](key-vault-secure-your-key-vault.md). | - |
-| Supervisión | Se deben habilitar los registros de diagnóstico en Key Vault | Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. | [Sí](../security-center/security-center-identity-access.md) |
-| Supervisión | Restricción del acceso a los registros de Azure Key Vault | Los [registros de Key Vault](key-vault-logging.md) guardan información sobre las actividades realizadas en el almacén, como la creación o eliminación de almacenes, claves y secretos, y se pueden usar durante una investigación. |  - |
-| Redes |Limitación de la exposición de la red | El acceso a la red debe limitarse a redes virtuales usadas por soluciones que requieren acceso al almacén. Consulte la información de [Puntos de conexión de servicio de red virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). | - |
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+|Habilitación de la eliminación temporal | La [eliminación temporal](key-vault-ovw-soft-delete.md) permite recuperar almacenes y objetos de almacén eliminados. |  - |
+| Limitación del acceso a datos de almacén  | Siga el principio de privilegios mínimos y limite qué miembros de su organización tienen acceso a los datos del almacén. |  - |
+
+## <a name="identity-and-access-management"></a>Administración de identidades y acceso
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+| Limitación del número de usuarios con acceso de colaborador | Si un usuario tiene permisos de colaborador en un plano de administración de Key Vault, el usuario se puede conceder a sí mismo acceso al plano de datos estableciendo una directiva de acceso de Key Vault. Debe controlar estrechamente quién tiene acceso de rol de colaborador a los almacenes de claves. Asegúrese de que solo las personas autorizadas que necesiten acceso puedan acceder a sus almacenes y administrarlos. Puede consultar [Protección del acceso a un almacén de claves](key-vault-secure-your-key-vault.md). | - |
+
+## <a name="monitoring"></a>Supervisión
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+ Se deben habilitar los registros de diagnóstico en Key Vault | Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. | [Sí](../security-center/security-center-identity-access.md) |
+| Restricción del acceso a los registros de Azure Key Vault | Los [registros de Key Vault](key-vault-logging.md) guardan información sobre las actividades realizadas en el almacén, como la creación o eliminación de almacenes, claves y secretos, y se pueden usar durante una investigación. |  - |
+
+## <a name="networking"></a>Redes
+
+| Recomendación | Comentarios | Security Center |
+|-|----|--|
+|Limitación de la exposición de la red | El acceso a la red debe limitarse a redes virtuales usadas por soluciones que requieren acceso al almacén. Consulte la información de [Puntos de conexión de servicio de red virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). | - |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

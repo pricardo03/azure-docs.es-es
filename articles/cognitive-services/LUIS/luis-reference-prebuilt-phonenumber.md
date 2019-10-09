@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: bf2fd053cabeaf85b177e284f86ba378e0e4389e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9e237b09bd2b0ecc3e91e10697f6c025f73057da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933421"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677435"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada de número de teléfono para una aplicación de LUIS
 La entidad `phonenumber` extrae una variedad de números de teléfono, incluido el código de país. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que a la aplicación. La entidad `phonenumber` se admite solamente en la referencia cultural `en-us`. 
@@ -26,7 +26,7 @@ La entidad `phonenumber` extrae una variedad de números de teléfono, incluido 
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Resolución para esta entidad precompilada
 
-### <a name="api-version-2x"></a>Versión de API 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.phonenumber**.
 
@@ -58,7 +58,7 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.phone
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -117,6 +117,10 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Obtenga información acerca de las entidades de [porcentaje](luis-reference-prebuilt-percentage.md), [número de teléfono](luis-reference-prebuilt-number.md) y [temperatura](luis-reference-prebuilt-temperature.md). 

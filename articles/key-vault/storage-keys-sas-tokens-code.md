@@ -7,18 +7,18 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: a20f5b16b90b9bac7e6bc3ff808cf443b252fb44
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204491"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673452"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Captura de tokens de firma de acceso compartido en el código
 
 Puede administrar su cuenta de almacenamiento con los [tokens de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) del almacén de claves. En este artículo se proporcionan ejemplos de código C# que captura un token de SAS y realiza operaciones con él.  Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](key-vault-ovw-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
-# <a name="code-samples"></a>Ejemplos de código
+## <a name="code-samples"></a>Ejemplos de código
 
 En este ejemplo, el código captura un token de SAS del almacén de claves, lo usa para crear una nueva cuenta de almacenamiento y crea un nuevo cliente de Blob service.  
 

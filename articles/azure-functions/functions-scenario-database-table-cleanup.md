@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085247"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815974"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
-En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador del temporizador predefinida de Visual Studio 2019. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una instancia de Azure SQL Database o una instancia administrada de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador del temporizador predefinida de Visual Studio 2019. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En el caso de la instancia administrada de Azure SQL, debe [habilitar el punto de conexión público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) para poder conectarse desde Azure Functions. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
@@ -39,7 +39,7 @@ Deberá obtener la cadena de conexión de la base de datos que creó una vez con
 
 1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**.
 
-1. Seleccione **Cadenas de conexión**  en **Configuración** y copie la cadena de conexión de **ADO.NET** completa.
+1. Seleccione **Cadenas de conexión**  en **Configuración** y copie la cadena de conexión de **ADO.NET** completa. Para la instancia administrada de Azure SQL, copie la cadena de conexión para el punto de conexión público.
 
     ![Copie la cadena de conexión de ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 

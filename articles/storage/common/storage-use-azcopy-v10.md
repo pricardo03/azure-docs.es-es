@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b5be5271e2ff579d93cb70f7c8da93d861d4dc0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: bb816658faff9fb924d075e0fca17e9643c18e40
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648724"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694759"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -27,16 +27,24 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 
 ## <a name="download-azcopy"></a>Descargar AzCopy
 
-En primer lugar, descargue el archivo ejecutable de AzCopy V10 en cualquier directorio en el equipo.
+En primer lugar, descargue el archivo ejecutable de AzCopy V10 en cualquier directorio en el equipo. AzCopy V10 es solo un archivo ejecutable, de modo que no hay que instalar nada.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-AzCopy V10 es solo un archivo ejecutable, de modo que no hay que instalar nada.
+Estos archivos se comprimen como un archivo ZIP (Windows y Mac) o un archivo TAR (Linux).
+
+Puede usar estos comandos para descargar y descomprimir el archivo TAR en Linux.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
+tar -xf azcopy.tar.gz
+```
 
 > [!NOTE]
 > Si desea copiar datos desde y hacia su servicio de [almacenamiento de Azure Table](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), instale [AzCopy versión 7.3](https://aka.ms/downloadazcopynet).
+
 
 ## <a name="run-azcopy"></a>Ejecución de AzCopy
 
@@ -154,10 +162,10 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 A continuación, escriba el comando siguiente y presione la tecla ENTRAR.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id>
+azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio.
+Reemplace el marcador de posición `<application-id>` por el identificador de aplicación del registro de la aplicación de la entidad de servicio. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal. 
 
 ##### <a name="using-a-certificate"></a>Uso de un certificado
 
@@ -179,10 +187,10 @@ $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 A continuación, escriba el comando siguiente y presione la tecla ENTRAR.
 
 ```azcopy
-azcopy login --service-principal --certificate-path <path-to-certificate-file>
+azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de acceso completa o relativa al archivo del certificado. AzCopy guarda la ruta de acceso a este certificado, pero no guarda una copia del certificado, así que asegúrese de tener el certificado listo para usar.
+Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de acceso completa o relativa al archivo del certificado. AzCopy guarda la ruta de acceso a este certificado, pero no guarda una copia del certificado, así que asegúrese de tener el certificado listo para usar. Reemplace el marcador de posición `<tenant-id>` por el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento. Para buscar el identificador de inquilino, seleccione **Azure Active Directory > Propiedades > Identificador de directorio** en Azure Portal.
 
 > [!NOTE]
 > Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola. 

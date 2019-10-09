@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60830302"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315968"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migración desde Managed Cache Service a Azure Cache for Redis
 La migración de aplicaciones que usan Azure Managed Cache Service a Azure Cache for Redis se puede realizar con unos cambios mínimos en la aplicación, según las características de Managed Cache Service usadas por la aplicación de almacenamiento en caché. Si bien las API no son exactamente iguales, son parecidas, y gran parte del código existente que usa Managed Cache Service para tener acceso a una caché se puede reutilizar con cambios mínimos. En este artículo se muestra cómo realizar los cambios de aplicación y configuración necesarios para migrar las aplicaciones de Managed Cache Service que usen Azure Cache for Redis y se indica cómo se pueden usar algunas de las características de Azure Cache for Redis para implementar la funcionalidad de una caché de una memoria caché de Managed Cache Service.
@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis está disponible en los niveles siguientes:
 
 * **Básico** – Nodo único. Varios tamaños de hasta 53 GB.
 * **Estándar**: principal/réplica de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
-* **Premium** : principal/réplica de dos nodos con hasta 10 particiones. Varios tamaños, de 6 GB a 530 GB. Todas las características del nivel Estándar y algunas otras características son compatibles con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y [Azure Virtual Network](cache-how-to-premium-vnet.md). Contrato de nivel de servicio del 99,9 %.
+* **Premium** : principal/réplica de dos nodos con hasta 10 particiones. Varios tamaños, de 6 GB a 1,2 GB. Todas las características del nivel Estándar y algunas otras características son compatibles con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y [Azure Virtual Network](cache-how-to-premium-vnet.md). Contrato de nivel de servicio del 99,9 %.
 
 Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché](https://azure.microsoft.com/pricing/details/cache/).
 

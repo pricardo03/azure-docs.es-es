@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: Creación de varias instancias
           href: resource-group-create-multiple.md
-        - name: Creación de grupos de recursos y otros recursos en la suscripción
-          displayName: subscription level deployment
+        - name: Recursos de nivel de suscripción
           href: deploy-to-subscription.md
     - name: Implementación de plantillas
       items:

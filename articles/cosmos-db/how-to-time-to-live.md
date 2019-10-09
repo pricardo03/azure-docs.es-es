@@ -4,14 +4,14 @@ description: Aprenda a configurar y administrar el período de vida en Azure Cos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104869"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815908"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configuración del período de vida en Azure Cosmos DB
 
@@ -36,10 +36,16 @@ Siga estos pasos para habilitar el período de vida de un contenedor para que no
 
    ![Configuración del período de vida en Azure Portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* Si el valor de DefaultTimeToLive es null, el de Período de vida será Desactivado
+* Si el valor de DefaultTimeToLive es -1, el de Período de vida será Activado (valor no predeterminado)
+* Si DefaultTimeToLive tiene cualquier otro valor Int (excepto el 0) el de Período de vida será Activado
 
-- Si el valor de DefaultTimeToLive es null, el de Período de vida será Desactivado
-- Si el valor de DefaultTimeToLive es -1, el de Período de vida será Activado (valor no predeterminado)
-- Si DefaultTimeToLive tiene cualquier otro valor Int (excepto el 0) el de Período de vida será Activado
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Habilitación del período de vida en un contenedor mediante la CLI de Azure o PowerShell
+
+Para crear o habilitar TTL en un contenedor, consulte
+
+* [Creación de un contenedor con TTL mediante la CLI de Azure](manage-with-cli.md#create-a-container-with-ttl)
+* [Creación de un contenedor con TTL mediante Powershell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilitar el período de vida en un contenedor mediante SDK
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Restablecimiento del período de vida
 

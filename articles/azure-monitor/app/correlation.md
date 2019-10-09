@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124115"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338185"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -62,24 +62,35 @@ Cuando se realiza la llamada `GET /api/stock/value` a un servicio externo, neces
 
 ## <a name="correlation-headers"></a>Encabezados de correlación
 
-Estamos trabajando en una propuesta de RFC para el [protocolo HTTP de correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Esta propuesta define dos encabezados:
-
-- `Request-Id`: lleva el identificador único global de la llamada.
-- `Correlation-Context`: lleva la colección de pares nombre-valor de las propiedades del seguimiento distribuido.
-
-El estándar también define dos esquemas de generación de `Request-Id`: sin formato y jerárquico. Con el esquema sin formato, se define una clave `Id` conocida para la colección `Correlation-Context`.
-
-Application Insights define la [extensión](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) del protocolo HTTP de correlación. Usa pares nombre-valor `Request-Context` para propagar la colección de propiedades utilizadas por el autor o el destinatario de la llamada. El SDK de Application Insights usa este encabezado para establecer los campos `dependency.target` y `request.source`.
-
-### <a name="w3c-distributed-tracing"></a>Seguimiento distribuido de W3C
-
-Estamos realizando una transición al [formato de seguimiento distribuido de W3C](https://w3c.github.io/trace-context/). Define:
+Haremos la transición a la especificación [Trace-Context de W3C](https://w3c.github.io/trace-context/) que define:
 
 - `traceparent`: lleva el identificador único global de la operación y un identificador único de la llamada.
 - `tracestate`: lleva un contexto específico del sistema de seguimiento.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Habilitación de la compatibilidad con el seguimiento distribuido de W3C en aplicaciones clásicas de ASP.NET
+Las versiones más recientes de los SDK de Application Insights admiten el protocolo de Trace-Context, pero es posible que tenga que usarlo (este mantendrá la compatibilidad con el antiguo protocolo de correlación compatible con los SDK de ApplicationInsights).
 
+El [protocolo HTTP de correlación, también conocido como Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), está en desuso. Este protocolo define dos encabezados:
+
+- `Request-Id`: lleva el identificador único global de la llamada.
+- `Correlation-Context`: lleva la colección de pares nombre-valor de las propiedades del seguimiento distribuido.
+
+Application Insights también define la [extensión](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) del protocolo HTTP de correlación. Usa pares nombre-valor `Request-Context` para propagar la colección de propiedades utilizadas por el autor o el destinatario de la llamada. El SDK de Application Insights usa este encabezado para establecer los campos `dependency.target` y `request.source`.
+
+### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Habilitación de la compatibilidad con el seguimiento distribuido de W3C en aplicaciones clásicas de ASP.NET
+ 
+  > [!NOTE]
+  > No se necesita configuración a partir de `Microsoft.ApplicationInsights.Web` y `Microsoft.ApplicationInsights.DependencyCollector` 
+
+La compatibilidad con la especificación Trace-Context de W3C se realiza de forma que sea compatible con versiones anteriores y, a su vez, se espera que la correlación funcione con aplicaciones que están instrumentadas con versiones anteriores de SDK (que no es compatible con W3C). 
+
+Si por alguna razón quiere seguir usando el protocolo heredado `Request-Id`, puede *deshabilitar* Trace-Context con la siguiente configuración.
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Si ejecuta una versión anterior del SDK, le recomendamos actualizarlo o aplicar la siguiente configuración para habilitar Trace-Context.
 Esta característica está disponible en los paquetes `Microsoft.ApplicationInsights.Web` y `Microsoft.ApplicationInsights.DependencyCollector` a partir de la versión 2.8.0-beta1.
 De forma predeterminada, está deshabilitada. Para habilitarla, cambie `ApplicationInsights.config`:
 
@@ -94,7 +105,21 @@ De forma predeterminada, está deshabilitada. Para habilitarla, cambie `Applicat
 </TelemetryInitializers> 
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de ASP.NET Core
+### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de ASP.NET Core
+
+ > [!NOTE]
+  > No se necesita configuración a partir de la versión 2.8.0 de `Microsoft.ApplicationInsights.AspNetCore`.
+ 
+La compatibilidad con la especificación Trace-Context de W3C se realiza de forma que sea compatible con versiones anteriores y, a su vez, se espera que la correlación funcione con aplicaciones que están instrumentadas con versiones anteriores de SDK (que no es compatible con W3C). 
+
+Si por alguna razón quiere seguir usando el protocolo heredado `Request-Id`, puede *deshabilitar* Trace-Context con la siguiente configuración.
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Si ejecuta una versión anterior del SDK, le recomendamos actualizarlo o aplicar la siguiente configuración para habilitar Trace-Context.
 
 Esta característica está en la versión 2.5.0-beta1 de `Microsoft.ApplicationInsights.AspNetCore` y en la versión 2.8.0-beta1 de `Microsoft.ApplicationInsights.DependencyCollector`.
 De forma predeterminada, está deshabilitada. Para habilitarla, cambie `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` a `true`:
@@ -108,7 +133,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de Java
+### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de Java
 
 - **Configuración de entrada**
 
@@ -145,7 +170,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > Asegúrese de que las configuraciones de entrada y salida sean exactamente iguales.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones web
+### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones web
 
 Esta característica está en `Microsoft.ApplicationInsights.JavaScript`. De forma predeterminada, está deshabilitada. Para habilitarla, use la configuración `distributedTracingMode`. AI_AND_W3C se proporciona para la compatibilidad con versiones anteriores de cualquier servicio instrumentado de Application Insights heredado:
 
@@ -209,7 +234,7 @@ En la [guía de Activity](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 admite la extracción de encabezados HTTP e inicia una nueva actividad.
 
-A partir de la versión 4.1.0, `System.Net.HttpClient` permite insertar automáticamente los encabezados HTTP de correlación y realizar un seguimiento de la llamada HTTP como actividad.
+A partir de la versión 4.1.0, `System.Net.Http.HttpClient` permite insertar automáticamente los encabezados HTTP de correlación y realizar un seguimiento de la llamada HTTP como actividad.
 
 Hay un nuevo módulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para ASP.NET clásico. Este módulo implementa la correlación de telemetría mediante `DiagnosticSource`. Las actividades se inician en función de los encabezados de solicitud entrantes. También establece correlación entre los datos de telemetría de las distintas fases del procesamiento de solicitudes, incluso en los casos en los que cada fase de procesamiento de Internet Information Services (IIS) se ejecuta en un subproceso administrado diferente.
 

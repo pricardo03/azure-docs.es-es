@@ -1,21 +1,17 @@
 ---
-title: Procedimiento recomendado para administrar ensamblados de U-SQL en una canalización de CI/CD para Azure Data Lake
+title: 'Administración de ensamblados de U-SQL en una canalización de CI/CD: Azure Data Lake'
 description: Conozca el procedimiento recomendado para administrar ensamblados de C# de U-SQL en una canalización de CI/CD con Azure DevOps.
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-ms.reviewer: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334273"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315847"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Procedimiento recomendado para administrar ensamblados de U-SQL en una canalización de CI/CD
 

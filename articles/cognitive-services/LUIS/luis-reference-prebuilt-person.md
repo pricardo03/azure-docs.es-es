@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a9da5089c9309ec06f29fd3e0868102cfa538049
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b5f4855c03c1c003df8f58b135cb809f1757e58f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933453"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677479"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada PersonName para una aplicación de LUIS
 La entidad pregenerada personName detecta los nombres de personas. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad personName para los propósitos de la aplicación. La entidad personName se admite en las [referencias culturales](luis-reference-prebuilt-entities.md) de inglés y chino.
 
 ## <a name="resolution-for-personname-entity"></a>Resolución de la entidad personName
 
-### <a name="api-version-2x"></a>Versión de API 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.personName**.
 
@@ -44,8 +44,8 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.perso
   ]
 }
 ```
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
-### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -103,6 +103,10 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Obtenga información acerca de las entidades de [correo electrónico](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) y [ordinal](luis-reference-prebuilt-ordinal.md). 

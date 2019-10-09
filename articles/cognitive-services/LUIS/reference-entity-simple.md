@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: c1514b6cd512924a162a524d11e888055fa06514
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563209"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695130"
 ---
 # <a name="simple-entity"></a>Entidad simple 
 
@@ -35,6 +35,8 @@ En la expresión anterior, `Bob Jones` se etiqueta como una entidad `Customer` s
 
 Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad, el texto de la expresión que se ha detectado, la ubicación del texto detectado y la puntuación:
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+
 ```JSON
 "entities": [
   {
@@ -46,6 +48,45 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
   }
 ]
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Este es el valor JSON si se establece `verbose=false` en la cadena de consulta:
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ]
+}```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ],
+    "$instance": {
+        "Customer": [
+            {
+                "type": "Customer",
+                "text": "Bob Jones",
+                "startIndex": 0,
+                "length": 9,
+                "score": 0.9339134,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|

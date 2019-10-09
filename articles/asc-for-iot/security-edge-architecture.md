@@ -1,5 +1,5 @@
 ---
-title: Información acerca de la versión preliminar del módulo de seguridad de Azure Security Center para IoT para IoT Edge | Microsoft Docs
+title: Descripción del módulo de seguridad de Azure Security Center para IoT para IoT Edge | Microsoft Docs
 description: Conozca la arquitectura y las capacidades del módulo de seguridad de Azure Security Center for IoT para IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596859"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315889"
 ---
 # <a name="azure-iot-edge-security-module"></a>Módulo de seguridad de Azure Security Center for IoT
-
-> [!IMPORTANT]
-> El servicio Azure Security Center para IoT para IoT Edge, se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) proporciona capacidades de enorme eficacia para administrar y procesar flujos de trabajo empresariales en el perímetro.
 El papel esencial que IoT Edge desempeña en entornos de IoT lo hace especialmente atrayente para atacantes malintencionados.

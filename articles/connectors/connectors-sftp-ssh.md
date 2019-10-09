@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 7479be6a14c7d1ace5d60defad0eda51d2aa814b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296565"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695190"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -33,7 +33,7 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 
 ## <a name="limits"></a>límites
 
-* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar archivos de más de 15 MB, las acciones SFTP-SSH admiten [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md), excepto para la acción Copiar archivo, que solo puede controlar los archivos de 15 MB. La acción **Obtener contenido de archivo** usa implícitamente la fragmentación de mensajes. 
+* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar archivos de más de 15 MB, las acciones SFTP-SSH admiten [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md), excepto para la acción Copiar archivo, que solo puede controlar los archivos de 15 MB. La acción **Obtener contenido de archivo** usa implícitamente la fragmentación de mensajes.
 
 * Los desencadenadores SFTP-SSH no admiten la fragmentación. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 15 MB o menos. Para obtener archivos de más de 15 MB, siga este patrón en su lugar:
 
@@ -48,14 +48,6 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector SFTP donde el conector SFTP-SSH tiene estas funcionalidades:
 
 * Usa la biblioteca [SSH.NET](https://github.com/sshnet/SSH.NET), que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
-
-  > [!NOTE]
-  >
-  > El conector SFTP-SSH *solo* admite estas claves privadas, formatos, algoritmos y huellas digitales:
-  >
-  > * **Formatos de clave privada**: Claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com
-  > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
-  > * **Huella digital**: MD5
 
 * De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar los archivos de más de 15 MB, las acciones SFTP-SSH pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Sin embargo, la acción Copiar archivo admite solo los archivos de 15 MB porque esa acción no admite la fragmentación de mensajes. Los desencadenadores SFTP-SSH no admiten la fragmentación.
 
@@ -75,13 +67,14 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   >
   > El conector SFTP-SSH *solo* admite estas claves privadas, formatos, algoritmos y huellas digitales:
   >
-  > * **Formatos de clave privada**: Claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com
+  > * **Formatos de clave privada**: claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com. Si la clave privada tiene el formato de archivo PuTTy (.ppk), en primer lugar [convierta la clave al formato de archivo OpenSSH (.pem)](#convert-to-openssh).
+  >
   > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
+  >
   > * **Huella digital**: MD5
   >
-  > Al crear la aplicación lógica, después de agregar el desencadenador o la acción SFTP-SSH que desee, deberá proporcionar información de conexión para el servidor SFTP. 
-  > Si usa una clave privada SSH, asegúrese de ***copiar*** la clave del archivo de clave privada SSH y ***pegar*** esa clave en los datos de conexión. ***No especifique ni edite manualmente la clave***, ya que podría producirse un error en la conexión. 
-  > Para más información, consulte los pasos más adelante en este artículo.
+  > Después de agregar el desencadenador o la acción SFTP-SSH que quiera a la aplicación lógica, debe proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, ***no escriba ni edite manualmente la clave***, ya que podría provocar un error en la conexión. En su lugar, asegúrese de ***copiar la clave*** del archivo de clave privada SSH y ***pegar*** esa clave en los detalles de la conexión. 
+  > Para obtener más información, consulte la sección [Conectarse a SFTP con SSH](#connect) que se detalla más adelante en este artículo.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -98,6 +91,44 @@ El método de funcionamiento de los desencadenadores SFTP-SSH es sondear el sist
 |||
 
 Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba que el nuevo archivo se ha escrito por completo y no parcialmente. Por ejemplo, un archivo podría tener los cambios en curso cuando el desencadenador comprueba el servidor de archivos. Para evitar devolver un archivo parcialmente escrito, el desencadenador anota la marca de tiempo del archivo que tiene cambios recientes, pero no devuelve inmediatamente dicho archivo. El desencadenador devuelve el archivo solo al volver a sondear el servidor. En ocasiones, este comportamiento puede provocar un retraso de hasta dos veces el intervalo de sondeo del desencadenador.
+
+<a name="convert-to-openssh"></a>
+
+## <a name="convert-putty-based-key-to-openssh"></a>Convertir la clave basada en PuTTy en OpenSSH
+
+Si la clave privada está en formato PuTTy, que usa la extensión de nombre de archivo. ppk (clave privada de PuTTy), primero debe convertir la clave al formato OpenSSH, que usa la extensión de nombre de archivo. PEM (correo de privacidad mejorada).
+
+### <a name="unix-based-os"></a>Sistema operativo basado en UNIX
+
+1. Si las herramientas de PuTTy no están ya instaladas en el sistema, puede instalarlas ahora; por ejemplo:
+
+   `sudo apt-get install -y putty`
+
+1. Ejecute este comando, que crea un archivo que puede usar con el conector SFTP-SSH:
+
+   `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
+
+   Por ejemplo:
+
+   `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
+
+### <a name="windows-os"></a>SO Windows
+
+1. Si aún no lo ha hecho, [descargue la última herramienta de generación de PuTTY (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) y, a continuación, inicie la herramienta.
+
+1. En esta pantalla, seleccione **Load** (Cargar).
+
+   ![Seleccione "Load" (Cargar).](./media/connectors-sftp-ssh/puttygen-load.png)
+
+1. Busque el archivo de clave privada en formato PuTTY y seleccione **Open** (Abrir).
+
+1. En el menú **Conversions** (Conversiones), seleccione **Export OpenSSH key** (Exportar clave OpenSSH).
+
+   ![Seleccione "Export OpenSSH key" (Exportar clave OpenSSH)](./media/connectors-sftp-ssh/export-openssh-key.png)
+
+1. Guarde el archivo de clave privada con la extensión de nombre de archivo `.pem`.
+
+<a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Conexión a SFTP con SSH
 
@@ -117,8 +148,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
    > [!IMPORTANT]
    >
-   > Al escribir la clave privada SSH en la propiedad **SSH private key**, siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. 
-   > Una clave no válida provoca un error de conexión.
+   > Al escribir la clave privada SSH en la propiedad **SSH private key**, siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. Una clave no válida provoca un error de conexión.
 
    Aunque puede usar cualquier editor de texto, estos son los pasos de ejemplo que muestran cómo copiar y pegar correctamente la clave mediante Notepad.exe.
 

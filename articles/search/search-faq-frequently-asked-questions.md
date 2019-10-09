@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649827"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719888"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
 
@@ -42,17 +42,27 @@ El servicio no se puede pausar. Cuando se crea el servicio, se asignan los recur
 
 ## <a name="indexing-operations"></a>Operaciones de indexación
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>¿Índices de copia de seguridad y restauración (o de descarga y movimiento ) o instantáneas de índices?
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>¿Índices de copia de seguridad, restauración y movimiento o instantáneas de índices?
 
-Aunque puede [obtener una definición de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) en cualquier momento, no hay ninguna característica de restauración de copias de seguridad, de instantáneas o de extracción de índices para descargar un índice de *relleno* que se ejecute en la nube para un sistema local o se mueva a otro servicio Azure Search.
+Durante la fase de desarrollo, es posible que quiera mover el índice entre los servicios de búsqueda. Por ejemplo, puede usar un plan de tarifa Básico o Gratis para desarrollar el índice y, después, puede que quiera moverlo al nivel Estándar o a uno más alto para usar en producción. 
 
-Los índices se generan y se rellenan desde el código que se escriba y se ejecutan solo en Azure Search en la nube. Normalmente, los clientes que deseen mover un índice a otro servicio, modifican su código para que use un nuevo punto de conexión y, a continuación, vuelven a ejecutar la indexación. Si desea poder tomar una instantánea o crear una copia de seguridad de un índice, vote en [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index) (La voz del usuario).
+O puede que quiera realizar una copia de seguridad de una instantánea de índice que se pueda usar para restaurarla más tarde. 
+
+Puede realizar todas estas acciones con el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+
+También puede [obtener una definición de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) en cualquier momento mediante la API REST de Azure Search.
+
+Actualmente no hay ninguna característica de extracción de índices, instantáneas o restauración de copias de seguridad en Azure Portal. Sin embargo, estamos considerando la opción de agregar la funcionalidad de restauración y copia de seguridad en una futura versión. Si quiere mostrar su apoyo para esta característica, vote en [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>¿Puedo restaurar mi índice o servicio una vez que los he eliminado?
 
-No, no puede restaurar índices ni servicios. Si elimina un índice de Azure Search, la operación es definitiva y no es posible recuperar el índice. Cuando elimina un servicio de Azure Search, se eliminarán permanentemente todos los índices en el servicio. Además, si elimina un grupo de recursos de Azure que contiene uno o varios servicios de Azure Search, se eliminarán permanentemente todos los servicios.  
+No, si elimina un servicio o índice de Azure Search, no se puede recuperar. Cuando elimina un servicio de Azure Search, se eliminarán permanentemente todos los índices en el servicio. Si elimina un grupo de recursos de Azure que contiene uno o varios servicios de Azure Search, se eliminarán permanentemente todos los servicios.  
 
-La restauración de recursos, como índices, indexadores, orígenes de datos y conjuntos de habilidades, requiere volver a crearlos desde el código. En el caso de los índices, debe volver a indexar los datos desde orígenes externos. Por este motivo, se recomienda encarecidamente mantener una copia maestra o copia de seguridad de los datos originales en otro almacén de datos, como Azure SQL Database o Cosmos DB.
+Para volver a crear recursos, como índices, indexadores, orígenes de datos y conjuntos de habilidades, es necesario volver a crearlos desde el código. 
+
+Para volver a crear un índice, debe volver a indexar los datos de orígenes externos. Por este motivo, se recomienda conservar una copia maestra o copia de seguridad de los datos originales en otro almacén de datos, como Azure SQL Database o Cosmos DB.
+
+También puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice e indexar instantáneas en una serie de archivos JSON. Más tarde, puede usar la herramienta y los archivos para restaurar el índice, en caso de que sea necesario.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>¿Se pueden indexar réplicas de bases de datos SQL? (Se aplica a [indexadores de Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 

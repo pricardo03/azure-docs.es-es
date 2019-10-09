@@ -1,19 +1,18 @@
 ---
-title: Introducción al uso de la CLI de Azure por parte de Azure Data Lake Analytics
+title: 'Creación y consulta de Azure Data Lake Analytics: CLI de Azure'
 description: Aprenda cómo utilizar la interfaz de la línea de comandos de Azure para crear una cuenta de Azure Data Lake Analytics y enviar un trabajo de U-SQL.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626229"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316574"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introducción al uso de la CLI de Azure por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

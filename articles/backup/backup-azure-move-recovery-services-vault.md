@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 6e95c012aed9fdcfda2b64c310458425df2b9f9e
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210389"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337885"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -38,7 +38,7 @@ El traslado de recursos para el almacén de Recovery Services se admite en las r
 - Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
 - No se admite el traslado de los almacenes que contienen Azure Files, Azure File Sync o SQL en VM de IaaS entre suscripciones y grupos de recursos.
-- Si traslada un almacén con datos de copia de seguridad de máquinas virtuales entre suscripciones, deberá trasladar sus máquinas virtuales a la misma suscripción y usar el mismo grupo de recursos de destino para continuar con las copias de seguridad.<br>
+- Si traslada un almacén con datos de copia de seguridad de VM entre suscripciones, deberá trasladar sus VM a la misma suscripción y usar el mismo nombre de grupo de recursos de VM de destino (tal como estaba en la suscripción anterior) para continuar con las copias de seguridad.<br>
 
 > [!NOTE]
 >

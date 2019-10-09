@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933383"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677309"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada URL para una aplicación de LUIS
 La entidad de dirección URL extrae las direcciones URL con nombres de dominio o direcciones IP. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan direcciones URL de la aplicación. La entidad de la dirección URL se admite solamente en la referencia cultural `en-us`. 
@@ -26,7 +26,7 @@ La dirección URL se administra desde el repositorio de GitHub [Recognizers-Text
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Resolución de la entidad de dirección URL precompilada
 
-### <a name="api-version-2x"></a>Versión de API 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.url**.
 
@@ -54,7 +54,7 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.url**
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -112,6 +112,11 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Información sobre las entidades [ordinal](luis-reference-prebuilt-ordinal.md), [number](luis-reference-prebuilt-number.md) y [temperature](luis-reference-prebuilt-temperature.md).

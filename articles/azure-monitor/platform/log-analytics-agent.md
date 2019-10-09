@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 576a44663518343a9132af468a0f1c1fb8e4de50
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 66f3a9ae1f29d863170dcb4bc43e38b648602eed
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575396"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695024"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Log Analytics
 
@@ -38,6 +38,7 @@ Si se usan los agentes de Log Analytics para recopilar datos, es preciso conocer
 
 * Para recopilar datos de los agentes de Windows, puede [configurar cada agente para que informe a una o varias áreas de trabajo](agent-windows.md), aun cuando informen a un grupo de administración de System Center Operations Manager. El agente de Windows puede notificar hasta cuatro áreas de trabajo.
 * El agente de Linux no admite el hospedaje múltiple y solo puede informar a un área de trabajo.
+* El agente de Windows admite el [estándar FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), mientras que el agente de Linux no lo admite.  
 
 Si usa System Center Operations Manager 2012 R2, o cualquier versión posterior:
 
