@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966694"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695143"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -55,23 +55,37 @@ Cuando crea una base de conocimiento, la sección **Populate your KB** (Rellenar
 
 ![Casilla para habilitar la extracción multiturno](../media/conversational-context/enable-multi-turn.png)
 
-Cuando se selecciona esta opción para un documento importado, la conversación multiturno se puede suponer a partir de la estructura del documento. Si esa estructura existe, QnA Maker crea la opción de seguimiento que empareja las preguntas y respuestas en su lugar como parte del proceso de importación. 
+Cuando selecciona esta opción, recuerde que la conversación de varios turnos puede estar implícita en la estructura del documento. Si esa estructura existe, QnA Maker crea la opción de seguimiento que empareja las preguntas y respuestas en su lugar como parte del proceso de importación. 
 
 Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Debido al tamaño de este archivo PDF, el recurso de QnA Maker requiere un **plan de tarifa de Search** **B** (15 índices) o superior. 
 
 ![![Ejemplo de estructura en un manual de usuario](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-Al importar el documento PDF, QnA Maker determina los avisos de seguimiento a partir de la estructura para crear un flujo de conversación. 
+### <a name="determine-multi-turn-structure-from-format"></a>Determinar la estructura multiturno a partir del formato
 
-1. En QnA Maker, seleccione **Create a knowledge base** (Crear una base de conocimiento).
-1. Cree o use un servicio QnA Maker existente. En el ejemplo anterior de Microsoft Surface, como el archivo PDF es demasiado grande para un nivel más pequeño, utilice un servicio QnA Maker con un **servicio de búsqueda** **B** (15 índices) o superior.
-1. Escriba un nombre para la base de conocimiento, como **Manual de Surface**.
-1. Seleccione la casilla **Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción multiturno a partir de URL o de archivos .pdf o .docx). 
-1. Seleccione la dirección URL del manual de Surface, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+QnA Maker determina la estructura multiturno a partir de:
 
-1. Seleccione el botón **Create your KB** (Crear la base de conocimiento). 
+* Tamaño de fuente del encabezado: si usa el estilo, el color u otro mecanismo para inferir la estructura en su documento, QnA Maker no extraerá las indicaciones multiturno. 
 
-    Una vez creada la base de conocimiento, se muestra una vista de los pares de preguntas y respuestas.
+Las reglas de los encabezados incluyen:
+
+* No termine un encabezado con un signo de interrogación, `?`. 
+
+### <a name="add-file-with-multi-turn-prompts"></a>Agregar un archivo con indicaciones multiturno
+
+Al agregar un documento multiturno, QnA Maker determina los avisos de seguimiento a partir de la estructura para crear un flujo de conversación. 
+
+1. En QnA Maker, seleccione una base de conocimiento existente que se creó con la opción para **habilitar la extracción multiturno de URL, archivos o documentos .pdf o .docx.** habilitado. 
+1. Vaya a la página de **configuración**  y seleccione el archivo o URL que quiere agregar. 
+1. **Guarde y entrene** la base de conocimiento.
+
+> [!Caution]
+> No se admite el uso de un archivo de base de conocimiento multiturno de tipo TSV o XLS que haya sido exportado como origen de datos para una base de conocimiento nueva o vacía. Debe **importar** ese tipo de archivo, desde la página de **configuración** del portal de QnA Maker para agregar mensajes exportados multiturno a una base de conocimiento.
+
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creación de la base de conocimiento con avisos multiturno con Create API
+
+Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`. 
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar preguntas y respuestas con contexto
 
@@ -126,29 +140,6 @@ Cuando se crea un aviso de seguimiento, y se especifica un par de pregunta y res
 1. Cuando haya terminado de editar el texto para mostrar, seleccione **Guardar**. 
 1. En la barra de navegación superior, seleccione **Save and train** (Guardar y entrenar).
 
-
-<!--
-
-## To find the best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
-
-1. Add metadata to each of the two follow-up question-and-answer pairs:
-
-    |Question|Add metadata|
-    |--|--|
-    |*Feedback on a QnA Maker service*|"Feature":"all"|
-    |*Feedback on an existing feature*|"Feature":"one"|
-    
-    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Select **Save and train**. 
-
-    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
-
--->
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Incorporación de un nuevo par de pregunta y respuesta como aviso de seguimiento
 
@@ -374,21 +365,13 @@ Ha agregado avisos en la base de conocimiento y probado el flujo en el panel de 
 
 El [texto para mostrar y el orden de presentación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) que se devuelve en la respuesta JSON, es compatible para su edición con [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-<!--
-
-FIX - Need to go to parent, then answer column, then edit answer. 
-
--->
-
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creación de la base de conocimiento con avisos multiturno con Create API
-
-Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`. 
-
-
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Incorporación o eliminación de avisos multiturno con Update API
 
 Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Los avisos se agregan en la matriz `promptsToAdd` y `promptsToDelete` de la propiedad `context`. 
 
+## <a name="export-knowledge-base-for-version-control"></a>Exportar la base de conocimiento para el control de versiones
+
+QnA Maker [admite el control de versiones](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) en el portal de QnA Maker al incluir pasos de conversación multiturno en el archivo exportado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
