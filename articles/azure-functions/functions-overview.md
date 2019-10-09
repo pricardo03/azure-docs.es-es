@@ -63,7 +63,7 @@ Azure Functions se integra con diversos servicios de Azure y de terceros. Dichos
 * Local (mediante Service Bus)
 * Twilio (mensajes SMS)
 
-## <a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
+## <a name="pricing"></a>¿Cuánto cuesta Azure Functions?
 Azure Functions tiene dos tipos de planes de precios. Elija la que mejor se adapte a sus necesidades: 
 
 * **Plan de Consumo**: cuando se ejecuta la función, Azure proporciona todos los recursos informáticos necesarios. No tiene que preocuparse de la administración de recursos y solo paga por el tiempo que haya empleado ejecutando el código. 
