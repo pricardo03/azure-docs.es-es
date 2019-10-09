@@ -75,7 +75,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 
 ## <a name="create-a-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
 
-Los clústeres de AKAS pueden usar los controles de acceso basado en roles (RBAC) de Kubernetes. Dichos controles permiten definir el acceso a los recursos en función de los roles asignados a los usuarios. Los permisos se combinan si a un usuario se le asignan varios roles y los permisos se pueden limitar a un espacio de nombres único o a todo el clúster. De forma predeterminada, la CLI de Azure habilita automáticamente RBAC al crear un clúster de AKS.
+Los clústeres de AKS pueden usar los controles de acceso basado en roles (RBAC) de Kubernetes. Dichos controles permiten definir el acceso a los recursos en función de los roles asignados a los usuarios. Los permisos se combinan si a un usuario se le asignan varios roles y los permisos se pueden limitar a un espacio de nombres único o a todo el clúster. De forma predeterminada, la CLI de Azure habilita automáticamente RBAC al crear un clúster de AKS.
 
 Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr]. Use sus propios `<appId>` y `<password>` del paso anterior, en el que se creó la entidad de servicio.
 
