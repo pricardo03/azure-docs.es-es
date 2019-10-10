@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: aaff1d5e657b8acb28293f3450849b1446727680
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130400"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030780"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2
 
@@ -115,7 +115,7 @@ Las API de administración ayudan a administrar las cuentas, mientras que las AP
 
 Cuando se usa Data Lake Storage Gen1, puede usar una variedad de productos y servicios de Microsoft en las canalizaciones completas. Estos servicios y productos funcionan con Data Lake Storage Gen1 ya sea de manera directa o indirecta. En esta tabla se muestra una lista de los servicios que se han modificado para funcionar con Data Lake Storage Gen1 y también los que actualmente son compatibles con Data Lake Storage Gen2.
 
-| **Ámbito**             | **Disponibilidad para Data Lake Storage Gen1**                                                                                                                                    | **Disponibilidad para Data Lake Storage Gen2, con autenticación de clave compartida**                                                                                                           | **Disponibilidad para Data Lake Storage Gen2, con OAuth**                                                                                        |
+| **Ámbito**             | **Disponibilidad para Data Lake Storage Gen1**                                                                                                                                    | **Disponibilidad para Data Lake Storage Gen2, con autenticación de clave compartida**                                                                                                           | **Disponibilidad para Data Lake Storage Gen2, con OAuth**                                                                                        |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Marco de análisis  | [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)                                                                                       | *Ya disponible*                                                                                                                                                              | *Ya disponible*                                                                                                                                 |
 |                      | [HDInsight](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)                                                               | [HDInsight](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-connect-hdi-cluster) 3.6: *ya disponible* HDInsight 4.0: *no disponible aún*      | HDInsight 3.6 ESP: *ya disponible* <br><br>  HDInsight 4.0 ESP: *no disponible aún*                                                                 |

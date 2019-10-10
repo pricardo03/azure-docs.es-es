@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: chackdan
-ms.openlocfilehash: 4e9aa2bbb99cac2ffc2b57ccb9299bf4ee7a729e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876255"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170490"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
 El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
@@ -28,7 +28,7 @@ El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores
 ## <a name="performance-counters"></a>contadores de rendimiento
 El entorno de tiempo de ejecución de Reliable ServiceRemoting define las siguientes categorías de contador de rendimiento:
 
-| Categoría | DESCRIPCIÓN |
+| Category | DESCRIPCIÓN |
 | --- | --- |
 | Servicio de Service Fabric |Contadores específicos para la comunicación remota de servicios de Azure Service Fabric como, por ejemplo, el promedio de tiempo empleado en procesar la solicitud |
 | Método del servicio Service Fabric |Contadores específicos de los métodos que implementan los servicios de comunicación remota de Service Fabric. Por ejemplo, la frecuencia con que se invoca un método de servicio. |

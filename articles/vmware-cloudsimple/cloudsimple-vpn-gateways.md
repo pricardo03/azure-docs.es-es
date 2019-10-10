@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972888"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244767"
 ---
 # <a name="vpn-gateways-overview"></a>Información general sobre puertas de enlace de VPN
 
@@ -63,6 +63,10 @@ Una conexión VPN de sitio a sitio usa los siguientes parámetros criptográfico
 | Grupo de confidencialidad directa total (grupo PFS) | None | None | None |
 | Tiempo de vida | 1800 segundos | 1800 segundos | 1800 segundos |
 | Tamaño de datos | 4 GB | 4 GB | 4 GB |
+
+
+> [!IMPORTANT]
+> Establezca la fijación de MSS de TCP en 1200 en el dispositivo VPN. O, si los dispositivos de VPN no admiten la fijación de MSS, también puede establecer el MTU en la interfaz de túnel en 1240 bytes.
 
 ## <a name="point-to-site-vpn-gateway"></a>Puerta de enlace de VPN de punto a sitio
 

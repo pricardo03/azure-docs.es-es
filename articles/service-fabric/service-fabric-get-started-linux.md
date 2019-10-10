@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: atsenthi
+ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828505"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170617"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -178,8 +178,8 @@ El sistema en tiempo de ejecución de Service Fabric que viene con la instalaci�
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | más reciente |
-RHEL | - | 1\.8 OpenJDK | Implícito de npm | más reciente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
+RHEL | - | 1\.8 OpenJDK | Implícito de npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
 Inicie un clúster local una vez finalizada la instalación.

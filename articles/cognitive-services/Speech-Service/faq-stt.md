@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839232"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028501"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -96,7 +96,7 @@ Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:spee
 
 **R.** : El límite actual de un conjunto de datos es de 2 GB. El límite se debe a la restricción del tamaño de un archivo para la carga HTTP. 
 
-**P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?** 
+**P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?** 
 
 **R.** :  No. Actualmente solo se permiten los archivos de texto no comprimidos.
 
@@ -140,7 +140,7 @@ Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:spee
 
 **R.** : Los resultados muestran una comparación entre el modelo de línea base y el personalizado. Debe aspirar a superar el modelo de línea de base para que la personalización sea útil.
 
-**P: ¿Cómo puedo determinar el valor WER de un modelo base para ver si se produjo una mejora?** 
+**P: ¿Cómo puedo determinar el valor WER de un modelo base para ver si se produjo una mejora?** 
 
 **R.** : Los resultados de la prueba sin conexión muestran la precisión de línea base del modelo personalizado y la mejora sobre la línea base.
 

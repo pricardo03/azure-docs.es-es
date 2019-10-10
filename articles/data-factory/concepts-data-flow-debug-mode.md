@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 925e52f9f62860d8cd0951b9e72af09cbb7800fc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801708"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027806"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de Mapping Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="overview"></a>Información general
 
@@ -24,7 +24,7 @@ El modo de depuración de Azure Data Factory Mapping Data Flow permite ver de fo
 
 ![Control deslizante de depuración](media/data-flow/debugbutton.png "Debug slider")
 
-Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida de 60 minutos. Para más información sobre los entornos de ejecución de integración del flujo de datos, consulte [Rendimiento de flujo de datos](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+Cuando active el control deslizante, se le pedirá que seleccione la configuración del entorno de ejecución de integración que quiere usar. Si se elige AutoResolveIntegrationRuntime, se desarrollará un clúster con ocho núcleos de proceso general con un período de vida de 60 minutos. Para más información sobre los entornos de ejecución de integración del flujo de datos, consulte [Rendimiento de flujo de datos](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
 
 ![Selección del IR de depuración](media/data-flow/debugbutton2.png "Debug IR selection")
 

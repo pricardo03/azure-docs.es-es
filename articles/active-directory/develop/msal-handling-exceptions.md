@@ -16,12 +16,12 @@ ms.date: 09/08/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e6356b4f72f08afc2c5b3e5570086fd166a75216
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 635793d18bf33752a2672788bb632571743410b7
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268621"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982766"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Control de excepciones y errores en MSAL
 
@@ -439,8 +439,6 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>Acceso condicional y desafíos de notificaciones
-
-Al obtener los tokens de forma automática, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
 
 Al obtener los tokens de forma automática, la aplicación puede recibir errores si una API a la que está intentando acceder requiere un [desafío de notificaciones de acceso condicional](conditional-access-dev-guide.md) como, por ejemplo, una directiva de autenticación multifactor.
 

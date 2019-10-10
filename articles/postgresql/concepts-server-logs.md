@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091117"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029994"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registros de servidor en Azure Database for PostgreSQL con un único servidor
 Azure Database for PostgreSQL genera registros de errores y consultas. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. (No se incluye acceso a los registros de transacciones). 
@@ -24,7 +24,7 @@ Puede configurar el registro en el servidor mediante los parámetros del servido
 Para más información sobre estos parámetros, consulte la documentación de [informes y registro de errores](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) de PostgreSQL. Para aprender a configurar los parámetros de Azure Database for PostgreSQL, consulte la [documentación del portal](howto-configure-server-parameters-using-portal.md) o la [documentación de la CLI](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Acceso a los registros del servidor mediante el portal o la CLI
-Si ha habilitado los registros, puede acceder a ellos desde el almacenamiento de registros de Azure Database for PostgreSQL mediante [Azure Portal](howto-configure-server-logs-in-portal.md), la [CLI de Azure](howto-configure-server-logs-using-cli.md) y las API REST de Azure. Los archivos de registro rotan cada hora o cada 100 MB de tamaño, lo que ocurra primero. Puede establecer el período de retención de este almacenamiento de registro mediante el parámetro  **log\_retention\_period**  asociado al servidor. El valor predeterminado es 3 días y el valor máximo 7 días. El servidor debe tener suficiente almacenamiento asignado para albergar los archivos de registro. (Este parámetro de retención no controla los registros de diagnóstico de Azure).
+Si ha habilitado los registros, puede acceder a ellos desde el almacenamiento de registros de Azure Database for PostgreSQL mediante [Azure Portal](howto-configure-server-logs-in-portal.md), la [CLI de Azure](howto-configure-server-logs-using-cli.md) y las API REST de Azure. Los archivos de registro rotan cada hora o cada 100 MB de tamaño, lo que ocurra primero. Puede establecer el período de retención de este almacenamiento de registros mediante el parámetro **log\_retention\_period** asociado al servidor. El valor predeterminado es 3 días y el valor máximo 7 días. El servidor debe tener suficiente almacenamiento asignado para albergar los archivos de registro. (Este parámetro de retención no controla los registros de diagnóstico de Azure).
 
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico

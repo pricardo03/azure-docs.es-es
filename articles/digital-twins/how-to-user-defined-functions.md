@@ -1,20 +1,20 @@
 ---
 title: Creación de funciones definidas por el usuario en Azure Digital Twins | Microsoft Docs
 description: Cómo crear funciones definidas por el usuario, buscadores de coincidencias y asignaciones de roles con Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
+ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336901"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959092"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Creación de funciones definidas por el usuario en Azure Digital Twins
 

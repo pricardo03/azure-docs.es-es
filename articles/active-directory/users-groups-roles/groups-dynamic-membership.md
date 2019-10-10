@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673415"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241167"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -342,7 +342,7 @@ Las reglas de pertenencia dinámica admiten los atributos de extensión y las pr
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Las propiedades de extensión personalizadas se sincronizan desde una instancia de Windows Server AD local o desde una aplicación SaaS conectada y presentan el formato `user.extension_[GUID]__[Attribute]`, donde:
+Las propiedades de extensión personalizadas se sincronizan desde una instancia de Windows Server AD local o desde una aplicación SaaS conectada y presentan el formato `user.extension_[GUID]_[Attribute]`, donde:
 
 * [GUID] es el identificador único de Azure AD para la aplicación que creó la propiedad en Azure AD
 * [Attribute] es el nombre de la propiedad tal y como se creó
@@ -350,7 +350,7 @@ Las propiedades de extensión personalizadas se sincronizan desde una instancia 
 Un ejemplo de una regla que utiliza una propiedad de extensión personalizada es:
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 El nombre de la propiedad personalizada se puede encontrar en el directorio mediante la consulta de una propiedad de usuario a través del explorador de Graph y la búsqueda del nombre en cuestión. También, ahora puede seleccionar el vínculo **Get custom extension properties** (Obtener propiedades de extensión personalizadas) en el generador de reglas dinámicas de grupos de usuarios para escribir un identificador de aplicación único y recibir la lista completa de propiedades de extensión personalizadas para usar al crear una regla de pertenencia dinámica. Esta lista también se puede actualizar esta lista para obtener nuevas propiedades de extensión personalizada para la aplicación.

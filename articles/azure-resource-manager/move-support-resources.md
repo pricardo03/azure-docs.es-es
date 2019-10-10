@@ -4,14 +4,14 @@ description: Enumera los tipos de recursos de Azure que se pueden trasladar a un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 81096a4299ec190cb4299f1b8ea4f9c2533d37ad
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687119"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948042"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.

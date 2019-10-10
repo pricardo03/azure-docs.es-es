@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241045"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028085"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Microsoft Defender con Azure Security Center
 
@@ -107,7 +107,7 @@ Para generar una alerta de prueba inofensiva de ATP de Microsoft Defender:
 
 3. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de ATP de Microsoft Defender. Esta alerta puede tardar unos minutos en aparecer.
 
-4. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  >  **Suspicious Powershell CommandLine (Línea de comandos de Powershell Sospechosa)** .
+4. Para revisar la alerta en Security Center, vaya a **Alertas de seguridad** >  **línea de comandos de Powershell sospechosa**.
 
 5. En la ventana de la investigación, seleccione el vínculo para ir al portal de ATP de Microsoft Defender.
 

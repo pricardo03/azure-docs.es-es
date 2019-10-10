@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: bwren
-ms.openlocfilehash: 1d92973e32e9c694b1d0488753b9a701e7d71a5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f6071bc1d3d7514d22658a07810690ec8a8056b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416902"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972756"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Ubicaciones de datos de supervisión en Azure Monitor
 
@@ -27,7 +26,7 @@ Azure Monitor se basa en una [plataforma de datos](data-platform.md) de [Registr
 
 En la siguiente tabla se identifican las diferentes ubicaciones de Azure a las que se envían datos de supervisión y los distintos métodos para tener acceso a estos.
 
-| Ubicación | DESCRIPCIÓN | Métodos de acceso |
+| Location | DESCRIPCIÓN | Métodos de acceso |
 |:---|:---|:---|:--|
 | Métricas de Azure Monitor | Base de datos de serie temporal que está optimizada para el análisis de los datos con marca de tiempo. | [Explorador de métricas](metrics-getting-started.md)<br>[API de métricas de Azure Monitor ](/rest/api/monitor/metrics) |
 | Registros de Azure Monitor    | Área de trabajo de Log Analytics basada en Azure Data Explorer que proporciona un motor de análisis eficaz y un lenguaje de consulta completo. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |

@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a96c5b2d39967c8ee82f48e880bac9270a58c36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844807"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244701"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -58,7 +58,7 @@ Use `azcopy env` para comprobar el valor actual de esta variable.  Si el valor e
 
 ## <a name="change-the-location-of-the-log-files"></a>Cambie la ubicación del archivo de registro.
 
-De forma predeterminada, los archivos de registro se encuentran en el directorio `%USERPROFILE\\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux. Si es necesario, puede cambiar esta ubicación mediante los comandos siguientes.
+De forma predeterminada, los archivos de registro se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux. Si es necesario, puede cambiar esta ubicación mediante los comandos siguientes.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|

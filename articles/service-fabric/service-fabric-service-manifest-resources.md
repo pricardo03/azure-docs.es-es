@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: atsenthi
+ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927689"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170456"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -29,7 +29,7 @@ El manifiesto de servicio permite que los recursos que utilizará el servicio se
 Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Por ejemplo, analice el punto de conexión *ServiceEndpoint1* especificado en el fragmento de manifiesto que encontrará después de este párrafo. Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Las réplicas de servicio pueden usar estos puertos según sea necesario para la replicación y procesar solicitudes de cliente.
 
 > [!WARNING] 
-> Por naturaleza, los puertos estáticos no deben superponerse con el intervalo de puertos de la aplicación especificado en ClusterManifest. Si especifica un puerto estático, asígnelo fuera de este intervalo o se producirán conflictos entre los puertos. Con la versión 6.5CU2, emitiremos una **advertencia de estado** cuando detectemos este tipo de conflicto, pero dejaremos que la implementación siga sincronizándose con el comportamiento de 6.5 incluido. Sin embargo, podemos evitar la implementación de la aplicación con las siguientes versiones principales.
+> Por naturaleza, los puertos estáticos no deben superponerse con el intervalo de puertos de la aplicación especificado en ClusterManifest. Si especifica un puerto estático, asígnelo fuera de este intervalo o se producirán conflictos entre los puertos. Con la versión 6.5CU2, emitiremos una **advertencia de estado** cuando detectemos este tipo de conflicto, pero dejaremos que la implementación siga sincronizándose con el comportamiento de 6.5 incluido. Sin embargo, podemos evitar la implementación de la aplicación con las siguientes versiones principales.
 >
 
 ```xml

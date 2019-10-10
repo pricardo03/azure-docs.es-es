@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3ef8ab4b24d223f372ae3704b00ba6ff090fb039
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200947"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169983"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acceso condicional: Bloquear la autenticación heredada
 
@@ -26,7 +26,7 @@ Debido al aumento del riesgo asociado a los protocolos de autenticación heredad
 
 Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para bloquear las solicitudes de autenticación heredadas.
 
-1. Inicie sesión en  **Azure Portal**  como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327461"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177614"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 
@@ -172,7 +172,7 @@ Aunque los registros personalizados son útiles si los datos cumplen los criteri
 En los casos donde no se pueden recopilar los datos con los registros personalizados, tenga en cuenta las siguientes estrategias alternativas:
 
 - Use un script personalizado u otro método para escribir datos en [Eventos de Windows](data-sources-windows-events.md) o en [Syslog](data-sources-syslog.md) que recopila Azure Monitor. 
-- Envíe los datos directamente a Azure Monitor mediante la [API del recopilador de datos HTTP](data-collector-api.md). Se proporciona un ejemplo de uso de runbooks en Azure Automation en [Recopilación de datos de Azure Monitor con un runbook de Azure Automation](runbook-datacollect.md).
+- Envíe los datos directamente a Azure Monitor mediante la [API del recopilador de datos HTTP](data-collector-api.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.

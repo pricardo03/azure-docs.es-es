@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219765"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027863"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Asignación de patrones de columnas de flujos de datos
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Esta característica se puede usar en Generador de expresiones para definir patrones que coinciden con las columnas para la transformación, en lugar de requerir nombres de campo específicos y exactos. Los patrones son útiles si los campos de origen de entrada cambian a menudo, en concreto en el caso de que cambien columnas en archivos de texto o bases de datos NoSQL. A veces esta condición se denomina "Desviación en el esquema".
 

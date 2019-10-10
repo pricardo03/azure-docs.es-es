@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104104"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028095"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementación del complemento de interfaz de red de contenedor de Azure Virtual Network
 
@@ -159,10 +159,10 @@ El archivo de configuración de red de CNI se describe en formato JSON. De forma
 
 - **cniVersion**: los complementos de CNI de Azure Virtual Network son compatibles con las versiones 0.3.0 y 0.3.1 de la  [especificación CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: nombre de la red. Esta propiedad se puede establecer en un valor único.
-- **type**: nombre del complemento de red. Establecido en  *azure vnet*.
+- **type**: nombre del complemento de red. Se establece en *azure-vnet*.
 - **mode**: modo de funcionamiento. Este campo es opcional. El único modo admitido es "bridge". Para más información, consulte los  [modos de funcionamiento](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge**: nombre del puente que se usará para conectar los contenedores a una red virtual. Este campo es opcional. Si se omite, el complemento elige automáticamente un nombre único, basado en el índice de la interfaz maestra.
-- **ipam type**: nombre del complemento de IPAM. Siempre se establece en  *azure-vnet-ipam*.
+- **ipam type**: nombre del complemento de IPAM. Siempre se establece en *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Descarga e instalación del complemento
 

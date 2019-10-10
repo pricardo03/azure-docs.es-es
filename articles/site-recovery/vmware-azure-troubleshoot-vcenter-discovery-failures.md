@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de conmutación por recuperación al entorno local durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery | Microsoft Docs
 description: En este artículo se describen formas de solucionar los problemas de conmutación por recuperación y reprotección durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
-author: vDonGlover
-manager: JarrettRenshaw
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: v-doglov
-ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: raynew
+ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565198"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970853"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Solución de problemas de detección de vCenter
 

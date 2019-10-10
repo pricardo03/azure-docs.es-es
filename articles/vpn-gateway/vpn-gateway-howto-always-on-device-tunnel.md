@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: bc2ec2b952b4f0c6e61fc4953559fa882edfff09
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295464"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841138"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configuración de un túnel de dispositivo VPN para los Grupos de disponibilidad AlwaysOn
 
@@ -32,12 +32,7 @@ Tanto los túneles de dispositivo como de usuario funcionan de forma independien
 
 Configure la puerta de enlace VPN para que utilice IKEv2 y la autenticación basada en certificados. Para ello, siga este [artículo sobre las conexiones de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="2-configure-the-user-tunnel"></a>2. Configuración del túnel de usuario
-
-1. Instale certificados de cliente en el cliente de Windows 10, tal y como se muestra en este [artículo sobre los clientes VPN de punto a sitio](point-to-site-how-to-vpn-client-install-azure-cert.md). El certificado debe estar en el almacén del usuario actual
-2. Configure el cliente VPN de Always On mediante PowerShell, SCCM o Intune siguiendo [estas instrucciones](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
-
-## <a name="3-configure-the-device-tunnel"></a>3. Configuración del túnel de dispositivo
+## <a name="2-configure-the-device-tunnel"></a>2. Configuración del túnel de dispositivo
 
 Para poder establecer correctamente un túnel de dispositivo, deben cumplirse los siguientes requisitos:
 

@@ -1,17 +1,18 @@
 ---
 title: Solución de problemas de Azure Migrate | Microsoft Docs
 description: Se proporciona información general sobre los problemas conocidos del servicio Azure Migrate, además de sugerencias para solucionar los errores comunes.
-author: rayne-wiselman
+author: musa-57
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: raynew
-ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.author: hamusa
+ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067804"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970654"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 

@@ -16,12 +16,12 @@ ums.workload: na
 ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0820ca227a4d0e8c71ed3f35cd8fa2841163d38f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e7f3a9bc9aade5f8ade857e9c2f14f8e9898a7da
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727647"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244667"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integración de los registros de auditoría de Azure Active Directory
 
@@ -74,7 +74,7 @@ También puede abrir una [solicitud de soporte técnico](../../azure-supportabil
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Log Integration, consulte:
 
-* [Azure Log Integration para registros de Azure](https://www.microsoft.com/download/details.aspx?id=53324): Esta página del Centro de descargas proporciona información, requisitos del sistema e instrucciones de instalación de Azure Log Integration.
+* [Azure Log Integration para registros de Azure](https://azure.microsoft.com/services/monitor/): Esta página del Centro de descargas proporciona información, requisitos del sistema e instrucciones de instalación de Azure Log Integration.
 * [Introducción a Azure Log Integration](azure-log-integration-overview.md): Este artículo es una introducción a Azure Log Integration, sus principales funcionalidades y cómo funciona.
 * [Preguntas más frecuentes sobre Azure Log Integration](azure-log-integration-faq.md): Este artículo responde a las preguntas sobre Azure Log Integration.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuevas características de Azure Diagnostics y registros de auditoría de Azure): Esta entrada de blog es una introducción a los registros de auditoría de Azure y a otras características que le ayudarán a obtener información sobre las operaciones de los recursos de Azure.

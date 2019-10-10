@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 430cf7cde22cc8de337d33e1f083121503d084f5
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802347"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980921"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 

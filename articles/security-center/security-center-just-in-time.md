@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202017"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996379"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -118,7 +118,7 @@ Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM medi
 
 Para solicitar acceso a una VM a través de ASC:
 
-1. En **Acceso a VM Just-In-Time**, seleccione la pestaña **Configurado**.
+1. En **Just in time VM access** (Acceso a máquina virtual del tipo Just-In-Time), seleccione la pestaña **Configurado**.
 
 2. En **Máquina virtual**, haga clic en las VM a las que quiera solicitar acceso. De este modo, se coloca una marca de verificación junto a la VM.
 

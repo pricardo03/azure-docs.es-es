@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 570bf7968b3d6fac44dc770a7fda1e0784dbdcf9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886207"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176767"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controles de seguridad para Azure Virtual Machine Scale Sets
 
@@ -50,7 +50,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Consulte [Cifrado de una máquina virtual Linux en Azure](/azure/virtual-machines/linux/encrypt-disks) y [Cifrado de discos virtuales en una máquina virtual Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Consulte [Cifrado de una máquina virtual Linux en Azure](/azure/virtual-machines/linux/disk-encryption-linux) y [Cifrado de discos virtuales en una máquina virtual Windows](/azure/virtual-machines/windows/encrypt-disks). |
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual)| Sí | Azure Virtual Machines admite [ExpressRoute](/azure/expressroute) y el cifrado de red virtual. Consulte [Cifrado en tránsito en máquinas virtuales](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí | Las claves administradas por el cliente es un escenario de cifrado admitidos de Azure; consulte [Introducción al cifrado de Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
@@ -64,4 +64,4 @@ En este artículo se explican los controles de seguridad integrados en Azure Vir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).
+- Más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).

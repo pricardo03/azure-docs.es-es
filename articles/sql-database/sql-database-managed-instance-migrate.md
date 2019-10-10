@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879935"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937306"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -169,7 +169,7 @@ Como resultado, debe comparar los parámetros de rendimiento con la base de refe
 El resultado de la comparación de rendimiento puede ser:
 - El rendimiento de la carga de trabajo en Instancia administrada está alineado o es mejor que el rendimiento en SQL Server. En este caso ha confirmado satisfactoriamente que la migración ha sido correcta.
 - La mayoría de los parámetros de rendimiento y las consultas de la carga de trabajo funcionan bien, con algunas excepciones que tienen un rendimiento reducido. En este caso, deberá identificar las diferencias y su importancia. Si hay algunas consultas importantes con rendimiento reducido, debería investigar si hay planes subyacentes de SQL que hayan cambiado o si las consultas están traspasando algunos de los límites de los recursos. La mitigación en este caso consistiría en aplicar algunas sugerencias a las consultas críticas (por ejemplo, un nuevo nivel de compatibilidad o estimador de cardinalidad heredado) ya sea directamente o mediante guías de planes, y crear o recrear estadísticas e índices que pudieran afectar a los planes. 
-- La mayoría de las consultas son más lentas en Instancia administrada en comparación con las de la instancia de SQL Server de origen. En este caso, intente identificar las causas principales de la diferencia como, por ejemplo, [haber alcanzado el límite de algunos recursos]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) como los límites de E/S, el límite de memoria, el límite de tasa de registro de instancias, etc. Si no hay ningún límite de recursos que pueda provocar la diferencia, pruebe a cambiar el nivel de compatibilidad de la base de datos o algún valor de configuración de esta como la estimación de cardinalidad heredada y vuelva a iniciar la prueba. Revise las recomendaciones proporcionadas por las vistas de Instancia administrada o Almacén de consultas para identificar las consultas en las que se redujo el rendimiento.
+- La mayoría de las consultas son más lentas en Instancia administrada en comparación con las de la instancia de SQL Server de origen. En este caso, intente identificar las causas principales de la diferencia como, por ejemplo, [haber alcanzado el límite de algunos recursos]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) como los límites de E/S, el límite de memoria, el límite de tasa de registro de instancias, etc. Si no hay ningún límite de recursos que pueda provocar la diferencia, pruebe a cambiar el nivel de compatibilidad de la base de datos o algún valor de configuración de esta como la estimación de cardinalidad heredada y vuelva a iniciar la prueba. Revise las recomendaciones proporcionadas por las vistas de Instancia administrada o Almacén de consultas para identificar las consultas en las que se redujo el rendimiento.
 
 > [!IMPORTANT]
 > Instancia administrada tiene una característica de corrección automática de planes integrada que está habilitada de forma predeterminada. Esta característica garantiza que las consultas que funcionaban bien en el pasado no se degradarán en el futuro. Asegúrese de que esta característica está habilitada y que ha ejecutado la carga de trabajo durante el tiempo suficiente con la configuración anterior antes de cambiar a la nueva configuración para permitir que Instancia administrada obtenga más información sobre la base de referencia de rendimiento y los planes.

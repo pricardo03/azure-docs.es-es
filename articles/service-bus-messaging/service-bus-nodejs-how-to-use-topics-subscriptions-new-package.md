@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 7686014adb989494e6df277de4137b76c3125696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f927274e1e866a9cba72330280316cc5ee7d8047
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992129"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178055"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure/services-bus.
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]
@@ -110,7 +110,7 @@ La interactuación con una suscripción de Service Bus empieza por la creación 
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const subscriptionClient = sbClient.createSubscriptionClient(topicName, subscriptionName);
-      const receiver = subscriptionClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = subscriptionClient.createReceiver(ReceiveMode.receiveAndDelete);
       
       try {
         const messages = await receiver.receiveMessages(10);

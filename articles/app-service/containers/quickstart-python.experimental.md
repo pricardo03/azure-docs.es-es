@@ -3,8 +3,8 @@ title: 'Creación de una aplicación de Python en Linux: Azure App Service | Mic
 description: Implemente su primera aplicación Hola mundo de Python en Azure App Service en Linux en cuestión de minutos.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071001"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024932"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creación de una aplicación de Python en Azure App Service en Linux (versión preliminar)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Creación de una aplicación de Python en Azure App Service en Linux
 
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En este inicio rápido se muestra cómo implementar una aplicación de Python sobre la imagen integrada de Python (versión preliminar) en App Service en Linux mediante [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-Estos pasos se pueden realizar en este artículo con una máquina Mac, Windows o Linux.
+En este inicio rápido se implementa una aplicación Python en [App Service en Linux](app-service-linux-intro.md) que proporciona un servicio de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. En Azure Cloud Shell basado en el explorador interactivo, la interfaz de la línea de comandos de Azure (la [CLI de Azure](/cli/azure/install-azure-cli)) sirve para seguir los pasos de uso en un equipo Mac, Linux o Windows.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -122,7 +122,7 @@ El código de ejemplo de Python se ejecuta en App Service en Linux con una image
 
 **¡Enhorabuena!** Ha implementado la primera aplicación de Python en App Service en Linux.
 
-## <a name="update-locally-and-redeploy-the-code"></a>Actualización local y nueva implementación del código
+## <a name="update-and-redeploy-the-code"></a>Actualización del código y nueva implementación
 
 En Cloud Shell, escriba `code application.py` para abrir el editor de Cloud Shell.
 
@@ -163,8 +163,6 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-La imagen de Python integrada de App Service en Linux está actualmente en versión preliminar y se puede personalizar el comando que se usa para iniciar la aplicación. También se pueden crear aplicaciones Python de producción mediante un contenedor personalizado.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicación de Python con PostgreSQL](tutorial-python-postgresql-app.md)

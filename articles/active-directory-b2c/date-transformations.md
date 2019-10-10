@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064348"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936797"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -29,8 +29,8 @@ Comprueba que una notificación de fecha y hora (tipo de datos en cadena) es may
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | Tipo de la primera notificación, que debe ser mayor que la segunda notificación. |
-| inputClaim | rightOperand | string | Tipo de la segunda notificación, que debe ser menor que la primera notificación. |
+| InputClaim | leftOperand | string | Tipo de la primera notificación, que debe ser mayor que la segunda notificación. |
+| InputClaim | rightOperand | string | Tipo de la segunda notificación, que debe ser menor que la primera notificación. |
 | InputParameter | AssertIfEqualTo | boolean | Especifica si esta aserción debe pasar si el operando izquierdo es igual al operando derecho. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica si esta aserción debe pasar si falta el operando derecho. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica el número de milisegundos que se permiten entre las dos horas para considerar que las horas son iguales (por ejemplo, para tener en cuenta para el desplazamiento del reloj). |

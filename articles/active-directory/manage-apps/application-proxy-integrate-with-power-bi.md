@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3d758b63b56bb84b1cb4e5793731da5eb4f5209
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6a81ecd855b098ec59c5b6f7761ceebfa7a03fa9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103866"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936722"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitación del acceso remoto a Power BI Mobile con Azure AD Application Proxy
 
@@ -121,6 +121,8 @@ Para que la aplicación móvil de Power BI pueda conectarse y acceder a los ser
    Al configurar la aplicación para Power BI Mobile **Android**, agregue los siguientes URI de redireccionamiento de tipo cliente público (móvil y escritorio):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
    > Se deben agregar los URI de redirección para que la aplicación funcione correctamente. Si va a configurar la aplicación para Power BI Mobile iOS y Android, agregue el siguiente URI de redireccionamiento de tipo cliente público (móvil y escritorio) a la lista de URI de redireccionamiento configurados para iOS: `urn:ietf:wg:oauth:2.0:oob`.

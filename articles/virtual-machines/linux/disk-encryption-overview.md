@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e82bc5f58383c37bfd82d793851fc7e927b2f4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829945"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174703"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -32,7 +32,7 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 ### <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
 
-Las VM Linux están disponibles en una [variedad de tamaños](sizes.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que no cumplen estos requisitos mínimos de memoria:
+Las VM Linux están disponibles en una [variedad de tamaños](sizes.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que no cumplen estos requisitos mínimos de memoria:
 
 | Máquina virtual | Requisito mínimo de memoria |
 |--|--|
@@ -57,6 +57,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | Ubuntu | 18,04| Sistema operativo y disco de datos |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
 | Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | Sistema operativo y disco de datos |
+| RHEL | 7,7 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 7.6 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 7.5 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 7.4 | Sistema operativo y disco de datos (véase la nota siguiente) |
@@ -64,6 +65,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | RHEL | 7,2 | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RHEL | 6,8 | Disco de datos (véase la nota siguiente) |
 | RHEL | 6.7 | Disco de datos (véase la nota siguiente) |
+| CentOS | 7,7 | Sistema operativo y disco de datos |
 | CentOS | 7.6 | Sistema operativo y disco de datos |
 | CentOS | 7.5 | Sistema operativo y disco de datos |
 | CentOS | 7.4 | Sistema operativo y disco de datos |

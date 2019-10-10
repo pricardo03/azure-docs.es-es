@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065680"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023613"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
 Puede descargar los registros del servidor de Azure Database for MariaDB mediante la CLI de Azure, la utilidad de la línea de comandos de Azure.
@@ -25,7 +25,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging-for-azure-database-for-mariadb"></a>Configuración del registro para Azure Database for MariaDB
 Puede configurar el servidor para acceder al registro de consultas lentas de MariaDB con los pasos siguientes:
 1. Active el registro estableciendo el parámetro **slow\_query\_log** en ON.
-2. Ajuste otros parámetros, como **long\_query\_time**  y  **log\_slow\_admin\_statements**.
+2. Ajuste otros parámetros, como **long\_query\_time** y **log\_slow\_admin\_statements**.
 
 Para aprender a establecer el valor de estos parámetros mediante la CLI de Azure, consulte [Cómo configurar parámetros del servidor](howto-configure-server-parameters-cli.md).
 

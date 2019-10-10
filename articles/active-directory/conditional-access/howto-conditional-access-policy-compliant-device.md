@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1a5f54e5e989f661770d518a6753b831b59bd4
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 1963d0ad741099fcb6602beb58f62b0eabf01aa0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990514"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170064"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acceso condicional: Requerir dispositivos compatibles
 
@@ -33,7 +33,7 @@ Esta información del cumplimiento de las directivas se reenvía a Azure AD don
 
 Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para exigir que los dispositivos que acceden a los recursos se marquen como compatibles con las directivas de cumplimiento de Intune de su organización.
 
-1. Inicie sesión en  **Azure Portal**  como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.

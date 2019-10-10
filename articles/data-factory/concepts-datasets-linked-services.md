@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137312"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030557"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -75,7 +75,7 @@ typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejem
 
 ### <a name="data-flow-compatible-dataset"></a>Conjunto de datos compatible con Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Consulte los [tipos de conjuntos de datos admitidos](#dataset-type) para obtener una lista de los tipos de conjunto de datos que son compatibles con [Data Flow](concepts-data-flow-overview.md). Los conjuntos de datos que sean compatibles con Data Flow necesitan definiciones de conjuntos de datos específicas para las transformaciones. Por lo tanto, la definición de JSON es ligeramente diferente. En lugar de una propiedad _structure_, los conjuntos de datos que son compatibles con Data Flow tienen una propiedad _schema_.
 

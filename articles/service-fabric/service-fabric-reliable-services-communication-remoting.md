@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258687"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173462"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 
@@ -36,7 +36,7 @@ Para los servicios que no están vinculados a una pila o un protocolo de comunic
 Puede configurar la comunicación remota de un servicio en dos sencillos pasos:
 
 1. Cree una interfaz para que la implemente su servicio. Esta interfaz define los métodos que están disponibles para la llamada a procedimiento remoto en el servicio. Los métodos deben ser métodos asincrónicos que devuelven tareas. La interfaz debe implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para indicar que el servicio tiene una interfaz de comunicación remota.
-2. Utilice un agente de escucha de comunicación remota en su servicio. Un agente de escucha de comunicación remota es una implementación de `ICommunicationListener` que ofrece funcionalidades de comunicación remota. El espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.Runtime` contiene un método de extensión, `CreateServiceRemotingListener` para los servicios con y sin estado que puede usarse para crear un agente de escucha de comunicación remota mediante el protocolo de transporte de comunicación remota predeterminado.
+2. Utilice un agente de escucha de comunicación remota en su servicio. Un agente de escucha de comunicación remota es una implementación de `ICommunicationListener` que ofrece funcionalidades de comunicación remota. El espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.Runtime` contiene un método de extensión, `CreateServiceRemotingInstanceListeners` para los servicios con y sin estado que puede usarse para crear un agente de escucha de comunicación remota mediante el protocolo de transporte de comunicación remota predeterminado.
 
 >[!NOTE]
 >El espacio de nombres `Remoting` está disponible como un paquete NuGet independiente denominado `Microsoft.ServiceFabric.Services.Remoting`.

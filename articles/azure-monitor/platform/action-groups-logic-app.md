@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389577"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027710"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -38,7 +38,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 1.  En Azure Portal, seleccione **Crear un recurso** en la esquina superior izquierda.
 
-2.  Busque y seleccione  **Aplicación lógica** y luego seleccione  **Crear**.
+2.  Busque y seleccione **Aplicación lógica** y luego seleccione **Crear**.
 
 3.  Asigne un **Nombre** a la aplicación lógica, elija un **Grupo de recursos**, etc.
 

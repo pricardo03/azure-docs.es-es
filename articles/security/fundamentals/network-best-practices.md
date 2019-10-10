@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900462"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937241"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedimientos recomendados de seguridad de la red de Azure
 En este artículo se aborda un conjunto de procedimientos recomendados de Azure que sirven para mejorar la seguridad de la red. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
@@ -63,7 +63,7 @@ Al usar grupos de seguridad de red para controlar el acceso a la red entre subre
 **Procedimiento recomendado**: evitar el uso de redes virtuales y subredes pequeñas para garantizar la simplicidad y la flexibilidad.   
 **Detalles**: la mayoría de las organizaciones agregan más recursos de lo planeado inicialmente, y volver a asignar direcciones requiere un esfuerzo enorme. Si se usan subredes pequeñas, el valor de seguridad que se obtiene es limitado, y asignar un grupo de seguridad de red a cada subred supone una sobrecarga. Defina subredes amplias para asegurarse de que dispone de flexibilidad para crecer.
 
-**Procedimiento recomendado**: simplificar la administración de reglas de grupos de seguridad de red mediante la definición de [grupos de seguridad de aplicaciones](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Procedimiento recomendado**: simplificar la administración de reglas de grupos de seguridad de red mediante la definición de [grupos de seguridad de aplicaciones](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
 **Detalles**: defina un grupo de seguridad de aplicaciones para las listas de direcciones IP que crea que puedan cambiar en el futuro o que vayan a usarse en varios grupos de seguridad de red. Procure dar un nombre claro a los grupos de seguridad de aplicaciones para que otros comprendan su contenido y finalidad.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adoptar un método de Confianza cero

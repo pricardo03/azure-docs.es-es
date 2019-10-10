@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201856"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996297"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la versión Estándar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -111,7 +111,7 @@ En este artículo ha obtenido información sobre cómo incorporar recursos de Az
 
 - [Habilitación de recolección de datos](security-center-enable-data-collection.md)
 - [Informe de inteligencia de amenazas](security-center-threat-report.md)
-- [Acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md)
+- [Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

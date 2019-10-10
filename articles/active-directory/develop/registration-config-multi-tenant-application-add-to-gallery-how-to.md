@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8024130b986d111abe3b470d6b06e86ed6419dc4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: def5dc82f8cbda93f6ac18f8a2af41d5c82ce5da
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320912"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936765"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Incorporación de una aplicación multiinquilino a la galería de aplicaciones de Azure AD
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) es un servicio de identidad basado en la nube.
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Si la aplicación es compatible con SAML o con OpenIDConnect
 Si tiene una aplicación multiinquilino que le gustaría mostrar en la galería de aplicaciones de Azure AD, primero debe asegurarse de que admita una de las siguientes tecnologías de inicio de sesión único:
 
-- **OpenID Connect**: para que la aplicación se muestre, cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) de la misma. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de un usuario en función del identificador de inquilino y del UPN del usuario recibido en el token. Para enviar la aplicación, use el proceso subrayado en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: para que la aplicación se muestre, cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) de la misma. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de un usuario en función del identificador de inquilino y del UPN del usuario recibido en el token. Para enviar la aplicación, use el proceso subrayado en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 - **SAML**: si la aplicación admite SAML 2.0, se puede mostrar en la galería. Siga las instrucciones que se indican en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: f31d6197c22be4d66e0610ad7914f541a45ed995
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979569"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980813"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -44,8 +43,8 @@ Esta es una copia de la plantilla:
    | NOMBRE | Valor |
    |------|-------|
    | Subscription | Seleccione su suscripción a Azure. |
-   | Grupos de recursos | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es *mypolicyquickstart\<Date in MMDD>rg*. |
-   | Ubicación | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
+   | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es *mypolicyquickstart\<Date in MMDD>rg*. |
+   | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la asignación de directiva | Especifique un nombre para la asignación de directiva. Si lo desea, puede usar la definición de directiva en pantalla. Por ejemplo, **Auditoría de máquinas virtuales que no usan discos administrados**. |
    | Nombre del grupo de recursos | Especifique un nombre para el grupo de recursos donde desea asignar la directiva. En este inicio rápido se usa el valor predeterminado **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** es una función de plantilla que recupera el grupo de recursos. |
    | ID de definición de directiva | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |

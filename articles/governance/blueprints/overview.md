@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146100"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981707"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -52,7 +51,7 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Los planos técnicos actualmente admiten los siguientes recursos como artefactos:
 
-|Recurso  | Opciones de la jerarquía| DESCRIPCIÓN  |
+|Resource  | Opciones de la jerarquía| DESCRIPCIÓN  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager. |
 |Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas se utilizan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |

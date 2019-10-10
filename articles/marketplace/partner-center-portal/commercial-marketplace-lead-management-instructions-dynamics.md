@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102978"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177804"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar la administración de clientes potenciales para Dynamics 365 for Customer Engagement
 
-En este artículo se describe cómo configurar Dynamics 365 for Customer Engagement (antiguamente, Dynamics CRM Online). Obtenga más información sobre el cambio [aquí](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) para procesar clientes potenciales a partir de la oferta de Marketplace. 
+En este artículo se describe cómo configurar Dynamics 365 for Customer Engagement (antiguamente, Dynamics CRM Online). Obtenga más información sobre el cambio [aquí](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) para procesar clientes potenciales a partir de la oferta de Marketplace. 
 
 >[!Note]
 >Estas instrucciones son específicas para el entorno de Dynamics 365 for Customer Engagement de Microsoft hospedado en la nube. Actualmente no se admite la conexión directa a un entorno local de Dynamics. Hay otras opciones para que reciba clientes potenciales, como configurar un [punto de conexión https](./commercial-marketplace-lead-management-instructions-https.md) o una [tabla de Azure](./commercial-marketplace-lead-management-instructions-azure-table.md).

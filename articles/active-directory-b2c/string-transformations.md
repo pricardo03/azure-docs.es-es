@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063453"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936807"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -29,8 +29,8 @@ Comparar dos notificaciones y emitir una excepción si no son iguales según la 
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
-| inputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
+| InputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
+| InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
 | InputParameter | stringComparison | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 
 La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationStringsAreNotEqual** controlan el mensaje de error que se presenta al usuario.
@@ -154,8 +154,8 @@ Determine si una notificación de cadena es igual a otra. El resultado es un nue
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
-| inputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
+| InputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
+| InputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
 | InputParameter | operator | string | Valores posibles: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando. |
 | OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
@@ -195,7 +195,7 @@ Determina si un valor de notificación es igual al valor del parámetro de entra
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo de la notificación, que se va a comparar. |
+| InputClaim | inputClaim1 | string | Tipo de la notificación, que se va a comparar. |
 | InputParameter | operator | string | Valores posibles: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando. |
@@ -504,7 +504,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | Tipo de la notificación que se va a comparar. |
+| InputClaim | inputClaim | string | Tipo de la notificación que se va a comparar. |
 | InputParameter | matchTo | string | Cadena que se va a comparar con `inputClaim`. |
 | InputParameter | stringComparison | string | Valores posibles: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | Primer valor que debe establecerse si las cadenas son iguales. |
@@ -553,7 +553,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | Tipo de la notificación que se va a comparar. |
+| InputClaim | claimToMatch | string | Tipo de la notificación que se va a comparar. |
 | InputParameter | matchTo | string | Cadena que se va a comparar con inputClaim. |
 | InputParameter | stringComparison | string | Valores posibles: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valor que debe establecerse si las cadenas son iguales. |

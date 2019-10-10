@@ -4,21 +4,20 @@ description: Los proyectos de Azure Notebooks administran una colección de cuad
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13615d319af600234dcc23e04f82ce46b8f97780
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237518"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970089"
 ---
 # <a name="create-and-clone-projects"></a>Creación y clonación de proyectos
 
@@ -81,7 +80,7 @@ Las palabras reservadas siguientes no se puede usar por sí mismas como identifi
 | about | account | administration | api | blog | classroom |
 | contenido | dashboard | explore | faq | help | html |
 | home | importación | biblioteca | management | new | notebook |
-| notebooks | pdf | Vista previa | Precios | Perfil | búsqueda |
+| notebooks | pdf | Vista previa | Precios | perfile | búsqueda |
 | status | support | test | | | |
 
 Si intenta utilizar una de estas palabras como un identificador de proyecto, las opciones emergentes **Crear proyecto** y **Configuración del proyecto** indica que el identificador de la biblioteca es un identificador reservado.

@@ -12,12 +12,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
-ms.openlocfilehash: 3b9022dd2b5998f95179ee3dfabe6706b55036bc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: edbc9eef6b5f0af2e70152b66228cdf09ef31110
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636014"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242182"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Usar Twilio para capacidades de voz y SMS en Python
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps) .
@@ -35,7 +35,7 @@ Los clientes de Azure reciben una [oferta especial][special_offer] de 10 $ de cr
 Twilio es un servicio de pago por uso. No hay comisiones establecidas y puede cerrar su cuenta en cualquier momento. Puede encontrar más detalles en [Precios de Twilio][twilio_pricing].
 
 ## <a id="Concepts"></a>Conceptos
-La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios lenguajes; para obtener una lista, vea las [bibliotecas de API de Twilio][twilio_libraries].
+La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios lenguajes; para obtener una lista, consulte las [bibliotecas de API de Twilio][twilio_libraries].
 
 Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaje de marcado de Twilio (TwiML).
 
@@ -68,7 +68,7 @@ Como ejemplo, el siguiente TwiML convierte el texto **Hello World** en voz.
 
 Cuando su aplicación llama a la API de Twilio, uno de los parámetros de API es la URL que devuelve la respuesta de TwiML. Con fines de desarrollo, puede usar las URL que ofrece Twilio para proporcionar las respuestas de TwiML que usaron sus aplicaciones. También puede hospedar sus propias direcciones URL para producir las repuestas de TwiML. Otra opción es usar el objeto `TwiMLResponse`.
 
-Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, vea [TwiML][twiml]. Para obtener información adicional sobre la API de Twilio, vea [API de Twilio][twilio_api].
+Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, vea [TwiML][twiml]. Para más información sobre la API de Twilio, consulte [API de Twilio][twilio_api].
 
 ## <a id="CreateAccount"></a>Creación de una cuenta de Twilio
 Cuando esté preparado para obtener una cuenta de Twilio, regístrese en [Try Twilio][try_twilio]. Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
@@ -111,7 +111,7 @@ Después de instalar la biblioteca de Twilio para Python, use `import` para impo
 
         import twilio
 
-Para más información, consulte [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.rst).
+Para más información, consulte [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 
 ## <a id="howto_make_call"></a>Instrucciones: Realización de una llamada saliente
 A continuación se muestra cómo realizar una llamada saliente. Este código también utiliza un sitio que proporciona Twilio para devolver la respuesta de lenguaje de marcado de Twilio (TwiML). Sustituya los valores de los números de teléfono **from_number** (De) y **to_number** (Para), y asegúrese de comprobar el número de teléfono **from_number** de su cuenta de Twilio antes de ejecutar el código.

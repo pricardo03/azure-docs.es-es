@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774988"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029273"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformación Selección de Mapping Data Flow
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use esta transformación para la selección de columnas (reducir el número de columnas), para crear alias de nombres de columnas y secuencias y para reordenar las columnas.
 

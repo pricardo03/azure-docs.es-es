@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618632"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166209"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 
@@ -45,7 +45,7 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalación de una aplicación en una máquina virtual Windows con PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. Las configuraciones de DSC definen lo que se debe instalar en una máquina y cómo configurar el host. Un motor de administración de configuración local (LCM) se ejecuta en cada nodo de destino que procesa las acciones requeridas en función de las configuraciones insertadas.
+[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. Las configuraciones de DSC definen lo que se debe instalar en una máquina y cómo configurar el host. Un motor de administración de configuración local (LCM) se ejecuta en cada nodo de destino que procesa las acciones requeridas en función de las configuraciones insertadas.
 
 La extensión PowerShell DSC permite personalizar instancias de máquinas virtuales en un conjunto de escalado con PowerShell. En el ejemplo siguiente:
 

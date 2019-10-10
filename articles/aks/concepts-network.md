@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969644"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950361"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ En este artículo se presentan los conceptos básicos que proporcionan redes par
 
 Para permitir el acceso a las aplicaciones o para que los componentes de las aplicaciones se comuniquen entre sí, Kubernetes proporciona una capa de abstracción para la red virtual. Los nodos de Kubernetes están conectados a una red virtual y pueden proporcionar conectividad de entrada y salida para los pods. El componente *kube-proxy* se ejecuta en cada nodo para proporcionar estas características de red.
 
-En Kubernetes, los *servicios* agrupan lógicamente los pods para permitir el acceso directo a través de una dirección IP o nombre DNS y en un puerto específico. También puede distribuir el tráfico mediante un *equilibrador de carga*. También se puede lograr un enrutamiento del tráfico de la aplicación más complejo mediante los *controladores de entradas*. La seguridad y el filtrado del tráfico de los pods es posible gracias a las *directivas de red* (en versión preliminar en AKS) de Kubernetes.
+En Kubernetes, los *servicios* agrupan lógicamente los pods para permitir el acceso directo a través de una dirección IP o nombre DNS y en un puerto específico. También puede distribuir el tráfico mediante un *equilibrador de carga*. También se puede lograr un enrutamiento del tráfico de la aplicación más complejo mediante los *controladores de entradas*. La seguridad y el filtrado del tráfico de red de los pods es posible con las *directivas de red* de Kubernetes.
 
 La plataforma Azure también ayuda a simplificar las redes virtuales de los clústeres de AKS. Cuando se crea un equilibrador de carga de Kubernetes, se crea y se configura el recurso de equilibrador de carga de Azure subyacente. Cuando abre los puertos de red a los pods, se configuran las reglas de los grupos de seguridad de red de Azure correspondientes. Para el enrutamiento de aplicaciones HTTP, Azure también puede configurar un *DNS externo* a medida que se configuran nuevas rutas de entrada.
 

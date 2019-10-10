@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211984"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177609"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -32,7 +32,7 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 
 * Una ubicación geográfica para el almacenamiento de datos.
 * Aislamiento de datos, ya que se conceden diferentes derechos de acceso a los usuarios en base a una de nuestras estrategias de diseño recomendadas.
-* Ámbito para la configuración de opciones, como el [plan de tarifa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Ámbito para la configuración de opciones, como el [plan de tarifa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
 
 En este artículo se proporciona información general detallada acerca de las consideraciones de diseño y migración, información general sobre el control de acceso y una descripción de las implementaciones de diseño que recomendamos para su organización de TI.
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67d8421b2e545c951dcbc3280a306514e4b14897
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939993"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030055"
 ---
 # <a name="hosted-test-drive"></a>Versión de prueba hospedada
 
@@ -52,4 +52,4 @@ Proporcione los siguientes campos en la sección de \'configuración técnica\':
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando esté listo, **publique** su oferta. Una vez que la aplicación haya pasado la certificación, podrá ver una **versión preliminar** de la oferta. Inicie una versión de prueba en la interfaz de usuario y compruebe que las versiones de prueba se están ejecutando correctamente. Cuando esté satisfecho con la oferta de versión preliminar,  **publíquela**.
+Cuando esté listo, **publique** su oferta. Una vez que la aplicación haya pasado la certificación, podrá ver una **versión preliminar** de la oferta. Inicie una versión de prueba en la interfaz de usuario y compruebe que las versiones de prueba se están ejecutando correctamente. Cuando esté satisfecho con la versión preliminar de la oferta, **publíquela**.

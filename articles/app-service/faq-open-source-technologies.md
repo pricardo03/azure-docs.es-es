@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121216"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169681"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre tecnologías de código abierto para Web Apps en Azure
 
@@ -187,24 +187,24 @@ App Service no tiene una característica integrada de correo electrónico. Para 
 
 Si ha migrado recientemente a Azure, WordPress podría redirigir a la URL de dominio anterior. Esto se debe a una opción de configuración de la base de datos MySQL.
 
-WordPress Buddy+ es una extensión de sitio de Azure que se puede usar para actualizar la dirección URL de redireccionamiento directamente en la base de datos. Para obtener más información sobre el uso de WordPress Buddy+, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+WordPress Buddy+ es una extensión de sitio de Azure que se puede usar para actualizar la dirección URL de redireccionamiento directamente en la base de datos. Para obtener más información sobre el uso de WordPress Buddy+, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 Como alternativa, si prefiere actualizar manualmente la URL de redireccionamiento mediante el uso de consultas SQL o PHPMyAdmin, vea [WordPress: Redirecting to wrong URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/) (WordPress: redireccionamiento a una URL incorrecta).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>¿Cómo se cambia la contraseña de inicio de sesión de WordPress?
 
-Si ha olvidado su contraseña de inicio de sesión de WordPress, puede usar WordPress Buddy+ para actualizarla. Para restablecer la contraseña, instale la extensión de sitio de Azure WordPress Buddy+ y, después, lleve a cabo los pasos que se describen en [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+Si ha olvidado su contraseña de inicio de sesión de WordPress, puede usar WordPress Buddy+ para actualizarla. Para restablecer la contraseña, instale la extensión de sitio de Azure WordPress Buddy+ y, después, lleve a cabo los pasos que se describen en [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>No puedo iniciar sesión en WordPress. ¿Cómo se resuelve este problema?
 
-Si está bloqueado y no puede entrar en WordPress después de instalar recientemente un complemento, dicho complemento podría ser defectuoso. WordPress Buddy+ es una extensión de sitio de Azure que permite deshabilitar complementos en WordPress. Para obtener más información, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+Si está bloqueado y no puede entrar en WordPress después de instalar recientemente un complemento, dicho complemento podría ser defectuoso. WordPress Buddy+ es una extensión de sitio de Azure que permite deshabilitar complementos en WordPress. Para obtener más información, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>¿Cómo puedo migrar mi base de datos de WordPress?
 
 Tiene varias opciones para migrar la base de datos MySQL conectada a su sitio web de WordPress:
 
 * Desarrolladores: use el [símbolo del sistema o PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/).
-* No desarrolladores: Use [WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* No desarrolladores: Use [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>¿Cómo puedo conseguir que WordPress sea más seguro?
 

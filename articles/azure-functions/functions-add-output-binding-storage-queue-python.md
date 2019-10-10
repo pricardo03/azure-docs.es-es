@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171081"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839190"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
@@ -30,20 +30,11 @@ La mayoría de los enlaces requieren una cadena de conexión almacenada que se u
 
 Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Python](functions-create-first-function-python.md).
 
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 
-En el artículo de inicio rápido anterior creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de almacenamiento cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo local.settings.json. Ejecute el siguiente el comando de Azure Functions Core Tools para descargar la configuración en local.settings.json y reemplace `<APP_NAME>` por el nombre de la aplicación de funciones del artículo anterior:
-
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
-
-Es posible que tenga que iniciar sesión en su cuenta de Azure.
-
-> [!IMPORTANT]  
-> Como contiene secretos, el archivo local.settings.json nunca se publica y debe excluirse del control de código fuente.
-
-Necesitará el valor `AzureWebJobsStorage`, que es la cadena de conexión de la cuenta de almacenamiento. Esta conexión se usa para comprobar que el enlace de salida funciona según lo previsto.
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Habilitación de conjuntos de extensiones
 
@@ -53,80 +44,13 @@ Ahora podrá agregar el enlace de salida de almacenamiento al proyecto.
 
 ## <a name="add-an-output-binding"></a>Adición de un enlace de salida
 
-En Functions, para cada tipo de enlace es necesario definir los elementos `direction`, `type` y un valor único de `name` en el archivo function.json. Según el tipo de enlace, pueden ser necesarias propiedades adicionales. En la [configuración de salida de cola](functions-bindings-storage-queue.md#output---configuration) se describen los campos necesarios para un enlace de cola de Azure Storage.
+En Functions, para cada tipo de enlace es necesario definir los elementos `direction`, `type` y un valor único de `name` en el archivo function.json. La manera de definir estos atributos depende del lenguaje de la aplicación de funciones.
 
-Para crear un enlace, se agrega un objeto de configuración de enlace al archivo function.json. Edite el archivo function.json en la carpeta HttpTrigger para agregar un objeto a la matriz `bindings`, que tiene las siguientes propiedades:
-
-| Propiedad | Valor | DESCRIPCIÓN |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | Nombre que identifica el parámetro de enlace al que se hace referencia en el código. |
-| **`type`** | `queue` | El enlace es un enlace de cola de Azure Storage. |
-| **`direction`** | `out` | El enlace es un enlace de salida. |
-| **`queueName`** | `outqueue` | El nombre de la cola en la que escribe el enlace. Cuando no existe `queueName`, el enlace lo crea durante el primer uso. |
-| **`connection`** | `AzureWebJobsStorage` | El nombre de una configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento. El valor `AzureWebJobsStorage` contiene la cadena de conexión de la cuenta de almacenamiento que creó con la aplicación de función. |
-
-El archivo function.json debe ser ahora similar al siguiente ejemplo:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adición de código que utilice el enlace de salida
 
-Una vez configurado `name`, puede empezar a usarlo para acceder al enlace como atributo de método en la signatura de función. En el ejemplo siguiente, `msg` es una instancia de [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
 Al usar un enlace de salida, no tiene que usar el código del SDK de Azure Storage para autenticarse, obtener una referencia de cola o escribir datos. El sistema en tiempo de ejecución de Functions y el enlace de salida de cola realizan esas tareas automáticamente.
 
@@ -149,34 +73,11 @@ A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que s
 
 ### <a name="set-the-storage-account-connection"></a>Establecimiento de la conexión de la cuenta de almacenamiento
 
-Abra el archivo local.settings.json y copie el valor de `AzureWebJobsStorage`, que es la cadena de conexión de la cuenta de almacenamiento. Establezca la variable de entorno `AZURE_STORAGE_CONNECTION_STRING` en la cadena de conexión con el siguiente comando de Bash:
-
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-```
-
-La establecer la cadena de conexión en la variable de entorno `AZURE_STORAGE_CONNECTION_STRING`, puede acceder a la cuenta de almacenamiento sin tener que autenticarse cada vez.
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 ### <a name="query-the-storage-queue"></a>Consulta de la cola de almacenamiento
 
-Puede usar el comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para ver las colas de almacenamiento de la cuenta, como en el ejemplo siguiente:
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-La salida de este comando incluye una cola denominada `outqueue`, que es la cola que se creó cuando se ejecutó la función.
-
-A continuación, use el comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para ver los mensajes de esta cola, como se muestra en este ejemplo:
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-La cadena devuelta debe ser la misma que el mensaje que envió para probar la función.
-
-> [!NOTE]  
-> En el ejemplo anterior se descodifica la cadena devuelta desde base64. Esto se debe a que los enlaces de Queue Storage escriben y leen en Azure Storage como [cadenas de base64](functions-bindings-storage-queue.md#encoding).
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 Ahora es el momento de volver a publicar la aplicación de funciones actualizada en Azure.
 

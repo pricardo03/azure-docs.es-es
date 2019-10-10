@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207242"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169766"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -146,7 +146,7 @@ Actualizar propiedades del inicio de sesión único | Propietario de la aplicaci
 ## <a name="entitlement-management"></a>Administración de derechos
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Adición de recursos a un catálogo | Administrador de usuarios | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)).
+Adición de recursos a un catálogo | Administrador de usuarios | Con la administración de derechos, puede delegar esta tarea en el propietario del catálogo ([consulte la documentación](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
 Adición de sitios de SharePoint Online al catálogo | Administrador global
 
 

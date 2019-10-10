@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954619"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177717"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -247,7 +247,7 @@ Puede ver todas las alertas creadas a partir de registros de actividad y áreas 
 Aunque puede recibir notificaciones a través de registros de actividad, recomendamos encarecidamente que se use Log Analytics en su lugar para supervisar a escala. Aquí se detallan los motivos:
 
 - **Escenarios limitados**: las notificaciones a través de registros de actividad se aplican solo a las copias de seguridad de máquinas virtuales de Azure. Las notificaciones deben configurarse para todos los almacenes de Recovery Services.
-- **Ajuste de definición**: la actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad. En su lugar, se alinea con los [registros de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Esta alineación da lugar a efectos inesperados al cambiar los datos que fluyen a través del canal del registro de actividad.
+- **Ajuste de definición**: la actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad. En su lugar, se alinea con los [registros de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Esta alineación da lugar a efectos inesperados al cambiar los datos que fluyen a través del canal del registro de actividad.
 - **Problemas con el canal del registro de actividad**: en los almacenes de Recovery Services, los registros de actividad que se bombean desde Azure Backup siguen un nuevo modelo. Desafortunadamente, este cambio afecta a la generación de registros de actividad en Azure Government, Azure Alemania y Azure China 21Vianet. Si los usuarios de estos servicios en la nube crean o configuran cualquier alerta de los registros de actividad en Azure Monitor, no se desencadenarán las alertas. Además, en todas las regiones públicas de Azure, si un usuario [recopila los registros de actividad de Recovery Services en un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estos registros no aparecerán.
 
 Use un área de trabajo de Log Analytics para la supervisión y generación de alertas a escala en todas las cargas de trabajo que Azure Backup protege.

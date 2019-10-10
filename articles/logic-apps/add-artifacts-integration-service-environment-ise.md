@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967229"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960489"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Incorporación de artefactos al entorno del servicio de integración (ISE) en Azure Logic Apps
 
@@ -59,8 +59,7 @@ Para crear aplicaciones lógicas que se ejecuten en el entorno del servicio de i
 
 ## <a name="create-integration-accounts"></a>Creación de cuentas de integración
 
-Según la [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que se seleccionó en la creación, el ISE incluye el uso de una cuenta de integración específica sin costo adicional. Las aplicaciones lógicas que existen en un entorno del servicio de integración (ISE) pueden hacer referencia solo a cuentas de integración que existan en el mismo ISE. Por lo tanto, para que una cuenta de integración trabaje con aplicaciones lógicas en un ISE, tanto la cuenta de integración como las aplicaciones lógicas deben usar el *mismo entorno* como ubicación. Para más información sobre las cuentas de integración y los ISE, consulte [Cuentas de integración con ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
-).
+Según la [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) que se seleccionó en la creación, el ISE incluye el uso de una cuenta de integración específica sin costo adicional. Las aplicaciones lógicas que existen en un entorno del servicio de integración (ISE) pueden hacer referencia solo a cuentas de integración que existan en el mismo ISE. Por lo tanto, para que una cuenta de integración trabaje con aplicaciones lógicas en un ISE, tanto la cuenta de integración como las aplicaciones lógicas deben usar el *mismo entorno* como ubicación. Para más información sobre las cuentas de integración y los ISE, consulte [Cuentas de integración con ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment).
 
 Para crear una cuenta de integración que use un ISE, siga estos pasos:
 

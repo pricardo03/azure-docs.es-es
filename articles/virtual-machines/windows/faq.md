@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0b1af2052e8aa916bf5fd6a40bea3502ff81a02d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 068ae6fd581a55892c115f3a7e38d10304f057d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079479"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170202"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
 En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, vea [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -75,10 +75,10 @@ Sí. Para crear rápidamente una máquina virtual Linux de prueba, consulte [Cre
 Sí, ahora es posible. En primer lugar, la máquina virtual debe detenerse desasignada. A continuación, puede agregar o quitar una NIC (a menos que sea la última en la máquina virtual). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>¿Hay algún requisito de nombre de equipo?
-Sí. El nombre del equipo puede tener un máximo de 15 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/architecture/best-practices/naming-conventions#compute) para más información sobre la denominación de los recursos.
+Sí. El nombre del equipo puede tener un máximo de 15 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) para más información sobre la denominación de los recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>¿Existen algunos requisitos para los nombres de grupos de recursos?
-Sí. El nombre del grupo de recursos puede tener como máximo 90 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) para más información sobre los grupos de recursos.
+Sí. El nombre del grupo de recursos puede tener como máximo 90 caracteres. Consulte el artículo sobre las [convenciones y restricciones de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) para más información sobre los grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>¿Cuáles son los requisitos de nombre de usuario cuando se crea una VM?
 

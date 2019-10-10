@@ -6,16 +6,16 @@ keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 2d3d37bcb6ee4bae82d82cf676211e9e1546cfad
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/3/2019
+ms.openlocfilehash: 47a701cce348e86359947376b3d6a9915dfb2264
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191993"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950171"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Herramientas de ingesta de datos de Data Science Virtual Machine
 
@@ -91,15 +91,3 @@ Estas son algunas herramientas de movimiento de datos disponibles en DSVM.
 |  ¿Cómo se usa y cómo se ejecuta?    |   Ejecute _blobfuse_ en un terminal.    |
 | Vínculos a ejemplos      | [blobfuse en GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Herramientas relacionadas en DSVM      | CLI de Azure      |
-
-
-## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway
-
-|    |           |
-| ------------- | ------------- |
-| ¿Qué es?   | Una herramienta para conectar orígenes de datos locales a servicios en la nube para su consumo.      |
-| Versiones de DSVM compatibles      | Windows      |
-| Usos típicos      | Conexión de una máquina virtual a un origen de datos local.      |
-|  ¿Cómo se usa o ejecuta?    |   Abra Microsoft Data Management Gateway desde el menú Inicio.    |
-| Vínculos a ejemplos      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Herramientas relacionadas en DSVM      | AzCopy, AdlCopy y bcp    |

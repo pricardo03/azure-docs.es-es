@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988160"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240890"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor
 
@@ -36,7 +36,7 @@ Para usar esta característica, necesita:
 * Un centro de eventos de Azure que contenga registros de actividad de Azure AD. Aprenda cómo [transmitir los registros de actividad a un centro de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Una instancia configurada de ArcSight Syslog NG Daemon SmartConnector (SmartConnector) o del equilibrador de carga de ArcSight. Si los eventos se envían al equilibrador de carga de ArcSight, el equilibrador de carga los envía posteriormente a SmartConnector.
 
-Descarga y abra la [guía de configuración de ArcSight SmartConnector para el centro de eventos de Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Esta guía contiene los pasos necesarios para instalar y configurar ArcSight SmartConnector para Azure Monitor. 
+Descarga y abra la [guía de configuración de ArcSight SmartConnector para el centro de eventos de Azure Monitor](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Esta guía contiene los pasos necesarios para instalar y configurar ArcSight SmartConnector para Azure Monitor. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integración de registros de Azure AD con ArcSight
 

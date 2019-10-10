@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967946"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244631"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
 
@@ -308,7 +308,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Pasos** | La ausencia de autenticación significa que todo el mundo puede acceder a este servicio. Un servicio que no autentica a sus clientes permite el acceso a todos los usuarios. Configure la aplicación para autenticarse con credenciales de cliente. Para ello, establezca el mensaje clientCredentialType en Windows o Certificado. |
 
 ### <a name="example"></a>Ejemplo
@@ -324,7 +324,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | ClientCredentialType: Ninguno |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Pasos** | La ausencia de autenticación significa que todo el mundo puede acceder a este servicio. Un servicio que no se autentica a sus clientes permite que todos los usuarios accedan a su funcionalidad. Configure la aplicación para autenticarse con credenciales de cliente. Para ello, establezca el valor de clientCredentialType de transporte en Windows o Certificado. |
 
 ### <a name="example"></a>Ejemplo

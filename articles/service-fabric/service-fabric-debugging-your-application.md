@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300678"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947897"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Ser
 
 > [!NOTE]
 > La característica requiere [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) y el [SDK de Azure para .NET 2.9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > La depuración remota está diseñada para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
-> 
-> 
 
 1. Vaya al clúster en **Cloud Explorer**. Haga clic con el botón derecho y elija **Habilitar depuración**.
    
@@ -128,8 +124,6 @@ También puede trasmitir seguimientos directamente desde un nodo de clúster rem
 > [!WARNING]
 > Los seguimientos en streaming están concebidos para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
 > En un escenario de producción, debe depender del reenvío de eventos mediante Diagnósticos de Azure.
-> 
-> 
 
 1. Vaya al clúster en **Cloud Explorer**. Haga clic con el botón derecho y elija **Habilitar seguimientos en streaming**.
    

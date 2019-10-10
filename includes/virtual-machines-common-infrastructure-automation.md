@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671429"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72171041"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Uso de herramientas de automatización de la infraestructura con máquinas virtuales de Azure
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
@@ -64,15 +64,15 @@ Estamos trabajando activamente con nuestros asociados de distribuciones de Linux
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. DSC también se puede utilizar en Linux mediante el [servidor de infraestructura de administración abierta (OMI)](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. DSC también se puede utilizar en Linux mediante el [servidor de infraestructura de administración abierta (OMI)](https://collaboration.opengroup.org/omi/).
 
 Las configuraciones de DSC definen lo que se debe instalar en una máquina y cómo configurar el host. Un motor de administración de configuración local (LCM) se ejecuta en cada nodo de destino que procesa las acciones requeridas en función de las configuraciones insertadas. Un servidor de extracción es un servicio web que se ejecuta en un host central para almacenar las configuraciones de DSC y los recursos asociados. El servidor de extracción se comunica con el motor de LCM en cada host de destino para proporcionar las configuraciones necesarias e informar sobre el cumplimiento.
 
 Obtenga información sobre cómo:
 
 - [Crear una configuración básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
-- [Configurar un servidor de extracción de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Usar DSC para Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
+- [Configurar un servidor de extracción de DSC](/powershell/scripting/dsc/pull-server/pullserver).
+- [Usar DSC para Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 
 ## <a name="azure-custom-script-extension"></a>Extensión de script personalizado de Azure

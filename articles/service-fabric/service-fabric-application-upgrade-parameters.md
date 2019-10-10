@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
-ms.author: subramar
-ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 6f8c517c33393647e2dc5205b5a8f4afba4ae3b0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614393"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167568"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
 En este artículo se describen los distintos parámetros que se aplican durante la actualización de una aplicación de Azure Service Fabric. Los parámetros de actualización de la aplicación controlan los tiempos de espera y las comprobaciones de estado que se aplican durante la actualización y especifican las directivas que deben aplicarse cuando se produce un error en una actualización. Los parámetros de la aplicación se aplican en las actualizaciones mediante:

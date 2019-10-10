@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382498"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025513"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
@@ -63,8 +63,8 @@ En algunos casos, las aplicaciones empresariales creadas desde la galería de ap
 
 1. Inicie sesión en su [organización de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)  con una cuenta que sea válida para el administrador de aplicaciones o el administrador de aplicaciones en la nube de la organización.
 1. En la  [página Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) de la organización, seleccione una aplicación para abrir su página Información general.
-1. Seleccione  **Propietarios**  para ver la lista de los propietarios de la aplicación.
-1. Seleccione  **Agregar**  para seleccionar uno o varios propietarios para agregar a la aplicación.
+1. Seleccione **Propietarios** para ver la lista de los propietarios de la aplicación.
+1. Seleccione **Agregar** para seleccionar uno o varios propietarios para agregar a la aplicación.
 
 > [!IMPORTANT]
 > Los usuarios y las entidades de servicio pueden ser propietarios de registros de aplicaciones. Solo los usuarios pueden ser propietarios de aplicaciones empresariales. No se pueden asignar grupos como propietarios en ninguno de los dos casos.

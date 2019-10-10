@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: b5fb0c4de82d5ff5f5290127ec529787cabad64a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 83446facc734c0bfa24b7e78916d652467d01415
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258352"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978681"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: Exploración de Azure Time Series Insights
 
@@ -24,7 +24,7 @@ Este inicio rápido del explorador de Azure Time Series Insights muestra cóm
 
 Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Proporciona una visión global de los datos, con el fin de que se pueda validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Azure Time Series Insights facilita la detección de las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real.
 
-Para mayor flexibilidad, Azure Time Series Insights se puede agregar a una aplicación existente previamente mediante sus eficaces [API REST](./time-series-insights-update-tsq.md) y [SDK de cliente](./tutorial-create-tsi-sample-spa.md). Las API se pueden usar para almacenar, consultar y consumir datos de series temporales de la aplicación cliente que prefiera. También se puede usar el SDK de cliente para agregar los componentes de la interfaz de usuario a la aplicación existente.
+Para mayor flexibilidad, Azure Time Series Insights se puede agregar a una aplicación existente previamente mediante sus eficaces [API REST](./time-series-insights-update-tsq.md) y [SDK de cliente](https://github.com/microsoft/tsiclient). Las API se pueden usar para almacenar, consultar y consumir datos de series temporales de la aplicación cliente que prefiera. También se puede usar el SDK de cliente para agregar los componentes de la interfaz de usuario a la aplicación existente.
 
 En este inicio rápido del explorador de Time Series Insights se ofrece un recorrido guiado por las características que ya están disponibles con carácter general.
 

@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 10/02/2019
 ms.custom: include file
-ms.openlocfilehash: f9b1b32775393196a77bef3aa2257f6fb66afdcb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f67f271ee02e38e168ddfaa84ed1309321cf8702
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012276"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949116"
 ---
 > [!NOTE]
 > Las solicitudes de varias partes normalmente requieren tres elementos:
@@ -26,7 +27,7 @@ ms.locfileid: "69012276"
 >
 > **Content-Type** y **Content-Disposition** variarán en función del escenario de uso.
 
-Se pueden realizar solicitudes de varias partes mediante programación (a través de C#), a través de un cliente de REST o de una herramienta como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). Las herramientas de cliente REST pueden tener distintos niveles de compatibilidad de las solicitudes complejas con varias partes. Las opciones de configuración también pueden variar ligeramente de una herramienta a otra. Compruebe qué herramienta se adapta mejor a sus necesidades.
+Se pueden realizar solicitudes de varias partes mediante programación (a través de C#), a través de un cliente de REST o de una herramienta como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request). Las herramientas de cliente REST pueden tener distintos niveles de compatibilidad de las solicitudes complejas con varias partes. Las opciones de configuración también pueden variar ligeramente de una herramienta a otra. Compruebe qué herramienta se adapta mejor a sus necesidades.
 
 > [!IMPORTANT]
 > Las solicitudes de varias partes realizadas a las API de administración de Azure Digital Twins normalmente tienen dos partes:

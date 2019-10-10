@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 5197358e3bd8a3052fbf71cafc2f1e3acda46b26
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 59c83cb1becf8869d0e8710121816d1bb75e621e
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721150"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001569"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure PowerShell
 
@@ -81,11 +81,11 @@ Para validar la implementación de un grupo de recursos, consulte [Test-AzResour
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementación de un grupo de recursos y de recursos
 
-Puede crear un grupo de recursos e implementar recursos en el grupo por medio de una plantilla de Resource Manager. Para más información, consulte [Creación de un grupo de recursos e implementación de recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Puede crear un grupo de recursos e implementar recursos en el grupo por medio de una plantilla de Resource Manager. Para más información, consulte [Creación de un grupo de recursos e implementación de recursos](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Esta característica también es conocida como *reversión en caso de error*. Para obtener más información, consulte [Nueva implementación cuando se produce un error en la implementación](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
+Esta característica también es conocida como *reversión en caso de error*. Para obtener más información, consulte [Nueva implementación cuando se produce un error en la implementación](./rollback-on-error.md).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Traslado a otro grupo de recursos o suscripción
 

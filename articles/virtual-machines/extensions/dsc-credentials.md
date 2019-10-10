@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 38a302545f2dd46a8123816a41c97ae26ee4c260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0625e3ac14e28cb4d43313bf1d9bc8b7afa08b1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092507"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176708"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Pasar credenciales al controlador de extensiones DSC de Azure
 
@@ -83,11 +83,11 @@ $vm | Update-AzVM
 
 Al ejecutar este código, se solicita una credencial. Después de proporcionar la credencial, se almacena brevemente en la memoria. Cuando la credencial se publica usando el cmdlet **Set-AzVMDscExtension**, esta se transmite a través de HTTPS a la VM. En la máquina virtual, Azure almacena la credencial cifrada en el disco mediante el certificado de máquina virtual local. La credencial se descifra brevemente en la memoria y se vuelve a cifrar para pasarla a DSC.
 
-Este proceso no es el mismo que cuando se [usan configuraciones seguras sin el controlador de extensiones](/powershell/dsc/securemof). El entorno de Azure ofrece una manera de transmitir datos de configuración de forma segura mediante certificados. Cuando utiliza el controlador de la extensión DSC, no es necesario proporcionar **$CertificatePath** o una entrada **$CertificateID**/  **$Thumbprint** en **ConfigurationData**.
+Este proceso no es el mismo que cuando se [usan configuraciones seguras sin el controlador de extensiones](/powershell/scripting/dsc/pull-server/securemof). El entorno de Azure ofrece una manera de transmitir datos de configuración de forma segura mediante certificados. Cuando utiliza el controlador de la extensión DSC, no es necesario proporcionar **$CertificatePath** o una entrada **$CertificateID**/  **$Thumbprint** en **ConfigurationData**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga una [introducción al controlador de extensiones DSC de Azure](dsc-overview.md).
 - Examine la [plantilla de Azure Resource Manager para la extensión de DSC](dsc-template.md).
-- Para obtener más información sobre DSC de PowerShell, vaya al [centro de documentación de PowerShell](/powershell/dsc/overview).
+- Para obtener más información sobre DSC de PowerShell, vaya al [centro de documentación de PowerShell](/powershell/scripting/dsc/overview/overview).
 - Para obtener más funcionalidades que pueda administrar con DSC de PowerShell y más recursos de DSC, examine la [Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

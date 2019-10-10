@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31fc3aed0d412646d9924e87170dffcd5145409
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575991"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169968"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
@@ -24,7 +24,7 @@ Gracias a la condición de ubicación del acceso condicional, podrá controlar e
 
 ## <a name="define-locations"></a>Definición de ubicaciones
 
-1. Inicie sesión en  **Azure Portal**  como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. Elija **Nueva ubicación**.
 1. Asigne un nombre a la ubicación.
@@ -37,7 +37,7 @@ Para más información sobre la condición de ubicación en el acceso condiciona
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-1. Inicie sesión en  **Azure Portal**  como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
