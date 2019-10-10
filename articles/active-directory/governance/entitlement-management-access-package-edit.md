@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291029"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326376"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar y administrar un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -36,7 +36,7 @@ En este artículo se describe cómo editar y administrar los paquetes de acceso 
 
 ## <a name="add-resource-roles"></a>Agregar roles de recursos
 
-Un rol de recursos es una colección de permisos asociados a un recurso. Para hacer que los usuarios puedan solicitar los recursos es necesario agregar roles de recursos al paquete de acceso. Puede agregar roles de recursos para grupos, aplicaciones y sitios de SharePoint.
+Un rol de recursos es una colección de permisos asociados a un recurso. Para hacer que los usuarios puedan solicitar los recursos es necesario agregar roles de recursos al paquete de acceso. Puede agregar roles de recursos para grupos, equipos, aplicaciones y sitios de SharePoint.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
@@ -50,38 +50,49 @@ Un rol de recursos es una colección de permisos asociados a un recurso. Para ha
 
     ![Paquete de acceso - Agregar roles de recursos](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. En función de si quiere agregar un grupo, una aplicación o un sitio de SharePoint, realice los pasos de una de las siguientes secciones de roles de recursos.
+1. En función de si quiere agregar un grupo, un equipo, una aplicación o un sitio de SharePoint, realice los pasos de una de las siguientes secciones de roles de recursos.
 
-### <a name="add-a-group-resource-role"></a>Agregar un rol de recursos del grupo
+### <a name="add-a-group-or-team-resource-role"></a>Agregar un rol de recursos del grupo o equipo
 
-Puede hacer que la administración de derechos agregue usuarios automáticamente a un grupo cuando se les asigna un paquete de acceso. 
+Puede hacer que la administración de derechos agregue usuarios automáticamente a un grupo o equipo de Microsoft cuando se les asigna un paquete de acceso. 
 
-- Cuando un grupo forma parte de un paquete de acceso y se asigna a un usuario a ese paquete de acceso, se agrega al usuario a ese grupo, si todavía no está presente.
-- Cuando la asignación de paquetes de acceso de un usuario expira, se le quita del grupo, a menos que tenga actualmente una asignación a otro paquete de acceso que incluya ese mismo grupo.
+- Cuando un grupo o equipo forma parte de un paquete de acceso y se asigna a un usuario a ese paquete de acceso, se agrega al usuario a ese grupo o equipo, si todavía no está presente.
+- Cuando la asignación de paquetes de acceso de un usuario expira, se le quita del grupo o equipo, a menos que tenga actualmente una asignación a otro paquete de acceso que incluya ese mismo grupo o equipo.
 
-Puede seleccionar cualquier grupo de seguridad de Office 365 o de Azure AD.  Los administradores pueden agregar cualquier grupo a un catálogo; los propietarios de catálogos pueden agregar cualquier grupo al catálogo si son los propietarios del grupo. Tenga en cuenta las siguientes restricciones de Azure AD al seleccionar un grupo:
+Puede seleccionar cualquier [grupo de seguridad de Azure AD o grupo de Office 365](../fundamentals/active-directory-groups-create-azure-portal.md).  Los administradores pueden agregar cualquier grupo a un catálogo; los propietarios de catálogos pueden agregar cualquier grupo al catálogo si son los propietarios del grupo. Tenga en cuenta las siguientes restricciones de Azure AD al seleccionar un grupo:
 
-- Cuando se agrega como miembro a un usuario, incluido un invitado, a un grupo, puede ver a los demás miembros de ese grupo.
+- Cuando se agrega como miembro a un usuario, incluido un invitado, a un grupo o equipo, puede ver a los demás miembros de ese grupo o equipo.
 - Azure AD no puede cambiar la pertenencia de un grupo que se ha sincronizado desde Windows Server Active Directory con Azure AD Connect o que se ha creado en Exchange Online como grupo de distribución.  
 - No se puede actualizar la pertenencia a grupos dinámicos agregando o eliminando a un miembro, por lo que las pertenencias a grupos dinámicos no son adecuadas para su uso con la administración de derechos.
 
-1. En la página **Agregar roles de recursos al paquete de acceso**, haga clic en **Grupos** para abrir el panel Seleccionar grupos.
+Para obtener más información, consulte [Comparar grupos](/office365/admin/create-groups/compare-groups) y [Grupos de Office 365 y equipos de Microsoft](/microsoftteams/office-365-groups).
 
-1. Seleccione los grupos que quiere incluir en el paquete de acceso.
+1. En la página **Agregar roles de recursos al paquete de acceso**, haga clic en **Grupos y Equipos** para abrir el panel Seleccionar grupos.
+
+1. Seleccione los grupos y equipos que quiere incluir en el paquete de acceso.
 
     ![Paquete de acceso - Agregar roles de recursos - Seleccionar grupos](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. Haga clic en **Seleccionar**.
 
+    Una vez que seleccione el grupo o equipo, la columna **Subtipo** enumerará uno de los siguientes subtipos:
+
+    |  |  |
+    | --- | --- |
+    | Seguridad | Se usa para conceder acceso a los recursos de Azure. |
+    | Distribución | Se usa para enviar notificaciones a un grupo de personas. |
+    | O365 | El Grupo de Office 365 que no está habilitado para equipos. Se usa para la colaboración entre usuarios, tanto dentro como fuera de su empresa. |
+    | Team | El Grupo de Office 365 que está habilitado para equipos. Se usa para la colaboración entre usuarios, tanto dentro como fuera de su empresa. |
+
 1. En la lista **Rol**, seleccione **Propietario** o **Miembro**.
 
     Normalmente se selecciona el rol Miembro. Si selecciona el rol Propietario, permitirá que los usuarios agreguen o quiten a otros miembros o propietarios.
 
-    ![Paquete de acceso - Agregar rol de recursos para un grupo](./media/entitlement-management-access-package-edit/group-role.png)
+    ![Paquete de acceso: agregar rol de recursos para un grupo o equipo](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. Haga clic en **Agregar**.
 
-    Cuando se agregue, los usuarios con asignaciones existentes para el paquete de acceso se convertirán automáticamente en miembros de este grupo.
+    Cuando se agregue, los usuarios con asignaciones existentes para el paquete de acceso se convertirán automáticamente en miembros de este grupo o equipo.
 
 ### <a name="add-an-application-resource-role"></a>Agregar un rol de recursos de la aplicación
 

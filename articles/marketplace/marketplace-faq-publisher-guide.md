@@ -1,26 +1,26 @@
 ---
-title: P+F sobre Azure Marketplace
-description: Respuestas a preguntas habituales sobre Microsoft Azure Marketplace
+title: P+F de Marketplace comercial de Microsoft
+description: Respuestas a preguntas habituales sobre Azure Marketplace y AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259955"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827982"
 ---
-# <a name="marketplace-faqs"></a>Preguntas más frecuentes de Marketplace
+# <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
-Respuestas a preguntas habituales sobre Microsoft Azure Marketplace.
+Respuestas a preguntas habituales sobre Azure Marketplace y AppSource.
 
 ## <a name="faq-for-customers"></a>Preguntas frecuentes para clientes
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Todo lo que debe saber acerca de Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Todo lo que debe saber acerca de Azure Marketplace y AppSource
 
 **¿Qué es Azure Marketplace?**
 
@@ -155,7 +155,7 @@ Estas son las opciones más comunes por tipo de oferta:
 
 **¿Qué tipos de versiones de evaluación se admiten?**
 
-Las ofertas de evaluación gratuita son anuncios con una llamada a la acción para iniciar una prueba. Estos conducen al cliente a un sitio web definido por el anunciante para configurar la experiencia de la versión de evaluación. Las versiones de evaluación también se pueden agregar a las ofertas de pago en las que el primer mes es gratuito. 
+Los anunciantes pueden agregar un mes gratis para las ofertas de SaaS de pago y uno o tres meses gratuitos de consumo para imágenes de máquinas virtuales. Las ofertas de evaluación gratuita son anuncios con una llamada a la acción para iniciar una prueba. Estos conducen al cliente a un sitio web definido por el anunciante para configurar la experiencia de la versión de evaluación. Las versiones de evaluación también se pueden agregar a las ofertas de pago en las que el primer mes es gratuito. 
 
 **¿Es necesario tener registrado un método de pago (por ejemplo, una tarjeta de crédito) para implementar las ofertas del nivel Gratis o BYOL (traiga su propia licencia)?**
 
@@ -169,6 +169,10 @@ Los clientes indirectos con contrato Enterprise (EA) deben ponerse en contacto c
 
 Sí, para clientes con contrato Enterprise, el administrador de inscripciones puede desactivar los derechos de compra para todas las cuentas de una inscripción y volverlos a activar el tiempo suficiente para realizar una compra. Además, todos los clientes pueden usar Azure Policy para restringir las opciones de implementación para sus suscripciones de Azure, incluida la administración de recursos de Azure Marketplace.
 
+**¿Qué métodos de pago se admiten para las compras de Marketplace comercial?**
+
+Los clientes pueden comprar ofertas de Azure Marketplace y AppSource con tarjetas de crédito. Si tiene una suscripción de Azure existente, las compras de Azure Marketplace usarán el método de pago configurado en la cuenta y aparecerán en la misma factura como un elemento de línea independiente. Algunas ofertas consumen el compromiso monetario de Azure, pero la mayoría de las compras de Marketplace comercial no imponen compromisos de Contrato Enterprise, aunque el consumo de la infraestructura de Azure lo hará.
+
 **¿Puedo utilizar créditos de una suscripción de Azure o fondos de compromisos monetarios de mi cuenta para adquirir ofertas de Azure Marketplace?**
 
 Algunas ofertas específicas de Azure Marketplace pueden usar créditos de una suscripción de Azure o fondos de un compromiso monetario. Vea el [compromiso monetario de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) para obtener una lista completa de productos que participan en este programa. Estas ofertas no incluyen las opciones BYOL o BYOS. Las demás ofertas de Azure Marketplace no pueden usar créditos de suscripciones de Azure ni compromisos monetarios, como el crédito gratuito de un mes de evaluación, créditos mensuales de MSDN, créditos de promociones de Azure, saldos de compromisos monetarios y cualquier otro tipo de créditos que proporcione Azure.
@@ -176,12 +180,6 @@ Algunas ofertas específicas de Azure Marketplace pueden usar créditos de una s
 **¿Se aplican descuentos de licencias por volumen a las compras que se realizan en Azure Marketplace?**
 
 No. El anunciante propietario de las soluciones en Azure Marketplace puede establecer los precios.  Los descuentos normales de licencias por volumen de Microsoft no se aplican a las compras de Azure Marketplace.
-
-**¿Cómo se pagan estas suscripciones? ¿Las compras de Azure Marketplace aparecen en la factura de Azure o en una factura aparte?**
-
-A los clientes del programa MOSP ([Programa de suscripción en línea de Microsoft ](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)) (es decir, directo de la web) se les realiza el cargo en la misma tarjeta de crédito que tienen registrada en el perfil de su suscripción de Azure. Si no tiene una tarjeta de crédito en el archivo, no puede hacer compras en Azure Marketplace. En este caso, lo que ha recibido es una exención especial para que se le facturen los cargos de Azure.
-
-A los clientes con contrato Enterprise (EA) se les realiza el cargo en su contrato Enterprise. Las ofertas de Azure Marketplace específicas que se indican aquí deducen los gastos, en primer lugar, de cualquier compromiso monetario disponible y, después, se facturan como uso por encima del límite en una única factura trimestral. A los clientes indirectos con contrato Enterprise, los de centros de enseñanza y de la Administración Pública les factura su Proveedor de soluciones de licencia (LSP).
 
 **¿Dónde puedo ver los detalles y la información de facturación de mi suscripción de Azure Marketplace?**
 
@@ -197,7 +195,7 @@ Dado que este complemento está asociado a la máquina virtual de Azure, para ca
 
 **¿Con qué frecuencia se me facturará por mis compras en Azure Marketplace?**
 
-Para los servicios específicos descritos, los clientes del Contrato Enterprise verán reducidos los fondos disponibles de su compromiso monetario por el costo total de estos servicios en el mes en el que se consumen. Para todas las ofertas de Azure Marketplace que no deduzcan los gastos de un compromiso monetario, estos se facturan mensualmente como atrasos. Las suscripciones de SaaS anuales se facturan una vez para los servicios de un año completo.
+Para todas las ofertas de Azure Marketplace que no deduzcan los gastos de un compromiso monetario, estos se facturan mensualmente como atrasos. Las suscripciones de SaaS anuales se facturan una vez para los servicios de un año completo.
 
 A los clientes de MOSP ([Programa de suscripción en línea de Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/)) (directo de la web) se les realiza un cargo mensual en la misma tarjeta de crédito que tienen registrada en el perfil de su suscripción de Azure. Las suscripciones de SaaS anuales se facturan una vez para los servicios de un año completo.
 
@@ -210,10 +208,6 @@ Para migrar otros servicios adquiridos en Azure Marketplace a una suscripción E
 **¿Qué diferencia hay entre *precio*, *precio del software* y *precio total* en la estructura de costos de las ofertas para máquinas virtuales de Azure Marketplace?**
 
 *Precio* hace referencia al costo de la máquina virtual de Azure para ejecutar el software. *Precio del software* hace referencia al costo del software de anunciante de Marketplace que se ejecuta en una máquina virtual de Azure. *Precio total* hace referencia al costo total combinado de la máquina virtual de Azure y el software de anunciante de Marketplace que se ejecuta en una máquina virtual de Azure.
-
-**¿Puedo usar los créditos de una suscripción de Azure o los fondos monetarios de mi cuenta para adquirir los productos y servicios de Azure necesarios para realizar ofertas en Azure Marketplace?**
-
-Sí. Puede usar los créditos de una suscripción de Azure o fondos de compromisos monetarios de su cuenta para adquirir productos de Azure y ofertas de Azure Marketplace. Por ejemplo, los fondos de compromisos monetarios de Azure pueden aplicarse para el componente *precio* de una oferta de máquina virtual en Azure Marketplace. Sin embargo, los créditos de una suscripción de Azure y los fondos de compromisos monetarios solo se pueden aplicar a determinado software (*precio del software*) de anunciantes de Marketplace que se ejecuta en una máquina virtual de Azure.
 
 **¿Cómo puedo saber cuánto he consumido de mi compra de Azure Marketplace?**
 
@@ -253,9 +247,26 @@ Las licencias agregadas a una suscripción existente están prorrateadas para el
 
 Las licencias que se cancelen estarán sujetas a la directiva de reembolso encontrada en esta sección de preguntas frecuentes.  Todas las licencias que se cancelen se retirarán inmediatamente de su cuenta y dejarán de estar disponibles para su uso.
 
+**¿Se admiten reembolsos para las ofertas basadas en el consumo?**
+
+Los cargos que se basan en el consumo (ya sean máquinas virtuales por hora o medidores personalizados) no se pueden reembolsar a través de la cancelación. Una vez que se ha realizado el consumo, la plataforma de comercio de Microsoft procesa los cargos, y los conflictos de calidad de servicio en los que se solicita un reembolso se tratarían fuera de los sistemas de Microsoft entre el anunciante y el cliente directamente. Las ofertas que admiten una tarifa plana más la facturación de uso medido siguen la directiva de reembolso estándar de los cargos por tarifas planas.
+
+**¿Es posible cambiar los planes a medio plazo?**
+
+No, no es posible realizar la transición entre mensual y anual.
+
+**¿Un cliente puede adquirir dos planes de la misma oferta?**
+
+Sí, es posible que un cliente tenga dos planes de la misma oferta simultáneamente.
+
+**¿Las directivas de cambio de reembolso y plan difieren en el escaparate?**
+
+No, las directivas empresariales son coherentes en Azure Marketplace y AppSource. Si un asociado de la solución en la nube revende el programa, el asociado puede aplicar una directiva diferente para sus clientes.
+
+
 ## <a name="faq-for-publishers"></a>Preguntas frecuentes para anunciantes
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Todo lo que debe saber acerca de Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Todo lo que debe saber acerca de Azure Marketplace y AppSource
 
 **¿Qué es Azure Marketplace?**
 

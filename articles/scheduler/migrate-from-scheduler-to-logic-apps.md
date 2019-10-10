@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301045"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695500"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, siga este artículo para migrar a Azure Logic Apps cuanto antes.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se [va a retirar](#retire-date). Para seguir utilizando los trabajos configurados en Scheduler, siga este artículo para migrar a Azure Logic Apps cuanto antes. 
 
 En este artículo se muestra cómo se pueden programar tanto los trabajos únicos como los periódicos mediante la creación de flujos de trabajo automatizados con Azure Logic Apps, en lugar de con Azure Scheduler. Si se crean trabajos programados con Logic Apps, se obtienen estas ventajas:
 
@@ -38,6 +38,10 @@ Para más información, consulte [¿Qué es Azure Logic Apps?](../logic-apps/log
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Para desencadenar una aplicación lógica mediante el envío de solicitudes HTTP, use una herramienta como la [aplicación de escritorio de Postman](https://www.getpostman.com/apps).
+
+## <a name="migrate-by-using-a-script"></a>Migración mediante un script
+
+Cada trabajo Scheduler es único, por lo que no existe ninguna herramienta que sea de un solo tamaño para la migración de trabajos de Scheduler a Azure Logic Apps. Sin embargo, puede [editar este script ](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) para satisfacer sus necesidades.
 
 ## <a name="schedule-one-time-jobs"></a>Programación de trabajos únicos
 
@@ -203,7 +207,7 @@ Para más información acerca del control de excepciones, consulte [Detección y
 **R.** : Como procedimiento recomendado, realice siempre una copia de seguridad de su trabajo. Compruebe que las aplicaciones lógicas que creó se ejecutan según lo esperado antes de eliminar o deshabilitar los trabajos de Scheduler. 
 
 **P.** : ¿Hay alguna herramienta que pueda ayudarme a migrar mis trabajos de Scheduler a Logic Apps? <br>
-**R.** : Cada trabajo de Scheduler es único, por lo que no existe una que sirva para todos los trabajos. Sin embargo, hay varios scripts disponibles que puede modificar para ajustarlos a sus necesidades. Para obtener información acerca de la disponibilidad de los scripts, realice la consulta más adelante.
+**R.** : Cada trabajo de Scheduler es único, por lo que no existe una que sirva para todos los trabajos. Sin embargo, en función de sus necesidades, puede [editar esta secuencia de comandos para migrar trabajos de Azure Scheduler a Azure Logic Apps ](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P.** : ¿Dónde puedo obtener soporte técnico para migrar mis trabajos de Scheduler? <br>
 **R.** : Estas son algunas formas de obtener soporte técnico: 

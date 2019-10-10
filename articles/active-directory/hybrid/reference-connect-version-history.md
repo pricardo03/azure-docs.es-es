@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b210868c87b06a6b7caf55aece74cba956b406a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290777"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827096"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -43,19 +43,25 @@ Descarga | [Descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=
 Mientras realizamos este proceso, el número de la versión se mostrará con una "X" en la posición del número de versión secundaria; por ejemplo, "1.3.X.0". Esto indica que las notas de la versión de este documento son válidas para todas las versiones que empiezan por "1.3". En cuanto finalice el proceso de lanzamiento, se actualizará el número de versión a la versión publicada más reciente y el estado de la versión se actualizará a "publicado para descarga y actualización automática".
 No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="14x0"></a>1.4.X.0
-
->[!IMPORTANT]
->Los equipos Windows registrados como "Unión a Azure AD híbrido" se representan en Azure AD como objetos de dispositivo. Estos objetos de dispositivo se pueden usar para obtener el acceso condicional. Los equipos con Windows 10 se sincronizan con la nube a través de Azure AD Connect, los equipos de Windows de nivel inferior, en cambio, se registran directamente con AD FS o con un inicio de sesión único de conexión directa.
->
->Se supone que Azure AD Connect solo sincroniza los equipos con Windows 10 con un valor de atributo de tipo userCertificate específico que haya configurado la Unión a Azure AD híbrido.  En versiones anteriores de Azure AD Connect este requisito no se aplicaba rigurosamente, lo que generaba objetos de dispositivo innecesarios en Azure AD. Estos dispositivos de Azure AD siempre se han mantenido en el estado "pendiente", ya que estos equipos no debían estar registrados con Azure AD.
->
->Esta versión de Azure AD Connect solo sincronizará los equipos de Windows 10 que estén configurados correctamente para Unión a Azure AD híbrido. Azure AD Connect nunca debe sincronizar [dispositivos Windows de nivel inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Los dispositivos de Azure AD sincronizados previamente se eliminarán de Azure AD.  Sin embargo, este cambio no eliminará ningún dispositivo de Windows que se haya registrado correctamente con Azure AD para Unión a Azure AD híbrido. 
->
->Algunos clientes pueden ver que algunos o todos sus dispositivos Windows desaparecen de Azure AD. Esto no es motivo de preocupación dado que estas identidades de los dispositivos nunca se usaron en Azure AD durante la autorización de acceso condicional. Es posible que algunos clientes tengan que volver a visitar [Instrucciones: Planificar la implementación híbrida de Azure Active Directory](../../active-directory/devices/hybrid-azuread-join-plan.md) para registrar los equipos con Windows correctamente y asegurarse de que dichos dispositivos puedan participar plenamente en el acceso condicional basado en dispositivos. Si Azure AD Connect está intentando eliminar [dispositivos Windows de nivel inferior](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices), entonces el dispositivo no es el que creó [Microsoft Workplace Join para MSI que no sean equipos con Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) y lo podrás usar ninguna otra característica de Azure AD.  Tenga en cuenta que si ve que estas eliminaciones de objetos de equipo o de dispositivo en Azure AD superan el umbral de eliminación de la exportación, se aconseja al cliente que permita su paso.
+## <a name="14250"></a>1.4.25.0
 
 ### <a name="release-status"></a>Estado de la versión
-10/09/2019: Publicada solo para actualización automática
+28/9/2019: Publicado para la actualización automática para seleccionar inquilinos. No disponible para descargar.
+
+Esta versión corrige un error en el que algunos servidores que se actualizaron automáticamente de una versión anterior a 1.4.18.0 y experimentaron problemas con el autoservicio de restablecimiento de contraseña (SSPR) y la escritura diferida de contraseñas.
+
+### <a name="fixed-issues"></a>Problemas corregidos
+
+En determinadas circunstancias, los servidores que se actualizaron automáticamente a la versión 1.4.18.0 no volvieron a habilitar el autoservicio de restablecimiento de contraseña y la escritura diferida de contraseñas de autoservicio una vez completada la actualización. Esta versión de actualización automática corrige el problema y vuelve a habilitar el autoservicio de restablecimiento de contraseña y la escritura diferida de contraseñas.
+
+## <a name="14180"></a>1.4.18.0
+
+>[!IMPORTANT]
+>Con esta versión de Azure AD Connect, algunos clientes pueden ver que algunos o todos sus dispositivos Windows desaparecen de Azure AD. Esto no es motivo de preocupación dado que estas identidades de los dispositivos nunca se usaron en Azure AD durante la autorización de acceso condicional. Para obtener más información, consulte [Descripción de la desaparición del dispositivo Azure AD Connect 1.4.XX.x](reference-connect-device-disappearance.md)
+
+
+### <a name="release-status"></a>Estado de la versión
+25/9/2019: Publicado para actualización automática y descarga
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 - La nueva herramienta de solución de problemas ayuda a solucionar escenarios de falta de sincronización de usuarios, grupos o miembros de grupos.
@@ -89,9 +95,7 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 - Se han mejorado los diagnósticos y la solución de problemas de directivas de grupo que no permiten que el servicio ADSync se inicie cuando se instala inicialmente.
 - Se ha corregido un error en el que el nombre para mostrar de un equipo Windows se escribía incorrectamente.
 - Se ha corregido un error en el que el tipo de sistema operativo de un equipo Windows se escribía incorrectamente.
-- Se ha corregido un error en el que los equipos que no son de Windows 10 se sincronizaban de forma inesperada. Observe que el efecto de este cambio es que ahora se eliminarán los equipos que no sean de Windows 10 que se hayan sincronizado previamente. Esto no afecta a ninguna característica, ya que la sincronización de equipos Windows solo se usa para la unión a un dominio de Azure AD híbrido, que solo funciona en dispositivos Windows 10. 
-- Se ha corregido un error en el que el nombre para mostrar de un equipo Windows se escribía incorrectamente.
-- Se ha corregido un error en el que el tipo de sistema operativo de un equipo Windows se escribía incorrectamente.
+- Se ha corregido un error en el que los equipos que no son de Windows 10 se sincronizaban de forma inesperada. Observe que el efecto de este cambio es que ahora se eliminarán los equipos que no sean de Windows 10 que se hayan sincronizado previamente. Esto no afecta a ninguna característica, ya que la sincronización de equipos Windows solo se usa para la unión a un dominio de Azure AD híbrido, que solo funciona en dispositivos Windows 10.
 - Se han agregaron varios cmdlets nuevos (internos) al módulo de ADSync PowerShell.
 
 

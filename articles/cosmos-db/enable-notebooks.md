@@ -6,21 +6,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 34e1d9fe937118a2eafcdd85c153653eb28752d4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71220118"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677158"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB
+
+> [!IMPORTANT]
+> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB.
 
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Habilitación de cuadernos en una cuenta nueva de Cosmos
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 1. Seleccione **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**.
-1. En la página Creación de una cuenta de Azure Cosmos DB, seleccione Notebooks (Cuadernos). 
+1. En la página **Creación de una cuenta de Azure Cosmos DB**, seleccione **Notebooks**. 
  
     ![Selección de la opción Notebooks (Cuadernos) en la hoja Creación de una cuenta de Azure Cosmos DB](media/enable-notebooks/create-new-account-with-notebooks.png)
 1. Seleccione **Revisar + crear**. Puede omitir las opciones **Red** y **Etiquetas**. 
@@ -39,7 +42,7 @@ Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visu
 También puede habilitar cuadernos en las cuentas existentes. Este paso debe realizarse una sola vez por cuenta.
 
 1. Vaya al panel **Explorador de datos** en su cuenta de Cosmos.
-1. Seleccione Enable Notebooks (Habilitar Notebooks).
+1. Seleccione **Habilitar Notebooks**.
 
     ![Creación de un nuevo área de trabajo de Notebooks en el Explorador de datos](media/enable-notebooks/enable-notebooks-workspace.png)
 1. Se le pedirá que cree un área de trabajo de Notebooks. Seleccione **Complete setup** (Completar configuración).
@@ -60,7 +63,7 @@ Para ejecutar el cuaderno:
 
     ![Ejecución del cuaderno inicial](media/enable-notebooks/run-first-notebook-cell.png)
 
-También puede seleccionar New Notebook (Nuevo cuaderno) para crear un cuaderno o cargar un archivo de Notebook (.ipynb) existente al seleccionar Cargar archivo en el menú My Notebooks (Mis cuadernos). 
+También puede seleccionar **Nuevo Notebook** para crear un notebook o cargar un archivo de Notebook (.ipynb) existente al seleccionar **Cargar archivo** en el menú **Mis Notebooks**. 
 
 ![Creación o carga de un cuaderno nuevo](media/enable-notebooks/create-or-upload-new-notebook.png)
 

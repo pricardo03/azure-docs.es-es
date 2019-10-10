@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181113"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308083"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -88,7 +88,7 @@ Para más información, consulte el documento [Puertos utilizados por los servic
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
-* **2.6.5.3006-29**: el nombre de directorio es la versión de Hortonworks Data Platform que usa HDInsight. El número del clúster puede ser diferente al que aparece aquí.
+* **2.6.5.3006-29**: El nombre del directorio es la versión de la plataforma Hadoop utilizada por HDInsight. El número del clúster puede ser diferente al que aparece aquí.
 * **current**: este directorio contiene vínculos a los subdirectorios del directorio **2.6.5.3006-29**. Este directorio existe para que no tenga que recordar el número de versión.
 
 Se pueden encontrar datos de ejemplo y archivos JAR en el sistema de archivos distribuido de Hadoop en `/example` y `/HdiSamples`.

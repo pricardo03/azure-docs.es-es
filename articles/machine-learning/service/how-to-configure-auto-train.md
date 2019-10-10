@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350599"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -410,7 +410,7 @@ Utilice estas dos API en el primer paso del modelo ajustado para más informaci�
    |EngineeringFeatureCount|Número de características que se generan por las transformaciones de diseño de características automatizadas.|
    |Transformaciones|Lista de transformaciones aplicadas a las características de entrada para generar características de diseño.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Escalado o normalización y algoritmo con valores de hiperparámetro:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Escalado o normalización y algoritmo con valores de hiperparámetro:
 
 Para entender el escalado o normalización y los valores de algoritmos o hiperparámetros de una canalización, utilice fitted_model.steps. [Más información sobre el escalado o normalización](concept-automated-ml.md#preprocess). Este es una salida de ejemplo:
 

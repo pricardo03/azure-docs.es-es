@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290963"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812594"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -57,6 +57,9 @@ Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también ne
 > Los bosques administrativos dedicados permiten a las organizaciones hospedar cuentas administrativas, estaciones de trabajo y grupos en un entorno que tiene controles de seguridad más seguros que el entorno de producción.
 > Para más información acerca de los bosques administrativos dedicados, consulte [Enfoque de diseño de bosque administrativo ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> El rol de administrador global no es necesario después de la configuración inicial y la única cuenta requerida será la cuenta de rol **Cuentas de sincronización de directorios** . Eso no significa necesariamente que solo desee eliminar la cuenta con el rol de Administrador global. Es mejor cambiar el rol a un rol menos poderoso, ya que la eliminación total de la cuenta puede presentar problemas si alguna vez necesita volver a ejecutar el asistente. Al reducir el privilegio del rol, siempre puede volver a elevar los privilegios si tiene que utilizar el asistente Azure AD Connect nuevamente. 
 
 ## <a name="installing-azure-ad-connect"></a>Instalación de Azure AD Connect
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:

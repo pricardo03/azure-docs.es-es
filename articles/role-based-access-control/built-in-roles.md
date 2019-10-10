@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289609"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672640"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -186,8 +186,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Authorization/*/Delete | Eliminar roles, asignaciones de directivas, definiciones de directiva y definiciones del conjunto de directivas |
 > | Microsoft.Authorization/*/Write | Crear roles, asignaciones de roles, asignaciones de directivas, definiciones de directiva y definiciones del conjunto de directivas |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al llamador acceso de administrador de acceso de usuario en el ámbito de inquilinos |
-> | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico |
+> | Microsoft.Blueprint/blueprintAssignments/write | Crear o actualizar cualquier asignación de planos técnicos |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar cualquier asignación de planos técnicos |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |

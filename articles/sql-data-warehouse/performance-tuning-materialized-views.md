@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172785"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338913"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas 
 Las vistas materializadas de Azure SQL Data Warehouse proporcionan un método de bajo mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
@@ -49,7 +49,7 @@ Una vista materializada diseñada correctamente puede proporcionar las siguiente
 
 - El optimizador de Azure SQL Data Warehouse puede utilizar automáticamente las vistas materializadas implementadas para mejorar los planes de ejecución de las consultas.  Este proceso es transparente para los usuarios y proporciona un rendimiento de las consultas más rápido y no requiere que las consultas hagan referencia directa a las vistas materializadas. 
 
-- Bajos requisitos de mantenimiento en las vistas.  Una vista materializada almacena los datos en dos lugares, un índice de almacén de columnas agrupado para los datos iniciales en el momento de creación de la vista y un almacén incremental para los cambios de datos incrementales.  Todos los cambios de datos de las tablas base se agregan automáticamente al almacén incremental de forma sincrónica.  Un proceso en segundo plano (motor de tupla) mueve periódicamente los datos del almacén incremental al índice de almacén de columnas de la vista.  Este diseño permite que las consultas de las vistas materializadas devuelvan los mismos datos que las consultas directas de las tablas base. 
+- Bajos requisitos de mantenimiento en las vistas.  Todos los cambios de datos incrementales de las tablas base se agregan automáticamente a las vistas materializadas de manera sincrónica.  Este diseño permite que las consultas de las vistas materializadas devuelvan los mismos datos que las consultas directas de las tablas base. 
 - Los datos de una vista materializada se pueden distribuir de forma diferente de las tablas base.  
 - Los datos de las vistas materializadas tienen las mismas ventajas de alta disponibilidad y resistencia que los datos de las tablas normales.  
  
@@ -90,7 +90,7 @@ Los usuarios pueden ejecutar la instrucción SQL EXPLAIN WITH_RECOMMENDATIONS pa
 
 **Tenga en cuenta el equilibrio entre consultas más rápidas y el costo** 
 
-Para cada vista materializada, hay un costo de almacenamiento de datos y un costo por el mantenimiento de la vista.  A medida que cambian los datos en las tablas base, el tamaño de la vista materializada aumenta y su estructura física también cambia.  Para evitar la degradación del rendimiento de las consultas, el motor de almacenamiento de datos mantiene por separado cada vista materializada, lo que incluye el movimiento de filas del almacén delta a los segmentos de índice de almacén de columnas y la consolidación de los cambios de datos.  La carga de trabajo de mantenimiento es más alta cuando aumenta el número de vistas materializadas y de cambios de la tabla base.   Los usuarios deben comprobar si el costo producido por todas las vistas materializadas se puede compensar con la ganancia de rendimiento de las consultas.  
+Para cada vista materializada, hay un costo de almacenamiento de datos y un costo por el mantenimiento de la vista.  A medida que cambian los datos en las tablas base, el tamaño de la vista materializada aumenta y su estructura física también cambia.  Para evitar la degradación del rendimiento de las consultas, el motor de almacenamiento de datos mantiene cada vista materializada por separado.  La carga de trabajo de mantenimiento es más alta cuando aumenta el número de vistas materializadas y de cambios de la tabla base.   Los usuarios deben comprobar si el costo producido por todas las vistas materializadas se puede compensar con la ganancia de rendimiento de las consultas.  
 
 Puede ejecutar esta consulta para obtener la lista de vistas materializadas de una base de datos: 
 
@@ -136,7 +136,7 @@ El optimizador del almacenamiento de datos puede utilizar automáticamente las v
 
 **Supervisión de vistas materializadas** 
 
-Una vista materializada se almacena en el almacenamiento de datos igual que una tabla con un índice de almacén de columnas agrupado (CCI).  La lectura de los datos de una vista materializada incluye el examen del índice y la aplicación de cambios desde el almacén incremental.  Cuando el número de filas del almacén incremental es demasiado alto, la resolución de una consulta a partir de una vista materializada puede tardar más que la consulta directa de las tablas base.  Para evitar la degradación del rendimiento de las consultas, se recomienda ejecutar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para supervisar la relación de sobrecarga de la vista (filas totales/filas de la vista base).  Si la relación de sobrecarga es demasiado alta, considere la posibilidad de volver a generar la vista materializada para que todas las filas del almacén incremental se muevan al índice de almacén de columnas.  
+Una vista materializada se almacena en el almacenamiento de datos igual que una tabla con un índice de almacén de columnas agrupado (CCI).  La lectura de datos desde una vista materializada incluye escanear los segmentos de índice CCI y aplicar cualquier cambio incremental desde las tablas base. Cuando el número de cambios incrementales es demasiado alto, la resolución de una consulta a partir de una vista materializada puede tardar más que la consulta directa de las tablas base.  Para evitar la degradación del rendimiento de las consultas, se recomienda ejecutar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) para supervisar la relación de sobrecarga de la vista (filas totales/máx(1, filas de la vista base)).  Los usuarios deben Recompilar la vista materializada si su tasa de sobrecarga es demasiado alta. 
 
 **Vista materializada y almacenamiento en caché de conjuntos de resultados**
 

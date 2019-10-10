@@ -2,18 +2,18 @@
 title: Supervisión, métricas y alertas de Azure ExpressRoute | Microsoft Docs
 description: En esta página se proporciona información acerca de la supervisión de ExpressRoute.
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154778"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672146"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
@@ -25,7 +25,7 @@ Este artículo le servirá para comprender la supervisión, las métricas y las 
 
 ## <a name="expressroute-metrics"></a>Métricas de ExpressRoute
 
-Para ver **Métricas**, vaya a la página *Azure Monitor* y haga clic en *Métricas*. Para ver las métricas de **ExpressRoute**, filtre por el tipo de recurso *Circuitos de ExpressRoute*. Para ver las métricas de **Global Reach**, filtre por el tipo de recurso *Circuitos de ExpressRoute* y seleccione un recurso de circuito de ExpressRoute que tenga Global Reach habilitado. Para ver las métricas de ExpressRoute Direct, filtre por el tipo de recurso Puertos de ExpressRoute. 
+Para ver **Métricas**, vaya a la página *Azure Monitor* y haga clic en *Métricas*. Para ver las métricas de **ExpressRoute**, filtre por el tipo de recurso *Circuitos de ExpressRoute*. Para ver las métricas de **Global Reach**, filtre por el tipo de recurso *Circuitos de ExpressRoute* y seleccione un recurso de circuito de ExpressRoute que tenga Global Reach habilitado. Para ver las métricas **ExpressRoute Direct** , filtre el Tipo de recurso por *Puertos ExpressRoute*. 
 
 Una vez seleccionada una métrica, se aplicará la agregación predeterminada. Opcionalmente, puede aplicar la división, que mostrará la métrica con diferentes dimensiones.
 
@@ -72,9 +72,41 @@ Puede ver la disponibilidad casi en tiempo real de [ARP](https://docs.microsoft.
 
 ![Disponibilidad de ARP por par](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>Métricas directas de ExpressRoute
+
+### <a name="admin-state---split-by-link"></a>Estado de administración: dividido por vínculo
+Puede ver el estado del administrador para cada enlace del par de puertos directos de ExpressRoute.
+
+![Estado de administrador ER directo](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>Bits por segundo: divido por vínculo
+Puede ver los bits por segundo en ambos enlaces del par de puertos directos de ExpressRoute. 
+
+![ER bits directos por segundo](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>Bits de salida por segundo: divido por vínculo
+También puede ver los bits por segundo en ambos enlaces del par de puertos directos de ExpressRoute. 
+
+![ER bits directos por segundo](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>Protocolo de línea: división por vínculo
+Puede ver el protocolo de línea en cada enlace del par de puertos directos de ExpressRoute.
+
+![Protocolo ER de línea directa](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
+Puede ver el nivel de luz de Rx (el nivel de luz que el puerto directo de ExpressRoute está **recibiendo**) para cada puerto. Los niveles de luz Rx saludables generalmente caen dentro de un rango de -10 a 0 dBm
+
+![Nivel de luz de recepción de línea directa de ER](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
+Puede ver el nivel de luz Tx (el nivel de luz que el puerto directo de ExpressRoute **transmite**) para cada puerto. Los niveles de luz Tx saludables generalmente caen dentro de un rango de -10 a 0 dBm
+
+![Nivel de luz de recepción de línea directa de ER](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Conexiones de puerta de enlace de ExpressRoute en bits por segundo
 
-![conexiones de puerta de enlace](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![conexiones de puerta de enlace](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertas para las conexiones de puerta de enlace de ExpressRoute
 

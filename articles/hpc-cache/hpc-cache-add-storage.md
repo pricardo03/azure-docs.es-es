@@ -4,36 +4,28 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300039"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710040"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
-Los *destinos de almacenamiento* son espacios de almacenamiento en servidores back-end para archivos a los que se accede a través de una instancia de Azure HPC Cache. Puede agregar almacenamiento NFS, como un sistema de hardware local, o almacenar datos en Azure Blob Storage.
+Los *destinos de almacenamiento* son espacios de almacenamiento en servidores back-end para archivos a los que se accede a través de una instancia de Azure HPC Cache. Puede agregar almacenamiento NFS (como un sistema de hardware local) o almacenar datos en Azure Blob Storage.
 
 Puede definir hasta diez destinos de almacenamiento diferentes para una caché. La caché presenta todos los destinos de almacenamiento en un espacio de nombres agregado.
 
 Recuerde que las exportaciones de almacenamiento deben ser accesibles desde la red virtual de la caché. En el caso del almacenamiento en hardware local, es posible que tenga que configurar un servidor DNS que pueda resolver nombres de host para el acceso al almacenamiento de NFS. Obtenga más información en [Acceso DNS](hpc-cache-prereqs.md#dns-access).
 
-Puede agregar destinos de almacenamiento al crear la caché o más adelante. El procedimiento es ligeramente diferente en función de si agrega almacenamiento de Azure Blob Storage o una exportación de NFS. A continuación se muestran los detalles de cada uno.
+Agregue destinos de almacenamiento después de crear su caché. El procedimiento es ligeramente diferente en función de si agrega almacenamiento de Azure Blob Storage o una exportación de NFS. A continuación se muestran los detalles de cada uno.
 
-## <a name="add-storage-targets-while-creating-the-cache"></a>Incorporación de destinos de almacenamiento al crear la caché
+## <a name="open-the-storage-targets-page"></a>Abra la página de destinos de almacenamiento
 
-Use la pestaña **Destinos de almacenamiento** del Asistente para creación de Azure HPC Cache con el fin de definir el almacenamiento al mismo tiempo que crea la instancia de caché.
-
-![captura de pantalla de la pestaña destinos de almacenamiento](media/hpc-cache-storage-targets-pop.png)
-
-Haga clic en el vínculo **Add storage target** (Agregar destino de almacenamiento) para agregar almacenamiento.
-
-## <a name="add-storage-targets-from-the-cache"></a>Incorporación de destinos de almacenamiento de la caché
-
-En Azure Portal, abra la instancia de caché y haga clic en **Destinos de almacenamiento** en la barra lateral izquierda. En la página Destino de almacenamiento se enumeran todos los destinos existentes y se proporciona un vínculo para agregar uno nuevo.
+En Azure Portal, abra la instancia de caché y haga clic en **Destinos de almacenamiento** en la barra lateral izquierda. En la página Destinos de almacenamiento se enumeran todos los destinos existentes y se proporciona un vínculo para agregar uno nuevo.
 
 ![captura de pantalla del vínculo de destinos de almacenamiento en la barra lateral, en el encabezado Configurar, que se encuentra entre los encabezados de categoría Configuración y Supervisión](media/hpc-cache-storage-targets-sidebar.png)
 
@@ -107,7 +99,7 @@ Un destino de almacenamiento NFS puede tener varias rutas de acceso virtuales, s
 Cree todas las rutas de acceso de un destino de almacenamiento.
 <!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
 
-Rellene estos valores para cada ruta de acceso del espacio de nombres: 
+Rellene estos valores para cada ruta de acceso del espacio de nombres:
 
 * **Virtual namespace path** (Ruta de acceso del espacio de nombres virtual): establezca la ruta de archivo orientada al cliente para este destino de almacenamiento. Lea [Configuración del espacio de nombres agregado](hpc-cache-namespace.md) para obtener más información acerca de la característica de espacio de nombres virtual.
 
@@ -115,7 +107,7 @@ Rellene estos valores para cada ruta de acceso del espacio de nombres:
 
 * **NFS export path** (Ruta de acceso de exportación de NFS): escriba la ruta de acceso a la exportación de NFS.
 
-* **Subdirectory path** (Ruta de acceso del subdirectorio): si desea montar un subdirectorio específico de la exportación, indíquelo aquí. En caso contrario, deje este campo en blanco. 
+* **Subdirectory path** (Ruta de acceso del subdirectorio): si desea montar un subdirectorio específico de la exportación, indíquelo aquí. En caso contrario, deje este campo en blanco.
 
 Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamiento.
 
@@ -124,7 +116,7 @@ Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamien
 
 Cuando cree un destino de almacenamiento que apunte a un sistema de almacenamiento NFS, deberá elegir el *modelo de uso* de ese destino. Este modelo determina cómo se almacenan los datos en caché.
 
-* Read heavy (Lectura intensiva): elija esta opción si usa la caché principalmente para acelerar el acceso de lectura de datos. 
+* Read heavy (Lectura intensiva): elija esta opción si usa la caché principalmente para acelerar el acceso de lectura de datos.
 
 * Read/write (Lectura y escritura): elija esta opción si los clientes usan la memoria caché para leer y escribir.
 

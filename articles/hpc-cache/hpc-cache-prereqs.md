@@ -4,14 +4,14 @@ description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299913"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709971"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Requisitos previos de Azure HPC Cache (versión preliminar)
 
@@ -57,15 +57,14 @@ Más información sobre las configuraciones de servidor DNS y redes virtuales de
 Antes de empezar a crear la caché, compruebe estos requisitos previos relacionados con los permisos.
 
 * La instancia de caché necesita poder crear interfaces de red virtual (NIC). El usuario que crea la caché debe tener privilegios suficientes en la suscripción para crear las NIC.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * Si usa Blob Storage, Azure HPC Cache necesita autorización para acceder a la cuenta de almacenamiento. Puede usar el control de acceso basado en rol (RBAC) para conceder a la caché acceso al almacenamiento de blobs. Se requieren dos roles: Colaborador de la cuenta de almacenamiento y Colaborador de datos de Storage Blob. Siga las instrucciones que se indican en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para agregar los roles.
 
 ## <a name="storage-infrastructure"></a>Administración del almacenamiento
 
-La caché admite contenedores de blobs de Azure o exportaciones de almacenamiento de hardware NFS. Puede definir los destinos de almacenamiento al crear la caché o agregarlos después.
+La caché admite contenedores de blobs de Azure o exportaciones de almacenamiento de hardware NFS. Agregar destino de almacenamiento después de crear la memoria caché.
 
-Cada tipo de almacenamiento tiene unos requisitos previos específicos. 
+Cada tipo de almacenamiento tiene unos requisitos previos específicos.
 
 ### <a name="nfs-storage-requirements"></a>Requisitos de almacenamiento de NFS
 

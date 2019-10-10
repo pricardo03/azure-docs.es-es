@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299668"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827509"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -68,7 +68,11 @@ Debe haber una subred delegada en Azure NetApp Files.
 
     Consulte [Directrices para el planeamiento de red de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para ver topologías de red admitidas.
 
-    Los grupos de seguridad de red (NSG) y los firewalls deben tener reglas configuradas correctamente para permitir solicitudes de Active Directory y de tráfico DNS.
+    Los grupos de seguridad de red (NSG) y los firewalls deben tener reglas configuradas correctamente para permitir solicitudes de Active Directory y de tráfico DNS. 
+
+* La subred delegada en Azure NetApp Files debe poder tener acceso a todos los controladores de dominio Active Directory Domain Services (ADDS) del dominio, incluidos todos los controladores de dominio locales y remotos. De lo contrario, puede producirse una interrupción del servicio.  
+
+    Si tiene controladores de dominio a los que no se puede tener acceso a través de la subred delegada en Azure NetApp Files, puede enviar una solicitud de soporte técnico de Azure para modificar el ámbito de **global** (valor predeterminado) a **site** .  Azure NetApp Files solo debe comunicarse con los controladores de dominio del sitio en el que reside el espacio de direcciones de la subred delegada en Azure NetApp Files.
 
     Consulte [Diseño de la topología de sitio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) para obtener información acerca de los sitios y servicios de AD. 
 

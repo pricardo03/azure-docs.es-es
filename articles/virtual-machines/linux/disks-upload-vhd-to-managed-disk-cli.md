@@ -1,6 +1,6 @@
 ---
 title: Carga de un disco duro virtual mediante la CLI de Azure
-description: Aprenda a cargar un disco duro virtual en un disco administrado de Azure mediante la CLI de Azure.
+description: Obtenga información sobre cómo cargar un disco virtual en un disco administrado de Azure y copiar un disco administrado en todas las regiones, mediante la CLI de Azure.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bd4d3b9b34f951896e838d5f6f50ca204d329568
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266489"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717168"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carga de un disco duro virtual mediante la CLI de Azure
 
@@ -29,10 +29,12 @@ Actualmente, la carga directa es compatible con los HDD estándar, la unidad de 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 - Un archivo VHD almacenado localmente
+- Si tiene previsto cargar un disco duro virtual desde on-pem: Un disco duro virtual que [se ha preparado para Azure](../windows/prepare-for-upload-vhd-image.md), almacenado localmente.
+- O bien, un disco administrado en Azure, si desea realizar una acción de copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creación de un disco administrado vacío
 
-Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado específicamente para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
+Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
 
 Este tipo de disco administrado tiene dos estados únicos:
 
@@ -41,9 +43,11 @@ Este tipo de disco administrado tiene dos estados únicos:
 
 Mientras esté en cualquiera de estos estados, el disco administrado se facturará al [precio de un HDD estándar](https://azure.microsoft.com/pricing/details/managed-disks/), independientemente del tipo real de disco. Por ejemplo, un P10 se facturará como un S10. Esto sucederá hasta que se llame a `revoke-access` en el disco administrado, que es necesario para conectar el disco a una máquina virtual.
 
+Antes de que pueda crear un HDD estándar vacío para cargar, necesitará tener el tamaño del archivo del disco duro virtual que desea cargar, en bytes. Para ello, puede usar `wc -c <yourFileName>.vhd` o `ls -al <yourFileName>.vhd`. Este valor se usa al especificar el parámetro **- upload-size-bytes**.
+
 Cree un HDD estándar vacío para la carga mediante la especificación tanto del parámetro **-–for-upload** como del parámetro **--upload-size-bytes** en un cmdlet [disk create](/cli/azure/disk#az-disk-create):
 
-```azurecli-interactive
+```bash
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
@@ -53,7 +57,7 @@ Ahora ha creado un disco administrado vacío que está configurado para el proce
 
 Para generar una SAS grabable de un disco administrado vacío, use el siguiente comando:
 
-```azurecli-interactive
+```bash
 az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
@@ -73,7 +77,7 @@ Use AzCopy V10 para cargar el archivo VHD local en un disco administrado, para l
 
 Esta carga tiene el mismo rendimiento que el [HDD estándar](disks-types.md#standard-hdd) equivalente. Por ejemplo, si tiene un tamaño que equivale a S4, tendrá un rendimiento de hasta 60 MiB/s. Pero si tiene un tamaño que equivale a S70, tendrá un rendimiento de hasta 500 MiB/s.
 
-```
+```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
@@ -81,8 +85,41 @@ Si la SAS expira durante la carga y aún no ha llamado a `revoke-access`, puede 
 
 Cuando finalice la carga y ya no necesite escribir más datos en el disco, revoque la SAS. Al revocar la SAS, cambiará el estado del disco administrado y podrá conectar el disco a una máquina virtual.
 
-```azurecli-interactive
+```bash
 az disk revoke-access -n mydiskname -g resourcegroupname
+```
+
+## <a name="copy-a-managed-disk"></a>Copia de un disco administrado
+
+La carga directa también simplifica el proceso de copia de un disco administrado. Puede copiar dentro de la misma región o entre regiones (a otra región).
+
+El script siguiente lo hará automáticamente, el proceso es similar a los pasos descritos anteriormente, con algunas diferencias porque está trabajando con un disco existente.
+
+> [!IMPORTANT]
+> Debe agregar un desplazamiento de 512 cuando proporcione el tamaño de disco en bytes de un disco administrado de Azure. Esto se debe a que Azure omite el pie de página al devolver el tamaño del disco. Si no lo hace, se producirá un error en la copia. El siguiente script ya lo hace automáticamente.
+
+Reemplace los `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` y `<yourTargetLocationHere>` (un ejemplo de un valor de ubicación sería uswest2) con sus valores y, a continuación, ejecute el siguiente script para copiar un disco administrado.
+
+```bash
+sourceDiskName = <sourceDiskNameHere>
+sourceRG = <sourceResourceGroupHere>
+targetDiskName = <targetDiskNameHere>
+targetRG = <targetResourceGroupHere>
+targetLocale = <yourTargetLocationHere>
+
+sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
+
+az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+
+targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+
+sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+
+.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+
+az disk revoke-access -n $sourceDiskName -g $sourceRG
+
+az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

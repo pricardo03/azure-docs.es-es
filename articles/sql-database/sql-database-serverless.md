@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123097"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828229"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -171,7 +171,7 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 
    |Parámetro|Opciones de valores|Valor predeterminado|
    |---|---|---|---|
-   |Número mínimo de núcleos virtuales|Cualquier valor entre {0,5, 1, 2, 4} que no supere el máximo de núcleos virtuales|0,5 núcleos virtuales|
+   |Número mínimo de núcleos virtuales|Depende de la cantidad máxima de núcleos virtuales configurada; consulte [Límites de los recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 núcleos virtuales|
    |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 60 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
 
 > [!NOTE]

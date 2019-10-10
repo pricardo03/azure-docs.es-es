@@ -1,6 +1,6 @@
 ---
 title: Carga de un disco duro virtual en Azure mediante Azure PowerShell
-description: Aprenda a cargar un disco duro virtual en un disco administrado de Azure mediante Azure PowerShell.
+description: Aprenda a cargar un disco duro virtual en un disco administrado de Azure y copiar un disco administrado entre regiones mediante Azure PowerShell.
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 98c0316a3fa513f98031b79eefcedea5a1111539
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266497"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828653"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carga de un disco duro virtual en Azure mediante Azure PowerShell
 
@@ -27,11 +27,12 @@ Actualmente, la carga directa es compatible con los HDD estándar, la unidad de 
 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
-- Un archivo VHD almacenado localmente.
+- Si tiene previsto cargar un disco duro virtual desde on-pem: Un disco duro virtual que [se ha preparado para Azure](prepare-for-upload-vhd-image.md), almacenado localmente.
+- O bien, un disco administrado en Azure, si desea realizar una acción de copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creación de un disco administrado vacío
 
-Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado específicamente para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
+Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
 
 Este tipo de disco administrado tiene dos estados únicos:
 
@@ -39,6 +40,8 @@ Este tipo de disco administrado tiene dos estados únicos:
 - ActiveUpload, que significa que el disco está listo para recibir una carga y se ha generado la SAS.
 
 Mientras esté en cualquiera de estos estados, el disco administrado se facturará al [precio de un HDD estándar](https://azure.microsoft.com/pricing/details/managed-disks/), independientemente del tipo real de disco. Por ejemplo, un P10 se facturará como un S10. Esto sucederá hasta que se llame a `revoke-access` en el disco administrado, que es necesario para conectar el disco a una máquina virtual.
+
+Antes de crear un HDD estándar vacío para cargarlo, necesitará el tamaño de archivo en bytes del disco duro virtual que desea cargar. El código de ejemplo lo recibirá, pero para hacerlo usted puede usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor se usa al especificar el parámetro **-UploadSizeInBytes**.
 
 Ahora, en el shell local, cree un HDD estándar vacío para la carga mediante la especificación del valor **Upload** en el parámetro **-CreateOption**, así como el parámetro **-UploadSizeInBytes** del cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0). Después, llame a [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para crear el disco:
 
@@ -71,7 +74,7 @@ Use AzCopy V10 para cargar el archivo VHD local en un disco administrado, para l
 Esta carga tiene el mismo rendimiento que el [HDD estándar](disks-types.md#standard-hdd) equivalente. Por ejemplo, si tiene un tamaño que equivale a S4, tendrá un rendimiento de hasta 60 MiB/s. Pero si tiene un tamaño que equivale a S70, tendrá un rendimiento de hasta 500 MiB/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
 Si la SAS expira durante la carga y aún no ha llamado a `revoke-access`, puede obtener una nueva SAS para continuar con la carga mediante `grant-access`.
@@ -80,6 +83,45 @@ Cuando finalice la carga y ya no necesite escribir más datos en el disco, revoq
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+```
+
+## <a name="copy-a-managed-disk"></a>Copia de un disco administrado
+
+La carga directa también simplifica el proceso de copia de un disco administrado. Puede copiar dentro de la misma región o entre regiones (a otra región).
+
+El script siguiente lo hará automáticamente, el proceso es similar a los pasos descritos anteriormente, con algunas diferencias porque está trabajando con un disco existente.
+
+> [!IMPORTANT]
+> Debe agregar un desplazamiento de 512 cuando proporcione el tamaño de disco en bytes de un disco administrado de Azure. Esto se debe a que Azure omite el pie de página al devolver el tamaño del disco. Si no lo hace, se producirá un error en la copia. El siguiente script ya lo hace automáticamente.
+
+Reemplace los `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` y `<yourTargetLocationHere>` (un ejemplo de un valor de ubicación sería uswest2) con sus valores y, a continuación, ejecute el siguiente script para copiar un disco administrado.
+
+```powershell
+
+$sourceRG = <sourceResourceGroupHere>
+$sourceDiskName = <sourceDiskNameHere>
+$targetDiskName = <targetDiskNameHere>
+$targetRG = <targetResourceGroupHere>
+$targetLocate = <yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+$targetOS = <yourOSTypeHere>
+
+$sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+# Adding the sizeInBytes with the 512 offset, and the -Upload flag
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+
+$targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
+
+$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 86400 -Access 'Read'
+
+$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 86400 -Access 'Write'
+
+azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
+
+Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
