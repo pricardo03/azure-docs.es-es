@@ -19,6 +19,8 @@
   items:
     - name: Administración de derechos
       items:
+        - name: Delegación y roles
+          href: entitlement-management-delegate.md
         - name: Proceso y correos electrónicos de solicitud
           href: entitlement-management-process.md
     - name: Revisiones de acceso
@@ -36,17 +38,21 @@
       items:
         - name: Escenarios comunes
           href: entitlement-management-scenarios.md
-        - name: Administradores y jefes de departamento
+        - name: Administradores
           items:
-            - name: Delegación de tareas
-              href: entitlement-management-delegate.md
-            - name: Creación de un catálogo de recursos
-              href: entitlement-management-catalog-create.md
+            - name: Delegación en los creadores de catálogos
+              href: entitlement-management-delegate-catalog.md
             - name: Ver informes y registros
               href: entitlement-management-reports.md
             - name: Solución de problemas
               href: entitlement-management-troubleshoot.md
-        - name: Administradores de proyectos
+        - name: Propietarios de catálogos
+          items:
+            - name: Creación de un catálogo de recursos
+              href: entitlement-management-catalog-create.md
+            - name: Delegación en administradores de paquetes de acceso
+              href: entitlement-management-delegate-managers.md
+        - name: Administradores de paquetes de acceso
           items:
             - name: Creación de un nuevo paquete de acceso
               href: entitlement-management-access-package-create.md

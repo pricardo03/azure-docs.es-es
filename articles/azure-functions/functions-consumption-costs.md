@@ -7,12 +7,12 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181207"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243304"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -65,7 +65,7 @@ Los siguientes comportamientos de las funciones pueden afectar al tiempo de ejec
 
 ## <a name="view-execution-data"></a>Visualización del plan de ejecución
 
-En la [factura](/billing/billing-download-azure-invoice.md), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones**, junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
+En la [factura](/azure/billing/billing-download-azure-invoice), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones**, junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
 
 Para comprender mejor el impacto en el costo de las funciones, puede usar Azure Monitor para ver las métricas relacionadas con los costos que se están generando actualmente en las aplicaciones de funciones. Puede usar el [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) en [Azure Portal] o las API REST para obtener estos datos.
 

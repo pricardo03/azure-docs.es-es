@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676489"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842765"
 ---
-# <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
+# <a name="scale-session-hosts-dynamically"></a>Escalado dinámico de host de sesiones
 
 En muchas implementaciones de Windows Virtual Desktop, el costo de máquina virtual representa una parte considerable de los costos total de implementación de Windows Virtual Desktop. Para reducir dichos costos, es mejor apagar y desasignar máquinas de virtuales (VM) del host de sesión durante las horas de menos uso y, después, reinícielas durante las horas de máximo uso.
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: cc6041a228545ffef158e3d627de983a154513a5
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a8cf17ab3eab31d4ac6113437f55d73f96425e4e
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350933"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843300"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -49,7 +49,7 @@ Puede probar algunas de estas operaciones con los ejemplos siguientes:
 | Cambio del período de retención de copia de seguridad | [Base de datos única](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Instancia administrada](sql-database-automated-backups.md#managed-instance-database) | [Base de datos única](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Cambio del período de retención de copia de seguridad a largo plazo | [Base de datos única](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instancia administrada: N/D  | [Base de datos única](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Instancia administrada: N/D  |
 | Restauración de la base de datos a partir de un momento en el tiempo | [Base de datos única](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restaurar la base de datos eliminada | [Base de datos única](sql-database-recovery-using-backups.md#deleted-database-restore-using-azure-portal) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Restaurar la base de datos eliminada | [Base de datos única](sql-database-recovery-using-backups.md) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restauración de la base de datos desde Azure Blob Storage | Base de datos única: N/D <br/>Instancia administrada: N/D  | Base de datos única: N/D <br/>[Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Cuánto tiempo se conservan las copias de seguridad

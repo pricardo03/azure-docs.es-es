@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: Adición de una capa de polígono
               href: map-add-shape.md
+            - name: Adición de una capa de polígono de extrusión
+              href: map-extruded-polygon.md
             - name: Adición de una capa de mapa térmico
               href: map-add-heat-map-layer.md
             - name: Adición de un elemento emergente

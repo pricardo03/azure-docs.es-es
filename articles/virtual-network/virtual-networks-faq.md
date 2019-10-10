@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828972"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71957800"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -254,7 +254,6 @@ Los siguientes recursos usan equilibradores de carga básicos, lo que significa 
 - Logic Apps
 - HDInsight
 -   Azure Batch
-- AKS
 - Entorno de App Service
 
 Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.

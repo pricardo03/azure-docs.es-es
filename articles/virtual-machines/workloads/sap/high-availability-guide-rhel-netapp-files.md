@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/14/2019
 ms.author: radeltch
-ms.openlocfilehash: d3fbd38484696f0b133e7494fed11a22dc038148
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98a12e6892ac8710ae2195cd2c29df43b4c65aba
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101112"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71706293"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -95,7 +95,7 @@ Ahora ya es posible lograr alta disponibilidad en SAP NetWeaver mediante el uso 
 
 ![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga con direcciones IP de front-end para (A)SCS y ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga con distintas direcciones IP de front-end para (A)SCS y ERS.
 
 > [!IMPORTANT]
 > La agrupación en clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en las VM de Azure **NO se admite**. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
@@ -136,7 +136,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 
 SAP NetWeaver requiere un almacenamiento compartido para el directorio de transporte y perfil.  Antes de continuar con la configuración de la infraestructura de Azure NetApp Files, familiarícese con la [documentación correspondiente][anf-azure-doc]. Compruebe si la región de Azure seleccionada ofrece Azure NetApp Files. El siguiente vínculo muestra la disponibilidad de Azure NetApp Files por región de Azure: [Disponibilidad de Azure NetApp Files por región de Azure][anf-avail-matrix].
 
-Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Antes de implementar Azure NetApp Files, solicite la incorporación a este siguiendo las [instrucciones para registrarse en Azure NetApp Files][anf-register]. 
+Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Antes de implementar Azure NetApp Files, solicite la incorporación a este siguiendo las [instrucciones para registrarse en Azure NetApp Files][anf-register]. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Implementación de recursos de Azure NetApp Files  
 

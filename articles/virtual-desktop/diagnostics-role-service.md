@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676645"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840145"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificación de problemas con la característica de diagnóstico
+# <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
 
 Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Windows Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Windows Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
 
