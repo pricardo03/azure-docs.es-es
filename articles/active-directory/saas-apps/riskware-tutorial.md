@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092926"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integración de Azure Active Directory con Riskware
 
@@ -170,7 +170,7 @@ Para configurar el inicio de sesión único de Azure AD con Riskware, siga esto
 
     g. En el cuadro de texto **XML Identity Tag Name** (Nombre de la etiqueta de la identidad XML), escriba el atributo de tipo que contenga el identificador único de la respuesta SAML, como NameID.
 
-    h. Abra  **XML de metadatos**  de Azure Portal en el Bloc de notas, copie el certificado del archivo de metadatos y péguelo en el cuadro de texto **Certificate** (Certificado).
+    h. Abra **XML de metadatos** de Azure Portal en el Bloc de notas, copie el certificado del archivo de metadatos y péguelo en el cuadro de texto **Certificate** (Certificado).
 
     i. En el cuadro de texto **Consumer URL** (Dirección URL del consumidor), pegue el valor de **Reply URL** (Dirección URL de respuesta), que le proporcionará el equipo de soporte técnico.
 

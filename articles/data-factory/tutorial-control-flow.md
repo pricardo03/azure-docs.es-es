@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815877"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176003"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -38,7 +38,7 @@ En el tutorial se muestra cómo realizar las siguientes tareas:
 > * Inicio de la ejecución de una canalización
 > * Supervisión de las ejecuciones de canalización y actividad
 
-En este tutorial se usa SDK de .NET. Puede usar otros mecanismos para interactuar con Azure Data Factory. Si quiere acceder a inicios rápidos de Data Factory, consulte [Inicios rápidos en 5 minutos](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+En este tutorial se usa SDK de .NET. Puede usar otros mecanismos para interactuar con Azure Data Factory. Si quiere acceder a inicios rápidos de Data Factory, consulte [Inicios rápidos en 5 minutos](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

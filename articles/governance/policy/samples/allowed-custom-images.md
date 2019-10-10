@@ -2,17 +2,16 @@
 title: 'Ejemplo: Imágenes de máquina virtual aprobadas'
 description: Esta definición de directiva de ejemplo requiere que solo las imágenes personalizadas aprobadas se puedan implementar en su entorno.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8def11c2d92af618054d0353fa2687d2e88e1134
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34a3cf54879dcf6fc25fab50bcbabde28fff653a
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266722"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980845"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>Ejemplo: Imágenes de máquinas virtuales admitidas
 
@@ -52,9 +51,9 @@ Código JSON que define los parámetros de la directiva, utilizado por la CLI de
 
 ## <a name="parameters"></a>Parámetros
 
-|NOMBRE |Type |Campo |DESCRIPCIÓN |
+|NOMBRE |type |Campo |DESCRIPCIÓN |
 |---|---|---|---|
-|imageIds |Matriz |Microsoft.Compute/imageIds |Lista de imágenes de máquina virtual aprobadas|
+|imageIds |Array |Microsoft.Compute/imageIds |Lista de imágenes de máquina virtual aprobadas|
 
 Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
 PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.
@@ -72,7 +71,7 @@ En este parámetro de ejemplo, solo se permitirán la versión de imagen _Contos
 }
 ```
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 [![Implementación del ejemplo de directiva en Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 [![Implementación del ejemplo de directiva en Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
@@ -121,7 +120,7 @@ Los scripts de implementación y eliminación usan los siguientes comandos. Cada
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Elimina una asignación de directiva de Azure existente. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Elimina una definición de directiva de Azure existente. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
