@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269201"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703411"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generador de expresiones de Mapping Data Flow
 
@@ -19,26 +19,29 @@ ms.locfileid: "61269201"
 
 En Azure Data Factory Mapping Data Flow, encontrará cuadros de expresión donde puede escribir expresiones para la transformación de datos. En dichos cuadros puede usar columnas, campos, variables, parámetros o funciones de su flujo de datos. Para compilar la expresión, use el Generador de expresiones, que se inicia haciendo clic en el cuadro de texto de expresiones dentro de la transformación. A veces también verá las opciones de "Columna calculada" al seleccionar las columnas para la transformación. Al hacer clic en ella, también verá cómo se ejecuta el Generador de expresiones.
 
-![Generador de expresiones](media/data-flow/expression.png "Expression Builder")
+![Generador de expresiones](media/data-flow/xpb1.png "Expression Builder")
 
 El valor predeterminado de la herramienta Generador de expresiones es la opción de editor de texto. La característica Autocompletar lee de todo el modelo de objetos de Azure Data Factory Data Flow con la comprobación y el resaltado de la sintaxis.
 
 ![Autocompletar del Generador de expresiones](media/data-flow/expb1.png "Expression Builder auto-complete")
 
-## <a name="currently-working-on-field"></a>Campo Currently Working on (Actualmente trabaja en)
+## <a name="build-schemas-in-output-schema-pane"></a>Compilación de esquemas en el panel Output Schema (Esquema de salida)
 
-![Generador de expresiones](media/data-flow/exp3.png "Currently Working On (Actualmente trabaja en)")
+![Incorporación de columnas complejas](media/data-flow/complexcolumn.png "Incorporación de columnas")
 
-En la parte superior izquierda de la interfaz de usuario del Generador de expresiones, verá un campo denominado "Currently Working On (Actualmente trabaja en)" con el nombre del campo en el que trabaja actualmente. La expresión que genere en la interfaz de usuario se aplicará solo al campo de trabajo actual. Si desea transformar otro campo, guarde el trabajo actual y use esta lista desplegable para seleccionar otro campo, y cree una expresión para los restantes campos.
+En el panel izquierdo Output Schema (Esquema de salida) verá las columnas que está modificando y agregando al esquema. Aquí puede compilar de manera interactiva estructuras de datos simples y complejas. Agregue campos adicionales mediante "Add column" (Agregar columna) y compile jerarquías mediante "Add subcolumn" (Agregar subcolumna).
 
-## <a name="data-preview-in-debug-mode"></a>Vista previa de datos en modo de depuración
+![Agregar subcolumna](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+## <a name="data-preview-in-debug-mode"></a>Vista previa de los datos en el modo de depuración
 
 ![Generador de expresiones](media/data-flow/exp4b.png "Vista precia de datos de expresiones")
 
-Cuando trabaja en sus expresiones, tiene la opción de activar el modo de depuración desde la superficie de diseño de Azure Data Factory Data Flow, lo que habilita la vista previa en curso en vivo de los resultados de los datos de la expresión que está generando. Depuración en vivo en tiempo real está habilitada para las expresiones.
+Cuando trabaja en sus expresiones de flujo de datos, active el modo de depuración desde la superficie de diseño de Azure Data Factory Data Flow para habilitar la vista previa en curso y en directo de los resultados de los datos de la expresión que está compilando. Depuración en vivo en tiempo real está habilitada para las expresiones.
 
 ![Modo de depuración](media/data-flow/debugbutton.png "Botón Depurar")
 
+Haga clic en el botón Actualizar para actualizar los resultados de la expresión en un ejemplo en directo del origen en tiempo real.
 
 ![Generador de expresiones](media/data-flow/exp5.png "Vista precia de datos de expresiones")
 

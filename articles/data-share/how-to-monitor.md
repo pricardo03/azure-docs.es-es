@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 869c1ed41d7f78df184461bc1d8cab6c6eb8d426
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788523"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827062"
 ---
 # <a name="monitor-azure-data-share-preview"></a>Supervisión de Azure Data Share (versión preliminar) 
 
@@ -45,6 +45,10 @@ En la pestaña de historial, es posible ver las instantáneas que se han copiado
 ![Historial de instantáneas](./media/sent-shares.png "Snapshot history") 
 
 Para ver más información sobre la ejecución de cada instantánea, haga clic en la fecha de inicio de la ejecución. 
+
+De forma predeterminada, se muestra un máximo de 30 días de historial de instantáneas. Si tiene que ver más de 30 días de historial, vaya a Supervisión-> Configuración de diagnóstico y seleccione **Agregar configuración de diagnóstico**. Se le pedirá que seleccione una cuenta de almacenamiento en la que guardar estos registros. 
+
+![Historial de instantáneas](./media/diagnostic-settings.png "Configuración de diagnóstico") 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

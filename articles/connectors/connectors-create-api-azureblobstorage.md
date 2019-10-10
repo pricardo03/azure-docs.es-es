@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051043"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703253"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
@@ -25,11 +25,12 @@ En este artículo se muestra cómo se puede acceder y administrar los archivos a
 Imagine que tiene una herramienta que se actualiza en un sitio web de Azure, que actúa como desencadenador para su aplicación lógica. Cuando se produce este evento, la aplicación lógica puede actualizar algunos archivos en el contenedor de Blob Storage, que es una acción de la aplicación lógica.
 
 > [!NOTE]
-> Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para acceder a estas cuentas de almacenamiento, use cualquiera de estas opciones:
+>
+> Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento de Azure que tengan [reglas de firewall](../storage/common/storage-network-security.md) y que existan en la misma región. Sin embargo, las aplicaciones lógicas sí pueden acceder a cuentas de almacenamiento de Azure que existen en una región distinta, ya que se usa una dirección IP pública para la comunicación entre regiones. Solo tiene que asegurarse de permitir las [direcciones IP de salida para los conectores administrados en su región](../logic-apps/logic-apps-limits-and-config.md#outbound). O bien, puede usar opciones más avanzadas aquí:
 >
 > * Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos de una red virtual de Azure.
 >
-> * Si ya usa API Management, puede usar este servicio para el escenario. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
+> * Si usa un nivel dedicado para API Management, puede enfrentar la API de Azure Storage si usa API Management y permite las direcciones IP de la última a través del firewall. Básicamente, agregue la red virtual de Azure que API Management usa a la configuración del firewall de la cuenta de almacenamiento. Después, puede usar la acción API Management o la acción HTTP para llamar a las API de Azure Storage. Sin embargo, si elige esta opción, tendrá que administrar el proceso de autenticación personalmente. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Azure Blob Storage](/connectors/azureblobconnector/).
 

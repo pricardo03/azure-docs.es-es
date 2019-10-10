@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c9b4cdfb77f1605a6730d0735541eeb78dcd323
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075526"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702053"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual Red Hat Enterprise Linux a un dominio administrado de Azure AD Domain Services
 
@@ -78,14 +78,24 @@ Cuando haya terminado, guarde y salga del archivo *hosts* mediante el comando `:
 
 La máquina virtual necesita algunos paquetes adicionales para unir la máquina virtual al dominio administrado de Azure AD DS. Para instalar y configurar estos paquetes, actualice e instale las herramientas de unión a dominio mediante `yum`:
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>Unión de una máquina virtual al dominio administrado
 
 Ahora que los paquetes necesarios están instalados en la máquina virtual, una la máquina virtual al dominio administrado de Azure AD DS.
-
+ 
+  **RHEL 7**
+     
 1. Use el comando `realm discover` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
 
     ```console
@@ -93,7 +103,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual, una 
     ```
 
    Si el comando `realm discover` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
-
+   
     * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping contoso.com` para ver si se devuelve una respuesta positiva.
     * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
     * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
@@ -101,10 +111,10 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual, una 
 1. Ahora, inicialice Kerberos mediante el comando `kinit`. Especifique un usuario que pertenezca al grupo *Administradores del controlador de dominio de AAD*. Si es necesario, [agregue una cuenta de usuario a un grupo en Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
     Una vez más, el nombre del dominio administrado de Azure AD DS se debe escribir CON TODAS LAS LETRAS EN MAYÚSCULAS. En el ejemplo siguiente, la cuenta denominada `contosoadmin@contoso.com` se usa para inicializar Kerberos. Escriba su propia cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*:
-
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
 1. Por último, una la máquina al dominio administrado de Azure AD DS con el comando `realm join`. Use la misma cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD* que especificó en el comando `kinit` anterior, como `contosoadmin@CONTOSO.COM`:
 
@@ -118,7 +128,108 @@ La máquina virtual tarda unos segundos en unirse al dominio administrado de Azu
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. Use el comando `adcli info` para detectar el dominio administrado de Azure AD DS. En el ejemplo siguiente se detecta el dominio kerberos *CONTOSO.COM*. Especifique su propio nombre de dominio administrado de Azure AD DS CON TODAS LAS LETRAS EN MAYÚSCULAS:
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+    
+   Si el comando `adcli info` no se puede encontrar en el dominio administrado de Azure AD DS, repase los siguientes pasos de solución de problemas:
+   
+    * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping contoso.com` para ver si se devuelve una respuesta positiva.
+    * Compruebe que la máquina virtual se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado de Azure AD DS está disponible.
+    * Confirme que se ha actualizado la configuración del servidor DNS de la red virtual para que apunte a los controladores de dominio del dominio administrado de Azure AD DS.
+
+1. En primer lugar, únase al dominio utilizando el comando `adcli join`. Este comando también creará un archivo keytab para autenticar la máquina. Utilice una cuenta de usuario que sea miembro del grupo *Administradores de DC de AAD*. 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. Ahora, configure el archivo `/ect/krb5.conf` y cree el archivo `/etc/sssd/sssd.conf` para que use el dominio `contoso.com` de Active Directory. 
+   No olvide cambiar `CONTOSO.COM` por el nombre de su dominio:
+
+    Abra el archivo `/ect/krb5.conf` en un editor:
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    Actualice el archivo `krb5.conf` para que sea igual que el ejemplo siguiente:
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   Cree el archivo `/etc/sssd/sssd.conf`:
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    Actualice el archivo `sssd.conf` para que sea igual que el ejemplo siguiente:
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. Compruebe que los permisos de `/etc/sssd/sssd.conf` son 600 y que son propiedad del usuario raíz:
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. Use `authconfig` para informar a la máquina virtual sobre la integración de AD Linux:
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+    
+1. Inicie y habilite el servicio sssd:
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 Si la máquina virtual no puede finalizar correctamente el proceso de unión al dominio, asegúrese de que el grupo de seguridad de red de la máquina virtual permita el tráfico Kerberos saliente en el puerto TCP + UDP 464 a la subred de la red virtual para el dominio administrado de Azure AD DS.
+
+Ahora compruebe si puede consultar la información de AD del usuario utilizando `getent`
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Permitir autenticación de contraseña para SSH
 
@@ -140,8 +251,16 @@ De forma predeterminada, los usuarios solo pueden iniciar sesión en una máquin
 
 1. Para aplicar los cambios y permitir que los usuarios inicien sesión con una contraseña, reinicie el servicio SSH:
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda privilegios de sudo al grupo "Administradores de controlador de dominio de AAD"

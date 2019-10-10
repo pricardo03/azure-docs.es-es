@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904295"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803411"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -35,11 +35,29 @@ A través del cliente Postman, los programadores de soluciones pueden especifica
 
 Configure la aplicación Azure Active Directory para usar el flujo de concesión implícita de OAuth 2.0.
 
-1. Siga los pasos de [nuestro inicio rápido](./quickstart-view-occupancy-dotnet.md) para crear una aplicación de Azure AD. O bien, cree una [aplicación nativa con la hoja AAD heredada](./how-to-use-legacy-aad.md).
+1. Abra el panel **Permisos de API** para el registro de la aplicación. Seleccione el botón **Agregar un permiso**. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API usadas en mi organización** y, a continuación, busque:
+    
+    1. `Azure Digital Twins`. Seleccione la API **Azure Digital Twins**.
 
-1. En **Permisos de API**, seleccione **Agregar un permiso**. Después, **Azure Digital Twins** en **API usadas en mi organización**. Si la búsqueda no encuentra la API, busque en su lugar **Azure Smart Spaces**. A continuación, seleccione **Permisos delegados**, **Read** > **Read.Write** (Lectura > Lectura.Escritura) y **Agregar permiso**.
+        [![Search API o Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    [![Registros de aplicaciones de Azure Active Directory: agregar API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    1. También puede buscar `Azure Smart Spaces Service`. Seleccione la API de **Azure Smart Spaces Service**.
+
+        [![Search API de Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
+
+    > [!IMPORTANT]
+    > El nombre y el identificador de la API de Azure AD que aparezcan dependerán del inquilino:
+    > * Las cuentas de cliente y los inquilinos de prueba deben buscar `Azure Digital Twins`.
+    > * Otras cuentas de Microsoft deben buscar `Azure Smart Spaces Service`.
+
+1. La API seleccionada se muestra como **Azure Digital Twins** en el mismo panel **Solicitud de permisos de API**. Seleccione la lista desplegable **Read (1)** (Lectura [1]) y, a continuación, activa la casilla **Read.Write**. Seleccione el botón **Agregar permisos**.
+
+    [![Adición de permisos de API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+
+1. Dependiendo de la configuración de la organización, es posible que tenga que tomar medidas adicionales para conceder acceso de administrador a esta API. Para más información, póngase en contacto con el administrador. Una vez aprobado el acceso de administrador, la columna **CONSENTIMIENTO DEL ADMINISTRADOR NECESARIO** en el panel **Permisos de API** se mostrará de forma similar a lo siguiente para las API:
+
+    [![Adición de permisos de API](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+
 
 1. Seleccione **Manifiesto** para abrir el manifiesto de aplicación para la aplicación. Establezca *oauth2AllowImplicitFlow* en `true`.
 
@@ -50,6 +68,9 @@ Configure la aplicación Azure Active Directory para usar el flujo de concesión
     [![Dirección URL de respuesta de Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Copie y mantenga el valor de **Id. de aplicación** de la aplicación de Azure Active Directory. Se usa en los pasos siguientes.
+
+   [![Identificador de la aplicación de Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+
 
 ## <a name="obtain-an-oauth-20-token"></a>Obtención de un token de OAuth 2.0
 
@@ -74,7 +95,7 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
     |---------|---------|
     | Tipo de concesión | `Implicit` |
     | Dirección URL de devolución de llamadas | `https://www.getpostman.com/oauth2/callback` |
-    | Dirección URL de autenticación | Use la **Dirección URL de autorización** del paso 2 |
+    | Dirección URL de autenticación | Use la **Dirección URL de autorización** del **paso 2** |
     | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior. |
     | Ámbito | Déjelo en blanco |
     | State | Déjelo en blanco |
@@ -91,8 +112,6 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
     > * Cierre Postman, vuelva a abrirlo e inténtelo de nuevo.
   
 1. Desplácese hacia abajo y seleccione **Use Token** (Usar token).
-
-<div id="multi"></div>
 
 ## <a name="make-a-multipart-post-request"></a>Realizar una solicitud POST con varias partes
 

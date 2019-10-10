@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967293"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720284"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
 En este artículo se muestra cómo asignar usuarios o grupos a una aplicación en Azure Active Directory (Azure AD). Los usuarios deben asignarse primero a una aplicación antes de que un administrador les conceda acceso para hacer lo siguiente:
@@ -50,7 +50,7 @@ Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignac
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global o como un propietario de aplicación que no sea administrador.**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 
@@ -88,7 +88,7 @@ Tras un breve período, los usuarios seleccionados podrán iniciar estas aplicac
 
 Para asignar uno o varios grupos a una aplicación directamente, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o como propietario de la aplicación que no sea administrador con una licencia de Azure AD Premium asignada.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte inferior del menú de navegación izquierdo.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3791b2d60b84299fc3b646f7e6585002078b607f
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350168"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -359,6 +359,58 @@ Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o 
     </voice>
 </speak>
 ```
+## <a name="say-as-element"></a>Elemento Say-as  
+
+`say-as` es un elemento opcional que indica el tipo de contenido (por ejemplo, el número o la fecha) del texto del elemento. De esta forma se proporcionan instrucciones al motor de síntesis de voz sobre cómo pronunciar el texto. 
+
+**Sintaxis**
+
+```XML
+<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+```
+
+**Atributos**
+
+| Atributo | DESCRIPCIÓN | Obligatorio u opcional |
+|-----------|-------------|---------------------|
+| interpret-as | Indica el tipo de contenido del texto del elemento. Para ver una lista de tipos, consulte la tabla siguiente. | Obligatorio |
+| format | Proporciona información adicional sobre el formato preciso del texto del elemento para los tipos de contenido que pueden tener formatos ambiguos. SSML define formatos para los tipos de contenido que los usan (vea la tabla siguiente). | Opcional |
+| detalles | Indica el nivel de detalle con que se va a hablar. Por ejemplo, este atributo puede solicitar que el motor de síntesis de voz pronuncie signos de puntuación. No hay valores estándar definidos para `detail`. | Opcional |
+
+<!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
+
+A continuación se muestran los tipos de contenido admitidos para los atributos `interpret-as` y `format`. Incluya el atributo `format` solo si `interpret-as` está establecido en la fecha y hora.
+
+| interpret-as | format | Interpretación |
+|--------------|--------|----------------|
+| address | | El texto se pronuncia como una dirección. El motor de síntesis de voz pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Como "Estoy en el número 150 de Court North East Redmond, en Washington". |
+| cardinal, número | | El texto se pronuncia como un número cardinal. El motor de síntesis de voz pronuncia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Como "Hay tres alternativas". |
+| caracteres, ortografía | | El texto se pronuncia como letras individuales (deletreadas). El motor de síntesis de voz pronuncia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Como "T E S T". |
+| date  | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | El texto se pronuncia como una fecha. El atributo `format` especifica el formato de la fecha (*d=día, m=mes, y=año)* . El motor de síntesis de voz pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "Hoy es el diecinueve de octubre de 2016". |
+| digits, number_digit | | El texto se pronuncia como una secuencia de dígitos individuales. El motor de síntesis de voz pronuncia:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Como "1 2 3 4 5 6 7 8 9". |
+| fraction | | El texto se pronuncia como un número fraccionario. El motor de síntesis de voz pronuncia:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Como "tres octavos de pulgada". |
+| ordinal  | | El texto se pronuncia como un número ordinal. El motor de síntesis de voz pronuncia:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Como "Seleccionar la tercera opción". |
+| telephone  | | El texto se pronuncia como un número de teléfono. El atributo `format` puede contener dígitos que representan un código de país. Por ejemplo, "1" para Estados Unidos o "39" para Italia. El motor de síntesis de voz puede utilizar esta información para orientar la pronunciación de un número de teléfono. El número de teléfono también puede incluir el código de país y, si es así, tiene prioridad sobre el código de país de `format`. El motor de síntesis de voz pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "Mi número es el código de área ocho ocho ocho cinco cinco cinco uno dos uno dos". |
+| time | hms12, hms24 | El texto se pronuncia como una hora. El atributo `format` especifica si la hora se especifica mediante un reloj de 12 horas (hms12) o de 24 horas (hms24). Use un signo de dos puntos para separar los números que representan las horas, los minutos y los segundos. Los siguientes son ejemplos de horas válidos: 12:35, 1:14:32, 08:15 y 02:50:45. El motor de síntesis de voz pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "El tren sale a las cuatro A. M.". |
+
+**Uso**
+
+El elemento `say-as` puede contener solo texto.
+
+**Ejemplo**
+
+El motor de síntesis de voz pronuncia el ejemplo siguiente como "Su primera solicitud fue de una habitación el diecinueve de octubre a las diez y veinte con llegada a las cinco treinta y cinco P. M.".
+ 
+```XML
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
+    <p>
+    Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
+    on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
+    </p>
+</speak>
+```
+
 
 ## <a name="add-recorded-audio"></a>Adición del audio grabado
 

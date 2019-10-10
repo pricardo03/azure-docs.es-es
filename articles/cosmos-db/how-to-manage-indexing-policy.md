@@ -4,14 +4,14 @@ description: Aprenda a administrar directivas de indexación en Azure Cosmos D
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104843"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811661"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -334,6 +334,7 @@ En Azure Cosmos DB, la directiva de indexación se puede actualizar mediante cua
 
 - desde Azure Portal
 - mediante la CLI de Azure
+- mediante PowerShell
 - mediante uno de los SDK
 
 Las [actualizaciones de las directivas de indexación](index-policy.md#modifying-the-indexing-policy) desencadenan transformaciones de índices. También se puede realizar un seguimiento del progreso de esta transformación desde los SDK.
@@ -361,21 +362,15 @@ Los contenedores de Azure Cosmos almacenan su directiva de indexación en forma
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-El comando [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) de la CLI de Azure le permite reemplazar la definición de JSON de una directiva de indexación de un contenedor:
+Para crear un contenedor con una directiva de indexación personalizada, consulte [Creación de un contenedor con una directiva de indexación personalizada mediante la CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy).
 
-```azurecli-interactive
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
-```
+## <a name="use-powershell"></a>Uso de PowerShell
+
+Para crear un contenedor con una directiva de indexación personalizada, consulte [Creación de un contenedor con una directiva de indexación personalizada mediante PowerShell](manage-with-powershell.md#create-container-custom-index).
 
 ## <a name="use-the-net-sdk-v2"></a>Uso de .NET SDK V2
 
 El objeto `DocumentCollection` del [SDK de .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expone una propiedad `IndexingPolicy` que permite cambiar `IndexingMode` y agregar o quitar `IncludedPaths` y `ExcludedPaths`.
-
 
 ```csharp
 // Retrieve the container's details
@@ -406,7 +401,6 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 ## <a name="use-the-net-sdk-v3"></a>Uso de .NET SDK V3
 
 El objeto `ContainerProperties` del [SDK de .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (consulte [este inicio rápido](create-sql-api-dotnet.md) para conocer su uso) expone una propiedad `IndexingPolicy` que permite cambiar `IndexingMode` y agregar o quitar `IncludedPaths` y `ExcludedPaths`.
-
 
 ```csharp
 // Retrieve the container's details
@@ -508,7 +502,7 @@ Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
 SpatialSpec spec = new SpatialSpec();
 spec.setPath("/locations/*");
-collectionOfSpatialTypes.add(SpatialType.Point);          
+collectionOfSpatialTypes.add(SpatialType.Point);
 spec.setSpatialTypes(collectionOfSpatialTypes);
 spatialIndexes.add(spec);
 

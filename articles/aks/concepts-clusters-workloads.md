@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147197"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672811"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -76,23 +76,34 @@ Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ej
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
-No es necesario administrar los componentes principales de Kubernetes en cada nodo, como *kubelet*, *kube-proxy* y *kube-dns*, pero consumen algunos de los recursos de proceso disponibles. Para mantener la funcionalidad y el rendimiento de los nodos, se reservan los siguientes recursos de proceso en cada nodo:
+Los recursos de nodo se usan en AKS para integrar la función de nodo en el clúster. Esto puede crear discrepancias entre los recursos totales del nodo y los recursos que se pueden asignar cuando se usan en AKS. Es importante tener esto en cuenta al establecer las solicitudes y los límites de los pods implementados por el usuario.
 
-- **CPU**: 60 ms
-- **Memoria**: 20 % hasta 4 GiB
+Para buscar la ejecución de los recursos de un nodo que se pueden asignar:
+```kubectl
+kubectl describe node [NODE_NAME]
+
+```
+
+Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los siguientes recursos en cada nodo. A medida que aumentan los recursos de un nodo, la reserva de recursos también crece debido a la mayor cantidad de pods implementados por el usuario que necesitan administración.
+
+>[!NOTE]
+> El uso de complementos, como OMS, consumirá más recursos del nodo.
+
+- **CPU**: la CPU reservada depende del tipo de nodo y la configuración del clúster, lo que puede provocar que pueda asignarse menos CPU debido a la ejecución de otras características adicionales.
+
+| Núcleos de CPU en el host | 1 | 2 | 4 | 8 | 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
+
+- **Memoria**: la reserva de memoria sigue un ritmo progresivo.
+  - 25 % de los primeros 4 GB de memoria
+  - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
+  - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
+  - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
+  - 2 % de cualquier memoria que esté por encima de 128 GB
 
 Estas reservas significan que la cantidad de CPU y memoria disponibles para las aplicaciones puede parecer menos de lo que contiene el nodo propiamente dicho. Si hay restricciones de recursos debido al número de aplicaciones que se ejecutan, estas reservas garantizan que CPU y memoria permanecen disponibles para los componentes principales de Kubernetes. Las reservas de recursos no se pueden cambiar.
 
-Por ejemplo:
-
-- El tamaño de nodo **Estándar DS2 v2** contiene 2 vCPU y 7 GiB de memoria.
-    - 20 % de 7 GiB de memoria = 1,4 GiB
-    - Hay *(7-1.4) = 5,6 GiB* de memoria en total disponible para el nodo.
-    
-- El tamaño de nodo **Estándar v3 E4s** contiene 4 vCPU y 32 GiB de memoria.
-    - 20% de 32 GiB de memoria = 6,4 GiB, pero AKS solo reserva hasta 4 GB
-    - Hay *(32-4) = 28 GiB* en total disponible para el nodo.
-    
 El sistema operativo del nodo subyacente también requiere cierta cantidad de recursos de CPU y memoria para completar sus propias funciones esenciales.
 
 Para consultar los procedimientos recomendados asociados, consulte[Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][operator-best-practices-scheduler].

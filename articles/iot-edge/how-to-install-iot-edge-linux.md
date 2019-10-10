@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988629"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695323"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian
 
@@ -192,6 +192,7 @@ Busque las configuraciones de aprovisionamiento del archivo y quite la marca de 
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
+Para pegar el contenido del portapapeles en Nano: `Shift+Right Click` o presione `Shift+Insert`.
 
 Guarde y cierre el archivo.
 
@@ -230,6 +231,8 @@ Busque las configuraciones de aprovisionamiento del archivo y quite la marca de 
        method: "tpm"
        registration_id: "{registration_id}"
    ```
+
+Para pegar el contenido del portapapeles en Nano: `Shift+Right Click` o presione `Shift+Insert`.
 
 Guarde y cierre el archivo.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350864"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -65,9 +65,12 @@ ms.locfileid: "71210341"
 | Regiones a capacidad | Centro occidental de EE.UU. | Actualmente, no se puede crear una nueva área de trabajo en esta región, ya que está al límite de la capacidad temporal. Se espera que se solucione este límite a finales de octubre de 2019. |
 | Exportación de datos | No está disponible actualmente | Use Azure Function o Logic App para agregar y exportar datos. | 
 
-**Tasa de ingesta de datos**
+**Velocidad de volumen de ingesta de datos**
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El umbral de velocidad de ingesta predeterminado se establece en **500 MB/min** por área de trabajo. Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede abrir una solicitud de soporte técnico para solicitar un aumento en el área de trabajo.
+
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. El límite de velocidad de volumen de ingesta predeterminado para los datos enviados desde los recursos de Azure mediante la [configuración del diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md) es de aproximadamente **6 GB/min** por área de trabajo. Este es un valor aproximado, ya que el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su razón de compresión. Este límite no se aplica a los datos que se envían desde agentes o la [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
+
+Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede abrir una solicitud de soporte técnico para solicitar un aumento en el área de trabajo.
  
 Para recibir notificaciones de este tipo de evento en el área de trabajo, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md) mediante la siguiente consulta con la base de la lógica de alerta en el número de resultados mayor que cero.
 

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268370"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678011"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicación móvil que llama a las API web: configuración de código
 
@@ -155,9 +155,13 @@ En Android e iOS, los agentes permiten:
 - Identificación de dispositivos. Habilita directivas de acceso condicional relacionadas con el dispositivo de Azure AD mediante el acceso al certificado del dispositivo que se creó en el dispositivo al unirse al área de trabajo.
 - Comprobación de identificación de la aplicación. Cuando una aplicación llama al agente, pasa su dirección URL de redireccionamiento y el agente la comprueba.
 
-### <a name="enable-the-brokers-on-xamarin"></a>Habilitar los agentes en Xamarin
+### <a name="enable-the-broker-on-xamarin"></a>Habilitación del agente en Xamarin
 
 Para habilitar una de estas características, use el parámetro `WithBroker()` al llamar al método`PublicClientApplicationBuilder.CreateApplication`. `.WithBroker()` se establece en true de forma predeterminada. Realice los siguientes pasos para [Xamarin.iOS](#brokered-authentication-for-xamarinios).
+
+### <a name="enable-the-broker-for-msal-for-android"></a>Habilitación del agente para MSAL para Android
+
+Consulte [Autenticación con intermediación en Android](brokered-auth.md) para información sobre cómo habilitar un agente en Android. 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Habilitación del agente para MSAL para iOS y macOS
 

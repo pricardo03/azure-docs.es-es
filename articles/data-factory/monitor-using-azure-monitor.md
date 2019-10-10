@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300557"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827800"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 
@@ -468,8 +468,11 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
 
 Transcurridos unos instantes, el nuevo valor de configuración aparece en la lista de configuraciones para esta factoría de datos. Los registros de diagnóstico se transmiten en esa área de trabajo en cuanto se generan nuevos datos de evento. Pueden pasar hasta 15 minutos entre el momento en que se emite un evento y cuando aparece en Log Analytics.
 
+* En el modo _específico del recurso_, los registros de diagnóstico de Azure Data Factory fluyen a las tablas _ADFPipelineRun_, _ADFTriggerRun_ y _ADFActivityRun_
+* En el modo _Azure Diagnostics_, los registros de diagnóstico fluyen a la tabla _AzureDiagnostics_
+
 > [!NOTE]
-> Como una tabla de registro de Azure no puede tener más de 500 columnas, se recomienda encarecidamente seleccionar el modo específico de recursos. Para más información, consulte las [limitaciones conocidas de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Como una tabla de registro de Azure no puede tener más de 500 columnas, se recomienda encarecidamente seleccionar el modo específico de recursos. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instale Azure Data Factory Analytics desde Azure Marketplace
 
@@ -508,6 +511,9 @@ La instalación de Azure Data Factory Analytics crea un conjunto de vistas prede
 Puede visualizar las métricas anteriores, examinar las consultas detrás de estas métricas, editar las consultas, crear alertas y realizar otras acciones.
 
 ![Representación gráfica de las ejecuciones de canalización por factoría de datos"](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (versión preliminar) envía los registros de diagnóstico a tablas de destino _específicas del recurso_. Puede escribir consultas en las tablas siguientes: _ADFPipelineRun_, _ADFTriggerRun_ y _ADFActivityRun_.
 
 ## <a name="alerts"></a>Alertas
 

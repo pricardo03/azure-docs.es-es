@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559937"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695212"
 ---
 # <a name="regular-expression-entity"></a>Entidad de expresión regular 
 
@@ -46,35 +46,63 @@ Esta expresión regular también coincide con cualquier palabra que termina con 
 
 ### <a name="example-json"></a>Ejemplo de JSON
 
-Al usar `kb[0-9]{6}` como la definición de la entidad de expresión regular, la siguiente respuesta JSON es una expresión de ejemplo con las entidades de expresión regular devueltas para la consulta `When was kb123456 published?`:
+Al usar `kb[0-9]{6}` como definición de la entidad de expresión regular, la siguiente respuesta JSON es una expresión de ejemplo con las entidades de expresión regular devueltas para la consulta:
+
+`When was kb123456 published?`:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
+"entities": [
+  {
+    "entity": "kb123456",
+    "type": "KB number",
+    "startIndex": 9,
+    "endIndex": 16
+  }
+]
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+
+Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ]
 }
 ```
+
+Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ],
+    "$instance": {
+        "KB number": [
+            {
+                "type": "KB number",
+                "text": "kb123456",
+                "startIndex": 9,
+                "length": 8,
+                "modelTypeId": 8,
+                "modelType": "Regex Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

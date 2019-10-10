@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 96e939f8e3da58a123d9a6733b71b74c2ff0ba87
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311909"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703032"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -21,9 +21,9 @@ Advisor lo ayuda a optimizar y reducir el gasto global de Azure mediante la iden
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño o el apagado en instancias infrautilizadas 
 
-Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y número de máquinas virtuales. Advisor supervisa el uso de las máquinas virtuales durante 7 días e identifica aquellas con un uso escaso. Se considera que las máquinas virtuales tienen un uso escaso si su uso de CPU es del 5 % o menos y su uso de red es menor que el 2 %, o si la carga de trabajo actual se puede incluir en un tamaño de máquina virtual más pequeño.
+Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y número de máquinas virtuales. Los modelos de evaluación avanzada de Advisor consideran el cierre de una máquina virtual cuando el percentil 95 del valor máximo del uso de CPU es inferior al 3 % y el uso de la red es inferior al 2 % en un período de siete días. Se considera que las máquinas virtuales tienen el tamaño correcto cuando es posible ajustar la carga actual en una SKU más pequeña (de la misma familia de SKU) o un número de instancia inferior, de forma que el uso de la carga actual no supere el 80 % cuando las cargas de trabajo no estén orientadas a los usuarios y no supere el 40 % cuando sí lo estén. Aquí, el tipo de carga de trabajo se determina analizando las características de uso de la CPU de la carga de trabajo.
 
-Advisor muestra el costo estimado de continuar ejecutando la máquina virtual, para que puede elegir entre apagarla o cambiar su tamaño.
+Las acciones recomendadas son apagar o cambiar de tamaño, en función de cada recurso. Advisor muestra el ahorro de costos estimado para cada acción recomendada: apagado o cambio de tamaño. Además, si se recomienda cambiar de tamaño, proporcionará información sobre la SKU actual y la de destino. 
 
 Si desea que sea más exigente en la identificación de las máquinas virtuales infrautilizadas, puede ajustar la regla de uso de la CPU según la suscripción.
 

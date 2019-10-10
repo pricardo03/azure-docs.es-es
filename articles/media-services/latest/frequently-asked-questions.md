@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338832"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -65,6 +65,14 @@ Puede usar un [codificador local en directo](recommended-on-premises-live-encode
 Los clientes suelen preguntarse si deben usar el cifrado de AES o un sistema de DRM. La diferencia principal entre los dos sistemas es que, con el cifrado de AES, la clave de contenido se transmite al cliente sobre TLS para que la clave se cifre en tránsito pero sin un cifrado adicional ("sin cifrado"). Como resultado, la clave usada para descifrar el contenido está accesible en el reproductor del cliente y se puede ver en un seguimiento de la red en el cliente en texto sin formato. Una clave sin cifrado AES-128 es adecuada para los casos de uso en los que el destinatario es una entidad de confianza (p. ej., cifrado de vídeos corporativos distribuidos dentro de una empresa para su visualización por parte de los empleados).
 
 Los sistemas DRM como PlayReady, Widevine y FairPlay proporcionan un nivel adicional de cifrado en la clave utilizada para descifrar el contenido en comparación con una clave sin cifrado AES-128. La clave de contenido se cifra en una clave protegida por el entorno de ejecución de DRM, además de cualquier cifrado a nivel de transporte proporcionado por TLS. Además, el descifrado se controla en un entorno seguro en el nivel de sistema operativo donde a un usuario malintencionado le resulta más difícil atacar. DRM se recomienda para los casos de uso en los que es posible que el destinatario no sea una entidad de confianza y usted requiere el nivel de seguridad más alto.
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>¿Cómo mostrar un vídeo solo a los usuarios que tienen un permiso específico, sin usar Azure AD?
+
+No tiene que usar ningún proveedor de tokens específico (como Azure AD). Puede crear su propio proveedor [JWT](https://jwt.io/) (denominado STS, servicio de token seguro) mediante el cifrado de claves asimétricas. En el STS personalizado, puede agregar notificaciones basadas en la lógica de negocios.
+
+Asegúrese de que el emisor, el público y las notificaciones coincidan exactamente entre lo que hay en JWT y el valor de ContentKeyPolicyRestriction que se usa en ContentKeyPolicy.
+
+Para más información, consulte [Protección del contenido mediante el cifrado dinámico de Media Services](content-protection-overview.md).
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>¿Cómo y dónde se puede obtener el token JWT antes de usarlo para solicitar la licencia o la clave?
 

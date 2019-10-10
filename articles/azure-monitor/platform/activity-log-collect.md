@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: 5839fd40a128097e400f13acbe4fb6ef90c656b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248135"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695061"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Este artículo describe cómo recopilar el registro de actividad de un área de trabajo de Log Analytics y cómo usar la [solución de supervisión](../insights/solutions.md) de Activity Log Analytics, que proporciona vistas y consultas de registros para analizar estos datos. 
@@ -32,6 +32,9 @@ La conexión del registro de actividad a un área de trabajo de Log Analytics pr
 
 ## <a name="connect-to-log-analytics-workspace"></a>Conexión al área de trabajo de Log Analytics
 Un registro de actividad se puede conectar a una sola área de trabajo, pero una sola área de trabajo se puede conectar al registro de actividad de varias suscripciones en el mismo inquilino de Azure. Para obtener información sobre la recopilación en varios inquilinos, consulte [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md) (Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre suscripciones en diferentes inquilinos de Azure Active Directory).
+
+> [!IMPORTANT]
+> Es posible que reciba un error con el siguiente procedimiento si los proveedores de recursos Microsoft.OperationalInsights y Microsoft.OperationsManagement no están registrados para su suscripción. Para registrar estos proveedores, consulte [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 
 Use el procedimiento siguiente para conectar el registro de actividad a su área de trabajo de Log Analytics:
 

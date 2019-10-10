@@ -9,13 +9,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/16/2019
-ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.date: 09/27/2019
+ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147325"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350486"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Cree y administre entornos reutilizables para aprendizaje e implementación con Azure Machine Learning.
 
@@ -42,7 +42,9 @@ A continuación se ilustra que el mismo objeto de entorno se puede usar en la co
 
 ### <a name="types-of-environments"></a>Tipos de entornos
 
-Los entornos se pueden dividir a grandes rasgos en dos categorías: **administrados por el usuario** y **administrados por el sistema**.
+Los entornos se pueden dividir a grandes rasgos en tres categorías: **mantenidos**, **administrados por el usuario** y **administrados por el sistema**.
+
+Los entornos mantenidos los proporciona Azure Machine Learning y están disponibles en el área de trabajo de forma predeterminada. Contienen colecciones de paquetes de Python y configuraciones que le ayudarán a empezar a usar diferentes marcos de aprendizaje automático. 
 
 Para un entorno administrado por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Conda no comprobará el entorno ni instalará nada por usted. 
 
@@ -53,13 +55,46 @@ Use entornos administrados por el sistema cuando quiera que [Conda](https://cond
 * El SDK de Azure Machine Learning para Python [instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
+
 ## <a name="create-an-environment"></a>Creación de un entorno
 
 Hay varias maneras de crear un entorno para los experimentos.
 
+### <a name="use-curated-environment"></a>Uso de entornos mantenidos
+
+Puede seleccionar uno de los entornos mantenidos para empezar. 
+
+* El entorno __AzureML-minimal__ contiene un conjunto mínimo de paquetes para habilitar el seguimiento de ejecución y la carga de recursos. Puede utilizarlo como punto inicial para su propio entorno.
+
+* El entorno __AzureML-tutorial__ contiene paquetes de ciencia de datos comunes, como Scikit-Learn, Pandas y Matplotlib, y un conjunto mayor de paquetes de azureml-SDK.
+
+Los entornos mantenidos están respaldados por imágenes de Docker en caché, lo que reduce el costo de preparación de la ejecución.
+
+Use el método __Environment.get__ para seleccionar uno de los entornos mantenidos:
+
+```python
+from azureml.core import Workspace, Environment
+
+ws = Workspace.from_config()
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+```
+
+Puede enumerar los entornos mantenidos y sus paquetes mediante el código siguiente:
+```python
+envs = Environment.list(workspace=ws)
+
+for env in envs:
+    if env.startswith("AzureML"):
+        print("Name",env)
+        print("packages", envs[env].python.conda_dependencies.serialize_to_string())
+```
+
+> [!WARNING]
+>  No inicie el nombre de su propio entorno con el prefijo _AzureML_. Está reservado para entornos mantenidos.
+
 ### <a name="instantiate-an-environment-object"></a>Creación de instancias de un objeto de entorno
 
-Para crear manualmente un entorno, importe la clase Environment clase desde el SDK y cree una instancia de un objeto de entorno con el código siguiente.
+Para crear manualmente un entorno, importe la clase Environment desde el SDK y cree una instancia de un objeto de entorno con el código siguiente.
 
 ```python
 from azureml.core import Environment
@@ -85,7 +120,7 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 
 Si tiene un entorno de Conda en el equipo local, el servicio ofrece una solución para crear un objeto de entorno a partir de él. De este modo, puede volver a usar el entorno interactivo local en ejecuciones remotas.
 
-A continuación se crea un objeto de entorno fuera del entorno de Conda existente `mycondaenv` con el método [from_existing_conda_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-).
+El código siguiente crea un objeto de entorno fuera del entorno de Conda existente `mycondaenv` con el método [from_existing_conda_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-).
 
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
@@ -114,7 +149,7 @@ run = myexp.submit(config=runconfig)
 run.wait_for_completion(show_output=True)
 ```
 
-Del mismo modo, si usa un objeto [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para el entrenamiento, puede enviar la instancia del estimador directamente como una ejecución sin tener que especificar un entorno; el motivo es que el objeto `Estimator` ya encapsula el entorno y el destino de proceso.
+Del mismo modo, si usa un objeto [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para el entrenamiento, puede enviar la instancia del estimador directamente como una ejecución sin tener que especificar un entorno. El objeto `Estimator` ya encapsula el entorno y el destino de proceso.
 
 
 ## <a name="add-packages-to-an-environment"></a>Adición de paquetes a un entorno
@@ -162,7 +197,7 @@ Administre los entornos para que pueda actualizarlos, realizar su seguimiento y 
 
 El entorno se registra automáticamente en el área de trabajo cuando se envía una ejecución o se implementa un servicio web. También puede registrar manualmente el entorno mediante el método [register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-). Esta operación convierte el entorno en una entidad con control de versiones y de la que se realiza el seguimiento, y que se puede compartir entre los usuarios del área de trabajo.
 
-A continuación se registra el entorno `myenv` en el área de trabajo `ws`.
+El código siguiente registra el entorno `myenv` en el área de trabajo `ws`.
 
 ```python
 myenv.register(workspace=ws)
@@ -176,12 +211,7 @@ La clase Environment ofrece métodos que permiten recuperar los entornos existen
 
 #### <a name="view-list-of-environments"></a>Visualización de la lista de entornos
 
-Vea los entornos del área de trabajo con [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-) y, luego, seleccione uno para reutilizarlo.
-
-```python
-from azureml.core import Environment
-list("workspace_name")
-```
+Vea los entornos del área de trabajo con [`Environment.list(workspace="workspace_name")`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-) y seleccione uno para reutilizarlo.
 
 #### <a name="get-environment-by-name"></a>Obtención del entorno por nombre
 
@@ -230,15 +260,12 @@ myenv.docker.enabled = True
 
 Una vez creada, la imagen de Docker aparece en la instancia de Azure Container Registry que está asociada de forma predeterminada al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuuid*) corresponde a un hash calculado a partir de la configuración del entorno. Esto permite que el servicio determine si ya existe una imagen correspondiente al entorno dado para reutilizar.
 
-Además, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux e instala los paquetes de Python especificados. La imagen base tiene versiones de CPU y GPU, y puede establecer `gpu_support=True` para especificar la imagen de GPU.
+Además, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux e instala los paquetes de Python especificados. La imagen base tiene versiones de CPU y GPU. Azure Machine Learning Service detecta automáticamente qué versión se va a usar.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-
-# Specify GPU image
-myenv.docker.gpu_support=True
 ```
 
 > [!NOTE]
@@ -263,10 +290,10 @@ myenv = Environment(name="myenv")
 runconfig = ScriptRunConfig(source_directory=".", script="train.py")
 
 # Attach compute target to run config
-runconfig.compute_target = "local"
+runconfig.run_config.target = "local"
 
 # Attach environment to run config
-runconfig.environment = myenv
+runconfig.run_config.environment = myenv
 
 # Submit run 
 run = exp.submit(runconfig)
@@ -281,7 +308,7 @@ Si no especifica el entorno en la configuración de ejecución, el servicio crea
 
 Si usa un [estimador](how-to-train-ml-models.md) para el entrenamiento, puede enviar simplemente la instancia del estimador directamente, puesto que ya encapsula el entorno y el destino de proceso.
 
-A continuación se usa un estimador para una ejecución de entrenamiento de un solo nodo en un proceso remoto para un modelo scikit-learn; se supone que hay un objeto de destino de proceso creado previamente, `compute_target`, y un objeto de almacén de datos, `ds`.
+El siguiente código usa un estimador para una ejecución de entrenamiento de un solo nodo en un proceso remoto para un modelo scikit-learn; se supone que hay un objeto de destino de proceso creado previamente, `compute_target`, y un objeto de almacén de datos, `ds`.
 
 ```python
 from azureml.train.estimator import Estimator

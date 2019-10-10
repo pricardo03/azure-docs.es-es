@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074208"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815666"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Premium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -118,12 +118,16 @@ Existen siete requisitos de puerto de salida.
 | 10221-10231 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) | (Subred de Redis) |
 | 20226 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 13000-13999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
-| 15000-15999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
+| 15000-15999 |Salida |TCP |Comunicaciones internas de Redis y replicación geográfica | (Subred de Redis) |(Subred de Redis) (Subred del mismo nivel de réplica geográfica) |
 | 6379-6380 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
 <sup>1</sup> Estas direcciones IP que pertenecen a Microsoft se usan para dirigir la máquina virtual del host que trabaja con Azure DNS.
 
 <sup>3</sup> No es necesario para aquellas subredes sin ningún servidor DNS personalizado o cachés en Redis que ignoran los DNS personalizados.
+
+#### <a name="geo-replication-peer-port-requirements"></a>Requisitos de los puertos del mismo nivel en la replicación geográfica
+
+Si usa la replicación geográfica entre cachés en instancias de Azure Virtual Network, tenga en cuenta que la configuración recomendada es desbloquear los puertos 15000-15999 en toda la subred tanto para las direcciones de entrada como para las direcciones de salida dirigidas a ambas cachés. De este modo, todos los componentes de réplica que conforman la subred pueden comunicarse directamente entre sí aunque se produzca una conmutación por error geográfica.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de puerto de entrada
 
@@ -136,7 +140,7 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 | 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer |
 | 13000-13999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | (Subred de Redis) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | (Subred de Redis) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Entrada |TCP |Comunicación del cliente con los clústeres de Redis, el equilibrio de carga de Azure y la replicación geográfica | (Subred de Redis) |Virtual Network, Azure Load Balancer, (subred del mismo nivel de réplica geográfica) |
 | 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 

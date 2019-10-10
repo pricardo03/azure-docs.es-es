@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135799"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827142"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronización de Azure AD Connect: evitar eliminaciones accidentales
 En este tema se describe la característica para evitar eliminaciones accidentales en Azure AD Connect.
@@ -60,6 +60,7 @@ Si no es lo esperado, investigue y tome las medidas correctivas oportunas. Para 
 
 [!NOTE] Si no está seguro de querer realizar todas las eliminaciones y desea desplazarse por una ruta más segura. Puede usar el cmdlet de PowerShell `Enable-ADSyncExportDeletionThreshold` para establecer un nuevo umbral en lugar de deshabilitarlo, lo que podría provocar eliminaciones no deseadas. 
 
+## <a name="if-all-deletes-are-desired"></a>Si desea todas las eliminaciones
 Si se desean todas las eliminaciones, haga lo siguiente:
 
 1. Para recuperar el umbral de eliminación actual, ejecute el cmdlet de PowerShell `Get-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD. El valor predeterminado es 500.

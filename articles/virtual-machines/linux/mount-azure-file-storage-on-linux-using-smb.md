@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091828"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828395"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -115,5 +115,5 @@ Para mayor seguridad en entornos de producción, debe almacenar las credenciales
 
 - [Uso de cloud-init para personalizar una VM de Linux durante la creación](using-cloud-init.md)
 - [Adición de un disco a una máquina virtual de Linux](add-disk.md)
-- [Cifrado de discos en una VM Linux mediante la CLI de Azure](encrypt-disks.md)
+- [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-overview.md)
 

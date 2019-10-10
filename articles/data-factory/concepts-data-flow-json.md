@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cde42dda47d54c03c50895bc625f99c9350b53e3
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 37db3e153e8dfcbc1120fcb1f6d2f77187edc78e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210514"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029671"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Administración de JSON con Mapping Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="creating-json-structures-in-expression-editor"></a>Creación de estructuras JSON en el editor de expresiones
 ### <a name="derived-column-transformation"></a>Transformación de una columna derivada
@@ -50,7 +50,7 @@ Si esta expresión se especificara para una columna denominada "complexColumn", 
 }
 ```
 
-#### <a name="sample-manual-dsl"></a>Ejemplo de lenguaje específico de dominio manual
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manual de ejemplo para una definición jerárquica completa
 ```
 @(
     title=Title,
@@ -144,7 +144,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# <a name="higher-order-functions"></a>Funciones de orden superior
+## <a name="higher-order-functions"></a>Funciones de orden superior
 ## <a name="filter"></a>filter
 Filtra los elementos de la matriz que no cumplen el predicado proporcionado. "Filter" espera una referencia a un elemento de la función de predicado como #item.
 

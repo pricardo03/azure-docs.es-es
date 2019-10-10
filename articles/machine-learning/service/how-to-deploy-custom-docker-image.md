@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260746"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326500"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 
@@ -183,15 +183,16 @@ Microsoft proporciona varias imágenes de Docker en un repositorio accesible pú
 | Imagen | DESCRIPCIÓN |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagen básica para Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Contiene el entorno en tiempo de ejecución ONNX. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Contiene el entorno en tiempo de ejecución ONNX y los componentes de CUDA. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Contiene el entorno en tiempo de ejecución ONNX y TensorRT. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene el tiempo de ejecución de ONNX para la inferencia de CPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contiene el tiempo de ejecución ONNX y CUDA para GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contiene el tiempo de ejecución ONNX y TensorRT para GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contiene el tiempo de ejecución de ONNX y OpenVINO para <sup></sup>Vision Accelerator Design de Intel basado en Movidius <sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contiene el tiempo de ejecución de ONNX y OpenVINO para las llaves USB <sup></sup>Movidius <sup>TM</sup> de Intel |
+
+Para más información acerca de las imágenes base de tiempo de ejecución de ONNX, consulte [la sección ONNX Runtime dockerfile](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) en el repositorio de GitHub.
 
 > [!TIP]
 > Puesto que estas imágenes están disponibles públicamente, no es necesario proporcionar ninguna dirección, nombre de usuario ni contraseña para usarlas.
-
-> [!IMPORTANT]
-> Las imágenes de Microsoft que utilizan CUDA o TensorRT solo se deben usar con servicios de Microsoft Azure.
 
 Para más información, consulte [Contenedores de Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
 

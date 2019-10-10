@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234866"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802665"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implementación clásica
 
-El modelo de implementación clásica es el modo de implementación de Azure de la generación anterior que impone un límite de cuota de vCPU global para máquinas virtuales y conjuntos de escalado de máquinas virtuales. El modelo de implementación clásica ya no se recomienda y ahora se reemplaza por el modelo de Resource Manager. Para más información sobre estos dos modelos de implementación y las ventajas de Resource Manager, consulte la página del modelo de implementación de Resource Manager. Cuando se crea una nueva suscripción, se asigna una cuota predeterminada de vCPU a ella. Cada vez que se implementa una nueva máquina virtual mediante el modelo de implementación clásica, la suma del uso de vCPU nuevas y existentes en todas las regiones no debe superar la cuota de vCPU aprobada para dicho modelo. Más información sobre las cuotas en la [página de límites de servicio y suscripción de Azure](https://aka.ms/quotalimits).
+El modelo de implementación clásica es el modo de implementación de Azure de la generación anterior. Este modelo impone un límite de cuota de vCPU global para máquinas virtuales y conjuntos de escalado de máquinas virtuales. El modelo de implementación clásica ya no se recomienda y ahora se reemplaza por el modelo de Resource Manager. 
 
-Puede solicitar un aumento en el límite de vCPU para el modelo de implementación clásica a través de la hoja Ayuda y soporte técnico o la hoja Usages + Quota (Usos y cuota) en el portal.
+Para más información sobre estos dos modelos de implementación y las ventajas de usar Resource Manager, consulte la página [Implementación de Resource Manager y clásica](../azure-resource-manager/resource-manager-deployment-model.md).
+ 
+Cuando se crea una nueva suscripción, se asigna una cuota predeterminada de vCPU a ella. Cada vez que se implementa una nueva máquina virtual mediante el modelo de implementación clásica, la suma del uso de vCPU nuevas y existentes en todas las regiones no debe superar la cuota de vCPU aprobada para dicho modelo.
+ 
+Más información sobre las cuotas en la página [Límites de suscripción y servicios de Azure](https://aka.ms/quotalimits).
+
+Puede solicitar un aumento en el límite de cuota de vCPU para el modelo de implementación clásica a través de la hoja Ayuda y soporte técnico o la hoja Usos y cuota en el portal.
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja **Ayuda y soporte técnico**
 

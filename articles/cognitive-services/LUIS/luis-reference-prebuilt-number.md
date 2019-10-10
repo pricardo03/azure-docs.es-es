@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: f2868610bf9215b1414ea3ba342e3064b9c54f63
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cb97cc5b0004442e00b970202dd01f76aa971a2a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933502"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677568"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Number para una aplicación de LUIS
 Hay muchas maneras en que los valores numéricos se utilizan para cuantificar, expresar y describir información. En este artículo, se cubren solo algunos de los ejemplos posibles. LUIS interpreta las variaciones en expresiones de usuario y devuelve los valores numéricos coherentes. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan el número de intenciones de la aplicación. 
@@ -43,7 +43,7 @@ LUIS incluye el valor reconocido de una entidad **`builtin.number`** en el campo
 ## <a name="resolution-for-prebuilt-number"></a>Resolución del número precompilado
 
 
-### <a name="api-version-2x"></a>Versión de API 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la resolución del valor 24, para la expresión "dos docenas".
 
@@ -83,7 +83,7 @@ En el siguiente ejemplo, se muestra una respuesta JSON de LUIS, que incluye la r
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -141,6 +141,10 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Obtenga información acerca de las entidades [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md) y [percentage](luis-reference-prebuilt-percentage.md). 

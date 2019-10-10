@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033824"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802107"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -37,7 +37,7 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 |Directorio |Actividades relacionadas con los atributos de directorio que se recuperan cuando un administrador inicia sesión con Azure Portal. |
 |Application | Operaciones de creación, lectura, actualización y eliminación (CRUD) en aplicaciones B2C. |
 |Clave |Operaciones CRUD en claves almacenadas en un contenedor de claves B2C. |
-|Recurso |Operaciones CRUD en recursos B2C. Por ejemplo, directivas y proveedores de identidades.
+|Resource |Operaciones CRUD en recursos B2C. Por ejemplo, directivas y proveedores de identidades.
 |Authentication |Validación de credenciales de usuario y emisión de tokens.|
 
 Para las actividades CRUD de objeto de usuario, vea la categoría **Core Directory**.
@@ -94,30 +94,25 @@ Para permitir el acceso basado en script o en aplicaciones a la API de generaci�
 
 Puede habilitar estos permisos en un registro de aplicación de Azure Active Directory existente dentro del inquilino de B2C, o bien crear uno nuevo específicamente para usarlo con la automatización de los registros de auditoría.
 
-Para crear una aplicación nueva, asignar los permisos de API necesarios y crear un secreto de cliente, siga estos pasos:
+Siga estos pasos para registrar una aplicación, concédale los permisos necesarios de Microsoft Graph API y, a continuación, cree un secreto de cliente.
 
-1. Registro de una aplicación en Azure Active Directory
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com) y cambie al directorio que contiene su inquilino de Azure AD B2C.
-    1. Seleccione **Azure Active Directory** (*no* Azure AD B2C) en el menú de la izquierda. O bien, seleccione **Todos los servicios** y, luego, busque y seleccione **Azure Active Directory**.
-    1. En **Administrar** del menú de la izquierda, seleccione **Registros de aplicaciones (característica heredada)** .
-    1. Seleccione **Nuevo registro de aplicaciones**.
-    1. Escriba un nombre para la aplicación. Por ejemplo, *Aplicación de registro de auditoría*.
-    1. En **Dirección URL de inicio de sesión**, escriba una dirección URL válida. Por ejemplo, *https://localhost* . No es necesario que este punto de conexión sea accesible, pero debe ser una dirección URL válida.
-    1. Seleccione **Crear**.
-    1. Anote el **identificador de aplicación** que aparece en la página **Aplicación registrada**. Necesita este valor para la autenticación en scripts de automatización, como el script de PowerShell de ejemplo que se muestra en una sección posterior.
-1. Asignación de permisos de acceso de API
-    1. En la página de información general **Aplicación registrada**, seleccione **Configuración**.
-    1. En **ACCESO DE API**, seleccione **Permisos necesarios**.
-    1. Seleccione **Agregar** y, luego, **Seleccionar una API**.
-    1. Seleccione **Microsoft Graph** y, luego, **Seleccionar**.
-    1. En **PERMISOS DE APLICACIÓN**, seleccione **Leer todos los datos del registro de auditoría**.
-    1. Haga clic en el botón **Seleccionar** y, luego, en **Hecho**.
-    1. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**.
-1. Creación de un secreto de cliente
-    1. En **ACCESO DE API**, seleccione **Claves**.
-    1. Escriba una descripción para la clave en el cuadro **Descripción de la clave**. Por ejemplo, *Clave de registro de auditoría*.
-    1. Seleccione una **duración** de validez y, luego, **Guardar**.
-    1. Anote el **VALUE** de la clave. Necesita este valor para la autenticación en scripts de automatización, como el script de PowerShell de ejemplo que se muestra en una sección posterior.
+### <a name="register-application-in-azure-active-directory"></a>Registro de una aplicación en Azure Active Directory
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>Asignación de permisos de acceso de API
+
+1. En la página de información general **Aplicación registrada**, seleccione **Configuración**.
+1. En **ACCESO DE API**, seleccione **Permisos necesarios**.
+1. Seleccione **Agregar** y, luego, **Seleccionar una API**.
+1. Seleccione **Microsoft Graph** y, luego, **Seleccionar**.
+1. En **PERMISOS DE APLICACIÓN**, seleccione **Leer todos los datos del registro de auditoría**.
+1. Haga clic en el botón **Seleccionar** y, luego, en **Hecho**.
+1. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**.
+
+### <a name="create-client-secret"></a>Creación de un secreto de cliente
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Ahora tiene una aplicación con el acceso de API necesario, un identificador de aplicación y una clave que puede usar en los scripts de automatización. Consulte la sección de scripts de PowerShell que aparece más adelante en este artículo para ver un ejemplo de cómo puede obtener eventos de actividad con un script.
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032954"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710148"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -38,12 +38,19 @@ Para ver los niveles de servicio disponibles y sus características, consulte la
 
 Para ver los errores y los problemas conocidos, consulte [Problemas conocidos](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>¿Dónde puedo encontrar las características más recientes y las características en versión preliminar pública?
+
+Para obtener características nuevas y en vista previa, consulte las [notas de la versión](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?
+
+El tiempo esperado para crear una nueva instancia administrada o cambiar el nivel de servicio (núcleos virtuales, almacenamiento) depende de varios factores. Eche un vistazo a las [operaciones de administración](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations). 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>¿Se pueden llamar igual una instancia administrada y SQL Server en un entorno local?
 
 El nombre de la instancia administrada debe terminar en *database.windows.net*. Para usar otra zona DNS en lugar de la predeterminada, por ejemplo, **mi otro nombre**.contoso.com: 
 - Use CliConfig para definir un alias. La herramienta no es más que un contenedor de la configuración del registro, por lo que también se puede hacer mediante una directiva de grupo o un script.
 - Use *CNAME* con la opción *TrustServerCertificate = true*.
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>¿Cómo puedo devolver una base de datos de una instancia administrada a SQL Server o Azure SQL Database?
 
@@ -55,7 +62,7 @@ Las copias de seguridad nativas `COPY_ONLY` realizadas de una instancia administ
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>¿Cómo puedo migrar mi base de datos de instancia a una instancia individual de Azure SQL Database?
 
-Una opción es [exportar la base de datos a un archivo BACPAC](sql-database-export.md) y, a continuación, [importar dicho archivo]( sql-database-import.md). 
+Una opción es [exportar la base de datos a un archivo BACPAC](sql-database-export.md) y, a continuación, [importar dicho archivo](sql-database-import.md). 
 
 Este enfoque es aconsejable si la base de datos tiene menos de 100 GB. La replicación transaccional se puede utilizar si todas las tablas de la base de datos tienen claves principales.
 
@@ -69,7 +76,7 @@ Se recomienda encarecidamente que pruebe el rendimiento de las cargas de trabajo
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>¿Puedo cambiar la generación de hardware de mi instancia administrada entre Gen 4 y Gen 5 en línea? 
 
-La conmutación en línea automatizada entre dos generaciones de hardware es posible si ambas están disponibles en la misma región en la que está aprovisionada la instancia administrada. En este caso, tiene una opción en la sección del plan de tarifa de Azure Portal para conmutar entre las generaciones de hardware.
+La conmutación en línea automatizada entre dos generaciones de hardware es posible si ambas están disponibles en la misma región en la que está aprovisionada la instancia administrada. En este caso, puede utilizar el [script de la entrada de blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) que explica cómo pasar de una generación de hardware a otra.
 
 Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en segundo plano y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva, con una conmutación por error rápida al final del proceso. 
 
@@ -125,7 +132,8 @@ Para mitigar los riesgos de la red, es aconsejable que los clientes apliquen un 
 Casos prácticos de instancia administrada:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
 Existe un estudio de Forrester en el que se explican a la perfección los beneficios, costos y riesgos asociados a la implementación de Instancia administrada de Azure SQL Database: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance) (Impacto económico total de Instancia administrada de Azure SQL Database).
 

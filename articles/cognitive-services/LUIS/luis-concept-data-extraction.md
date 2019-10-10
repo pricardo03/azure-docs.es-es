@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560763"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703147"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -26,14 +26,26 @@ Los datos más difíciles de extraer son los datos de aprendizaje automático, p
 ## <a name="data-location-and-key-usage"></a>Ubicación de los datos y uso de la clave
 LUIS proporciona los datos del [punto de conexión](luis-glossary.md#endpoint) publicado. La **solicitud HTTPS** (POST o GET) contiene la expresión, así como algunas configuraciones opcionales como los entornos de producción o de almacenamiento provisional.
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Solicitud de punto de conexión de predicción de V2](#tab/V2)
+
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Solicitud de punto de conexión de predicción de V3](#tab/V3)
+
+`https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
 
 El valor de `appID` está disponible en la página **Configuración** de la aplicación LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edite esa aplicación LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante que cambie la clave del punto de conexión por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
 
 La **respuesta HTTPS** contiene toda la información de la intención y la entidad que LUIS puede determinar en función del modelo actual publicado de un punto de conexión de producción o de almacenamiento provisional. La dirección URL del punto de conexión se encuentra en el sitio web de [LUIS](luis-reference-regions.md), en la sección **Administrar**, en la página **Claves y puntos de conexión**.
 
 ## <a name="data-from-intents"></a>Datos de intenciones
-Los datos principales son el **nombre de la intención** de puntuación superior. Mediante el [inicio rápido](luis-quickstart-intents-only.md) `MyStore`, la respuesta del punto de conexión es:
+Los datos principales son el **nombre de la intención** de puntuación superior. La respuesta del punto de conexión es:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -46,11 +58,38 @@ Los datos principales son el **nombre de la intención** de puntuación superior
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+```JSON
+{
+  "query": "when do you open next?",
+  "prediction": {
+    "normalizedQuery": "when do you open next?",
+    "topIntent": "GetStoreInfo",
+    "intents": {
+        "GetStoreInfo": {
+            "score": 0.984749258
+        }
+    }
+  },
+  "entities": []
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
+
 |Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
 |--|--|--|--|
 |Intención|Cadena|topScoringIntent.intent|"GetStoreInfo"|
 
-Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones al configurar el parámetro de querystring `verbose=true`. La respuesta del punto de conexión es:
+Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones.
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+
+Establezca el parámetro Querystring, `verbose=true`. La respuesta del punto de conexión es:
 
 ```JSON
 {
@@ -73,6 +112,34 @@ Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Establezca el parámetro querystring, `show-all-intents=true`. La respuesta del punto de conexión es:
+
+```JSON
+{
+    "query": "when do you open next?",
+    "prediction": {
+        "normalizedQuery": "when do you open next?",
+        "topIntent": "GetStoreInfo",
+        "intents": {
+            "GetStoreInfo": {
+                "score": 0.984749258
+            },
+            "None": {
+                 "score": 0.2040639
+            }
+        },
+        "entities": {
+        }
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
+
 Las intenciones se ordenan de mayor a menor puntuación.
 
 |Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|Score|
@@ -81,6 +148,8 @@ Las intenciones se ordenan de mayor a menor puntuación.
 |Intención|Cadena|intents[1].intent|"None"|0.0168218873|
 
 Si agrega dominios creados previamente, el nombre de la intención indica el dominio, como `Utilties` o `Communication`, así como la intención:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -106,7 +175,35 @@ Si agrega dominios creados previamente, el nombre de la intención indica el dom
 }
 ```
 
-|Dominio|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+```JSON
+{
+    "query": "Turn on the lights next monday at 9am",
+    "prediction": {
+        "normalizedQuery": "Turn on the lights next monday at 9am",
+        "topIntent": "Utilities.ShowNext",
+        "intents": {
+            "Utilities.ShowNext": {
+                "score": 0.07842206
+            },
+            "Communication.StartOver": {
+                "score": 0.0239675418
+            },
+            "None": {
+                "score": 0.00085447653
+            }
+        },
+        "entities": []
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
+
+|Domain|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
 |--|--|--|--|--|
 |Sectores públicos|Intención|Cadena|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicación|Intención|Cadena|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -119,6 +216,8 @@ La mayoría de bots de chat y aplicaciones necesitan más que el nombre de la in
 Una sola palabra o frase en una expresión puede coincidir con más de una entidad. En ese caso, se devuelve cada entidad coincidente con su puntuación.
 
 Se devuelven todas las entidades de la matriz **entities** de la respuesta desde el punto de conexión:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -141,6 +240,18 @@ Se devuelven todas las entidades de la matriz **entities** de la respuesta desde
 ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+```JSON
+"entities": {
+    "name":["bob jones"],
+    "number": [3]
+}
+```
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
+
 ## <a name="tokenized-entity-returned"></a>Entidad tokenizada devuelta
 Varias [referencias culturales](luis-language-support.md#tokenization) devuelven el objeto entidad con el valor `entity` [tokenizado](luis-glossary.md#token). Los valores de startIndex y endIndex que devuelve LUIS en el objeto de entidad no se asignan al nuevo valor tokenizado, sino a la consulta original para extraer la entidad sin formato mediante programación. 
 
@@ -162,6 +273,8 @@ Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo 
 Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en función de una coincidencia de expresión regular mediante el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Las entidades creadas previamente se devuelven en la matriz de entidades y usan el nombre de tipo con el prefijo `builtin::`. El texto siguiente es una expresión de ejemplo con las entidades creadas previamente devueltas:
 
 `Dec 5th send to +1 360-555-1212`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -242,6 +355,186 @@ Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en
   ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Sin el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ]
+}
+```
+
+Con el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "Dec 5th",
+                "startIndex": 0,
+                "length": 7,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinal": [
+            {
+                "type": "builtin.ordinal",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinalV2": [
+            {
+                "type": "builtin.ordinalV2",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "1 360",
+                "startIndex": 17,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "555",
+                "startIndex": 23,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "1212",
+                "startIndex": 27,
+                "length": 4,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "phonenumber": [
+            {
+                "type": "builtin.phonenumber",
+                "text": "1 360-555-1212",
+                "startIndex": 17,
+                "length": 14,
+                "score": 1.0,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
 ## <a name="regular-expression-entity-data"></a>Datos de entidades de expresiones regulares
 
 Una [entidad de expresión regular](reference-entity-regular-expression.md) extrae una entidad basada en un patrón de expresión regular que se proporciona.
@@ -270,63 +563,127 @@ Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades.
 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+
+El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
+
 ```JSON
-{
-  "query": "move bob jones from seattle to redmond",
-  "topScoringIntent": {
-    "intent": "MoveAssetsOrPeople",
-    "score": 0.9999998
+"entities": [
+  {
+    "entity": "bob jones",
+    "type": "Employee",
+    "startIndex": 5,
+    "endIndex": 13,
+    "score": 0.922820568,
+    "role": ""
   },
-  "intents": [
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 0.9999998
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "FindForm",
-      "score": 1.1E-09
-    }
-  ],
-  "entities": [
-    {
-      "entity": "bob jones",
-      "type": "Employee",
-      "startIndex": 5,
-      "endIndex": 13,
-      "score": 0.922820568,
-      "role": ""
-    },
-    {
-      "entity": "seattle",
-      "type": "Location",
-      "startIndex": 20,
-      "endIndex": 26,
-      "score": 0.948008537,
-      "role": "Origin"
-    },
-    {
-      "entity": "redmond",
-      "type": "Location",
-      "startIndex": 31,
-      "endIndex": 37,
-      "score": 0.7047979,
-      "role": "Destination"
-    }
-  ]
+  {
+    "entity": "seattle",
+    "type": "Location",
+    "startIndex": 20,
+    "endIndex": 26,
+    "score": 0.948008537,
+    "role": "Origin"
+  },
+  {
+    "entity": "redmond",
+    "type": "Location",
+    "startIndex": 31,
+    "endIndex": 37,
+    "score": 0.7047979,
+    "role": "Destination"
+  }
+]
+```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+En v3, el **nombre de rol** es el nombre principal del objeto. 
+
+El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
+
+Sin el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "Origin": [
+        "seattle"
+    ],
+    "Destination": [
+        "redmond"
+    ]
 }
 ```
+
+Con el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "LocationOrigin": [
+        "seattle"
+    ],
+    "LocationDestination": [
+        "redmond"
+    ],
+    "$instance": {
+        "Employee": [
+            {
+                "type": "Employee",
+                "text": "bob jones",
+                "startIndex": 5,
+                "length": 9,
+                "score": 0.982873261,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Origin": [
+            {
+                "role": "Origin",
+                "type": "Location",
+                "text": "seattle",
+                "startIndex": 20,
+                "length": 7,
+                "score": 0.9913306,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Destination": [
+            {
+                "role": "Destination",
+                "type": "Location",
+                "text": "redmond",
+                "startIndex": 31,
+                "length": 7,
+                "score": 0.898179531,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * *
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
 
@@ -358,6 +715,9 @@ Para todas las demás referencias culturales, la respuesta es:
 
 ### <a name="key-phrase-extraction-entity-data"></a>Datos de entidad de extracción de frases clave
 La entidad de extracción de frases clave devuelve frases clave en la expresión, proporcionadas por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -392,13 +752,85 @@ La entidad de extracción de frases clave devuelve frases clave en la expresión
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+Sin el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ]
+}
+```
+
+Con el parámetro de cadena de consulta, `verbose=true`:
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ],
+    "$instance": {
+        "keyPhrase": [
+            {
+                "type": "builtin.keyPhrase",
+                "text": "map of places",
+                "startIndex": 11,
+                "length": 13,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "beautiful views",
+                "startIndex": 30,
+                "length": 15,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "favorite trail",
+                "startIndex": 51,
+                "length": 14,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * *
+
+
 ## <a name="data-matching-multiple-entities"></a>Datos que coinciden con varias entidades
 
 LUIS devuelve todas las entidades que ha detectado la expresión. Como consecuencia, es posible que el bot de chat tenga que tomar una decisión en función de los resultados. Una expresión puede tener varias entidades en una expresión:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-El punto de conexión de LUIS puede detectar los mismos datos en diferentes entidades:
+El punto de conexión de LUIS puede detectar los mismos datos en diferentes entidades.
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -524,11 +956,194 @@ El punto de conexión de LUIS puede detectar los mismos datos en diferentes enti
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Sin `verbose=true` como el parámetro de cadena de consulta.
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ]
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ]
+}
+```
+
+Con `verbose=true` como el parámetro de cadena de consulta.
+
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 8,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "PassengerCategory": [
+                    {
+                        "type": "PassengerCategory",
+                        "text": "adult",
+                        "startIndex": 10,
+                        "length": 5,
+                        "score": 0.9503733,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "TravelClass": [
+                    {
+                        "type": "TravelClass",
+                        "text": "business",
+                        "startIndex": 16,
+                        "length": 8,
+                        "score": 0.950095,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ],
+    "$instance": {
+        "TicketsOrder": [
+            {
+                "type": "TicketsOrder",
+                "text": "2 adult business",
+                "startIndex": 8,
+                "length": 16,
+                "score": 0.942183256,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Location::LocationTo": [
+            {
+                "type": "Location::LocationTo",
+                "text": "paris",
+                "startIndex": 36,
+                "length": 5,
+                "score": 0.9905354,
+                "modelTypeId": 3,
+                "modelType": "Hierarchical Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "tomorrow",
+                "startIndex": 42,
+                "length": 8,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Airline": [
+            {
+                "type": "Airline",
+                "text": "air france",
+                "startIndex": 54,
+                "length": 10,
+                "score": 0.9455415,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * *
+
 ## <a name="data-matching-multiple-list-entities"></a>Datos que coinciden con varias entidades de lista
 
 Si una palabra o frase coincide con más de una entidad de lista, la consulta de punto de conexión devolverá todas las entidades de lista.
 
 Para la consulta `when is the best time to go to red rock?`, si la aplicación tiene la palabra `red` en más de una lista, LUIS reconocerá todas las entidades y devolverá una matriz de entidades como parte de la respuesta del punto de conexión JSON: 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -563,6 +1178,101 @@ Para la consulta `when is the best time to go to red rock?`, si la aplicación t
   ]
 }
 ```
+
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Sin `verbose=true` en la cadena de consulta:
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ]
+        }
+    }
+}
+```
+
+
+Con `verbose=true` en la cadena de consulta:
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ],
+            "$instance": {
+                "Colors": [
+                    {
+                        "type": "Colors",
+                        "text": "red",
+                        "startIndex": 31,
+                        "length": 3,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "Cities": [
+                    {
+                        "type": "Cities",
+                        "text": "red rock",
+                        "startIndex": 31,
+                        "length": 8,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 

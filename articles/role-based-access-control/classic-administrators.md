@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444334"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802309"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -56,12 +56,14 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
 Es posible que los [usuarios invitados](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) a los que se haya asignado el rol de coadministrador observen algunas diferencias con respecto a los usuarios miembros con el rol de coadministrador. Considere el siguiente escenario:
 
-- El usuario A, que tiene una cuenta profesional o educativa de Azure AD, es un administrador de servicios en una suscripción de Azure.
+- El usuario A, con una cuenta de Azure AD (profesional o educativa), es un administrador de servicios en una suscripción de Azure.
 - El usuario B tiene una cuenta de Microsoft.
 - El usuario A asigna el rol de coadministrador al usuario B.
 - El usuario B puede hacer casi todo, pero no puede registrar las aplicaciones ni buscar usuarios en el directorio de Azure AD.
 
-Sería de esperar que el usuario B pudiera administrarlo todo. Esta diferencia se debe a que la cuenta de Microsoft se agrega a la suscripción como usuario invitado y no como usuario miembro. En comparación con los usuarios miembros, los usuarios invitados tienen distintos permisos predeterminados en Azure AD. Por ejemplo, los usuarios miembros pueden leer otros usuarios en Azure AD y los usuarios invitados no. Los usuarios miembros pueden registrar a nuevas entidades de servicio en Azure AD y los usuarios invitados no. Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de administrador de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
+Sería de esperar que el usuario B pudiera administrarlo todo. Esta diferencia se debe a que la cuenta de Microsoft se agrega a la suscripción como usuario invitado y no como usuario miembro. En comparación con los usuarios miembros, los usuarios invitados tienen distintos permisos predeterminados en Azure AD. Por ejemplo, los usuarios miembros pueden leer otros usuarios en Azure AD y los usuarios invitados no. Los usuarios miembros pueden registrar a nuevas entidades de servicio en Azure AD y los usuarios invitados no.
+
+Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de administrador de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
 
 Tenga en cuenta que los [roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de administrador de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -127,14 +129,16 @@ Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Az
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitaciones para cambiar el administrador de servicios
 
-Cada suscripción está asociada a un directorio de Azure AD. Para encontrar el directorio al que está asociada la suscripción, abra **Suscripciones** en Azure Portal y, a continuación, seleccione una suscripción para ver el directorio.
+Solo puede haber un administrador de servicios por suscripción de Azure. El cambio del administrador de servicios se comportará de forma diferente en función de si el administrador de la cuenta es un cuenta Microsoft o si se trata de una cuenta de Azure AD (cuenta profesional o educativa).
 
-Si inició sesión con una cuenta profesional o educativa, puede agregar otras cuentas de su organización como administrador de servicios. Por ejemplo, abby@contoso.com puede agregar a bob@contoso.com como administrador de servicios pero no puede agregar a john@notcontoso.com a menos que john@notcontoso.com esté presente en el directorio contoso.com. Los usuarios que iniciaron sesión con cuentas profesionales o educativas pueden continuar agregando usuarios de cuentas Microsoft como administradores de servicios. Solo puede haber un administrador de servicios por suscripción de Azure.
+| Cuenta de administrador de cuenta | ¿Se puede cambiar el administrador de servicios por otra cuenta Microsoft diferente? | ¿Se puede cambiar el administrador de servicios por una cuenta de Azure AD del mismo directorio? | ¿Se puede cambiar el administrador de servicios por una cuenta de Azure AD de un directorio diferente? |
+| --- | --- | --- | --- |
+| Cuenta Microsoft | Sí | No | Sin |
+| Cuenta de Azure AD | Sí | Sí | Sin |
 
-  | Método de inicio de sesión | ¿Agregar un usuario de cuenta Microsoft como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de la misma organización como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de otra organización como administrador de servicios? |
-  | --- | --- | --- | --- |
-  |  Cuenta Microsoft |Sí |No |Sin |
-  |  Cuenta profesional o educativa |Sí |Sí |Sin |
+Si el administrador de la cuenta es una cuenta de Azure AD, puede cambiar el administrador de servicios por una cuenta de Azure AD del mismo directorio, pero no de un directorio diferente. Por ejemplo, abby@contoso.com puede cambiar el administrador de servicios por bob@contoso.com, pero no puede cambiarlo por john@notcontoso.com a menos que john@notcontoso.com exista en el directorio contoso.com.
+
+Para más información sobre las cuentas Microsoft y de Azure AD, consulte [¿Qué es Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="view-the-account-administrator"></a>Visualización del administrador de cuenta
 

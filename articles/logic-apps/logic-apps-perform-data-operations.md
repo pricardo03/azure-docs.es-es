@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179882"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309394"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realización de operaciones de datos en Azure Logic Apps
 
@@ -94,7 +94,7 @@ Para probar un ejemplo, siga estos pasos con el Diseñador de aplicación lógic
 
      ![Agregar una acción](./media/logic-apps-perform-data-operations/add-compose-action.png)
 
-   * Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
+   * Para agregar una acción entre los pasos existentes, mueva el puntero sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
 
 1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `compose` como filtro. En la lista de acciones, seleccione la acción **Redactar**.
 
@@ -152,7 +152,7 @@ Si prefiere trabajar en el editor de vista de código, puede copiar las definici
 
      ![Agregar una acción](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
+   * Para agregar una acción entre los pasos existentes, mueva el puntero sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
 
 1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `create csv table` como filtro. En la lista de acciones, seleccione la acción **Crear tabla CSV**.
 
@@ -175,55 +175,93 @@ Si prefiere trabajar en el editor de vista de código, puede copiar las definici
 
 ### <a name="customize-table-format"></a>Personalización del formato de tabla
 
-De forma predeterminada, la propiedad **Columnas** está configurada para crear automáticamente las columnas de la tabla en función de los elementos de la matriz. 
-
-Para especificar los valores y los encabezados personalizados, siga estos pasos:
+De forma predeterminada, la propiedad **Columnas** está configurada para crear automáticamente las columnas de la tabla en función de los elementos de la matriz. Para especificar los valores y los encabezados personalizados, siga estos pasos:
 
 1. Abra la lista **Columnas** y seleccione **Personalizar**.
 
 1. En la propiedad **Encabezado**, especifique el texto de encabezado personalizado que se va a usar en su lugar.
 
-1. En la propiedad **Clave**, especifique el valor personalizado que se va a usar en su lugar.
+1. En la propiedad **Value**, especifique el valor personalizado que se va a usar en su lugar.
 
-Para hacer referencia a los valores de la matriz y editarlos, puede usar la función `@item()` en la definición de JSON de la acción **Crear tabla CSV**.
+Para devolver valores de la matriz, puede usar la función [ `item()` ](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla CSV**. En un bucle `For_each`, puede usar la función [ `items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. En la barra de herramientas del diseñador, seleccione **vista Código**. 
-
-1. En el editor de código, edite la sección `inputs` de la acción para personalizar la salida de la tabla de la forma que desee.
-
-En este ejemplo solo se devuelven los valores de columna y no los encabezados de la matriz `columns` estableciendo la propiedad `header` en un valor vacío y eliminando la referencia a cada propiedad `value`:
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Este es el resultado que devuelve este ejemplo:
+Por ejemplo, supongamos que desea columnas de tabla que solo tengan los valores de propiedad y no los nombres de propiedad de una matriz. Para devolver solo estos valores, siga estos pasos para trabajar en la vista de diseñador o en la vista de código. Este es el resultado que devuelve este ejemplo:
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-En el diseñador, la acción **Crear tabla CSV** aparece ahora de esta manera:
+#### <a name="work-in-designer-view"></a>Trabajar en la Vista de diseñador
 
-!["Crear tabla CSV" sin encabezados de columna](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+En la acción, mantenga la columna **Header** vacía. En cada fila de la columna **Valor**, desreferenciar cada propiedad de matriz que desee. Cada fila debajo de **Valor** devuelve todos los valores para la propiedad de matriz especificada y se convierte en una columna en su tabla.
+
+1. En **Valor**, en cada fila que desee, haga clic dentro del cuadro de edición para que aparezca la lista de contenido dinámico.
+
+1. En la lista de contenido dinámico, seleccione **Expresión**.
+
+1. En el editor de expresiones, ingrese esta expresión que especifica el valor de propiedad de la matriz que desea y seleccione **Aceptar**.
+
+   `item()?['<array-property-name>']`
+
+   Por ejemplo:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expresión para desreferenciar la propiedad](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. Repita los pasos anteriores para cada propiedad de matriz que desee. Una vez que haya terminado, la acción debe ser parecida a la de este ejemplo:
+
+   ![Expresiones terminadas](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. Para resolver expresiones en versiones más descriptivas, cambie a la vista de código y vuelva a la vista de diseñador, y luego vuelva a abrir la acción contraída:
+
+   La acción **Crear tabla CSV** ahora aparece como este ejemplo:
+
+   ![Acción "Crear tabla CSV" con expresiones resueltas y sin encabezados](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>Trabajar en la vista Código
+
+En la definición JSON de la acción, dentro de la matriz `columns`, establezca la propiedad `header` en una cadena vacía. Para cada propiedad `value`, desreferenciar cada propiedad de matriz que desee.
+
+1. En la barra de herramientas del diseñador, seleccione **vista Código**.
+
+1. En el editor de código, en la matriz `columns` de la acción, agregue la propiedad `header` vacía y esta expresión `value` para cada columna de valores de matriz que desee:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Por ejemplo:
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Vuelva a la vista de diseñador y vuelva a abrir la acción contraída.
+
+   La acción **Crear tabla CVS** ahora aparece como en este ejemplo y las expresiones se han resuelto como versiones más descriptivas:
+
+   ![Acción "Crear tabla CSV" con expresiones resueltas y sin encabezados](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 Para más información sobre esta acción en la definición del flujo de trabajo subyacente, consulte la [acción Tabla](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -288,55 +326,93 @@ Si prefiere trabajar en el editor de vista de código, puede copiar las definici
 
 ### <a name="customize-table-format"></a>Personalización del formato de tabla
 
-De forma predeterminada, la propiedad **Columnas** está configurada para crear automáticamente las columnas de la tabla en función de los elementos de la matriz. 
-
-Para especificar los valores y los encabezados personalizados, siga estos pasos:
+De forma predeterminada, la propiedad **Columnas** está configurada para crear automáticamente las columnas de la tabla en función de los elementos de la matriz. Para especificar los valores y los encabezados personalizados, siga estos pasos:
 
 1. Abra la lista **Columnas** y seleccione **Personalizar**.
 
 1. En la propiedad **Encabezado**, especifique el texto de encabezado personalizado que se va a usar en su lugar.
 
-1. En la propiedad **Clave**, especifique el valor personalizado que se va a usar en su lugar.
+1. En la propiedad **Value**, especifique el valor personalizado que se va a usar en su lugar.
 
-Para hacer referencia a los valores de la matriz y editarlos, puede usar la función `@item()` en la definición de JSON de la acción **Crear tabla HTML**.
+Para devolver valores de la matriz, puede usar la función [ `item()` ](../logic-apps/workflow-definition-language-functions-reference.md#item) con la acción **Crear tabla HTML**. En un bucle `For_each`, puede usar la función [ `items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. En la barra de herramientas del diseñador, seleccione **vista Código**. 
-
-1. En el editor de código, edite la sección `inputs` de la acción para personalizar la salida de la tabla de la forma que desee.
-
-En este ejemplo solo se devuelven los valores de columna y no los encabezados de la matriz `columns` estableciendo la propiedad `header` en un valor vacío y eliminando la referencia a cada propiedad `value`:
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Este es el resultado que devuelve este ejemplo:
+Por ejemplo, supongamos que desea columnas de tabla que solo tengan los valores de propiedad y no los nombres de propiedad de una matriz. Para devolver solo estos valores, siga estos pasos para trabajar en la vista de diseñador o en la vista de código. Este es el resultado que devuelve este ejemplo:
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-En el diseñador, la acción **Crear tabla HTML** aparece ahora de esta manera:
+#### <a name="work-in-designer-view"></a>Trabajar en la Vista de diseñador
 
-!["Crear tabla HTML" sin encabezados de columna](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+En la acción, mantenga la columna **Header** vacía. En cada fila de la columna **Valor**, desreferenciar cada propiedad de matriz que desee. Cada fila debajo de **Valor** devuelve todos los valores para la propiedad especificada y se convierte en una columna en su tabla.
+
+1. En **Valor**, en cada fila que desee, haga clic dentro del cuadro de edición para que aparezca la lista de contenido dinámico.
+
+1. En la lista de contenido dinámico, seleccione **Expresión**.
+
+1. En el editor de expresiones, ingrese esta expresión que especifica el valor de propiedad de la matriz que desea y seleccione **Aceptar**.
+
+   `item()?['<array-property-name>']`
+
+   Por ejemplo:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expresión para desreferenciar la propiedad](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. Repita los pasos anteriores para cada propiedad de matriz que desee. Una vez que haya terminado, la acción debe ser parecida a la de este ejemplo:
+
+   ![Expresiones terminadas](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. Para resolver expresiones en versiones más descriptivas, cambie a la vista de código y vuelva a la vista de diseñador, y luego vuelva a abrir la acción contraída:
+
+   La acción **Crear tabla HTML** ahora aparece como este ejemplo:
+
+   ![Acción "Crear tabla HTML" con expresiones resueltas y sin encabezados](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>Trabajar en la Vista código
+
+En la definición JSON de la acción, dentro de la matriz `columns`, establezca la propiedad `header` en una cadena vacía. Para cada propiedad `value`, desreferenciar cada propiedad de matriz que desee.
+
+1. En la barra de herramientas del diseñador, seleccione **vista Código**.
+
+1. En el editor de código, en la matriz `columns` de la acción, agregue la propiedad `header` vacía y esta expresión `value` para cada columna de valores de matriz que desee:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Por ejemplo:
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Vuelva a la vista de diseñador y vuelva a abrir la acción contraída.
+
+   La acción **Crear tabla HTML** ahora aparece como en este ejemplo y las expresiones se han resuelto como versiones más descriptivas:
+
+   ![Acción "Crear tabla HTML" con expresiones resueltas y sin encabezados](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 Para más información sobre esta acción en la definición del flujo de trabajo subyacente, consulte la [acción Tabla](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 

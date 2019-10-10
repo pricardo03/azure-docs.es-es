@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266075"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828089"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -121,52 +121,12 @@ Para más información acerca de estas opciones de instalación, más adelante e
 
 ### <a name="option-2-install-and-automatically-provision"></a>Opción 2: Instalación y aprovisionamiento automático
 
-En esta segunda opción, aprovisionará el dispositivo mediante el servicio IoT Hub Device Provisioning. Proporcione el **Id. de ámbito** de una instancia del servicio Device Provisioning y el **Id. de registro** del dispositivo. Es posible que se requieran valores adicionales en función del mecanismo de atestación al aprovisionar con DPS, como cuando se usan [claves simétricas](how-to-auto-provision-symmetric-keys.md).
+En esta segunda opción, aprovisionará el dispositivo mediante el servicio IoT Hub Device Provisioning. Proporcione el **Id. de ámbito** de una instancia de Device Provisioning Service junto con cualquier otra información específica del [mecanismo de atestación](../iot-dps/concepts-security.md#attestation-mechanism) que prefiera:
 
-En el siguiente ejemplo se muestra una instalación automática con contenedores Windows y atestación TPM:
+* [Creación y aprovisionamiento de un dispositivo TPM Edge simulado en Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica](how-to-auto-provision-symmetric-keys.md)
 
-1. Siga los pasos de [Creación y aprovisionamiento de un dispositivo TPM IoT Edge simulado en Windows](how-to-auto-provision-simulated-device-windows.md) para configurar el servicio Device Provisioning y recuperar su **identificador de ámbito**, simular un dispositivo TPM y recuperar su **identificador de registro**y, finalmente, cree una inscripción individual. Una vez que el dispositivo esté registrado en IoT Hub, continúe con estos pasos de instalación.  
-
-   >[!TIP]
-   >Mantenga abierta la ventana que se está ejecutando el simulador de TPM durante la instalación y prueba. 
-
-1. Ejecute PowerShell como administrador.
-
-   >[!NOTE]
-   >Use una sesión de AMD64 de PowerShell para instalar IoT Edge, no PowerShell (x86). Si no está seguro de qué tipo de sesión usa, ejecute el comando siguiente:
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
-
-1. El comando **Deploy-IoTEdge** comprueba si la versión del equipo Windows es compatible, activa la característica de contenedores y descarga tanto el runtime de Moby como el de IoT Edge. De forma predeterminada el comando usa contenedores Windows. 
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que otros dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora. Una vez que el dispositivo esté listo, vuelva a ejecutar PowerShell como administrador.
-
-1. El comando **Initialize-IoTEdge** configura el entorno de ejecución de Azure IoT Edge en el equipo. El comportamiento predeterminado del comando es el aprovisionamiento manual con contenedores de Windows. Utilice la marca `-Dps` para usar Device Provisioning Service, en lugar del aprovisionamiento manual. Sustituya `{scope ID}` por el identificador de ámbito de Device Provisioning Service y `{registration ID}` por el identificador de registro del dispositivo, que debería haber recuperado en el paso 1.
-
-   Utilice el comando **Initialize-IoTEdge** para usar DPS con la atestación de TPM:
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-   Utilice el comando **Initialize-IoTEdge** para usar DPS con la atestación de clave simétrica. Reemplace `{symmetric key}` por una clave de dispositivo.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
-   ```
-
-1. Siga los pasos de [Comprobación de instalación correcta](#verify-successful-installation) para comprobar el estado de IoT Edge en el dispositivo. 
-
-Al instalar y aprovisionar un dispositivo manualmente, puede usar parámetros adicionales para modificar la instalación, incluyendo:
+Al instalar y aprovisionar un dispositivo automáticamente, puede usar parámetros adicionales para modificar la instalación, por ejemplo:
 
 * Dirigir el tráfico para que pase por un servidor proxy
 * Apuntar el instalador a un directorio sin conexión
@@ -302,13 +262,13 @@ El comando Initialize-IoTEdge configura IoT Edge con su cadena de conexión del 
 | **Dps** | None | **Parámetro de modificador**. Si no se especifica ningún tipo de aprovisionamiento, el valor predeterminado es manual.<br><br>Declara que usted proporcionará un Id. de ámbito de Device Provisioning Service (DPS) y el Id. de registro del dispositivo para aprovisionar a través de DPS.  |
 | **DeviceConnectionString** | Una cadena de conexión desde un dispositivo de IoT Edge registrado en IoT Hub, entre comillas simples | **Obligatorio** para la instalación manual. Si no proporciona una cadena de conexión en los parámetros del script, se le pedirá una durante la instalación. |
 | **ScopeId** | Un Id. de ámbito de una instancia de Device Provisioning Service asociada con IoT Hub. | **Obligatorio** para la instalación de DPS. Si no proporciona un Id. de ámbito en los parámetros del script, se le pedirá uno durante la instalación. |
-| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para la instalación de DPS. |
+| **RegistrationId** | Un identificador de registro generado por el dispositivo | **Obligatorio** para la instalación de DPS si se usa TPM o la atestación de clave simétrica. |
 | **SymmetricKey** | La clave simétrica usada para aprovisionar la identidad del dispositivo de IoT Edge al usar DPS | **Obligatorio** para la instalación de DPS si se usa la atestación de clave simétrica. |
 | **ContainerOs** | **Windows** o **Linux** | Si no se especifica el sistema operativo del contenedor, el valor predeterminado es Windows.<br><br>En el caso de los contenedores Windows, IoT Edge usa el motor de contenedor de Moby que se incluye en la instalación. Para los contenedores de Linux, deberá instalar un motor de contenedor antes de iniciar la instalación. |
 | **InvokeWebRequestParameters** | Tabla de hash de parámetros y valores | Durante la instalación se realizan varias solicitudes web. Utilice este campo para definir parámetros para esas solicitudes web. Este parámetro es útil para configurar las credenciales para los servidores proxy. Para más información, consulte [Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy](how-to-configure-proxy-support.md). |
 | **AgentImage** | URI de la imagen del agente de IoT Edge | De forma predeterminada, una nueva instalación de IoT Edge utiliza la etiqueta gradual más reciente de la imagen del agente de IoT Edge. Utilice este parámetro para establecer una etiqueta específica para la versión de la imagen o para proporcionar su propia imagen de agente. Para obtener más información, vea [Información sobre las etiquetas de IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags). |
 | **Nombre de usuario** | Nombre de usuario de registro de contenedor | Utilice este parámetro solo si establece el parámetro -AgentImage en un contenedor en un registro privado. Proporcione un nombre de usuario con acceso al registro. |
-| **Contraseña** | Cadena de contraseña segura | Utilice este parámetro solo si establece el parámetro -AgentImage en un contenedor en un registro privado. Proporcione la contraseña para acceder al registro. | 
+| **Contraseña** | Cadena de contraseña segura | Utilice este parámetro solo si establece el parámetro -AgentImage en un contenedor en un registro privado. Proporcione la contraseña para acceder al registro. |
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 

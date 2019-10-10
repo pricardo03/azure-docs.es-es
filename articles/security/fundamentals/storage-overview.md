@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350307"
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 
@@ -88,7 +88,7 @@ Cifrado de discos para máquinas virtuales funciona en sistemas operativos Linux
 
 Más información
 
-* [Azure Disk Encryption for Windows and Linux Azure Virtual Machines (Azure Disk Encryption para máquinas virtuales IaaS de Linux y Windows)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Introducción a Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls y redes virtuales
 

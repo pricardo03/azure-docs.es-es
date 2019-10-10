@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210118"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827573"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -277,13 +277,13 @@ Si estos elementos no resuelven el problema, plantéese cuestiones como las sigu
 **Integración con red virtual regional**
 * ¿Es el destino de una dirección de RFC 1918?
 * ¿Hay un NSG bloqueando la salida de la subred de integración?
-* Si es a través de una red virtual o ExpressRoute, ¿está configurada la puerta de enlace local para enrutar el tráfico de vuelta a Azure? Si se puede acceder a los puntos de conexión en la red virtual, pero no en el entorno local, conviene comprobar esto.
+* Si es a través de una VPN o ExpressRoute, ¿está configurada la puerta de enlace local para enrutar el tráfico de vuelta a Azure? Si se puede acceder a los puntos de conexión en la red virtual, pero no en el entorno local, conviene comprobar esto.
 
 **Integración con red virtual con requisito de puerta de enlace**
 * ¿Es el intervalo de direcciones de punto a sitio en los intervalos de RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * ¿Aparece la puerta de enlace como activa en el Portal? Si la puerta de enlace está inactiva, vuelva a activarla.
 * ¿Aparecen los certificados como sincronizados o sospecha que la configuración de red ha cambiado?  Si los certificados no están sincronizados o sospecha que se ha producido un cambio en la configuración de red virtual que no se ha sincronizado con sus planes de App Service, haga clic en "Sincronizar red".
-* Si es a través de una red virtual o ExpressRoute, ¿está configurada la puerta de enlace local para enrutar el tráfico de vuelta a Azure? Si se puede acceder a los puntos de conexión en la red virtual, pero no en el entorno local, conviene comprobar esto.
+* Si es a través de una VPN o ExpressRoute, ¿está configurada la puerta de enlace local para enrutar el tráfico de vuelta a Azure? Si se puede acceder a los puntos de conexión en la red virtual, pero no en el entorno local, conviene comprobar esto.
 
 Depurar problemas de red es todo un reto porque no se puede ver lo que está bloqueando el acceso en una combinación de host y puerto específica. Algunas de las causas son:
 
@@ -343,6 +343,6 @@ Puede integrar App Service con Azure Virtual Network mediante PowerShell. Para o
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

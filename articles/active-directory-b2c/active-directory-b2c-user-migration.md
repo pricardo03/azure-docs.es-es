@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183150"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802093"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 
@@ -49,51 +49,29 @@ Debe crear la cuenta de usuario de Azure AD B2C a través de Graph API (con la c
 
 ### <a name="step-11-register-your-application-in-your-tenant"></a>Paso 1.1: Registro de la aplicación en el inquilino
 
-Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, debe registrar una aplicación y la autenticación en Azure AD. Las credenciales de la aplicación son el **Identificador de aplicación** y el **Secreto de aplicación**. La aplicación actúa como tal, no como un usuario, para llamar a Graph API.
+Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, se registra una aplicación y se habilita el acceso de escritura al directorio. Las credenciales de la aplicación son el **identificador de aplicación** y el **secreto de aplicación**. La aplicación actúa como tal, no como un usuario, para llamar a Graph API.
 
-En primer lugar, registre la aplicación de migración en Azure AD. A continuación, cree una clave de aplicación (secreto de aplicación) y establezca la aplicación con los privilegios de escritura.
+En primer lugar, registre una aplicación que pueda usar para tareas de administración como la migración de usuarios.
 
-1. Inicie sesión en el [Azure Portal][Portal].
-1. Seleccione el filtro **Directorio + suscripción**  en la sección superior derecha del portal.
-1. Seleccione el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure Active Directory** (*no* Azure AD B2C). Es posible que tenga que seleccionar **Todos los servicios**.
-1. Seleccione **Registros de aplicaciones (característica heredada)** .
-1. Seleccione **Nuevo registro de aplicaciones**.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-   ![Elementos de menú de Azure Active Directory y Registros de aplicaciones resaltados](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+### <a name="step-12-grant-administrative-permission-to-your-application"></a>Paso 1.2: Concesión de permisos administrativos a la aplicación
 
-1. Para crear una nueva aplicación, haga lo siguiente:
+A continuación, conceda a la aplicación los permisos de Graph API de Azure AD necesarios para escribir en el directorio.
 
-   - Para **Nombre**, use *B2CUserMigration* o cualquier otro nombre que quiera.
-   - En **Tipo de aplicación**, seleccione**Aplicación web o API**.
-   - En **URL de inicio de sesión** , use `https://localhost` (no es pertinente para esta aplicación).
-   - Seleccione **Crear**.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-    Una vez creada la aplicación, se muestra la página **Aplicación registrada**, donde aparecen sus propiedades.
-1. Copie el valor de **Id. de aplicación**  de la aplicación y guárdelo para más tarde.
+### <a name="step-13-create-the-application-secret"></a>Paso 1.3: Creación del secreto de aplicación
 
-### <a name="step-12-create-the-application-secret"></a>Paso 1.2: Creación del secreto de aplicación
+Cree un secreto de cliente (clave) para que lo use la aplicación de migración de usuarios que configure en un paso posterior.
 
-1. En la página **Aplicación registrada**, seleccione **Configuración**.
-1. Seleccione **Claves**.
-1. En **Contraseñas**, agregue una nueva clave (también conocida como secreto de cliente) denominada *MyClientSecret* o cualquier otro nombre que elija, seleccione una ventana de expiración, seleccione **Guardar** y, después, copie el valor de clave para su uso posterior.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-    ![Valor de Id. de aplicación y elemento del menú Claves resaltados en Azure Portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-
-### <a name="step-13-grant-administrative-permission-to-your-application"></a>Paso 1.3: Concesión de permisos administrativos a la aplicación
-
-1. En el menú **Configuración**, seleccione **Permisos necesarios**.
-1. Seleccione **Microsoft Azure Active Directory**.
-1. En el panel **Habilitar acceso**, en **Permisos de la aplicación**, seleccione **Leer y escribir en datos de directorio** y haga clic en **Guardar**.
-1. En el panel **Permisos necesarios**, seleccione **Conceder permisos** y, después, seleccione **Sí**.
-
-   ![Casilla Leer y escribir datos de directorio, Guardar y Conceder permisos resaltados](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-
-Ahora tiene una aplicación con permisos para crear, leer y actualizar usuarios desde el inquilino de Azure AD B2C.
+Ahora tiene una aplicación con permisos para crear, leer y actualizar los usuarios en el inquilino de Azure AD B2C.
 
 ### <a name="step-14-optional-environment-cleanup"></a>Paso 1.4: (Opcional) Limpieza del entorno
 
-Los permisos de lectura y escritura de los datos del directorio *no* incluyen el derecho de eliminar usuarios. Para que su aplicación pueda eliminar usuarios (para limpiar el entorno), debe realizar un paso adicional, que implica la ejecución de PowerShell a fin de establecer los permisos de administrador de la cuenta de usuario. En caso contrario, puede saltar a la sección siguiente.
+El permiso *Leer y escribir en datos de directorio* *no* incluye el derecho a eliminar usuarios. Para que su aplicación pueda eliminar usuarios (para limpiar el entorno), debe realizar un paso adicional, que implica la ejecución de PowerShell a fin de establecer los permisos de administrador de la cuenta de usuario. En caso contrario, puede saltar a la sección siguiente.
 
 > [!IMPORTANT]
 > Debe usar una cuenta de administrador de inquilinos B2C que sea *local* para el inquilino B2C. La sintaxis del nombre de la cuenta es *admin\@contosob2c.onmicrosoft.com*.

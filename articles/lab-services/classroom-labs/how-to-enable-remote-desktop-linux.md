@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: c67ca111bf87c9dbfa69c93149d29dbd32767fbd
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350760"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -37,7 +37,8 @@ En el cuadro de mensaje **Enabling Remote Desktop Connection** (Habilitar conexi
 
 > [!IMPORTANT] 
 > Al habilitar una **conexión a Escritorio remoto**, solo se abre el puerto **RDP** en máquinas Linux. Si RDP ya está instalado y configurado en la imagen de máquina virtual (por ejemplo: imagen de Data Science Virtual Machine de Ubuntu), será posible conectarse a las máquinas virtuales mediante RDP sin seguir pasos adicionales.
-> Si la imagen de máquina virtual no tiene RDP instalado y configurado, debe conectarse a la máquina Linux mediante SSH por primera vez e instalar paquetes RDP y GUI para que sea posible conectarse a la máquina Linux mediante RDP más tarde. A continuación, publicará la imagen para que los alumnos puedan usar RDP para conectarse a las máquinas virtuales Linux de alumnos.
+> 
+> Si la imagen de máquina virtual no tiene RDP instalado y configurado, debe conectarse a la máquina Linux mediante SSH por primera vez e instalar paquetes RDP y GUI para que sea posible conectarse a la máquina Linux mediante RDP más tarde. Para más información, consulte [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md). A continuación, publicará la imagen para que los alumnos puedan usar RDP para conectarse a las máquinas virtuales Linux de alumnos. 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 Actualmente, la conexión a Escritorio remoto se admite para los sistemas operativos siguientes:

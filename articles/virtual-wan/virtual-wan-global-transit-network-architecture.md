@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 0a5059382c26afd6120dc14a1ab2c7e5d281e7a1
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421431"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695265"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -44,7 +44,7 @@ En este modelo, una radio puede ser:
 
 **Figura 2: Radial**
 
-En la figura 2 se muestra la vista lógica de la red global donde los usuarios, los sitios físicos y las redes virtuales distribuidos geográficamente están interconectados a través de un centro de redes hospedado en la nube. Esta arquitectura permite la conectividad de tránsito de un salto lógico entre los puntos de conexión de red. Las radios se conectan al centro a través de varios servicios de red de Azure, como ExpressRoute o VPN sitio a sitio para las sucursales físicas, emparejamiento de red virtual para las redes virtuales y VPN punto a sitio para los usuarios remotos.
+En la figura 2 se muestra la vista lógica de la red global donde los usuarios, los sitios físicos y las redes virtuales distribuidos geográficamente están interconectados a través de un centro de redes hospedado en la nube. Esta arquitectura permite la conectividad de tránsito de un salto lógico entre los puntos de conexión de red. Los radios se conectan al centro a través de varios servicios de red de Azure, como ExpressRoute o VPN de sitio a sitio para las sucursales físicas, conexiones de red virtual para las redes virtuales, y VPN de punto a sitio para los usuarios remotos.
 
 ## <a name="crossregion"></a>Conectividad entre regiones
 
@@ -71,7 +71,7 @@ Azure Virtual WAN admite las siguientes rutas de conectividad de tránsito globa
 
 ### <a name="branchvnet"></a>Sucursal a red virtual
 
-Sucursal a red virtual es la ruta principal admitida por Azure Virtual WAN. Esta ruta le permite conectar sucursales a las cargas de trabajo empresariales de IaaS de Azure que están implementadas en redes virtuales de Azure. Las sucursales se pueden conectar a la WAN virtual a través de ExpressRoute o de VPN de sitio a sitio. El tráfico transita a las redes virtuales que están conectadas a los centros de Virtual WAN a través de conexiones de red virtual.
+Sucursal a red virtual es la ruta principal admitida por Azure Virtual WAN. Esta ruta le permite conectar sucursales a las cargas de trabajo empresariales de IaaS de Azure que están implementadas en redes virtuales de Azure. Las sucursales se pueden conectar a la WAN virtual a través de ExpressRoute o de VPN de sitio a sitio. El tráfico se dirige a las redes virtuales que están conectadas a los concentradores WAN virtuales a través de conexiones de red virtual. No se necesita el [tránsito de puerta de enlace](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) para la WAN virtual porque esta lo habilita automáticamente a los sitios de sucursales.
 
 ### <a name="branchbranch"></a>Sucursal a sucursal
 
@@ -89,7 +89,7 @@ La ruta de usuario remoto a sucursal permite que los usuarios remotos que usan u
 
 ### <a name="vnetvnet"></a>Tránsito de red virtual a red virtual con emparejamiento de red virtual
 
-Para conectar redes virtuales entre sí y admitir aplicaciones de varios niveles implementadas en varias redes virtuales, use el emparejamiento de red virtual. Actualmente no se admite un escenario de tránsito de red virtual a red virtual en Azure Virtual WAN, pero sí está en la hoja de ruta de Azure. Conectar las redes virtuales a través del emparejamiento de red virtual es la solución recomendada para las redes virtuales que se deben conectar entre sí. El [tránsito de puerta de enlace](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (en el contexto del emparejamiento de red virtual) no es necesario para Virtual WAN, porque Virtual WAN habilita automáticamente el tránsito de puerta de enlace.
+Para conectar redes virtuales entre sí y admitir aplicaciones de varios niveles implementadas en varias redes virtuales, use el emparejamiento de red virtual. Actualmente no se admite un escenario de tránsito de red virtual a red virtual en Azure Virtual WAN, pero sí está en la hoja de ruta de Azure. Conectar las redes virtuales a través del emparejamiento de red virtual es la solución recomendada para las redes virtuales que se deben conectar entre sí. 
 
 ### <a name="globalreach"></a>Global Reach de ExpressRoute
 

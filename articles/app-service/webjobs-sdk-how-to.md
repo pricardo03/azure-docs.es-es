@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 88664238fa7cf21381ad6f95e77e02ad89103556
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850842"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815744"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -816,7 +816,7 @@ Para obtener información sobre cómo controlar los tokens de cancelación, cons
 
 Si la aplicación web se ejecuta en varias instancias, un trabajo de WebJobs continuo se ejecuta en cada instancia, en la que escuchará a los desencadenadores e intentará llamar a las funciones. Los distintos enlaces de desencadenador están diseñados para compartir el trabajo de forma eficiente y colaborar en todas las instancias, por lo que el escalado horizontal de varias instancias le permitirá administrar más carga.
 
-Los desencadenadores de cola y blob impiden automáticamente que una función procese un mensaje de cola o blob varias veces; las funciones no tienen que escribirse para que sean idempotentes.
+Aunque algunos desencadenadores pueden provocar un doble procesamiento, los desencadenadores de colas y los desencadenadores de almacenamiento de blobs impiden de manera automática que una función procese un mensaje de la cola o del blob varias veces. Para más información, consulte [Diseño de funciones de Azure para entradas idénticas](../azure-functions/functions-idempotent.md) en la documentación de Azure Functions.
 
 El desencadenador del temporizador garantiza automáticamente que solo una instancia del temporizador se ejecute, por lo que no se ejecutará más de una instancia de función en un momento programado.
 

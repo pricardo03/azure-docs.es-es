@@ -1,6 +1,6 @@
 ---
 title: Programación de trabajos U-SQL de Azure Data Lake Analytics mediante SSIS
-description: Obtenga información sobre cómo usar SQL Server Integration Services para programar trabajos U-SQL.
+description: Aprenda a usar SQL Server Integration Services para programar trabajos de U-SQL con script en línea o desde archivos de consulta de U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814673"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672890"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Programación de trabajos U-SQL mediante SQL Server Integration Services (SSIS)
 
@@ -171,4 +171,3 @@ En algunos casos, es posible que quiera establecer de manera dinámica el valor 
 - [Ejecución de paquetes SSIS en Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack para Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Programación de trabajos U-SQL con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

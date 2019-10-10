@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963735"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826890"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
 
@@ -56,13 +56,11 @@ Entre los errores de validación habituales se incluyen los que se indican a con
 
 ## <a name="troubleshoot-the-runtime"></a>Solución de problemas del tiempo de ejecución
 
-* Use **Ejecutar ahora** y `https://jwt.ms` para probar sus directivas con independencia de su aplicación web o móvil. Este sitio web actúa como una aplicación de usuario de confianza. Muestra el contenido del JSON Web Token (JWT) que genera la directiva de Azure AD B2C. Para crear una aplicación de prueba, vaya a **Azure AD B2C** \> **Aplicaciones** en Azure Portal y agregue una con los siguientes valores:
+* Use **Ejecutar ahora** y `https://jwt.ms` para probar sus directivas con independencia de su aplicación web o móvil. Este sitio web actúa como una aplicación de usuario de confianza. Muestra el contenido del JSON Web Token (JWT) que la directiva de Azure AD B2C genera.
 
-  * **Nombre**: TestApp
-  * **Aplicación o API web**: Sin
-  * **Cliente nativo**: Sin
+    Para crear una aplicación de prueba que pueda redirigir a `https://jwt.ms` para la inspección de tokens:
 
-  Posteriormente, agregue `https://jwt.ms` como **Dirección URL de respuesta**.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Use [Fiddler](https://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.
 

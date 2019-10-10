@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962518"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827892"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -87,6 +87,21 @@ En la sección de administración de recursos para **Modelo y directiva**, revis
 
 En la sección de administración de recursos para **Modelo y directiva**, importe una nueva directiva de aprendizaje o exporte la actual.
 Puede obtener archivos de directiva de aprendizaje de exportaciones anteriores o descargar las directivas optimizadas detectadas durante las evaluaciones sin conexión. La realización de cambios manuales en estos archivos afectará al rendimiento del aprendizaje automático y a la precisión de las evaluaciones sin conexión. Además, Microsoft no podrá avalar la precisión del aprendizaje automático y las evaluaciones, o de las excepciones de servicios derivadas de las directivas editadas manualmente.
+
+## <a name="clear-data-for-your-learning-loop"></a>Limpieza de datos para el bucle de aprendizaje
+
+1. En Azure Portal, en el recurso de personalización, en la página **Modelo y directiva**, seleccione **Borrar datos**.
+1. Para borrar todos los datos y restablecer el bucle de aprendizaje al estado original, active las tres casillas.
+
+    ![En Azure Portal, desactive los datos del recurso Personalizer.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Configuración|Propósito|
+    |--|--|
+    |Datos de personalización y recompensa registrados.|Estos datos de registro se usan en las evaluaciones sin conexión. Borre los datos si va a restablecer el recurso.|
+    |Restablezca el modelo Personalizer.|Este modelo cambia en cada reentrenamiento. Esta frecuencia de entrenamiento se especifica en la **frecuencia del modelo de carga** en la página **Configuración**. |
+    |Establezca la directiva de aprendizaje como predeterminada.|Si ha cambiado la directiva de aprendizaje como parte de una evaluación sin conexión, se restablece a la original.|
+
+1. Seleccione **Borrar datos seleccionados** para comenzar el proceso de limpieza. El estado se comunica en las notificaciones de Azure, en el panel de navegación superior derecha. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

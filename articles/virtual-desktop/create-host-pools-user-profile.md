@@ -1,22 +1,22 @@
 ---
 title: 'Creación de un contenedor de perfiles de FSLogix para un grupo host mediante un recurso compartido de archivos basado en máquinas virtuales: Azure'
-description: Configuración de un contenedor de perfiles de FSLogix para un grupo host de versión preliminar de Windows Virtual Desktop mediante un recurso compartido de archivos basado en máquinas virtuales.
+description: Configuración de un contenedor de perfiles de FSLogix para un grupo de hosts de Windows Virtual Desktop mediante un recurso compartido de archivos basado en máquinas virtuales.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876788"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676700"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos
 
-El servicio de versión preliminar de Windows Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. No se recomienda usar la solución Disco de perfil de usuario (UPD), que estará en desuso en futuras versiones de Windows Virtual Desktop.
+El servicio Windows Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. No se recomienda usar la solución Disco de perfil de usuario (UPD), que estará en desuso en futuras versiones de Windows Virtual Desktop.
 
 En este artículo se explica cómo configurar un recurso compartido de contenedor de perfiles de FSLogix para un grupo de hosts mediante un recurso compartido de archivos basado en máquina virtual. Para más información sobre FSLogix, consulte el [sitio web de FSLogix](https://docs.fslogix.com/).
 

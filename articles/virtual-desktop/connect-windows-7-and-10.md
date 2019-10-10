@@ -1,31 +1,39 @@
 ---
-title: Conectarse a Windows Virtual Desktop, versión preliminar, desde Windows 10 o Windows 7 - Azure
-description: Procedimiento para conectarse a Windows Virtual Desktop, versión preliminar, desde Windows 10 o Windows 7.
+title: 'Conexión a Windows Virtual Desktop desde Windows 10 o Windows 7: Azure'
+description: Cómo conectarse a Windows Virtual Desktop mediante el cliente de escritorio de Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620111"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676742"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Conexión desde Windows 10 o Windows 7
+# <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
-> Se aplica a: Windows 7 y Windows 10.
+> Se aplica a: Windows 7 y Windows 10
 
-Hay disponible un cliente descargable que proporciona acceso a los recursos de Windows Virtual Desktop, versión preliminar, desde dispositivos que ejecutan Windows 7 y Windows 10.
+Para acceder a los recursos de Windows Virtual Desktop en dispositivos con Windows 7 o Windows 10, use el cliente de escritorio de Windows.
 
 > [!IMPORTANT]
-> No use **Conexión de RemoteApp y Escritorio (RADC)** ni **Conexión a Escritorio remoto (MSTSC)** para acceder a los recursos de Windows Virtual Desktop, ya que Windows Virtual Desktop no admite ninguno de los clientes.
+> Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).
 
-## <a name="install-the-client"></a>Instalar el cliente
+## <a name="install-the-windows-desktop-client"></a>Instalación del cliente de escritorio de Windows
 
-[Descargue](https://go.microsoft.com/fwlink/?linkid=2068602) e instale el cliente en su equipo local. La instalación requiere derechos de administrador.
+Estos son los clientes que puede descargar actualmente:
+
+- [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+Esta lista se actualizará cuando el cliente esté disponible para más versiones de Windows.
+
+Puede instalar el cliente para el usuario actual, lo que no requiere derechos de administrador, o bien el administrador puede instalar y configurar el cliente, con el fin de que todos los usuarios del dispositivo puedan acceder a él.
+
+Una vez instalado, el cliente se puede iniciar desde el menú Inicio. Para ello, solo hay que buscar **Escritorio remoto**.
 
 ## <a name="subscribe-to-a-feed"></a>Suscripción a una fuente
 
@@ -33,11 +41,11 @@ Para obtener la lista de recursos administrados a su disposición, suscríbase a
 
 Para suscribirse a una fuente:
 
-1. Inicie el cliente desde la lista Todas las aplicaciones, busque **Escritorio remoto**.
-1. Seleccione **Suscribirse** en la página principal para conectarse al servicio y recuperar los recursos.
-1. **Inicie sesión** con su cuenta de usuario cuando se le solicite.
+1. Abra el cliente de escritorio de Windows.
+2. Seleccione **Suscribirse** en la página principal para conectarse al servicio y recuperar los recursos.
+3. Inicie sesión con su cuenta de usuario cuando se le solicite.
 
-Después de autenticarse correctamente, debería ver una lista de recursos a su disposición.
+Después de iniciar sesión correctamente, debería ver una lista de los recursos a los que puede acceder.
 
 Puede iniciar los recursos mediante uno de estos dos métodos.
 
@@ -47,31 +55,6 @@ Puede iniciar los recursos mediante uno de estos dos métodos.
 
 Una vez que se haya suscrito a una fuente, el contenido de la fuente se actualiza automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
 
-## <a name="view-the-details-of-a-feed"></a>Ver los detalles de una fuente
+## <a name="next-steps"></a>Pasos siguientes
 
-Después de suscribirse, puede ver información adicional acerca de la fuente si accede al panel de detalles.
-
-1. En la página principal del cliente, seleccione los puntos suspensivos ( **…** ) a la derecha del nombre de fuente.
-1. En el menú desplegable, seleccione **Detalles**.
-1. El panel Detalles se muestra en el lado derecho del cliente.
-
-El panel Detalles contiene información útil acerca de la fuente:
-
-- La dirección URL y el nombre de usuario usados para suscribirse
-- El número de aplicaciones y escritorios
-- La fecha y hora de la última actualización
-- El estado de la última actualización
-
-Si es necesario, puede iniciar una actualización manual al seleccionar **Actualizar ahora**.
-
-## <a name="unsubscribe-from-a-feed"></a>Cancelar la suscripción a una fuente
-
-En esta sección verá cómo cancelar la suscripción a una fuente. Puede cancelar la suscripción para suscribirse de nuevo con otra cuenta o quitar los recursos del sistema.
-
-1. En la página principal del cliente, seleccione los puntos suspensivos ( **…** ) a la derecha del nombre de fuente.
-1. En el menú desplegable, seleccione **Cancelar suscripción**.
-1. Revise y seleccione **Continuar** desde el cuadro de diálogo.
-
-## <a name="update-the-client"></a>Actualizar el cliente
-
-Cuando haya disponible una nueva versión del cliente, el cliente y el centro de actividades de Windows le notificarán. Seleccione la notificación para iniciar el proceso de actualización.
+Para más información sobre cómo usar el cliente de escritorio de Windows, consulte [Introducción al cliente de escritorio de Windows](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

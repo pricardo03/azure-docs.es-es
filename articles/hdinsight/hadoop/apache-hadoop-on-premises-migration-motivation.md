@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736112"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718373"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -137,10 +137,10 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Destinos de datos|HDFS, RDBMS, Kafka, MPP ||
 |**Tema**: **Metadatos**|||
 |Tipo de base de datos de Hive|Mysql, Postgres||
-|No. de instancias de Hive Metastore|2||
-|No. de tablas de Hive|100||
-|No. de directivas de Ranger|20||
-|No. de flujos de trabajo de Oozie|100||
+|Número de metastores de Hive|2||
+|Número de tablas de Hive|100||
+|Número de directivas de Ranger|20||
+|Número de flujos de trabajo de Oozie|100||
 |**Tema**: **Escala**|||
 |Volumen de datos, incluida la replicación|100 TB||
 |Volumen diario de ingesta|50 GB||
@@ -152,11 +152,11 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Espacio en disco usado|75 %||
 |% medio de red usada|25 %
 |**Tema**: **personal**|||
-|No. de administradores|2||
-|No. de desarrolladores|10||
-|No. de usuarios finales|100||
+|Número de administradores|2||
+|Número de desarrolladores|10||
+|Número de usuarios finales|100||
 |Aptitudes|Hadoop, Spark||
-|No. de recursos disponibles para los esfuerzos de migración|2||
+|Número de recursos disponibles para los esfuerzos de migración|2||
 |**Tema**: **Limitaciones**|||
 |Limitaciones actuales|La latencia es alta||
 |Desafíos actuales|Problema de simultaneidad||
@@ -180,7 +180,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Canalización de datos privada y protegida?|Sí||
 |¿Un clúster unido a un dominio (ESP)?|     Sí||
 |¿Sincronización de AD local en la nube?|     Sí||
-|No. de usuarios de AD para sincronizar|          100||
+|¿Número de usuarios de AD para sincronizar?|          100||
 |¿Aceptar sincronizar contraseñas en la nube?|    Sí||
 |¿Solo usuarios en la nube?|                 Sí||
 |¿MFA necesario?|                       Sin|| 

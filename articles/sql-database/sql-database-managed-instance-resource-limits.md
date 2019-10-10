@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.date: 10/02/2019
+ms.openlocfilehash: c3f8189cf1b09b38b641b92b9234fde618839987
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146800"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828799"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -38,12 +38,27 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 | Hardware | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz; SSD NVMe rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading) |
 | Número de núcleos virtuales | 8, 16, 24 núcleos virtuales | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
 | Memoria máxima (relación memoria/núcleo) | 7 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. | 5,1 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. |
-| Memoria máxima de OLTP en memoria | Límite de instancia: 3 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 8 GB por base de datos<br/> - 16 núcleos: 20 GB por base de datos<br/> - 24 núcleos: 36 GB por base de datos | Límite de instancia: 2,5 GB por núcleo virtual<br/>Límites de la base de datos:<br/> - 8 núcleos: 13 GB por base de datos<br/> - 16 núcleos: 32 GB por base de datos |
+| Memoria máxima de OLTP en memoria | Límite de instancia: 1-1,5 GB por núcleo virtual| Límite de instancia: 0,8-1,65 GB por núcleo virtual |
 | Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
 > - El hardware de Gen4 está en proceso de eliminación gradual. Se recomienda implementar nuevas instancias administradas en el hardware de Gen5.
 > - El hardware de Gen4 en este momento solo sigue disponible en las siguientes regiones: Norte de Europa, Europa Occidental, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Centro de Canadá, India del Sur, Sudeste Asiático y Centro de Corea.
+
+#### <a name="in-memory-oltp-available-space"></a>Espacio disponible de OLTP en memoria 
+
+La cantidad de espacio OLTP en memoria en el nivel de servicio [Crítico para la empresa](sql-database-service-tier-business-critical.md) depende del número de núcleos virtuales y de la generación de hardware. En la tabla siguiente se muestran los límites de memoria que se pueden usar para los objetos OLTP en memoria.
+
+| Espacio OLTP en memoria  | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 núcleos virtuales  | 3,14 GB | |   
+| 8 núcleos virtuales  | 6,28 GB | 8 GB |
+| 16 núcleos virtuales | 15,77 GB | 20 GB |
+| 24 núcleos virtuales | 25,25 GB | 36 GB |
+| 32 núcleos virtuales | 37,94 GB | |
+| 40 núcleos virtuales | 52,23 GB | |
+| 64 núcleos virtuales | 99,9 GB    | |
+| 80 núcleos virtuales | 131,68 GB| |
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 

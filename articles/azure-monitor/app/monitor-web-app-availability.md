@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067035"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812203"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -31,7 +31,7 @@ Hay tres tipos de pruebas de disponibilidad:
 
 * [Prueba de ping de la dirección URL](#create-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](availability-multistep.md): una grabación de una secuencia de solicitudes web que se pueden reproducir para probar los escenarios más complejos. Las pruebas web de varios pasos se crean en Visual Studio Enterprise y se carga en el portal para su ejecución.
-* [Pruebas de disponibilidad de seguimiento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se puede usar método `TrackAvailability()` para crear pruebas de disponibilidad personalizadas propias.
+* [Pruebas de disponibilidad de seguimiento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Si decide crear una aplicación personalizada para ejecutar pruebas de disponibilidad, puede usar el método `TrackAvailability()` para enviar los resultados a Application Insights.
 
 **Puede crear hasta 100 pruebas de disponibilidad por recurso de Application Insights.**
 

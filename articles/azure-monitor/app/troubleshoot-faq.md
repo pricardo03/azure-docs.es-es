@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875376"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802300"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -59,7 +59,7 @@ El plan Enterprise cobra por cada día que cada nodo de servidor web envía tele
 
 [Lea el plan de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>¿Cuánto costará?
+## <a name="how-much-does-it-cost"></a>¿Cuánto cuesta?
 
 * Abra la página **Uso y costos estimados** en un recurso de Application Insights. Hay un gráfico de uso reciente. Puede establecer un límite de volumen de datos, si quiere.
 * Abra la [hoja de facturación de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver las facturas de todos los recursos.
@@ -139,6 +139,8 @@ Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](http
 
 * Telemetría del explorador: recopilamos la dirección IP del remitente.
 * Telemetría del servidor: el módulo de Application Insights recopila la dirección IP del cliente. No se recopila si `X-Forwarded-For` está establecido.
+* Para más información acerca de cómo se recopilan los datos de la dirección IP y la ubicación geográfica en Application Insights, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección IP de un encabezado distinto. En algunos sistemas, por ejemplo, se mueve mediante un servidor proxy, un equilibrador de carga o la red CDN `X-Originating-IP`. [Más información](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 

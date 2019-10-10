@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033470"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802371"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -59,7 +59,7 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
 
 **Para conectar una aplicación que admite SCIM:**
 
-1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com). 
+1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com). Tenga en cuenta que puede obtener acceso a una evaluación gratuita de Azure Active Directory con licencias P2 si se suscribe al [programa para programadores](https://developer.microsoft.com/office/dev-program).
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Se muestra una lista de las aplicaciones configuradas, incluidas aquellas que se han agregado desde la galería.
 1. Seleccione **+ Nueva aplicación** > **Todas** > **Aplicación situada fuera de la galería**.
 1. Escriba un nombre para la aplicación y seleccione **Agregar** para crear un objeto de aplicación. La nueva aplicación se agrega a la lista de aplicaciones empresariales y se abre en su pantalla de administración de la aplicación.
@@ -96,6 +96,9 @@ Una vez que haya iniciado el ciclo inicial, puede seleccionar **Registros de aud
 > [!NOTE]
 > El ciclo inicial tarda más tiempo en realizarse que las sincronizaciones posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio.
 
+**Para publicar una aplicación en la galería de aplicaciones de Azure AD:**
+
+Si va a crear una aplicación que se usará en más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Información sobre la implementación de SCIM de Azure AD
 
 Si está creando una aplicación que admite una API de administración de usuario de SCIM 2.0, esta sección describe en detalle cómo se implementa el cliente de SCIM de Azure AD, y cómo debe modelar el control y las respuestas de la solicitud de protocolo SCIM. Una vez que haya implementado el punto de conexión SCIM, puede probarlo con el procedimiento descrito en la sección anterior.

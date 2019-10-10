@@ -1,19 +1,19 @@
 ---
-title: Control de acceso basado en rol de Azure Digital Twins | Microsoft Docs
-description: Obtenga información sobre autenticación en Digital Twins con el control de acceso basado en roles.
-author: lyrana
-manager: alinast
+title: 'Descripción del control de acceso basado en rol: Azure Digital Twins | Microsoft Docs'
+description: Aprenda sobre el control de acceso basado en rol y la administración de permisos en Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: lyhughes
-ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 09/30/2019
+ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815572"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949025"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Control de acceso basado en rol en Azure Digital Twins
 
@@ -49,20 +49,20 @@ Un programador puede usar RBAC para:
 
 ### <a name="role-definitions"></a>Definiciones de roles
 
-Una definición de rol es una colección de permisos y otros atributos que constituyen un rol. Una definición de roles enumera las operaciones permitidas, como *CREAR*, *LEER*, *ACTUALIZAR* y *ELIMINAR* que cualquier objeto con ese rol puede realizar. También especifica a qué tipos de objeto se aplican los permisos.
+Una definición de rol es una colección de permisos y otros atributos que constituyen un rol. Una definición de roles enumera las operaciones permitidas, como *CREAR*, *LEER*, *ACTUALIZAR* y *ELIMINAR* que cualquier objeto con ese rol puede realizar. También especifica a qué tipos de objeto se aplican estos permisos.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > Para recuperar las definiciones completas de los roles anteriores, consulte la API de sistema o roles.
-> Para obtener más información, lea [Creación y administración de asignaciones de roles](./security-create-manage-role-assignments.md#all).
+> Para obtener más información, lea [Creación y administración de asignaciones de roles](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### <a name="object-identifier-types"></a>Tipo de identificador de objeto
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Descubra cómo conceder permisos a la entidad de servicio leyendo [Creación y administración de asignaciones de roles](./security-create-manage-role-assignments.md#grant).
+> Descubra cómo conceder permisos a la entidad de servicio leyendo [Creación y administración de asignaciones de roles](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 Estos artículos de documentación de referencia describen lo siguiente:
 
