@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 45fb2daaeaf9ee788207d43d805e070320372ca0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320454"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 
@@ -90,6 +90,9 @@ Para crear una directiva de contraseñas específica personalizada, use las herr
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles que se instalaron en el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 1. Para crear y administrar unidades organizativas, seleccione **Centro de administración de Active Directory** de la lista de herramientas administrativas.
 1. En el panel izquierdo, elija el dominio administrado de Azure AD DS como, por ejemplo, *contoso.com*.
+1. Abra el contenedor **Sistema** y el contenedor **Configuración de contraseña**.
+
+    Aparecerá una directiva FGPP integrada para el dominio administrado de Azure AD DS. No se puede modificar esta directiva FGPP integrada. Sin embargo, puede crear una nueva directiva FGPP personalizada que invalide la directiva predeterminada.
 1. En el panel **Tareas** de la derecha, seleccione **Nueva > Configuración de contraseña**.
 1. En el cuadro de diálogo **Crear configuración de contraseña**, escriba un nombre para la directiva como *MyCustomFGPP*. Establezca la prioridad de forma adecuada para invalidar la directiva FGPP predeterminada (que es *200*). Establézcala, por ejemplo, en *1*.
 

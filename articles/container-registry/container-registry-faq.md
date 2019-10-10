@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142685"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827408"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -260,6 +260,7 @@ La cuarentena de imágenes actualmente es una característica de versión prelim
 - [Los nuevos permisos de usuario pueden no ser efectivos inmediatamente después de la actualización.](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [La información de autenticación no se proporciona en el formato correcto en las llamadas a la API REST directas.](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [¿Por qué Azure Portal no muestra todos los repositorios o etiquetas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [¿Por qué Azure Portal no captura repositorios ni etiquetas?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [¿Cómo se pueden recopilar los seguimientos http en Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Comprobación de mantenimiento con `az acr check-health`
@@ -409,6 +410,17 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>¿Por qué Azure Portal no muestra todos los repositorios o etiquetas? 
 
 Si utiliza el explorador Microsoft Edge o Internet Explorer, puede ver un máximo de 100 repositorios o etiquetas. Si el registro tiene más de 100 repositorios o etiquetas, le recomendamos que utilice el explorador Firefox o Chrome para enumerarlos todos.
+
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>¿Por qué Azure Portal no captura repositorios ni etiquetas?
+
+Es posible que el explorador no pueda enviar la solicitud para capturar repositorios o etiquetas al servidor. Esto puede deberse a varios motivos, como los siguientes:
+
+* No hay conexión de red
+* Firewall
+* Bloqueadores de publicidad
+* Errores de DNS
+
+Póngase en contacto con el administrador de red o compruebe la configuración y la conectividad de la red. Además, también puede probar una sesión de incógnito o privada en el explorador para evitar cookies o memoria caché del explorador obsoletas.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 

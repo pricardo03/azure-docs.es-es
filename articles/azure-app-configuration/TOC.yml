@@ -39,6 +39,8 @@
       href: use-feature-flags-spring-boot.md
     - name: Administración de marcas de características
       href: manage-feature-flags.md
+    - name: "Uso de referencias de Key Vault en ASP.NET\_Core"
+      href: use-key-vault-references-dotnet-core.md
     - name: Integración con una canalización de CI/CD
       href: integrate-ci-cd-pipeline.md
 - name: Ejemplos

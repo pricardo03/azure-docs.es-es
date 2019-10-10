@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68360253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349926"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -148,11 +148,12 @@ Las aplicaciones de ASP.NET y ASP.NET Core implementadas en Azure Web Apps se ej
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de rendimiento en aplicaciones de ASP.NET Core
 
-* La versión 2.4.1 del [SDK de ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) y las versiones posteriores recopilan contadores de rendimiento si la aplicación se ejecuta en Azure Web Apps (Windows).
+La compatibilidad con los contadores de rendimiento en ASP.Net Core es limitada:
 
-* La versión 2.7.0-beta3 del SDK y las versiones posteriores recopilan contadores de rendimiento si la aplicación se ejecuta en Windows y tiene como destino `NETSTANDARD2.0` o una versión superior.
-* Para las aplicaciones que tienen como destino .NET Framework, los contadores de rendimiento son compatibles en todas las versiones del SDK.
-* Este artículo se actualizará cuando se agregue la compatibilidad con contadores de rendimiento que no son de Windows.
+* Las versiones 2.4.1 y posteriores del [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) recopilan contadores de rendimiento si la aplicación se ejecuta en Azure Web Apps (Windows).
+* Las versiones 2.7.1 y posteriores del SDK recopilan contadores de rendimiento si la aplicación se ejecuta en Windows y tiene como destino `NETSTANDARD2.0` o una versión posterior.
+* Para las aplicaciones que tienen como destino .NET Framework, todas las versiones del SDK admiten contadores de rendimiento.
+* Las versiones 2.8.0 y posteriores del SDK admiten el contador de CPU/memoria de Linux. No se admite ningún otro contador en Linux. La manera recomendada de obtener contadores del sistema en Linux (y otros entornos que no son Windows) es mediante [EventCounters](eventcounters.md).
 
 ## <a name="alerts"></a>Alertas
 Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/app/alerts.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9344d2832c37c34d5690dc8f3aae7394ca644276
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542886"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827320"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalación y uso de Istio en Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo instalar Istio. El binario de cliente `istioc
 > [!NOTE]
 > Estas instrucciones son aplicables a la versión `1.1.3` de Istio.
 >
-> El equipo de Istio ha probado las versiones de Istio `1.1.x` y las ha comparado con las versiones de Kubernetes `1.11`, `1.12`, `1.13`. Puede encontrar versiones de Istio adicionales en [GitHub: versiones de Istio][istio-github-releases] e información sobre cada una de las versiones en [Istio: notas de la versión][istio-release-notes].
+> El equipo de Istio ha probado las versiones de Istio `1.1.x` y las ha comparado con las versiones de Kubernetes `1.11`, `1.12`, `1.13`. Encontrará otras versiones de Istio en [GitHub: versiones de Istio][istio-github-releases] e información sobre cada una de las versiones en [Istio: novedades][istio-release-notes].
 
 En este artículo, aprenderá a:
 
@@ -555,7 +555,7 @@ Para aprender a supervisar la aplicación de AKS con Application Insights e Isti
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
 [istio-github]: https://github.com/istio/istio
 [istio-github-releases]: https://github.com/istio/istio/releases
-[istio-release-notes]: https://istio.io/about/notes/
+[istio-release-notes]: https://istio.io/news/
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
 [istio-install-helm]: https://istio.io/docs/setup/kubernetes/install/helm/
 [istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123434"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686992"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -70,7 +70,7 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br><br>**Los siguientes servicios no son compatibles**:
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Servidor de la autenticación multifactor (heredado)
     * Traffic Manager
 
 ### <a name="public-peering"></a>Emparejamiento público
@@ -84,13 +84,15 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
   **Los siguientes servicios no son compatibles**:
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Servidor de la autenticación multifactor (heredado)
     * Traffic Manager
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>¿Se admite Dynamics 365 en ExpressRoute?
 
 Los entornos de Dynamics 365 y Common Data Service (CDS) se hospedan en Azure y, por tanto, los clientes se benefician de la compatibilidad de ExpressRoute subyacente con los recursos de Azure. Puede conectarse a sus puntos de conexión de servicio si el filtro del enrutador incluye las regiones de Azure en las que se hospedan los entornos de Dynamics 365 o CDS.
 
+> [!NOTE]
+> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) **no** es necesario para la conectividad de Dynamics 365 mediante Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Datos y conexiones
 

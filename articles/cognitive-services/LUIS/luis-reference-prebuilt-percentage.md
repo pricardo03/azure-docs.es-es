@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 06dada1633fcb90153358e0f1d048c5fa618db0b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0005d679819f7516e1ded6294030cd42813e085f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933440"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677530"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Percentage para una aplicación de LUIS
 Los números de porcentaje pueden aparecer como fracciones, `3 1/2`, o como porcentaje, `2%`. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad de porcentaje para las intenciones de la aplicación. La entidad de porcentaje se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ El porcentaje se administra desde el repositorio de GitHub [Recognizers-Text](ht
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolución para la entidad de porcentaje precompilada
 
-### <a name="api-version-2x"></a>Versión de API 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.percentage**.
 
@@ -57,7 +57,7 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.perce
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
@@ -115,6 +115,10 @@ El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Información sobre las entidades [ordinal](luis-reference-prebuilt-ordinal.md), [number](luis-reference-prebuilt-number.md) y [temperature](luis-reference-prebuilt-temperature.md). 

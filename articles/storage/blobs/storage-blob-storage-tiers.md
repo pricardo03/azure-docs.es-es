@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 642fcc9ac2513329e9223f59a33d51ac5005e1fd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543673"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802175"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -30,7 +30,7 @@ Las siguientes consideraciones se aplican a los distintos niveles de acceso:
 - Los datos del nivel de acceso esporádico pueden tolerar una disponibilidad ligeramente inferior, pero aun así requieren una gran durabilidad, una latencia de recuperación y unas características de rendimiento similares a las de los datos de acceso frecuente. En el caso de los datos de acceso esporádico, un contrato de nivel de servicio (SLA) con una disponibilidad ligeramente inferior y unos costos de acceso mayores, en comparación con los datos de acceso frecuente, es aceptable a cambio de unos costos de almacenamiento menores.
 - El almacenamiento de archivo almacena datos sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso y rehidratación de datos.
 
-Los datos almacenados en la nube están creciendo a un ritmo exponencial. Para administrar los costos de las crecientes necesidades de almacenamiento, resulta útil organizar los datos en función de atributos como frecuencia de acceso y el período de retención planeado para optimizar costos. Los datos almacenados en la nube pueden ser diferentes en cuanto a la forma en que se generan, se procesan y se accede a ellos a lo largo de su duración. A algunos datos se accede y se modifican activamente a lo largo de su duración. A algunos datos se accede con frecuencia al principio de su duración, mientras que el acceso cae drásticamente a medida que envejecen los datos. Algunos datos permanecen inactivos en la nube y, después de que se almacenan, no se accede a ellos prácticamente nunca.
+Los datos almacenados en la nube están creciendo a un ritmo exponencial. Para administrar los costos de las crecientes necesidades de almacenamiento, resulta útil organizar los datos en función de atributos como frecuencia de acceso y el período de retención planeado para optimizar costos. Los datos almacenados en la nube pueden ser diferentes según la forma en que se generan, se procesan y se accede a ellos a lo largo de su vigencia. A algunos datos se accede y se modifican activamente a lo largo de su duración. A algunos datos se accede con frecuencia al principio de su duración, mientras que el acceso cae drásticamente a medida que envejecen los datos. Algunos datos permanecen inactivos en la nube y, después de que se almacenan, no se accede a ellos prácticamente nunca.
 
 Cada uno de los escenarios de acceso a los datos se beneficia de un distinto nivel de acceso que está optimizado para un patrón de acceso concreto. Con los niveles de acceso frecuente, esporádico y de archivo, Azure Blob Storage satisface esta necesidad de que haya niveles de acceso diferenciados con modelos de precios independientes.
 
@@ -38,17 +38,9 @@ Cada uno de los escenarios de acceso a los datos se beneficia de un distinto niv
 
 ## <a name="storage-accounts-that-support-tiering"></a>Cuentas de almacenamiento que admiten niveles
 
-La disposición de niveles de datos de almacenamiento de objetos en acceso frecuente, esporádico o de archivo solo se admite en cuentas de Blob Storage y de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Sin embargo, los clientes pueden convertir fácilmente sus cuentas de GPv1 o de Blob Storage existentes a cuentas de GPv2 mediante un simple clic en Azure Portal. GPv2 proporciona una nueva estructura de precios para blobs, archivos y colas, así como acceso a diversas características de almacenamiento nuevas. Además, en adelante algunas nuevas características y reducciones de precio solo se ofrecerán en cuentas de GPv2. Por lo tanto, los clientes deben valorar el uso de las cuentas de GPv2, tras revisar de forma exhaustiva el precio nuevo, dado que algunas cargas de trabajo pueden ser más caras en GPv2 que en GPv1. Para más información, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+La disposición de niveles de datos entre almacenamiento de objetos en acceso frecuente, esporádico y de archivo solo se admite en cuentas de Blob Storage y de uso general v2 (GPv2). Las cuentas de uso general v1 (GPv1) no admiten niveles. Los clientes pueden convertir fácilmente sus cuentas de GPv1 o de Blob Storage existentes a cuentas de GPv2 mediante Azure Portal. GPv2 proporciona nuevos precios y características para blobs, archivos y colas. Algunos cortes de características y precios solo se ofrecen en cuentas de GPv2. Evalúe el uso de cuentas de GPv2 después de revisar concienzudamente los precios. Algunas cargas de trabajo pueden ser más caras en GPv2 que en GPv1. Para más información, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
-Las cuentas de Blob Storage y GPv2 exponen el atributo **access tier** en el nivel de cuenta. Este atributo le permite especificar el nivel de acceso predeterminado como frecuente o esporádico para cualquier blob de la cuenta de almacenamiento que no tenga un nivel específico establecido en el nivel de objeto. En el caso de objetos con el nivel establecido en el nivel de objeto, el nivel de cuenta no se aplica. El nivel de archivo solo puede aplicarse en el nivel de objeto. Puede cambiar entre estos niveles de acceso en cualquier momento.
-
-## <a name="premium-performance-block-blob-storage"></a>Almacenamiento de blobs en bloques de rendimiento Premium
-
-El almacenamiento de blobs en bloques de rendimiento Premium hace que los datos a los que se accede con frecuencia estén disponibles mediante un hardware de alto rendimiento. Los datos en este nivel de rendimiento se almacenan en unidades de estado sólido (SSD), que están optimizadas para una latencia baja y coherente. Las SSD ofrecen mayores tasas transaccionales y rendimiento en comparación con las unidades de disco duro tradicionales.
-
-El almacenamiento de blobs en bloques de rendimiento Premium es perfecto para cargas de trabajo que requieren tiempos de respuesta rápidos y coherentes. Es ideal para cargas de trabajo que realizan muchas transacciones pequeñas, como la captura de datos de telemetría, mensajería y transformación de datos. Los datos que implican a los usuarios finales, como la edición de vídeo interactivo, contenido web estático y transacciones en línea, también son buenos candidatos.
-
-El almacenamiento de blobs en bloques de rendimiento Premium está disponible solo mediante el tipo de cuenta de almacenamiento de blobs en bloques y no admite actualmente los niveles de acceso frecuente, esporádico ni de archivo.
+Las cuentas de Blob Storage y GPv2 exponen el atributo **access tier** en el nivel de cuenta. Este atributo le permite especificar el nivel de acceso predeterminado de cualquier blob para el que no se haya establecido este explícitamente en el nivel de objeto. En el caso de objetos con el nivel establecido en el nivel de objeto, el nivel de cuenta no se aplica. El nivel de archivo solo puede aplicarse en el nivel de objeto. Puede cambiar entre estos niveles de acceso en cualquier momento.
 
 ## <a name="hot-access-tier"></a>Nivel de acceso frecuente
 
@@ -67,32 +59,27 @@ El nivel de acceso esporádico tiene menores costos de almacenamiento y mayores 
 
 ## <a name="archive-access-tier"></a>Nivel de acceso de archivo
 
-El nivel de acceso de archivo tiene el menor costo de almacenamiento y los mayores costos de recuperación de datos en comparación con los niveles frecuente y esporádico. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de archivo durante un mínimo de 180 días.
+El nivel de acceso de archivo tiene el menor costo de almacenamiento. Pero tiene mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos en el nivel de archivo pueden tardar varias horas en recuperarse. Los datos deben estar en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana.
 
 Mientras un blob está en almacenamiento de archivo, los datos del blob están sin conexión y no se pueden leer, copiar, sobrescribir ni modificar. No puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob quedan en línea y se mantienen disponibles, lo que permite enumerar el blob y sus propiedades. Para los blobs en el nivel de archivo, las únicas operaciones válidas son GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier y DeleteBlob.
 
 Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluyen:
 
 - Copia de seguridad a largo plazo, copia de seguridad secundaria y conjuntos de datos de archivado
-- Datos originales (sin procesar) que deben conservarse, incluso después de que se han procesado en un formato útil final. (*Por ejemplo,* , archivos multimedia sin procesar tras la transcodificación en otros formatos)
-- Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede. (*Por ejemplo*, grabaciones de cámaras de seguridad, radiografías o resonancias antiguas en centros sanitarios, grabaciones de audio y transcripciones de llamadas de clientes para servicios financieros)
-
-### <a name="blob-rehydration"></a>Rehidratación de blobs
-
-[!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
-Consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md) para obtener más información.  
+- Datos originales (sin procesar) que deben conservarse, incluso después de que se han procesado en un formato útil final.
+- Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede.
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 
-Dentro de la misma cuenta pueden coexistir blobs de los tres niveles de acceso. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso se infiere desde la cuenta, verá que la propiedad de blob **access tier inferred** se establece en "true", y que la propiedad de blob **access tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad _access tier inferred_ se muestra con el nivel de acceso de blob como **Frecuente (inferido)** o **Esporádico (inferido)** .
+Dentro de la misma cuenta pueden coexistir blobs de los tres niveles de acceso. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso procede de la cuenta, verá que la propiedad de blob **Access Tier Inferred** se establece en "true", y que la propiedad de blob **Access Tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad _access tier inferred_ se muestra con el nivel de acceso de blob como **Frecuente (inferido)** o **Esporádico (inferido)** .
 
-El cambio del nivel de acceso de cuenta se aplica a todos los objetos _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB).
+El cambio del nivel de acceso de cuenta se aplica a todos los objetos _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB).
 
 ## <a name="blob-level-tiering"></a>Almacenamiento por niveles de blob
 
 El almacenamiento por niveles de blob permite cambiar el nivel de los datos en el nivel de objeto mediante una única operación denominada [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (establecimiento de nivel de blob). Puede cambiar fácilmente el nivel de acceso de un blob entre el nivel de archivo, esporádico o frecuente a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todos los cambios de nivel se realizan de inmediato. Sin embargo, al rehidratar un blob de un nivel de acceso de archivo puede tardar varias horas.
 
-La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. Puede sobrescribir un blob en un nivel frecuente o esporádico, en cuyo caso, el nuevo blob hereda el nivel del blob que se ha sobrescrito.
+La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. Al sobrescribir un blob en un nivel frecuente o esporádico, el nuevo blob hereda el nivel del blob que se ha sobrescrito.
 
 > [!NOTE]
 > El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. Actualmente tampoco se puede cambiar el nivel de un blob en bloques que tiene instantáneas.
@@ -118,7 +105,7 @@ Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminación temprana en los niveles de acceso esporádico y de archivo
 
-Además de los cargos por GB y por mes, los blobs que se hayan incorporado al nivel de acceso esporádico (solo cuentas de GPv2) están sujetos a un período de eliminación temprana de este nivel de 30 días, y cualquier blob que se haya incorporado al nivel de acceso de archivo está sujeto a un período de eliminación temprana de este nivel de 180 días. Este cargo se prorratea. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
+Cualquier blob que se mueva al nivel de acceso esporádico (solo cuentas de GPv2) está sujeto a un período de eliminación temprana del acceso esporádico de 30 días. Cualquier blob que se mueva al nivel de acceso esporádico (solo cuentas de GPv2) está sujeto a un período de eliminación temprana del acceso esporádico de 180 días. Este cargo se prorratea. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
 
 Para calcular la eliminación temprana, use la propiedad de blob, **Last-Modified**, si no ha habido cambios en el nivel de acceso. También, cuando el nivel de acceso se modificó por última vez a esporádico o archivo, puede consultar la propiedad de blob: **access-tier-change-time**. Para más información sobre las propiedades de blob, consulte el artículo sobre cómo [obtener las propiedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
@@ -137,7 +124,7 @@ En la siguiente tabla se muestra una comparación del almacenamiento de blobs en
 
 <sup>1</sup> Los objetos del nivel de acceso esporádico en las cuentas de GPv2 tienen una duración mínima de la retención de 30 días. Las cuentas de Blob Storage no tienen ninguna duración mínima de la retención para el nivel esporádico.
 
-<sup>2</sup> Archive Storage admite actualmente dos prioridades de rehidratación, alta y estándar, que ofrecen diferentes latencias de recuperación. Para obtener más información, consulte [Rehidratación de blobs](#blob-rehydration).
+<sup>2</sup> Archive Storage admite actualmente dos prioridades de rehidratación, alta y estándar, que ofrecen diferentes latencias de recuperación. Para más información, consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md).
 
 > [!NOTE]
 > Las cuentas de Blob Storage admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general v2 (GPv2). Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -155,11 +142,11 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 1. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
-1. En la hoja Configuración, haga clic en **Configuración** para ver o cambiar la configuración de la cuenta.
+1. En Configuración, haga clic en **Configuración** para ver y cambiar la configuración de la cuenta.
 
 1. Seleccione el nivel de acceso correcto para sus necesidades: Establezca **Nivel de acceso** en **Esporádico** o **Frecuente**.
 
-1. Haga clic en **Guardar** en la parte superior de la hoja.
+1. Haga clic en **Guardar** en la parte superior.
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Cambiar el nivel de un blob en una cuenta de GPv2 o de Blob Storage
 
@@ -167,11 +154,11 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 1. Para ir a un blob en su cuenta de almacenamiento, seleccione Todos los recursos, seleccione la cuenta de almacenamiento y el contenedor y, finalmente, seleccione el blob.
 
-1. En la hoja **Propiedades del blob**, seleccione el botón **Change tier** (Cambiar nivel) para abrir la hoja de nivel.
+1. En las **propiedades del blob**, seleccione **Cambiar nivel**.
 
 1. Seleccione el nivel de acceso **Frecuente**, **Esporádico** o **Archivo**. Si actualmente el blob usa el nivel de acceso de archivo y quiere rehidratarlo como un nivel en línea, también puede seleccionar una prioridad de rehidratación **Estándar** o **Alta**.
 
-1. Haga clic en **Aceptar** en la parte inferior de la hoja.
+1. En la parte inferior, seleccione **Guardar**.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -182,7 +169,7 @@ Todas las cuentas de almacenamiento usan un modelo de precios para el almacenami
 - **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
 - **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
 - **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
-- **Cambio del nivel de acceso**: El cambio del nivel de acceso de cuenta comportará cargos por cambio de nivel para los blobs _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Para obtener información sobre cómo cambiar el nivel de acceso de un solo blob, consulte [Facturación del almacenamiento por niveles de blob](#blob-level-tiering-billing).
+- **Cambio del nivel de acceso**: El cambio del nivel de acceso de cuenta comportará cargos por cambio de nivel para los blobs _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Para más información sobre cómo cambiar el nivel de acceso de un solo blob, consulte [Facturación del almacenamiento por niveles de blob](#blob-level-tiering-billing).
 
 > [!NOTE]
 > Para más información sobre los precios de los blobs en bloque, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Para más información acercas los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -197,7 +184,7 @@ La estructura de precios entre las cuentas de GPv1 y GPv2 es diferente y los cli
 
 **¿Puedo almacenar objetos en los tres niveles de acceso (frecuente, esporádico y archivo) en la misma cuenta?**
 
-Sí. El atributo **access tier** establecido en el nivel de cuenta es el nivel de cuenta predeterminado que se aplica a todos los objetos de esa cuenta sin un nivel establecido explícito. Sin embargo, el almacenamiento por niveles de blob permite establecer el nivel de acceso en el nivel de objeto, independientemente de cuál sea el valor del nivel de acceso en la cuenta. Los blobs de cualquiera de los tres niveles de acceso (frecuente, esporádico o de archivo) pueden existir en la misma cuenta.
+Sí. El atributo **access tier** establecido en el nivel de cuenta es el nivel de cuenta predeterminado que se aplica a todos los objetos de esa cuenta sin un nivel establecido explícito. El almacenamiento por niveles de blob permite establecer el nivel de acceso en el nivel de objeto, independientemente de cuál sea el valor del nivel de acceso en la cuenta. Los blobs de cualquiera de los tres niveles de acceso (frecuente, esporádico o de archivo) pueden existir en la misma cuenta.
 
 **¿Puedo cambiar el nivel de acceso predeterminado de la cuenta de Blob Storage o de GPv2?**
 
@@ -227,7 +214,7 @@ Durante la rehidratación, se puede usar la operación de obtención de propieda
 
 **Después de establecer el nivel de acceso de un blob, ¿cuándo comienzan a facturarme con la tarifa adecuada?**
 
-Cada blob siempre se factura según el nivel indicado por la propiedad **access tier** del blob. Al establecer un nuevo nivel para un blob, la propiedad **Access Tier** refleja inmediatamente el nuevo nivel para todas las transiciones. Sin embargo, al rehidratar un blob desde el nivel de almacenamiento de archivo a un nivel de almacenamiento de acceso frecuente o esporádico puede tardar varias horas. En este caso, se le factura según las tarifas de archivo hasta que la rehidratación finalice, momento en el cual la propiedad **access tier** refleja el nuevo nivel. En ese momento se le cobrará dicho blob a la tarifa del nivel de almacenamiento de acceso frecuente o esporádico.
+Cada blob siempre se factura según el nivel indicado por la propiedad **access tier** del blob. Al establecer un nuevo nivel para un blob, la propiedad **Access Tier** refleja inmediatamente el nuevo nivel para todas las transiciones. Sin embargo, al rehidratar un blob desde el nivel de almacenamiento de archivo a un nivel de almacenamiento de acceso frecuente o esporádico puede tardar varias horas. En este caso, se le factura según las tarifas de archivo hasta que la rehidratación finalice, momento en el cual la propiedad **Access Tier** refleja el nuevo nivel. En ese momento, se le cobrará dicho blob a la tarifa del nivel de almacenamiento de acceso frecuente o esporádico.
 
 **¿Cómo determino si me aplicarán un cargo por eliminación temprana al eliminar o trasladar un blob del nivel de acceso esporádico o de archivo?**
 
@@ -239,20 +226,16 @@ Las herramientas de Azure Portal, PowerShell y la CLI, y las bibliotecas de clie
 
 **¿Cuántos datos se pueden almacenar en los niveles de acceso frecuente, esporádico y de archivo?**
 
-El almacenamiento de datos, junto con otros límites, se establece en el nivel de cuenta y no por nivel de acceso. Por lo tanto, puede elegir usar todo el límite en un nivel o entre los tres niveles. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+El almacenamiento de datos, junto con otros límites, se establece en el nivel de cuenta y no por nivel de acceso. Puede elegir usar todo el límite en un nivel o entre los tres niveles. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-and-blob-storage-accounts"></a>Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y Blob Storage
+Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y Blob Storage
 
-[Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
-
-[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
-
-[Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
-
-[Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
-
-[Comprobación de los precios de los niveles de acceso frecuente, esporádico y de archivo en cuentas de Blob Storage y de GPv2 por región](https://azure.microsoft.com/pricing/details/storage/)
-
-[Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)
+- [Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
+- [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
+- [Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
+- [Determinación de si el rendimiento Premium beneficiaría a la aplicación](storage-blob-performance-tiers.md)
+- [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
+- [Comprobación de los precios de los niveles de acceso frecuente, esporádico y de archivo en cuentas de Blob Storage y de GPv2 por región](https://azure.microsoft.com/pricing/details/storage/)
+- [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)

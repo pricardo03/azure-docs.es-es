@@ -1,5 +1,5 @@
 ---
-title: Ejecutar U-SQL y depurar localmente en las Herramientas de Azure Data Lake para Visual Studio Code
+title: 'Depuración de trabajos de U-SQL: Herramientas de Azure Data Lake para Visual Studio Code'
 description: Obtenga información sobre cómo usar Herramientas de Azure Data Lake para Visual Studio Code para ejecutar y depurar localmente trabajos de U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 765bcaab0f91e097be827bfa6e8f505ef5330d57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c425ee8c9fd99420bbcbba31c7a74c360938aef
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814211"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338248"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Ejecutar U-SQL y depurar localmente en Visual Studio Code
 En este artículo se describe cómo ejecutar trabajos de U-SQL en un equipo de desarrollo local para acelerar la primeras fases de codificación o depurar código localmente en Visual Studio Code. Para consultar instrucciones sobre las Herramientas de Azure Data Lake para Visual Studio Code, vea [Uso de Herramientas de Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -51,7 +51,7 @@ Para los usuarios nuevos, use **ADL: descargar paquete de ejecución local** p
 2. Seleccione **Aceptar** para aceptar los Términos de licencia del software de Microsoft por primera vez. 
 
    ![Aceptación de los Términos de licencia del software de Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. Se abre la consola cmd. Para los usuarios nuevos, tiene que especificar **3** y asignar la ruta de acceso a la carpeta local para la entrada y salida de datos. Para otras opciones, puede usar los valores predeterminados. 
+3. Se abre la consola cmd. Para los usuarios nuevos, tiene que especificar **3** y asignar la ruta de acceso a la carpeta local para la entrada y salida de datos. Si no consigue definir la ruta de acceso con barras diagonales inversas, pruebe las barras diagonales. Para otras opciones, puede usar los valores predeterminados.
 
    ![Cmd de ejecución local de Data Lake Tools para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos, escriba **ADL: enviar trabajo** y luego seleccionar **Local** para enviar el trabajo a la cuenta local.

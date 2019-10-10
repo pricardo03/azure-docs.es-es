@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094927"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350138"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -86,7 +86,7 @@ Dispone de varias opciones para instalar el software o los controladores necesar
 
     * [Ubuntu Server (con controladores de GPU y RDMA) para grupos de contenedores de Azure Batch](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Cree una [imagen de máquina virtual Windows o Linux personalizada](batch-custom-images.md) en la que haya instalado los controladores, software u otras configuraciones necesarias para el tamaño de máquina virtual. 
+* Cree una [imagen de máquina virtual Windows o Linux personalizada](batch-sig-images.md) en la que haya instalado los controladores, software u otras configuraciones necesarias para el tamaño de máquina virtual. 
 
 * Cree un [paquete de aplicación](batch-application-packages.md) de Batch desde un controlador comprimido o el instalador de la aplicación y configure Batch para implementar el paquete en los nodos del grupo e instalarlo una vez cuando se crea cada nodo. Por ejemplo, si el paquete de aplicación es un instalador, cree una línea de comandos de la [tarea de inicio](batch-api-basics.md#start-task) para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Considere el uso de un paquete de aplicación y una tarea de inicio de grupo si la carga de trabajo depende de una versión determinada del controlador.
 
@@ -123,9 +123,9 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 1. Implemente una VM de la serie NC de Azure en la que se ejecute Ubuntu 16.04 LTS. Por ejemplo, puede crear la VM en la región Centro y Sur de EE. UU. 
 2. Agregue la [extensión de controladores de GPU de NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md
 ) a la máquina virtual mediante Azure Portal, un equipo cliente que se conecte a la suscripción de Azure o Azure Cloud Shell. Como alternativa, siga los pasos para conectarse a la máquina virtual e [instale los controladores de CUDA](../virtual-machines/linux/n-series-driver-setup.md) de forma manual.
-3. Siga los pasos para crear una [instantánea y una imagen de máquina virtual Linux personalizada](batch-custom-images.md) para Batch.
+3. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.
 4. Cree una cuenta de Batch en una región que admite las máquinas virtuales de NC.
-5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-custom-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
+5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-sig-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
 | Configuración | Valor |
 | ---- | ---- |
@@ -143,8 +143,8 @@ Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virt
 ) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
 1. Abra una conexión de Escritorio remoto a la máquina virtual.
 1. Descargue el [paquete de instalación](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI e instale Microsoft MPI.
-1. Siga los pasos para crear una [instantánea y una imagen de máquina virtual Windows personalizada](batch-custom-images.md) para Batch.
-1. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-custom-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
+1. Siga los pasos para crear una [imagen de Shared Image Gallery](batch-sig-images.md) para Batch.
+1. Mediante las API de Batch o Azure Portal, cree un grupo [mediante Shared Image Gallery](batch-sig-images.md) con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
 | Configuración | Valor |
 | ---- | ---- |

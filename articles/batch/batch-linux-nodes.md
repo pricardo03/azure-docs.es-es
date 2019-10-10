@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc1e80433a09d8a56f2900ab6b24dd3804db56ac
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086769"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350113"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -38,7 +38,8 @@ Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opcione
 **Configuración de la máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cuando se crea un grupo que contiene los nodos de configuración de la máquina virtual, debe especificar su tamaño, la referencia de la imagen de máquina virtual y el SKU del agente de nodo del servicio Batch que desea instalar en los nodos.
 
 ### <a name="virtual-machine-image-reference"></a>Referencia de imagen de máquina virtual
-El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen de [Azure Marketplace][vm_marketplace] o proporcionar una imagen personalizada que haya preparado. Para más detalles sobre las imágenes personalizadas, consulte [Creación de un grupo con una imagen personalizada](batch-custom-images.md).
+
+El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen de [Azure Marketplace][vm_marketplace] o proporcionar una imagen personalizada que haya preparado. Para más detalles sobre las imágenes personalizadas, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md).
 
 Al configurar una referencia de la imagen de máquina virtual, especifique las propiedades de la imagen de máquina virtual. Las propiedades siguientes son necesarias cuando se crea una referencia de la imagen de máquina virtual:
 
@@ -47,7 +48,7 @@ Al configurar una referencia de la imagen de máquina virtual, especifique las p
 | Publicador |Canonical |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Versión |más reciente |
+| Versión |latest |
 
 > [!TIP]
 > Puede obtener más información sobre estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Batch. Para más información, consulte [SKU del agente de nodo](#node-agent-sku).
@@ -216,33 +217,33 @@ En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Market
 
 | **Publicador** | **Oferta** | **SKU de imagen** | **Versión** | **Identificador de SKU del agente de nodo** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| proceso por lotes | rendering-centos73 | rendering | más reciente | batch.node.centos 7 |
-| proceso por lotes | rendering-windows2016 | rendering | más reciente | batch.node.windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | más reciente | batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | más reciente | batch.node.ubuntu 14.04 |
-| Credativ | Debian | 9 | más reciente | batch.node.debian 9 |
-| Credativ | Debian | 8 | más reciente | batch.node.debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | más reciente | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | más reciente | batch.node.windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | más reciente | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | más reciente | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | más reciente | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | más reciente | batch.node.ubuntu 16.04 |
-| Microsoft Windows Server | Windows Server | 2016-Datacenter | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2016-Datacenter-smalldisk | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2016-Datacenter-with-Containers | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2012-R2-Datacenter-smalldisk | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2012-Datacenter-smalldisk | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2008-R2-SP1 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | 2008-R2-SP1-smalldisk | más reciente | batch.node.windows amd64 |
-| OpenLogic | CentOS | 7.4 | más reciente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | más reciente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | más reciente | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | más reciente | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | más reciente | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | más reciente | batch.node.opensuse 42.1 |
+| proceso por lotes | rendering-centos73 | rendering | latest | batch.node.centos 7 |
+| proceso por lotes | rendering-windows2016 | rendering | latest | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| Credativ | Debian | 9 | latest | batch.node.debian 9 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
+| Microsoft Windows Server | Windows Server | 2016-Datacenter | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2016-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2012-R2-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2012-Datacenter-smalldisk | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | 2008-R2-SP1-smalldisk | latest | batch.node.windows amd64 |
+| OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | latest | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Conexión a los nodos de Linux mediante SSH
 Durante el desarrollo o solución de problemas, es posible que necesite iniciar sesión en los nodos del grupo. A diferencia de los nodos de proceso de Windows, no puede utilizar el protocolo de escritorio remoto (RDP) para conectarse a los nodos de Linux. En su lugar, el servicio Batch habilita el acceso SSH en cada nodo para la conexión remota.

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350051"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -32,13 +32,13 @@ Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de rep
 
 | Publicador | Oferta | SKU | Versión |
 |---------|---------|---------|--------|
-| proceso por lotes | rendering-centos73 | rendering | más reciente |
-| proceso por lotes | rendering-windows2016 | rendering | más reciente |
+| proceso por lotes | rendering-centos73 | rendering | latest |
+| proceso por lotes | rendering-windows2016 | rendering | latest |
 
 Hay otras opciones disponibles si se requieren aplicaciones adicionales en las VM del grupo:
 
-* Una imagen personalizada basada en una imagen de Marketplace estándar:
-  * Con esta opción, puede configurar la máquina virtual con las aplicaciones exactas y las versiones específicas que necesite. Para más información, consulte [Uso de una imagen personalizada para crear un grupo de máquinas virtuales](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk y Chaos Group han modificado Arnold y V-Ray, respectivamente, para la validación frente a un servicio de licencias de Azure Batch. Asegúrese de que tiene las versiones compatibles de estas aplicaciones, de lo contrario, la licencia de pago por uso no funcionará. Las versiones actuales de Maya o 3ds Max no requieren un servidor de licencias con la ejecución desatendida (en modo de lote/línea de comandos). Póngase en contacto con el soporte técnico de Azure si no está seguro de cómo continuar con esta opción.
+* Una imagen personalizada de Shared Image Gallery:
+  * Con esta opción, puede configurar la máquina virtual con las aplicaciones exactas y las versiones específicas que necesite. Para más información, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md). Autodesk y Chaos Group han modificado Arnold y V-Ray, respectivamente, para la validación frente a un servicio de licencias de Azure Batch. Asegúrese de que tiene las versiones compatibles de estas aplicaciones, de lo contrario, la licencia de pago por uso no funcionará. Las versiones actuales de Maya o 3ds Max no requieren un servidor de licencias con la ejecución desatendida (en modo de lote/línea de comandos). Póngase en contacto con el soporte técnico de Azure si no está seguro de cómo continuar con esta opción.
 * [Paquetes de aplicación](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Empaquete los archivos de aplicación en uno o varios archivos ZIP, cargue desde Azure Portal y especifique el paquete en la configuración del grupo. Cuando se crean VM del grupo, los archivos ZIP se descargan y se extraen los archivos.
 * Archivos de recursos:

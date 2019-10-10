@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390467"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350186"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -149,9 +149,9 @@ Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, 
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imágenes personalizadas de grupos de máquinas virtuales
 
-Para utilizar una imagen personalizada, debe generalizarla para prepararla. Para obtener información acerca de cómo preparar imágenes personalizadas de Linux desde máquinas virtuales de Azure, consulte [Creación de una imagen de una máquina virtual o un disco duro virtual](../virtual-machines/linux/capture-image.md). Para obtener información acerca de cómo preparar imágenes de Windows personalizadas a partir de máquinas virtuales de Azure, consulte [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md). 
+Para obtener información sobre cómo crear un grupo con imágenes personalizadas, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
 
-Para conocer los requisitos y pasos de manera detallada, consulte [Uso de una imagen personalizada para crear un grupo de máquinas virtuales](batch-custom-images.md).
+Como alternativa, puede crear un grupo personalizado de máquinas virtuales con un recurso de [imagen administrada](batch-custom-images.md). Para obtener información acerca de cómo preparar imágenes personalizadas de Linux desde máquinas virtuales de Azure, consulte [Creación de una imagen de una máquina virtual o un disco duro virtual](../virtual-machines/linux/capture-image.md). Para obtener información acerca de cómo preparar imágenes de Windows personalizadas a partir de máquinas virtuales de Azure, consulte [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Compatibilidad con contenedores en grupos de máquinas virtuales
 

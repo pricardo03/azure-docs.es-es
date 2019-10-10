@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7684acbd26848bbccb09416df44a9669965dcfe9
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860357"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720138"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -45,6 +45,14 @@ Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solu
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
+
+## <a name="september-2019"></a>Septiembre de 2019
+
+### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
+
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. El procesador multimedia [Azure Media Indexer](media-services-index-content.md) se retirará el 1 de octubre de 2020. Los procesadores multimedia [Azure Media Indexer v2 Preview](media-services-process-content-with-indexer2.md) se retirarán el 1 de enero de 2020. [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a estos procesadores multimedia heredados.
+
+Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto de 2019
 

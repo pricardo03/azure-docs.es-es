@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662782"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720233"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer
 
@@ -63,7 +63,8 @@ Al elegir los casos de uso para Personalizer:
 
 * Inicie el proceso de diseño analizando cómo la personalización ayuda a los usuarios.
 * Tenga en cuenta las consecuencias negativas en el mundo real en caso de que algunos elementos no estén correctamente ordenados para los usuarios debido a patrones de personalización o exploración específicos.
-* Considere la posibilidad de crear bucles de profecías que se cumplen automáticamente. Se puede dar este caso si una recompensa de personalización entrena un modelo de forma que este pueda excluir posteriormente a un grupo demográfico del acceso a contenido pertinente. Por ejemplo, la mayoría de las personas de un barrio pobre no reciben ofertas de seguros premium por lo que, poco a poco, las personas del barrio dejan de mirar dichas ofertas por completo.
+* Considere si su caso de uso constituye un procesamiento automatizado que afecta de forma significativa a los asuntos de datos regulados en el Artículo 22 de [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) u otras leyes.
+* Considere la posibilidad de crear bucles de profecías que se cumplen automáticamente. Se puede dar este caso si una recompensa de personalización entrena un modelo de forma que este pueda excluir posteriormente a un grupo demográfico del acceso a contenido pertinente. Por ejemplo, la mayoría de las personas de un barrio pobre no reciben ofertas de seguros premium por lo que, poco a poco, las personas del barrio dejan de mirar dichas ofertas por completo, si no hay suficiente exploración.
 * Guarde copias de los modelos y de las directivas de aprendizaje en caso de que sean necesarias para reproducir Personalizer en el futuro. Puede hacerlo periódicamente o en cada período de actualización del modelo.
 * Considere el nivel de exploración adecuado para el espacio y cómo usarlo como herramienta para mitigar los efectos tipo "cámara de eco".
 

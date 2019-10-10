@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884075"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338733"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
@@ -41,7 +41,7 @@ Para configurar una instancia administrada de forma que funcione como un publica
 - La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se ha establecido el [emparejamiento de red virtual](../virtual-network/tutorial-connect-virtual-networks-powershell.md) entre las redes virtuales de las tres entidades. 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
-- El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure. 
+- El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure.  Si aparece el error "no se pudo establecer conexión con la cuenta de Azure Storage \<nombre de la cuenta de Storage> con el error del sistema operativo 53", deberá agregar una regla de salida al grupo de seguridad de red de la subred de Instancia administrada de SQL adecuada.
 
 
  > [!NOTE]

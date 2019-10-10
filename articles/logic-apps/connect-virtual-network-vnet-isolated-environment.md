@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099470"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701944"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -44,36 +44,42 @@ En este artículo se muestra cómo completar estas tareas:
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md).
+* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md). 
 
-  * La red virtual debe tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
-  
-    > [!NOTE]
-    > Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), que proporciona una conexión privada a los servicios en la nube de Microsoft, debe [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla con cada subred que use el ISE:
-    > 
-    > **Nombre**: <*nombre de ruta*><br>
-    > **Prefijo de dirección**: 0.0.0.0/0<br>
-    > **Próximo salto**: Internet
+  * La red virtual tiene que tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
+
+  * Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado, y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
 
   * Además, debe asegurarse de que la red virtual [habilita esos puertos](#ports) y de que el ISE funciona correctamente y permanece accesible.
 
-* Si quiere usar servidores DNS personalizados para su red virtual de Azure, [configure esos servidores siguiendo estos pasos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar el ISE en su red virtual. En caso contrario, cada vez que cambie el servidor DNS, también tendrá que reiniciar el ISE, que es una funcionalidad que está disponible con la versión preliminar pública del ISE.
+  * Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), que proporciona una conexión privada a los servicios en la nube de Microsoft, tiene que [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla con cada subred que utilice el ISE:
+
+    **Nombre**: <*nombre de ruta*><br>
+    **Prefijo de dirección**: 0.0.0.0/0<br>
+    **Próximo salto**: Internet
+
+* Si quiere usar servidores DNS personalizados para su red virtual de Azure, [configure esos servidores siguiendo estos pasos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar el ISE en su red virtual. De lo contrario, cada vez que cambie el servidor DNS, tendrá que reiniciar también el ISE.
+
+  > [!IMPORTANT]
+  > Si cambia la configuración del servidor DNS después de crear un ISE, asegúrese de reiniciar el ISE. Para más información acerca de la administración de la configuración del servidor DNS, consulte [Crear, cambiar o eliminar una red virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 
 ## <a name="check-network-ports"></a>Comprobación de los puertos de red
 
-Cuando se usa un ISE con una red virtual existente, un problema de configuración habitual es tener uno o varios puertos bloqueados. Los conectores que usa para crear conexiones entre su ISE y el sistema de destino también pueden tener sus propios requisitos de puerto. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, asegúrese de que el puerto que usa en ese sistema FTP como, por ejemplo, el puerto 21 para enviar comandos, está disponible.
-
-Si ha creado una nueva red virtual y subredes sin ninguna restricción, no es necesario configurar [grupos de seguridad de red (NSG)](../virtual-network/security-overview.md) en la red virtual para poder controlar el tráfico entre las subredes. Para una red virtual existente, puede *opcionalmente* configurar grupos de seguridad de red [filtrando el tráfico de red entre subredes](../virtual-network/tutorial-filter-network-traffic.md). Si elige esta opción, asegúrese de que el ISE abre los puertos adecuados, tal como se describe en la siguiente tabla, en la red virtual que usa los NSG. Por tanto, para los NSG o firewalls existentes en su red virtual, asegúrese de que abran esos puertos. De esa manera, el ISE permanecerá accesible y podrá funcionar correctamente para que no pierda el acceso al mismo. De lo contrario, si alguno de los puertos necesarios no está disponible, el ISE dejará de funcionar.
+Cuando se usa un ISE con una red virtual de Azure, un problema de configuración habitual es tener uno o varios puertos bloqueados. Los conectores que usa para crear conexiones entre su ISE y el sistema de destino también pueden tener sus propios requisitos de puerto. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, asegúrese de que el puerto que usa en el sistema FTP está disponible, por ejemplo, el puerto 21 para enviar comandos. Para asegurarse de que el ISE permanece accesible y puede funcionar correctamente, abra los puertos especificados en la tabla siguiente. De lo contrario, si alguno de los puertos necesarios no está disponible, el ISE dejará de funcionar.
 
 > [!IMPORTANT]
-> En cuanto a la comunicación interna dentro de las subredes, ISE requiere que se abran todos los puertos dentro de esas subredes.
+> Los puertos de origen son efímeros, asegúrese pues de establecerlos en `*` para todas las reglas.
+> En cuanto a la comunicación interna dentro de las subredes, el ISE requiere que se abran todos los puertos dentro de esas subredes.
 
-En esta tabla se describen los puertos de la red virtual que usa el ISE y dónde se usan. La [etiqueta de servicio de Resource Manager](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad a la hora de crear reglas de seguridad.
+* Si ha creado una nueva red virtual y subredes sin ninguna restricción, no es necesario configurar [grupos de seguridad de red (NSG)](../virtual-network/security-overview.md#network-security-groups) en la red virtual para controlar el tráfico entre las subredes.
 
-> [!NOTE]
-> Los puertos de origen son efímeros, por lo que debe establecerlos en `*` para todas las reglas.
+* En una red virtual existente, puede *opcionalmente* configurar grupos de seguridad de red [filtrando el tráfico de red a través de subredes](../virtual-network/tutorial-filter-network-traffic.md). Si elige esta ruta, en la red virtual en la que desea configurar los grupos de seguridad de red, asegúrese de que abre los puertos especificados en la tabla siguiente. Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
+
+* Si ya tiene grupos de seguridad de red o firewalls en la red virtual, asegúrese de abrir los puertos especificados en la tabla siguiente. Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
+
+Aquí está tabla que describe los puertos de la red virtual que usa el ISE y dónde se usan. La [etiqueta de servicio de Resource Manager](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad a la hora de crear reglas de seguridad.
 
 | Propósito | Dirección | Puertos de destino | Etiqueta de servicio de origen | Etiqueta de servicio de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
@@ -134,9 +140,13 @@ En el cuadro de búsqueda, escriba "entorno de servicio de integración" como fi
 
    **Creación de una subred**
 
-   Para crear e implementar recursos en su entorno, el ISE necesita cuatro subredes *vacías* que no estén delegadas a ningún servicio. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno. Cada subred debe cumplir estos criterios:
-
-   * Tiene un nombre que comienza con un carácter alfabético o un guión bajo, y no tiene estos caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+   Para crear e implementar recursos en su entorno, el ISE necesita cuatro subredes *vacías* que no estén delegadas a ningún servicio. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno.
+   
+   > [!IMPORTANT]
+   > 
+   > Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado (sin números), y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   
+   Además, cada subred tiene que cumplir estos requisitos:
 
    * \- Usa el [formato de Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.
 
@@ -150,7 +160,7 @@ En el cuadro de búsqueda, escriba "entorno de servicio de integración" como fi
 
      Para obtener más información sobre cómo calcular las direcciones, consulte [bloques de CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), recuerde que debe [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y que debe vincular esa tabla con cada subred que use el ISE:
+   * Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), tiene que [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla con cada subred que utilice el ISE:
 
      **Nombre**: <*nombre de ruta*><br>
      **Prefijo de dirección**: 0.0.0.0/0<br>

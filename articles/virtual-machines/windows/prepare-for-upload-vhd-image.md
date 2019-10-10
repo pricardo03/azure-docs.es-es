@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cbae4455ae4cfcc0397b8b50b7f86843f7f82a59
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200280"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695377"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -440,7 +440,8 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
   Si hay un disco de datos conectado a la máquina virtual, la letra de unidad del volumen de unidad temporal suele ser *D*. Esta designación podría ser diferente, dependiendo de la configuración y del número de unidades disponibles.
-
+  * Se recomienda deshabilitar los bloqueadores de script que pueda incluir el software antivirus, ya que podrían interferir y bloquear los scripts del agente de aprovisionamiento de Windows que se ejecutan al implementar una nueva máquina virtual a partir de una imagen.
+  
 ## <a name="next-steps"></a>Pasos siguientes
 * [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-generalized-managed.md)
 * [Solución de problemas de activación de máquinas virtuales Windows de Azure](troubleshoot-activation-problems.md)

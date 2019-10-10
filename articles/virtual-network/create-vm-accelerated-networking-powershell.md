@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190291"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678006"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
 
@@ -44,6 +44,7 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
 Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: D/DSv2 y F/Fs
@@ -52,7 +53,7 @@ En instancias que admiten hyperthreading, las redes aceleradas se admiten en ins
 
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales con Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regiones
+### <a name="regions"></a>Regions
 Está disponible en todas las regiones públicas de Azure y la nube de Azure Government.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitación de Accelerated Networking en una máquina virtual en ejecución
@@ -230,7 +231,7 @@ Si ha creado una VM sin Accelerated Networking, es posible habilitar esta caract
 En primer lugar, detenga o desasigne la VM o, en el caso de un conjunto de disponibilidad, todas las VM del conjunto:
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +240,18 @@ Es importante tener en cuenta que, si la máquina virtual se creó de forma indi
 Una vez detenida, habilite Accelerated Networking en la NIC de la máquina virtual:
 
 ```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRMNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
 Reinicie la máquina virtual o, en el caso de un conjunto de disponibilidad, todas las máquinas virtuales del conjunto, y confirme que las redes aceleradas están habilitadas:
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

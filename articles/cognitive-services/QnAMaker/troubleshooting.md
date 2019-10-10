@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300237"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802168"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
 La lista de las preguntas frecuentes seleccionadas sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>Cómo obtener el nombre del host de servicios de QnAMaker
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>Cómo obtener el punto de conexión de servicio de QnAMaker
 
-El nombre del host de servicios de QnAMaker es útil para fines de depuración cuando se ponga en contacto con el soporte técnico de QnAMaker o UserVoice. El nombre de host es una dirección URL con este formato: https:// *{nombre de host}* .azurewebsites.net.
+El punto de conexión de servicio de QnAMaker es útil para fines de depuración cuando se ponga en contacto con el soporte técnico de QnAMaker o UserVoice. El punto de conexión es una dirección URL en este formato: https://your-resource-name.azurewebsites.net.
     
 1. Vaya a su servicio QnAMaker (grupo de recursos) en [Azure Portal](https://portal.azure.com)
 
@@ -35,9 +36,9 @@ El nombre del host de servicios de QnAMaker es útil para fines de depuración c
 
      ![Selección del App Service QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. La dirección URL del nombre de host está disponible en la sección Información general
+1. La dirección URL del punto de conexión está disponible en la sección Información general
 
-    ![Nombre de host de QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![Punto de conexión de QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Uso del bot de ayuda en el portal de QnA Maker
@@ -173,7 +174,7 @@ Siga las instrucciones de [esta](./Tutorials/create-qna-bot.md) documentación p
 Debe tener la siguiente información sobre la base de conocimiento:
 
 * Id. de base de conocimiento.
-* Nombre de host del punto de conexión publicado de la base de conocimiento; se encuentra en la página **Settings** (Configuración) después de publicarlo.
+* Nombre de subdominio personalizado del punto de conexión publicado de la base de conocimiento, conocido como `host`, que se encuentra en la página **Configuración** después de la publicación.
 * Clave del punto de conexión publicado de la base de conocimiento; se encuentra en **Settings** (Configuración) después de publicarlo. 
 
 Con esta información, vaya al servicio de aplicaciones del bot en Azure Portal. En **Configuración -> Configuración -> Configuración de la aplicación**, cambie esos valores.  

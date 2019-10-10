@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aa144c76fb0a8e479658efdb5d43361fbbc085c
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860625"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720214"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>API web que llama a las API web: adquisición de un token para la aplicación
 
@@ -29,7 +29,7 @@ Ahora que ha compilado su objeto de aplicación cliente, lo usará para adquirir
 - Obtener un token para la API web mediante la caché de tokens. Para obtener este token, llame a `AcquireTokenSilent`.
 - Llamar a la API protegida con el token de acceso.
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Los métodos de controlador están protegidos por un atributo `[Authorize]` que obliga a los usuarios a autenticarse para usar la aplicación web. Este es el código que llama a Microsoft Graph.
 
@@ -37,35 +37,34 @@ Los métodos de controlador están protegidos por un atributo `[Authorize]` que 
 [Authorize]
 public class HomeController : Controller
 {
- ...
+ readonly ITokenAcquisition tokenAcquisition;
+
+ public HomeController(ITokenAcquisition tokenAcquisition)
+ {
+  this.tokenAcquisition = tokenAcquisition;
+ }
+
+ // Code for the controller actions(see code below)
+
 }
 ```
+
+ASP.NET inserta el servicio `ITokenAcquisition` mediante la inserción de dependencias.
+
 
 Este es un código simplificado de la acción de HomeController, que obtiene un token para llamar a Microsoft Graph.
 
 ```CSharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
- // Get the account
- IAccount account = await application.GetAccountAsync(accountIdentifier);
-
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
-
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
- ...
- // use the access token to call a web API
+// use the access token to call a protected web API
+HttpClient client = new HttpClient();
+client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
+string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -73,11 +72,12 @@ Para entender mejor el código necesario para este escenario, consulte el paso d
 
 Hay varias complejidades adicionales, como:
 
-- Implementar una caché de tokens para la aplicación web (el tutorial presenta varias implementaciones)
-- Quitar la cuenta de la memoria caché cuando el usuario cierra sesión
-- Llamar a varias API, incluido el consentimiento incremental
+- Llamada a varias API,
+- procesamiento del consentimiento incremental y acceso condicional.
 
-## <a name="aspnet"></a>ASP.NET
+Estos pasos avanzados se procesan en el capítulo 3 del tutorial [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs).
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 Las cosas son similares en ASP.NET:
 
@@ -86,6 +86,68 @@ Las cosas son similares en ASP.NET:
 - Por útimo, llama al método `AcquireTokenSilent` de la aplicación cliente confidencial.
 
 El código es similar al código que se muestra para ASP.NET Core.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+En el ejemplo de Java, el código que llama a una API está en el método getUsersFromGraph [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+
+Intenta llamar a `getAuthResultBySilentFlow`. Si el usuario necesita dar su consentimiento a más ámbitos, el código procesa `MsalInteractionRequiredException` para desafiar al usuario.
+
+```java
+@RequestMapping("/msal4jsample/graph/users")
+    public ModelAndView getUsersFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
+            throws Throwable {
+
+        IAuthenticationResult result;
+        ModelAndView mav;
+        try {
+            result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
+        } catch (ExecutionException e) {
+            if (e.getCause() instanceof MsalInteractionRequiredException) {
+
+                // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
+                // so user can consent to new scopes
+                String state = UUID.randomUUID().toString();
+                String nonce = UUID.randomUUID().toString();
+
+                SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
+
+                String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
+                        httpRequest.getParameter("claims"),
+                        "User.ReadBasic.all",
+                        authHelper.getRedirectUriGraphUsers(),
+                        state,
+                        nonce);
+
+                return new ModelAndView("redirect:" + authorizationCodeUrl);
+            } else {
+
+                mav = new ModelAndView("error");
+                mav.addObject("error", e);
+                return mav;
+            }
+        }
+    // Code omitted here.
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+En el ejemplo de Python, el código que llama a Microsoft Graph está en [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+
+Intenta obtener un token de la memoria caché del token y, a continuación, llama a la API EB después de establecer el encabezado de autorización. Si no es posible, se vuelve a iniciar la sesión del usuario.
+
+```python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

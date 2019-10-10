@@ -1,38 +1,41 @@
 ---
 title: 'Streaming de audio comprimido con códec mediante el SDK de voz: Servicio de Voz'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo hacer streaming de audio comprimido a Servicios de voz de Azure con el SDK de voz. Disponible para C++, C# y Java para Linux.
+description: Obtenga información sobre cómo hacer streaming de audio comprimido a Servicios de voz de Azure con el SDK de voz. Disponible para C++, C#y Java para Linux, Java en Android y Objective-C en iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f2896a6289ecaf4046d705da106636258cdadc5
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559550"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802238"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso de entradas de audio comprimido con códec con el SDK de voz
 
 La API **Compressed Audio Input Stream** del SDK de voz le proporciona una forma de hacer streaming de audio comprimido Speech Services mediante PullStream o PushStream.
 
 > [!IMPORTANT]
-> Solo se admite el streaming de audio comprimido para C++, C# y Java para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
-> Se requiere el SDK de voz versión 1.4.0 o posterior.
+> Solo se admite la secuencia de entrada de audio comprimido para C++, C# y Java para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). También se admite para [Java en Android](how-to-use-codec-compressed-audio-input-streams-android.md) y [Objective-C en la plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md).
+> Se requiere el SDK de voz versión 1.7.0 o posterior.
 
 Para wav/PCM consulte la documentación principal de voz.  Aparte de wav/PCM, se admiten los siguientes formatos de entrada de audio comprimido con códec:
 
 - MP3
 - OPUS/OGG
+- FLAC
+- ALAW en el contenedor WAV
+- MULAW en el contenedor WAV
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Requisitos previos para el uso de entradas de audio comprimido con códec
+## <a name="prerequisites"></a>Requisitos previos
 
-Instale estas dependencias adicionales para usar la entrada de audio comprimido con el SDK de voz para Linux:
+El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los archivos binarios de Gstreamer no se compilan ni vinculan con el SDK de voz. Por lo tanto, el desarrollador de aplicaciones debe instalar lo siguiente en 18.04, 16.04 y Debian 9 para usar el audio de entrada comprimido.
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly

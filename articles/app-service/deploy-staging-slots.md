@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129715"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720127"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -140,9 +140,6 @@ Si tiene problemas, consulte [Solución de problemas con los intercambios](#trou
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Intercambio con vista previa (intercambio en varias fases)
 
-> [!NOTE]
-> El intercambio con vista previa no se admite en las aplicaciones web en Linux.
-
 Antes de cambiar a producción como ranura de destino, valide que la aplicación se ejecute con la configuración intercambiada. La ranura de origen también se ha preparado antes de que finalice el intercambio, algo que es conveniente para las aplicaciones críticas.
 
 Al realizarse un intercambio con vista previa, App Service realiza el mismo [intercambio](#AboutConfiguration), pero se detiene tras el primer paso. En ese momento puede comprobar el resultado en la ranura de ensayo antes de completar el intercambio. 
@@ -204,7 +201,8 @@ Si tiene problemas, consulte [Solución de problemas con los intercambios](#trou
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Especificación de Preparación personalizada
-Al usar [Intercambio automático](#Auto-Swap), algunas aplicaciones pueden requerir acciones de preparación personalizadas para el intercambio. El elemento de configuración `applicationInitialization` de web.config permite especificar acciones de inicialización personalizadas. El [intercambio](#AboutConfiguration) espera hasta que se completa esta preparación personalizada para realizar el intercambio con la ranura de destino. He aquí un fragmento de ejemplo del archivo web.config.
+
+Algunas aplicaciones pueden requerir acciones de preparación personalizadas para el intercambio. El elemento de configuración `applicationInitialization` de web.config permite especificar acciones de inicialización personalizadas. El [intercambio](#AboutConfiguration) espera hasta que se completa esta preparación personalizada para realizar el intercambio con la ranura de destino. He aquí un fragmento de ejemplo del archivo web.config.
 
     <system.webServer>
         <applicationInitialization>
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>Automatización con las plantillas de ARM
+
+Las [Plantillas ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de ARM, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* y *Microsoft.Web/sites*:
+
+- `buildVersion`: esta es una propiedad de cadena que representa la versión actual de la aplicación implementada en la ranura. Por ejemplo: "v1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: esta es una propiedad de cadena que especifica qué `buildVersion` debe tener la ranura. Si targetBuildVersion no es igual a la `buildVersion` actual, esto activará la operación de intercambio al encontrar la ranura que tiene la `buildVersion` especificada.
+
+### <a name="example-arm-template"></a>Ejemplo de plantilla de ARM
+
+La siguiente plantilla de ARM actualizará el `buildVersion` de la ranura de preparación y establecerá el `targetBuildVersion` en la ranura de producción. Esto intercambiará las dos ranuras. La plantilla supone que ya tiene una aplicación web creada con una ranura llamada "almacenamiento provisional".
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+Esta plantilla de ARM es idempotente, lo que significa que puede ejecutarse repetidamente y producir el mismo estado de las ranuras. Después de la primera ejecución, `targetBuildVersion` coincidirá con el `buildVersion` actual, por lo que no se activará un intercambio.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

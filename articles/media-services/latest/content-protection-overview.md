@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338794"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -172,7 +172,7 @@ Se puede usar una directiva de clave de contenido con restricción abierta cuand
 
 Con una directiva de clave de contenido con restricción de token, la clave de contenido solo se enviará a un cliente que presente un token JWT o un token web simple (SWT) válidos en la solicitud de clave o licencia. Este token debe ser emitido por un STS. 
 
-Puede usar Azure AD como un STS o implementar un STS personalizado. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves o licencias de Media Services devuelve la licencia o clave solicitada al cliente si se cumplen estas dos condiciones:
+Puede usar Azure AD como un STS o implementar un [STS personalizado](#using-a-custom-sts). Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves o licencias de Media Services devuelve la licencia o clave solicitada al cliente si se cumplen estas dos condiciones:
 
 * El token es válido. 
 * Las notificaciones del token coinciden con las configuradas para la licencia o la clave.
@@ -259,4 +259,4 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 * [Diseño del sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 * [Cifrado del lado de almacenamiento](storage-account-concept.md#storage-side-encryption)
 * [Preguntas más frecuentes](frequently-asked-questions.md)
-
+* [Controlador de JSON Web Token](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

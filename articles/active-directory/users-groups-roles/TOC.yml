@@ -110,7 +110,7 @@
           href: groups-naming-policy.md
         - name: Referencia sobre expiración de grupos
           href: groups-lifecycle.md
-        - name: Restauración de grupos expirados o eliminados
+        - name: Restauración de los grupos eliminados
           href: groups-restore-deleted.md
         - name: Administración de la configuración de grupo
           href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,7 +134,7 @@
           href: licensing-groups-resolve-problems.md
         - name: Cambio de usuarios a licencias de grupo
           href: licensing-groups-migrate-users.md
-        - name: Cambio de las licencias de un usuario
+        - name: Cambio de las licencias de un usuario o de un grupo
           href: licensing-groups-change-licenses.md
         - name: Otros escenarios
           href: licensing-group-advanced.md
@@ -168,7 +168,7 @@
           href: roles-delegate-by-task.md
         - name: Roles de Microsoft 365
           href: roles-m365-workload-docs.md
-        - name: Seguridad del rol de administrador
+        - name: Seguridad del rol
           items:
             - name: Planeamiento de la seguridad de rol
               href: directory-admin-roles-secure.md

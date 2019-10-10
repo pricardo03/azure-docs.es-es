@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932515"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677688"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada DatetimeV2 para una aplicación de LUIS
 
@@ -185,6 +185,8 @@ La matriz de valores tiene dos elementos de tiempo si la hora o el intervalo de 
 
 En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión que tiene el intervalo de tiempo.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,7 +208,7 @@ En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2**
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 La respuesta JSON DatetimeV2 ha cambiado en la API V3. 
 
@@ -289,6 +291,9 @@ El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>Intervalo de tiempo precompilado en desuso
 
 La entidad precompilada `datetime` está en desuso y se reemplaza por  **datetimeV2**. 
@@ -301,6 +306,8 @@ Para reemplazar `datetime` por `datetimeV2` en la aplicación de LUIS, complete 
 4. Seleccione **datetimeV2** y haga clic en **Save** (Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
 Obtenga información acerca de las entidades [dimensión](luis-reference-prebuilt-dimension.md), [correo electrónico](luis-reference-prebuilt-email.md) y [número](luis-reference-prebuilt-number.md). 
 

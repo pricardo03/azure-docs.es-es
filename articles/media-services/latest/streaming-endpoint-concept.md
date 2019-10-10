@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848903"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350350"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming 
 
@@ -31,9 +31,14 @@ Cuando se crea una cuenta de Media Services, se genera automáticamente un punto
 
 ## <a name="naming-convention"></a>Convención de nomenclatura
 
-Para el punto de conexión predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+El formato de nombre de host de la dirección URL de streaming es: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, donde `servicename` = el nombre del punto de conexión de streaming o el nombre del evento en directo. 
 
-Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Al usar el punto de conexión de streaming predeterminado, se omite `servicename`, por lo que la dirección URL es: `{accountname}-{regionname}.streaming.azure.net`. 
+
+### <a name="limitations"></a>Limitaciones
+
+* El nombre del punto de conexión de streaming tiene un valor máximo de 24 caracteres.
+* El nombre debe seguir este patrón [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Tipos  
 

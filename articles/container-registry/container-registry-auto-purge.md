@@ -8,18 +8,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/14/2019
 ms.author: danlep
-ms.openlocfilehash: 3e65718a51f80d9c90a5579a2b1dd5be3bd9239a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: c4c09a78f9bad1af1f7a904914ad6ad066ec0e40
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543099"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718440"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purga automática de imágenes a partir de una instancia de Azure Container Registry
 
 Cuando se usa una instancia de Azure Container Registry como parte de un flujo de trabajo de desarrollo, el registro puede rellenarse rápidamente con imágenes u otros artefactos que no son necesarios después de un breve período. Es posible que quiera eliminar todas las etiquetas que tengan más de una duración determinada o que coincidan con un filtro de nombre especificado. Para eliminar varios artefactos rápidamente, en este artículo se presenta el comando `acr purge`, que se puede ejecutar como una instancia de ACR Tasks [programada](container-registry-tasks-scheduled.md) o a petición. 
 
-El comando `acr purge` está distribuido actualmente en una imagen de contenedor pública disponible en Microsoft Container Registry.
+El comando `acr purge` está distribuido actualmente en una imagen de contenedor pública (`mcr.microsoft.com/acr/acr-cli:0.1`), creada a partir de código fuente del repositorio [acr-cli](https://github.com/Azure/acr-cli) en GitHub.
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ejecutar los ejemplos de instancia de ACR Tasks de este artículo. Si quiere usarla de forma local, necesitará la versión 2.0.69 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install]. 
 

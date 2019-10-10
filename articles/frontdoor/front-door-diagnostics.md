@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260169"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677891"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervisión de métricas y registro en Azure Front Door Service
 
 Con Azure Front Door Service, puede supervisar los recursos de las siguientes maneras:
 
-- **Métricas**. Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
+- **Métricas**. Azure Front Door tiene actualmente siete métricas para ver los contadores de rendimiento.
 - **Registros**. Los registros de actividad y diagnóstico permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
 
 ### <a name="metrics"></a>Métricas

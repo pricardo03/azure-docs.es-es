@@ -10,21 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/16/2019
-ms.openlocfilehash: ceccc515b73bd41c7933889c61617c360c678eb7
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.date: 09/25/2019
+ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059369"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316689"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos (versión preliminar) en Azure Machine Learning
 
 En este artículo, aprenderá las dos maneras de consumir [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) en ejecuciones de entrenamiento de experimentos remotas sin preocuparse por las cadenas de conexión o las rutas de acceso a los datos.
 
-- Opción 1: Pasar los conjuntos de datos directamente en el script de entrenamiento
+- Opción 1: Si tiene datos estructurados, cree un TabularDataset y úselo directamente en el script de entrenamiento.
 
-- Opción 2: Usar los conjuntos de datos para montar o descargar archivos en un proceso remoto para el entrenamiento
+- Opción 2: Si tiene datos no estructurados, cree un FileDataset y monte o descargue archivos en un proceso remoto para el entrenamiento.
+
+Los conjuntos de datos de Azure Machine Learning proporcionan una integración perfecta con productos de entrenamiento de Azure Machine Learning, como [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) y [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,9 +41,9 @@ Para crear conjuntos de datos y entrenar con ellos, necesita:
 > [!Note]
 > Algunas clases Dataset (versión preliminar) tienen dependencias en el paquete [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
-## <a name="option-1-pass-datasets-as-inputs-to-training-scripts"></a>Opción 1: Pasar conjuntos de datos como entradas a scripts de entrenamiento
+## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Opción 1: Usar los conjuntos de datos directamente en los scripts de entrenamiento
 
-Los conjuntos de datos de Azure Machine Learning proporcionan una integración perfecta con productos de entrenamiento de Azure Machine Learning, como [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) y [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). En este ejemplo, creará un objeto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) y lo usará como entrada para el objeto `estimator` de entrenamiento. 
+En este ejemplo, creará un objeto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) que usará como entrada directa para el objeto `estimator` para entrenamiento. 
 
 ### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
@@ -52,6 +54,24 @@ from azureml.core.dataset import Dataset
 
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+```
+
+### <a name="access-the-input-dataset-in-your-training-script"></a>Acceso al conjunto de datos de entrada en el script de entrenamiento
+
+Los objetos TabularDataset ofrecen la posibilidad de cargar los datos en una biblioteca Pandas o en DataFrame de Spark para que pueda trabajar con bibliotecas conocidas de entrenamiento y preparación de datos. Para aprovechar esta funcionalidad, puede pasar un objeto TabularDataset como entrada en la configuración de entrenamiento y, luego, recuperarlo en el script.
+
+Para ello, acceda al conjunto de datos de entrada mediante el objeto [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) del script de entrenamiento y use el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--). 
+
+```Python
+%%writefile $script_folder/train_titanic.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+# get the input dataset by name
+dataset = run.input_datasets['titanic_ds']
+# load the TabularDataset to pandas DataFrame
+df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-estimator"></a>Configuración del estimador
@@ -77,25 +97,6 @@ est = Estimator(source_directory=script_folder,
 # Submit the estimator as part of your experiment run
 experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
-
-```
-
-### <a name="access-the-input-dataset-in-your-training-script"></a>Acceso al conjunto de datos de entrada en el script de entrenamiento
-
-Los objetos TabularDataset ofrecen la posibilidad de cargar los datos en una biblioteca Pandas o en DataFrame de Spark para que pueda trabajar con bibliotecas conocidas de entrenamiento y preparación de datos. Para aprovechar esta funcionalidad, puede pasar un objeto TabularDataset como entrada en la configuración de entrenamiento y, luego, recuperarlo en el script.
-
-Para ello, acceda al conjunto de datos de entrada mediante el objeto [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) del script de entrenamiento y use el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--). 
-
-```Python
-%%writefile $script_folder/train_titanic.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-# get the input dataset by name
-dataset = run.input_datasets['titanic']
-# load the TabularDataset to pandas DataFrame
-df = dataset.to_pandas_dataframe()
 ```
 
 ## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Opción 2:  Montar los archivos en un destino de proceso remoto
@@ -125,9 +126,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configuración del estimador
 
-En lugar de pasar el conjunto de datos mediante el parámetro `inputs` en el estimador, también puede pasarlo mediante `script_params` y obtener la ruta de acceso a los datos (punto de montaje) en el script de entrenamiento por medio de argumentos. De este modo, puede evitar la dependencia del SDK de Azure Machine Learning del script de entrenamiento.
+En lugar de pasar el conjunto de datos mediante el parámetro `inputs` en el estimador, también puede pasarlo mediante `script_params` y obtener la ruta de acceso a los datos (punto de montaje) en el script de entrenamiento por medio de argumentos. De este modo, puede tener acceso a los datos y usar un script de entrenamiento existente.
 
-Un objeto estimator [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) se usa para enviar la ejecución de experimentos scikit-learn.
+Un objeto estimator [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) se usa para enviar la ejecución de experimentos scikit-learn. Obtenga más información sobre el entrenamiento con el [calculador de SKlearn](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -187,10 +188,11 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 
-Los [cuadernos de ejemplo](https://aka.ms/dataset-tutorial) muestran y amplían los conceptos de este artículo, como el uso de conjuntos de datos con objetos ScriptRun e [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
+Los [cuadernos de conjunto de datos](https://aka.ms/dataset-tutorial) se demuestran y se analizan con mayor profundidad sobre los conceptos en este artículo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Entrenamiento automático de modelos de aprendizaje automático](how-to-auto-train-remote.md) con TabularDatasets.
 
 * [Entrenamiento de modelos de clasificación de imágenes](https://aka.ms/filedataset-samplenotebook) con FileDatasets.
+

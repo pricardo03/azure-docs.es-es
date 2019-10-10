@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102231"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828780"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -54,17 +54,6 @@ Cuando crea una máquina virtual de SQL Server, puede seleccionar una de varias 
 
 1. Seleccione **Crear**.
 
-
-## <a id="configure"></a> Opciones de configuración
-
-Hay cinco pestañas para configurar una máquina virtual con SQL Server. En esta guía nos vamos a centrar la siguiente: 
-
-| Paso | DESCRIPCIÓN |
-| --- | --- |
-| **Aspectos básicos** |[Configuración básica](#1-configure-basic-settings) |
-| **Características opcionales** |[Configuración de características opcionales](#2-configure-optional-features) |
-| **Configuración de SQL Server** |[Configuración de SQL Server](#3-configure-sql-server-settings) |
-| **Revisar y crear** | [Revisión del resumen](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Configuración básica
 
@@ -142,8 +131,6 @@ En la pestaña **Supervisión**, configurar la supervisión y el apagado automá
 
 En la pestaña **Configuración de SQL Server**, configure las optimizaciones y los valores específicos de SQL Server. Entre los valores que se pueden configurar para SQL Server se incluyen:
 
-
-
 | Configuración |
 | --- |
 | [Conectividad](#connectivity) |
@@ -208,24 +195,19 @@ Para más información, consulte [Configuración de la integración de Azure Key
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
 
-En la pestaña **Configuración de SQL Server**, en **Configuración de almacenamiento**, seleccione **Cambiar configuración** para especificar los requisitos de almacenamiento.
+En la pestaña **Configuración de SQL Server**, en **Configuración de almacenamiento**, seleccione **Cambiar configuración** para abrir la página Performance Optimized Storage Configuration (Configuración de almacenamiento optimizada para rendimiento) y especificar los requisitos de almacenamiento.
 
-
-> [!NOTE]
-> Si ha configurado manualmente la máquina virtual para usar almacenamiento estándar, esta opción no está disponible. La optimización del almacenamiento automático está disponible solo para Premium Storage.
-
-> [!TIP]
-> El número de pasos y los límites superiores de cada control deslizante dependen del tamaño de la máquina virtual que seleccionó. Una máquina virtual más grande y más eficaz es capaz de escalar verticalmente más.
-
-Puede especificar requisitos como operaciones de entrada/salida por segundo (IOPS), el rendimiento en MB/s y el tamaño de almacenamiento total. Configure estas opciones mediante las escalas deslizantes. Puede cambiar estos valores de almacenamiento en función de la carga de trabajo. El portal calcula automáticamente el número de discos a conectar y los configura según estos requisitos.
+![Configuración de almacenamiento de máquina virtual SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 En **Storage optimized for**(Optimización de almacenamiento para), seleccione una de las siguientes opciones:
 
-* **General** es la configuración predeterminada y admite la mayoría de las cargas de trabajo.
-* **Transaccional** optimiza el almacenamiento en las cargas de trabajo OLTP de las bases de datos tradicionales.
+* **General** es la configuración predeterminada y es compatible con la mayoría de las cargas de trabajo.
+* **Procesamiento de transacciones** optimiza el almacenamiento en las cargas de trabajo OLTP de las bases de datos tradicionales.
 * **Almacenamiento de datos** optimiza el almacenamiento para cargas de trabajo de informes y análisis.
 
-![Configuración de almacenamiento de máquina virtual SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![Configuración de almacenamiento de máquina virtual SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+Puede dejar los valores predeterminados, o bien puede cambiar manualmente la topología de almacenamiento para que se adapte a sus necesidades de IOPS. Para más información, consulte la [configuración del almacenamiento](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>Licencia de SQL Server
 Si es cliente de Software Assurance, puede utiliza [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para utilizar su propia licencia de SQL Server y ahorrar en recursos. 

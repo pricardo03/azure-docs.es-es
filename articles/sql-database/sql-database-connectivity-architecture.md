@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306150"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828846"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -70,7 +70,7 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Sur de Brasil         | 104.41.11.5, 191.233.200.14 |
 | Centro de Canadá       | 40.85.224.249      |
 | Este de Canadá          | 40.86.226.166      |
-| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Este de China           | 139.219.130.35     |
 | Este de China 2         | 40.73.82.1         |
 | Norte de China          | 139.219.15.17      |

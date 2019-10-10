@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981233"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703270"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
 
@@ -72,7 +72,9 @@ El firewall basado en IP es una característica de Azure SQL Server que impide 
 ## <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 
 Además de las reglas de IP, el firewall de Azure SQL Server permite definir *reglas de red virtual*.  
-Para más información, consulte [Reglas y puntos de conexión de servicio de red virtual para Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+Para más información, consulte [Uso de reglas y puntos de conexión de servicio de red virtual para Azure SQL Database y SQL Data Warehouse](sql-database-vnet-service-endpoint-rule-overview.md) o vea este vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Terminología de redes en Azure  
 Tenga en cuenta los siguientes términos de redes en Azure a medida que explora las reglas de firewall de red virtual

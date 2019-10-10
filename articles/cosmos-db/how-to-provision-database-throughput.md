@@ -1,17 +1,17 @@
 ---
 title: Aprovisionamiento del rendimiento de base de datos en Azure Cosmos DB
 description: Aprenda a aprovisionar el rendimiento en el nivel de base de datos en Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
-ms.openlocfilehash: 29bc65c8afaa1fe4bdc39923bd2219184e8b3a96
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 93961b44f1c0d063774395ab384cb84b1aa05d99
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092995"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812489"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos DB
 
@@ -27,47 +27,19 @@ En este artículo se explica cómo aprovisionar el rendimiento en una base de da
 
 1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos**. Especifique los detalles siguientes:
 
-   * Escriba un identificador de base de datos. 
+   * Escriba un identificador de base de datos.
    * Seleccione **Aprovisionar rendimiento**.
    * Escriba un rendimiento, por ejemplo 1000 RU.
    * Seleccione **Aceptar**.
 
-![Captura de pantalla del cuadro de diálogo Nueva base de datos](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    ![Captura de pantalla del cuadro de diálogo Nueva base de datos](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Aprovisionamiento de la capacidad de procesamiento mediante la CLI de Azure o PowerShell
 
-## <a name="provision-throughput-using-azure-cli"></a>Aprovisionamiento del rendimiento mediante la CLI de Azure
+Para crear una base de datos con capacidad de procesamiento compartida, consulte:
 
-```azcli-interactive
-az cosmosdb database create --db-name
-                            [--key]
-                            [--name]
-                            [--resource-group-name]
-                            [--subscription]
-                            [--throughput]
-                            [--url-connection]
-```
-
-
-
-
-## <a name="provision-throughput-using-powershell"></a>Aprovisionamiento de la capacidad de procesamiento mediante PowerShell
-
-```azurepowershell-interactive
-# Create a database and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$databaseResourceName = $accountName + "/sql/" + $databaseName
-
-$databaseProperties = @{
-    "resource"=@{ "id"=$databaseName };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $databaseProperties
-```
+* [Creación de una base de datos mediante la CLI de Azure](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Creación de una base de datos mediante PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>Aprovisionamiento del rendimiento mediante el SDK para .NET
 
@@ -75,6 +47,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > Puede usar los SDK de Cosmos para SQL API para aprovisionar el rendimiento de todas las API. También puede usar el ejemplo siguiente para Cassandra API.
 
 ### <a id="dotnet-all"></a>Todas las API
+
 ### <a name="net-v2-sdk"></a>SDK para .NET V2
 
 ```csharp
@@ -91,6 +64,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 ```
 
 ### <a name="net-v3-sdk"></a>SDK para .NET V3
+
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API

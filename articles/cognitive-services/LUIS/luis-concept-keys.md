@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256949"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703181"
 ---
 # <a name="authoring-and-runtime-keys"></a>Creación y claves en tiempo de ejecución
 
@@ -85,10 +85,28 @@ El punto de conexión de tiempo de ejecución de LUIS acepta dos estilos de cons
 
 El punto de conexión que se usa para obtener acceso al tiempo de ejecución, usa un subdominio que es único en la región del recurso, que se indica con `{region}` en la tabla siguiente. 
 
+
+#### <a name="v2-prediction-endpointtabv2"></a>[Punto de conexión de predicción de V2](#tab/V2)
+
 |Verbo|Ejemplo de URL y ubicación de la clave|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>Valor de cadena de consulta de `runtime-key`<br><br>Cambie el valor de la consulta de punto de conexión de `runtime-key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `runtime-key`, no está usando la cuota de la clave de punto de conexión.|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> Valor de encabezado de `Ocp-Apim-Subscription-Key`<br>Si crea la clave de tiempo de ejecución y la asigna, pero no cambia el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key`, no estará usando la clave de tiempo de ejecución.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[Punto de conexión de predicción de V3](#tab/V3)
+
+|Verbo|Ejemplo de URL y ubicación de la clave|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
+
+* * * 
+
+**GET**. Cambie el valor de la consulta de punto de conexión de `runtime-key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `runtime-key`, no está usando la cuota de la clave de punto de conexión.
+
+**POST**: Cambie el valor de encabezado de `Ocp-Apim-Subscription-Key`.<br>Si crea la clave de tiempo de ejecución y la asigna, pero no cambia el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key`, no estará usando la clave de tiempo de ejecución.
 
 El identificador de la aplicación que se usó en las direcciones URL anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, es la aplicación de IoT pública que se usa para la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
@@ -187,7 +205,7 @@ Una aplicación pública se pone a disposición de los usuarios en todas las reg
 
 ## <a name="transfer-of-ownership"></a>Transferencia de propiedad
 
-**Para [crear aplicaciones migradas](luis-migration-authoring.md) de recursos**: 
+**Para [crear aplicaciones migradas](luis-migration-authoring.md) de recursos**: Como propietario del recurso, puede agregar un `contributor`.
 
 **En el caso de las aplicaciones que no se han migrado todavía**: Exporte la aplicación como un archivo JSON. Otro usuario de LUIS puede importar la aplicación y, por tanto, se convierte en el propietario de la aplicación. La nueva aplicación tendrá un identificador de aplicación diferente.  
 

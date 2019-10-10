@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955167"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695111"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -61,6 +61,14 @@ Para poder registrar los registros de chat de su servicio, deberá habilitar App
 Puede obtener diversos datos de análisis de su uso del servicio. Obtenga más información sobre cómo utilizar Application Insights para obtener [datos de análisis del servicio QnA Maker](../How-To/get-analytics-knowledge-base.md).
 
 Según la información que obtenga de los análisis, realice [las actualizaciones correspondientes en su base de conocimiento](../How-To/edit-knowledge-base.md).
+
+## <a name="version-control-of-a-knowledge-base"></a>Control de versiones de una base de conocimiento
+
+QnA Maker no proporciona el control de versiones. Debe exportar la base de conocimiento desde la página **Settings** (Configuración) y usar su propia metodología y sus propias herramientas.
+
+La exportación de la base de conocimiento al formato TSV o XLS se completa desde la página **Settings**  (Configuración). 
+
+Cuando necesite volver a una versión específica, debe importar ese archivo desde el sistema local. En la página **Settings** (Configuración), importe el archivo TSV o XLS. De este modo, reemplazará las preguntas y respuestas que se encuentran actualmente en la base de conocimiento con el contenido del archivo importado.   
 
 ## <a name="next-steps"></a>Pasos siguientes
 

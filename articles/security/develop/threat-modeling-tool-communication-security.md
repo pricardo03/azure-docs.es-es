@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728356"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828574"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -289,7 +289,7 @@ namespace CertificatePinningExample
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Pasos** | La configuración de la aplicación debe garantizar que se utilice HTTPS siempre que se acceda a información confidencial.<ul><li>**EXPLICACIÓN:** si una aplicación administra información confidencial y no usa el cifrado de nivel de mensaje, solo debe poder comunicarse a través de un canal de transporte cifrado.</li><li>**RECOMENDACIONES:** asegúrese de que el transporte HTTP está deshabilitado y habilite el transporte HTTPS en su lugar. Por ejemplo, reemplace `<httpTransport/>` por la etiqueta `<httpsTransport/>`. No utilice una configuración de red (firewall) para asegurarse de que solo se pueda acceder a la aplicación a través de un canal seguro. Desde un enfoque filosófico, la seguridad de la aplicación no debe depender de la red.</li></ul><p>Desde un punto de vista práctico, las personas responsables de proteger la red no siempre llevan al día los requisitos de seguridad de la aplicación a medida que estos evolucionan.</p>|
 
 ## <a id="message-protection"></a>WCF: establecimiento del nivel de protección de seguridad de mensajes en EncryptAndSign
@@ -301,7 +301,7 @@ namespace CertificatePinningExample
 | **Tecnologías aplicables** | .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Pasos** | <ul><li>**EXPLICACIÓN:** cuando el nivel de protección está establecido en "none", se deshabilitará la protección de mensajes. La confidencialidad e integridad requieren definir un nivel adecuado.</li><li>**RECOMENDACIONES:**<ul><li>si `Mode=None`: deshabilita la protección del mensaje.</li><li>si `Mode=Sign`: firma el mensaje, pero no lo cifra. Debe utilizarse cuando importa la integridad de los datos.</li><li>si `Mode=EncryptAndSign`: firma y cifra el mensaje.</li></ul></li></ul><p>Considere la posibilidad de desactivar el cifrado y solo firmar el mensaje cuando únicamente necesite validar la integridad de la información sin necesidad de preocuparse por la confidencialidad. Esto puede resultar útil para operaciones o contratos de servicio en los que se debe validar el remitente original pero no se transmiten datos confidenciales. Al reducir el nivel de protección, asegúrese de que el mensaje no contenga ninguna información de identificación personal.</p>|
+| **Pasos** | <ul><li>**EXPLICACIÓN:** cuando el nivel de protección está establecido en "none", se deshabilitará la protección de mensajes. La confidencialidad e integridad requieren definir un nivel adecuado.</li><li>**RECOMENDACIONES:**<ul><li>si `Mode=None`: deshabilita la protección del mensaje.</li><li>si `Mode=Sign`: firma el mensaje, pero no lo cifra. Debe utilizarse cuando importa la integridad de los datos.</li><li>si `Mode=EncryptAndSign`: firma y cifra el mensaje.</li></ul></li></ul><p>Considere la posibilidad de desactivar el cifrado y solo firmar el mensaje cuando únicamente necesite validar la integridad de la información sin necesidad de preocuparse por la confidencialidad. Esto puede resultar útil para operaciones o contratos de servicio en los que se debe validar el remitente original pero no se transmiten datos confidenciales. Al reducir el nivel de protección, asegúrese de que el mensaje no contenga datos personales.</p>|
 
 ### <a name="example"></a>Ejemplo
 En los siguientes ejemplos, se muestra cómo configurar el servicio y la operación para que solo se firme el mensaje. Ejemplo de contrato de servicio de `ProtectionLevel.Sign`: el siguiente es un ejemplo del uso de ProtectionLevel.Sign en el nivel de contrato de servicio: 

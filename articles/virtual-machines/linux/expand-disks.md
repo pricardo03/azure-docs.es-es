@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f892857d74150ee42cc2ea4b5c996feac3d1cfa2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695609"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828409"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
@@ -142,4 +142,4 @@ Para usar el disco expandido, expanda la partición y el sistema de archivos sub
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si necesita almacenamiento adicional, también puede [agregar discos de datos a una VM Linux](add-disk.md). 
-* Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).
+* Para más información acerca del cifrado de discos, consulte [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-overview.md).

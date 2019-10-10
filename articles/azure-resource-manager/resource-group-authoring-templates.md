@@ -4,14 +4,14 @@ description: Describe la estructura y las propiedades de plantillas de Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984094"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694974"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -75,7 +75,7 @@ Las propiedades disponibles para un parámetro son:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | nombre-del-parámetro |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| type |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. Consulte [Tipos de datos](#data-types). |
 | defaultValue |Sin |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
@@ -85,6 +85,18 @@ Las propiedades disponibles para un parámetro son:
 | description |Sin |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](#comments). |
 
 Para ejemplos de cómo usar los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
+
+### <a name="data-types"></a>Tipos de datos
+
+En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar una plantilla, los tipos de enteros pueden oscilar entre -2 147 483 648 y 2 147 483 647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](resource-manager-parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
+
+Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles.
+
+Los objetos comienzan con una llave de apertura y terminan con una llave de cierre. Las matrices comienzan con un corchete de apertura y terminan con un corchete de cierre.
+
+Las cadenas seguras y los objetos seguros no se pueden leer después de la implementación de recursos.
+
+Para obtener ejemplos de tipos de datos de formato, consulte [Formatos de tipo de parámetro](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## <a name="variables"></a>variables
 
@@ -123,7 +135,7 @@ Para ejemplos de cómo usar las variables, consulte [Variables en plantillas de 
 
 ## <a name="functions"></a>Functions
 
-Dentro de la plantilla, puede crear sus propias funciones. Estas funciones están disponibles para su uso en la plantilla. Normalmente, definirá una expresión compleja que no desea repetir en toda la plantilla. Creará las funciones definidas por el usuario a partir de las expresiones y [funciones](resource-group-template-functions.md) que se admiten en las plantillas.
+Dentro de la plantilla, puede crear sus propias funciones. Estas funciones están disponibles para su uso en la plantilla. Normalmente, definirá expresiones complejas que no desea repetir en toda la plantilla. Creará las funciones definidas por el usuario a partir de las expresiones y [funciones](resource-group-template-functions.md) que se admiten en las plantillas.
 
 Al definir una función de usuario, hay algunas restricciones:
 

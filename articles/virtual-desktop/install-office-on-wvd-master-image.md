@@ -1,18 +1,18 @@
 ---
 title: 'Instalación de Office en la imagen de un disco duro virtual maestro: Azure'
-description: Cómo instalar y personalizar Office en una imagen maestra de Windows Virtual Desktop (versión preliminar) en Azure.
+description: Cómo instalar y personalizar Office en una imagen maestra de Windows Virtual Desktop en Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816432"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679513"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalación de Office en la imagen de un disco duro virtual principal
 
@@ -23,7 +23,7 @@ En este artículo se da por supuesto que ya ha creado una máquina virtual (VM).
 En este artículo también se da por supuesto que ha concedido privilegios de acceso elevados sobre la máquina virtual sin importar si está aprovisionada en Azure o en Hyper-V Manager. Si no es así, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Estas instrucciones son específicas de una configuración de Windows Virtual Desktop (versión preliminar) concreta que se puede usar con los procesos existentes de su organización.
+>Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalación de Office en modo de activación en equipos compartidos
 
@@ -45,7 +45,7 @@ Este archivo XML de configuración de ejemplo que hemos proporcionado hará lo s
 - Habilitar la activación en equipos compartidos.
 
 >[!NOTE]
->La característica de búsqueda de galería de símbolos de Visio no funcionará en Windows Virtual Desktop durante la configuración de la versión preliminar.
+>Es posible que la característica de búsqueda de la galería de símbolos de Visio no funcione como se esperaba en Windows Virtual Desktop.
 
 Esto es lo que el archivo XML de configuración de ejemplo no hará:
 

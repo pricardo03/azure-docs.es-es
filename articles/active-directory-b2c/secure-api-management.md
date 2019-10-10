@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c42959d46aa522042275456a87e590f9e009348
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183068"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717163"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -203,17 +203,17 @@ Si ve el código de estado `401`, habrá comprobado que solo los autores de llam
 
 ## <a name="support-multiple-applications-and-issuers"></a>Compatibilidad con varias aplicaciones y emisores
 
-Normalmente, interactúan varias aplicaciones con una sola API REST. Para permitir que varias aplicaciones llamen a la API, agregue los identificadores de aplicación al elemento `<audiences>` de la directiva de entrada de APIM.
+Normalmente, interactúan varias aplicaciones con una sola API REST. Para permitir que la API acepte los tokens destinados a varias aplicaciones, agregue sus identificadores de aplicación al elemento `<audiences>` de la directiva de entrada de APIM.
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-Del mismo modo, para admitir varios emisores de tokens, agregue los identificadores URI del punto de conexión al elemento `<audiences>` de la directiva de entrada de APIM.
+Del mismo modo, para admitir varios emisores de tokens, agregue los identificadores URI del punto de conexión al elemento `<issuers>` de la directiva de entrada de APIM.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->

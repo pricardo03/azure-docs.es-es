@@ -7,16 +7,16 @@ author: stephbaron
 ms.author: stbaron
 ms.service: service-health
 ms.date: 06/11/2019
-ms.openlocfilehash: 91f8ae72d1926c8b7ce9097947afe5ca99a153c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a902fab7cfea574c9eb2a3e9411d3cca0920f56
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073536"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709905"
 ---
 # <a name="azure-status-overview"></a>Información general del estado de Azure
 
-[Estado de Azure](https://status.azure.com/status/) proporciona una visión global del estado de los servicios y regiones de Azure. Con el estado de Azure, puede obtener información actualizada sobre la disponibilidad del servicio. El estado de Azure está disponible para que todos los usuarios puedan ver todos los servicios que informan del estado del servicio, así como los incidentes con gran impacto. Sin embargo, si es un usuario de Azure actual, se recomienda encarecidamente utilizar la experiencia personalizada de [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health incluye información acerca de todas las interrupciones, las próximas actividades de mantenimiento planeado y las advertencias de servicio.
+[Estado de Azure](https://status.azure.com/status/) proporciona una visión global del estado de los servicios y regiones de Azure. Con el estado de Azure, puede obtener información sobre la disponibilidad del servicio. El estado de Azure está disponible para que todos los usuarios puedan ver todos los servicios que informan del estado del servicio, así como los incidentes con gran impacto. Sin embargo, si es un usuario de Azure actual, se recomienda encarecidamente utilizar la experiencia personalizada de [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health incluye información acerca de todas las interrupciones, las próximas actividades de mantenimiento planeado y las advertencias de servicio.
 
 ![Página de estado de Azure](./media/azure-status-overview/azure-status.PNG)
 

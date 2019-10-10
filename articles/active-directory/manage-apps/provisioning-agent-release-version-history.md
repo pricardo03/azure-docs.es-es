@@ -16,15 +16,15 @@ ms.date: 04/05/2019
 ms.subservice: app-mgmt
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de6ef5dedb0779536cfbc1e6a3440e748ff78524
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2ce9549765f6a912b3e95f99d11da20347b82ad8
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326462"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de aprovisionamiento de Azure AD Connect: Historial de lanzamiento de versiones
-En este artículo se enumeran las versiones y características del agente de aprovisionamiento de Azure AD Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. Los agentes de aprovisionamiento se actualizan de forma automática cuando se publica una nueva versión. 
+En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. El agente de aprovisionamiento se actualiza de forma automática cuando se publica una nueva versión. 
 
 Se recomienda habilitar la actualización automática de los agentes para estar seguro de que cuenta con las características y correcciones de errores más recientes. Microsoft proporciona soporte técnico directo para la versión más reciente del agente y una versión anterior.
 
@@ -37,12 +37,12 @@ Se recomienda habilitar la actualización automática de los agentes para estar 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
 * Capacidad de configurar el seguimiento y el registro adicionales para depurar problemas del agente de aprovisionamiento
-* Capacidad de capturar solo los atributos de AD configurados en la asignación para mejorar el rendimiento de la sincronización
+* Capacidad de capturar solo los atributos de Azure AD configurados en la asignación para mejorar el rendimiento de la sincronización
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
-* Se corrigió un error en el que el agente dejaba de responder si había problemas de conexión con AD.
-* Se corrigió un error que causaba problemas cuando se leían datos binarios de Active Directory.
+* Se corrigió un error que hacía que el agente dejara de responder si había problemas de conexión con Azure AD.
+* Se corrigió un error que causaba problemas cuando se leían datos binarios de Azure Active Directory.
 * Se corrigió un error por el que el agente no podía renovar la confianza con el servicio de identidad híbrida en la nube.
 
 ## <a name="11300"></a>1.1.30.0

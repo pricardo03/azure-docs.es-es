@@ -1,22 +1,22 @@
 ---
-title: Creación de un grupo de hosts de Windows Virtual Desktop, versión preliminar, con una plantilla de Azure Resource Manager - Azure
-description: Cómo crear un grupo de hosts en Windows Virtual Desktop, versión preliminar, con una plantilla de Azure Resource Manager.
+title: 'Creación de un grupo de hosts de Windows Virtual Desktop con una plantilla de Azure Resource Manager: Azure'
+description: Cómo crear un grupo de hosts en Windows Virtual Desktop con una plantilla de Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 27fe19c2b1f92b67e02b4e09d5fcd607759d8abd
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163737"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679608"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
 
-Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilinos de Windows Virtual Desktop (versión preliminar). Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
 Siga las instrucciones de esta sección para crear un grupo de hosts de un inquilino de Windows Virtual Desktop con una plantilla de Azure Resource Manager proporcionada por Microsoft. En este artículo se explica cómo crear un grupo de hosts en Windows Virtual Desktop, cómo crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, cómo unir esas máquinas virtuales al dominio de AD y cómo registrar las máquinas virtuales con Windows Virtual Desktop.
 

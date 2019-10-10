@@ -1,6 +1,6 @@
 ---
-title: Uso de las funcionalidades de Cognitive en U-SQL para Azure Data Lake Analytics
-description: Obtenga información sobre cómo usar la inteligencia de las funcionalidades de Cognitive en U-SQL
+title: Funcionalidades de Cognitive en U-SQL para Azure Data Lake Analytics
+description: Aprenda a usar la inteligencia de las funcionalidades de Cognitive en U-SQL. Estos ejemplos de código le ayudarán a empezar.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812892"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672708"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introducción a las funcionalidades de Cognitive de U-SQL
 

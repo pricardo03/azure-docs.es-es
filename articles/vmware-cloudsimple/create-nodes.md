@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972882"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828177"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Aprovisionamiento de nodos de la solución de VMware en Azure de CloudSimple
 
@@ -40,7 +40,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 7. Escriba el prefijo para identificar los nodos.
 8. Seleccione la ubicación de los recursos de los nodos.
 9. Seleccione la ubicación dedicada en la que hospedar los recursos de los nodos.
-10. Seleccione el tipo de nodo. Puede elegir entre las [opciones CS28 o CS36](cloudsimple-node.md). Esta última opción incluye la capacidad de proceso y memoria máxima.
+10. Seleccione el [tipo de nodo](cloudsimple-node.md).
 11. Seleccione el número de nodos que quiere aprovisionar.
 12. Seleccione **Revisar + crear**.
 13. Revise la configuración. Para modificar la configuración, haga clic en **Anterior**.

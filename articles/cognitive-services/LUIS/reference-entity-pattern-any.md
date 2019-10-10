@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: cda6c724a36a73dc34c2bf8e7158e3e3ec92d46b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563220"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695089"
 ---
 # <a name="patternany-entity"></a>Entidad Pattern.any 
 
@@ -41,48 +41,70 @@ En la tabla siguiente, cada fila tiene dos versiones de la declaración. La expr
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>¿El libro **¡Hay un molillo en mi bolsillo!** lo escribió un autor americano este año?|
 ||
 
+
+
 ## <a name="example-json"></a>Ejemplo de JSON
 
+Considere la siguiente consulta:
+
+`where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+Con el nombre del formulario incrustado que se va a extraer como Pattern.any:
+
+`Understand your responsibilities as a member of the community`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+
 ```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
+"entities": [
+  {
+    "entity": "understand your responsibilities as a member of the community",
+    "type": "FormName",
+    "startIndex": 18,
+    "endIndex": 78,
+    "role": ""
+  }
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+
+Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ]
 }
 ```
+
+Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ],
+    "$instance": {
+        "FormName": [
+            {
+                "type": "FormName",
+                "text": "Understand your responsibilities as a member of the community",
+                "startIndex": 18,
+                "length": 61,
+                "modelTypeId": 7,
+                "modelType": "Pattern.Any Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764959"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812567"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recopilación de datos de CollectD en agentes de Linux en Azure Monitor
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Azure Monitor.
@@ -69,6 +69,8 @@ El agente de Log Analytics para Linux también escucha en el puerto 26000 las m�
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> CollectD se configura de forma predeterminada para leer valores a un [intervalo](https://collectd.org/wiki/index.php/Interval) de 10 segundos. Como esto afecta directamente al volumen de datos que se envían a los registros de Azure Monitor, puede que tenga que ajustar este intervalo dentro de la configuración de CollectD para lograr un buen equilibrio entre los requisitos de supervisión y los costos y el uso asociados de los registros de Azure Monitor.
 
 ## <a name="versions-supported"></a>Versiones admitidas
 - En la actualidad, Azure Monitor admite CollectD 4.8 y versiones superiores.
@@ -112,7 +114,7 @@ Para mantener un modelo conocido entre las métricas de infraestructura ya recop
 
 | Campo de métrica de CollectD | Campo de Azure Monitor |
 |:--|:--|
-| `host` | Equipo |
+| `host` | Computer |
 | `plugin` | None |
 | `plugin_instance` | Nombre de instancia<br>Si **plugin_instance** es *null*, entonces InstanceName =" *_Total*". |
 | `type` | ObjectName |

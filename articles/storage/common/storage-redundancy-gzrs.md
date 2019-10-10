@@ -3,17 +3,17 @@ title: Creación de aplicaciones de Azure Storage de alta disponibilidad en alma
 description: El almacenamiento con redundancia de zona geográfica (GZRS) combina la alta disponibilidad del almacenamiento con redundancia de zona (ZRS) con protección frente a las interrupciones regionales según lo proporcionado por el almacenamiento con redundancia geográfica (GRS). Los datos de una cuenta de almacenamiento de GZRS se replican en las zonas de disponibilidad de Azure en la región primaria y también en una región geográfica secundaria para la protección frente a desastres regionales.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300646"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720355"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
@@ -21,7 +21,7 @@ El almacenamiento con redundancia de zona geográfica (GZRS) (versión prelimina
 
 Con una cuenta de almacenamiento de GZRS, puede seguir leyendo y escribiendo datos si una zona de disponibilidad deja de estar disponible o es irrecuperable. Además, los datos se mantienen en caso de un apagón regional completo o un desastre del cual la región primaria no se puede recuperar. GZRS está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (dieciséis nueves) de los objetos en un año determinado. GZRS también ofrece los mismos [objetivos de escalabilidad](storage-scalability-targets.md) que LRS, ZRS, GRS o RA-GRS. Opcionalmente, puede habilitar el acceso de lectura a los datos de la región secundaria con almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) si es necesario que las aplicaciones puedan leer datos en caso de que se produzca un desastre en la región primaria.
 
-Microsoft recomienda el uso de GZRS para las aplicaciones que requieren coherencia, durabilidad, alta disponibilidad, rendimiento excelente y resistencia para la recuperación ante desastres. Para la seguridad adicional de acceso de lectura a la región secundaria en caso de un desastre regional, habilite RA-GZRS para la cuenta de almacenamiento.
+Microsoft recomienda el uso de GZRS en aplicaciones que requieran coherencia, durabilidad, alta disponibilidad, rendimiento excelente y resistencia para la recuperación ante desastres. Para la seguridad adicional de acceso de lectura a la región secundaria en caso de un desastre regional, habilite RA-GZRS para la cuenta de almacenamiento.
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
@@ -55,7 +55,7 @@ Al crear una cuenta de almacenamiento, especifique cómo se van a replicar los d
 
 Cuando se habilita RA-GZRS para la cuenta de almacenamiento, los datos se pueden leer desde el punto de conexión secundario y desde el punto de conexión principal de la cuenta de almacenamiento. El punto de conexión secundario anexa el sufijo  *–secondary*  al nombre de la cuenta. Por ejemplo, si el punto de conexión principal de Blob service es  `myaccount.blob.core.windows.net`, el punto de conexión secundario es  `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta de almacenamiento son iguales para los extremos principal y secundario.
 
-Para aprovechar las ventajas de RA-GZRS en caso de una interrupción regional, debe diseñar la aplicación de antemano para controlar este escenario. La aplicación debe leer y escribir en el punto de conexión principal, pero cambie al uso del punto de conexión secundario en caso de que la región primaria deje de estar disponible. Para obtener instrucciones sobre cómo diseñar la alta disponibilidad con RA-GZRS, consulte  [Diseño de aplicaciones de alta disponibilidad mediante RA-GZRS o RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+Para aprovechar las ventajas de RA-GZRS en caso de una interrupción regional, debe diseñar la aplicación de antemano para controlar este escenario. La aplicación debe leer y escribir en el punto de conexión principal, pero cambie al uso del punto de conexión secundario en caso de que la región primaria deje de estar disponible. Para obtener instrucciones sobre cómo diseñar la alta disponibilidad con RA-GZRS, consulte  [Diseño de aplicaciones de alta disponibilidad mediante RA-GZRS o RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Dado que los datos se replican en la región secundaria de forma asincrónica, la región secundaria suele estar detrás de la región primaria. Para determinar qué operaciones de escritura se han replicado en la región secundaria, la aplicación comprueba la hora de la última sincronización de la cuenta de almacenamiento. Todas las operaciones de escritura escritas en la región primaria antes de la hora de la última sincronización se han replicado correctamente en la región secundaria, lo que significa que están disponibles para leerse desde la región secundaria. Las operaciones de escritura escritas en la región primaria después de la hora de la última sincronización puede que se hayan replicado o no en la región secundaria, lo que significa que es posible que no estén disponibles para las operaciones de lectura.
 

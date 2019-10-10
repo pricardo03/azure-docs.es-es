@@ -1,6 +1,6 @@
 ---
 title: Administración de directivas de Azure Data Lake Analytics
-description: Aprenda a usar directivas para controlar el uso de una cuenta de Data Lake Analytics.
+description: Aprenda a usar directivas para controlar el uso de una cuenta de Data Lake Analytics, como las unidades de análisis y los trabajos máximos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97b736d854661600a847b1d698af8f15ae58d237
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813428"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672861"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Administración de Azure Data Lake Analytics mediante directivas
 

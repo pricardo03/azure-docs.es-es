@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60233033"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827598"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
 En este tema, se explica cómo realizar tareas de administración, como [reiniciar](#reboot) y [programar actualizaciones](#schedule-updates), en las instancias de Azure Cache for Redis.
@@ -83,7 +83,7 @@ Sí. Para ver instrucciones de PowerShell, consulte [Reinicio de una instancia d
 El reinicio está disponible para todos los planes de tarifas.
 
 ## <a name="schedule-updates"></a>Programar actualizaciones
-La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la memoria caché de nivel Premium. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. 
+La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la instancia de caché. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. 
 
 > [!NOTE] 
 > El período de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a las actualizaciones de Azure o del sistema operativo de las máquinas virtuales que hospedan la caché.
@@ -101,7 +101,6 @@ La ventana de mantenimiento predeterminada, y mínima, para las actualizaciones 
 * [¿Cuándo se realizan las actualizaciones si no se usa la característica de programación de actualizaciones?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [¿Qué tipo de actualizaciones se actualizan durante el período programado de mantenimiento?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>¿Cuándo se realizan las actualizaciones si no se usa la característica de programación de actualizaciones?
 Si no especifica un período de mantenimiento, las actualizaciones pueden realizarse en cualquier momento.
@@ -116,9 +115,6 @@ Sí, puede administrar sus actualizaciones programadas con los siguientes cmdlet
 * [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
-
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?
-La característica **Programación de actualizaciones** solo está disponible en el plan de tarifa Premium.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre las características del [nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md).

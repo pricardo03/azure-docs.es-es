@@ -36,3 +36,5 @@
   items:
     - name: Abrir una incidencia de soporte técnico
       href: hpc-cache-support-ticket.md
+    - name: Recuperación de una interrupción regional
+      href: hpc-region-recovery.md

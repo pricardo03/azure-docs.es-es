@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624636"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703368"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
 
@@ -61,6 +61,12 @@ ms.locfileid: "69624636"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Se ha agregado .NET Standard 2.0 como una de las plataformas de destino admitidas para que la biblioteca Bulk Executor funcione con las aplicaciones .NET Core.
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Se ha corregido el consumo elevado de CPU en ciertos escenarios.
+* El seguimiento ahora utiliza TraceSource. Los usuarios pueden definir clientes de escucha para el origen `BulkExecutorTrace`.
+* Se ha corregido un escenario poco frecuente que podía provocar un bloqueo al enviar documentos de aproximadamente 2 MB de tamaño.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

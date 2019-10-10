@@ -1,22 +1,22 @@
 ---
-title: Configuración de la GPU para Windows Virtual Desktop, versión preliminar - Azure
-description: Cómo habilitar la representación y codificación de aceleración por GPU en la versión preliminar de Windows Virtual Desktop.
+title: Configuración de GPU para Windows Virtual Desktop (Azure)
+description: Cómo habilitar la representación y codificación de aceleración por GPU en Windows Virtual Desktop.
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: b6a4811f685803ecdc079a690d550618c071c4a6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620189"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679600"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-preview"></a>Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop, versión preliminar
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
-La versión preliminar de Windows Virtual Desktop admite la representación y codificación de aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
+Windows Virtual Desktop admite la representación y codificación de la aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
 
 Siga las instrucciones de este artículo para crear una máquina virtual de Azure optimizada para GPU, agregarla al grupo host y configurarla para usar la aceleración de GPU para la representación y la codificación. En este artículo se da por supuesto que ya tiene configurado un inquilino de Windows Virtual Desktop.
 
@@ -28,21 +28,21 @@ Azure ofrece varios [tamaños de máquinas virtuales optimizadas para GPU](/azur
 
 Cree un nuevo grupo host con una máquina virtual del tamaño que ha seleccionado. Para obtener instrucciones, consulte: [Tutorial: Creación de un grupo host con Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
-La versión preliminar de Windows Virtual Desktop admite la representación y la codificación de aceleración por GPU en los siguientes sistemas operativos:
+Windows Virtual Desktop admite la representación y la codificación de la aceleración de GPU en los siguientes sistemas operativos:
 
 * Windows 10, versión 1511 o posterior
 * Windows Server 2016 o posterior
 
-También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para la versión preliminar de Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
 
 >[!NOTE]
->La versión preliminar de Windows Virtual Desktop solo admite el tipo de grupo de aplicaciones "Escritorio" para los grupos host habilitados para GPU. No se admiten los grupos de aplicaciones del tipo "RemoteApp" para los grupos host habilitados para GPU.
+>Windows Virtual Desktop solo admite el tipo de grupo de aplicaciones "Escritorio" para los grupos de hosts con la GPU habilitada. No se admiten los grupos de aplicaciones del tipo "RemoteApp" para los grupos host habilitados para GPU.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalación de los controladores de gráficos admitidos en la máquina virtual
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en la versión preliminar de Windows Virtual Desktop, debe instalar los controladores de gráficos NVIDIA. Siga las instrucciones de [Instalación de controladores de GPU NVIDIA en máquinas virtuales de la serie N que ejecutan Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar controladores, ya sea manualmente o mediante la [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos NVIDIA. Siga las instrucciones de [Instalación de controladores de GPU NVIDIA en máquinas virtuales de la serie N que ejecutan Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar controladores, ya sea manualmente o mediante la [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
 
-Tenga en cuenta que, para la versión preliminar de Windows Virtual Desktop, solo se admiten los [controladores GRID de NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuidos por Azure.
+Tenga en cuenta que Windows Virtual Desktop solo se admiten los [controladores GRID de NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuidos por Azure.
 
 Tras instalar los controladores, es necesario reiniciar la máquina virtual. Utilice los pasos de comprobación en las instrucciones anteriores para confirmar que los controladores de gráficos se han instalado correctamente.
 

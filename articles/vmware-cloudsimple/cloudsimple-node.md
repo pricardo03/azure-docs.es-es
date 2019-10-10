@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8778a8bc27995cc9d0969762b6897f6cac0283a2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877699"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828894"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Introducción a los nodos CloudSimple
 
@@ -36,19 +36,20 @@ Los nodos comprados proporcionan capacidad de pago por uso. Al comprar nodos, pu
 
 Los siguientes tipos de nodos están disponibles para comprar o reservar.
 
-| SKU | Nodo CS28 | Nodo CS36 |
-|-----|-------------|-------------|
-| CPU | 2 × 2,2 GHz, 28 núcleos (56 HT) | 2 × 2,3 GHz, 36 núcleos (72 HT) |
-| RAM | 256 GB | 512 GB |
-| Disco de caché |  1,6 TB NVMe | 3,2 TB NVMe |
-| Disco de capacidad | 5,625 TB sin formato | 11,25 TB sin formato |
-| Tipo de almacenamiento | All Flash | All Flash |
+| SKU           | Nodo CS28                 | Nodo CS36                 | Nodo CS36m                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Region        | Este de EE. UU., Oeste de EE. UU.            | Este de EE. UU., Oeste de EE. UU.            | Europa occidental                 |
+| CPU           | 2 × 2,2 GHz, 28 núcleos (56 HT) | 2 × 2,3 GHz, 36 núcleos (72 HT) | 2 × 2,3 GHz, 36 núcleos (72 HT) |
+| RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
+| Disco de caché    | 1,6 TB NVMe                 | 3,2 TB NVMe                 | 3,2 TB NVMe                 |
+| Disco de capacidad | 5,625 TB sin formato                | 11,25 TB sin formato                | 13,36 TB sin formato                |
+| Tipo de almacenamiento  | All Flash                   | All Flash                   | All Flash                   |
 
 ## <a name="limits"></a>límites
 
 Se aplican los siguientes límites de nodo a las nubes privadas.
 
-| Recurso | Límite |
+| Resource | Límite |
 |----------|-------|
 | Número mínimo de nodos para crear una nube privada | 3 |
 | Número máximo de nodos en un clúster en una nube privada | 16 |

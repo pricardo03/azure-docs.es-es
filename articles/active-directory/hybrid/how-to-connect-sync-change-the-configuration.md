@@ -16,20 +16,20 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244024"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672966"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
 
 > [!WARNING]
-> Si realiza cambios en las reglas de sincronización predeterminadas, estos cambios se sobrescribirán la próxima vez que se actualice Azure AD Connect, lo que provocará resultados de sincronización inesperados y, probablemente, no deseados.
+> Si realiza cambios en las reglas de sincronización predeterminadas listas para usar, se sobrescribirán la próxima vez que se actualice Azure AD Connect, lo que provocará resultados de sincronización inesperados y, probablemente, no deseados.
 >
-> Las reglas de sincronización listas para usar tienen una huella digital. Si realiza un cambio en estas reglas, la huella digital ya no coincidirá. Es posible que tenga problemas en el futuro cuando intente aplicar una nueva versión de Azure AD Connect. Realiza únicamente cambios cómo se describe en este artículo.
+> Las reglas de sincronización predeterminadas listas para usar tienen una huella digital. Si realiza un cambio en estas reglas, la huella digital ya no coincidirá. Es posible que tenga problemas en el futuro cuando intente aplicar una nueva versión de Azure AD Connect. Realiza únicamente cambios cómo se describe en este artículo.
 
 ## <a name="synchronization-rules-editor"></a>Editor de reglas de sincronización
 El editor de reglas de sincronización se utiliza para ver y cambiar la configuración predeterminada. Puede encontrarlo en el menú **Inicio** en el grupo **Azure AD Connect**.  

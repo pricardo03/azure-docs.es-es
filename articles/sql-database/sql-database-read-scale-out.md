@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566959"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812382"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Uso de réplicas de solo lectura para equilibrar las cargas de trabajo de las consultas de solo lectura
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En la [arquitectura de alta disponibilidad](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), cada base de datos del nivel de servicio Premium, Crítico para la empresa o Hiperescala se aprovisiona automáticamente con una réplica principal y varias réplicas secundarias. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica **Escalado horizontal de lectura** le permite equilibrar las cargas de trabajo de solo lectura de Azure SQL Database utilizando la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de lectura y escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. Utilizar esta capacidad extra puede beneficiar al rendimiento y sin entrañar ningún costo adicional.
+En la [arquitectura de alta disponibilidad](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), cada base de datos del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal y varias réplicas secundarias. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica **Escalado horizontal de lectura** le permite equilibrar las cargas de trabajo de solo lectura de Azure SQL Database utilizando la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de lectura y escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
+
+La característica **Escalado horizontal de lectura** también está disponible en el nivel de servicio Hiperescala cuando se crea al menos una réplica secundaria. Se pueden usar varias réplicas secundarias si las cargas de trabajo de solo lectura requieren más recursos de los disponibles en una réplica secundaria. La arquitectura de alta disponibilidad de los niveles de servicio Básico, Estándar y De uso general no incluye réplicas. La característica **Escalado horizontal de lectura** no está disponible en estos niveles de servicio.
 
 En el diagrama siguiente, se muestra un ejemplo con una base de datos de nivel Crítico para la empresa.
 
 ![Réplicas de solo lectura](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La característica Escalado horizontal de lectura está habilitada de forma predeterminada en las nuevas bases de datos de nivel Premium, Crítico para la empresa e Hiperescala. Si la cadena de conexión SQL está configurada con `ApplicationIntent=ReadOnly`, la aplicación se redirigirá por la puerta de enlace a una réplica de solo lectura de esa base de datos. Para más información sobre la propiedad `ApplicationIntent`, consulte [Especificar el intento de la aplicación](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+La característica Escalado horizontal de lectura está habilitada de forma predeterminada en las nuevas bases de datos de nivel Premium, Crítico para la empresa e Hiperescala. En el caso de Hiperescala, se crea una réplica secundaria de forma predeterminada para las bases de datos nuevas. Si la cadena de conexión SQL está configurada con `ApplicationIntent=ReadOnly`, la aplicación se redirigirá por la puerta de enlace a una réplica de solo lectura de esa base de datos. Para más información sobre la propiedad `ApplicationIntent`, consulte [Especificar el intento de la aplicación](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Si desea asegurarse de que la aplicación se conecta a la réplica principal sin tener en cuenta el valor `ApplicationIntent` de la cadena de conexión SQL, debe deshabilitar explícitamente el escalado horizontal de lectura cuando cree la base de datos o modifique su configuración. Por ejemplo, si actualiza una base de datos de nivel Estándar o De uso General al nivel Premium, Crítico para la empresa o Hiperescala y desea asegurarse de que todas las conexiones siguen estableciéndose con la réplica principal, deshabilite el escalado horizontal de lectura. Para más información acerca de cómo deshabilitarlo, consulte [Habilitar y deshabilitar el escalado horizontal de lectura](#enable-and-disable-read-scale-out).
 

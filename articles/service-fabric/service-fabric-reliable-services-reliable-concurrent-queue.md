@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599256"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350275"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
 La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) y, en su lugar, proporciona la ordenación de mejor esfuerzo.
@@ -45,12 +45,19 @@ Un ejemplo de caso de uso de ReliableConcurrentQueue es el escenario de la [cola
 * La cola no garantiza la ordenación FIFO estricta.
 * La cola no lee sus propias escrituras. Si un elemento se pone en cola dentro de una transacción, no será visible para un operador de eliminación de la cola dentro de la misma transacción.
 * Las eliminaciones de la cola no están aisladas entre sí. Si el elemento *A* se quita de la cola en la transacción *txnA*, aunque la transacción *txnA* no esté confirmada, el elemento *A* no será visible en una transacción simultánea *txnB*.  Si *txnA* se anula, *A* pasará a ser visible para *txnB* inmediatamente.
-* Para implementar el comportamiento de *TryPeekAsync*, se puede usar un método *TryDequeueAsync* y, a continuación, anular la transacción. Un ejemplo de esto se puede encontrar en la sección Modelos de programación.
+* Para implementar el comportamiento de *TryPeekAsync*, se puede usar un método *TryDequeueAsync* y, a continuación, anular la transacción. Un ejemplo de este comportamiento se puede encontrar en la sección Modelos de programación.
 * El recuento es no transaccional. Se puede usar para hacerse una idea del número de elementos en la cola, pero representa un punto en el tiempo y no es confiable.
 * No puede debe realizar un procesamiento costoso en los elementos quitados de la cola mientras la transacción esté activa, a fin de evitar transacciones de ejecución larga que podrían afectar al rendimiento del sistema.
 
 ## <a name="code-snippets"></a>Fragmentos de código
 Echemos un vistazo a algunos fragmentos de código y a sus resultados esperados. El control de excepciones se omite en esta sección.
+
+### <a name="instantiation"></a>Creación de una instancia
+La creación de una instancia de una cola simultánea de confianza es similar a la de cualquier otra colección de confianza.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
 
 ### <a name="enqueueasync"></a>EnqueueAsync
 A continuación, se muestran algunos fragmentos de código para usar EnqueueAsync, seguido de los resultados previstos.
@@ -174,7 +181,7 @@ Lo mismo puede decirse en todos los casos en que la transacción no se *confirm�
 En esta sección, vamos a echar un vistazo a algunos modelos de programación que podrían resultar útiles para usar ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Eliminaciones de la cola por lotes
-Un modelo de programación recomendado para la tarea de consumidor es realizar eliminaciones de la cola por lotes en lugar de realizarlas de una en una. El usuario puede elegir limitar los retrasos entre los lotes o el tamaño del lote. El siguiente fragmento de código muestra este modelo de programación.  Tenga en cuenta que, en este ejemplo, el procesamiento se realiza tras confirmarse la transacción. Por tanto, si se produce un error durante el procesamiento, los elementos no procesados se perderán sin procesarse.  Como alternativa, el procesamiento puede realizarse en el ámbito de la transacción, aunque esto puede tener un impacto negativo en el rendimiento y requiere que la administración de los elementos ya se haya procesado.
+Un modelo de programación recomendado para la tarea de consumidor es realizar eliminaciones de la cola por lotes en lugar de realizarlas de una en una. El usuario puede elegir limitar los retrasos entre los lotes o el tamaño del lote. El siguiente fragmento de código muestra este modelo de programación. Tenga en cuenta que, en este ejemplo, el procesamiento se realiza tras confirmarse la transacción. Por tanto, si se produce un error durante el procesamiento, los elementos no procesados se perderán sin procesarse.  Como alternativa, el procesamiento puede realizarse en el ámbito de la transacción, aunque esto puede tener un impacto negativo en el rendimiento y requiere que la administración de los elementos ya se haya procesado.
 
 ```
 int batchSize = 5;
@@ -337,7 +344,7 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 ## <a name="must-read"></a>Lecturas obligatorias
-* [Inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
+* [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Trabajo con Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)

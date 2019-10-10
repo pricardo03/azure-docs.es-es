@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceefb565a82301d2ddedf70d12c0fc564b801229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d3c810746218e9761ae4c821dc22fef921e62a60
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101208"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719064"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -67,7 +67,7 @@ Implemente las máquinas virtuales en Azure mediante:
 También puede implementar una plataforma SAP HANA completamente instalada en los servicios de máquina virtual de Azure a través de la [plataforma en la nube de SAP](https://cal.sap.com/). El proceso de instalación se describe en [Implementación de SAP S/4HANA o BW/4HANA en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h), o con la automatización publicada [aquí](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
-> Para usar máquinas virtuales M208xx_v2, es preciso seleccionar la imagen de SUSE Linux en la galería de imágenes de máquina virtual de Azure. Para leer los detalles, consulte el artículo [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat aún no se admite para el uso de HANA en máquinas virtuales de la familia Mv2. Planificación actual es proporcionar compatibilidad con las versiones de Red Hat que usan HANA en la familia de máquinas virtuales Mv2 en el cuarto trimestre de 2019 
+> Para usar máquinas virtuales M208xx_v2, es preciso seleccionar la imagen de Linux en la galería de imágenes de máquina virtual de Azure. Para leer los detalles, consulte el artículo [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
 > 
 
 
@@ -139,10 +139,8 @@ De la certificación de escalabilidad horizontal de dieciséis nodos
 >En las implementaciones de escalabilidad horizontal de máquinas virtuales de Azure no existe la posibilidad de usar un nodo en espera.
 >
 
-Hay dos razones por las que no se puede configurar un nodo en espera:
+Aunque Azure tiene un servicio NFS nativo con [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), el servicio NFS, aunque se admite para el nivel de aplicación de SAP, todavía no está certificado para SAP HANA. Esto implica que los recursos compartidos NFS todavía deben configurarse con la ayuda de una funcionalidad de terceros. 
 
-- En este momento, Azure no tiene un servicio NFS nativo. Como resultado, los recursos compartidos de NFS deben configurarse con la ayuda de una funcionalidad de terceros.
-- Ninguna de las configuraciones de NFS de terceros es capaz de satisfacer los criterios de latencia de almacenamiento para SAP HANA con sus soluciones implementadas en Azure.
 
 Como resultado, los volúmenes **/hana/data** y **/hana/log** no se pueden compartir. La incapacidad de compartir estos volúmenes de un único nodo impide usar un nodo en espera de SAP HANA en una configuración de escalabilidad horizontal.
 
@@ -152,11 +150,15 @@ Como resultado, el diseño básico de un solo nodo en una configuración de esca
 
 La configuración básica de un nodo de máquina virtual para escalabilidad horizontal de SAP HANA presenta este aspecto:
 
-- Para **/hana/shared**, cree un clúster NFS de alta disponibilidad basado en SUSE Linux 12 SP3. Este clúster hospeda los recursos compartidos NFS de **/hana/shared** de la configuración de escalabilidad horizontal y SAP NetWeaver o BW/4HANA Central Services. La documentación para crear dicha configuración está disponible en el artículo [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+- Para **/hana/shared**, debe crear un recurso compartido NFS de alta disponibilidad. En estos momentos existen diferentes posibilidades para obtener este recurso compartido de alta disponibilidad. Se documentan en combinación con SAP NetWeaver:
+    - [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+    - [GlusterFS en Azure Virtual Machines en Red Hat Enterprise Linux para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+    - [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+    - [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 - Todos los demás volúmenes de disco **NO** se comparten entre los diferentes nodos y **NO** se basan en NFS. Las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log** se proporcionan más adelante en este documento.
 
 >[!NOTE]
->El clúster NFS de alta disponibilidad, como se muestra en los gráficos, hasta ahora, solo se admite con SUSE Linux. Más adelante se va a aconsejar una solución NFS de alta disponibilidad basada en Red Hat.
+>El clúster NFS de alta disponibilidad tal como se muestra en los gráficos se documenta en [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). En la lista anterior se documentan otras posibilidades.
 
 Los tamaños de los volúmenes para los nodos son los mismos que para la escalabilidad horizontal, salvo en el caso de **/hana/shared**. SKU de máquinas virtuales M128s, los tamaños y tipos sugeridos serán estos:
 

@@ -1,19 +1,19 @@
 ---
-title: Procedimientos recomendados de seguridad de Azure Digital Twins | Microsoft Docs
-description: Procedimientos recomendados de seguridad de Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+title: 'Procedimientos recomendados de seguridad: Azure Digital Twins | Microsoft Docs'
+description: Aprenda los procedimientos recomendados de seguridad para Azure Digital Twins y el Internet de las cosas.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/30/2019
+ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656519"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948945"
 ---
 # <a name="security-best-practices"></a>Prácticas recomendadas de seguridad
 
@@ -46,7 +46,7 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > [!div class="checklist"]
 > * Cifre los datos persistentes, guardados o almacenados.
 > * Exija el cambio o la actualización de claves y contraseñas de forma periódica.
-> * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección [Procedimientos recomendados del control de acceso basado en rol](#rbac).
+> * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección [Procedimientos recomendados del control de acceso basado en rol](#role-based-access-control-best-practices).
 > * Considere una topología de red dividida para que los dispositivos de cada red estén aislados de los demás.
 > * Use cifrado seguro. Exija contraseñas largas y use protocolos seguros y autenticación en dos fases.
 
@@ -66,8 +66,6 @@ Azure Digital Twins usa Azure Active Directory para autenticar a los usuarios y 
 > * Compruebe la longitud de tiempo que es válido un token y si un token sigue siendo válido.
 > * Establezca periodos de tiempo adecuados durante los cuales los tokens son válidos.
 > * Actualice los tokens expirados.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Procedimientos recomendados del control de acceso basado en roles
 

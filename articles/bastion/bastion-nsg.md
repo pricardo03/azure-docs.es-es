@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4f99b24435998fc4d0c7ab724c66a318586a80d4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594191"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694940"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion (versión preliminar)
 
@@ -46,7 +46,7 @@ Si aplica grupos de seguridad de red a la subred **AzureBastionSubnet**, permita
 
 * **GatewayManager (solo Resource Manager)** : esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica GatewayManager como valor, el tráfico a GatewayManager se permite o se deniega.  Si va a crear grupos de seguridad de red en AzureBastionSubnet, habilite la etiqueta GatewayManager para el tráfico entrante.
 
-* **AzureCloud (solo Resource Manager)** : esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las direcciones IP públicas del centro de datos. Si especifica AzureCloud como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si quiere permitir el acceso solo a AzureCloud en una región determinada, puede especificarla. Por ejemplo, si solo quiere permitir el acceso a AzureCloud en la región Este de EE. UU., puede especificar AzureCloud.EastUS como etiqueta de servicio. Si va a crear grupos de seguridad de red en AzureBastionSubnet, habilite la etiqueta AzureCloud para el tráfico saliente.
+* **AzureCloud (solo Resource Manager)** : esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las direcciones IP públicas del centro de datos. Si especifica AzureCloud como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si quiere permitir el acceso solo a AzureCloud en una región determinada, puede especificarla. Por ejemplo, si solo quiere permitir el acceso a AzureCloud en la región Este de EE. UU., puede especificar AzureCloud.EastUS como etiqueta de servicio. Si va a crear grupos de seguridad de red en AzureBastionSubnet, habilite la etiqueta AzureCloud para el tráfico saliente. Si abre el puerto 443 de entrada en Internet, no debe habilitar la etiqueta AzureCloud para el tráfico entrante.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

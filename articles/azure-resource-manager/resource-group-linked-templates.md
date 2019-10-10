@@ -4,20 +4,20 @@ description: Describe cómo usar plantillas vinculadas en una plantilla del Admi
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194387"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827347"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
-Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con muchas plantillas relacionadas. La plantilla relacionada puede ser un archivo independiente que está vinculado a partir de la plantilla principal, o bien una plantilla que está anidada dentro de la plantilla principal.
+Para implementar la solución, puede utilizar una sola plantilla o una plantilla principal con muchas plantillas relacionadas. Las plantillas relacionadas pueden ser archivos independientes que están vinculados a partir de la plantilla principal, o bien plantillas que están anidadas dentro de la plantilla principal.
 
-En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos y volver a usar plantillas.
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Estas plantillas se pueden reutilizar fácilmente para otros escenarios.
 
 Al usar plantillas vinculadas, se crea una plantilla principal que recibe los valores de parámetro durante la implementación. La plantilla principal contiene todas las plantillas vinculadas y pasa valores a esas plantillas según sea necesario.
 
@@ -27,7 +27,7 @@ Para obtener un tutorial, consulte [Tutorial: creación de plantillas vinculadas
 > En cuanto a las plantillas vinculadas o anidadas, solo se puede usar el modo de implementación [incremental](deployment-modes.md).
 >
 
-## <a name="link-or-nest-a-template"></a>Vinculación o anidamiento de una plantilla
+## <a name="deployments-resource"></a>Recurso implementaciones
 
 Para crear un vínculo a otra plantilla, agregue un recurso **implementaciones** a la plantilla principal.
 
@@ -47,7 +47,7 @@ Para crear un vínculo a otra plantilla, agregue un recurso **implementaciones**
 
 Las propiedades que se proporcionan para el recurso de implementación varían en función de si va a realizar una vinculación a una plantilla externa o va a anidar una plantilla alineada en la plantilla principal.
 
-### <a name="nested-template"></a>Plantilla anidada
+## <a name="nested-template"></a>Plantilla anidada
 
 Para anidar la plantilla dentro de la plantilla principal, use la propiedad **template** y especifique la sintaxis de la plantilla.
 
@@ -94,9 +94,17 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 
 La plantilla anidada requiere las [mismas propiedades](resource-group-authoring-templates.md) que una plantilla estándar.
 
-### <a name="external-template-and-external-parameters"></a>Plantilla externa y parámetros externos
+## <a name="external-template"></a>Plantilla externa
 
-Para vincular a una plantilla externa y a un archivo de parámetros, utilice **templateLink** y **parametersLink**. Al vincular a una plantilla, el servicio Resource Manager debe tener acceso a ella. No se puede especificar un archivo local o un archivo que solo esté disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+Para vincular una plantilla externa, use la propiedad **templateLink**. No se puede especificar un archivo local o un archivo que solo esté disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Resource Manager debe tener acceso a la plantilla.
+
+Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+
+Puede proporcionar los parámetros de la plantilla externa en un archivo externo o en línea.
+
+### <a name="external-parameters"></a>Parámetros externos
+
+Al proporcionar un archivo de parámetros externo, use la propiedad **parametersLink**:
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ Para vincular a una plantilla externa y a un archivo de parámetros, utilice **t
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ Para vincular a una plantilla externa y a un archivo de parámetros, utilice **t
 
 No tiene que proporcionar la propiedad `contentVersion` para la plantilla ni los parámetros. Si no proporciona un valor de versión del contenido, se implementará la versión actual de la plantilla. Si proporciona un valor, este debe coincidir con la versión de la plantilla vinculada o, de lo contrario, se producirá un error durante la implementación.
 
-### <a name="external-template-and-inline-parameters"></a>Plantilla externa y parámetros insertados
+### <a name="inline-parameters"></a>Parámetros en línea
 
 O bien, puede proporcionar el parámetro de manera insertada. No se pueden usar los parámetros alineados ni un vínculo a un archivo de parámetros. La implementación produce un error cuando ambos (`parametersLink` y `parameters`) se especifican.
 
-Para pasar un valor de la plantilla principal a la plantilla vinculada, use **parameters**.
+Para pasar un valor de la plantilla principal a la plantilla vinculada, use la propiedad **parameters**.
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ La plantilla principal implementa la plantilla vinculada y obtiene el valor devu
 }
 ```
 
-Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Por lo tanto, cuando otros recursos requieren un valor de salida de la plantilla vinculada, asegúrese de que la plantilla vinculada se implemente antes que ellos. O bien, si la plantilla vinculada se basa en otros recursos, asegúrese de que los otros recursos se implementen antes que la plantilla vinculada.
+Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Cuando otros recursos requieren un valor de salida de la plantilla vinculada, asegúrese de que la plantilla vinculada se implemente antes que ellos. O bien, si la plantilla vinculada se basa en otros recursos, asegúrese de que los otros recursos se implementen antes que la plantilla vinculada.
 
 En el ejemplo siguiente se muestra una plantilla que implementa una dirección IP pública y devuelve el identificador de recurso:
 

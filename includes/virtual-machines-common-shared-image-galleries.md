@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012270"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338352"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -31,7 +31,7 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Recurso | DESCRIPCIÓN|
+| Resource | DESCRIPCIÓN|
 |----------|------------|
 | **Imagen administrada** | Una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean desde máquinas virtuales generalizadas. Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
@@ -83,10 +83,10 @@ Las regiones de origen se muestran en la tabla siguiente. Todas las regiones pú
 | Este de Australia      | East US         | Centro-Norte de EE. UU | Oeste de la India      |
 | Sudeste de Australia | Este de EE. UU. 2       | Europa del Norte     | Oeste de EE. UU.         |
 | Sur de Brasil        | EUAP de Este de EE. UU. 2  | Centro-Sur de EE. UU | Oeste de EE. UU. 2       |
-| Centro de Canadá      | Centro de Francia  | Sur de la India      |                 |
-| Este de Canadá         | Sur de Francia    | Sudeste asiático   |                 |
-| India Central       | Este de Japón      | Sur de Reino Unido 2         |                 |
-| Centro de EE. UU.          | Oeste de Japón      | Oeste de Reino Unido          |                 |
+| Centro de Canadá      | Centro de Francia  | Sur de la India      | Este de China      |
+| Este de Canadá         | Sur de Francia    | Sudeste asiático   | Este de China 2    |
+| India Central       | Este de Japón      | Sur de Reino Unido 2         | Norte de China     |
+| Centro de EE. UU.          | Oeste de Japón      | Oeste de Reino Unido          | Norte de China 2   |
 
 
 
@@ -106,8 +106,8 @@ La galería de imágenes compartidas le permite especificar el número de répli
 
 Con la galería de imágenes compartidas, ahora puede implementar hasta 1000 instancias de máquinas virtuales en una conjunto de escalado de máquinas virtuales (a partir de 600 con imágenes administradas). Las réplicas de imágenes proporcionan un mejor rendimiento de implementación, confiabilidad y coherencia.  Puede establecer un número de réplicas diferente en cada región de destino, en función de las necesidades de escala de la región. Dado que cada réplica es una copia en profundidad de la imagen, esto ayuda a escalar las implementaciones linealmente con cada réplica adicional. Aunque entendemos que no hay dos imágenes o regiones iguales, he aquí nuestra guía general sobre cómo usar réplicas en una región:
 
-- Por cada 20 máquinas virtuales que cree simultáneamente, le recomendamos que conserve una réplica. Por ejemplo, si va a crear 120 máquinas virtuales simultáneamente mediante la misma imagen en una región, se recomienda conservar al menos seis réplicas de la imagen. 
-- Para cada implementación de un conjunto de escalado con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear cinco conjuntos de escalado de forma simultánea, cada uno con 600 instancias de máquinas virtuales con la misma imagen en una única región, se recomienda conservar al menos cinco réplicas de la imagen. 
+- En el caso de las implementaciones de conjunto de escalado de máquinas virtuales (VMSS), se recomienda mantener una réplica por cada 20 máquinas virtuales que cree simultáneamente. Por ejemplo, si va a crear 120 máquinas virtuales simultáneamente mediante la misma imagen en una región, se recomienda conservar al menos seis réplicas de la imagen. 
+- Para las implementaciones de un conjunto de escalado de máquinas virtuales, para cada conjunto con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear cinco conjuntos de escalado de forma simultánea, cada uno con 600 instancias de máquinas virtuales con la misma imagen en una única región, se recomienda conservar al menos cinco réplicas de la imagen. 
 
 Siempre se recomienda aprovisionar en exceso el número de réplicas debido a factores como el tamaño de la imagen, el contenido y el tipo de sistema operativo.
 

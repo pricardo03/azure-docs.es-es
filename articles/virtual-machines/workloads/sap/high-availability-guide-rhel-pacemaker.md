@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099593"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672998"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -62,6 +62,7 @@ Lea primero las notas y los documentos de SAP siguientes:
   * [Introducción al complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administración del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referencia del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Directivas de soporte para clústeres de alta disponibilidad de RHEL: sbd y fence_sbd](https://access.redhat.com/articles/2800691)
 * Documentación de RHEL específica para Azure:
   * [Directivas de compatibilidad para clústeres de alta disponibilidad RHEL: instancias de Microsoft Azure Virtual Machines como miembros del clúster](https://access.redhat.com/articles/3131341)
   * [Instalación y configuración de un clúster de alta disponibilidad de Red Hat Enterprise Linux 7.4 (y versiones posteriores) en Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -70,6 +71,10 @@ Lea primero las notas y los documentos de SAP siguientes:
 ## <a name="cluster-installation"></a>Instalación del clúster
 
 ![Información general de Pacemaker en RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> Red Hat no es compatible con el guardián emulado por software. Red Hat no es compatible con SBD en plataformas en la nube. Para más información, consulte [Directivas de soporte para clústeres de alta disponibilidad de RHEL: sbd y fence_sbd](https://access.redhat.com/articles/2800691).
+> El único mecanismo de barrera compatible para clústeres de Pacemaker en Red Hat Enterprise Linux en Azure es el agente de barrera de Azure.  
 
 Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 

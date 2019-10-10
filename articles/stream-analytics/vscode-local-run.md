@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f477a0f99c3eaa82568d8188bfaae03818fb72dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 751cdf50fccc654dfab06b4d18428531312d08e6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827956"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673040"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>Prueba de las consultas de Azure Stream Analytics localmente con Visual Studio Code
 
@@ -19,6 +19,10 @@ Puede usar las herramientas de Azure Stream Analytics para Visual Studio Code pa
 
 Use este [inicio rápido](quick-create-vs-code.md) para aprender a crear un trabajo de Stream Analytics mediante Visual Studio Code.
 
+## <a name="prerequisites"></a>Requisitos previos
+* Instalación del [SDK de .NET Core](https://dotnet.microsoft.com/download).
+* Reinicie Visual Studio Code.
+ 
 ## <a name="run-queries-locally"></a>Ejecutar consultas de forma local
 
 Puede usar la extensión de Azure Stream Analytics para Visual Studio Code para probar los trabajos de Stream Analytics localmente con datos de ejemplo.

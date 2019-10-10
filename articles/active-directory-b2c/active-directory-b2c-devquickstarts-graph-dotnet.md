@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218273"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802083"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usar Graph API de Azure AD
 
@@ -43,32 +43,17 @@ Una vez que tenga un inquilino de Azure AD B2C, deberá registrar la aplicació
 
 ### <a name="register-application-in-azure-active-directory"></a>Registro de una aplicación en Azure Active Directory
 
-Para usar Graph API de Azure AD con el inquilino de B2C, debe registrar una aplicación mediante el flujo de trabajo de **Registros de aplicaciones** de Azure Active Directory.
+Para usar Graph API de Azure AD con el inquilino de B2C, debe registrar una aplicación mediante el flujo de trabajo de registros de aplicaciones de Azure Active Directory.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y cambie al directorio que contiene su inquilino de Azure AD B2C.
-1. Seleccione **Azure Active Directory** (*no* Azure AD B2C) en el menú de la izquierda. O bien seleccione **Todos los servicios** y, luego, busque y seleccione **Azure Active Directory**.
-1. En **Administrar** del menú de la izquierda, seleccione **Registros de aplicaciones (característica heredada)** .
-1. Seleccione **Nuevo registro de aplicaciones**.
-1. Escriba un nombre para la aplicación. Por ejemplo, *Aplicación de administración*.
-1. En **Dirección URL de inicio de sesión**, escriba una dirección URL válida. Por ejemplo, *https://localhost* . No es necesario que este punto de conexión sea accesible, pero debe ser una dirección URL válida.
-1. Seleccione **Crear**.
-1. Anote el **identificador de aplicación** que aparece en la página de información general **Aplicación registrada**. Este valor se usa para la configuración en un paso posterior.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>Asignación de permisos de acceso de API
 
-1. En la página de información general **Aplicación registrada**, seleccione **Configuración**.
-1. En **ACCESO DE API**, seleccione **Permisos necesarios**.
-1. Seleccione **Microsoft Azure Active Directory**.
-1. En **PERMISOS DE LA APLICACIÓN**, seleccione **Leer y escribir datos de directorio**.
-1. Seleccione **Guardar**.
-1. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**. Los permisos pueden tardar unos minutos en propagarse por completo.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>Creación de un secreto de cliente
 
-1. En **ACCESO DE API**, seleccione **Claves**.
-1. Escriba una descripción para la clave en el cuadro **Descripción de la clave**. Por ejemplo, *Clave de administración*.
-1. Seleccione una **Duración** para la validez y, luego, **Guardar**.
-1. Anote el **VALUE** de la clave. Este valor se usa para la configuración en un paso posterior.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Ahora tiene una aplicación con permisos para *crear*, *leer* y *actualizar* usuarios en el inquilino de Azure AD B2C. Continúe a la siguiente sección para agregar los permisos de *actualización de contraseñas* y *eliminación* de usuarios.
 
@@ -83,7 +68,7 @@ Si quiere que la aplicación pueda eliminar usuarios o actualizar contraseñas, 
 1. En **Administrar**, seleccione **Roles y administradores**.
 1. Seleccione el rol **Administrador de usuarios**.
 1. Seleccione **Agregar asignación**.
-1. En el cuadro de texto **Seleccionar**, escriba el nombre de la aplicación que registró antes; por ejemplo, *Aplicación de administración*. Seleccione su aplicación cuando aparezca en los resultados de búsqueda.
+1. En el cuadro de texto **Seleccionar**, escriba el nombre de la aplicación que registró antes; por ejemplo, *managementapp1*. Seleccione su aplicación cuando aparezca en los resultados de búsqueda.
 1. Seleccione **Agregar**. Los permisos pueden tardar unos minutos en propagarse por completo.
 
 Ahora, la aplicación Azure AD B2C tiene los permisos adicionales necesarios para eliminar usuarios o actualizar sus contraseñas en el inquilino de B2C.

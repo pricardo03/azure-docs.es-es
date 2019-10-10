@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241708"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827157"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
@@ -122,8 +122,8 @@ Para conocer mejor la administración de derechos y su documentación, debe revi
 | Término o concepto | DESCRIPCIÓN |
 | --- | --- |
 | administración de derechos | Un servicio que asigna, revoca y administra los paquetes de acceso. |
-| paquete de acceso | Una colección de permisos y directivas de recursos que los usuarios pueden solicitar. Un paquete de acceso siempre se encuentra en un catálogo. |
-| solicitud de acceso | Una solicitud para acceder a un paquete de acceso. Normalmente, una solicitud pasa por un flujo de trabajo. |
+| paquete de acceso | Conjunto de recursos que un equipo o proyecto necesita y se rige por directivas. Un paquete de acceso siempre se encuentra en un catálogo. |
+| solicitud de acceso | Solicitud para acceder a los recursos de un paquete de acceso. Normalmente, una solicitud pasa por un flujo de trabajo. |
 | policy | Un conjunto de reglas que define el ciclo de vida del acceso, como por ejemplo, cómo los usuarios obtienen acceso, quién puede aprobarlo y cuánto tiempo tienen acceso. Algunos ejemplos de directivas incluyen el acceso de los empleados y el acceso externo. |
 | catalog | Un contenedor de recursos relacionados y paquetes de acceso. |
 | Catálogo general | Un catálogo integrado que siempre está disponible. Para agregar los recursos al catálogo general, se requieren determinados permisos. |

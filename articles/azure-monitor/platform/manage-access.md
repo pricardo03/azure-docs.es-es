@@ -1,6 +1,6 @@
 ---
 title: Administración de áreas de trabajo de Log Analytics en Azure Monitor | Microsoft Docs
-description: Puede administrar el acceso a los datos almacenados en las áreas de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se detalla cómo hacerlo.
+description: Puede administrar el acceso a los datos almacenados en un área de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se muestra cómo completar estas tareas.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034713"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695007"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -216,11 +216,19 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
 
     * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
 
-    * Conceda a los usuarios los permisos siguientes en el área de trabajo: `Microsoft.OperationalInsights/workspaces/read` y `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Con estos permisos, los usuarios no pueden realizar consultas en el nivel de área de trabajo.
+    * Conceda a los usuarios los permisos siguientes en el área de trabajo: `Microsoft.OperationalInsights/workspaces/read` y `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Con estos permisos, los usuarios no pueden realizar consultas en el nivel de área de trabajo. Solo pueden enumerar el área de trabajo y usarla como destino para la configuración de diagnóstico o del agente.
 
-    * Conceda a los usuarios los permisos siguientes a sus recursos: `Microsoft.Insights/logs/*/read` y `Microsoft.Insights/diagnosticSettings/write`. Si ya se les ha asignado el rol de [colaborador de Log Analytics](../../role-based-access-control/built-in-roles.md#contributor) en este recurso, es suficiente.
+    * Conceda a los usuarios los permisos siguientes a sus recursos: `Microsoft.Insights/logs/*/read` y `Microsoft.Insights/diagnosticSettings/write`. Si ya se les ha asignado el rol de [colaborador de Log Analytics](../../role-based-access-control/built-in-roles.md#contributor), el rol de lector o se les ha concedido permisos `*/read` en este recurso, es suficiente.
 
-3. Para conceder a un usuario acceso a los datos de registro desde sus recursos y la posibilidad de leer de todos los datos del registro de inicio de sesión de Azure AD y del registro de la solución Update Management, haga lo siguiente:
+3. Para conceder a un usuario acceso a los datos de registro desde sus recursos sin capacidad para leer eventos de seguridad y enviar datos, realice lo siguiente:
+
+    * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
+
+    * Conceda a los usuarios los permisos siguientes a sus recursos: `Microsoft.Insights/logs/*/read`.
+
+    * Agregue el atributo NonAction siguiente para impedir que los usuarios lean el tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. El atributo NonAction debe estar en el mismo rol personalizado que la acción que proporciona el permiso de lectura (`Microsoft.Insights/logs/*/read`). Si el usuario hereda la acción de lectura de otro rol asignado a este recurso o a la suscripción o grupo de recursos, podrá leer todos los tipos de registro. Esto también ocurre si hereda `*/read`, que existe, por ejemplo, con el rol de lector o colaborador.
+
+4. Para conceder a un usuario acceso a los datos de registro desde sus recursos con posibilidad de leer todos los datos de registro de inicio de sesión de Azure AD y de la solución Update Management desde el área de trabajo, haga lo siguiente:
 
     * Configure el modo de control de acceso del área de trabajo para **usar permisos de recursos o áreas de trabajo**.
 
@@ -235,7 +243,7 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`: necesario para poder usar la solución Update Management
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: necesario para poder usar la solución Update Management
 
-    * Conceda a los usuarios los permisos siguientes a sus recursos: `*/read` o `Microsoft.Insights/logs/*/read`. Si ya se les ha asignado el rol de [lector de Log Analytics](../../role-based-access-control/built-in-roles.md#reader) en el área de trabajo, es suficiente.
+    * Conceda a los usuarios los permisos siguientes a sus recursos: `*/read`, asignado al rol de lector, o `Microsoft.Insights/logs/*/read`. 
 
 ## <a name="table-level-rbac"></a>RBAC de nivel de tabla
 

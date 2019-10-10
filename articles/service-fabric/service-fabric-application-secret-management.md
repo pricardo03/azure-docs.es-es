@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614482"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828830"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
@@ -31,11 +31,11 @@ Para usar los secretos cifrados en una aplicación de Service Fabric hay que seg
 
 ## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Configuración de un certificado de cifrado y cifrado de secretos
 La configuración de un certificado de cifrado y su uso para cifrar los secretos varían entre Windows y Linux.
-* [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Windows][secret-management-windows-specific-link]
-* [Configuración de un certificado de cifrado y cifrado de secretos en Linux][secret-management-linux-specific-link]
+* [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Windows.][secret-management-windows-specific-link]
+* [Configuración de un certificado de cifrado y cifrado de secretos en Linux.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Especificación de los secretos cifrados en una aplicación
-En el paso anterior se describe cómo cifrar un secreto con un certificado y generar una cadena codificada en base 64 para usarla en una aplicación. Esta cadena codificada en base 64 se puede especificar como un [parámetro][parameters-link] cifrado en un archivo Settings.xml del servicio o como una [variable de entorno][environment-variables-link] cifrada en un archivo ServiceManifest.xml del servicio.
+En el paso anterior se describe cómo cifrar un secreto con un certificado y generar una cadena codificada en base 64 para usarla en una aplicación. Esta cadena codificada en base 64 se puede especificar como un [parámetro][parameters-link] cifrado en un archivo Settings.xml del servicio o como una [variable de entorno][environment-variables-link] cifrada en un archivo ServiceManifest.xml del servicio.
 
 Especifique un [parámetro][parameters-link] cifrado en el archivo de configuración Settings.xml del servicio con el atributo `IsEncrypted` establecido en `true`:
 
@@ -54,6 +54,17 @@ Especifique una [variable de entorno][environment-variables-link] cifrada en el 
     <EnvironmentVariable Name="MyEnvVariable" Type="Encrypted" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </EnvironmentVariables>
 </CodePackage>
+```
+
+Los secretos también se pueden incluir en la aplicación Service Fabric mediante la especificación de un certificado en el manifiesto de aplicación. Agregue un elemento **SecretsCertificate** a **ApplicationManifest.xml** e incluya la huella digital del certificado que desee.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
 ```
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserción de secretos de aplicación en instancias de aplicación

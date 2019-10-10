@@ -1,17 +1,17 @@
 ---
 title: Aprovisionamiento del rendimiento de contenedor en Azure Cosmos DB
 description: Aprenda a aprovisionar el rendimiento en el nivel de contenedor en Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
-ms.openlocfilehash: 0975fe5135bbe9f5e1dc65ee0444cc3aab986a2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093053"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811675"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos
 
@@ -31,48 +31,17 @@ En este artículo se explica cómo aprovisionar el rendimiento de un contenedor 
    * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-![Captura de pantalla de Data Explorer, con Nueva colección resaltado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![Captura de pantalla de Data Explorer, con Nueva colección resaltado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Aprovisionamiento del rendimiento mediante la CLI de Azure
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Aprovisionamiento de la capacidad de procesamiento mediante la CLI de Azure o PowerShell
 
-```azurecli-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
-```
+Para crear un contenedor con capacidad de procesamiento dedicada, consulte:
 
-## <a name="provision-throughput-using-powershell"></a>Aprovisionamiento de la capacidad de procesamiento mediante PowerShell
+* [Creación de un contenedor mediante la CLI de Azure](manage-with-cli.md#create-a-container)
+* [Creación de un contenedor mediante PowerShell](manage-with-powershell.md#create-container)
 
-```azurepowershell-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-
-$ContainerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
-```
-
-Si va a aprovisionar el rendimiento del contenedor de una cuenta de Azure Cosmos configurada con la API de Azure Cosmos DB para MongoDB, use `/myShardKey` para la ruta de acceso de la clave de partición. Si va a aprovisionar el rendimiento del contenedor de una cuenta de Azure Cosmos configurada con Cassandra API, use `/myPrimaryKey` para la ruta de acceso de la clave de partición.
+> [!Note]
+> Si va a aprovisionar el rendimiento del contenedor de una cuenta de Azure Cosmos configurada con la API de Azure Cosmos DB para MongoDB, use `/myShardKey` para la ruta de acceso de la clave de partición. Si va a aprovisionar el rendimiento del contenedor de una cuenta de Azure Cosmos configurada con Cassandra API, use `/myPrimaryKey` para la ruta de acceso de la clave de partición.
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>Aprovisionamiento del rendimiento mediante el SDK para .NET
 

@@ -1,22 +1,22 @@
 ---
 title: Preparación y personalización de una imagen de disco duro virtual maestro - Azure
-description: Cómo preparar, personalizar y cargar una imagen maestra de Windows Virtual Desktop, versión preliminar, en Azure.
+description: Cómo preparar, personalizar y cargar una imagen maestra de Windows Virtual Desktop en Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981074"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710195"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
-En este artículo se explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargarla en Azure, así como el modo de crear máquinas virtuales e instalar software en ellos. Estas instrucciones son específicas de una configuración de Windows Virtual Desktop, versión preliminar, concreta que se puede usar con los procesos existentes de su organización.
+En este artículo se explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargarla en Azure, así como el modo de crear máquinas virtuales e instalar software en ellos. Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -204,7 +204,7 @@ Después de preparar la imagen para su carga, asegúrese de que la máquina virt
 
 Esta sección solo procede si la imagen maestra se ha creado localmente.
 
-Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](https://code.visualstudio.com/tutorials/static-website/create-storage) para crear una.
+Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/javascript/tutorial-vscode-static-website-node-03) para crear una.
 
 1. Establezca la imagen de máquina virtual (VHD) como fija, si aún no lo ha hecho. Si no la establece en fija, no podrá crear la imagen correctamente.
 
