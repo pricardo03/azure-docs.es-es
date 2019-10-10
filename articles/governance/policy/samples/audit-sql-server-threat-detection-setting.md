@@ -2,17 +2,16 @@
 title: 'Ejemplo: Auditar la configuración de detección de amenazas en el nivel de servidor'
 description: Esta definición de directiva de ejemplo audita las directivas de alertas de seguridad de SQL Server si no están establecidas en el estado especificado.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 6d75ffb961828448f9ab410e292cfd363ac1ecf4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 25504b558a930ae6dcea710ee850ae296c63c4ae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277347"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977260"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Ejemplo: Auditar la configuración de detección de amenazas en el nivel de servidor
 

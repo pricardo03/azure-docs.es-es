@@ -2,17 +2,16 @@
 title: 'Ejemplo: Aplicar una etiqueta y su valor predeterminado'
 description: Esta definición de directiva de ejemplo asocia un nombre de etiqueta especificado y un valor si no se proporciona la etiqueta.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266654"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977589"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Ejemplo: Aplicar una etiqueta y su valor predeterminado
 
@@ -50,10 +49,10 @@ Código JSON que define los parámetros de la directiva, utilizado por la CLI de
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|NOMBRE |Type |Campo |DESCRIPCIÓN |
+|NOMBRE |type |Campo |DESCRIPCIÓN |
 |---|---|---|---|
-|tagName |string |etiquetas |Nombre de la etiqueta, como por ejemplo, costCenter|
-|tagValue |string |etiquetas |Valor de la etiqueta, como por ejemplo, headquarter|
+|tagName |Cadena |etiquetas |Nombre de la etiqueta, como por ejemplo, costCenter|
+|tagValue |Cadena |etiquetas |Valor de la etiqueta, como por ejemplo, headquarter|
 
 Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
 PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.
@@ -71,7 +70,7 @@ En este parámetro de ejemplo, se definen el _tagName_ **costCenter** y el _tagV
 }
 ```
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 [![Implementación del ejemplo de directiva en Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 [![Implementación del ejemplo de directiva en Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
@@ -120,7 +119,7 @@ Los scripts de implementación y eliminación usan los siguientes comandos. Cada
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Elimina una asignación de directiva de Azure existente. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Elimina una definición de directiva de Azure existente. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 

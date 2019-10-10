@@ -2,17 +2,16 @@
 title: 'Ejemplo: Auditar la configuración de auditoría en el nivel de SQL Server'
 description: Esta definición de directiva de ejemplo audita la configuración de auditoría de SQL Server si esos valores no coinciden con un valor especificado.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dcba50cc3ed30940c461312c7f09577e693f9b2e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 158efc86c460cfc96f1cd01294bbd653aff1d0f9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269100"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980590"
 ---
 # <a name="sample---audit-sql-server-level-audit-setting"></a>Ejemplo: Auditar la configuración de auditoría en el nivel de SQL Server
 

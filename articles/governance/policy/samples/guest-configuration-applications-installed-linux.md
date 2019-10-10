@@ -2,17 +2,16 @@
 title: 'Ejemplo: Auditar si las aplicaciones no están instaladas en máquinas virtuales Linux'
 description: Este ejemplo de iniciativa y definiciones de configuración de invitado de directiva audita si las aplicaciones especificadas no están instaladas dentro de máquinas virtuales Linux.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204008"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977037"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Ejemplo: Auditar si las aplicaciones especificadas no están instaladas en máquinas virtuales Linux.
 
@@ -45,9 +44,9 @@ Para crear la iniciativa se combinan las definiciones **audit** y **deployIfNotE
 
 ### <a name="initiative-parameters"></a>Parámetros de iniciativa
 
-|NOMBRE |Type |DESCRIPCIÓN |
+|NOMBRE |type |DESCRIPCIÓN |
 |---|---|---|
-|applicationName |string |Nombres de aplicación. Por ejemplo: "python", "powershell" o una lista de valores separados por coma, como "python,powershell". Use \* para la búsqueda de coincidencia con comodines, como "power\*". |
+|applicationName |Cadena |Nombres de aplicación. Por ejemplo: "python", "powershell" o una lista de valores separados por coma, como "python,powershell". Use \* para la búsqueda de coincidencia con comodines, como "power\*". |
 
 Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
 PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.
@@ -102,7 +101,7 @@ La definición de directiva **deployIfNotExists** define las imágenes de Azure 
 
 La parte **deployment** de la regla pasa el parámetro _installedApplication_ al agente de configuración de invitado en la máquina virtual. Esta configuración permite que el agente realice las validaciones y notifique el cumplimiento a través de la definición de directiva **audit**.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 Una vez que se crean las definiciones **audit** y **deployIfNotExists** en el portal, se recomienda agruparlas en una [iniciativa](../concepts/definition-structure.md#initiatives) para su asignación.
 

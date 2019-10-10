@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743459"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035707"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con NetDocuments
 
@@ -85,6 +85,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `http://netdocuments.com/VAULT`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. El identificador del repositorio es un valor que comienza por **CA-** seguido por un código de ocho caracteres asociado al repositorio de NetDocuments. Para más información puede consultar el [documento de soporte técnico sobre identidad federada de NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). También tiene la alternativa de ponerse en contacto con el [equipo de soporte técnico de NetDocuments](https://support.netdocuments.com/hc/) para obtener estos valores si tiene dificultades para configurar utilizando la información anterior. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

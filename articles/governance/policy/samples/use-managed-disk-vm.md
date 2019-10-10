@@ -2,17 +2,16 @@
 title: 'Ejemplo: Crear una máquina virtual con un disco administrado'
 description: Esta definición de directiva de ejemplo requiere que las máquinas virtuales usen discos administrados.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 41d7c3d851e75a14d0af69ad47c1ffbb9d731e13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8aada6149fc0c4eacd3c304db15657e6ffa164c1
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256284"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981279"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>Ejemplo: Crear una máquina virtual con un disco administrado
 

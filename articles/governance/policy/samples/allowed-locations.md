@@ -2,17 +2,16 @@
 title: 'Ejemplo: ubicaciones permitidas'
 description: Esta definición de directiva de ejemplo requiere que todos los recursos se implementen en las ubicaciones aprobadas.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264733"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980638"
 ---
 # <a name="sample---allowed-region-locations"></a>Ejemplo: ubicaciones de región permitidas
 
@@ -52,9 +51,9 @@ Código JSON que define los parámetros de la directiva, utilizado por la CLI de
 
 ## <a name="parameters"></a>Parámetros
 
-|NOMBRE |Type |Campo |DESCRIPCIÓN |
+|NOMBRE |type |Campo |DESCRIPCIÓN |
 |---|---|---|---|
-|listOfAllowedLocations |Matriz |Ubicaciones |Lista de ubicaciones permitidas|
+|listOfAllowedLocations |Array |locations |Lista de ubicaciones permitidas|
 
 Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
 PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.
@@ -72,7 +71,7 @@ En este parámetro de ejemplo, solo se permitirán las ubicaciones _eastus2_ o _
 }
 ```
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 [![Implementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 [![Implementación del ejemplo de directiva en Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
@@ -121,7 +120,7 @@ Los scripts de implementación y eliminación usan los siguientes comandos. Cada
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Elimina una asignación de directiva de Azure existente. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Elimina una definición de directiva de Azure existente. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 

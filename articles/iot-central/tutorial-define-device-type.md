@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099610"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960545"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central
 
@@ -219,7 +219,7 @@ Estado se puede usar para definir y visualizar el estado del dispositivo o de su
      | Valor                | 1                 |
      | Etiqueta para mostrar        | Operating         |
      | Valor                | 0                 |
-     | Etiqueta para mostrar        | Stopped           |
+     | Etiqueta para mostrar        | Detenido           |
 
      Para guardar la definición de la medida de estado, seleccione **Save** (Guardar):
 
@@ -365,7 +365,7 @@ Los _comandos_ se usan para permitir que un operador ejecute comandos directamen
     | Display Name (Nombre para mostrar)         | Comando Echo    |
     | Nombre del campo           | echo            |
     | Tiempo de espera predeterminado      | 30              |
-    | Tipo de presentación         | text            |
+    | Tipo de datos         | text            |
     | DESCRIPCIÓN          | Comando de dispositivo  |  
 
     Para agregar entradas adicionales al comando, seleccione **+** en **Input Fields** (Campos de entrada).

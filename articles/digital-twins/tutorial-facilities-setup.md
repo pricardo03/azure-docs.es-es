@@ -2,18 +2,19 @@
 title: 'Tutorial: Implementación de Azure Digital Twins | Microsoft Docs'
 description: Aprenda a implementar su instancia de Azure Digital Twins y a configurar los recursos espaciales mediante los pasos de este tutorial.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 54afe8ea67996562c88a2ade2ec16c4eaa89cdee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219746"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949767"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9207814c921f51b10939c6e9d1747e1e124f9890
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907172"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837555"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -112,7 +112,10 @@ Si desea comparar su código con el nuestro, el ejemplo completo está disponibl
 
 ## <a name="sample-response"></a>Respuesta de muestra
 
-Busque la abreviatura del país o región en esta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Después de ejecutar el ejemplo, debería ver lo siguiente impreso en el terminal:
+
+> [!NOTE]
+> Busque la abreviatura del país o región en esta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

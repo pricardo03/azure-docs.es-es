@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 240d0fa388fbdfdd3d29d735aed708a096440740
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979666"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980348"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -160,11 +159,11 @@ Se ha identificado la propiedad de recurso, pero es necesario asignarle un [alia
 
 Hay varias maneras de determinar los alias de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
-- Azure CLI
+- CLI de Azure
 - Azure PowerShell
 - Azure Resource Graph
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 En la CLI de Azure, el grupo de comandos `az provider` se usa para buscar alias de recursos. Se va a filtrar por el espacio de nombres **Microsoft.Storage** según los detalles que se tienen anteriormente sobre el recurso de Azure.
 

@@ -2,18 +2,19 @@
 title: 'Tutorial: Supervisión de un espacio con Azure Digital Twins | Microsoft Docs'
 description: Use los pasos de este tutorial para aprender a aprovisionar los recursos espaciales y a supervisar las condiciones de trabajo con Azure Digital Twins.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: alinast
-ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300046"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949082"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con la versión preliminar de Azure Digital Twins
 
