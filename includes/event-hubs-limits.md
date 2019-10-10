@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830170"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996898"
 ---
 En las tablas siguientes se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -55,5 +55,5 @@ La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija co
 | Particiones | 2000 por CU |
 | Grupos de consumidores | Sin límite por CU, 1000 por centro de eventos |
 | Conexiones asincrónicas | 100 000 incluidos |
-| Retención de mensajes | Hasta 7 días, 10 TB incluidas por TU |
+| Retención de mensajes | 90 días, 10 TB incluidas por TU |
 | Capture | Se incluye |

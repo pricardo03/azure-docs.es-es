@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972848"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828919"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Preguntas frecuentes sobre la solución de VMware de CloudSimple
 
@@ -29,7 +29,7 @@ Una nube privada de CloudSimple es una nube privada y dedicada formada por un pr
 
 **¿Dónde está disponible el servicio de CloudSimple?**
 
-CloudSimple está disponible en Este de EE. UU. y Oeste de EE. UU. (regiones adicionales próximamente).
+CloudSimple está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Oeste de Europa (y próximamente en otras regiones).
 
 **¿Cómo habilito mi suscripción para CloudSimple?**
 
@@ -106,8 +106,9 @@ CloudSimple proporciona las siguientes características de seguridad para proteg
 
 CloudSimple ofrece estos tipos de host:
 
-* **Nodo CS28:** CPU: 2x 2,2 GHz, 28 núcleos en total, 48 HT.  RAM: 256 GB.  Almacenamiento: Caché NVMe de 1600 GB, 5760 GB de datos (All-Flash). Red: NIC de 2 x 25 Gbe
-* **Nodo CS36:** CPU 2x 2,3 GHz, 36 núcleos en total, 72 HT.  RAM: 512 GB.  Almacenamiento: Caché NVMe de 3200 GB, 11520 GB de datos (All-Flash).  Red: NIC de 2 x 25 Gbe
+* **Nodo CS28:** CPU: 2x 2,2 GHz, 28 núcleos en total, 48 HT.  RAM: 256 GB.  Almacenamiento: Caché NVMe de 1600 GB, 5760 GB de datos (All-Flash). Red: NIC de 4x25 Gbe
+* **Nodo CS36:** CPU 2x 2,3 GHz, 36 núcleos en total, 72 HT.  RAM: 512 GB.  Almacenamiento: Caché NVMe de 3200 GB, 11520 GB de datos (All-Flash).  Red: NIC de 4x25 Gbe
+* **Nodo CS36m:** CPU 2x 2,3 GHz, 36 núcleos en total, 72 HT.  RAM: 576 GB.  Almacenamiento: Caché NVMe de 3200 GB, 13360 GB de datos (All-Flash).  Red: NIC de 4x25 Gbe
 
 **¿Cómo se controlan los errores de hardware?**
 

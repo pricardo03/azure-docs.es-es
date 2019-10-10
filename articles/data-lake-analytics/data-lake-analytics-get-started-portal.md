@@ -1,7 +1,6 @@
 ---
-title: Introducción a Azure Data Lake Analytics mediante Azure Portal
+title: 'Creación y consulta de Azure Data Lake Analytics: Azure Portal'
 description: Use Azure Portal para crear una cuenta de Azure Data Lake Analytics y enviar un trabajo de U-SQL.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615040"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315754"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introducción a Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087720"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309850"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -58,7 +58,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
   * Almacenamiento de unidad de estado sólido (SSD) para la puesta en cola
 
   > [!NOTE]
-  > La puerta de enlace no es compatible con Windows Server 2016 Core.
+  > La puerta de enlace no admite Windows Server Core.
 
 * **Consideraciones relacionadas**
 
@@ -74,6 +74,8 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
   * La región que seleccione para la instalación de la puerta de enlace es la misma ubicación que debe seleccionar cuando cree posteriormente el recurso de puerta de enlace de Azure para la aplicación lógica. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD que administra su cuenta de Azure. Sin embargo, puede cambiar la ubicación durante la instalación de la puerta de enlace.
 
   * La puerta de enlace tiene dos modos: modo estándar y modo personal, que solo se aplica a Power BI. No se puede ejecutar más de una puerta de enlace en el mismo modo en el mismo equipo.
+
+  * Azure Logic Apps admite operaciones de escritura, incluidas inserciones y actualizaciones, mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -142,7 +144,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 ## <a name="check-or-adjust-communication-settings"></a>Comprobación o ajuste de la configuración de comunicación
 
-La puerta de enlace de datos local depende de Azure Service Bus para la conectividad en la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase a través de un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de la puerta de enlace y Azure Service Bus. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
+La puerta de enlace de datos local depende de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad en la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase a través de un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de la puerta de enlace y Azure Service Bus. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
 
 * [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
 * [Configuración de los valores del proxy para la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
@@ -208,7 +210,7 @@ Los usuarios de su organización pueden acceder a los datos locales para los que
 
 La puerta de enlace facilita la comunicación rápida y segura en segundo plano. Esta comunicación fluye entre un usuario en la nube, el servicio en la nube de la puerta de enlace y el origen de datos local. El servicio en la nube de la puerta de enlace cifra y almacena los detalles de la puerta de enlace y las credenciales del origen de datos. El servicio también enruta las consultas y sus resultados entre el usuario, la puerta de enlace y el origen de datos local.
 
-La puerta de enlace funciona con firewalls y solo usa conexiones de salida. Todo el tráfico se origina como tráfico de salida seguro desde el agente de puerta de enlace. La puerta de enlace retransmite datos desde orígenes locales en canales cifrados a través de Azure Service Bus. Service Bus crea un canal entre la puerta de enlace y el servicio que realiza la llamada, pero no almacena ningún dato. Todos los datos que pasan por la puerta de enlace se cifran.
+La puerta de enlace funciona con firewalls y solo usa conexiones de salida. Todo el tráfico se origina como tráfico de salida seguro desde el agente de puerta de enlace. La puerta de enlace retransmite datos desde orígenes locales en canales cifrados hasta [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Service Bus crea un canal entre la puerta de enlace y el servicio que realiza la llamada, pero no almacena ningún dato. Todos los datos que pasan por la puerta de enlace se cifran.
 
 ![Arquitectura para la puerta de enlace de datos local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 

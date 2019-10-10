@@ -1,5 +1,5 @@
 ---
-title: Administración de Azure Data Lake Analytics mediante la Interfaz de la línea de comandos de Azure
+title: Administración de Azure Data Lake Analytics mediante la CLI de Azure
 description: En este artículo se describe cómo usar la CLI de Azure para administrar trabajos, orígenes de datos y usuarios de Data Lake Analytics.
 services: data-lake-analytics
 author: jasonwhowell
@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387059"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309735"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Administración de Azure Data Lake Analytics mediante la Interfaz de la línea de comandos (CLI) de Azure
 

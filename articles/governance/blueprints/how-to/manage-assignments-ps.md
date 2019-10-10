@@ -3,16 +3,15 @@ title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 297c6a51c1f902cf7b5843b2dd47b658ebc705fd
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232892"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981001"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -43,7 +42,7 @@ El módulo de Blueprints para PowerShell es **Az.Blueprint**.
    > [!NOTE]
    > Si **Az.Accounts** está ya instalado, puede que sea necesario usar `-AllowClobber` para forzar la instalación.
 
-1. Valide que el módulo se ha importado y que sea la versión correcta (0.1.0):
+1. Asegúrese de que el módulo se haya importado y que sea la versión correcta (0.2.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -164,8 +163,13 @@ Si aún no existe la asignación de plano técnico, puede crearla con el cmdlet 
 
 - **ResourceGroupParameter** (opcional)
   - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de un grupo de recursos
-  - Cada marcador de posición del artefacto del grupo de recursos tendrá un par clave/valor para establecer dinámicamente el parámetro **Name** o **Location** en dicho artefacto del grupo de recursos.
+  - Cada marcador de posición del artefacto del grupo de recursos tiene un par clave/valor para establecer dinámicamente los parámetros **Name** y **Location** en dicho artefacto del grupo de recursos.
   - Si no se proporciona un parámetro para el grupo de recursos y no tiene ningún valor **defaultValue**, el parámetro del grupo de recursos no es opcional.
+- **AssignmentFile** (opcional)
+  - La ruta de acceso a la representación de un archivo JSON de una asignación de plano técnico
+  - Este parámetro forma parte de un conjunto de parámetros de PowerShell que únicamente incluye **Name**, **Blueprint** y **SubscriptionId**, además de los parámetros comunes.
+
+### <a name="example-1-provide-parameters"></a>Ejemplo 1: Suministro de parámetros
 
 En el ejemplo siguiente se crea una nueva asignación de la versión "1.1" de la definición de plano técnico "my-blueprint" capturada con `Get-AzBlueprint`, establece la ubicación del objeto de asignación y la identidad aministrada en "westus2", bloquea los recursos con _AllResourcesReadOnly_ y establece las tablas hash para **Parameter** y **ResourceGroupParameter** en la suscripción específica que se representa como `{subId}`:
 
@@ -184,7 +188,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
@@ -196,15 +200,59 @@ Id                : /subscriptions/{subId}/providers/Microsoft.Blueprint/bluepri
                     gnments/my-blueprint-assignment
 Scope             : /subscriptions/{subId}
 LastModified      : 2019-03-13
-LockMode          : AllResourcesReadyOnly
+LockMode          : AllResourcesReadOnly
 ProvisioningState : Creating
 Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Ejemplo 2: Uso de un archivo de definición de asignación JSON
+
+En el ejemplo siguiente se crea prácticamente la misma asignación que en el [ejemplo 1](#example-1-provide-parameters).
+En lugar de pasar parámetros al cmdlet, en el ejemplo se muestra el uso de un archivo de definición de asignación JSON y el parámetro **AssignmentFile**. Además, la propiedad **excludedPrincipals** está configurada como parte de **locks**. No hay un parámetro de PowerShell para **excludedPrincipals** y la propiedad solo se puede configurar mediante el archivo de definición de asignación JSON.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "westus2",
+  "properties": {
+    "description": "Assignment of the 101-blueprint-definition-subscription",
+    "blueprintId": "/subscriptions/{subId}/providers/Microsoft.Blueprint/blueprints/101-blueprints-definition-subscription",
+    "locks": {
+      "mode": "AllResourcesReadOnly",
+      "excludedPrincipals": [
+          "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+          "38833b56-194d-420b-90ce-cff578296714"
+      ]
+    },
+    "parameters": {
+      "storageAccount_storageAccountType": {
+        "value": "Standard_GRS"
+      }
+    },
+    "resourceGroups": {
+      "ResourceGroup": {
+        "name": "storage_rg",
+        "location": "westus2"
+      }
+    }
+  }
+}
+```
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create the new blueprint assignment
+$bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
+    -AssignmentFile '.\assignment.json'
+```
+
 ## <a name="update-blueprint-assignments"></a>Actualización de asignaciones de planos técnicos
 
-A veces es necesario actualizar una asignación de plano técnico que ya se ha creado. El cmdlet `Set-AzBlueprintAssignment` se ocupa de ello. El cmdlet toma la mayor parte de los mismos parámetros que el cmdlet `New-AzBlueprintAssignment`, lo que permite que se actualice todo lo que se estableció en la asignación. Las excepciones a esto son los parámetros _Name_, _Blueprint_ y _SubscriptionId_. Solo se actualizan los valores proporcionados.
+A veces es necesario actualizar una asignación de plano técnico que ya se ha creado. El cmdlet `Set-AzBlueprintAssignment` se ocupa de ello. El cmdlet toma la mayor parte de los mismos parámetros que el cmdlet `New-AzBlueprintAssignment`, lo que permite que se actualice todo lo que se estableció en la asignación. Las excepciones son los parámetros _Name_, _Blueprint_ y _SubscriptionId_. Solo se actualizan los valores proporcionados.
 
 Para comprender qué ocurre cuando se actualiza una asignación de plano técnico, consulte las [reglas para actualizar asignaciones](./update-existing-assignments.md#rules-for-updating-assignments).
 
@@ -242,7 +290,7 @@ Para comprender qué ocurre cuando se actualiza una asignación de plano técnic
 
 - **ResourceGroupParameter** (opcional)
   - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de un grupo de recursos
-  - Cada marcador de posición del artefacto del grupo de recursos tendrá un par clave/valor para establecer dinámicamente el parámetro **Name** o **Location** en dicho artefacto del grupo de recursos.
+  - Cada marcador de posición del artefacto del grupo de recursos tiene un par clave/valor para establecer dinámicamente los parámetros **Name** y **Location** en dicho artefacto del grupo de recursos.
   - Si no se proporciona un parámetro para el grupo de recursos y no tiene ningún valor **defaultValue**, el parámetro del grupo de recursos no es opcional.
 
 En el ejemplo siguiente se actualiza la asignación de versión "1.1" de la definición de plano técnico "my-blueprint" capturada con `Get-AzBlueprint` cambiando el modo de bloqueo:
@@ -310,7 +358,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 #endregion CreateAssignment
 

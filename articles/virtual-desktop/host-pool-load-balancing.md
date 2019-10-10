@@ -1,22 +1,22 @@
 ---
-title: 'Métodos de equilibrio de carga del grupo de hosts de Windows Virtual Desktop en versión preliminar: Azure'
-description: Métodos de equilibrio de carga del grupo de hosts para un entorno de Windows Virtual Desktop en versión preliminar.
+title: 'Métodos de equilibrio de carga del grupo de hosts de Windows Virtual Desktop: Azure'
+description: Métodos de equilibrio de carga del grupo de hosts para un entorno de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2e50593c31951b63601e75c51648a95e54c6959
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870530"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676573"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de equilibrio de carga para un grupo host
 
-Windows Virtual Desktop en versión preliminar admite dos métodos de equilibrio de carga. Cada método determina qué host de sesión hospedará la sesión de un usuario cuando se conecte a un recurso de un grupo de hosts.
+Windows Virtual Desktop admite dos métodos de equilibrio de carga. Cada método determina qué host de sesión hospedará la sesión de un usuario cuando se conecte a un recurso de un grupo de hosts.
 
 Están disponibles los siguientes métodos de equilibrio de carga en Windows Virtual Desktop:
 

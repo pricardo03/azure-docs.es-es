@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Data Lake Analytics mediante Visual Studio
+title: 'Consulta de Azure Data Lake Analytics: Visual Studio'
 description: Aprenda a instalar Data Lake Tools para Visual Studio y a desarrollar y probar scripts U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 37fc469e8b7f6cd765a841409a7226346dd21a2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914237"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315774"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio
 
@@ -57,7 +57,7 @@ Este tutorial requiere que esté instalado Data Lake Tools para Visual Studio. P
 
 1. Abra el **Explorador de servidores**. Para ello, seleccione **Vista** > **Explorador de servidores**.
 
-1. Haga clic con el botón derecho en Azure y, después, seleccione Connect to Microsoft Azure Subscription (Conectar a la suscripción a Microsoft Azure). En **Iniciar sesión en su cuenta**, siga las instrucciones.
+1. Haga clic con el botón derecho en **Azure** y, después, seleccione **Connect to Microsoft Azure Subscription** (Conectar a la suscripción de Microsoft Azure). En **Iniciar sesión en su cuenta**, siga las instrucciones.
 
 1. En el **Explorador de servidores**, seleccione **Azure** > **Data Lake Analytics**. Verá una lista de las cuentas de Data Lake Analytics.
 
@@ -84,7 +84,7 @@ OUTPUT @a
 
 1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-1. Seleccione el tipo U-SQL Project (Proyecto U-SQL) y, luego, seleccione Siguiente. En **Configurar el nuevo proyecto**, seleccione **Crear**.
+1. Seleccione el tipo **U-SQL Project** (Proyecto U-SQL) y, luego, seleccione **Next** (Siguiente). En **Configurar el nuevo proyecto**, seleccione **Crear**.
 
    Visual Studio crea una solución que contiene un archivo **Script.usql**.
 
@@ -103,7 +103,7 @@ Tras el envío del trabajo, se abre la pestaña **Vista Trabajo** para mostrar e
 * **Operaciones de metadatos** muestra todas las acciones que se realizaron en el catálogo de U-SQL.
 * **Datos** muestra todas las entradas y salidas.
 * **Historial de estado** muestra los detalles de la escala de tiempo y el estado.
-* ****************************************************************************************************************************************************************************************************************************************
+* **Análisis de UA** muestra el número de unidades de análisis que se han usado en el trabajo y explora simulaciones de diferentes estrategias de asignación de unidades de análisis.
 * **Diagnósticos** proporciona un análisis avanzado para la optimización de rendimiento y la ejecución del trabajo.
 
 ![Gráfico de rendimiento del trabajo de Data Lake Analytics de U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)

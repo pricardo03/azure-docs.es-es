@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036658"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309353"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Para acceder a orígenes de datos locales desde las aplicaciones lógicas, cree un recurso de puerta de enlace de datos local en Azure Portal. Las aplicaciones lógicas pueden usar entonces los [conectores locales](../connectors/apis-list.md#on-premises-connectors). En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en un equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Para acceder a orígenes de datos locales desde las aplicaciones lógicas, cree un recurso de puerta de enlace de datos local en Azure Portal. Las aplicaciones lógicas pueden usar entonces los [conectores locales](../connectors/apis-list.md#on-premises-connectors). Azure Logic Apps admite operaciones de escritura, incluidas inserciones y actualizaciones, mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+
+En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en un equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
 
 > [!TIP]
 > Para conectarse a redes virtuales de Azure, considere la posibilidad de crear en su lugar un [*entorno del servicio de integración*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 

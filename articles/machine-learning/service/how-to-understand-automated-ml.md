@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350644"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
 
@@ -30,7 +30,7 @@ Más información sobre:
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Cree un experimento de Machine Learning automatizado con el SDK, en Azure Portal o en la página de aterrizaje del área de trabajo (versión preliminar).
+* Cree un experimento para su ejecución de aprendizaje automático automatizado, ya sea con el SDK, en Azure Portal o en su página de aterrizaje del área de trabajo (versión preliminar).
 
     * Use el SDK para crear un [modelo de clasificación](how-to-auto-train-remote.md) o un [modelo de regresión](tutorial-auto-train-models.md).
     * Use [Azure Portal o la página de aterrizaje del área de trabajo (versión preliminar)](how-to-create-portal-experiments.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.

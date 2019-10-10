@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 811fdd0b177e3a255ca91145e39005de1d2328ad
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981090"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676469"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -20,13 +20,13 @@ En este artículo se tratan problemas que se producen durante la instalación in
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 
-En este momento no se aceptan casos de soporte técnico mientras Windows Virtual Desktop se encuentre en versión preliminar. Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para hablar sobre Windows Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
+Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para hablar sobre Windows Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquisición de la imagen de sesión múltiple de Windows 10 Enterprise
 
-Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure Marketplace, seleccione **Comenzar** > **Microsoft Windows 10** > y [Windows 10 Enterprise para Versión preliminar de escritorios virtuales, versión 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure Marketplace, seleccione **Comenzar** > **Microsoft Windows 10** > y [Windows 10 Enterprise para escritorios virtuales, versión 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Captura de pantalla de selección de Windows 10 Enterprise para Versión preliminar de escritorios virtuales, versión 1809.](media/AzureMarketPlace.png)
+![Captura de pantalla de selección de Windows 10 Enterprise para escritorios virtuales, versión 1809.](media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Crear un inquilino de Windows Virtual Desktop
 
@@ -167,7 +167,7 @@ Ejemplo de error no procesado:
 
 ```Error
 { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
- rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
+ rds.wvd-provision-host-pool-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
  "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
  "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
@@ -277,9 +277,9 @@ Ejemplo de error no procesado:
 
 ```Error
 \\\"The DSC Extension failed to execute: Error downloading
-https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
-2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
-1/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
+https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-provision-host-pool-
+2dec7a4d-006c-4cc0-965a-02bbe438d6ff-prod
+/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
 resolved: 'catalogartifact.azureedge.net'.\\nMore information about the failure can
 be found in the logs located under
 'C:\\\\WindowsAzure\\\\Logs\\\\Plugins\\\\Microsoft.Powershell.DSC\\\\2.77.0.0' on
@@ -348,7 +348,7 @@ Si está ejecutando la plantilla de GitHub Azure Resource Manager, proporcione v
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
 - Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
-- Para obtener más información acerca del servicio en versión preliminar, consulte [Entorno de versión preliminar de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

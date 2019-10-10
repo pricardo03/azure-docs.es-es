@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 88ce3931d9f47b8c16251a45e54fa96b97f038e2
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064530"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693290"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adición de una aplicación de API web al inquilino de Azure Active Directory B2C
 
- Registre recursos de API web en el inquilino para que puedan aceptar y responder a solicitudes de aplicaciones cliente que presenten un token de acceso. En este artículo se muestra cómo registrar una aplicación en Azure Active Directory B2C (Azure AD B2C).
+ Registre los recursos de API web en el inquilino para que puedan aceptar y responder a solicitudes de aplicaciones cliente que presenten un token de acceso. En este artículo se muestra cómo registrar una aplicación en Azure Active Directory B2C (Azure AD B2C).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripciones** del menú superior y elija el directorio que contiene el inquilino.
@@ -36,22 +36,12 @@ ms.locfileid: "71064530"
 
 Los ámbitos proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, los usuarios de la API web pueden tener ambos accesos de lectura y de escritura, o pueden tener solo acceso de lectura. En este tutorial, utilizará ámbitos para definir los permisos de lectura y escritura para la API web.
 
-1. Seleccione **Aplicaciones** y, a continuación, *webapi1*.
-2. Seleccione **Ámbitos publicados**.
-3. Como **ámbito**, escriba `Read` y para la descripción, escriba `Read access to the application`.
-4. Como **ámbito**, escriba `Write` y para la descripción, escriba `Write access to the application`.
-5. Haga clic en **Save**(Guardar).
-
-Los ámbitos publicados se pueden utilizar para conceder a una aplicación cliente permiso para la API web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Concesión de permisos
 
 Para llamar a una API web protegida desde una aplicación, deberá conceder permisos de aplicación a la API. Por ejemplo, en [Tutorial: registro de una aplicación en Azure Active Directory B2C](tutorial-register-applications.md), se crea una aplicación web en Azure AD B2C denominada *webapp1*. Puede usar esta aplicación para llamar a la API web.
 
-1. Seleccione **Aplicaciones** y, a continuación, seleccione su aplicación web.
-2. Seleccione **Acceso de API** y, a continuación, seleccione **Agregar**.
-3. En el menú desplegable **Seleccionar API**, seleccione *webapi1*.
-4. En el menú desplegable **Seleccionar ámbitos**, seleccione los ámbitos **Read** y **Write** que definió previamente.
-5. Haga clic en **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 La aplicación está registrada para llamar a la API web protegida. Un usuario se autentica con Azure AD B2C para utilizar la aplicación. La aplicación obtiene una concesión de autorización de Azure AD B2C para acceder a la API web protegida.

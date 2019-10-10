@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933803"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348507"
 ---
 # <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
@@ -34,20 +34,17 @@ El modelo de precios de Azure Security Center para IoT está formado por dos par
 
 - Coste por mensaje: capacidades de seguridad mejoradas en función de los mensajes de seguridad de dispositivos IoT Edge u hoja.
 
-  >[!Note]
-  > Los mensajes de seguridad también comportan un consumo de cuota en IoT Hub.
 
 Para obtener más información, vea la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Costes asociados
 
-Azure Security Center para IoT tiene dos tipos de costos asociados que no forman parte de los precios directos:
+Azure Security Center para IoT tiene costos asociados que no forman parte de los precios directos:
 
-- Consumo de cuota de IoT Hub
 
 - Costes de almacenamiento de Log Analytics
 
-Puede reducir estos costos asociados si decide no utilizar determinadas características (es necesario cambiar la configuración).
+Puede reducir estos costos asociados si decide no utilizar determinadas características. Opte por no cambiar su configuración.
 
 Para cambiar la configuración:
 
@@ -61,8 +58,6 @@ En la siguiente tabla se proporciona un resumen de los costes asociados y lo que
 
 |     | Uso | Comentario |
 | --- | --- | --- |
-| **Consumo de cuota de IoT Hub** |  |
-| Trabajo de [exportación de dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) (exportación de gemelo) | Una vez al día | Se deshabilita la _recopilación de metadatos gemelos_. |
 | **Almacenamiento de Log Analytics** |  |
 | Alertas y recomendaciones de dispositivo| Alertas y recomendaciones de dispositivo generadas por el servicio | No opcional. |
 | Datos de seguridad sin procesar| Datos de seguridad sin procesar de dispositivos IoT recopilados por agentes de seguridad | Se deshabilita el _almacenamiento de eventos de seguridad de dispositivos sin procesar_. |

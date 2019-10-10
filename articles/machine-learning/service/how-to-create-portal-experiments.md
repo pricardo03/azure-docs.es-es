@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034826"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350554"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
 
@@ -31,7 +31,6 @@ ms.locfileid: "71034826"
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Primeros pasos
-
 
 1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/workspaceportal/). 
 
@@ -59,7 +58,7 @@ En caso contrario, verá el panel de **Machine Learning automatizado** con una i
     ---|---
     Nombre del proceso| Escriba un nombre único que identifique el contexto del proceso.
     Tamaño de la máquina virtual| Seleccione el tamaño de la máquina virtual para el proceso.
-    Configuración adicional| *Min node* (Nodos mín.): escriba el número mínimo de nodos para el proceso. El número mínimo de nodos para el proceso de AML es 0. Para habilitar la generación de perfiles de datos, debe tener 1 o más nodos. <br> *Max node* (Nodos máx.): escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
+    Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos. escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
     
     Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
 
@@ -109,7 +108,7 @@ En caso contrario, verá el panel de **Machine Learning automatizado** con una i
     Configuración avanzada|DESCRIPCIÓN
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Exit criteria (Criterios de salida)| Cuando se cumple cualquiera de estos criterios, el trabajo de entrenamiento termina antes de la finalización completa. <br> *Training job time (minutes)* (Tiempo de trabajo de entrenamiento [minutos]): cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute.  <br> *Max number of iterations* (Número máximo de iteraciones): número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
+    Exit criteria (Criterios de salida)| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Training job time (minutes)* (Tiempo de trabajo de entrenamiento [minutos]): cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute.  <br> *Max number of iterations* (Número máximo de iteraciones): número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
     Preprocessing (Preprocesamiento)| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. [Más información sobre el preprocesamiento](#preprocess).
     Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
     Simultaneidad| Seleccione los límites de varios núcleos que le gustaría usar cuando se usa un proceso de varios núcleos.

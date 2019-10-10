@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304572"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703454"
 ---
 # <a name="virtual-wan-partners"></a>Asociados de Virtual WAN
 
@@ -36,9 +36,10 @@ Un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o S
   1. Normalmente, un usuario de Virtual WAN iniciará el proceso mediante la creación de un recurso de Virtual WAN.
   2. El usuario configurará un acceso al grupo de recursos basado en la entidad de servicio para el sistema local (el controlador de rama o el dispositivo VPN que aprovisiona el software) para escribir información de la rama en Azure Virtual WAN.
   3. El usuario puede decidir en este momento iniciar sesión en la interfaz de usuario y configurar las credenciales de la entidad de servicio. Una vez completado, el controlador debe ser capaz de cargar la información de la rama con la automatización que proporcionará. El manual equivalente a este en Azure es "Crear sitio".
-  4. Una vez que la información del sitio (dispositivo de la rama) esté disponible en Azure, el usuario asociará el sitio a un concentrador. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). El concentrador es el núcleo de la red en una región. Solo puede haber un único concentrador por región de Azure y su punto de conexión de VPN (vpngateway) se crea durante este proceso. La puerta de enlace VPN es una puerta de enlace escalable cuyo tamaño se basa adecuadamente en las necesidades de ancho de banda y conexión. Puede automatizar la creación del concentrador virtual y vpngateway desde el panel de controlador del dispositivo de la rama.
+  4. Una vez que la información del sitio (dispositivo de rama) esté disponible en Azure, el usuario conectará el sitio a un concentrador. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). El concentrador es el núcleo de la red en una región. Solo puede haber un único concentrador por región de Azure y su punto de conexión de VPN (vpngateway) se crea durante este proceso. La puerta de enlace VPN es una puerta de enlace escalable cuyo tamaño se basa adecuadamente en las necesidades de ancho de banda y conexión. Puede automatizar la creación del concentrador virtual y vpngateway desde el panel de controlador del dispositivo de la rama.
   5. Una vez que el concentrador virtual se asocia al sitio, se genera un archivo de configuración para que el usuario lo descargue manualmente. En este momento la automatización entra en juego haciendo que el usuario obtenga una experiencia sin interrupciones. En lugar de que el usuario tenga que descargar y configurar el dispositivo de la rama manualmente, puede establecer la automatización y proporcionar una experiencia de click-through mínima en la interfaz de usuario. De este modo, se mitigan los típicos problemas de conectividad, como el error de coincidencia de la clave compartida o de los parámetros de IPSec, la legibilidad del archivo de configuración, etc.
   6. Al final de este paso de la solución, el usuario tendrá una conexión directa de sitio a sitio entre el dispositivo de la rama y el concentrador virtual. También puede configurar conexiones adicionales en otros concentradores. Cada conexión es un túnel activo-activo. El cliente puede utilizar otro ISP para cada uno de los vínculos del túnel.
+  7. Considere la posibilidad de proporcionar funcionalidades de supervisión y solución de problemas en la interfaz de administración de CPE. Entre los escenarios típicos se incluyen "el cliente no puede acceder a los recursos de Azure debido a un problema de CPE", "mostrar los parámetros de IPsec en el lado de CPE", etc.
 
 ## <a name ="understand"></a>Comprender los detalles de la automatización
 
@@ -64,7 +65,7 @@ Este paso implica la descarga de la configuración de Azure y la configuración 
 **Notas de la configuración**
 
   * Si las redes virtuales de Azure están conectadas al concentrador virtual, aparecen como ConnectedSubnets.
-  * La conectividad de VPN usa la configuración basada en rutas e IKEv2 o IKEv1.
+  * La conectividad de VPN usa la configuración basada en rutas y admite los protocolos IKEv1 e IKEv2.
 
 #### <a name="understanding-the-device-configuration-file"></a>Información sobre el archivo de configuración del dispositivo
 

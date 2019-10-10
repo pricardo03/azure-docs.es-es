@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: fdccf486cacabda4f363f4629a4d6daa4a00c8e4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 36514c342f8ed8d988f26fcb69daf30c42ee5cf3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597157"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176632"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Presentación de Azure Security Center for IoT
 
 Unifique la administración de seguridad y habilite el análisis y la detección de amenazas de un extremo a otro en todas las cargas de trabajo de la nube híbrida y en la solución Azure IoT. 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Proteger IoT y las cargas de trabajo en la nube híbrida de ciberataques cambiantes
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteja toda la solución de IoT desde los dispositivos IoT a la nube de Azure.
 
-Internet de las cosas está transformando el mundo a gran velocidad. Si tiene capacidad para descubrir información de sus sistemas de backend y dispositivos conectados, ahora puede transformarla en aplicaciones y servicios eficaces que ayuden a su organización a alcanzar niveles de rendimiento operacional y comercial sin precedentes. Pero con los miles de millones de nuevos dispositivos conectados a Internet e integrados en nuestra vida diaria y en el ámbito laboral, los equipos de operaciones de seguridad deben asegurarse de que las estrategias de seguridad evolucionan con la rapidez suficiente como para cubrir estas nuevas superficies de ataque. Al igual que cualquier otro sistema, la solución de IoT necesita protección en cada etapa de su implementación. 
+Elija una sencilla solución sin agente o aproveche la seguridad integral basada en agentes; Azure Security Center para IoT proporciona prevención y análisis de amenazas para cada dispositivo, IoT Edge y IoT Hub, en los recursos de IoT.
+
+Al igual que los miles de millones de nuevos dispositivos conectados a Internet e integrados en nuestra vida diaria y en el ámbito laboral, los equipos de operaciones de seguridad tienen que asegurarse de que las estrategias de seguridad evolucionan con la rapidez suficiente como para cubrir estas nuevas superficies de ataque. Al igual que cualquier otro sistema, para proteger completamente la solución de IoT, requiere protección en cada etapa de la implementación. 
 
 Azure Security Center para IoT simplifica la protección de las cargas de trabajo híbridas al ofrecer una visibilidad y un control unificados, una prevención de amenazas adaptable y una detección y respuesta a amenazas inteligentes en todas las cargas de trabajo que se ejecutan en el borde, de forma local, en Azure y en otras nubes. 
 
@@ -36,7 +38,7 @@ Azure Security Center para IoT simplifica la protección de las cargas de trabaj
 
 ### <a name="unified-visibility-and-control"></a>Control y visibilidad unificados
 
-Obtenga una vista unificada de la seguridad de todas las cargas de trabajo locales y en la nube, incluida la solución de Azure IoT. Incorpore nuevos dispositivos y aplique directivas de seguridad a las cargas de trabajo (dispositivos Leaf, Microsoft Edge e IOT Hub) para garantizar el cumplimiento de los estándares de seguridad y una posición de seguridad mejorada.
+Obtenga una vista unificada de la seguridad de todas las cargas de trabajo locales y en la nube, incluida la solución de Azure IoT. Incorpore nuevos dispositivos y aplique directivas de seguridad a las cargas de trabajo (dispositivos Leaf, Microsoft Edge e IOT Hub) para garantizar el cumplimiento de los estándares de seguridad y una posición de seguridad mejorada. 
 
 ### <a name="adaptive-threat-prevention"></a>Prevención de amenazas adaptable
 

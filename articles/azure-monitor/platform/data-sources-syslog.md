@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240837"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327430"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
@@ -58,7 +58,7 @@ Para agregar un nuevo recurso, escriba su nombre y haga clic en **+** . Para cad
 
 ![Configuración de Syslog](media/data-sources-syslog/configure.png)
 
-De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis máquinas Linux).
+De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Aplicar la configuración siguiente a mis máquinas*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configuración de Syslog en agente de Linux
 Cuando el [agente de Log Analytics se instala en un cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan. Puede modificar este archivo para cambiar la configuración. El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
@@ -203,7 +203,7 @@ Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Equipo |Nombre del equipo desde el que se recopiló el evento. |
+| Computer |Nombre del equipo desde el que se recopiló el evento. |
 | Facility |Define la parte del sistema que ha generado el mensaje. |
 | HostIP |Dirección IP del sistema que envía el mensaje. |
 | HostName |Nombre del sistema que envía el mensaje. |

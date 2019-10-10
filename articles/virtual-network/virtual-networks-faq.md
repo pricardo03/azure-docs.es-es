@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389704"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828972"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -200,9 +200,9 @@ Sí. Debe conectar un conjunto de escalado de máquinas virtuales a una red virt
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>¿Hay una lista completa de servicios de Azure de la que pueda implementar recursos desde una red virtual?
 Sí. Para más información, consulte [Integración de red virtual para los servicios de Azure](virtual-network-for-azure-services.md).
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>¿A qué recursos de PaaS de Azure se puede restringir el acceso desde una red virtual?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>¿Cómo se puede restringir el acceso a recursos de PaaS de Azure desde una red virtual?
 
-Se puede restringir el acceso a los recursos implementados mediante algunos servicios de PaaS de Azure (como Azure Storage y Azure SQL Database) en una red virtual solo mediante el uso de puntos de conexión de servicio de red virtual. Para más información, consulte [Puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md).
+Los recursos implementados a través de algunos servicios PaaS de Azure (como Azure Storage y Azure SQL Database) pueden restringir el acceso de red a la red virtual mediante puntos de conexión de servicio de red virtual o Azure Private Link. Para obtener más información, consulte [la información general sobre puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) y [Azure Private Link](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>¿Puedo mover mis servicios dentro y fuera de las redes virtuales?
 No. No se pueden mover los servicios dentro y fuera de las redes virtuales. Para mover un recurso a otra red virtual, tendrá que eliminar el recurso y volver a implementarlo.
@@ -395,7 +395,7 @@ Las directivas de punto de conexión de servicio de la red virtual (VNet) le per
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>¿Admite Azure Active Directory (Azure AD) puntos de conexión de servicio de red virtual?
 
-Azure Active Directory (Azure AD) no admite puntos de conexión de servicio de forma nativa. [Aquí](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) encontrará una lista completa de los servicios de Azure que admiten puntos de conexión de servicio de red virtual. Cabe mencionar que la etiqueta "Microsoft.AzureActiveDirectory" que aparece bajo los servicios compatibles con los puntos de conexión de servicio se usa para admitir los puntos de conexión de servicio para ADLS Gen 1. En el caso de ADLS Gen 1, la integración de red virtual de Azure Data Lake Storage Gen1 emplea la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso. Más información sobre [Integración con red virtual en Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Azure Active Directory (Azure AD) no admite puntos de conexión de servicio de forma nativa. [Aquí](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) encontrará una lista completa de los servicios de Azure que admiten puntos de conexión de servicio de red virtual. Cabe mencionar que la etiqueta "Microsoft.AzureActiveDirectory" que aparece bajo los servicios compatibles con los puntos de conexión de servicio se usa para admitir los puntos de conexión de servicio para ADLS Gen 1. En el caso de ADLS Gen 1, la integración de red virtual de Azure Data Lake Storage Gen1 emplea la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso. Más información sobre la [integración con redes virtuales de Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>¿Hay algún límite en la cantidad de puntos de conexión de servicio de la red virtual que puedo configurar desde mi red virtual?
 No hay límite en el número total de puntos de conexión de servicio de la red virtual en una red virtual. Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage), los servicios pueden exigir límites en el número de subredes que se usan para proteger el recurso. En la tabla siguiente se muestran algunos límites de ejemplo: 

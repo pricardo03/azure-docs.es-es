@@ -1,67 +1,63 @@
 ---
-title: Resolución de errores de directorios que no coinciden en Azure AD Domain Services | Microsoft Docs
-description: Entender y resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
+title: Corrección de errores de directorios no coincidentes en Azure AD Domain Services | Microsoft Docs
+description: Más información sobre lo que significa un error de directorio no coincidente y cómo resolverlo en Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617294"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693339"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
-Ya dispone de un dominio administrado con Azure AD Domain Services. Cuando navega a Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
 
-![Error de directorio que no coincide](./media/getting-started/mismatched-tenant-error.png)
+Si un dominio administrado de Azure Active Directory Domain Services (Azure AD DS) muestra un error de inquilino no coincidente, no se puede administrar el dominio administrado hasta que se resuelva. Este error se produce si la red virtual de Azure subyacente se mueve a otro directorio de Azure AD.
 
-Este dominio administrado no se puede administrar mientras no se resuelva el error.
+En este artículo se explica por qué se produce el error y cómo resolverlo.
 
+## <a name="what-causes-this-error"></a>¿Qué causa este error?
 
-## <a name="whats-causing-this-error"></a>¿Qué es lo que causa este error?
-Este error se produce cuando el dominio administrado y la red virtual en la que está habilitado pertenecen a dos inquilinos de Azure AD diferentes. Por ejemplo, tiene un dominio administrado denominado "contoso.com" que se ha habilitado para el inquilino de Azure AD de Contoso, pero la red virtual de Azure en la que se ha habilitado el dominio administrado pertenece a Fabrikam, un inquilino de Azure AD diferente.
+Un error de directorio no coincidente se produce cuando un dominio administrado de Azure AD DS y una red virtual pertenecen a dos inquilinos de Azure AD distintos. Por ejemplo, tiene un dominio administrado de Azure AD DS denominado *contoso.com* que se ejecuta en el inquilino de Azure AD de Contoso, pero la red virtual de Azure para el dominio administrado forma parte del inquilino de Azure AD de Fabrikam.
 
-El nuevo Azure Portal (y, en concreto, la extensión de Azure AD Domain Services) se basa en Azure Resource Manager. En el entorno moderno de Azure Resource Manager, se aplican ciertas restricciones para proporcionar mayor seguridad y un control de acceso basado en rol (RBAC) a los recursos. La operación de habilitar Azure AD Domain Services para un inquilino de Azure AD es delicada, ya que hace que los valores hash de credenciales se sincronicen con el dominio administrado. Para realizar esta operación, debe ser un administrador de inquilinos del directorio. Además, debe tener privilegios administrativos en la red virtual en la que se habilita el dominio administrado. Para que las comprobaciones de RBAC funcionen de forma coherente, el dominio administrado y la red virtual deben pertenecer al mismo inquilino de Azure AD.
+Azure utiliza el control de acceso basado en rol (RBAC) para limitar el acceso a los recursos. Al habilitar Azure AD DS en un inquilino de Azure AD, los hashes de credenciales se sincronizan con el dominio administrado. Esta operación requiere que se sea administrador de inquilinos en el directorio de Azure AD y debe controlarse el acceso a las credenciales. Para implementar recursos en una red virtual de Azure y controlar el tráfico, debe tener privilegios administrativos en la red virtual en la que implementa Azure AD DS.
 
-En resumen, no puede habilitar un dominio administrado para un inquilino de Azure AD de "contoso.com" en una red virtual que pertenezca a una suscripción de Azure propiedad de otro inquilino de Azure AD de "fabrikam.com". 
-
-**Configuración válida**: en este escenario de implementación, el dominio administrado de Contoso está habilitado para el inquilino de Azure AD de Contoso. El dominio administrado se expone en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Contoso. Por lo tanto, tanto el dominio administrado como la red virtual pertenecen al mismo inquilino de Azure AD. Esta configuración es válida y totalmente compatible.
-
-![Configuración de inquilino válida](./media/getting-started/valid-tenant-config.png)
-
-**Configuración de inquilino que no coincide**: en este escenario de implementación, el dominio administrado de Contoso está habilitado para el inquilino de Azure AD de Contoso. pero el dominio administrado se expone en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Fabrikam. Por lo tanto, el dominio administrado y la red virtual pertenecen a dos inquilinos de Azure AD diferentes. Esta configuración es una configuración de inquilino que no coincide y no se admite. La red virtual debe moverse al mismo inquilino de Azure AD (es decir, Contoso) que el dominio administrado. Vea la sección [Resolución](#resolution) para obtener más información.
-
-![Configuración de inquilino que no coincide](./media/getting-started/mismatched-tenant-config.png)
-
-Por lo tanto, verá este error cuando el dominio administrado y la red virtual en la que está habilitado pertenecen a dos inquilinos de Azure AD diferentes.
+Para que RBAC funcione de forma coherente y proteja el acceso a todos los recursos que Azure AD DS utiliza, el dominio administrado y la red virtual deben pertenecer al mismo inquilino de Azure AD.
 
 Las reglas siguientes se aplican al entorno de Resource Manager:
+
 - Un directorio de Azure AD puede tener varias suscripciones de Azure.
 - Una suscripción de Azure puede tener varios recursos, como redes virtuales.
 - Solo hay un dominio administrado de Azure AD Domain Services habilitado para un directorio de Azure AD.
 - Un dominio administrado de Azure AD Domain Services puede habilitarse en una red virtual que pertenezca a cualquiera de las suscripciones de Azure incluidas dentro del mismo inquilino de Azure AD.
 
+### <a name="valid-configuration"></a>Configuración válida
 
-## <a name="resolution"></a>Resolución
-Tiene dos opciones para resolver el error de directorio que no coincide. Puede hacer lo siguiente:
+En este escenario de implementación de ejemplo, el dominio administrado de Azure AD DS de Contoso está habilitado en el inquilino de Azure AD de Contoso. El dominio administrado se implementa en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Contoso. Tanto el dominio administrado como la red virtual pertenecen al mismo inquilino de Azure AD. Esta configuración de ejemplo es válida y totalmente compatible.
 
-- Haga clic en el botón **Eliminar** para eliminar el dominio administrado existente. Vuelva a crearlo en [Azure Portal](https://portal.azure.com), de modo que el dominio administrado y la red virtual en la que está disponible pertenezcan al directorio de Azure AD. Una todas las máquinas que antes estaban unidas al dominio eliminado al dominio administrado recién creado.
+![Configuración valida de inquilino de Azure AD DS con el dominio administrado y parte de la red virtual del mismo inquilino de Azure AD](./media/getting-started/valid-tenant-config.png)
 
-- Mueva la suscripción de Azure que contiene la red virtual al directorio de Azure AD al que pertenece el dominio administrado. Siga los pasos del artículo [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
+### <a name="mismatched-tenant-configuration"></a>Configuración de inquilino que no coincide
 
+En el siguiente escenario de implementación de ejemplo, el dominio administrado de Azure AD DS de Contoso está habilitado en el inquilino de Azure AD de Contoso, pero el dominio administrado se implementa en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Fabrikam. El dominio administrado y la red virtual pertenecen a dos inquilinos de Azure AD distintos. Esta configuración de ejemplo corresponde a un inquilino no coincidente y no se admite. La red virtual debe moverse al mismo inquilino de Azure AD (es decir, Contoso) que el dominio administrado.
 
-## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure AD Domain Services](tutorial-create-instance.md)
-* [Guía de solución de problemas de Azure AD Domain Services](troubleshoot.md)
+![Configuración de inquilino que no coincide](./media/getting-started/mismatched-tenant-config.png)
+
+## <a name="resolve-mismatched-tenant-error"></a>Resolución de errores de inquilinos no coincidentes
+
+Las dos opciones siguientes resuelven el error de directorio no coincidente:
+
+* [Eliminación del dominio administrado de Azure AD DS](delete-aadds.md) del directorio de Azure AD existente. [Creación de un dominio administrado de Azure AD DS de reemplazo](tutorial-create-instance.md) en el mismo directorio de Azure AD que la red virtual que se quiere utilizar. Cuando esté listo, una todas las máquinas que antes estaban unidas al dominio eliminado al dominio administrado ha vuelto a crear.
+* [Mueva la suscripción de Azure](../billing/billing-subscription-transfer.md) que contiene la red virtual al mismo directorio de Azure AD que el dominio administrado de Azure AD DS.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información sobre la solución de problemas con Azure AD DS, consulte la [guía de solución de problemas](troubleshoot.md).

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c357cba8ce2fbe2ad902d5c215f8adbfc99a9f0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 63176c325fd42c46e988ab3798f46089a43e70bf
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813016"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326784"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -97,7 +97,8 @@ En esta sección se tratan los siguientes aspectos de planeamiento:
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-* Una suscripción válida a Azure AD Premium P1 o posterior con acceso de administrador global
+* Una licencia de suscripción de Azure AD Premium P1 o superior válida para cada usuario que se obtenga de WorkDay y que se aprovisionará en Active Directory local o en Azure Active Directory.
+* Acceso del administrador global de Azure AD para configurar el agente de aprovisionamiento
 * Un inquilino de implementación de Workday para fines de pruebas y de integración
 * Permisos de administrador en Workday para crear un usuario de integración del sistema y efectuar cambios para probar los datos de los empleados con fines de pruebas
 * Para el aprovisionamiento de usuarios en Active Directory, se necesita un servidor que ejecute Windows Server 2012 o una versión posterior con el entorno de ejecución .NET 4.7.1+ a fin de hospedar el [agente de aprovisionamiento local](https://go.microsoft.com/fwlink/?linkid=847801)
@@ -548,7 +549,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **Company**         | company   |     |  Crear y Actualizar |
 | **SupervisoryOrganization**  | department  |     |  Crear y Actualizar |
 | **ManagerReference**   | manager  |     |  Crear y Actualizar |
-| **BusinessTitle**   |  título     |     |  Crear y Actualizar | 
+| **BusinessTitle**   |  title     |     |  Crear y Actualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Crear y Actualizar |
 | **Municipality**   |   l   |     | Crear y Actualizar |
 | **CountryReferenceTwoLetter**      |   co |     |   Crear y Actualizar |

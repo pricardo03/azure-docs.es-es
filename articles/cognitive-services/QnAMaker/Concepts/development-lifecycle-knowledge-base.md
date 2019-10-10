@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695111"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973804"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -24,7 +24,7 @@ QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos 
 ![Ciclo de creación](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## <a name="creating-a-qna-maker-knowledge-base"></a>Creación de una base de conocimiento de QnA Maker
-El punto de conexión de la base de conocimiento de QnA Maker proporciona una respuesta mejor para las consultas de usuario basadas en el contenido de la base de conocimiento. Crear una base de conocimiento es una acción que se realiza una vez para configurar un repositorio de contenido de preguntas, respuestas y los metadatos asociados. Para crear una base de datos de conocimiento, se puede rastrear el contenido existente, como páginas de preguntas más frecuentes, manuales de productos o pares de pregunta-respuesta estructurados. Aprenda cómo [crear una base de conocimiento](../How-To/create-knowledge-base.md).
+El punto de conexión de la base de conocimiento de QnA Maker proporciona una respuesta mejor para las consultas de usuario basadas en el contenido de la base de conocimiento. Crear una base de conocimiento es una acción que se realiza una vez para configurar un repositorio de contenido de preguntas, respuestas y los metadatos asociados. Para crear una base de datos de conocimiento, se puede rastrear el contenido existente, como páginas de preguntas más frecuentes, manuales de productos o pares de pregunta-respuesta estructurados. Aprenda cómo [crear una base de conocimiento](../quickstarts/create-publish-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Probar y actualizar la base de conocimiento
 
@@ -74,8 +74,3 @@ Cuando necesite volver a una versión específica, debe importar ese archivo des
 
 > [!div class="nextstepaction"]
 > [Puntuación de confianza](./confidence-score.md)
-
-## <a name="see-also"></a>Otras referencias 
-
-[Base de conocimiento](./knowledge-base.md)
-[Información general de QnA Maker](../Overview/overview.md)

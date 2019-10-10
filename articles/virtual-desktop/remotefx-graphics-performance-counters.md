@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816407"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676547"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto
 
@@ -101,6 +101,6 @@ Si los recursos del cliente son la causa del cuello de botella, pruebe uno de lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop, versión preliminar](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Para crear una máquina virtual de Azure optimizada para GPU, consulte [Configuración de la aceleración de la unidad de procesamiento de gráficos (GPU) para Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
 - Para obtener información general sobre cómo solucionar problemas y las pistas de escalación, consulte [Información general sobre solución de problemas, comentarios y soporte técnico](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Para obtener más información sobre el servicio en versión preliminar, consulte [Entorno de versión preliminar de Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571377"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336817"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Cuando tiene un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -63,8 +63,9 @@ Para grupos y contactos habilitados para correo electrónico, puede hacer una co
 Para evitar que los usuarios de confianza locales coincidan con un usuario en la nube que tenga cualquier rol de administrador, Azure AD Connect no hará coincidir objetos de usuario locales con objetos que tengan un rol de administrador. Esto se aplica de manera predeterminada. Para resolver este comportamiento, puede hacer lo siguiente:
 
 1.  Quitar los roles de directorio del objeto de usuario solo de nube.
-2.  Desencadenar una sincronización.
-3.  Opcionalmente, agregar los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se haya producido.
+2.  Eliminar de forma permanente el objeto en cuarentena en la nube si se produjo un error en el intento de sincronización de usuario.
+3.  Desencadenar una sincronización.
+4.  Opcionalmente, agregar los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se haya producido.
 
 
 

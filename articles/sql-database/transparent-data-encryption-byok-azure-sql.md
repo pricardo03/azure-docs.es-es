@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596699"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348923"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault: compatibilidad con Bring Your Own Key
 
@@ -149,7 +149,7 @@ En la sección siguiente se recorren los pasos de instalación y configuración 
 - Cree dos almacenes de Azure Key Vault en dos regiones diferentes mediante [PowerShell para habilitar la propiedad de "eliminación temporal"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) en los almacenes de claves (esta opción no está disponible aún en el portal de AKV, pero es obligatoria para SQL).
 - Ambos almacenes de Azure Key Vault deben encontrarse en las dos regiones disponibles en la misma zona geográfica de Azure para que la copia de seguridad y la restauración de claves funcione.  Si necesita que los dos almacenes de claves se encuentren en diferentes zonas geográficas para satisfacer los requisitos de recuperación ante desastres con localización geográfica de SQL, siga el [proceso BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) que permite la importación de claves desde un HSM local.
 - Cree una nueva clave en el primer almacén de claves:  
-  - Clave RSA/RSA-HSA 2048
+  - Clave RSA/RSA-HSM 2048
   - Sin fecha de expiración
   - La clave está habilitada y tiene permisos para realizar operaciones de obtención, encapsulado de clave y desencapsulado de clave
 - Haga una copia de seguridad de la clave principal y restaure la clave en el segundo almacén de claves.  Consulte [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) y [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).

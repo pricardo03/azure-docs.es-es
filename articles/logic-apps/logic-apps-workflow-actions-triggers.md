@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918955"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350670"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
 
@@ -1538,7 +1538,7 @@ Esta acción crea una matriz con objetos JSON mediante la transformación de los
 |-------|------|-------------| 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
 | <*key-name*> | String | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
-| <*expresión*> | String | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
+| <*expresión*> | Cadena | La expresión que transforma el elemento de la matriz de origen y asigna el resultado al <*nombre de clave*> | 
 |||| 
 
 La acción **Seleccionar** crea una matriz como salida, por lo que cualquier acción que desee usar esta salida debe aceptar una matriz, o debe convertir la matriz en un tipo que acepte la acción del consumidor. Por ejemplo, para convertir la matriz de salida en una cadena, puede pasar esa matriz a la acción **Redactar** y, a continuación, hacer referencia a la salida de la acción **Redactar** en las demás acciones.
@@ -2402,12 +2402,38 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 ### <a name="change-trigger-concurrency"></a>Cambio en la simultaneidad de desencadenadores
 
-De forma predeterminada, las instancias de la aplicación lógica se ejecutan al mismo tiempo (simultáneamente) o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Por tanto, cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia anterior del flujo de trabajo. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end. 
+De forma predeterminada, las instancias de la aplicación lógica se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Por tanto, cada instancia del desencadenador se activa antes de que finalice la ejecución de la instancia anterior del flujo de trabajo. Este límite ayuda a controlar el número de solicitudes que reciben los sistemas de back-end. 
 
-Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de instancias de flujo de trabajo que se pueden ejecutar en paralelo. 
+Para cambiar el límite predeterminado, puede usar el editor de la vista Código o el diseñador de Logic Apps ya que al cambiar el valor de simultaneidad a través del diseñador se agrega o actualiza la propiedad `runtimeConfiguration.concurrency.runs` en la definición del desencadenador subyacente y viceversa. Esta propiedad controla el número máximo de instancias de flujo de trabajo que se pueden ejecutar en paralelo. Estas son algunas consideraciones al usar el control de simultaneidad:
 
-> [!NOTE] 
-> Si configura el desencadenador para que se ejecute secuencialmente mediante el diseñador o mediante el editor de la vista Código, no establezca la propiedad `operationOptions` del desencadenador en `SingleInstance` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. Para más información, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger).
+* Aunque la simultaneidad está habilitada, una instancia de aplicación lógica de larga duración puede provocar que las nuevas instancias de aplicación lógica entren en un estado de espera. Este estado impide que Azure Logic Apps cree instancias y se produce incluso cuando el número de ejecuciones simultáneas es menor que el número máximo de ejecuciones simultáneas especificado.
+
+  * Para interrumpir este estado, cancele las instancias más tempranas que estén *todavía en ejecución*.
+
+    1. En el menú de la aplicación lógica, seleccione **Introducción**.
+
+    1. En la sección **Historial de ejecuciones**, seleccione la instancia más temprana que esté todavía en ejecución, por ejemplo:
+
+       ![Selección de la instancia más temprana en ejecución](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > Para ver solo las instancias que siguen en ejecución, abra la lista **Todas** y seleccione **En ejecución**.    
+
+    1. En **Ejecución de aplicación lógica**, seleccione **Cancelar ejecución**.
+
+       ![Búsqueda de la instancia más temprana en ejecución](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * Para evitar esta posibilidad, agregue un tiempo de expiración a cualquier acción que pueda contener estas ejecuciones. Si está trabajando en el editor de código, consulte [Cambio de la duración asincrónica](#asynchronous-limits). En caso contrario, si usa el diseñador, siga estos pasos:
+
+    1. En la aplicación lógica, en la acción donde quiere agregar un tiempo de expiración, en la esquina superior derecha, seleccione el botón de puntos suspensivos ( **…** ) y, luego, seleccione **Configuración**.
+
+       ![Abrir la configuración de la acción](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. En **Tiempo de expiración**, especifique la duración del tiempo de expiración en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Especificación de la duración del tiempo de expiración](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* Si quiere ejecutar la aplicación lógica de manera secuencial, puede establecer la simultaneidad del desencadenador en `1`, ya sea mediante el diseñador o el editor de la vista Código. Sin embargo, no debe establecer también la propiedad `operationOptions` del desencadenador en `SingleInstance` en el editor de la vista Código. De lo contrario, obtendrá un error de validación. Para más información, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Edición en la vista Código 
 

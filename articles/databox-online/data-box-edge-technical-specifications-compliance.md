@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326892"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificaciones técnicas de Azure Data Box Edge
 
 Los componentes de hardware del dispositivo Data Box Edge de Microsoft Azure se adhieren a las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y los estándares medioambientales. 
+
+## <a name="compute-memory-specifications"></a>Especificaciones de memoria y proceso
+
+El dispositivo Data Box Edge tiene las siguientes especificaciones para el proceso y la memoria:
+
+| Especificación           | Valor                  |
+|-------------------------|----------------------------|
+| CPU    | Dos CPU de 10 núcleos                     |
+| Memoria              | 128 GB de RAM                  |
+
+
+## <a name="fpga-specifications"></a>Especificaciones de FPGA
+
+Se incluye una matriz de puertas programables (FPGA) en cada dispositivo Data Box Edge que habilita los escenarios de Machine Learning (ML). 
+
+| Especificación           | Valor                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
 

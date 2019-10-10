@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6bd746e79bc9d70be23771f97b1757f090f6375f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476553"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709279"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configure el modo en que los usuarios finales dan su consentimiento a una aplicación en Azure Active Directory.
 Aprenda a configurar el modo en que los usuarios dan su consentimiento en los permisos de la aplicación. Puede simplificar la experiencia del usuario proporcionando consentimiento de administrador. En este artículo, se explican diferentes métodos para configurar el consentimiento del usuario. Estos métodos se aplican a todos los usuarios finales del inquilino de Azure Active Directory (Azure AD). 
@@ -63,13 +63,14 @@ Para conceder consentimiento de administrador al registrar una aplicación:
 
 Para otorgar consentimiento de administrador mediante una solicitud URL:
 
-1. Cree una solicitud para *login.microsoftonline.com* con la configuración de la aplicación y anéxela a `&prompt=admin_consent`. 
+1. Cree una solicitud para *login.microsoftonline.com* con la configuración de la aplicación y anéxela a `&prompt=admin_consent`. La dirección URL será similar a esta: `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`
 2. Una vez que la sesión se haya iniciado con las credenciales del administrador, la aplicación tendrá consentimiento para todos los usuarios.
 
 
 ## <a name="force-user-consent-through-a-url-request"></a>Aplicación forzosa del consentimiento del administrador mediante una solicitud URL
 
 Para hacer que los usuarios finales den su consentimiento en una aplicación cada vez que se autentiquen, anexe `&prompt=consent` a la dirección URL de la solicitud de autenticación.
+La dirección URL será similar a esta: `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=consent`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

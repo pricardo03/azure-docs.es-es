@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del método de equilibrio de carga de la versión preliminar de Windows Virtual Desktop: Azure'
+title: 'Configuración del método de equilibrio de carga de Windows Virtual Desktop: Azure'
 description: Cómo configurar el método de equilibrio de carga de un entorno de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163762"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676779"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configuración del método de equilibrio de carga de la versión preliminar de Windows Virtual Desktop
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configuración del método de equilibrio de carga de Windows Virtual Desktop
 
-La configuración del método de equilibrio de carga de un grupo de hosts le permite ajustar el entorno de la versión preliminar de Windows Virtual Desktop para satisfacer mejor sus necesidades.
+La configuración del método de equilibrio de carga de un grupo de hosts le permite ajustar el entorno de Windows Virtual Desktop para satisfacer mejor sus necesidades.
 
 >[!NOTE]
 > Esto no se aplica a un grupo de hosts de escritorio persistente, ya que los usuarios siempre tienen una asignación de 1:1 a un host de sesión dentro del grupo de hosts.

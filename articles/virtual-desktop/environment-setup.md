@@ -1,22 +1,22 @@
 ---
-title: Entorno de la versión preliminar de Windows Virtual Desktop - Azure
-description: Elementos básicos de un entorno de versión preliminar de Windows Virtual Desktop.
+title: 'Entorno de Windows Virtual Desktop: Azure'
+description: Elementos básicos de un entorno de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142384"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676623"
 ---
-# <a name="windows-virtual-desktop-preview-environment"></a>Entorno de versión preliminar de Windows Virtual Desktop
+# <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
 
-La versión preliminar de Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtuales y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
+Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
 
 ## <a name="tenants"></a>Inquilinos
 
@@ -57,9 +57,9 @@ Después de asignar usuarios a sus grupos de aplicaciones, pueden conectarse a u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Delegated Access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md) (Acceso delegado en la versión preliminar de Windows Virtual Desktop).
+Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Para obtener información sobre cómo configurar el inquilino de Windows Virtual Desktop, consulte [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md) (Crear un inquilino en la versión preliminar de Windows Virtual Desktop).
+Para información sobre cómo configurar el inquilino de Windows Virtual Desktop, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 Para obtener información sobre cómo conectarse a Windows Virtual Desktop, consulte uno de los siguientes artículos:
 

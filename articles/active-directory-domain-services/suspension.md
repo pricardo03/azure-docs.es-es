@@ -1,120 +1,126 @@
 ---
-title: 'Azure Active Directory Domain Services: Dominios suspendidos | Microsoft Docs'
-description: Suspensión y eliminación de dominios administrados
+title: Dominios suspendidos en Azure AD Domain Services | Microsoft Docs
+description: Conozca los distintos estados de mantenimiento de un dominio administrado de Azure AD DS y cómo restaurar un dominio suspendido.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 781a81589032c290cef7342e7210ee36f388b22a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233987"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693309"
 ---
-# <a name="understand-the-suspended-states-for-an-azure-active-directory-domain-services-managed-domain"></a>Información sobre los estados suspendidos en dominios administrados de Azure Active Directory Domain Services
+# <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Descripción de los estados de mantenimiento y resolución de dominios suspendidos en Azure Active Directory Domain Services
 
-Cuando Azure Active Directory Domain Services (Azure AD DS) no puede atender un dominio administrado durante un largo período de tiempo, coloca el dominio administrado en un estado suspendido. En este artículo se explica por qué se suspenden los dominios administrados y cómo corregir un dominio suspendido.
+Cuando Azure Active Directory Domain Services (Azure AD DS) no puede atender un dominio administrado durante un largo período de tiempo, coloca el dominio administrado en un estado suspendido. Si un dominio administrado permanece después en estado suspendido, se eliminará automáticamente. Para mantener el dominio administrado de Azure AD DS correcto y evitar la suspensión, resuelva las alertas tan pronto como pueda.
 
+En este artículo se explica por qué se suspenden los dominios administrados y cómo recuperar un dominio suspendido.
 
-## <a name="states-your-managed-domain-can-be-in"></a>Estados que pueden tener los dominios administrados
+## <a name="overview-of-managed-domain-states"></a>Información general de los estados de dominio administrado
 
-![Escala de tiempo de un dominio suspendido](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+A través del ciclo de vida de un dominio administrado de Azure AD DS hay distintos estados que indican su estado. Si el dominio administrado informa de un problema, resuelva rápidamente la causa subyacente para evitar que el estado siga degradado.
 
-En el gráfico anterior se describen los posibles estados que puede tener un dominio administrado de Azure AD DS.
+![La progresión de estados que un dominio administrado de Azure AD DS lleva a la suspensión](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-### <a name="running-state"></a>Estado "En ejecución"
-Un dominio administrado que está configurado correctamente y que funciona de manera habitual tiene el estado **En ejecución**.
+Un dominio administrado de Azure AD DS puede encontrarse en uno de los siguientes estados:
 
-**Qué cabe esperar**
-* Microsoft puede supervisar periódicamente el estado del dominio administrado.
+* [Ejecución](#running-state)
+* [Requiere atención](#needs-attention-state)
+* [Suspendido](#suspended-state)
+* [Eliminado](#deleted-state)
+
+## <a name="running-state"></a>Estado "En ejecución"
+
+Un dominio administrado de Azure AD DS que está configurado correctamente y se ejecuta sin problemas se encuentra en el estado *En ejecución*. Este es el estado que se quiere en un dominio administrado.
+
+### <a name="what-to-expect"></a>Qué esperar
+
+* La plataforma Azure puede supervisar periódicamente el estado del dominio administrado.
 * Los controladores de dominio del dominio administrado se revisan y actualizan de manera periódica.
-* Los cambios que se realizan desde Azure Active Directory se sincronizan periódicamente con el dominio administrado.
-* Se realizan copias de seguridad periódicas para el dominio administrado.
+* Los cambios que se realizan en Azure Active Directory se sincronizan periódicamente con el dominio administrado.
+* Se realizan copias de seguridad periódicas del dominio administrado.
 
+## <a name="needs-attention-state"></a>Estado "Requiere atención"
 
-### <a name="needs-attention-state"></a>Estado "Requiere atención"
-Un dominio administrado tiene el estado **Requiere atención** si uno o más problemas requieren que un administrador tome medidas. La página de estado del dominio administrado muestra una o varias alertas con este estado.
+Un dominio administrado de Azure AD DS con uno o varios problemas que es necesario corregir se encuentra en el estado *Requiere atención*. En la página de estado del dominio administrado se muestran las alertas y se indica dónde hay un problema. Algunas alertas son transitorias y se resuelven automáticamente en la plataforma Azure. En el caso de otras alertas, puede corregir el problema siguiendo los pasos de resolución proporcionados. Si hay una alerta crítica, [abra una solicitud de Soporte técnico de Azure][azure-support] para obtener ayuda adicional de solución de problemas.
 
-Por ejemplo, si configuró un NSG restrictivo para la red virtual, es posible que Microsoft no pueda actualizar ni supervisar el dominio administrado. Esta configuración no válida, desencadena una alerta que coloca el dominio administrado en el estado "Requiere atención".
+Un ejemplo de alerta es cuando hay un grupo de seguridad de red restrictivo. En esta configuración, es posible que la plataforma Azure no pueda actualizar y supervisar el dominio administrado. Se genera una alerta y el estado cambia a *Requiere atención*.
 
-Cada alerta tiene un conjunto de pasos de resolución. Algunas alertas son transitorias y el servicio las resuelve de manera automática. Para resolver algunas otras alertas, siga las instrucciones que aparecen en los pasos de resolución correspondientes para esa alerta. Para algunas alertas críticas, debe ponerse en contacto con Soporte técnico de Microsoft para obtener una solución.
+Para más información, consulte el artículo sobre [solución de problemas de alertas en un dominio administrado de Azure AD DS][resolve-alerts].
 
-Para más información, consulte [Azure AD Domain Services: solución de problemas de alertas](troubleshoot-alerts.md).
+### <a name="what-to-expect"></a>Qué esperar
 
-**Qué cabe esperar**
-
-En algunos casos (por ejemplo, si tiene una configuración de red no válida), es posible que no se pueda acceder a los controladores de dominio del dominio administrado. Cuando el dominio administrado se encuentra en el estado "Precisa atención", Microsoft no puede garantizar la supervisión, revisión, actualización ni copia de seguridad de dicho un dominio periódicamente.
+Cuando un dominio administrado de Azure AD DS se encuentra en el estado *Requiere atención*, es posible que la plataforma Azure no pueda supervisar, aplicar revisiones, actualizar o realizar copias de seguridad de los datos de forma periódica. En algunos casos, como en el caso de una configuración de red no válida, es posible que no se pueda acceder a los controladores de dominio del dominio administrado.
 
 * El dominio administrado tiene un estado incorrecto y el seguimiento de estado actual se podría detener hasta que se resuelva la alerta.
-* No se pueden revisar ni actualizar los controladores de dominio del dominio administrado.
-* Los cambios que se realizan desde Azure Active Directory podrían no sincronizarse con el dominio administrado.
-* Se podrían crear copias de seguridad del dominio administrado, si es posible.
-* Si resuelve alertas que afectan al dominio administrado, podría restaurarlo al estado "En ejecución".
-* Las alertas críticas se desencadenan en caso de errores de configuración cuando Microsoft no puede acceder a los controladores de dominio. Si las alertas en cuestión no se resuelven dentro de 15 días, el dominio administrado se coloca en el estado "Suspendido".
+* Los controladores de dominio del dominio administrado no se pueden revisar ni actualizar.
+* Es posible que los cambios que se realicen en Azure Active Directory no se puedan sincronizar con el dominio administrado.
+* Puede que no se realicen copias de seguridad de los dominios administrados.
+* Si resuelve alertas no críticas que afectan al dominio administrado, el estado debe volver al estado *En ejecución*.
+* Las alertas críticas se desencadenan en caso de errores de configuración cuando la plataforma Azure no puede acceder a los controladores de dominio. Si las alertas en cuestión no se resuelven en un plazo de 15 días, el dominio administrado se coloca en el estado *Suspendido*.
 
+## <a name="suspended-state"></a>Estado "Suspendido"
 
-### <a name="the-suspended-state"></a>Estado "Suspendido"
-Un dominio administrado se coloca en el estado **Suspendido** por los motivos siguientes:
+Un dominio administrado de Azure AD DS pasa al estado **Suspendido** por una de las razones siguientes:
 
-* Una o varias alertas críticas no se han resuelto en 15 días. Las alertas críticas pueden deberse a un error de configuración que bloquea el acceso a los recursos que Azure AD DS necesita.
-    * Por ejemplo, la alerta [AADDS104: Error de red](alert-nsg.md) ha estado sin resolver durante más de 15 días en el dominio administrado.
-* Hay un problema con la facturación de la suscripción de Azure o la suscripción de Azure expiró.
+* Una o varias alertas críticas no se han resuelto en 15 días.
+    * Las alertas críticas pueden deberse a un error de configuración que bloquea el acceso a los recursos que Azure AD DS necesita. Por ejemplo, la alerta [AADDS104: Error de red][alert-nsg] ha estado sin resolver durante más de 15 días en el dominio administrado.
+* Hay un problema con la facturación de la suscripción de Azure o esta expiró.
 
-Los dominios administrados se suspenden cuando Microsoft no puede administrar, supervisar, aplicar revisiones ni crear copias de seguridad del dominio de manera habitual.
+Los dominios administrados se suspenden cuando la plataforma Azure no puede administrar, supervisar, aplicar revisiones ni crear copias de seguridad del dominio. Un dominio administrado solo permanece en un estado *Suspendido* durante 15 días. Para mantener el acceso al dominio administrado, resuelva inmediatamente las alertas críticas.
 
-**Qué cabe esperar**
+### <a name="what-to-expect"></a>Qué esperar
+
+Se produce el siguiente comportamiento cuando un dominio administrado de Azure AD DS se encuentra en el estado *Suspendido*:
+
 * Los controladores de dominio del dominio administrado se desaprovisionan y no son accesibles dentro de la red virtual.
-* El acceso de LDAP seguro al dominio administrado a través de Internet (si está habilitado) deja de funcionar.
+* El acceso de LDAP seguro al dominio administrado a través de Internet, si se ha habilitado, deja de funcionar.
 * Se observan errores en la autenticación en el dominio administrado, el inicio de sesión en máquinas virtuales unidas al dominio o en la conexión a través de LDAP/LDAPS.
 * Se dejan de crear copias de seguridad del dominio administrado.
 * La sincronización con Azure AD se detiene.
 
-Después de resolver la alerta, el dominio administrado pasa al estado "Suspendido". Después, debe ponerse en contacto con soporte técnico.
-El soporte técnico podría restaurar el dominio administrado, pero solo si existe una copia de seguridad con menos de 30 días de antigüedad.
+### <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>¿Cómo es posible saber si el dominio administrado está suspendido?
 
-El dominio administrado solo permanece en un estado de suspensión durante 15 días. Para recuperar el dominio administrado, Microsoft recomienda resolver de inmediato las alertas críticas.
+Verá una [alerta][resolve-alerts] en la página Estado de Azure AD DS de Azure Portal que declara el dominio suspendido. El estado del dominio también muestra *Suspendido*.
 
+### <a name="restore-a-suspended-domain"></a>Restauración de un dominio suspendido
 
-### <a name="deleted-state"></a>Estado "Eliminado"
-Un dominio administrado que permanece en el estado "Suspendido" durante 15 días pasa al estado **Eliminado**.
+Para restaurar el estado de un dominio administrado de Azure AD DS que se encuentra en el estado *Suspendido*, complete los pasos siguientes:
 
-**Qué cabe esperar**
+1. En Azure Portal, busque y seleccione **Domain Services**.
+1. En la lista, elija el dominio administrado de Azure AD DS como, por ejemplo, *contoso.com* y, luego, seleccione **Estado**.
+1. Seleccione la alerta, como *AADDS503* o *AADDS504*, en función de la causa de la suspensión.
+1. Elija el vínculo de resolución que se proporciona en la alerta y siga los pasos para resolverla.
+
+Un dominio administrado solo se puede restaurar a la fecha de la última copia de seguridad. La fecha de la última copia de seguridad se muestra en la página **Estado** del dominio administrado. No se restaurarán los cambios que se produjeron después de la última copia de seguridad. Las copias de seguridad de un dominio administrado se almacenan por hasta 30 días. Las copias de seguridad que tienen una antigüedad mayor a 30 días se eliminan.
+
+Después de resolver las alertas cuando el dominio administrado se encuentra en el estado *Suspendido*, [abra una solicitud de Soporte técnico de Azure][azure-support] para volver a un estado correcto. Si hay una copia de seguridad de menos de 30 días, el Soporte técnico de Azure puede restaurar el dominio administrado.
+
+## <a name="deleted-state"></a>Estado "Eliminado"
+
+Si un dominio administrado de Azure AD DS permanece en el estado *Suspendido* durante 15 días, se elimina. Este proceso es irrecuperable.
+
+### <a name="what-to-expect"></a>Qué esperar
+
+Cuando un dominio administrado de Azure AD DS pasa al estado *Eliminado*, se produce el comportamiento siguiente:
+
 * Se eliminan todos los recursos y las copias de seguridad del dominio administrado.
-* No puede restaurar el dominio administrado y necesita crear un dominio administrado nuevo para usar Azure AD DS.
+* No se puede restaurar el dominio administrado y hay que crear un dominio administrado de reemplazo para volver a usar Azure AD DS.
 * Después de eliminarse, no se le facturará el dominio administrado.
 
-
-## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>¿Cómo es posible saber si el dominio administrado está suspendido?
-Verá una [alerta](troubleshoot-alerts.md) en la página Estado de Azure AD DS de Azure Portal que declara el dominio suspendido. El estado del dominio también muestra "Suspendido".
-
-
-## <a name="restore-a-suspended-domain"></a>Restauración de un dominio suspendido
-Para restaurar un dominio que se encuentra en el estado "Suspendido", lleve a cabo estos pasos:
-
-1. Vaya a la [página Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) de Azure Portal.
-2. Seleccione el dominio administrado.
-3. En el panel izquierdo, seleccione **Estado**.
-4. Seleccione la alerta. El identificador de la alerta será AADDS503 o AADDS504, dependiendo de la causa de la suspensión.
-5. Seleccione el vínculo de resolución que se proporciona en la alerta. Luego, siga los pasos para resolver la alerta.
-
-El dominio administrado solo se puede restaurar a la fecha de la última copia de seguridad. La fecha de la última copia de seguridad se muestra en la página Estado del dominio administrado. No se restaurarán los cambios que se produjeron después de la última copia de seguridad. Las copias de seguridad de un dominio administrado se almacenan por hasta 30 días. Las copias de seguridad que tienen una antigüedad mayor a 30 días se eliminan.
-
-
 ## <a name="next-steps"></a>Pasos siguientes
-- [Resuelva alertas para el dominio administrado](troubleshoot-alerts.md)
-- [Más información sobre Azure Active Directory Domain Services](overview.md)
-- [Póngase en contacto con el equipo de productos](contact-us.md)
 
-## <a name="contact-us"></a>Ponerse en contacto con nosotros
-Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](contact-us.md).
+Para mantener el estado del dominio administrado de Azure AD DS y minimizar el riesgo de que se suspenda, obtenga información sobre cómo [resolver alertas para el dominio administrado][resolve-alerts].
+
+<!-- INTERNAL LINKS -->
+[alert-nsg]: alert-nsg.md
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[resolve-alerts]: troubleshoot-alerts.md

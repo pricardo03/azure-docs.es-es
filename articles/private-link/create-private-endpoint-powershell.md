@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: db0921d709f842b004ec4c23d15a986f2e59ec23
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130343"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687072"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
@@ -33,7 +33,7 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
-En esta sección, creará una red virtual y una subred. A continuación, asociará la subred a la red virtual.
+En esta sección, creará una red virtual y una subred. Después, asociará la subred a la red virtual.
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -205,21 +205,19 @@ mstsc /v:<publicIpAddress>
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install SQL Server Management Studio
-4. In Connect to server, enter or select this information:
-    Setting Value
-      Server type   Select Database Engine.
-      Server name   Select myserver.database.windows.net
-      Username  Enter a username provided during creation.
-      Password  Enter a password provided during creation.
-      Remember password Select Yes.
-5. Select Connect.
-6. Browse Databases from left menu. 
-7. (Optionally) Create or query information from mydatabase
-8. Close the remote desktop connection to *myVM*. 
+    ```
+3. Instalación de SQL Server Management Studio
+4. En Conectar al servidor, escriba o seleccione esta información: Valor de configuración Tipo de servidor: seleccione Motor de base de datos.
+      Nombre del servidor: seleccione myserver.database.windows.net Nombre de usuario: escriba un nombre de usuario proporcionado durante la creación.
+      Contraseña: escriba una contraseña proporcionada durante la creación.
+      Recordar contraseña: seleccione Sí.
+5. Seleccione Conectar.
+6. Examine las bases de datos en el menú izquierdo. 
+7. (Opcionalmente) Cree o consulte la información de mydatabase
+8. Cierre la conexión de Escritorio remoto con  *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+Cuando haya terminado con el punto de conexión privado, el servidor de SQL Database y la máquina virtual, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que tiene:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

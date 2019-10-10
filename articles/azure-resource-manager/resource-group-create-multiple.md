@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258895"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675098"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
@@ -49,7 +49,7 @@ Si tiene que especificar si un recurso se implementa, consulte [Elemento conditi
 
 Para especificar el número de iteraciones, proporcione un valor para la propiedad count. El valor de count no puede superar 800.
 
-El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o cualquier versión posterior, o bien con la API REST, versión **2019-05-10**, o cualquier versión posterior, puede establecer count en cero. Las versiones anteriores de PowerShell de la API REST no admiten cero en count. Actualmente, la CLI de Azure no admite el valor cero en count, pero se admitirá en una versión futura.
+El valor de count no puede ser un número negativo. Si implementa una plantilla con Azure PowerShell 2.6 o posterior, la CLI de Azure 2.0.74 o posterior, o bien con la API REST, versión **2019-05-10** o posterior, puede establecer el valor de count en cero. Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de count de cero.
 
 Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md) con copia. Si vuelve a implementar con el modo completo en un grupo de recursos, se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
 
@@ -57,7 +57,7 @@ Los límites del valor de count son los mismos si se usa con un recurso, variabl
 
 ## <a name="resource-iteration"></a>Iteración de recursos
 
-Si durante la implementación debe decidir si crear una o varias instancias de un recurso, agregue un elemento `copy` al tipo de recurso. En el elemento copy, especifique el número de iteraciones y un nombre para este bucle.
+Si desea crear más de una instancia de un recurso en una implementación, agregue un elemento `copy` al tipo de recurso. En el elemento copy, especifique el número de iteraciones y un nombre para este bucle.
 
 El recurso para crear varias veces tiene el formato siguiente:
 
@@ -113,25 +113,25 @@ Crea estos nombres:
 La operación de copia es útil al trabajar con matrices, ya que puede iterar a través de cada elemento de la matriz. Use la función `length` en la matriz para especificar el número de iteraciones, y `copyIndex` para recuperar el índice actual de la matriz. Así, en el ejemplo siguiente:
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -184,7 +184,7 @@ Para crear varios valores para una propiedad de un recurso, agregue una matriz `
 
 * nombre: el nombre de la propiedad para la que se van a crear varios valores.
 * recuento: el número de valores que se van a crear.
-* entrada: un objeto que contiene los valores que se van a asignar a la propiedad  
+* entrada: un objeto que contiene los valores que se van a asignar a la propiedad
 
 En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks en una máquina virtual:
 
@@ -450,9 +450,9 @@ Especifique que un recurso se implemente después de otro recurso mediante el el
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -488,7 +488,7 @@ Por ejemplo, supongamos que suele definir un conjunto de datos como un recurso s
 
 Para crear más de un conjunto de datos, muévalos fuera de la factoría de datos. El conjunto de datos debe estar en el mismo nivel que la factoría de datos, pero seguirá siendo un recurso secundario de la factoría de datos. La relación entre el conjunto de datos y la factoría de datos se conserva a través de los parámetros type y name. Puesto que la propiedad de type ya no se puede inferir de su posición en la plantilla, debe proporcionar el nombre completo del tipo con el formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Para establecer una relación de principal-secundario con una instancia de la factoría de datos, proporcione un nombre para el conjunto de datos que incluya el nombre de recurso principal. Utilice el formato: `{parent-resource-name}/{child-resource-name}`.  
+Para establecer una relación de principal-secundario con una instancia de la factoría de datos, proporcione un nombre para el conjunto de datos que incluya el nombre de recurso principal. Utilice el formato: `{parent-resource-name}/{child-resource-name}`.
 
 En el siguiente ejemplo se muestra la implementación:
 

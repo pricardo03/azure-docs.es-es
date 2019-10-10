@@ -1,22 +1,22 @@
 ---
-title: 'Escalado automático de hosts de sesión de la versión preliminar de Windows Virtual Desktop: Azure'
-description: Describe cómo configurar el script de escalado automático para los hosts de sesión de la versión preliminar de Windows Virtual Desktop.
+title: 'Escalado automático de hosts de sesión de Windows Virtual Desktop: Azure'
+description: Describe cómo configurar el script de escalado automático para los hosts de sesión de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163235"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676489"
 ---
 # <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
-En muchas implementaciones de la versión preliminar de Windows Virtual Desktop, el costo de máquina virtual representa una parte considerable de los costos total de implementación de Windows Virtual Desktop. Para reducir dichos costos, es mejor apagar y desasignar máquinas de virtuales (VM) del host de sesión durante las horas de menos uso y, después, reinícielas durante las horas de máximo uso.
+En muchas implementaciones de Windows Virtual Desktop, el costo de máquina virtual representa una parte considerable de los costos total de implementación de Windows Virtual Desktop. Para reducir dichos costos, es mejor apagar y desasignar máquinas de virtuales (VM) del host de sesión durante las horas de menos uso y, después, reinícielas durante las horas de máximo uso.
 
 Este artículo usa un script de escalado simple para escalar automáticamente las máquinas virtuales del host de sesión en su entorno de Windows Virtual Desktop. Para más información acerca del funcionamiento del script de escalado, consulte la sección [Funcionamiento del script de escalado](#how-the-scaling-script-works) sección.
 

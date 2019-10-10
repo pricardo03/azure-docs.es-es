@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 196565e84ec493352ca9765d5502c9ad8ac7edd3
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231202"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703490"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -35,7 +35,7 @@ Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) s
 
 Un [objeto LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través y codificación en directo. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. 
+* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. 
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
 * **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una única secuencia de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits. 
 
@@ -66,15 +66,29 @@ Las resoluciones y velocidades de bits contenidas en la salida del codificador e
 > [!NOTE]
 > Si necesita personalizar el valor preestablecido de codificación en directo, abra una incidencia de soporte técnico a través de Azure Portal. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que solo haya una capa a 720p (si se solicita un valor preestablecido para un codificador en directo Standard) o a 1080p (si se solicita un valor preestablecido para un codificador en directo Premium1080p) y, al menos, seis capas.
 
-## <a name="live-event-creation-options"></a>Opciones de creación de objetos LiveEvent
+## <a name="creating-live-events"></a>Creación de eventos en directo 
+
+### <a name="options"></a>Opciones
 
 Al crear un objeto LiveEvent, puede especificar las siguientes opciones:
 
 * El protocolo de streaming para el objeto LiveEvent (actualmente, se admiten los protocolos RTMP y Smooth Streaming).<br/>No se puede cambiar la opción de protocolo mientras estén en ejecución el objeto LiveEvent o sus objetos LiveOutput asociados. Si necesita diferentes protocolos, debe crear un objeto LiveEvent independiente para cada protocolo de streaming.  
-* Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP a las que se permite ingerir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).<br/>Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.<br/>Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con 4 números, intervalo de direcciones CIDR.
 * Al crear el evento, puede especificar que se inicie automáticamente. <br/>Cuando el inicio automático está establecido en true, el evento en directo se inicia después de la creación. La facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming. 
 
     Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
+* Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP a las que se permite ingerir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).<br/>Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.<br/>Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con 4 números, intervalo de direcciones CIDR.
+
+    Si quiere habilitar determinadas direcciones IP en sus propios firewalls o quiere restringir las entradas en sus eventos en directo a las direcciones IP de Azure, descargue un archivo JSON de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Para obtener más información sobre este archivo, haga clic en la sección **Details** de la página.
+        
+### <a name="naming-rules"></a>Reglas de nomenclatura
+
+* El nombre de evento en directo máximo es de 32 caracteres.
+* El nombre debe seguir este patrón [de expresión regular](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+Consulte también la sección sobre [convenciones de nomenclatura de los puntos de conexión de streaming](streaming-endpoint-concept.md#naming-convention).
+
+> [!TIP]
+> Para garantizar la exclusividad del nombre de evento en directo, puede generar un GUID y luego quitar todos los guiones y llaves (si los hubiera). La cadena será única en todos los eventos en directo y se garantiza que su longitud es 32.
 
 ## <a name="live-event-ingest-urls"></a>Direcciones URL de ingesta de objetos LiveEvent
 

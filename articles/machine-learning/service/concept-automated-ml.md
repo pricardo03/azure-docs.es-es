@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035700"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350618"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
-El aprendizaje automático automatizado, también denominado autoML, es el proceso de automatizar las tareas lentas y repetitivas del desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. El aprendizaje automático se basa en un adelanto de nuestra [división de investigación de Microsoft](https://arxiv.org/abs/1705.05355).
+El aprendizaje automático automatizado, también denominado ML automatizado, es el proceso de automatizar las tareas lentas e iterativas del desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. El aprendizaje automático se basa en un adelanto de nuestra [división de investigación de Microsoft](https://arxiv.org/abs/1705.05355).
 
 El desarrollo de modelos de Machine Learning tradicional consume muchos recursos, que requieren un conocimiento del dominio y tiempo significativos para generar y comparar docenas de modelos. Aplique aprendizaje automático automatizado cuando quiera que Azure Machine Learning entrene y ajuste un modelo automáticamente con la métrica de destino que especifique. A continuación, el servicio recorre en iteración los algoritmos de aprendizaje automático que corresponden con las selecciones de características, de forma que cada iteración genera un modelo con una puntuación de entrenamiento. Cuanto mayor sea la puntuación, mejor se "ajustará" el modelo a sus datos.
 
@@ -115,6 +115,36 @@ El aprendizaje automático automatizado admite modelos de conjunto, que están h
 El [algoritmo de selección de conjunto de Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inicialización de conjunto ordenado se utiliza para decidir qué modelos se van a utilizar en el conjunto. En un nivel alto, este algoritmo inicializa el conjunto con hasta cinco modelos con las mejores puntuaciones individuales y comprueba que estos modelos se encuentran en un umbral del 5 % de la mejor puntuación para evitar un conjunto inicial deficiente. A continuación, para cada iteración de conjunto, se agrega un nuevo modelo al conjunto existente y se calcula la puntuación resultante. Si un nuevo modelo ha mejorado la puntuación de conjunto existente, el conjunto se actualiza para incluir el nuevo modelo.
 
 Consulte el [procedimiento](how-to-configure-auto-train.md#ensemble) para cambiar la configuración del conjunto predeterminado en el aprendizaje automático automatizado.
+
+## <a name="imbalance"></a> Datos desequilibrados
+
+Los datos desequilibrados suelen encontrarse en los datos de los escenarios de clasificación de aprendizaje automático y hacen referencia a los datos que contienen una relación desproporcionada de observaciones en cada clase. Este desequilibrio puede dar lugar a un efecto positivo percibido de manera falsa de la precisión de un modelo, ya que los datos de entrada tienen un sesgo hacia una clase, lo que da lugar a que el modelo entrenado imite ese sesgo. 
+
+Como parte de su objetivo de simplificar el flujo de trabajo del aprendizaje automático, el ML automatizado tiene funcionalidades integradas que ayudan a tratar con datos desequilibrados como, por ejemplo: 
+
+- Una **columna de peso**: el ML automatizado admite una columna de peso como entrada, lo que provoca que las filas de los datos se puedan subir o bajar, lo que hace que una clase sea más o menos "importante". Consulte este [ejemplo del cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb). 
+
+- Los algoritmos que usa el ML automatizado pueden controlar correctamente el desequilibrio de hasta 20:1, lo que significa que la clase más común puede tener 20 veces más filas en los datos que la clase menos común.
+
+### <a name="identify-models-with-imbalanced-data"></a>Identificación de modelos con datos desequilibrados
+
+Como la precisión de los algoritmos de clasificación se evalúan habitualmente, comprobar la puntuación de precisión de un modelo es una buena manera de identificar si los datos desequilibrados lo afectaron. ¿Tiene una precisión realmente alta o realmente baja para ciertas clases?
+
+Además, las ejecuciones de ML automatizado generan automáticamente los gráficos siguientes, que pueden ayudarlo a entender la corrección de las clasificaciones del modelo e identificar los modelos potencialmente afectados por los datos desequilibrados.
+
+Gráfico| DESCRIPCIÓN
+---|---
+[Matriz de confusión](how-to-understand-automated-ml.md#confusion-matrix)| Evalúa las etiquetas clasificadas correctamente con respecto a las etiquetas reales de los datos. 
+[Precisión-recuperación](how-to-understand-automated-ml.md#precision-recall-chart)| Evalúa la relación de las etiquetas correctas con respecto a la relación de las instancias de etiquetas encontradas de los datos. 
+[Curvas ROC](how-to-understand-automated-ml.md#roc)| Evalúa la relación de etiquetas correctas con respecto a la relación de etiquetas de falsos positivos.
+
+### <a name="handle-imbalanced-data"></a>Manejo de datos desequilibrados 
+
+Las técnicas siguientes son otras opciones para controlar los datos desequilibrados fuera del ML automatizado. 
+
+- Vuelva a muestrear para equilibrar el desequilibrio de clases, ya sea mediante el muestreo ascendente de las clases más pequeñas o el muestreo descendente de las clases más grandes. Estos métodos requieren conocimientos para procesar y analizar.
+
+- Use una métrica de rendimiento que se ocupe mejor de los datos desequilibrados. Por ejemplo, la puntuación F1 es un promedio ponderado de precisión y recuperación. La precisión mide la exactitud de un clasificador: la precisión baja indica un gran número de falsos positivos, mientras que la recuperación mide la integridad de un clasificador: la recuperación baja indica un número elevado de falsos negativos. 
 
 ## <a name="use-with-onnx-in-c-apps"></a>Uso con ONNX en aplicaciones de C#
 

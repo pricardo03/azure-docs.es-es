@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510095"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326603"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Inicio de sesión con una aplicación iOS
 
@@ -32,11 +32,12 @@ Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran p
 Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor de todos los usuarios, aplicaciones, grupos, etc. Antes de continuar, si no tiene un directorio B2C, [créelo](tutorial-create-tenant.md) .
 
 ## <a name="create-an-application"></a>Creación de una aplicación
-A continuación, debe crear una aplicación en su directorio B2C. El registro de la aplicación proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación móvil, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
 
-* Incluir un **cliente nativo** en la aplicación.
-* Copiar el **identificador de aplicación** asignado a la aplicación. Necesitará este GUID más adelante.
-* Configure un **URI de redireccionamiento** con un esquema personalizado (por ejemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Necesitará este URI más adelante.
+A continuación, registre una aplicación en el inquilino de Azure AD B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación.
+
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+Anote el valor de **ID. DE APLICACIÓN** para usarlo en un paso posterior. Después, seleccione la aplicación en la lista y registre el **URI de redireccionamiento personalizado**, también para su uso en un paso posterior. Por ejemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Creación de flujos de usuario
 En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:
@@ -79,21 +80,22 @@ static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.
 Ejecute el código siguiente para crear el objeto AuthorizationServiceConfiguration:
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
 ### <a name="authorizing"></a>Autorización
 
-Después de configurar o recuperar una configuración de servicio de autorización, es posible construir una autorización. Para crear la solicitud, necesita la información siguiente:  
-* Id. de cliente (por ejemplo, 00000000-0000-0000-0000-000000000000)
-* URI de redireccionamiento con un esquema personalizado (por ejemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+Después de configurar o recuperar una configuración de servicio de autorización, es posible construir una autorización. Para crear la solicitud, necesita la información siguiente:
+
+* El identificador de cliente (identificador de aplicación) que registró anteriormente. Por ejemplo, `00000000-0000-0000-0000-000000000000`.
+* El URI de redireccionamiento personalizado que registró anteriormente. Por ejemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Ambos elementos se deberían haber guardado cuando [registró la aplicación](#create-an-application).
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -102,7 +104,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086579"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315003"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Consideraciones de diseño y opciones de configuración de redes virtuales para Azure AD Domain Services
 
@@ -46,7 +46,7 @@ Los dominios administrados de Azure AD DS se conectan a una subred de una red 
 * Azure AD DS debe implementarse en su propia subred. No use una subred existente ni una subred de puerta de enlace.
 * Durante la implementación de un dominio administrado de Azure AD DS, se crea un grupo de seguridad de red. Dicho grupo de seguridad de red contiene las reglas necesarias para la correcta comunicación del servicio.
     * No cree ni use un grupo de seguridad de red existente con sus propias reglas personalizadas.
-* Azure AD DS requiere entre cinco y siete direcciones IP. Asegúrese de que el intervalo de direcciones IP de la subred puede proporcionar este número de direcciones.
+* Azure AD DS requiere entre tres y cinco direcciones IP. Asegúrese de que el intervalo de direcciones IP de la subred puede proporcionar este número de direcciones.
     * Si se restringen las direcciones IP disponibles, se puede impedir que Azure AD Domain Services mantenga dos controladores de dominio.
 
 En el siguiente diagrama de ejemplo se describe un diseño válido en el que Azure AD DS tiene su propia subred, hay una subred de puerta de enlace para la conectividad externa y las cargas de trabajo de aplicaciones se encuentran en una subred conectada dentro de la red virtual:
@@ -105,7 +105,7 @@ Un [grupo de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-ne
 
 Las siguientes reglas del grupo de seguridad de red son necesarias para que Azure AD DS proporcione servicios de autenticación y administración. No las edite ni las elimine para la subred de la red virtual en la que está implementado el dominio administrado de Azure AD DS.
 
-| Número de puerto | Protocolo | Source                             | Destino | . | Obligatorio | Propósito |
+| Número de puerto | Protocolo | Source                             | Destination | . | Obligatorio | Propósito |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Sincronización con el inquilino de Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Sí      | Administración del dominio. |

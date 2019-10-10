@@ -1,5 +1,5 @@
 ---
-title: Ejecución y prueba locales de trabajos de U-SQL mediante el SDK de U-SQL para Azure Data Lake
+title: 'Ejecución de trabajos de U-SQL localmente: SDK de U-SQL para Azure Data Lake'
 description: Obtenga información sobre cómo ejecutar y probar localmente trabajos de U-SQL mediante la línea de comandos y las interfaces de programación en la estación de trabajo local.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813474"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309696"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Ejecución y prueba de U-SQL con el SDK de U-SQL para Azure Data Lake
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe proporciona las interfaces de programación de compilación l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parámetro|Type|DESCRIPCIÓN|
+|Parámetro|type|DESCRIPCIÓN|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para los mensajes de salida; establézcalo en null para usar la consola|
 
@@ -346,8 +346,8 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |CurrentDir|string|Directorio actual|
 |DataRoot|string|Ruta de acceso raíz de datos|
 |DebuggerMailPath|string|La ruta de acceso al buzón interproceso del depurador|
-|GenerateUdoRedirect|booleano|Si desea generar carga la configuración de invalidación de redirección de carga de ensamblados|
-|HasCodeBehind|booleano|Si el script tiene código subyacente|
+|GenerateUdoRedirect|bool|Si desea generar carga la configuración de invalidación de redirección de carga de ensamblados|
+|HasCodeBehind|bool|Si el script tiene código subyacente|
 |InputDir|string|Directorio de datos de entrada|
 |MessagePath|string|Ruta de acceso del archivo de volcado de memoria de mensajes|
 |OutputDir|string|Directorio de datos de salida|
@@ -356,7 +356,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |ResultPath|string|Ruta de acceso del archivo de volcado de memoria de resultados|
 |RuntimeDir|string|Directorio del entorno en tiempo de ejecución|
 |scriptPath|string|Lugar donde se puede encontrar el script|
-|Shallow|booleano|Compilación superficial o no|
+|Shallow|bool|Compilación superficial o no|
 |TempDir|string|Directorio temporal|
 |UseDataBase|string|Especifique la base de datos que se utilizará para el registro de ensamblados temporal de código subyacente; la maestra de forma predeterminada.|
 |WorkDir|string|Directorio de trabajo preferido|

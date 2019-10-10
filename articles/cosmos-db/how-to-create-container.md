@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9805ff9aa4932c262db13c47fd2e442b3d3d676f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811740"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242403"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 
@@ -111,10 +111,10 @@ Los vínculos siguientes muestran cómo crear recursos de contenedor para Azure 
 Para ver todos los ejemplos de la CLI de Azure para API de Azure Cosmos DB, consulte [SQL API](cli-samples.md), [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) y [Table API](cli-samples-table.md).
 
 * [Creación de un contenedor con la CLI de Azure](manage-with-cli.md#create-a-container)
-* [Creación de una colección para Azure Cosmos DB para MongoDB API con la CLI de Azure](/scripts/cli/mongodb/create.md)
-* [Creación de una tabla de Cassandra con la CLI de Azure](/scripts/cli/cassandra/create.md)
-* [Creación de un grafo de Gremlin con la CLI de Azure](/scripts/cli/gremlin/create.md)
-* [Creación una tabla de Table API con la CLI de Azure](/scripts/cli/table/create.md)
+* [Creación de una colección para Azure Cosmos DB para MongoDB API con la CLI de Azure](./scripts/cli/mongodb/create.md)
+* [Creación de una tabla de Cassandra con la CLI de Azure](./scripts/cli/cassandra/create.md)
+* [Creación de un grafo de Gremlin con la CLI de Azure](./scripts/cli/gremlin/create.md)
+* [Creación una tabla de Table API con la CLI de Azure](./scripts/cli/table/create.md)
 
 ## Creación de un contenedor mediante PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
@@ -123,10 +123,10 @@ En los vínculos siguientes se muestra cómo crear recursos de contenedor para A
 Para ver todos los ejemplos de la CLI de Azure para API de Azure Cosmos DB, consulte [SQL API](powershell-samples-sql.md), [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md) y [Table API](powershell-samples-table.md).
 
 * [Creación de un contenedor con PowerShell](manage-with-powershell.md#create-container)
-* [Creación de una colección para Azure Cosmos DB para MongoDB API con PowerShell](/scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Creación de una tabla de Cassandra con PowerShell](/scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Creación de un grafo de Gremlin con PowerShell](/scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Creación de una tabla de Table API con PowerShell](/scripts/powershell/table/ps-table-create.md)
+* [Creación de una colección para Azure Cosmos DB para MongoDB API con PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
+* [Creación de una tabla de Cassandra con PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
+* [Creación de un grafo de Gremlin con PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
+* [Creación de una tabla de Table API con PowerShell](./scripts/powershell/table/ps-table-create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Creación de un contenedor mediante el SDK para .NET
 

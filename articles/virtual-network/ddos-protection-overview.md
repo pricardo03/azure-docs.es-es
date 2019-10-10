@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c964eaf3cae4f4f47724c59caf9ff60d9f4d2cd
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209453"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336316"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -31,7 +31,19 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 - **Básico**: habilitado de forma automática como parte de la plataforma de Azure. La supervisión continua del tráfico y la reducción en tiempo real de los ataques a nivel de red más comunes ofrecen la misma defensa que usan los servicios en línea de Microsoft. Puede usarse la escala completa de una red global de Azure para distribuir y reducir el tráfico de ataques en las distintas regiones. Se proporciona protección para [direcciones IP públicas](virtual-network-public-ip-address.md) de Azure IPv4 e IPv6.
 - **Estándar**: ofrece funciones adicionales de reducción de ataques en comparación con el nivel de servicio básico, adaptadas específicamente a los recursos de Azure Virtual Network. El servicio Protección contra DDoS estándar es fácil de habilitar y no requiere ningún cambio en la aplicación. Las directivas de protección se ajustan a través de la supervisión del tráfico dedicado y los algoritmos de Machine Learning. Las directivas se aplican a direcciones IP públicas asociadas a recursos implementados en redes virtuales, como instancias de Azure Load Balancer, Azure Application Gateway y Azure Service Fabric, pero esta protección no se aplica a las instancias de App Service Environment. La telemetría en tiempo real está disponible a través de las vistas de Azure Monitor durante un ataque y para el historial. En la configuración de diagnóstico, hay disponibles análisis avanzados de mitigación de ataques. La protección del nivel de aplicación se puede agregar mediante el [firewall de aplicaciones web de Azure Application Gateway Web](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o instalando un firewall de terceros desde Azure Marketplace. Se proporciona protección para [direcciones IP públicas](virtual-network-public-ip-address.md) de Azure IPv4 e IPv6.
 
-![Nivel básico de Azure DDoS Protection frente al nivel Estándar](./media/ddos-protection-overview/ddoscomparison.png)
+|Característica                                         |DDoS Protection Basic                 |DDoS Protection Standard                      |
+|------------------------------------------------|--------------------------------------|----------------------------------------------|
+|Supervisión de tráfico activo y detección siempre activada |Sí                                   |Sí                                           |
+|Mitigaciones de ataques automáticas                    |Sí                                   |Sí                                           |
+|Garantía de disponibilidad                          |Región de Azure                          |Application                                   |
+|Directivas de mitigación                             |Optimizado para el volumen de región de tráfico de Azure |Optimizado para el volumen de tráfico de la aplicación          |
+|Métricas y alertas                                |Sin                                    |Métricas de ataques y registros de diagnóstico en tiempo real a través de                                                                                            Azure Monitor                                 |
+|Informes de mitigación                              |Sin                                    |Informes sobre mitigación posteriores al ataque                |
+|Registros de flujo de mitigación                            |Sin                                    |Secuencia de registro NRT para la integración de SIEM           |
+|Personalizaciones de las directivas de migración                 |Sin                                    |Interacción con expertos en DDos                           |
+|Soporte técnico                                         |Mejor opción                           |Acceso a expertos en DDOs durante un ataque activo|
+|Contrato de nivel de servicio                                             |Región de Azure                          |Garantía de aplicación y protección de costos       |
+|Precios                                         |Gratuito                                  |Mensual y basado en el uso                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Tipos de ataques DDoS que mitiga Protección contra DDoS estándar
 

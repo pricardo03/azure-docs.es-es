@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476743"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310096"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
 
@@ -109,6 +109,9 @@ Para una lista de características de almacén de columnas, vea [Novedades de lo
 ## <a name="statistics"></a>Estadísticas
 El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante crear estadísticas en columnas individuales, especialmente en las columnas que se usan en combinaciones de consultas. La [creación de estadísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) se lleva a cabo automáticamente.  Sin embargo, la actualización de estadísticas no se realiza automáticamente. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. Para más información, consulte [Administración de estadísticas en tablas en SQL Data Warehouse](sql-data-warehouse-tables-statistics.md).
 
+## <a name="primary-key-and-unique-key"></a>Clave principal y clave única
+PRIMARY KEY solo se admite cuando se usan NONCLUSTERED y NOT ENFORCED.  Solo se admite la restricción UNIQUE cuando se usa NOT ENFORCED.  Compruebe [Restricciones de la tabla de SQL Data Warehouse](sql-data-warehouse-table-constraints.md).
+
 ## <a name="commands-for-creating-tables"></a>Comandos para la creación de tablas
 Puede crear una tabla como una nueva tabla vacía. También puede crear y rellenar una tabla con los resultados de una instrucción SELECT. A continuación se muestran los comandos de T-SQL para crear una tabla.
 
@@ -128,8 +131,7 @@ Si los datos proceden de varios almacenamientos de datos, puede colocar dichos d
 ## <a name="unsupported-table-features"></a>Características no compatibles de las tablas
 SQL Data Warehouse admite muchas, pero no todas, de las características de tabla que ofrecen otras bases de datos.  En la lista siguiente se muestran algunas de las características de tabla que no se admiten en SQL Data Warehouse.
 
-- Primary key, Foreign key, Unique, [restricciones de tabla](/sql/t-sql/statements/alter-table-table-constraint-transact-sql) Check
-
+- Clave externa, comprobar [Restricciones de tabla](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Columnas calculadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Vistas indizadas](/sql/relational-databases/views/create-indexed-views)
 - [Secuencia](/sql/t-sql/statements/create-sequence-transact-sql)

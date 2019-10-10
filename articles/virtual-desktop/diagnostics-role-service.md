@@ -1,22 +1,22 @@
 ---
-title: Identificación de problemas con la característica de diagnóstico de Windows Virtual Desktop, versión preliminar - Azure
-description: Se describe la característica de diagnóstico de Windows Virtual Desktop, versión preliminar y cómo usarla.
+title: 'Identificación de problemas con la característica de diagnóstico de Windows Virtual Desktop: Azure'
+description: Se describe la característica de diagnóstico de Windows Virtual Desktop y cómo usarla.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163489"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676645"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificación de problemas con la característica de diagnóstico
 
-Windows Virtual Desktop, versión preliminar ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Windows Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Windows Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
+Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Windows Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Windows Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
 
 * Actividades de suscripción a fuente: el usuario final desencadena estas actividades cada vez que intenta conectarse a su fuente mediante aplicaciones de Microsoft Remote Desktop.
 * Actividades de conexión: el usuario final desencadena estas actividades cada vez que intenta conectarse a un escritorio o a RemoteApp mediante aplicaciones de Microsoft Remote Desktop.
@@ -136,7 +136,7 @@ Los escenarios de error se clasifican como internos en el servicio y como extern
 En la siguiente tabla se enumeran los errores comunes que los administradores pueden encontrarse.
 
 >[!NOTE]
->Esta versión preliminar no incluye una clasificación completa de los errores y se actualizará de forma periódica. Para estar seguro de que dispone de la información más actualizada, procure consultar en este artículo al menos una vez al mes.
+>Esta lista incluye los errores más comunes y se actualiza de manera periódica. Para estar seguro de que dispone de la información más actualizada, procure consultar en este artículo al menos una vez al mes.
 
 ### <a name="external-management-error-codes"></a>Códigos de errores de administración externos
 
@@ -176,6 +176,6 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los roles de Escritorio Virtual de Windows, vea [Windows Virtual Desktop Preview environment](environment-setup.md) (Entorno de Windows Virtual Desktop [versión preliminar]).
+Para más información sobre los roles de Windows Virtual Desktop, consulte [Entorno de Windows Virtual Desktop](environment-setup.md).
 
 Para ver una lista de cmdlets de PowerShell disponibles para Windows Virtual Desktop, vea la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).

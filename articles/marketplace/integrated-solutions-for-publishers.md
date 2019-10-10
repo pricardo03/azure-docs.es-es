@@ -1,39 +1,39 @@
 ---
 title: Soluciones integradas | Azure
-description: Soluciones integradas en Azure Marketplace y AppSource
+description: Soluciones integradas en Azure Marketplace y Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993677"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71706308"
 ---
-# <a name="publishing-integrated-solutions"></a>Publicación de soluciones integradas
+# <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
-Una solución integrada combina varias tecnologías de soluciones de punto de ISV, junto con la implementación y los servicios de un integrador de sistemas (SI), en una única oferta agrupada que el SI muestra en Marketplace como una [oferta de servicio de consultoría](https://docs.microsoft.com/azure/marketplace/consulting-services).
+En una única oferta de conjunto de productos, una solución integrada combina tecnologías de soluciones puntuales de proveedores de software con la implementación y el soporte técnico de un partner de servicios. El partner de servicios presenta la oferta en Azure Marketplace o Microsoft AppSource como [servicio de consultoría](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
-Estas soluciones se crean para un escenario o una necesidad específica de un cliente, comenzando por la identificación de los puntos críticos o desafíos para la industria. Un integrador de sistemas integra a continuación dos o más de las mejores tecnologías para crear una experiencia de implementación repetible y homogénea para los clientes, para que puedan ponerse en marcha rápidamente. El integrador de sistemas también actúa como punto de contacto único con el cliente, al que proporciona servicios de consultoría y personalización pertinentes, así como soporte técnico para la solución. El resultado es una solución integrada, que incluye tecnología y servicios.
+Las soluciones integradas tienen por objeto abordar una necesidad o un escenario específico del cliente. Los proveedores comienzan por comprender los desafíos del sector o los puntos débiles. Después, integran dos o más de las mejores tecnologías para crear una experiencia de implementación repetible y homogénea para los clientes. Los proveedores ponen rápidamente a los clientes en marcha. Ofrecen un único punto de contacto al cliente, que aporta la personalización, la consultoría y el soporte técnico relevantes para la solución. El resultado es una solución integrada, que incluye tecnología y servicios.
 
-Vea este vídeo para obtener información general sobre el [programa de soluciones integradas](https://aka.ms/AA5qos4).
+Para obtener información general sobre el programa de soluciones integradas, [vea este vídeo](https://aka.ms/AA5qos4).
 
-## <a name="key-benefits-to-integrated-solutions-in-the-marketplace"></a>Ventajas clave de las soluciones integradas en Marketplace
+## <a name="benefits-of-integrated-solutions-in-the-marketplace"></a>Ventajas de las soluciones integradas en Marketplace
 
-* Los clientes pueden encontrar soluciones empaquetadas que resuelven los desafíos empresariales de un extremo a otro a través de Marketplace. Además, pueden experimentar una rentabilidad agilizada con la tecnología integrada de forma inicial. Los clientes evitan tener que ponerse en contacto por separado con varias aplicaciones de ISV implementadas de forma fragmentada.
-* Los SI expertos entregan y empaquetan las propiedades intelectuales de los ISV junto con otras soluciones y servicios que mejoran el valor de su tecnología.
-* Los IS crean soluciones predefinidas y preintegradas con la mejor tecnología para escalar, conseguir y ampliar más cuentas de cliente.
-* Microsoft puede aprovechar estas soluciones preintegradas alineadas con el sector para realizar ventas conjuntas con mayor facilidad a los clientes, con precios y términos seleccionados de antemano. 
+* Los clientes pueden encontrar soluciones empaquetadas que resuelvan los desafíos empresariales de un extremo a otro a través de Marketplace. Aceleran la amortización porque la tecnología se integra de antemano. Los clientes evitan tener que ponerse en contacto por separado con varias aplicaciones implementadas de forma fragmentada.
+* La IP se empaqueta junto con otras soluciones y servicios que mejoran el valor de la tecnología que ofrecen los partners de servicios expertos.
+* Los partners de servicios crean soluciones predefinidas y preintegradas con la mejor tecnología para escalar, conseguir y ampliar más cuentas de cliente.
+* Microsoft puede usar estas soluciones preintegradas y alineadas con el sector para realizar ventas conjuntas más fácilmente a los clientes. Los precios y términos se organizan de antemano. 
 
 ## <a name="eligibility-criteria"></a>Criterios de elegibilidad
 
-* Todos los asociados participantes deben tener un identificador de MPN.
-* El SI participante debe estar listo para la venta conjunta.
-* Los ISV participantes debe estar listos para la venta conjunta de propiedad intelectual. 
+* Todos los partners participantes deben tener un identificador de MPN.
+* Los proveedores de servicios participantes deben estar preparados para la venta conjunta.
+* Los proveedores de software participantes deben estar preparados para la venta conjunta de IP. 
 * Al menos un socio participante debe tener una competencia Gold en una de las siguientes áreas:
 
     * Desarrollo de aplicaciones
@@ -45,53 +45,73 @@ Vea este vídeo para obtener información general sobre el [programa de solucion
     * Plataforma de datos
     * DevOps
 
-* La solución debe incluir al menos dos organizaciones asociadas, de forma que se reúnan la propiedad intelectual y los servicios para una solución y experiencia completa para el cliente
-* La propiedad intelectual del socio comercial se debe basar en Azure, Dynamics 365 y/o en Power Platform.
-* La propiedad intelectual de la solución integrada debe diferenciarse de simplemente la propiedad intelectual del ISV + los servicios de SI básicos.
-* El objetivo de todos los asociados es crear una oferta repetible que se pueda publicar y, finalmente, transaccionar a través de Azure Marketplace o AppSource.
+* La solución debe incluir al menos dos organizaciones asociadas, que conjuguen IP y servicios a fin de ofrecer una solución y una experiencia completas para el cliente.
+* La IP del partner se debe basar en Azure, Dynamics 365 o Power Platform.
+* La IP de la solución integrada debe diferenciarse de la IP del proveedor de software y de las ofertas de proveedores de servicios básicos.
+* Todos los partners comparten el objetivo de crear una oferta repetible que puede mostrarse y finalmente tramitarse a través de Azure Marketplace, Microsoft AppSource o ambos.
 
-## <a name="nomination-process"></a>Proceso de nominación
+## <a name="submit-a-nomination"></a>Enviar una nominación
 
-Los asociados que quieran participar en el programa deben identificar a los otros asociados con los que quieran trabajar y completar el formulario [Integrated Solutions Nomination](https://aka.ms/AA5qicu) (Nominación de soluciones integradas). A continuación, el equipo del programa de soluciones integradas revisará la nominación y realizará un seguimiento en un plazo de 10 días hábiles con la aprobación y los pasos siguientes. 
+Los partners que quieran participar en el programa deben identificar a otros partners con los que quieran trabajar. Deben completar el [formulario de nominación de soluciones integradas](https://aka.ms/AA5qicu). El equipo del programa de soluciones integradas revisa la nominación y realiza un seguimiento durante los 10 días laborables siguientes. También facilita la aprobación e indica los pasos siguientes. 
 
-## <a name="developing-your-integrated-solution"></a>Desarrollo de la solución integrada 
+## <a name="develop-an-integrated-solution"></a>Desarrollo de una solución integrada 
 
-Una vez aprobada la nominación, siga los pasos que se indican a continuación, aprovechando los recursos del programa vinculado, para desarrollar la solución integrada: 
+Una vez aprobada la nominación, utilice los recursos del programa vinculados para desarrollar la solución integrada. Siga estos pasos: 
 
-1. Complete las conversaciones clave empresariales y técnicas en un formato de taller para definir la solución (ámbito, clientes objetivo, propuesta de valor, precios, licencias, términos y condiciones, enfoque de soporte técnico, actividades de marketing, proceso de ventas y actividades) y el enfoque de integración (puntos de integración, arquitectura de soluciones, autenticación, interfaz de usuario, supervisión, mecanismo de implementación, API y repositorio de datos unificado). 
+1. Realice discusiones comerciales y técnicas clave en formato de taller para definir la solución y el enfoque de integración. 
 
-    Los siguientes recursos están disponibles para guiar a los asociados a través de este proceso:
+    La discusión sobre la solución debe implicar los siguientes aspectos:
+    * Ámbito
+    * Clientes de destino
+    * Propuesta de valor
+    * Precios
+    * Licencias
+    * Términos y condiciones
+    * Enfoque de soporte técnico
+    * Actividades de marketing
+    * Proceso de ventas
+    * Actividades
 
-    1. [Business Decision Workshop Discussion Guide](https://aka.ms/AA5qicx) (Guía de discusión para el taller de decisiones empresariales)
-    1. [Technical Decision Workshop Discussion Guide](https://aka.ms/AA5qid1) (Guía de discusión para el taller de decisiones técnicas)
-    1. [Vídeo de inicio rápido: talleres técnicos y empresariales](https://aka.ms/AA5qos9)
+    La discusión sobre el enfoque de integración debe implicar los siguientes aspectos: 
+    * Puntos de integración
+    * Arquitectura de la solución
+    * Authentication
+    * Interfaz de usuario
+    * Supervisión
+    * Mecanismo de implementación
+    * API existentes
+    * Repositorio de datos unificado
 
-1. Identifique un jefe de proyectos multisocio para impulsar el plan de proyecto y la escala de tiempo resultantes de los talleres técnicos y empresariales.
+    Use estos recursos en el proceso de desarrollo:
 
-1. Complete la integración técnica de la solución.
+    * [Guía de discusión para el taller de decisiones empresariales](https://aka.ms/AA5qicx)
+    * [Guía de discusión para el taller de decisiones técnicas](https://aka.ms/AA5qid1)
+    * [Vídeo de Inicio rápido: talleres técnicos y empresariales](https://aka.ms/AA5qos9)
 
-1. Finalice los precios de la solución y determine el precio único que se mostrará en Azure Marketplace o AppSource.
+1. Identifique un jefe de proyectos multipartner para dirigir el plan de proyecto y la escala de tiempo resultantes de los talleres técnicos y empresariales.
 
-1. Complete el material de marketing para la descripción de AppSource o Azure Marketplace, incluidos:
+1. Desarrolle la integración técnica completa de la solución.
 
-    1. Nombre de la solución combinada
-    2. Descripción de la solución integrada ([prácticas recomendadas de las descripciones de ofertas](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)).
-    1. Informe breve para clientes ([plantilla](https://aka.ms/AA5s08a)).
-    1. Presentación del cliente ([plantilla](https://aka.ms/AA5s7ql)).
-    1. Logotipo de la solución combinada 
+1. Determine los precios de la solución y el precio único que se mostrará en Azure Marketplace o Microsoft AppSource.
 
-## <a name="publishing-your-integrated-solution"></a>Publicación de la solución integrada 
+1. Complete la descripción para Microsoft AppSource o Azure Marketplace en el material de marketing, incluidos:
 
-Una vez que se haya completado la integración técnica y esté listo el material de marketing, consulte la guía del anunciante para [obtener servicios de consultoría de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). Con este recurso, determine si realizará la publicación en Azure Marketplace o AppSource en función de la audiencia a la que quiera llegar, prepare los artefactos de publicación y complete el proceso de publicación.
+    * Nombre de la solución combinada.
+    * Descripción de la solución integrada. Siga los [procedimientos recomendados para su inclusión en las listas de ofertas](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+    * Lanzamiento de una página a los clientes. Utilice la [plantilla de buscapersonas](https://aka.ms/AA5s08a).
+    * Presentación del cliente. Utilice la [plantilla de presentación](https://aka.ms/AA5s7ql).
+    * Logotipo de la solución combinada. 
+
+## <a name="publish-your-integrated-solution"></a>Publicación de la solución integrada 
+
+Después de terminar la integración técnica y el material de marketing, consulte la guía del anunciante sobre [servicios de consultoría en Azure Marketplace y Microsoft AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). Use este recurso para determinar si la solución se va a publicar en Azure Marketplace o Microsoft AppSource. También puede usar la guía para preparar los artefactos de publicación y completar el proceso de publicación.
 
 Aunque hay cinco tipos de servicio disponibles para las ofertas de servicios de consultoría, una solución integrada debe ser una prueba de concepto o una implementación completa.
 
-## <a name="going-to-market-with-your-integrated-solution"></a>Comercialización de la solución integrada 
+## <a name="go-to-market-with-your-integrated-solution"></a>Comercialización de la solución integrada 
 
-Una vez que la solución esté publicada en Azure Marketplace o AppSource, querrá impulsar la generación de reconocimiento y demanda a través de actividades de marketing. Revise las actividades que aparecen en [el plan del proyecto y la escala de tiempo](https://aka.ms/AA5qiuc), incluidas las actividades que los asociados pueden controlar dentro de sus propios equipos y entre sí. A continuación, obtenga acceso a las [ventajas de comercialización](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) proporcionadas a los asociados que han publicado en Marketplace. Todas las ofertas de soluciones integradas son válidas para las ventajas de nivel de prueba.
+Cuando la solución esté publicada en Azure Marketplace o AppSource, querrá impulsar la generación de reconocimiento y demanda a través de actividades de marketing. Revise las actividades que aparecen en el [plan del proyecto y la escala de tiempo](https://aka.ms/AA5qiuc). Este recurso incluye actividades que los partners pueden desarrollar en sus propios equipos y con otros. Acceda luego a las [ventajas de comercialización](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) que se ofrecen a los partners que han publicado en Marketplace. Todas las ofertas de soluciones integradas son válidas para las ventajas de nivel de prueba.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Soluciones integradas](https://docs.microsoft.com/azure/marketplace/integrated-solutions) para información sobre la compra de una solución integrada en Marketplace.
-
----
+Para obtener información sobre la compra de una solución integrada en Marketplace, consulte [Soluciones integradas](https://docs.microsoft.com/azure/marketplace/integrated-solutions).

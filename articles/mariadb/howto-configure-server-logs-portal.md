@@ -1,17 +1,17 @@
 ---
 title: Configuración de los registros de servidor y acceso a ellos en Azure Database for MariaDB en Azure Portal
 description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for MariaDB, y acceder a ellos, mediante Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: c8be9519d3393330b3022fadd2de6a49e58ecdcf
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065636"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703513"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
 
@@ -61,8 +61,25 @@ Una vez que comience el registro, puede ver una lista de registros de consultas 
 
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-portal/5-download.png)
 
+## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
+
+1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico**.
+
+1. Haga clic en "+ Agregar configuración de diagnóstico" ![Agregar configuración de diagnóstico](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+
+1. Proporcione un nombre de configuración de diagnóstico.
+
+1. Especifique a qué receptores de datos se enviarán los registros de consultas lentas (cuenta de almacenamiento, centro de eventos y área de trabajo de Log Analytics).
+
+1. Seleccione "MySqlSlowLogs" como tipo de registro.
+![Configurar las opciones de diagnóstico](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+
+1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, puede hacer clic en **Guardar**.
+![Guardar la configuración de diagnóstico](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+
+1. Acceda a los registros de consultas lentas explorándolos en los receptores de datos que configuró. Los registros pueden tardar hasta 10 minutos en aparecer.
+
 ## <a name="next-steps"></a>Pasos siguientes
+- Consulte el artículo de [configuración y acceso a los registros de consultas lentas con la CLI de Azure](howto-configure-server-logs-cli.md) para más información sobre cómo descargar registros de consultas lentas mediante programación.
 - Más información sobre los [registros de consultas lentas](concepts-server-logs.md) en Azure Database for MariaDB.
 - Para obtener más información sobre las definiciones de parámetros y el registro, consulte la documentación de MariaDB sobre [registros](https://mariadb.com/kb/en/library/slow-query-log-overview/).
-
-<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

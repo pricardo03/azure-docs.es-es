@@ -1,17 +1,17 @@
 ---
 title: Configuración y acceso a los registros de consultas lentas de Azure Database for MySQL en Azure Portal
 description: En este artículo se describe cómo configurar los registros de consultas lentas de Azure Database for MySQL y acceder a ellos mediante Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: b3986c19ec008437f3230b3674ce60d1dfba2024
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052722"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703438"
 ---
 # <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas en Azure Portal
 
@@ -60,6 +60,24 @@ Una vez que comience el registro, puede ver una lista de registros de consultas 
 5. Descargue los archivos de registro individuales con el botón de **descarga** (icono de flecha hacia abajo) que hay junto a cada archivo de registro en la fila de tabla, como se muestra:
 
    ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-in-portal/5-download.png)
+
+## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
+
+1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico**.
+
+1. Haga clic en "+ Agregar configuración de diagnóstico" ![Agregar configuración de diagnóstico](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+
+1. Proporcione un nombre de configuración de diagnóstico.
+
+1. Especifique a qué receptores de datos se enviarán los registros de consultas lentas (cuenta de almacenamiento, centro de eventos y área de trabajo de Log Analytics).
+
+1. Seleccione "MySqlSlowLogs" como tipo de registro.
+![Configurar las opciones de diagnóstico](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+
+1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, puede hacer clic en **Guardar**.
+![Guardar la configuración de diagnóstico](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+
+1. Acceda a los registros de consultas lentas explorándolos en los receptores de datos que configuró. Los registros pueden tardar hasta 10 minutos en aparecer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte el artículo de [configuración y acceso a los registros de consultas lentas con la CLI de Azure](howto-configure-server-logs-in-cli.md) para más información sobre cómo descargar registros de consultas lentas mediante programación.

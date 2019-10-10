@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348945"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -28,17 +28,17 @@ Una dirección IP de front-end es la dirección IP asociada con una puerta de en
 
 La SKU de Azure Application Gateway V2 se puede configurar para admitir tanto una dirección IP interna estática como una dirección IP pública estática, o solo una dirección IP pública estática. No se puede configurar para admitir solo una dirección IP estática interna.
 
-La SKU V1 se puede configurar para admitir una dirección IP interna estática y una dirección IP pública dinámica, solo una dirección IP interna estática, solo una dirección IP pública dinámica, solo una dirección IP privada dinámica o una dirección IP pública dinámica y una dirección IP privada dinámica. La dirección IP dinámica de Application Gateway no cambia en una puerta de enlace en ejecución. Puede cambiar solo cuando se detiene o inicia Gateway. No cambia cuando se producen errores del sistema, actualizaciones, actualizaciones del host de Azure, etc. 
+La SKU V1 se puede configurar para admitir una dirección IP interna estática o dinámica y una dirección IP pública dinámica. La dirección IP dinámica de Application Gateway no cambia en una puerta de enlace en ejecución. Puede cambiar solo cuando se detiene o inicia Gateway. No cambia cuando se producen errores del sistema, actualizaciones, actualizaciones del host de Azure, etc. 
 
 El nombre DNS asociado a una puerta de enlace de aplicaciones no cambia durante el ciclo de vida de la puerta de enlace. Como resultado, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de aplicaciones.
 
 ## <a name="listeners"></a>Clientes de escucha
 
-Un cliente de escucha es una entidad lógica que comprueba si hay solicitudes de conexión entrantes. Un cliente de escucha acepta una solicitud si el protocolo, el puerto, el host y la dirección IP asociados a la solicitud coinciden con los mismos elementos asociados a la configuración del cliente de escucha.
+Un cliente de escucha es una entidad lógica que comprueba si hay solicitudes de conexión entrantes. Un cliente de escucha acepta una solicitud si el protocolo, el puerto, el nombre de host y la dirección IP asociados a la solicitud coinciden con los mismos elementos asociados a la configuración del cliente de escucha.
 
 Antes de usar una puerta de enlace de aplicaciones, debe agregar al menos un cliente de escucha. Puede haber varios clientes de escucha asociados a una puerta de enlace de aplicaciones, y se pueden usar con el mismo protocolo.
 
-Una vez que un cliente de escucha detecta las solicitudes entrantes de clientes, la puerta de enlace de aplicaciones enruta estas solicitudes a los miembros del grupo de servidores back-end. La puerta de enlace de aplicaciones usa las reglas de enrutamiento de solicitudes definidas para el cliente de escucha que recibió la solicitud entrante.
+Una vez que un cliente de escucha detecta las solicitudes entrantes de clientes, la puerta de enlace de aplicaciones enruta estas solicitudes a los miembros del grupo de servidores back-end configurado en esta regla.
 
 Los clientes de escucha admiten los siguientes puertos y protocolos.
 
@@ -49,12 +49,13 @@ Un puerto es donde un cliente de escucha realiza escuchas de la solicitud de cli
 ### <a name="protocols"></a>Protocolos
 
 Application Gateway admite cuatro protocolos: HTTP, HTTPS, HTTP/2 y WebSocket:
+>[!NOTE]
+>La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a los agentes de escucha de la puerta de aplicaciones. La comunicación con grupos de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. Pero puede elegir habilitarlo.
 
 - Especifique entre los protocolos HTTP y HTTPS en la configuración del cliente de escucha.
 - La compatibilidad con los [protocolos WebSockets y HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) se proporciona de forma nativa, y la [compatibilidad con WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Use WebSockets con clientes de escucha HTTP y HTTPS.
-- La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a los agentes de escucha de la puerta de aplicaciones. La comunicación con granjas de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. Pero puede elegir habilitarlo.
 
-Use un cliente de escucha HTTPS para la terminación SSL. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por una sobrecarga. Así, las aplicaciones pueden centrarse en la lógica de negocios.
+Use un cliente de escucha HTTPS para la terminación SSL. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por la sobrecarga.
 
 ### <a name="custom-error-pages"></a>Páginas de error personalizadas
 
@@ -80,7 +81,7 @@ Application Gateway procesa los clientes de escucha en el orden mostrado. Si el 
 
 Una regla de enrutamiento de solicitudes es un componente clave de una puerta de enlace de aplicaciones, ya que determina cómo se enruta el tráfico en el cliente de escucha. La regla enlaza el cliente de escucha, el grupo de servidores back-end y la configuración HTTP de back-end.
 
-Cuando un cliente de escucha acepta una solicitud, la regla de enrutamiento de solicitudes reenvía la solicitud al back-end o la redirige a otra parte. Si la solicitud se reenvía al back-end, la regla de enrutamiento de solicitudes define a qué grupo de servidores back-end reenviarla. Además, esta regla determina también si se van a reescribir los encabezados de la solicitud. Un cliente de escucha se puede asociar a una regla.
+Cuando un cliente de escucha acepta una solicitud, la regla de enrutamiento de solicitudes reenvía la solicitud al back-end o la redirige a otra parte. Si la solicitud se reenvía al back-end, la regla de enrutamiento de solicitudes define a qué grupo de servidores back-end reenviarla. Esta regla determina también si se van a reescribir los encabezados de la solicitud. Un cliente de escucha se puede asociar a una regla.
 
 Hay dos tipos de reglas de enrutamiento de solicitudes:
 

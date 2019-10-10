@@ -1,5 +1,5 @@
 ---
-title: Desarrollo de trabajos U-SQL con Python, R y C# para Azure Data Lake Analytics en Visual Studio Code
+title: 'Ejecución de trabajos de U-SQL en Python, R y C#: Azure Data Lake Analytics'
 description: Obtenga información sobre cómo usar código subyacente con Python, R y C# al enviar trabajos en Azure Data Lake.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.openlocfilehash: 6c234ad6756f4e65e172bf0ffc0ae5a1d35d109b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb3ddf0c4147fa982e8ab0f9d440292d12803d35
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814069"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309705"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desarrollo de trabajos U-SQL con Python, R y C# para Azure Data Lake Analytics en Visual Studio Code
 Aprenda cómo usar Visual Studio Code (VSCode) para escribir código subyacente de Python, R y C# con U-SQL y enviar trabajos al servicio Azure Data Lake. Para más información sobre las Herramientas de Azure Data Lake para Visual Studio Code, vea [Uso de Herramientas de Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).

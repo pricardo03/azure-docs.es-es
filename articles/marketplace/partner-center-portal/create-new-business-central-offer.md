@@ -1,18 +1,18 @@
 ---
 title: Creación de una nueva oferta de Dynamics 365 Business Central en Marketplace comercial
 description: Cómo crear una nueva oferta de Dynamics 365 Business Central para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/26/2019
+ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033275"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327637"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creación de una nueva oferta de Dynamics 365 Business Central
 
@@ -92,7 +92,7 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 
 La página de **Propiedades** le permite definir las categorías y los sectores que se usan para agrupar su oferta en Marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta. Después de completar esta página, seleccione **Guardar**.
 
-### <a name="category"></a>Categoría
+### <a name="category"></a>Category
 
 Seleccione un mínimo de una y un máximo de tres categorías, que se utilizarán para colocar la oferta en las áreas de búsqueda de Marketplace adecuadas. Asegúrese de indicar la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 
@@ -194,11 +194,11 @@ La imagen prominente es opcional. Si proporciona una, debe medir 815 x 290 píxe
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
-Agregue capturas de pantallas que muestren el funcionamiento de la oferta. Se requiere al menos una captura de pantalla y puede agregar un máximo de cinco. Todas las capturas de pantallas deben tener 1280 x 720 píxeles.
+Agregue capturas de pantallas que muestren el funcionamiento de la oferta. Son necesarios al menos tres capturas de pantalla y puede agregar hasta cinco. Todas las capturas de pantallas deben tener 1280 x 720 píxeles.
 
 #### <a name="videos"></a>Vídeos
 
-Opcionalmente, puede agregar hasta cuatro vídeos que muestren la oferta. Estos vídeos se deben hospedar en YouTube o Vimeo. En cada uno de ellos, escriba el nombre del vídeo, su dirección URL y una imagen en miniatura del vídeo (1280 x 720 píxeles).
+Opcionalmente, puede agregar hasta cinco vídeos que muestren la oferta. Estos vídeos se deben hospedar en YouTube o Vimeo. En cada uno de ellos, escriba el nombre del vídeo, su dirección URL y una imagen en miniatura del vídeo (1280 x 720 píxeles).
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 

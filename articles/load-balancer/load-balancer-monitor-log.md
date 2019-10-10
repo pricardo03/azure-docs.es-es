@@ -11,23 +11,23 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: df35168d0fab0b01ff11c4105a1fcc5b16e21f30
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350728"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
 >[!IMPORTANT] 
 >Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información acerca de Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md) que expone datos de telemetría mediante métricas multidimensionales en Azure Monitor.
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Basic Load Balancer. Se puede acceder a algunos de estos registros a través del portal. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Basic Load Balancer. Se puede acceder a algunos de estos registros a través del portal. Los registros se pueden transmitir a un centro de eventos o a un área de trabajo de Log Analytics. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y Power BI.  Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
-* **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocidos como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
+* **Registros de actividad:** Puede usar [Visualización de registros de actividad para supervisar acciones sobre recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) para ver toda la actividad que se está enviado a las suscripciones de Azure y sus estados. Los registros de actividad están habilitados de manera predeterminada y se pueden ver en Azure Portal.
 * **Registro de eventos de alerta:** puede utilizar este registro para las alertas generadas por el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
@@ -36,39 +36,66 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-El registro de auditoría se habilita automáticamente para todos los recursos de Resource Manager. Debe habilitar el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
+El registro de actividades se habilita automáticamente para todos los recursos de Resource Manager. Habilite el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Inicie sesión en el [Azure Portal](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
 
-1. En el portal, haga clic en **Examinar**.
-2. Seleccione **Equilibradores de carga**.
+1. En el portal, haga clic en **Grupos de recursos**.
+2. Seleccione el **\<nombre-grupo-recursos>** donde está el equilibrador de carga.
+3. Seleccione el equilibrador de carga.
+4. Seleccione **Supervisión** > **Configuración de diagnóstico**.
+5. En el panel **Configuración de diagnóstico**, en **Configuración de diagnóstico**, seleccione **+ Agregar configuración de diagnóstico**.
+6. En el panel de creación **Configuración de diagnóstico**, escriba **myLBDiagnostics** en el campo **Nombre**.
+7. Tiene tres opciones para la **Configuración de diagnóstico**.  Puede elegir una, dos o las tres y configurar cada una de ellas según sus requisitos:
+   * **Archivar en una cuenta de almacenamiento**
+   * **Transmisión a un centro de eventos**
+   * **Enviar a Log Analytics**
 
-    ![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
+    ### <a name="archive-to-a-storage-account"></a>Archivar en una cuenta de almacenamiento
+    Necesitará una cuenta de almacenamiento ya creada para este proceso.  Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-3. Seleccione un equilibrador de carga existente >> **Toda la configuración**.
-4. En el lado derecho del cuadro de diálogo, bajo el nombre del equilibrador de carga, desplácese a **Supervisión** y haga clic en **Diagnósticos**.
+    1. Active la casilla junto a **Archivar en una cuenta de almacenamiento**.
+    2. Seleccione **Configurar** para abrir el panel **Selección de una cuenta de almacenamiento**.
+    3. Seleccione la **Suscripción** donde se creó la cuenta de almacenamiento en el cuadro desplegable.
+    4. Seleccione el nombre de la cuenta de almacenamiento en **Cuenta de almacenamiento** en el cuadro desplegable. 
+    5. Seleccione Aceptar.
 
-    ![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
+    ### <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
+    Necesitará un centro de eventos ya creado para este proceso.  Para crear un centro de eventos, consulte [Inicio rápido: Creación de un centro de eventos mediante Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-5. En el panel **Diagnósticos**, debajo de **Estado**, seleccione **Activar**.
-6. Haga clic en **Cuenta de almacenamiento**.
-7. En **Registros**, seleccione una cuenta de almacenamiento existente o cree una nueva. Utilice el control deslizante para determinar cuántos días de datos de eventos se almacenarán en los registros de eventos. 
-8. Haga clic en **Save**(Guardar).
+    1. Active la casilla situada junto a **Transmitir a un centro de eventos**.
+    2. Seleccione **Configurar** para abrir el panel **Select event hub** (Selección del centro de eventos).
+    3. Seleccione la **Suscripción** donde se creó el centro de eventos en el cuadro desplegable.
+    4. **Seleccione el espacio de nombres del centro de eventos** en el cuadro desplegable.
+    5. **Seleccione el nombre de la directiva del centro de eventos** en el cuadro desplegable.
+    6. Seleccione Aceptar.
 
-Los diagnósticos se guardarán en Table Storage en la cuenta de almacenamiento especificada. Si no se guardan los registros, es porque no se ha generado ningún registro pertinente.
+    ### <a name="send-to-log-analytics"></a>Enviar a Log Analytics
+    Deberá tener un área de trabajo de Log Analytics creada y configurada para este proceso.  Para crear un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-![Portal - Registros de diagnósticos](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+    1. Active la casilla junto a **Enviar a Log Analytics**.
+    2. Seleccione la **Suscripción** donde se encuentra el área de trabajo de Log Analytics en el cuadro desplegable.
+    3. Seleccione el **área de trabajo de Log Analytics** en el cuadro desplegable.
 
-> [!NOTE]
-> Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de sondeo de estado supondrán un costo adicional de servicio.
 
-## <a name="audit-log"></a>Registro de auditoría
+8. En la sección **LOG** del panel **Configuración de diagnóstico**, active la casilla junto a:
+   * **LoadBalancerAlertEvent**
+   * **LoadBalancerProbeHealthStatus**
 
-El registro de auditoría se genera de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para obtener más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de auditoría](../monitoring-and-diagnostics/insights-debugging-with-events.md) .
+9.  En la sección **METRIC** del panel **Configuración de diagnóstico**, active la casilla junto a:
+   * **AllMetrics**
 
-## <a name="alert-event-log"></a>Registro de eventos de alerta
+11. Compruebe que todo esté correcto y haga clic en **Guardar** en la parte superior del panel de creación de **Configuración de diagnóstico**.
 
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga. Los eventos se registran en formato JSON y se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. A continuación, se muestra un ejemplo de un evento.
+## <a name="activity-log"></a>Registro de actividades
+
+El registro de actividad se genera de manera predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+
+## <a name="archive-to-storage-account-logs"></a>Archivado en los registros de la cuenta de almacenamiento
+
+### <a name="alert-event-log"></a>Registro de eventos de alerta
+
+Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga. Los eventos se registran en formato JSON y se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. El ejemplo siguiente es de un evento.
 
 ```json
 {
@@ -89,7 +116,7 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 
 El resultado de JSON muestra la propiedad *eventname* que describirá el motivo de creación de una alerta por parte del equilibrador de carga. En este caso, la alerta generada se debió al agotamiento de puertos TCP causado por los límites de IP NAT de origen (SNAT).
 
-## <a name="health-probe-log"></a>Registro de sondeo de estado
+### <a name="health-probe-log"></a>Registro de sondeo de estado
 
 Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se crea un contenedor denominado "insights-logs-loadbalancerprobehealthstatus" y se registran los datos siguientes:
 
@@ -129,24 +156,25 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 
 El resultado JSON muestra en el campo de propiedades la información básica del estado de mantenimiento del sondeo. La propiedad *dipDownCount* muestra el número total de instancias en el back-end que no están recibiendo tráfico de red debido a las respuestas de sondeo con error.
 
-## <a name="view-and-analyze-the-audit-log"></a>Visualización y análisis del registro de auditoría
+### <a name="view-and-analyze-the-audit-log"></a>Visualización y análisis del registro de auditoría
 
 Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API de REST de Azure o el Portal de vista previa de Azure. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
+* **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
+* **Power BI:** si todavía no tiene una cuenta de [Power BI](https:// .microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualización y análisis del registro de eventos y de sondeos de estado
+### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualización y análisis del registro de eventos y de sondeos de estado
 
-Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
+Conéctese a la cuenta de almacenamiento y recupere las entradas del registro JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, Power BI o cualquier otra herramienta de visualización de datos.
 
 > [!TIP]
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
+Cuando se transmite información de diagnóstico a un centro de eventos, se puede usar para el análisis de registros centralizado en una herramienta SIEM de terceros con la integración de Azure Monitor. Para más información, consulte [Transmisión de datos de supervisión de Azure a un centro de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration).
 
-* [Visualize your Azure Audit Logs with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
-* [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizar los registros de auditoría de Azure con Power BI).
+## <a name="send-to-log-analytics"></a>Enviar a Log Analytics
+Los recursos de Azure pueden hacer que su información de diagnóstico se envíe directamente a un área de trabajo de Log Analytics, donde se pueden ejecutar consultas complejas en la información para la solución de problemas y el análisis.  Para más información, consulte [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

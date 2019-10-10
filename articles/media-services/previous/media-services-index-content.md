@@ -12,23 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: a51774a1db76086440742abd5aedce3fbd26c270
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d1502b4e0e024a93db41a97589231eef1ed6696f
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016097"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310166"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indización de archivos multimedia con el Indizador multimedia de Azure
+
+> [!NOTE]
+> El procesador multimedia [Azure Media Indexer](media-services-index-content.md) se retirará el 1 de octubre de 2020. [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a su procesador multimedia heredado. Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).
+
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.  
 
-> [!IMPORTANT]
-> Al indexar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
-> 
-> 
+Al indexar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 Un trabajo de indización puede generar las siguientes salidas:
 

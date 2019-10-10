@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900629"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315829"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge
 
@@ -180,7 +180,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
     }
     ```
 
-6. Quite el código del **método de mensaje de canalización** y, en su lugar, inserte el código de **FileCopy**.
+6. Quite el código del **método PipeMessage** y, en su lugar, inserte el código de **FileCopy**.
 
     ```
         /// <summary>

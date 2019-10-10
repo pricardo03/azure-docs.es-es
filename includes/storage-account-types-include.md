@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 280ef8550177a514a6704a8bfab226745222f91e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 0e5c1974ecb1b3efb8df602c76700b7db04a88d7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029858"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310533"
 ---
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
@@ -27,7 +27,7 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 | Tipo de cuenta de almacenamiento | Servicios admitidos                       | Niveles de rendimiento admitidos      | Niveles de acceso admitidos         | Opciones de replicación               | Modelo de implementación<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Cifrado<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, ZGRS (versión preliminar), RA-ZGRS (versión preliminar)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
+| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (versión preliminar), RA-GZRS (versión preliminar)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
 | Uso general v1   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, clásico    | Cifrados              |
 | Almacenamiento de blobs en bloque   | Blob (solo blobs en bloques y blobs en anexos) | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |
 | FileStorage   | Solo archivos | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |

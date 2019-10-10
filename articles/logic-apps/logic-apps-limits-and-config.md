@@ -1,5 +1,5 @@
 ---
-title: Límites y configuración - Azure Logic Apps | Microsoft Docs
+title: 'Límites y configuración: Azure Logic Apps'
 description: Valores de límites y configuración del servicio para Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 02c27faa4ac45165747d5eb450e75f666ba7d013
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242366"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703465"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -118,6 +118,12 @@ Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas 
 
 > [!NOTE]
 > La [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) no tiene ningún límite publicado ya que esta SKU no tiene ningún contrato de nivel de servicio (SLA) ni funcionalidades de escalado vertical. Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
+
+<a name="gateway-limits"></a>
+
+## <a name="gateway-limits"></a>Límites de puerta de enlace
+
+Azure Logic Apps admite operaciones de escritura, inserciones y actualizaciones incluidas, mediante la puerta de enlace. Aunque estas operaciones tienen límites de tamaño en su carga útil.
 
 <a name="request-limits"></a>
 
@@ -258,21 +264,27 @@ Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejec
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configuración del firewall: Direcciones IP
 
-Todas las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Para admitir las llamadas que sus aplicaciones lógicas realizan directamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y otras solicitudes HTTP, configure el firewall con *todas* las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región. 
+Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y salientes dependen de la región en la que se encuentra la aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP.
 
-Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región. Para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+> [!NOTE]
+> Algunas llamadas de Microsoft Flow, como las solicitudes **HTTP** y **HTTP + OpenAPI**, van directamente a través del servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP utilizadas por Microsoft Flow, consulte [Límites y configuración en Microsoft Flow.](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)
 
-En cuanto a los conectores personalizados, [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas o fijas no están disponibles.
+* Para admitir las llamadas que sus aplicaciones lógicas realizan directamente con solicitudes [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y HTTP de otro tipo, configure el firewall con *todas* las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región.
+
+* Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región. 
+
+* Para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+
+* Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento de Azure que tengan [reglas de firewall](../storage/common/storage-network-security.md) y que se encuentren en la misma región. Aunque sí pueden acceder a cuentas de almacenamiento de Azure que se encuentren en otra región, ya que se usa una dirección IP pública para la comunicación entre regiones. Solo tiene que asegurarse de permitir las [direcciones IP de salida para los conectores administrados en su región](../logic-apps/logic-apps-limits-and-config.md#outbound). También puede usar opciones más avanzadas que se encuentran aquí:
+
+  * Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos de una red virtual de Azure.
+
+  * Si usa un nivel dedicado para API Management, puede presentar la API de Azure Storage utilizando API Management y permitiendo las direcciones IP de esta última a través del firewall. Básicamente, agregue la red virtual de Azure que API Management usa a la configuración del firewall de la cuenta de almacenamiento. Después, puede usar la acción API Management o la acción HTTP para llamar a las API de Azure Storage. Aunque si elige esta opción, tendrá que controlar el proceso de autenticación personalmente. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
+
+* En cuanto a los conectores personalizados, [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas o fijas no están disponibles.
 
 > [!IMPORTANT]
->
-> Si ya tiene algunas opciones de configuración, actualícelas **tan pronto como le sea posible antes del 1 de septiembre de 2018** para que incluyan y coincidan con las direcciones IP de estas listas de las regiones en las que están las aplicaciones lógicas.
-
-Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para acceder a estas cuentas de almacenamiento, use cualquiera de estas opciones:
-
-* Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos de una red virtual de Azure.
-
-* Si ya usa API Management, puede usar este servicio para el escenario. Para obtener más información, vea [Arquitectura de integración empresarial sencilla](https://aka.ms/aisarch).
+> Si tiene configuraciones de Firewall que estableció antes del 1 de septiembre de 2018, asegúrese de que coincidan con las direcciones IP actuales de estas listas para las regiones en las que se encuentran las aplicaciones lógicas.
 
 <a name="inbound"></a>
 
@@ -290,15 +302,19 @@ Logic Apps no admite la conexión directa a las cuentas de Azure Storage a trav�
 | Asia oriental | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
 | East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | Este de EE. UU. 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
+| Centro de Francia | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
+| Sur de Francia | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Este de Japón | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Oeste de Japón | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
+| Corea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
+| Corea del Sur | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | Centro-Norte de EE. UU | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
 | Europa del Norte | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
 | Centro-Sur de EE. UU | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Sur de la India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Centro occidental de EE.UU. | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europa occidental | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
+| Europa occidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 51.144.176.185 |
 | Oeste de la India | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Oeste de EE. UU. | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Oeste de EE. UU. 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
@@ -322,15 +338,19 @@ Logic Apps no admite la conexión directa a las cuentas de Azure Storage a trav�
 | Asia oriental | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
 | East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | Este de EE. UU. 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
+| Centro de Francia | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2 |
+| Sur de Francia | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184 |
 | Este de Japón | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Oeste de Japón | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
+| Corea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.36.214 |
+| Corea del Sur | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.163.10 |
 | Centro-Norte de EE. UU | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
 | Europa del Norte | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
 | Centro-Sur de EE. UU | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
 | Sur de la India | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
 | Sudeste asiático | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
 | Centro occidental de EE.UU. | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
-| Europa occidental | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 52.174.88.118 |
+| Europa occidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Oeste de la India | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.189.218 |
 | Oeste de EE. UU. | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
 | Oeste de EE. UU. 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 52.183.78.157 |

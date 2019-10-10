@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f7575daa91cef5cb5be6274a699323fafe67a68
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71334103"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervisión del uso de recursos y la actividad consultas en Azure SQL Data Warehouse
 Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Operations Management Suite (OMS) y Azure Monitor (registros) para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
@@ -42,6 +42,8 @@ Las métricas siguientes están disponibles en Azure Portal para SQL Data Wareho
 > Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
 >
 > - Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
+> - El porcentaje de memoria refleja el uso incluso si el almacenamiento de datos se encuentra en estado de inactividad (no refleja el consumo de memoria de carga de trabajo activa). Use y realice un seguimiento de esta métrica junto con otras (tempdb, memoria caché de Gen2) para tomar una decisión holística sobre si el escalado para conseguir capacidad de la memoria caché adicional aumentará el rendimiento de la carga de trabajo para cumplir sus requisitos.
+
 
 ## <a name="query-activity"></a>Actividad de consultas
 Para brindar una experiencia de programación al supervisar SQL Data Warehouse mediante T-SQL, el servicio proporciona un conjunto de vistas de administración dinámica (DMV). Estas vistas resultan útiles para la solución de problemas y la identificación activas de cuellos de botella de rendimiento con la carga de trabajo.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952801"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314927"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
@@ -56,17 +56,23 @@ El síntoma principal de este problema son eventos 30018 en el registro de event
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>El agente de controlador de dominio no puede cifrar ni descifrar los archivos de directivas de contraseña
 
-Este problema se puede producir con una variedad de síntomas, pero normalmente tiene una causa común.
+Protección con contraseña de Azure AD tiene una dependencia crítica en la funcionalidad de cifrado y descifrado proporcionada por el servicio de distribución de claves de Microsoft. Los errores de cifrado o descifrado pueden manifestar varios síntomas y tener varias causas posibles.
 
-Protección con contraseña de AD Azure tiene una dependencia crítica en la funcionalidad de cifrado y descifrado proporcionada por el servicio de distribución de claves de Microsoft, que está disponible en los controladores de dominio que ejecutan Windows Server 2012 y versiones posteriores. El servicio KDS debe estar habilitado y funcionar en todos controladores de dominio de Windows Server 2012 y versiones posteriores en un dominio.
+1. Asegúrese de que el servicio KDS esté habilitado y funcione en todos controladores de dominio de Windows Server 2012 y versiones posteriores en un dominio.
 
-De forma predeterminada, el modo de inicio de servicio del servicio KDS está configurado como Manual (inicio de desencadenador). Esta configuración significa que la primera vez que un cliente intenta usar el servicio, se inicia a petición. Este modo de inicio del servicio predeterminado es aceptable para que Protección de contraseñas de Azure AD funcione.
+   De forma predeterminada, el modo de inicio de servicio del servicio KDS está configurado como Manual (inicio de desencadenador). Esta configuración significa que la primera vez que un cliente intenta usar el servicio, se inicia a petición. Este modo de inicio del servicio predeterminado es aceptable para que Protección de contraseñas de Azure AD funcione.
 
-Si el modo de inicio del servicio KDS se ha configurado como Deshabilitado, esta configuración debe corregirse para que Protección de contraseñas de Azure AD funcione correctamente.
+   Si el modo de inicio del servicio KDS se ha configurado como Deshabilitado, esta configuración debe corregirse para que Protección de contraseñas de Azure AD funcione correctamente.
 
-Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicios, o con otras herramientas de administración (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
+   Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicios, o con otras herramientas de administración (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). Se espera que el servicio KDS se inicie correctamente y permanezca en ejecución.
 
-La causa más común de que el servicio KDS no se pueda iniciar es que el objeto de controlador de dominio de Active Directory se encuentra fuera de la unidad organizativa controladores de dominio predeterminada. Esta configuración no es compatible con el servicio KDS y no es una limitación impuesta por Protección con contraseña de Azure AD. La solución para esta condición consiste en mover el objeto del controlador de dominio a una ubicación en la unidad organizativa de controladores de dominio predeterminada.
+   La causa más común de que el servicio KDS no se pueda iniciar es que el objeto de controlador de dominio de Active Directory se encuentra fuera de la unidad organizativa controladores de dominio predeterminada. Esta configuración no es compatible con el servicio KDS y no es una limitación impuesta por Protección con contraseña de Azure AD. La solución para esta condición consiste en mover el objeto del controlador de dominio a una ubicación en la unidad organizativa de controladores de dominio predeterminada.
+
+1. El cambio de formato del búfer cifrado de KDS no es compatible de Windows Server 2012 R2 a Windows Server 2016.
+
+   En Windows Server 2016 se presentó una corrección de seguridad KDS que modifica el formato de los búferes cifrados de KDS; en ocasiones, estos búferes no se descifrarán en Windows Server 2012 y Windows Server 2012 R2. La dirección inversa es correcta: los búferes que están cifrados con KDS en Windows Server 2012 y Windows Server 2012 R2 siempre se descifrarán correctamente en Windows Server 2016 y versiones posteriores. Si los controladores de dominio de los dominios de Active Directory ejecutan una combinación de estos sistemas operativos, es posible que se notifiquen los errores ocasionales del descifrado de la protección con contraseña de Azure AD. No es posible predecir con precisión el tiempo o los síntomas de estos errores debido a la naturaleza de la corrección de seguridad, ya que no es determinista qué agente del controlador de dominio de protección con contraseña de Azure AD cifrará los datos en un momento dado.
+
+   Microsoft está investigando una corrección para este problema, pero no hay ninguna fecha estimada disponible todavía. Mientras tanto, no hay ninguna solución alternativa para este problema que no sea ejecutar una combinación de estos sistemas operativos incompatibles en los dominios de Active Directory. En otras palabras, solo debe ejecutar los controladores de dominio de Windows Server 2012 y Windows Server 2012 R2, o solo ejecutar los controladores de dominio de Windows Server 2016 y versiones posteriores.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Las contraseñas débiles se aceptan, pero no debería ser así
 
@@ -80,7 +86,7 @@ Este problema puede tener varias causas.
 
 1. Se ha deshabilitado la directiva de contraseñas. Si esta configuración está aplicada, vuelva a configurarla en Habilitada con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. No ha instalado el software del agente de controlador de dominio en todos los controladores de dominio en el dominio. En esta situación, es difícil garantizar que los clientes remotos de Windows se dirijan a un controlador de dominio determinado durante una operación de cambio de contraseña. Si cree que se ha dirigido correctamente a un controlador de dominio determinado en el que está instalado el software del agente de controlador de dominio, puede asegurarse de ello volviendo a comprobar el registro de eventos de administración del agente de controlador de dominio: independientemente del resultado, habrá al menos un evento para documentar el resultado de la validación de contraseña. Si no hay ningún evento presente para el usuario para el que se ha cambiado la contraseña, es probable que el cambio de contraseña lo procese otro controlador de dominio.
+1. No ha instalado el software del agente de controlador de dominio en todos los controladores de dominio en el dominio. En esta situación, es difícil garantizar que los clientes remotos de Windows se dirijan a un controlador de dominio determinado durante una operación de cambio de contraseña. Si cree que se ha dirigido correctamente un controlador de dominio determinado en el que está instalado el software del agente de controlador de dominio, puede asegurarse de ello volviendo a comprobar el registro de eventos de administración del agente de controlador de dominio; independientemente del resultado, habrá al menos un evento para documentar el resultado de la validación de contraseña. Si no hay ningún evento presente para el usuario para el que se ha cambiado la contraseña, es probable que el cambio de contraseña lo procese otro controlador de dominio.
 
    Como una prueba alternativa, intente configurar/cambiar contraseñas al iniciar sesión directamente en un controlador de dominio donde esté instalado el software del agente de controlador de dominio. Esta técnica no es recomendable para los dominios de Active Directory de producción.
 

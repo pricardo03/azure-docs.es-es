@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/26/2019
+ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091139"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327131"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones agrupan varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones funcionan como características integradas.
@@ -62,6 +62,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | Funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | Diccionario de búsqueda de texto que quita los acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Genera identificadores únicos universales (UUID)|
 
@@ -227,9 +228,6 @@ TimescaleDB es una base de datos de serie temporal que se empaqueta como una ext
 
 ### <a name="installing-timescaledb"></a>Instalación de TimescaleDB
 Para instalar TimescaleDB, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Si cambia el parámetro `shared_preload_libraries` de Postgres deberá **reiniciar el servidor** para que tenga efecto. Puede cambiar los parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).
-
-> [!NOTE]
-> TimescaleDB se puede habilitar en las versiones 9.6 y 10 de Azure Database for PostgreSQL.
 
 Mediante [Azure Portal](https://portal.azure.com/):
 

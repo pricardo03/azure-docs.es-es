@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403948"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676264"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferencias, bloqueos y liquidación de mensajes
 
@@ -98,9 +98,13 @@ Con un cliente AMQP de bajo nivel, Service Bus también acepta transferencias "p
 
 Para las operaciones de recepción, los clientes de la API de Service Bus habilitan dos modos explícitos diferentes: *Receive-and-Delete* (Recepción y eliminación) y *Peek-Lock* (Inspección y bloqueo).
 
+### <a name="receiveanddelete"></a>ReceiveAndDelete
+
 El modo [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al agente que considere todos los mensajes que envía al cliente receptor como liquidados cuando se envían. Esto significa que el mensaje se considera consumido tan pronto como el agente lo pone en circulación. Si se produce un error en la transferencia del mensaje, el mensaje se pierde.
 
 La ventaja de este modo es que el receptor no necesita realizar ninguna otra acción en el mensaje y además no se ralentizará al esperar el resultado de la liquidación. Si los datos contenidos en los mensajes individuales tienen un valor bajo o solo son significativos durante muy poco tiempo, este modo es una opción razonable.
+
+### <a name="peeklock"></a>PeekLock
 
 El modo [Bloque de inspección](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al agente que el cliente receptor desea liquidar explícitamente los mensajes recibidos. El mensaje ahora está disponible para que el receptor lo procese, mientras se mantiene en un bloqueo exclusivo en el servicio para que los demás receptores competidores no puedan verlo. La duración del bloqueo se define inicialmente en el nivel de cola o suscripción y la puede ampliar el cliente que posee el bloqueo, a través de la operación [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
@@ -121,6 +125,14 @@ Las operaciones **Complete** o **Deadletter**, así como la operación **RenewLo
 Si el método **Complete** produce un error, que surge normalmente al final del control de mensajes y, en algunos casos, después de algunos minutos de trabajo de procesamiento, la aplicación receptora puede decidir si se conserva el estado del trabajo y pasa por alto el mismo mensaje cuando se envía una segunda vez, o si elimina el resultado del trabajo y lo vuelve a intentar cuando el mensaje se reenvía.
 
 El mecanismo típico para identificar entregas de mensajes duplicados es la comprobación del identificador de mensaje, lo que puede y debe establecerse por el remitente a un valor único, que posiblemente se alinea con un identificador de proceso de origen. Un programador de trabajos probablemente establecería el identificador del mensaje para el identificador del trabajo que está intentando volver a asignar a un trabajo con el trabajo determinado y el trabajo puede ignorar la segunda aparición de la asignación de trabajo si ese trabajo ya se ha realizado.
+
+> [!IMPORTANT]
+> Es importante tener en cuenta que el bloqueo que PeekLock adquiere en el mensaje es volátil y puede perderse en las siguientes condiciones:
+>   * Actualización del servicio
+>   * Actualización del sistema operativo
+>   * Cambiar las propiedades de la entidad (cola, tema, suscripción) mientras se mantiene el bloqueo.
+>
+> Cuando se pierde el bloqueo, Azure Service Bus generará una excepción LockLostException que se mostrará en el código de la aplicación cliente. En este caso, la lógica de reintento predeterminada del cliente debe iniciarse automáticamente y vuelva a intentar la operación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

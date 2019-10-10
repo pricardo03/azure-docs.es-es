@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647686"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719842"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Recompilación de un índice de Azure Search
 
@@ -33,7 +33,7 @@ A diferencia de las recompilaciones que aceptan un índice sin conexión, la *ac
 | Actualizar o eliminar una definición de analizador en un índice | No puede eliminar ni cambiar una configuración de analizador existente (analizador, tokenizador, filtro de token o filtro de caracteres) en el índice, a menos que recompile todo el índice. |
 | Agregar un campo a un proveedor de sugerencias | Si ya existe un campo y desea agregarlo a una construcción de [proveedor de sugerencias](index-add-suggesters.md), debe recompilar el índice. |
 | Eliminar un campo | Para quitar físicamente todos los rastros de un campo, tendrá que recompilar el índice. Cuando no resulta práctica una recompilación inmediata, puede modificar el código de la aplicación para deshabilitar el acceso al campo "eliminado". Físicamente, el contenido y la definición del campo permanecen en el índice hasta la próxima recompilación, cuando aplica un esquema que omite el campo en cuestión. |
-| Cambiar los niveles | Si necesita más capacidad, no hay ninguna actualización local. Se crea un servicio nuevo en el punto de capacidad nuevo y los índices se deben compilar de cero en el servicio nuevo. |
+| Cambiar los niveles | Si necesita más capacidad, no hay ninguna actualización local en Azure Portal. Se debe crear otro servicio y los índices se deben compilar de cero en el servicio nuevo. Para ayudar a automatizar este proceso, puede usar el código de ejemplo **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esta aplicación hará una copia de seguridad del índice en una serie de archivos JSON y luego volverá a crear el índice en un servicio de búsqueda que especifique.|
 
 Cualquier otra modificación puede realizarse sin afectar a las estructuras físicas existentes. En concreto, los siguientes cambios *no* requieren una recompilación del índice:
 

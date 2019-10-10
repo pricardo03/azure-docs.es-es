@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212007"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327670"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -96,6 +96,8 @@ Actualmente, no se puede convertir directamente entre un recurso compartido de a
 
 > [!IMPORTANT]
 > Los recursos compartidos de archivos Prémium están disponibles con LRS en la mayoría de regiones que ofrecen cuentas de almacenamiento y con ZRS en subconjuntos de regiones más pequeños. Para averiguar si los recursos compartidos de archivos prémium están disponibles actualmente en su región, consulte la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para Azure. Para averiguar qué regiones admiten ZRS, consulte [Cobertura de soporte técnico y disponibilidad regional](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+>
+> Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características del nivel Premium, rellene esta [encuesta](https://aka.ms/pfsfeedback).
 
 #### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 

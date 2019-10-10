@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5334c17b4f918e128ac69569e8ab6deeebac2182
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f3e4a24e96b41955ca9e89f8307b693e7599b645
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103940"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709298"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialización de la caché de tokens en MSAL.NET
 Después de [adquirir un token](msal-acquire-cache-tokens.md), Microsoft Authentication Library for .NET (MSAL) lo almacena en la caché.  El código de la aplicación debe intentar obtener un token de la caché antes de adquirirlo por otro método.  Este artículo describe la serialización predeterminada y personalizada de la caché de tokens en MSAL.NET.
@@ -277,7 +277,7 @@ En las aplicaciones web o las API web la caché puede aprovechar la sesión, una
 
 En aplicaciones web o API web, mantenga una caché de tokens por cada cuenta.  En el caso de las aplicaciones web, la caché de tokens debe estar protegida con clave mediante el identificador de cuenta.  En el caso de las API web, la cuenta debe estar protegida con clave mediante el hash del token usado para llamar a la API. MSAL.NET proporciona serialización de caché de tokens personalizada en .NET Framework y las subplataformas .NET Core. Los eventos se desencadenan cuando se accede a la caché; las aplicaciones pueden elegir si serializar o deserializar la caché. En aplicaciones cliente confidenciales que controlan a los usuarios (aplicaciones web que inician la sesión de los usuarios y llaman a las API web, y API web que llaman a las API web de nivel inferior), puede haber muchos usuarios y los usuarios se procesan en paralelo. Por motivos de seguridad y rendimiento, se recomienda serializar una caché por cada usuario. Los eventos de serialización calculan una clave de caché según la identidad del usuario procesado y serializan o deserializan una caché de tokens para ese usuario.
 
-Hay ejemplos de uso de las cachés de tokens para aplicaciones web y API web disponibles en el [tutorial de aplicaciones web de ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial), en la fase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para ver las implementaciones, diríjase a la siguiente carpeta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) de la biblioteca [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (en la carpeta [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) carpeta). 
+Hay ejemplos de uso de las cachés de tokens para aplicaciones web y API web disponibles en el [tutorial de aplicaciones web de ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial), en la fase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para ver las implementaciones, diríjase a la carpeta [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) de la biblioteca [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (en la carpeta [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web)). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Los ejemplos siguientes ilustran la serialización de la caché de tokens.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: ce8aa0229d9a9b873a489209065ada588adbffff
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257738"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309260"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -29,14 +29,14 @@ Este documento le ayuda a administrar las soluciones de seguridad que ya está c
 ## <a name="integrated-azure-security-solutions"></a>Soluciones de seguridad de Azure integradas
 Security Center facilita la habilitación de soluciones de seguridad integradas en Azure. Dicha integración aporta las siguientes ventajas:
 
-- **Implementación simplificada**: Security Center ofrece un aprovisionamiento optimizado de soluciones de asociados integradas. En el caso de algunas soluciones, como el antimalware y la evaluación de vulnerabilidades, Security Center puede aprovisionar al agente necesario en las máquinas virtuales, mientras que para las aplicaciones de firewall, Security Center puede ocuparse de gran parte de la configuración de red necesaria.
+- **Implementación simplificada**: Security Center ofrece un aprovisionamiento optimizado de soluciones de asociados integradas. En el caso de soluciones antimalware y de evaluación de vulnerabilidades, Security Center puede aprovisionar el agente en las máquinas virtuales. En el caso de aplicaciones de firewall, Security Center puede ocuparse de gran parte de la configuración de red necesaria.
 - **Detecciones integradas**: Los eventos de seguridad de las soluciones de asociados se recopilan, agregan y aparecen automáticamente como parte de las alertas e incidentes de Security Center. Estos eventos también se fusionan con las detecciones procedentes de otros orígenes para proporcionar funcionalidades avanzadas de detección de amenazas.
 - **Supervisión y administración unificadas del mantenimiento**: Los clientes pueden usar eventos de mantenimiento integrados para supervisar todas las soluciones de asociados de un vistazo. La administración básica está disponible con un acceso sencillo a la configuración avanzada mediante la solución de asociado.
 
 Actualmente, las soluciones de seguridad integradas incluyen la evaluación de vulnerabilidades por [Qualys](https://www.qualys.com/public-cloud/#azure) y [Rapid7](https://www.rapid7.com/products/insightvm/) y el firewall de aplicaciones web de Microsoft Application Gateway.
 
 > [!NOTE]
-> Security Center no instala Microsoft Monitoring Agent en aplicaciones virtuales de asociado, porque la mayoría de los proveedores de seguridad prohíben que se ejecuten agentes externos en su aplicación.
+> Security Center no instala Microsoft Monitoring Agent en aplicaciones virtuales de asociados, porque la mayoría de los proveedores de seguridad prohíben que se ejecuten agentes externos en su aplicación.
 >
 >
 
@@ -55,30 +55,30 @@ Las soluciones de seguridad de Azure que se implementan desde Security Center se
 
    ![Introducción a Security Center](./media/security-center-partner-integration/overview.png)
 
-En **Soluciones de seguridad**, puede ver información acerca del mantenimiento de las soluciones de seguridad integrada de Azure y realizar tareas de administración básicas.
+En **Soluciones de seguridad**, puede ver el mantenimiento de las soluciones de seguridad integradas de Azure y ejecutar tareas de administración básicas.
 
 ### <a name="connected-solutions"></a>Soluciones conectadas
 
-La sección **Soluciones conectadas** incluye las soluciones de seguridad que están conectadas actualmente a Security Center e información acerca del estado de mantenimiento de cada solución.  
+La sección **Soluciones conectadas** incluye soluciones de seguridad que están conectadas actualmente a Security Center. También muestra el estado de mantenimiento de cada solución.  
 
 ![Soluciones conectadas](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 El estado de una solución de asociado puede ser:
 
-* Correcto (verde): no hay ningún problema de mantenimiento.
-* Incorrecto (rojo): hay un problema de estado que requiere atención inmediata.
+* Correcto (verde): no hay problemas de mantenimiento.
+* Incorrecto (rojo): hay una incidencia de mantenimiento que requiere atención inmediata.
 * Problemas de mantenimiento (naranja): la solución ha dejado de informar sobre su estado.
-* Sin información (gris): la solución no ha notificado nada todavía; es posible que el estado de una solución no se notifique si acaba de conectarse y todavía se está implementando, o no hay datos de mantenimiento disponibles.
+* No comunicado (gris): la solución aún no ha notificado nada y no hay datos de mantenimiento disponibles. Es posible que el estado de una solución no se notifique si se conectó recientemente y todavía se está implementando.
 
 > [!NOTE]
-> Si los datos sobre el estado de mantenimiento no están disponibles, Security Center muestra la fecha y hora del último evento recibido para indicar si la solución está enviando notificaciones o no. Si no hay disponible ningún dato de mantenimiento y no ha recibido ninguna alerta en los últimos 14 días, Security Center indica que la solución es incorrecta o que no informa.
+> Si los datos sobre el estado de mantenimiento no están disponibles, Security Center muestra la fecha y hora del último evento recibido para indicar si la solución está enviando notificaciones o no. Si no hay disponible ningún dato de mantenimiento y no se han recibido alertas en los últimos 14 días, Security Center indica que la solución es incorrecta o que no notifica nada.
 >
 >
 
-1. Seleccione **VER** para obtener información y opciones adicionales, entre las que se incluyen:
+1. Seleccione **Ver** para más información y opciones adicionales, entre las que se incluyen:
 
    - **Consola de solución**. Se abre la experiencia de administración de esta solución.
-   - **Vincular VM**. Se abre la hoja Vincular aplicaciones. Aquí puede conectar recursos a la solución de asociados.
+   - **Vincular VM**. Se abre la página Vincular aplicaciones. Aquí puede conectar recursos a la solución de asociados.
    - **Eliminar solución**.
    - **Configurar**.
 
@@ -86,10 +86,10 @@ El estado de una solución de asociado puede ser:
 
 ### <a name="discovered-solutions"></a>Soluciones detectadas
 
-Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Aquí se incluyen tanto soluciones de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), como soluciones de asociados.
+Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Estas soluciones incluyen las de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) y soluciones de asociados.
 
 > [!NOTE]
-> El nivel estándar de Security Center es necesario en el nivel de suscripción de la característica de soluciones detectadas. Para obtener más información sobre los planes de tarifa de Security, consulte [Precios](security-center-pricing.md).
+> El nivel estándar de Security Center es necesario en el nivel de suscripción de la característica de soluciones detectadas. Para más información sobre los planes de tarifa, consulte [Precios](security-center-pricing.md).
 >
 >
 
@@ -105,13 +105,13 @@ La sección **Agregar orígenes de datos** incluye otros orígenes de datos disp
 
 ## <a name="exporting-data-to-a-siem"></a>Exportación de datos a un SIEM
 
-Los eventos procesados generados por Azure Security Center se publican en el [registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de Azure, uno de los tipos de registros disponibles a través de Azure Monitor. Azure Monitor ofrece una canalización consolidada para el enrutamiento de cualquiera de los datos supervisados en una herramienta SIEM. Esto se realiza mediante el streaming de esos datos a un centro de eventos, desde el que se pueden extraer en una herramienta de asociado.
+Puede configurar SIEM u otras herramientas de supervisión para recibir eventos de Azure Security Center.
 
-Esta canalización usa la [canalización única de supervisión de Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para obtener acceso a los datos de supervisión de su entorno de Azure. Esto le permite configurar fácilmente las herramientas de supervisión y SIEM para consumir los datos.
+Todos los eventos de Azure Security Center se publican en el [registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de Azure Monitor. Azure Monitor usa una [canalización consolidada](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para transmitir los datos a un centro de eventos, donde se pueden extraer en la herramienta de supervisión.
 
 En las secciones siguientes se describe cómo configurar los datos para que se transmitan en secuencias a un centro de eventos. En estos pasos se supone que ya tiene Azure Security Center configurado en su suscripción a Azure.
 
-Información general de alto nivel
+### <a name="high-level-overview"></a>Información general de alto nivel
 
 ![Información general de alto nivel](media/security-center-export-data-to-siem/overview.png)
 
@@ -119,25 +119,25 @@ Información general de alto nivel
 
 En esta versión, se exponen las [alertas de seguridad.](../security-center/security-center-managing-and-responding-alerts.md) En las próximas versiones, ampliaremos el conjunto de datos con recomendaciones de seguridad.
 
-### <a name="how-to-setup-the-pipeline"></a>Proceso de configuración de la canalización
+### <a name="how-to-set-up-the-pipeline"></a>Configuración de la canalización
 
 #### <a name="create-an-event-hub"></a>Creación de un Centro de eventos
 
-Antes de empezar, debe [crear un espacio de nombres de Event Hubs](../event-hubs/event-hubs-create.md). El espacio de nombres y el centro de eventos son el destino de todos los datos de supervisión.
+Antes de comenzar, [cree un espacio de nombres de Event Hubs](../event-hubs/event-hubs-create.md): el destino de todos los datos de supervisión.
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
 
-Consulte el artículo siguiente: [Transmisión del registro de actividad a Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
+Consulte el artículo [Transmisión del registro de actividad a Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### <a name="install-a-partner-siem-connector"></a>Instalación de un conector SIEM de asociado 
 
 El enrutamiento de los datos de supervisión a un centro de eventos con Azure Monitor facilita la integración con las herramientas de asociados de SIEM y de supervisión.
 
-Consulte el vínculo siguiente para ver la lista de [SIEM compatibles](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+Consulte el siguiente artículo para conocer la lista de [SIEM admitidos](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub).
 
 ### <a name="example-for-querying-data"></a>Ejemplo de consulta de datos 
 
-A continuación, hay un par de consultas de Splunk que puede usar para extraer datos de alertas:
+Estas son algunas de las consultas de Splunk que puede usar para extraer datos de alertas:
 
 | **Descripción de la consulta** | **Consultar** |
 |----|----|

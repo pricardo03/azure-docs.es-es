@@ -1,20 +1,18 @@
 ---
-title: Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics
+title: 'Uso del explorador de trabajos y la vista de trabajo: Azure Data Lake Analytics'
 description: En este artículo se describe cómo usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616237"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309950"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar el explorador de trabajos y la vista de trabajo para Azure Data Lake Analytics
 El servicio Azure Data Lake Analytics archiva los trabajos enviados en un almacén de consultas. En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 

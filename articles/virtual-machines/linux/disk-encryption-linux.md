@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7f8c029c5ceff0865b060cf8edc794454d6c282
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829957"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174713"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -36,7 +36,7 @@ En todos los casos es preciso [hacer una instantánea](snapshot-copy-managed-dis
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalación de herramientas y conexión a Azure
 
-Azure Disk Encryption se puede habilitar y administrar mediante la [CLI de Azure](/cli/azure) y [Azure PowerShell](/azure/new-azureps-module-az). Para ello, es preciso instalar las herramientas localmente y conectarse a la suscripción de Azure.
+Azure Disk Encryption se puede habilitar y administrar mediante la [CLI de Azure](/cli/azure) y [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para ello, es preciso instalar las herramientas localmente y conectarse a la suscripción de Azure.
 
 ### <a name="azure-cli"></a>CLI de Azure
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 Para más información, consulte [Service Fabric y CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-El [módulo az de Azure PowerShell](/azure/new-azureps-module-az) ofrece un conjunto de cmdlets que usan el modelo de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para administrar los recursos de Azure. Se puede usar en el explorador con [Azure Cloud Shell](../../cloud-shell/overview.md), o bien se puede instalar en una máquina local, para lo que hay que seguir las instrucciones de [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). 
+El [módulo az de Azure PowerShell](/powershell/azure/new-azureps-module-az) ofrece un conjunto de cmdlets que usan el modelo de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para administrar los recursos de Azure. Se puede usar en el explorador con [Azure Cloud Shell](../../cloud-shell/overview.md), o bien se puede instalar en una máquina local, para lo que hay que seguir las instrucciones de [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Si ya lo tiene instalado localmente, asegúrese de que usa la versión más reciente de la versión del SDK de Azure PowerShell para configurar Azure Disk Encryption. Descargue la versión más reciente de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 

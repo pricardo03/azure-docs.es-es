@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2a0ff5db6707c4f765c71937a7d0f0749401959
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172197"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349066"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
@@ -28,25 +28,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.59 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.74 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Si usa una subred o un grupo de recursos existentes, la entidad de servicio del clúster de AKS necesita permiso para administrar los recursos de red. En general, asigne el rol *Colaborador de red* a la entidad de servicio en los recursos delegados. Para más información sobre los permisos, consulte [Delegación del acceso de AKS a otros recursos de Azure][aks-sp].
 
 Debe crear un clúster de AKS que establezca la SKU del equilibrador de carga en *estándar* y no *básica*, que es la predeterminada.
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para usar la SKU estándar del equilibrador de carga de Azure, necesita la extensión *aks-preview* de la CLI, versión 0.4.12 o superior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### <a name="limitations"></a>Limitaciones
 

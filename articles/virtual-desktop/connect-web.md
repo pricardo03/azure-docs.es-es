@@ -1,22 +1,22 @@
 ---
-title: 'Conexión a Windows Virtual Desktop, versión preliminar, desde un explorador web: Azure'
-description: Procedimiento para conectarse a Windows Virtual Desktop, versión preliminar, desde un explorador web.
+title: 'Conexión a Windows Virtual Desktop desde un explorador web: Azure'
+description: Cómo conectarse a Windows Virtual Desktop mediante el cliente web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620162"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676765"
 ---
-# <a name="connect-from-a-web-browser"></a>Conexión desde un explorador web
+# <a name="connect-with-the-web-client"></a>Conexión con el cliente web
 
-El cliente web le permite acceder a los recursos de Windows Virtual Desktop, versión preliminar, desde un explorador web sin el largo proceso de instalación.
+El cliente web le permite acceder a los recursos de Windows Virtual Desktop desde un explorador web sin el largo proceso de instalación.
 
 >[!NOTE]
 >El cliente web no tiene compatibilidad con SO móvil actualmente.
