@@ -56,11 +56,11 @@
     - name: Solución de problemas de SSH
       href: troubleshoot-ssh-connection.md
     - name: Solución de errores del sistema de archivos
-      href: 'https://support.microsoft.com/help/3213321'
+      href: linux-recovery-cannot-start-file-system-errors.md
     - name: Solución de problemas de arranque relacionados con el kernel
       href: 'https://support.microsoft.com/help/4091524'
     - name: Solución de errores de fstab
-      href: 'https://support.microsoft.com/help/3206699'
+      href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Solución de problemas detallada de SSH
       href: detailed-troubleshoot-ssh-connection.md
 - name: Mensajes comunes de error

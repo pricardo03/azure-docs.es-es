@@ -198,22 +198,20 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: 'Copia de seguridad, restauración y alta disponibilidad (BCDR)'
       items:
-        - name: Recuperación mediante copias de seguridad
-          href: sql-database-recovery-using-backups.md
-        - name: Recuperación de base de datos acelerada
-          href: sql-database-accelerated-database-recovery.md
-        - name: Guía de recuperación de interrupciones
-          href: sql-database-disaster-recovery.md
-        - name: Maniobras de recuperación
-          href: sql-database-disaster-recovery-drills.md
         - name: Continuidad del negocio
           href: sql-database-business-continuity.md
         - name: Alta disponibilidad
           href: sql-database-high-availability.md
-        - name: Copias de seguridad automatizadas
-          href: sql-database-automated-backups.md
-        - name: Retención de copia de seguridad a largo plazo
-          href: sql-database-long-term-retention.md
+        - name: Copias de seguridad
+          items:
+            - name: Copias de seguridad automatizadas
+              href: sql-database-automated-backups.md
+            - name: Recuperación mediante copias de seguridad
+              href: sql-database-recovery-using-backups.md
+            - name: Recuperación de base de datos acelerada
+              href: sql-database-accelerated-database-recovery.md
+            - name: Retención de copia de seguridad a largo plazo
+              href: sql-database-long-term-retention.md
         - name: Grupos de conmutación por error y replicación geográfica
           items:
             - name: Replicación geográfica activa
@@ -222,6 +220,10 @@
               href: sql-database-auto-failover-group.md
             - name: Configuración de la seguridad de las réplicas
               href: sql-database-geo-replication-security-config.md
+            - name: Guía de recuperación de interrupciones
+              href: sql-database-disaster-recovery.md
+            - name: Maniobras de recuperación
+              href: sql-database-disaster-recovery-drills.md
     - name: Supervisión y ajuste
       items:
         - name: Supervisión y optimización de la documentación
