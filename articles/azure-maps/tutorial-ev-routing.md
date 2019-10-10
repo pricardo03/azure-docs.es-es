@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803899"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836354"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
-Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure y que permiten a los desarrolladores, las empresas y los ISV crear aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. Se puede llamar a las API REST de Azure Maps desde lenguajes como Python y R para habilitar el análisis de datos geoespaciales y los escenarios de aprendizaje automático. Azure Maps ofrece un sólido conjunto de [API de enrutamiento]([https://docs.microsoft.com/rest/api/maps/route) que permite a los usuarios calcular rutas entre varios puntos de datos en función de diversas condiciones, como el tipo de vehículo o el área accesible. En este tutorial, le guiaremos por un escenario que ayudará al conductor de un vehículo eléctrico que tiene poca carga de batería a encontrar la estación de carga más cercana posible en función del tiempo de conducción.
+Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure y que permiten a los desarrolladores, las empresas y los ISV crear aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. Se puede llamar a las API REST de Azure Maps desde lenguajes como Python y R para habilitar el análisis de datos geoespaciales y los escenarios de aprendizaje automático. Azure Maps ofrece un sólido conjunto de [API de enrutamiento](https://docs.microsoft.com/rest/api/maps/route) que permite a los usuarios calcular rutas entre varios puntos de datos en función de diversas condiciones, como el tipo de vehículo o el área accesible. En este tutorial, le guiaremos por un escenario que ayudará al conductor de un vehículo eléctrico que tiene poca carga de batería a encontrar la estación de carga más cercana posible en función del tiempo de conducción.
 
 En este tutorial, aprenderá lo siguiente:
 
