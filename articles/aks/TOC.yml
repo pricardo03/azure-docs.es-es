@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: Uso del acceso basado en rol de Kubernetes con integración de Azure AD
           href: azure-ad-rbac.md
-        - name: Autenticación con ACR
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: Supervisión y registro
       items:
