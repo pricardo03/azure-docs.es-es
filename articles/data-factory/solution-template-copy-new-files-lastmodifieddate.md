@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312855"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030073"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory
 
@@ -88,8 +88,8 @@ La plantilla define cuatro parámetros:
 11. Escriba el valor de los **parámetros de ejecución de desencadenador** de la manera siguiente y seleccione **Finalizar**.
     - **FolderPath_Source** =  **/source/** .  Se puede reemplazar por su carpeta en el almacén de datos de origen.
     - **FolderPath_Destination** =  **/destination/** .  Se puede reemplazar por su carpeta en el almacén de datos de destino.
-    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Es una variable del sistema del desencadenador que determina la hora a la que se desencadenó la canalización por última vez.
-    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  Es una variable del sistema del desencadenador que determina la hora a la que se desencadena la canalización esta vez.
+    - **LastModified_From** =   **\@trigger().outputs.windowStartTime**.  Es una variable del sistema del desencadenador que determina la hora a la que se desencadenó la canalización por última vez.
+    - **LastModified_To** =  **\@trigger().outputs.windowEndTime**.  Es una variable del sistema del desencadenador que determina la hora a la que se desencadena la canalización esta vez.
     
     ![Parámetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     
