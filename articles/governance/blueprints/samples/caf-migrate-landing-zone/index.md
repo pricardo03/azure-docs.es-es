@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplos: Introducción al plano técnico de la zona de aterrizaje de migración de CAF'
+title: 'Ejemplo: plano técnico de la zona de aterrizaje de la migración de CAF (introducción)'
 description: Introducción y arquitectura del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 2162e61262cc7ba157e85f7f8fe0ef586d064dd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978410"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243965"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 

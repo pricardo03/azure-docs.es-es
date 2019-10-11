@@ -131,7 +131,7 @@ $nic = New-AzNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Para crear una máquina virtual en PowerShell, cree una configuración que tenga valores como, por ejemplo, la imagen que se va a usar, el tamaño y las opciones de autenticación. Después, la configuración se utiliza para crear la máquina virtual.
 

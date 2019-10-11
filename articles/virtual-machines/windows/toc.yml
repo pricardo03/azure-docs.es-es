@@ -234,6 +234,10 @@
       items:
         - name: Seguridad y directivas
           href: security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Controles de seguridad integrados
+          href: virtual-machines-windows-security-controls.md
     - name: Estados y ciclo de vida
       href: states-lifecycle.md
     - name: Supervisión
@@ -242,8 +246,6 @@
       href: backup-recovery.md
     - name: Ejemplo de infraestructura
       href: infrastructure-example.md
-    - name: Controles de seguridad integrados
-      href: virtual-machines-windows-security-controls.md
 - name: Guías de procedimientos
   items:
     - name: Creación de máquinas virtuales
@@ -286,8 +288,31 @@
         - name: Acceso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md
         - name: Cifrado
-          href: encrypt-disks.md
-          displayName: encryption
+          items:
+            - name: Escenarios para el cifrado de discos en Windows
+              href: disk-encryption-windows.md
+            - name: Cifrado de máquina virtual con la CLI de Azure
+              href: disk-encryption-cli-quickstart.md
+            - name: "Cifrado de máquina virtual con Azure\_PowerShell"
+              href: disk-encryption-powershell-quickstart.md
+            - name: Cifrado de máquina virtual con Azure Portal
+              href: disk-encryption-portal-quickstart.md
+            - name: Almacén de claves de Azure Disk Encryption
+              href: disk-encryption-key-vault.md
+            - name: Scripts de ejemplo de cifrado de discos
+              href: disk-encryption-sample-scripts.md
+            - name: Solución de problemas del cifrado de discos
+              href: disk-encryption-troubleshooting.md
+            - name: Preguntas frecuentes sobre el cifrado de discos
+              href: disk-encryption-faq.md
+            - name: 'Cifrado de discos: versión anterior (AAD)'
+              items:
+                - name: Información general
+                  href: disk-encryption-overview-aad.md
+                - name: Almacén de claves de Azure Disk Encryption
+                  href: disk-encryption-key-vault-aad.md
+                - name: Escenarios para el cifrado de discos en Windows
+                  href: disk-encryption-windows-aad.md
         - name: Uso de WinRM
           href: winrm.md
         - name: Uso de controles de acceso

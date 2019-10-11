@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 En esta sección, actualizará el código para especificar que ambos puntos de conexión de emisores de tokens son válidos.
 
 1. Abra la solución **B2C-WebAPI-DotNet.sln** en Visual Studio.
-1. En el proyecto **TaskService**, abra el archivo *TaskService\\App_Start\\ **Startup.Auth.cs*** en el editor.
+1. En el proyecto **TaskService**, abra el archivo *TaskService\\App_Start\\ **Startup.Auth.cs**.* en el editor.
 1. Agregue la siguiente directiva `using` al principio del archivo:
 
     `using System.Collections.Generic;`
@@ -122,7 +122,7 @@ Como se mencionó anteriormente, otras bibliotecas OWIN proporcionan normalmente
 
 Ahora que ya se admiten ambos URI en la API web, el siguiente paso es actualizar la aplicación web para que recupere los tokens del punto de conexión b2clogin.com.
 
-Por ejemplo, puede configurar la aplicación web de ejemplo para que use el nuevo punto de conexión mediante la modificando del valor `ida:AadInstance` del archivo *TaskWebApp\\**Web.config*** del proyecto **TaskWebApp**.
+Por ejemplo, puede configurar la aplicación web de ejemplo para que use el nuevo punto de conexión mediante la modificando del valor `ida:AadInstance` del archivo *TaskWebApp\\**Web.config**.* del proyecto **TaskWebApp**.
 
 Cambie el valor `ida:AadInstance` en *Web.config* de TaskWebApp para que haga referencia a `{your-b2c-tenant-name}.b2clogin.com` y no a `login.microsoftonline.com`.
 

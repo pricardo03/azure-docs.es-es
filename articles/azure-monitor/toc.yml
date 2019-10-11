@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: Guías de procedimientos
   items:
+    - name: Escenarios de supervisión
+      items:
+        - name: Supervisión de servicio de Azure
+          href: insights/monitor-azure-resource.md
     - name: Administración de Azure Monitor
       items:
         - name: Diseño de una implementación de área de trabajo
