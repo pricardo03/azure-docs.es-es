@@ -3,19 +3,19 @@ title: Documentación de Azure Lighthouse
 summary: Azure Lighthouse permite a los proveedores de servicios administrar los recursos de Azure de todos sus clientes con una mayor automatización, escalado y gobernanza mejorada.
 metadata:
   title: Documentación de Azure Lighthouse
-  description: Aprenda a administrar los recursos de cliente a escala
+  description: Azure Lighthouse permite a los proveedores de servicios administrar los recursos de Azure de todos sus clientes con una mayor automatización, escalado y gobernanza mejorada.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
   ms.date: 09/25/2019
-  ms.openlocfilehash: d2003af574961a5729949f60824aa67692be1655
-  ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+  ms.openlocfilehash: 9543ac8a6e7dc30fa44e4bada42ca4786cc53ba0
+  ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71264567"
+  ms.lasthandoff: 10/11/2019
+  ms.locfileid: "72286555"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
