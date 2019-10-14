@@ -68,7 +68,7 @@
         - name: Objetivos de escalabilidad y rendimiento
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Lista de comprobación de rendimiento y escalabilidad
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: storage-performance-checklist.md
     - name: Simultaneidad
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Supervisión y solución de problemas
