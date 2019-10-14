@@ -100,8 +100,10 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: Instancia de clúster de conmutación por error
           items:
-            - name: Configuración
+            - name: Con Espacios de almacenamiento directo
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+            - name: Con almacenamiento de archivos Prémium
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: Referencia
   items:
     - name: Azure PowerShell

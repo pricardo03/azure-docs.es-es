@@ -377,7 +377,7 @@ De forma predeterminada, todos los proyectos C# se crean como [proyectos de bibl
 
 1. Seleccione **Archivo** > **Preferencias** > **Configuración**.
 
-1. Vaya a **Configuración de usuario > ** **Extensiones** > **Azure Functions**.
+1. Vaya a **Configuración de usuario** > **Extensiones** > **Azure Functions**.
 
 1. Elija **Script de C#** en **Función de Azure: Lenguaje del proyecto**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: planos técnicos de UK OFFICIAL y UK NHS (introducción)'
+title: Ejemplos de planos técnicos de UK OFFICIAL y UK NHS (Introducción)
 description: Introducción y arquitectura de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Este plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 2478dce573fac52d948e6e180d9716beda34b44b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 942928a3e5da02bc44f85baab1b9795137a9433d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248780"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297106"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Introducción a los ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 

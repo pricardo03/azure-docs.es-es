@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: Almacenamiento de datos en el perímetro
       items:
+        - name: Acceso de los módulos al almacenamiento local de un dispositivo
+          href: how-to-access-host-storage-from-module.md
         - name: Azure Blob Storage en IoT Edge
           href: how-to-store-data-blob.md
         - name: Implementación de módulos de Blob Storage

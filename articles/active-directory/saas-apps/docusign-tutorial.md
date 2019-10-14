@@ -124,7 +124,7 @@ En esta sección, va a permitir que B.Simon acceda a DocuSign para que este usua
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, en el cuadro de diálogo **	Agregar asignación**, selección **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** y, después, en el cuadro de diálogo **Agregar asignación**, selección **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 

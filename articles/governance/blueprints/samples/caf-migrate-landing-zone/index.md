@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: plano técnico de la zona de aterrizaje de la migración de CAF (introducción)'
+title: Ejemplo de plano técnico de la zona de aterrizaje de la migración de CAF (introducción)
 description: Introducción y arquitectura del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,16 +7,16 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243965"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297861"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
-El plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure (CAF) consiste en un conjunto de infraestructuras para ayudarle a configurar la migración de la primera carga de trabajo y para administrar su propia nube.
+El plano técnico de la zona de aterrizaje de la migración de Microsoft Cloud Adoption Framework para Azure (CAF) consiste en un conjunto de infraestructuras que le ayudan a configurar la migración de la primera carga de trabajo y a administrar los recursos en la nube de acuerdo con CAF.
 
 El plano técnico de [fundamentos de CAF](../caf-foundation/index.md) amplía este ejemplo.
 
@@ -47,7 +47,7 @@ Para más información, consulte el artículo sobre la [migración de Microsoft 
 Ya ha revisado la introducción y arquitectura del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
 
 > [!div class="nextstepaction"]
->  [Plano técnico de la zona de aterrizaje de migración de CAF: Pasos de implementación](./deploy.md)
+>  [Plano técnico de la zona de aterrizaje de migración de CAF: pasos para la implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
