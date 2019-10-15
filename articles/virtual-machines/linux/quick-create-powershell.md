@@ -56,7 +56,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](https://docs.micros
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-resources"></a>Creación de recursos de virtual
+## <a name="create-virtual-network-resources"></a>Creación de recursos de red virtual
 
 Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red con la máquina virtual y conectarla a Internet:
 
