@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121592"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960052"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -60,8 +60,8 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="supported-versions-of-jira"></a>Versiones compatibles de JIRA
 
-* JIRA Core y Software: 6.4 a 8.0
-* JIRA Service Desk: de la versión 3.0.0 a la 3.5.0
+* JIRA Core y Software: 6.4 a 8.2.4
+* Jira Service Desk: de la versión 3.0.0 a la 4.2.1
 * JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 
 > [!NOTE]
@@ -181,11 +181,11 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
 5. Una vez instalado el complemento, aparece en la sección de complementos **Instalados por el usuario** de **Administrar complemento**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Siga estos pasos en la página de configuración:
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Asegúrese de que hay un solo certificado asignado a la aplicación, de forma que no se produzca ningún error en la resolución de los metadatos. Si hay varios certificados, después de resolver los metadatos, el administrador recibe un error.
@@ -195,6 +195,8 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
     1. Copie los valores **Identificador, Dirección URL de respuesta y Dirección URL de inicio de sesión**, y péguelos en los cuadros de texto **Identificador, Dirección URL de respuesta y Dirección URL de inicio de sesión** respectivamente en la sección **Dominio y direcciones URL de JIRA SAML SSO by Microsoft** de Azure Portal.
 
     1. En **Nombre del botón de inicio de sesión** escriba el nombre del botón que la organización quiere que los usuarios vean en la pantalla de inicio de sesión.
+    
+    1. En **Descripción del botón de inicio de sesión** escriba el nombre del botón que la organización quiere que los usuarios vean en la pantalla de inicio de sesión.
 
     1. En **SAML User ID Locations** (Ubicaciones de Id. de usuario de SAML) seleccione **User ID is in the NameIdentifier element of the Subject statement** (El Id. de usuario está en el elemento NameIdentifier de la instrucción Subject) o **User ID is in an Attribute element** (El Id. de usuario está en un elemento Attribute).  Este identificador debe ser el identificador de usuario de JIRA. Si el identificador de usuario no coincide, el sistema no permitirá que los usuarios inicien sesión.
 
@@ -212,7 +214,7 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
     1. Habilite la casilla **Force Azure Login** (Forzar inicio de sesión en Azure) solo si desea conectarse con las credenciales de Azure AD.
     
        > [!Note]
-       > Para habilitar el formulario de inicio de sesión predeterminado para el inicio de sesión de administrador en la página de inicio de sesión esté habilitada la opción de forzar inicio de sesión en Azure, agregue el parámetro de consulta a la dirección URL del explorador.
+       >Para habilitar el formulario de inicio de sesión predeterminado para el inicio de sesión de administrador en la página de inicio de sesión esté habilitada la opción de forzar inicio de sesión en Azure, agregue el parámetro de consulta a la dirección URL del explorador.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. Haga clic en el botón **Save** (Guardar) para guardar la configuración.

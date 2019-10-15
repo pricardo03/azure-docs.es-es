@@ -7,19 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774624"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959350"
 ---
 # <a name="what-is-azure-private-dns"></a>¿Qué es DNS privado de Azure?
-
-> [!IMPORTANT]
-> DNS privado de Azure está actualmente en su versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El Sistema de nombres de dominio, o DNS, es responsable de traducir o resolver el nombre del servicio en su dirección IP.  Azure DNS es un servicio de hospedaje para dominios DNS que permite resolver nombres mediante la infraestructura de Microsoft Azure. Además de admitir los dominios DNS con conexión a Internet, Azure DNS ahora también admite zonas DNS privadas.
 
@@ -60,22 +55,14 @@ Azure DNS ofrece las funcionalidades siguientes:
 
 * **Se admite la búsqueda inversa de DNS dentro del ámbito de la red virtual**. La búsqueda inversa de DNS de una dirección IP privada dentro de la red virtual asignada a una zona privada devuelve el FQDN que incluye el nombre de host/registro, así como el nombre de zona como sufijo.
 
-## <a name="known-issues"></a>Problemas conocidos
-Los elementos siguientes son errores y problemas conocidos de la versión preliminar:
-* Si elimina una red virtual vinculada a una zona DNS privada, no elimina los vínculos a la zona DNS privada. Se produce un error en el vínculo si intenta volver a crear la red virtual con el mismo nombre y grupo de recursos, e intenta vincularlo a cualquier zona DNS privada. Para evitar este problema, cree la red virtual en un grupo de recursos distinto o con un nombre diferente en el mismo grupo de recursos.
-* Si mueve una red virtual a otro grupo de recursos o suscripción, no actualiza los vínculos a la zona DNS privada. La resolución de nombres para la red virtual movida seguirá funcionando, aunque verá los identificadores de ARM antiguos de la red virtual al ver los vínculos de red virtual de la zona DNS privada.
-* Actualmente, puede producirse un error en las redes virtuales vinculadas hospedadas en el Norte de Emiratos Árabes Unidos, Centro de Emiratos Árabes Unidos, Oeste de Sudáfrica, Norte de Sudáfrica, Este de Canadá y Sur de Francia, y es posible que vea problemas intermitentes en la resolución DNS. 
-
-
 ## <a name="other-considerations"></a>Otras consideraciones
 
 Azure DNS tiene las siguientes limitaciones:
 
 * Una red virtual concreta se puede vincular a una sola zona privada como si se habilitara el registro automático de los registros DNS de una red virtual. Sin embargo, puede vincular varias redes virtuales a una sola zona DNS.
 * El DNS inverso solo funciona en el espacio de direcciones IP privadas de la red virtual vinculada.
-* El DNS inverso para una dirección IP privada de una red virtual vinculada devuelve "internal.cloudapp.net" como el sufijo predeterminado para la máquina virtual. Para las redes virtuales que están vinculadas a una zona privada con el registro automático habilitado, el DNS inverso para una dirección IP privada devuelve dos FQDN, uno con el valor predeterminado de sufijo *internal.cloudapp.net* y otro con el sufijo de la zona privada.
-* El reenvío condicional no se admite de forma nativa en este momento. Para habilitar la resolución entre Azure y las redes locales, consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
+* El DNS inverso de una dirección IP privada de una red virtual vinculada devuelve *internal.cloudapp.net* como sufijo predeterminado para la máquina virtual. En el caso de las redes virtuales vinculadas a una zona privada con el registro automático habilitado, el DNS inverso de una dirección IP privada devuelve dos FQDN: uno con el valor predeterminado de sufijo *internal.cloudapp.net* y otro con el sufijo de la zona privada.
+* El reenvío condicional no se admite actualmente de forma nativa. Para habilitar la resolución de nombres entre redes locales y Azure. Consulte [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
 ## <a name="pricing"></a>Precios
 

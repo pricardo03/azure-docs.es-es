@@ -1,33 +1,35 @@
 ---
-title: Creación de un clúster de Kubernetes con Application Gateway como controlador de entrada con Azure Kubernetes Service (AKS)
+title: Creación de un controlador de entrada de Application Gateway en Azure Kubernetes Service (AKS)
 description: Tutorial que ilustra cómo crear un clúster de Kubernetes con Azure Kubernetes Service con Application Gateway como controlador de entrada
 services: terraform
 ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes, ingress, application gateway
 author: tomarcher
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/09/2019
+ms.openlocfilehash: b156169e7202319366e337cc7081e02f5de3acad
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169950"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244800"
 ---
-# <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Creación de un clúster de Kubernetes con el controlador de entrada de Application Gateway mediante Azure Kubernetes Service y Terraform
-[Azure Kubernetes Service (AKS)](/azure/aks/) administra el entorno hospedado de Kubernetes. AKS facilita y acelera la implementación y administración de aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.
+# <a name="create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Creación de un controlador de entrada de Application Gateway en Azure Kubernetes Service
 
-Un controlador de entrada es un software que proporciona el proxy inverso, el enrutamiento del tráfico configurable y la terminación de TLS para los servicios de Kubernetes. Los recursos de entrada de Kubernetes se usan para configurar las reglas de entrada y las rutas de los distintos servicios de Kubernetes. Mediante reglas de entrada y un controlador de entrada, se puede usar una sola dirección IP para enrutar el tráfico a varios servicios en un clúster de Kubernetes. Azure [Application Gateway](/azure/Application-Gateway/) proporciona todas las funcionalidades anteriores, lo que convierte a este servicio en un controlador de entrada perfecto para Kubernetes en Azure. 
+[Azure Kubernetes Service (AKS)](/azure/aks/) administra el entorno hospedado de Kubernetes. AKS facilita y acelera la implementación y administración de aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. AKS también elimina la carga de dejar las aplicaciones sin conexión para las tareas funcionales y de mantenimiento. Con AKS, estas tareas, incluidos el aprovisionamiento, la actualización y el escalado de recursos, se pueden realizar a petición.
 
-En este tutorial, aprenderá a realizar las tareas siguientes para crear un clúster de [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) con AKS mediante Application Gateway como controlador de entrada:
+Un controlador de entrada proporciona varias características para los servicios de Kubernetes. Estas características incluyen el proxy inverso, el enrutamiento de tráfico configurable y la terminación de TLS. Los recursos de entrada de Kubernetes se usan para configurar las reglas de entrada de los distintos servicios de Kubernetes. Mediante reglas de entrada y un controlador de entrada, una sola dirección IP puede enrutar el tráfico a varios servicios en un clúster de Kubernetes. Azure [Application Gateway](/azure/Application-Gateway/) proporciona todas las funcionalidades anteriores, lo que convierte este servicio en un controlador de entrada perfecto para Kubernetes en Azure. 
+
+En este tutorial, aprenderá las siguientes tareas:
 
 > [!div class="checklist"]
-> * Uso de HCL (HashiCorp Language) para definir un clúster de Kubernetes
-> * Uso de Terraform para crear un recurso de Application Gateway
-> * Uso de Terraform y AKS para crear un clúster de Kubernetes
-> * Utilice la herramienta kubectl para probar la disponibilidad de un clúster de Kubernetes
+> * Cree un clúster de [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) con AKS y Application Gateway como controlador de entrada.
+> * Use HCL (lenguaje de HashiCorp) para definir un clúster de Kubernetes.
+> * Use Terraform para crear un recurso de Application Gateway.
+> * Use Terraform y AKS para crear un clúster de Kubernetes.
+> * Utilice la herramienta kubectl para probar la disponibilidad de un clúster de Kubernetes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,20 +38,16 @@ En este tutorial, aprenderá a realizar las tareas siguientes para crear un clú
 - **Configuración de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](/azure/virtual-machines/linux/terraform-install-configure).
 
 - **Entidad de servicio de Azure**: siga las instrucciones de la sección **Creación de la entidad de servicio** del artículo [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote los valores de appId, displayName y contraseña.
-  - Anote el identificador de objeto de la entidad de servicio mediante la ejecución del siguiente comando:
 
-    ```azurecli
-    az ad sp list --display-name <displayName>
-    ```
+- **Obtenga el identificador del objeto de la entidad de servicio**: En Cloud Shell, ejecute el comando siguiente: `az ad sp list --display-name <displayName>`
 
 ## <a name="create-the-directory-structure"></a>Creación de la estructura de directorios
+
 El primer paso es crear el directorio que contenga los archivos de configuración de Terraform para el ejercicio.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-1. Abra [Azure Cloud Shell](/azure/cloud-shell/overview). Si no seleccionó un entorno previamente, seleccione **Bash** como entorno.
-
-    ![Aviso de Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/azure-portal-cloud-shell-button-min.png)
+1. Abra [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 1. Cambie al directorio `clouddrive`.
 
@@ -70,15 +68,14 @@ El primer paso es crear el directorio que contenga los archivos de configuració
     ```
 
 ## <a name="declare-the-azure-provider"></a>Declaración del proveedor de Azure
+
 Cree el archivo de configuración de Terraform que declara el proveedor de Azure.
 
 1. En Cloud Shell, cree un archivo denominado `main.tf`.
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
@@ -92,24 +89,17 @@ Cree el archivo de configuración de Terraform que declara el proveedor de Azure
     }
     ```
 
-1. Seleccione la tecla **Esc** para acceder al modo de inserción.
-
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
-
-    ```bash
-    :wq
-    ```
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
 ## <a name="define-input-variables"></a>Definición de las variables de entrada
+
 Cree el archivo de configuración de Terraform que muestre todas las variables necesarias para esta implementación.
 
 1. En Cloud Shell, cree un archivo denominado `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
     
@@ -117,65 +107,63 @@ Cree el archivo de configuración de Terraform que muestre todas las variables n
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
-    
+
     variable "location" {
       description = "Location of the cluster."
     }
-    
+
     variable "aks_service_principal_app_id" {
       description = "Application ID/Client ID  of the service principal. Used by AKS to manage AKS related resources on Azure like vms, subnets."
     }
-    
+
     variable "aks_service_principal_client_secret" {
       description = "Secret of the service principal. Used by AKS to manage Azure."
     }
-    
+
     variable "aks_service_principal_object_id" {
       description = "Object ID of the service principal."
     }
-    
+
     variable "virtual_network_name" {
       description = "Virtual network name"
       default     = "aksVirtualNetwork"
     }
-    
+
     variable "virtual_network_address_prefix" {
       description = "Containers DNS server IP address."
       default     = "15.0.0.0/8"
     }
-    
+
     variable "aks_subnet_name" {
       description = "AKS Subnet Name."
       default     = "kubesubnet"
     }
-    
+
     variable "aks_subnet_address_prefix" {
       description = "Containers DNS server IP address."
       default     = "15.0.0.0/16"
     }
-    
+
     variable "app_gateway_subnet_address_prefix" {
       description = "Containers DNS server IP address."
       default     = "15.1.0.0/16"
     }
-    
+
     variable "app_gateway_name" {
       description = "Name of the Application Gateway."
       default = "ApplicationGateway1"
     }
-    
+
     variable "app_gateway_sku" {
       description = "Name of the Application Gateway SKU."
       default = "Standard_v2"
     }
-    
-    
+
     variable "app_gateway_tier" {
       description = "Tier of the Application Gateway SKU."
       default = "Standard_v2"
     }
-    
-    
+
     variable "aks_name" {
       description = "Name of the AKS cluster."
       default     = "aks-cluster1"
@@ -184,66 +172,67 @@ Cree el archivo de configuración de Terraform que muestre todas las variables n
       description = "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
       default     = "aks"
     }
-    
-    
+
     variable "aks_agent_os_disk_size" {
-      description = "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize."
+      description = "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 applies the default disk size for that agentVMSize."
       default     = 40
     }
-    
+
     variable "aks_agent_count" {
       description = "The number of agent nodes for the cluster."
       default     = 3
     }
-    
+
     variable "aks_agent_vm_size" {
       description = "The size of the Virtual Machine."
       default     = "Standard_D3_v2"
     }
-    
+
     variable "kubernetes_version" {
       description = "The version of Kubernetes."
       default     = "1.11.5"
     }
-    
+
     variable "aks_service_cidr" {
       description = "A CIDR notation IP range from which to assign service cluster IPs."
       default     = "10.0.0.0/16"
     }
-    
+
     variable "aks_dns_service_ip" {
       description = "Containers DNS server IP address."
       default     = "10.0.0.10"
     }
-    
+
     variable "aks_docker_bridge_cidr" {
       description = "A CIDR notation IP for Docker bridge."
       default     = "172.17.0.1/16"
     }
-    
+
     variable "aks_enable_rbac" {
       description = "Enable RBAC on the AKS cluster. Defaults to false."
       default     = "false"
     }
-    
+
     variable "vm_user_name" {
       description = "User name for the VM"
       default     = "vmuser1"
     }
-    
+
     variable "public_ssh_key_path" {
       description = "Public key path for SSH."
       default     = "~/.ssh/id_rsa.pub"
     }
-    
+
     variable "tags" {
       type = "map"
-    
+
       default = {
         source = "terraform"
       }
     }
     ```
+
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
 ## <a name="define-the-resources"></a>Definición de los recursos 
 Cree el archivo de configuración de Terraform que crea todos los recursos. 
@@ -251,14 +240,10 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
 1. En Cloud Shell, cree un archivo denominado `resources.tf`.
 
     ```bash
-    vi resources.tf
+    code resources.tf
     ```
 
-1. Seleccione la tecla I para acceder al modo de inserción.
-
-1. Pegue los siguientes bloques de código en el editor:
-
-    a. Cree un bloque de variables locales para que lo reutilicen las variables calculadas.
+1. Pegue el bloque de código siguiente para crear un bloque de variables locales para que lo reutilicen las variables calculadas:
 
     ```hcl
     # # Locals block for hardcoded names. 
@@ -273,25 +258,25 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
     }
     ```
 
-    b. Cree un origen de datos para el grupo de recursos, la nueva identidad de usuario.
+1. Pegue el bloque de código siguiente para crear un origen de datos para el grupo de recursos, la nueva identidad de usuario:
 
     ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
-    
+
     # User Assigned Idntities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
       location            = "${data.azurerm_resource_group.rg.location}"
-    
+
       name = "identity1"
-    
+
       tags = "${var.tags}"
     }
     ```
 
-    c. Cree los recursos de red base.
+1. Pegue el bloque de código siguiente para crear recursos de red de base:
 
     ```hcl
     resource "azurerm_virtual_network" "test" {
@@ -299,32 +284,32 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       location            = "${data.azurerm_resource_group.rg.location}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
       address_space       = ["${var.virtual_network_address_prefix}"]
-    
+
       subnet {
         name           = "${var.aks_subnet_name}"
         address_prefix = "${var.aks_subnet_address_prefix}" 
       }
-    
+
       subnet {
         name           = "appgwsubnet"
         address_prefix = "${var.app_gateway_subnet_address_prefix}"
       }
-    
+
       tags = "${var.tags}"
     }
-    
+
     data "azurerm_subnet" "kubesubnet" {
       name                 = "${var.aks_subnet_name}"
       virtual_network_name = "${azurerm_virtual_network.test.name}"
       resource_group_name  = "${data.azurerm_resource_group.rg.name}"
     }
-    
+
     data "azurerm_subnet" "appgwsubnet" {
       name                 = "appgwsubnet"
       virtual_network_name = "${azurerm_virtual_network.test.name}"
       resource_group_name  = "${data.azurerm_resource_group.rg.name}"
     }
-    
+
     # Public Ip 
     resource "azurerm_public_ip" "test" {
       name                         = "publicIp1"
@@ -332,49 +317,49 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
       resource_group_name          = "${data.azurerm_resource_group.rg.name}"
       public_ip_address_allocation = "static"
       sku                          = "Standard"
-    
+
       tags = "${var.tags}"
     }
     ```
 
-    d. Cree un recurso de Application Gateway.
+1. Pegue el bloque de código siguiente para crear el recurso de Application Gateway:
 
     ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
       location            = "${data.azurerm_resource_group.rg.location}"
-    
+
       sku {
         name     = "${var.app_gateway_sku}"
         tier     = "Standard_v2"
         capacity = 2
       }
-    
+
       gateway_ip_configuration {
         name      = "appGatewayIpConfig"
         subnet_id = "${data.azurerm_subnet.appgwsubnet.id}"
       }
-    
+
       frontend_port {
         name = "${local.frontend_port_name}"
         port = 80
       }
-    
+
       frontend_port {
         name = "httpsPort"
         port = 443
       }
-    
+
       frontend_ip_configuration {
         name                 = "${local.frontend_ip_configuration_name}"
         public_ip_address_id = "${azurerm_public_ip.test.id}"
       }
-    
+
       backend_address_pool {
         name = "${local.backend_address_pool_name}"
       }
-    
+
       backend_http_settings {
         name                  = "${local.http_setting_name}"
         cookie_based_affinity = "Disabled"
@@ -382,14 +367,14 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
         protocol              = "Http"
         request_timeout       = 1
       }
-    
+
       http_listener {
         name                           = "${local.listener_name}"
         frontend_ip_configuration_name = "${local.frontend_ip_configuration_name}"
         frontend_port_name             = "${local.frontend_port_name}"
         protocol                       = "Http"
       }
-    
+
       request_routing_rule {
         name                       = "${local.request_routing_rule_name}"
         rule_type                  = "Basic"
@@ -397,38 +382,38 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
         backend_address_pool_name  = "${local.backend_address_pool_name}"
         backend_http_settings_name = "${local.http_setting_name}"
       }
-    
+
       tags = "${var.tags}"
-    
+
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
 
-    e. Cree asignaciones de roles.
+1. Pegue el bloque de código siguiente para crear asignaciones de roles:
 
     ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
       principal_id         = "${var.aks_service_principal_object_id }"
-    
+
       depends_on = ["azurerm_virtual_network.test"]
     }
-    
+
     resource "azurerm_role_assignment" "ra2" {
       scope                = "${azurerm_user_assigned_identity.testIdentity.id}"
       role_definition_name = "Managed Identity Operator"
       principal_id         = "${var.aks_service_principal_object_id}"
       depends_on           = ["azurerm_user_assigned_identity.testIdentity"]
     }
-    
+
     resource "azurerm_role_assignment" "ra3" {
       scope                = "${azurerm_application_gateway.network.id}"
       role_definition_name = "Contributor"
       principal_id         = "${azurerm_user_assigned_identity.testIdentity.principal_id}"
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
-    
+
     resource "azurerm_role_assignment" "ra4" {
       scope                = "${data.azurerm_resource_group.rg.id}"
       role_definition_name = "Reader"
@@ -437,30 +422,30 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
     }
     ```
 
-    f. Cree un clúster de Kubernetes.
+1. Pegue el bloque de código siguiente para crear el clúster de Kubernetes:
 
     ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
       dns_prefix = "${var.aks_dns_prefix}"
-    
+
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
-    
+
       linux_profile {
         admin_username = "${var.vm_user_name}"
-    
+
         ssh_key {
           key_data = "${file(var.public_ssh_key_path)}"
         }
       }
-    
+
       addon_profile {
         http_application_routing {
           enabled = false
         }
       }
-    
+
       agent_pool_profile {
         name            = "agentpool"
         count           = "${var.aks_agent_count}"
@@ -469,50 +454,42 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
         os_disk_size_gb = "${var.aks_agent_os_disk_size}"
         vnet_subnet_id  = "${data.azurerm_subnet.kubesubnet.id}"
       }
-    
+
       service_principal {
         client_id     = "${var.aks_service_principal_app_id}"
         client_secret = "${var.aks_service_principal_client_secret}"
       }
-    
+
       network_profile {
         network_plugin     = "azure"
         dns_service_ip     = "${var.aks_dns_service_ip}"
         docker_bridge_cidr = "${var.aks_docker_bridge_cidr}"
         service_cidr       = "${var.aks_service_cidr}"
       }
-    
+
       depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
       tags       = "${var.tags}"
     }
-    
+
     ```
 
-    El código anterior establece el nombre del clúster, la ubicación y el resource_group_name. Además, se establece el valor de dns_prefix, que forma parte del nombre de dominio completo (FQDN) utilizado para acceder al clúster.
+1. Guarde el archivo y salga del editor.
 
-    El registro **linux_profile** le permite configurar las opciones que permiten iniciar sesión en los nodos de trabajo mediante SSH.
+El código que se presenta en esta sección establece el nombre del clúster, la ubicación y el nombre del grupo de recursos. Se establece el valor `dns_prefix`, que forma parte del nombre de dominio completo (FQDN) utilizado para acceder al clúster.
 
-    Con AKS, solo se paga por los nodos de trabajo. El registro **agent_pool_profile** configura los detalles de estos nodos de trabajo. El registro **agent_pool_profile** incluye el número de nodos de trabajo que se van a crear y el tipo de nodos de trabajo. Si necesita escalar o reducir verticalmente el clúster en el futuro, modifique el valor de **count** en este registro.
+El registro `linux_profile` permite configurar las opciones que permiten iniciar sesión en los nodos de trabajo mediante SSH.
 
-1. Seleccione la tecla **Esc** para acceder al modo de inserción.
-
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
-
-    ```bash
-    :wq
-    ```
-
+Con AKS, solo se paga por los nodos de trabajo. El registro `agent_pool_profile` configura los detalles de estos nodos de trabajo. El registro `agent_pool_profile record` incluye el número de nodos de trabajo que se van a crear y el tipo de estos. Si necesita escalar o reducir verticalmente el clúster en el futuro, modifique el valor de `count` en este registro.
 
 ## <a name="create-a-terraform-output-file"></a>Creación de un archivo de salida de Terraform
-[Las salidas de Terraform](https://www.terraform.io/docs/configuration/outputs.html) permiten definir valores que se resaltarán al usuario cuando Terraform aplique un plan, y pueden consultarse con el comando `terraform output`. En esta sección, va a crear un archivo de salida que permita el acceso al clúster con [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+
+Las [salidas de Terraform](https://www.terraform.io/docs/configuration/outputs.html) permiten definir valores que se resaltan al usuario cuando Terraform aplica un plan y pueden consultarse con el comando `terraform output`. En esta sección, va a crear un archivo de salida que permita el acceso al clúster con [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. En Cloud Shell, cree un archivo denominado `output.tf`.
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
@@ -544,24 +521,29 @@ Cree el archivo de configuración de Terraform que crea todos los recursos.
     output "host" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
     }
+
+    output "identity_resource_id" {
+        value = "${azurerm_user_assigned_identity.testIdentity.id}"
+    }
+
+    output "identity_client_id" {
+        value = "${azurerm_user_assigned_identity.testIdentity.client_id}"
+    }
     ```
 
-1. Seleccione la tecla **Esc** para acceder al modo de inserción.
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
+## <a name="configure-azure-storage-to-store-terraform-state"></a>Configuración de Azure Storage para almacenar el estado de Terraform
 
-    ```bash
-    :wq
-    ```
-
-## <a name="set-up-azure-storage-to-store-terraform-state"></a>Configuración del almacenamiento de Azure para almacenar el estado de Terraform
-Terraform realiza un seguimiento del estado de manera local a través del archivo `terraform.tfstate`. Este patrón funciona bien en un entorno de persona único. Sin embargo, en un entorno más práctico de varias personas, debe realizar el seguimiento del estado en el servidor mediante [Azure Storage](/azure/storage/). En esta sección se recupera la información necesaria de la cuenta de almacenamiento (nombre y clave de cuenta) y se crea un contenedor de almacenamiento en el que se almacenará la información de estado de Terraform.
+Terraform realiza un seguimiento del estado de manera local a través del archivo `terraform.tfstate`. Este patrón funciona bien en un entorno de persona único. Sin embargo, en un entorno más práctico de varias personas, debe realizar el seguimiento del estado en el servidor mediante [Azure Storage](/azure/storage/). En esta sección aprenderá a recuperar la información de la cuenta de almacenamiento necesaria y a crear un contenedor de almacenamiento. La información de estado Terraform se almacena en ese contenedor.
 
 1. En Azure Portal, seleccione **Todos los servicios** en el menú de la izquierda.
 
 1. Seleccione **Cuentas de almacenamiento**.
 
-1. En la pestaña **Cuentas de almacenamiento**, seleccione el nombre de la cuenta de almacenamiento en la que Terraform va a almacenar el estado. Por ejemplo, puede utilizar la cuenta de almacenamiento creada cuando abrió Cloud Shell por primera vez.  El nombre de cuenta de almacenamiento creada por Cloud Shell normalmente comienza por `cs` seguido de una cadena aleatoria de números y letras. **Anote el nombre de la cuenta de almacenamiento que seleccione; lo necesitaremos más tarde.**
+1. En la pestaña **Cuentas de almacenamiento**, seleccione el nombre de la cuenta de almacenamiento en la que Terraform va a almacenar el estado. Por ejemplo, puede utilizar la cuenta de almacenamiento creada cuando abrió Cloud Shell por primera vez.  El nombre de cuenta de almacenamiento creada por Cloud Shell normalmente comienza por `cs` seguido de una cadena aleatoria de números y letras. 
+
+    Anote la cuenta de almacenamiento que seleccione; lo necesitará más tarde.
 
 1. En la pestaña Cuenta de almacenamiento, seleccione **Claves de acceso**.
 
@@ -585,41 +567,33 @@ En esta sección, puede ver cómo usar el comando `terraform init` para crear lo
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
-    
+  
     El comando `terraform init` muestra el éxito de inicializar el back-end y el complemento del proveedor:
 
     ![Ejemplo de resultados de "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. Cree un archivo de variables para proporcionar valores de entrada; en Cloud Shell, cree un archivo denominado `main.tf`.
+1. En Cloud Shell, cree un archivo denominado `main.tf`:
 
     ```bash
-    vi terraform.tfvars
+    code terraform.tfvars
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue las siguientes variables que creó anteriormente en el editor:
 
     ```hcl
-      resource_group_name = <Name of the Resource Group already created>
+    resource_group_name = <Name of the Resource Group already created>
 
-      location = <Location of the Resource Group>
-        
-      aks_service_principal_app_id = <Service Principal AppId>
-        
-      aks_service_principal_client_secret = <Service Principal Client Secret>
-        
-      aks_service_principal_object_id = <Service Principal Object Id>
+    location = <Location of the Resource Group>
+      
+    aks_service_principal_app_id = <Service Principal AppId>
+      
+    aks_service_principal_client_secret = <Service Principal Client Secret>
+      
+    aks_service_principal_object_id = <Service Principal Object Id>
         
     ```
 
-1. Seleccione la tecla **Esc** para acceder al modo de inserción.
-
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
-
-    ```bash
-    :wq
-    ```
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
 1. Ejecute el comando `terraform plan` para crear el plan de Terraform que define los elementos de infraestructura. 
 
@@ -627,7 +601,7 @@ En esta sección, puede ver cómo usar el comando `terraform init` para crear lo
     terraform plan -out out.plan
     ```
 
-    El comando `terraform plan` muestra los recursos que se crearán cuando ejecute el comando `terraform apply`:
+    El comando `terraform plan` muestra los recursos que se crearán al ejecutar el comando `terraform apply`:
 
     ![Ejemplo de resultados de "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
@@ -646,6 +620,7 @@ En esta sección, puede ver cómo usar el comando `terraform init` para crear lo
     ![Aviso de Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperación de un tiempo de espera de Cloud Shell
+
 Si se agota el tiempo de espera de la sesión de Cloud Shell, puede realizar los siguientes pasos para recuperarla:
 
 1. Inicie una sesión de Cloud Shell.
@@ -661,7 +636,7 @@ Si se agota el tiempo de espera de la sesión de Cloud Shell, puede realizar los
     ```bash
     export KUBECONFIG=./azurek8s
     ```
-    
+  
 ## <a name="test-the-kubernetes-cluster"></a>Prueba del clúster de Kubernetes
 Las herramientas de Kubernetes se pueden usar para comprobar el clúster recién creado.
 
@@ -687,10 +662,112 @@ Las herramientas de Kubernetes se pueden usar para comprobar el clúster recién
 
     ![La herramienta kubectl le permite comprobar el mantenimiento de su clúster de Kubernetes](./media/terraform-k8s-cluster-appgw-with-tf-aks/kubectl-get-nodes.png)
 
+## <a name="install-azure-ad-pod-identity"></a>Instalación de Azure AD Pod Identity
+
+Azure Active Directory Pod Identity proporciona acceso basado en token a [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+
+[Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) agrega los siguientes componentes al clúster de Kubernetes:
+
+  - [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/) de Kubernetes: `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
+  - Componente [Controlador de identidades administradas (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
+  - Componente [Identidad administrada del nodo (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
+
+Si RBAC está **Habilitado**, ejecute el siguiente comando para instalar Azure AD Pod Identity en el clúster:
+
+    ```bash
+    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+    ```
+
+Si RBAC está **Deshabilitado**, ejecute el siguiente comando para instalar Azure AD Pod Identity en el clúster:
+
+    ```bash
+    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+    ```
+
+## <a name="install-helm"></a>Instalación de Helm
+
+En el código de esta sección se usa [Helm](/azure/aks/kubernetes-helm), el administrador de paquetes de Kubernetes, para instalar el paquete `application-gateway-kubernetes-ingress`:
+
+1. Si RBAC está **Habilitado**, ejecute el siguiente conjunto de comandos para instalar y configurar Helm:
+
+    ```bash
+    kubectl create serviceaccount --namespace kube-system tiller-sa
+    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
+    helm init --tiller-namespace kube-system --service-account tiller-sa
+    ```
+
+1. Si RBAC está **Deshabilitado**, ejecute el siguiente comando para instalar y configurar Helm:
+
+    ```bash
+    helm init
+    ```
+
+1. Agregue el repositorio de Helm de AGIC:
+
+    ```bash
+    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+    helm repo update
+    ```
+
+## <a name="install-ingress-controller-helm-chart"></a>Instalación del gráfico de Helm del controlador de entrada
+
+1. Descargue `helm-config.yaml` para configurar AGIC:
+
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
+    ```
+
+1. Edite `helm-config.yaml` y escriba los valores adecuados para las secciones `appgw` y `armAuth`.
+
+    ```bash
+    nano helm-config.yaml
+    ```
+
+    Los valores se describen de la siguiente manera:
+
+    - `verbosityLevel`: establece el nivel de detalle de la infraestructura de registro de AGIC. Consulte [Niveles de registro](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) para los valores posibles.
+    - `appgw.subscriptionId`: identificador de suscripción de Azure para la instancia de Application Gateway. Ejemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.resourceGroup`: nombre del grupo de recursos de Azure donde se creó Application Gateway. 
+    - `appgw.name`: nombre de la instancia de Application Gateway. Ejemplo: `applicationgateway1`.
+    - `appgw.shared`: se debe establecer el valor predeterminado de esta marca booleana en `false`. Establézcalo en `true` si necesita una [instancia de Application Gateway compartida](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `kubernetes.watchNamespace`: especifica el espacio de nombres que debe ver AGIC. El espacio de nombres puede ser un valor de cadena único o una lista separada por comas de espacios de nombres.
+    - `armAuth.type`: valor de `aadPodIdentity` o `servicePrincipal`.
+    - `armAuth.identityResourceID`: identificador de recurso de la identidad administrada.
+    - `armAuth.identityClientId`: identificador de cliente de la identidad.
+    - `armAuth.secretJSON`: solo es necesario cuando se elige el tipo de secreto de entidad de servicio (cuando se establece `armAuth.type` en `servicePrincipal`).
+
+    Notas clave:
+    - El valor `identityResourceID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_client_id)"`.
+    - El valor `identityClientID` se crea en el script de Terraform y se encuentra al ejecutar: `echo "$(terraform output identity_resource_id)"`.
+    - El valor `<resource-group>` es el grupo de recursos de la instancia de Application Gateway.
+    - El valor `<identity-name>` es el nombre de la identidad creada.
+    - Todas las identidades de una suscripción determinada se pueden enumerar mediante: `az identity list`.
+
+1. Instale el paquete del controlador de entrada de Application Gateway:
+
+    ```bash
+    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    ```
+
+### <a name="install-a-sample-app"></a>Instalación de una aplicación de ejemplo
+
+Una vez que haya instalado Application Gateway, AKS y AGIC, puede instalar una aplicación de ejemplo mediante [Azure Cloud Shell](https://shell.azure.com/):
+
+1. Use el comando curl para descargar el archivo YAML:
+
+    ```bash
+    curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
+    ```
+
+2. Aplique el archivo YAML:
+
+    ```bash
+    kubectl apply -f apsnetapp.yaml
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este artículo, ha aprendido a utilizar Terraform y AKS para crear un clúster de Kubernetes. Aquí tiene algunos recursos adicionales donde encontrará más información acerca de Terraform en Azure:
  
  > [!div class="nextstepaction"] 
- > [Centro de Terraform en Microsoft.com](https://docs.microsoft.com/azure/terraform/)
- 
+  > [Controlador de entrada de Application Gateway](https://azure.github.io/application-gateway-kubernetes-ingress/)

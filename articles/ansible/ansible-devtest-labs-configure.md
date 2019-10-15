@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de laboratorios en Azure DevTest Labs con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de laboratorios en Azure DevTest Labs con Ansible'
 description: Aprenda a configurar un laboratorio en Azure DevTest Labs con Ansible.
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, devtest labs
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: c6bc4d50e4db52f772a137495658492018ee5360
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230962"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241654"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Tutorial: Configuración de laboratorios en Azure DevTest Labs con Ansible
 

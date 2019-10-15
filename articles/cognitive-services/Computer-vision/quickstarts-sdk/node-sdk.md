@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719507"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981830"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Computer Vision para Node.js
 
@@ -228,7 +228,7 @@ Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo
 
 ### <a name="set-up-test-images"></a>Configuración de imágenes de prueba
 
-Guarde una referencia a la dirección URL de las imágenes de las que quiere extraer texto.
+Guarde una referencia de la dirección URL de las imágenes de las que quiere extraer texto.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 

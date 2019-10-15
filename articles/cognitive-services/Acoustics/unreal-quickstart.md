@@ -1,7 +1,7 @@
 ---
 title: Inicio rápido de Project Acoustics con Unreal
 titlesuffix: Azure Cognitive Services
-description: Con el contenido de ejemplo, experimente con los controles de diseño de Project Acoustics en Unreal y Wwise y realice la implementación en Windows Desktop.
+description: Utilice el contenido de ejemplo para experimentar con los controles de diseño de Project Acoustics en Unreal y Wwise, y realice la implementación en el escritorio de Windows.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -11,87 +11,91 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d3afcded894f72626a4f24bcbe85c34ac1329c29
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933007"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242919"
 ---
-# <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal o Wwise
-En este inicio rápido, experimentará con los controles de diseño de Project Acoustics con el contenido de ejemplo proporcionado para Unreal Engine y Wwise.
+# <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal y Wwise
+En este inicio rápido, experimentará con los controles de diseño de Project Acoustics mediante el contenido de ejemplo para Unreal Engine y Wwise.
 
-Requisitos de software para el uso de contenido de ejemplo:
+Requisitos de software para usar el contenido de ejemplo:
 * [Unreal Engine](https://www.unrealengine.com/) 4.22
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Descarga del paquete de ejemplo
-Descargue el [paquete de ejemplo Project Acoustics Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). El paquete de ejemplo contiene un proyecto de Unreal Engine, el proyecto de Wwise para ese proyecto de Unreal y el complemento Wwise para Project Acoustics.
+Descargue el [paquete de ejemplo Project Acoustics Unreal and Wwise](https://www.microsoft.com/download/details.aspx?id=58090). El paquete de ejemplo contiene:
+- Proyecto de Unreal Engine
+- Proyecto de Wwise para el proyecto de Unreal
+- Complemento de Project Acoustics para Wwise
 
 ## <a name="set-up-the-project-acoustics-sample-project"></a>Configuración del proyecto de ejemplo de Project Acoustics
-Para configurar el proyecto de ejemplo de Project Acoustics en Unreal o Wwise, deberá instalar primero el complemento de Project Acoustics en Wwise. A continuación, implemente los archivos binarios de Wwise en el proyecto de Unreal y ajuste el complemento Unreal de Wwise para admitir Project Acoustics.
+En primer lugar, instale el complemento de Project Acoustics en Wwise. A continuación, implemente los archivos binarios de Wwise en el proyecto de Unreal. Después, ajuste el complemento Unreal de Wwise para la compatibilidad con Project Acoustics.
 
-### <a name="install-the-project-acoustics-wwise-plugin"></a>Instalación del complemento Wwise para Project Acoustics
-Abra Wwise Launcher y, en la pestaña **Plugins** (Complementos), en **Install New Plugins** (Instalar nuevos complementos), seleccione **Add From Directory** (Agregar del directorio). Elija el directorio `AcousticsWwisePlugin\ProjectAcoustics` que se incluyó en el paquete descargado.
+### <a name="install-the-project-acoustics-wwise-plug-in"></a>Instalación del complemento Wwise para Project Acoustics
+Abra Wwise Launcher. En la pestaña **Plugins** (Complementos), en **Install New Plugins** (Instalar nuevos complementos), seleccione **Add From Directory** (Agregar del directorio). Elija el directorio *AcousticsWwisePlugin\ProjectAcoustics* incluido en el paquete que descargó.
 
-![Captura de pantalla de Wwise Launcher con la opción de instalación del complemento Wwise](media/wwise-install-new-plugin.png)
+![Opción para instalar el complemento Wwise en Wwise Launcher](media/wwise-install-new-plugin.png)
 
 ### <a name="add-wwise-binaries-to-the-project-acoustics-unreal-sample-project"></a>Adición de archivos binarios de Wwise al proyecto de ejemplo de Unreal para Project Acoustics
-En Wwise Launcher, haga clic en la pestaña **Unreal Engine**, haga clic en el menú lateral junto a **Recent Unreal Engine Projects** (Proyectos de Unreal Engine recientes) y seleccione **Browse for project** (Examinar proyecto). Abra el archivo `.uproject` del proyecto de Unreal de ejemplo en el paquete `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
+1. En Wwise Launcher, seleccione la pestaña **Unreal Engine**. 
+1. Seleccione el menú de tres barras (icono) situado junto a **Recent Unreal Engine Projects** (Proyectos de Unreal Engine recientes) y, a continuación, seleccione **Browse for project** (Examinar proyecto). Abra el archivo *.uproject* del proyecto de ejemplo de Unreal del paquete *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
-![Captura de pantalla de la pestaña Unreal de Wwise Launcher](media/wwise-unreal-tab.png)
+   ![Pestaña Unreal en Wwise Launcher](media/wwise-unreal-tab.png)
 
-A continuación, junto al proyecto de ejemplo de Project Acoustics, haga clic en **Integrate Wwise in Project** (Integrar Wwise en el proyecto).
+3. Junto al proyecto de ejemplo de Project Acoustics, seleccione **Integrate Wwise in Project** (Integrar Wwise en el proyecto).
 
-![Captura de pantalla de Wwise Launcher que muestra el proyecto Unreal de acústica de juegos](media/wwise-acoustics-game-project.png)
+   ![Wwise Launcher muestra el proyecto Acoustics Game de Unreal con la opción Integrate (Integrar) resaltada.](media/wwise-acoustics-game-project.png)
 
-### <a name="extend-wwises-unreal-plugin-functionality"></a>Ampliación de la funcionalidad del complemento Unreal de Wwise
-El complemento Unreal de Project Acoustics requiere la exposición de comportamiento adicional de la API del complemento Unreal de Wwise. Ejecute el archivo por lotes proporcionado con el complemento Unreal de Project Acoustics para automatizar estas modificaciones:
-* Dentro de `AcousticsGame\Plugins\ProjectAcoustics\Resources`, ejecute `PatchWwise.bat`.
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Ampliación de la funcionalidad del complemento Unreal de Wwise
+El complemento Unreal de Project Acoustics necesita que se exponga comportamiento adicional de la API del complemento Unreal de Wwise. Ejecute el archivo por lotes incluido con el complemento Unreal de Project Acoustics para automatizar estas modificaciones.
+* Dentro de *AcousticsGame\Plugins\ProjectAcoustics\Resources*, ejecute *PatchWwise.bat*.
 
-    ![Captura de pantalla de una ventana del Explorador de Windows que muestra el proyecto de revisión del script de Wwise](media/patch-wwise-script.png)
+    ![Script para revisar el proyecto Wwise resaltado en una ventana del Explorador de Windows](media/patch-wwise-script.png)
 
-* Si no tiene instalado el SDK de DirectX, dependiendo de la versión de Wwise que utilice, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
+* Si no tiene instalado el SDK de DirectX: En función de la versión de Wwise que use, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*:
 
-    ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
+    ![El editor de código muestra "DXSDK" convertido en comentario](media/directx-sdk-comment.png)
 
-* Si compila con Visual Studio 2019, para solucionar un error de vinculación con Wwise, cambie de forma manual el valor `VSVersion` predeterminado en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` a `vc150`:
+* Si compila con Visual Studio 2019: Para solucionar un error de vinculación con Wwise, cambie manualmente el valor predeterminado *VSVersion* de *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* a **vc150**:
 
-    ![Captura de pantalla del editor de código donde se muestra el cambio de VSVersion a vc150](media/vsversion-comment.png)
+    ![El editor de código con VSVersion cambiado a "vc150"](media/vsversion-comment.png)
 
-### <a name="open-the-unreal-project"></a>Abra el proyecto de Unreal. 
-Le pide que vuelva a generar los módulos; diga que sí.
+### <a name="open-the-unreal-project"></a>Apertura del proyecto de Unreal 
+Al abrir el proyecto de Unreal, se le pedirá que vuelva a generar los módulos. Seleccione **Sí**.
 
->Si no se puede abrir el proyecto por errores de compilación, compruebe que ha instalado el complemento Wwise de Project Acoustics en la misma versión de Wwise usada en el proyecto de ejemplo de Project Acoustics.
+Si no se puede abrir el proyecto debido a errores de compilación, compruebe que ha instalado el complemento Wwise de Project Acoustics en la misma versión de Wwise que se usó en el proyecto de ejemplo Project Acoustics.
 
->Si usa una versión de [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) anterior a 2019.1, no podrá generar bancos de sonidos con el proyecto de ejemplo Project Acoustics.  Es necesario integrar Wwise versión 2019.1 en el proyecto de ejemplo para usarlo correctamente.
+Si usa una versión de [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) anterior a la versión 2019.1, no puede generar bancos de sonido mediante el proyecto de ejemplo Project Acoustics. Debe integrar la versión 2019.1 de Wwise en el proyecto de ejemplo.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentación con los controles de diseño de Project Acoustics
-Para escuchar cómo suena la escena, haga clic en el botón de reproducción en el editor de Unreal. En el escritorio, use W, A, S, D y el mouse para desplazarse. Para ver los métodos abreviados de teclado de otros controles, presione **F1**. Estas son algunas actividades de diseño que puede probar:
+Para escuchar cómo suena la escena, seleccione el botón de reproducción en el editor de Unreal. Use las teclas W, A, S, D y el mouse para desplazarse. Para ver los métodos abreviados de teclado de otros controles, seleccione F1.
+
+La siguiente información describe algunas actividades de diseño que se pueden probar.
 
 ### <a name="modify-occlusion-and-transmission"></a>Modificación de la oclusión y la transmisión
-En cada actor de sonido de Unreal, hay controles de diseño de Project Acoustics por cada fuente:
+En cada actor de sonido de Unreal, hay controles de diseño de Project Acoustics por cada fuente.
 
-![Captura de pantalla de los controles de diseño de acústica del editor de Unreal](media/demo-scene-sound-source-design-controls.png)
+![Controles de diseño de acústica del editor de Unreal](media/demo-scene-sound-source-design-controls.png)
 
-Si el multiplicador de **oclusión** es mayor que 1 (el valor predeterminado es 1), se exagera la oclusión. Si se establece en menos de 1, el efecto de oclusión se hace más sutil.
+Si el valor de **Occlusion Multiplier** (Multiplicador de oclusión) es mayor que 1 (el valor predeterminado es 1), se exagera la oclusión. Con un valor menor que 1, el efecto de oclusión se hace más sutil.
 
-Para permitir la transmisión a través de la pared, mueva el control deslizante de **transmisión (dB)** a la posición de desactivación, su nivel más bajo. 
+Para permitir la transmisión por la pared, aleje el control deslizante de **Transmisión Db** (Db de transmisión) de su nivel más bajo.
 
 ### <a name="modify-wetness-for-a-source"></a>Modificación del sonido con efectos de una fuente
-Para cambiar cómo el sonido con efectos varía ligeramente con la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). Project Acoustics calcula los niveles de efecto a lo largo del espacio de simulación, que varía ligeramente con la distancia y proporciona indicios de la distancia perceptual. Al aumentar el salto de distancia se exagera este efecto ya que aumentan los niveles de efectos relacionados con la distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. Este efecto también se puede ajustar de forma más precisa mediante el ajuste del **sonido con efectos (dB)** .
+Para cambiar la rapidez con la que el sonido con efectos varía en función de la distancia, use **Perceptual Distance Warp** (Ajuste del salto perceptual). Project Acoustics calcula los niveles de los efectos en todo el espacio por medio de una simulación. Estos niveles van variando suavemente con la distancia y proporcionan indicaciones para la percepción de la distancia. Para exagerar este efecto, aumente los niveles de los efectos relacionados con la distancia; esto aumenta la distorsión por distancia. Los valores de distorsión inferiores a 1 hacen que el cambio en la reverberación basada en la distancia sea más sutil. También puede realizar ajustes más precisos en este efecto mediante el valor **Wetness Adjustment** (Ajuste de sonidos con efectos).
 
-Aumente el tiempo de decadencia a lo largo del espacio mediante el ajuste del valor **Decay Time Scale** (Escala de tiempo de decadencia). Considere el caso donde el resultado de la simulación es un tiempo de decadencia de 1,5 s. Al establecer **Decay Time Scale** (Escala de tiempo de decadencia) en 2, el resultado será un tiempo de decadencia aplicado a la fuente de 3 s.
+Para aumentar el tiempo de decadencia a lo largo del espacio, ajuste el valor de **Decay Time Multiplier** (Multiplicador del tiempo de decadencia). Considere el caso donde el resultado de la simulación es un tiempo de decadencia de 1,5 segundos. Al establecer **Decay Time Multiplier** (Multiplicador del tiempo de decadencia) en 2, el resultado será la aplicación a la fuente de un tiempo de decadencia de 3 segundos.
 
 ### <a name="modify-distance-based-attenuation"></a>Modificación de la atenuación basada en la distancia
-El complemento mezclador de Wwise para Project Acoustics respeta la atenuación basada en la distancia por fuente creada en Wwise. Al cambiar esta curva, cambia el nivel de vía de sonido sin efectos. El complemento de Project Acoustics ajustará el nivel de sonido con efectos para mantener la mezcla efectos-sin efectos especificada por la simulación y los controles de diseño.
+El complemento mezclador de Wwise para Project Acoustics respeta la atenuación basada en la distancia por fuente integrada en Wwise. Al cambiar esta curva, cambia el nivel de vía de sonido sin efectos. El complemento de Project Acoustics ajustará el nivel de sonido con efectos para mantener la mezcla efectos-sin efectos especificada por la simulación y los controles de diseño.
 
-![Captura de pantalla del panel de curva de atenuación de Wwise con la atenuación a cero antes del límite de simulación](media/demo-sounds-attenuation.png)
+![El panel de curva de atenuación de Wwise muestra la atenuación a 0 antes del límite de simulación](media/demo-sounds-attenuation.png)
 
-Project Acoustics realiza el cálculo en un cuadro de "región de simulación" centrado alrededor de la ubicación de cada jugador simulado. Los recursos acústicos del paquete de ejemplo se simularon mediante "bake" con un radio en la región de simulación de 45 m, y las atenuaciones se diseñaron para descender hasta 0 antes de 45 m. Aunque este descenso no es un requisito estricto, tiene la salvedad de que solo la geometría a 45 m del oyente ocluirá los sonidos.
+Project Acoustics realiza el cálculo en un cuadro de "región de simulación" centrado alrededor de la ubicación de cada jugador simulado. Los recursos acústicos del paquete de ejemplo se simularon mediante "bake" con un radio en la región de simulación de 45 metros. Las atenuaciones se diseñaron para descender hasta 0 antes de los 45 metros. Aunque este descenso no es un requisito estricto, tiene la salvedad de que solo la geometría a 45 metros del oyente ocluirá los sonidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Integre el complemento de Project Acoustics](unreal-integration.md) en el proyecto de Unreal
-* [Cree una cuenta de Azure](create-azure-account.md) para sus propias elaboraciones
-
-
+* [Integre el complemento de Project Acoustics](unreal-integration.md) en el proyecto de Unreal.
+* [Cree una cuenta de Azure](create-azure-account.md) para sus propias simulaciones.

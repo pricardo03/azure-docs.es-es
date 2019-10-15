@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 734a6be81a8052b2894f4c27b165bb8dc4f14caf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171548"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034541"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo automatizados basados en aprobación mediante Azure Logic Apps
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 Cuando haya terminado, la aplicación lógica se parecerá a este flujo de trabajo, en un alto nivel:
 
-![Aplicación lógica de alto nivel finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![Información general de la aplicación lógica de alto nivel finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,11 +53,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
 1. En el menú principal de Azure, seleccione **Crear un recurso** > **Integración** > **Aplicación lógica**.
 
-   ![Creación de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![Creación de un recurso de aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. En **Crear aplicación lógica**, proporcione esta información sobre la aplicación lógica tal como se muestra y se describe a continuación. Seleccione **Crear** cuando haya terminado.
 
-   ![Especificación de información de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![Proporción de información acerca de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Propiedad | Valor | DESCRIPCIÓN |
    |----------|-------|-------------|
@@ -70,7 +70,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
 1. Una vez que Azure implemente la aplicación, en la barra de herramientas de Azure, seleccione **Notificaciones** > **Ir al recurso** para la aplicación lógica implementada.
 
-   ![Ir al recurso](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![Vaya al nuevo recurso de la aplicación lógica](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    O también puede buscar y seleccionar la aplicación lógica escribiendo el nombre en el cuadro de búsqueda.
 
@@ -108,13 +108,13 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
    1. Ahora, agregue otra propiedad al desencadenador para que pueda filtrar por la línea de asunto del correo electrónico. Abra la lista **Agregar nuevo parámetro** y seleccione la propiedad **Filtro de asunto**.
 
-      ![Agregar nuevo parámetro](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![Incorporación de la propiedad "Subject Filter" al desencadenador](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       Para más información acerca de las propiedades de este desencadenador, consulte la [referencia del conector de Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o la [referencia del conector de Outlook.com](https://docs.microsoft.com/connectors/outlook/).
 
    1. Después de que la propiedad aparezca en el desencadenador, escriba este texto: `subscribe-test-members-ML`
 
-      ![Escribir el texto del filtro del asunto en Agregar nuevo parámetro](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Escritura de texto par ala propiedad "Subject Filter"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. Para ocultar por ahora los detalles del desencadenador, haga clic dentro de la barra de título del desencadenador.
 
@@ -161,13 +161,13 @@ A continuación, agregue una condición para comprobar la respuesta seleccionada
 
 1. En **Elegir una acción**, seleccione **Integrado**. En el cuadro de búsqueda, escriba `condition` como filtro. En la lista Acciones, seleccione la acción **Condición**.
 
-   ![Seleccione "Condición"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   ![Búsqueda y selección de la acción "Condition"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. Cambie el nombre de la condición por una descripción mejor.
 
    1. En la barra de título de la condición, seleccione el botón de los **puntos suspensivos** ( **...** ) > **Cambiar nombre**.
 
-      ![Cambiar nombre de condición](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![Cambio de nombre de la descripción de la condición](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. Cambie el nombre de la condición con esta descripción: `If request approved`
 
@@ -177,7 +177,7 @@ A continuación, agregue una condición para comprobar la respuesta seleccionada
 
    1. En la lista de contenido dinámico que aparece, en **Enviar correo electrónico de aprobación**, seleccione la propiedad **SelectedOption**.
 
-      ![En "Enviar correo electrónico de aprobación", seleccione "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![Selección de "SelectedOption" en la lista de contenido dinámico](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. En el cuadro de comparación central, seleccione el operador **es igual a**.
 
@@ -185,7 +185,7 @@ A continuación, agregue una condición para comprobar la respuesta seleccionada
 
       Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
 
-      ![Condición finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Condición finalizada para el ejemplo aprobado](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. Guarde la aplicación lógica.
 
@@ -242,7 +242,7 @@ A continuación, agregue una condición para comprobar si el nuevo miembro se ha
 
       Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
 
-      ![Condición finalizada](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![Condición finalizada para el ejemplo suscrito](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 A continuación, configure los correos electrónicos que se enviarán si la unión del miembro aprobado a la lista de distribución de correo electrónico se ha realizado correctamente o si se ha producido un error.
 
@@ -298,7 +298,7 @@ A continuación, configure los correos electrónicos que se enviarán si la uni�
 
 A continuación, pruebe la aplicación lógica, que ahora es similar a este ejemplo:
 
-![Aplicación lógica terminada](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![Ejemplo de flujo de trabajo de aplicación lógica finalizado](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## <a name="run-your-logic-app"></a>Ejecución de la aplicación lógica
 
@@ -312,11 +312,11 @@ A continuación, pruebe la aplicación lógica, que ahora es similar a este ejem
 
 1. Si la dirección de correo electrónico del suscriptor no existe en la lista de distribución correspondiente, la aplicación lógica agregará la dirección de esta persona y enviará un correo electrónico parecido al de este ejemplo:
 
-   ![Correo electrónico de confirmación de unión correcta](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![Correo electrónico de ejemplo: suscripción correcta](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    Si la aplicación lógica no puede agregar al suscriptor, recibirá un correo electrónico parecido al de este ejemplo:
 
-   ![Correo electrónico de error](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![Correo electrónico de ejemplo: suscripción errónea](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    Si no recibe ningún correo electrónico, compruebe la carpeta de correo electrónico no deseado. El filtro de correo electrónico no deseado podría redirigir esta clase de correo. Si tampoco aparece allí y no está seguro de que la aplicación lógica se ejecutara correctamente, consulte el artículo de [solución de problemas en la aplicación lógica](../logic-apps/logic-apps-diagnosing-failures.md).
 

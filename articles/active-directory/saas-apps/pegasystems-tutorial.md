@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094897"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integración de Azure Active Directory con Pega Systems
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Pega Systems, haga l
     > [!NOTE]
     > Los valores proporcionados aquí son marcadores de posición. Deberá actualizarlos con los valores reales. Puede obtener los valores de identificador y dirección URL de respuesta de una aplicación de Pega, tal como se explica más adelante en este tutorial. Para obtener el valor de estado de la retransmisión, póngase en contacto con el [equipo de soporte técnico de Pega Systems](https://www.pega.com/contact-us). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. La aplicación de Pega Systems necesita las aserciones de SAML en un formato específico. Para obtenerlas en el formato correcto, deberá agregar asignaciones de atributo personalizadas a la configuración de atributos del token SAML. En la siguiente captura se muestra la lista de atributos predeterminados. Seleccione el icono **Editar**  para abrir el cuadro de diálogo **Atributos de usuario** :
+6. La aplicación de Pega Systems necesita las aserciones de SAML en un formato específico. Para obtenerlas en el formato correcto, deberá agregar asignaciones de atributo personalizadas a la configuración de atributos del token SAML. En la siguiente captura se muestra la lista de atributos predeterminados. Seleccione el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![Atributos de usuario](common/edit-attribute.png)
 

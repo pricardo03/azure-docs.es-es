@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305936"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Harness
 
@@ -141,11 +141,11 @@ En esta sección, va a permitir que B. Simon acceda a Harness mediante el inici
 
 3. Si quiere configurar Harness manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Harness como administrador y haga lo siguiente:
 
-4. En la parte superior derecha de la página, haga clic en  **Continuous Security** (Seguridad continua)  > **Access Management** (Administración de acceso)  > **Authentication Settings** (Configuración de autenticación).
+4. En la parte superior derecha de la página, haga clic en **Continuous Security (Seguridad continua)**  > **Access Management (Administración de acceso)**  > **Authentication Settings (Configuración de autenticación)** .
 
     ![Configuración de Harness](./media/harness-tutorial/configure01.png)
 
-5. En la sección **SSO Providers** (Proveedores de inicio de sesión único), haga clic en  **+ Add SSO Providers** (+ Agregar proveedores de inicio de sesión único) > **SAML**.
+5. En la sección **SSO Providers** (Proveedores de inicio de sesión único), haga clic en **+ Add SSO Providers (+ Agregar proveedores de inicio de sesión único)**  > **SAML**.
 
     ![Configuración de Harness](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Harness, deben ap
 
 1. Inicie sesión como administrador en Harness.
 
-1. En la parte superior derecha de la página, haga clic en  **Continuous Security** (Seguridad continua)  > **Access Management** (Administración de acceso)  > **Users** (Usuarios).
+1. En la parte superior derecha de la página, haga clic en **Continuous Security (Seguridad continua)**  > **Access Management (Administración de acceso)**  > **Users (Usuarios)** .
 
     ![Configuración de Harness](./media/harness-tutorial/configure04.png)
 
-1. En el lado derecho de la página, haga clic en  **Add User** (Agregar usuario).
+1. En el lado derecho de la página, haga clic en **+ Add User** (Agregar usuario).
 
     ![Configuración de Harness](./media/harness-tutorial/configure05.png)
 

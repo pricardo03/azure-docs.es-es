@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950024"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035224"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
 El servicio Azure Backup realiza copias de seguridad de los datos en la nube de Microsoft Azure. Puede hacer copias de seguridad de las cargas de trabajo locales y máquinas locales, así como de las máquinas virtuales de Azure.
-
 
 ## <a name="why-use-azure-backup"></a>¿Por qué usar Azure Backup?
 
@@ -28,16 +27,15 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Copia de seguridad de máquinas virtuales de IaaS de Azure**: Azure Backup proporciona copias de seguridad independientes y aisladas para evitar la destrucción accidental de datos originales. Las copias de seguridad se almacenan en un almacén de Recovery Services con puntos de recuperación administrados e integrados. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 - **Escala sencilla**: Azure Backup usa la eficacia subyacente y la escala ilimitada de la nube de Azure para proporcionar alta disponibilidad, sin sobrecarga de mantenimiento o supervisión.
 - **Obtención de una transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren ni cobra por ellos.
-    - Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
-    - Si realiza una copia de seguridad inicial sin conexión mediante el servicio Azure Import/Export para importar grandes cantidades de datos, hay un costo asociado con los datos de entrada.  [Más información](backup-azure-backup-import-export.md).
+  - Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
+  - Si realiza una copia de seguridad inicial sin conexión mediante el servicio Azure Import/Export para importar grandes cantidades de datos, hay un costo asociado con los datos de entrada.  [Más información](backup-azure-backup-import-export.md).
 - **Protección de los datos**: Azure Backup proporciona soluciones para proteger los datos en tránsito y en reposo.
 - **Obtención de copias de seguridad coherentes de la aplicación**: una copia de seguridad coherente con la aplicación significa un punto de recuperación que tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitarán correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
-- **Retención de los datos a corto y largo plazo**: puede usar los almacenes de Recovery Services para la retención de datos tanto a corto como a largo plazo. Azure no limita el tiempo que los datos pueden permanecer en un almacén de Recovery Services. Puede conservarlos el tiempo que desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. 
+- **Retención de los datos a corto y largo plazo**: puede usar los almacenes de Recovery Services para la retención de datos tanto a corto como a largo plazo. Azure no limita el tiempo que los datos pueden permanecer en un almacén de Recovery Services. Puede conservarlos el tiempo que desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida.
 - **Administración de almacenamiento automática**: los entornos híbridos requieren con frecuencia almacenamiento heterogéneo, unos local y otros en la nube. Con Azure Backup, no hay ningún costo por el uso de dispositivos de almacenamiento local. Azure Backup asigna y administra automáticamente almacenamiento de copia de seguridad y usa un modelo de pago por uso para que solo pague por el almacenamiento que consume. [Más información](https://azure.microsoft.com/pricing/details/backup) sobre precios.
 - **Varias opciones de almacenamiento**: Azure Backup ofrece dos tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento.
-    - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy-lrs.md) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
-    - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy-grs.md) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, incluso si hay una interrupción regional.
-
+  - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy-lrs.md) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
+  - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy-grs.md) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, incluso si hay una interrupción regional.
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>¿Cuál es la diferencia entre Azure Backup y Azure Site Recovery?
 
@@ -66,16 +64,16 @@ Azure Backup puede hacer copias de seguridad tanto de las máquinas locales como
 **Máquina** | **Escenario de copia de seguridad**
 --- | ---
 **Copia de seguridad local** |  1) Ejecute el agente de Microsoft Azure Recovery Services (MARS) de Azure Backup en máquinas Windows locales para realizar la copia de seguridad de archivos individuales y del estado del sistema. <br/><br/>2) Realice una copia de seguridad de las máquinas locales en un servidor de copia de seguridad (System Center Data Protection Manager [DPM] o Microsoft Azure Backup Server [MABS]) y, luego, configure el servidor de copia de seguridad para la copia de seguridad en un almacén de Azure Backup Recovery Services de Azure.
-**Máquinas virtuales de Azure** | 1) Habilite la copia de seguridad de máquinas virtuales de Azure individuales. Al habilitar la copia de seguridad, Azure Backup instala una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. El agente realiza una copia de seguridad de toda la máquina virtual.<br/><br/> (2) Ejecute al agente de MARS en una máquina virtual de Azure. Esto es útil si quiere realizar la copia de seguridad de archivos y carpetas individuales en la máquina virtual.<br/><br/> 
-
+**Máquinas virtuales de Azure** | 1) Habilite la copia de seguridad de máquinas virtuales de Azure individuales. Al habilitar la copia de seguridad, Azure Backup instala una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. El agente realiza una copia de seguridad de toda la máquina virtual.<br/><br/> (2) Ejecute al agente de MARS en una máquina virtual de Azure. Esto es útil si quiere realizar la copia de seguridad de archivos y carpetas individuales en la máquina virtual.<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>¿Por qué usar un servidor de copia de seguridad?
+
 Las ventajas de realizar una copia de seguridad de las máquinas y aplicaciones en almacenamiento MABS o DPM y, luego, hacer lo mismo con el almacenamiento DPM o MABS en un almacén son las siguientes:
 
 - La copia de seguridad en DPM o MABS proporciona copias de seguridad compatibles con aplicaciones optimizadas para aplicaciones comunes como SQL Server, Exchange y SharePoint, además de copias de seguridad de archivos, carpetas o volúmenes, y copias de seguridad del estado de la máquina (estado del sistema, sin sistema operativo).
 - Con máquinas locales, no es necesario instalar al agente de MARS en cada máquina de la que quiera hacer una copia de seguridad. Cada máquina ejecuta el agente de protección DPM o MABS, y el agente MARS se ejecuta solo en MABS o DPM.
 - Tiene más flexibilidad y opciones de programación pormenorizado para ejecutar copias de seguridad.
-- Puede administrar las copias de seguridad de varios equipos que reunirá en grupos de protección en una única consola. Esto es particularmente útil cuando las aplicaciones están organizadas en niveles sobre varias máquinas y se quiere hacer una copia de seguridad de las mismas.
+- Puede administrar las copias de seguridad de varios equipos que reunirá en grupos de protección en una única consola. Esto resulta útil cuando las aplicaciones están organizadas en niveles sobre varias máquinas y se quiere hacer una copia de seguridad de las mismas.
 
 Más información sobre [cómo funciona la copia de seguridad](backup-architecture.md#architecture-back-up-to-dpmmabs) cuando se usa un servidor de copia de seguridad y los [requisitos de soporte técnico](backup-support-matrix-mabs-dpm.md) para servidores de copia de seguridad.
 
@@ -106,7 +104,7 @@ Más información sobre [cómo funciona la copia de seguridad](backup-architectu
 **Quiero hacer una copia de seguridad de archivos o carpetas específicos en máquinas virtuales de Azure** | Implemente al agente de MARS en la máquina virtual.
 **Quiero hacer una copia de seguridad directamente en máquinas Windows locales** | Instale el agente MARS en la máquina. | Puede hacer copias de seguridad de archivos, carpetas y del estado del sistema en Azure. Las copias de seguridad no reconocen las aplicaciones.
 **Quiero hacer una copia de seguridad directamente en máquinas Linux locales** | Necesita implementar DPM o MABS para hacer una copia de seguridad en Azure. | No se admite la copia de seguridad del host Linux, solo puede realizar la copia de seguridad de la máquina invitada Linux hospedada en Hyper-V o VMWare.
-**Quiero hacer una copia de seguridad de las aplicaciones que se ejecutan en el entorno local** | En el caso de copias de seguridad compatibles con aplicaciones, las máquinas deben estar protegidas con DPM o MABS.
+**Quiero hacer una copia de seguridad de las aplicaciones que se ejecutan en el entorno local** | En el caso de las copias de seguridad compatibles con aplicaciones, las máquinas deben estar protegidas con DPM o MABS.
 **Quiero una configuración de copia de seguridad y recuperación pormenorizada y flexible para máquinas virtuales de Azure** | Proteja las máquinas virtuales de Azure con MABS o DPM que se ejecutan en Azure para mayor flexibilidad en la programación de copias de seguridad, y total flexibilidad para proteger y restaurar archivos, carpetas, volúmenes, aplicaciones y estado del sistema.
 
 ## <a name="backup-and-retention"></a>Copia de seguridad y retención
@@ -118,7 +116,7 @@ Azure Backup tiene un límite de 9999 puntos de recuperación, también conocido
 
 En la tabla siguiente se muestra la frecuencia máxima de copia de seguridad para cada componente. La configuración de la directiva de copia de seguridad determina la rapidez con que se consumen los puntos de recuperación. Por ejemplo, si crea un punto de recuperación cada día, puede conservarlos durante 27 años antes de que se agoten. Si crea un punto de recuperación cada mes, puede conservarlos durante 833 años antes de que se agoten. El servicio Backup no establece un límite de tiempo de expiración para un punto de recuperación.
 
-|  | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
+|  | Agente de Azure Backup (MARS)| System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Frecuencia de copia de seguridad<br/> (en el almacén de Recovery Services) |Tres copias de seguridad por día |Dos copias de seguridad por día |Dos copias de seguridad por día |Una copia de seguridad por día |
 | Frecuencia de copia de seguridad<br/> (en el disco) |No aplicable |Cada 15 minutos para SQL Server<br/><br/> Cada hora para otras cargas de trabajo |Cada 15 minutos para SQL Server<br/><br/> Cada hora para otras cargas de trabajo |No aplicable |

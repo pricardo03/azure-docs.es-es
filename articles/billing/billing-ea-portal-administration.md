@@ -4,16 +4,16 @@ description: En este artículo se explican las tareas comunes que un administrad
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308104"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035210"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -87,10 +87,11 @@ Otros puntos que hay que tener en cuenta antes de transferir una cuenta:
 - Es necesaria la aprobación de un administrador del Contrato Enterprise para la inscripción de origen y destino.
   - En algunos casos, es posible que Microsoft solicite una aprobación adicional por parte de un administrador del Contrato Enterprise de la inscripción de origen.
 - Si la transferencia de una cuenta no cumple los requisitos, considere la posibilidad de realizar una transferencia de inscripción.
-- La transferencia de la cuenta transfiere todos los servicios, suscripciones, cuentas, departamentos y toda la estructura de inscripción, incluidos todos los administradores de departamento del Contrato Enterprise.
-- La transferencia de cuentas establece el estado de inscripción de origen en _Transferido_. La cuenta transferida solo está disponible con fines de informe de historial de uso.
-- No se pueden agregar roles ni suscripciones a una inscripción con el estado transferido. El estado impide el uso adicional en la inscripción.
-- Se pierde cualquier saldo de compromiso monetario restante del contrato de origen, incluidos los términos futuros.
+- La transferencia de la cuenta transfiere todos los servicios y suscripciones relacionados con las cuentas específicas.
+- Una vez completada la operación, la cuenta transferida aparece como inactiva en la inscripción de origen.
+- Las transferencias de cuentas se pueden retroceder a cualquier fecha dentro de la fecha de inicio de la inscripción de destino.
+- La cuenta muestra la fecha de finalización correspondiente a la fecha de transferencia efectiva en la inscripción de origen y la fecha de inicio en la inscripción de destino.
+- Cualquier uso que se produzca en la cuenta antes de la fecha de transferencia efectiva permanece bajo la inscripción de origen.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferencia de la inscripción empresarial a una nueva
@@ -156,7 +157,7 @@ Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos
 - Claves de acceso para servicios como Almacenamiento. Para más información, vea [Introducción a las cuentas de Azure Storage](../storage/common/storage-account-overview.md).
 - Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
-El destinatario debe restringir el acceso a los recursos de Azure y considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante los siguientes pasos:
+El destinatario debe restringir el acceso a los recursos de Azure y considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar mediante el uso de los siguientes pasos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú Concentrador, seleccione **Todos los recursos**.

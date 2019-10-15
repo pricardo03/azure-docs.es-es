@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612379"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000557"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -55,7 +55,7 @@ Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llam
    |---------|---------|---------|
    |NOMBRE     | myEventHubsNS        |  Un nombre único para identificar el espacio de nombres del centro de eventos.       |
    |Subscription     |   \<Su suscripción\>      |   Seleccione una suscripción de Azure donde quiere crear el centro de eventos.      |
-   |Grupos de recursos     |   MyASADemoRG      |  Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.       |
+   |Resource group     |   MyASADemoRG      |  Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.       |
    |Location     |   Oeste de EE. UU. 2      |    Ubicación donde se puede implementar el espacio de nombres del centro de eventos.     |
 
 4. Use las opciones predeterminadas en el resto de la configuración y seleccione **Crear**.
@@ -138,7 +138,7 @@ Ahora que tiene un flujo de eventos de llamada, puede crear un trabajo de Stream
    |---------|---------|---------|
    |Nombre del trabajo     |  ASATutorial       |   Un nombre único para identificar el espacio de nombres del centro de eventos.      |
    |Subscription    |  \<Su suscripción\>   |   Seleccione una suscripción de Azure donde desea crear el trabajo.       |
-   |Grupos de recursos   |   MyASADemoRG      |   Seleccione **Use existing** (Usar existente) y, después, escriba un nuevo nombre de grupo de recursos para la cuenta.      |
+   |Resource group   |   MyASADemoRG      |   Seleccione **Use existing** (Usar existente) y, después, escriba un nuevo nombre de grupo de recursos para la cuenta.      |
    |Location   |    Oeste de EE. UU. 2     |      Ubicación donde se puede implementar el trabajo. Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.      |
    |Entorno de hospedaje    | Nube        |     Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y, si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge.    |
    |Unidades de streaming     |    1       |      Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
@@ -266,7 +266,7 @@ Puede probar una consulta en el editor de consultas y usar para ello datos de ej
 
 En esta parte del tutorial, usará una aplicación web [ASP.NET](https://asp.net/) de ejemplo que ha creado el equipo de Power BI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (El usuario es propietario de los datos) (use las direcciones URL de redireccionamiento y de la página principal en la subsección **integrate-dashboard-web-app**). Como se va a usar el ejemplo de Dashboard, utilice el código de ejemplo **integrate-dashboard-web-app**, que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
+Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (El usuario es propietario de los datos) (use las direcciones URL de redireccionamiento y de la página principal en el subapartado **integrate-web-app**). Como se va a usar el ejemplo del panel, utilice el código de ejemplo **integrate-web-app** que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
 Cuando esté satisfecho con la aplicación que se ejecuta en el explorador, siga estos pasos para insertar el panel que creó anteriormente en la página web:
 
 1. Seleccione **Sign in to Power BI** (Iniciar sesión en Power BI). Mediante esta acción se concede a la aplicación acceso a los paneles de la cuenta de Power BI.

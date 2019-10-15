@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar colas de Azure Service Bus con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de colas de Azure Service Bus con Ansible'
 description: Obtenga información sobre cómo usar Ansible para crear una cola de Azure Service Bus
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, service bus, cola
 ms.topic: tutorial
@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 96ac420b3d84792705209055e6665e37ef161620
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 04/30/2019
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192182"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241392"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar las colas de Azure Service Bus con Ansible
 
@@ -33,8 +33,8 @@ ms.locfileid: "65192182"
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-the-service-bus-queue"></a>Creación de la cola de Service Bus
 
@@ -115,7 +115,7 @@ Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 ansible-playbook servicebus_queue_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Recuperación de información del espacio de nombres
+## <a name="retrieve-namespace-information"></a>Recuperar información del espacio de nombres
 
 El código del cuaderno de estrategias de ejemplo consulta la información del espacio de nombres.
 
@@ -139,7 +139,7 @@ Guarde el siguiente cuaderno de estrategias como `servicebus_namespace_info.yml`
           var: ns
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 - El valor `show_sas_policies` indica si se muestran las directivas SAS en el espacio de nombres especificado. De forma predeterminada, el valor es `False` para evitar más sobrecarga de red.
 
 Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
@@ -174,7 +174,7 @@ Guarde el siguiente cuaderno de estrategias como `servicebus_queue_info.yml`:
           var: queue
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 - El valor `show_sas_policies` indica si se muestran las directivas SAS en la cola especificada. De forma predeterminada, el valor se establece en `False` para evitar más sobrecarga de red.
 
 Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:

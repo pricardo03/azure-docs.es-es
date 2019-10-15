@@ -7,12 +7,12 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d371026b932a0870798a32b3102102836962b78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203921"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981222"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Python
 
@@ -183,7 +183,7 @@ for blob in generator:
 
 
 Descargue los blobs en el disco local con el método `get_blob_to_path`.
-El código siguiente descarga el blob que se cargó anteriormente. El sistema anexa *_DOWNLOADED* al nombre del blob para que pueda ver ambos archivos en el disco local."
+El código siguiente descarga el blob que se cargó anteriormente. El sistema anexa *_DOWNLOADED* al nombre del blob para que pueda ver ambos archivos en el disco local.
 
 ```python
 # Download the blob(s).

@@ -1,20 +1,20 @@
 ---
-title: ¿Qué es Microsoft Genomics? | Microsoft Docs
-titleSuffix: Azure
-description: Obtenga información sobre cómo Microsoft Genomics puede potenciar la secuenciación del genoma y ahora ofrece una implementación en la nube de Burrows-Wheeler Aligner (BWA) y de Genome Analysis Toolkit (GATK) para análisis secundario. Tiene un certificado ISO y está conforme con las regulaciones HIPAA.
+title: ¿Qué es Microsoft Genomics?
+titleSuffix: Microsoft Genomics
+description: Conozca de qué forma puede Microsoft Genomics potenciar la secuenciación del genoma mediante una implementación en la nube de Burrows-Wheeler Aligner (BWA) y de Genome Analysis Toolkit (GATK).
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780904"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244005"
 ---
 # <a name="what-is-microsoft-genomics"></a>¿Qué es Microsoft Genomics?
 Microsoft Genomics ofrece una implementación en la nube de Burrows-Wheeler Aligner (BWA) y Genome Analysis Toolkit (GATK) para análisis secundario. El servicio posee certificación ISO, cumple las regulaciones HIPAA y ofrece la capacidad de predicción de precio para sus necesidades de secuenciación genómica. Si quiere saber cómo puede usar el servicio Microsoft Genomics e integrarlo con nuestra API, lea nuestras guías de inicio rápido, tutoriales y documentación.
@@ -28,7 +28,7 @@ Microsoft Genomics le ofrece un contrato de nivel de servicio (SLA) disponible a
 
 
 ## <a name="secure-your-data"></a>Protección de los datos
-El servicio de Microsoft Genomics posee los certificados ISO 27001, ISO 27018 e ISO 9001 y cumple las regulaciones HIPAA. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/trustcenter/security).
+El servicio de Microsoft Genomics posee los certificados ISO 27001, ISO 27018 e ISO 9001 y cumple las regulaciones HIPAA. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/trustcenter/security).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

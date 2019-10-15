@@ -8,17 +8,18 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2019
 ms.author: sngun
-ms.openlocfilehash: 1b60df197e83fa480a3fdaed60552a6c977845b1
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8b133f0044bdf8f99fdee657177d561ef5bb406b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250036"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170162"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Ejemplos de Java para la API de SQL
 
 > [!div class="op_single_selector"]
-> * [Ejemplos de .NET](sql-api-dotnet-samples.md)
+> * [Ejemplos del SDK de .NET V2](sql-api-dotnet-samples.md)
+> * [Ejemplos del SDK de .NET V3](sql-api-dotnet-v3sdk-samples.md)
 > * [Ejemplos de Java](sql-api-java-samples.md)
 > * [Ejemplos de Java asincrónico](sql-api-async-java-samples.md)
 > * [Ejemplos de Node.js](sql-api-nodejs-samples.md)

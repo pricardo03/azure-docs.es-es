@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066369"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001356"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adición de un dispositivo real a una aplicación de Azure IoT Central
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-En este tutorial se explica cómo agregar un dispositivo real a la aplicación Microsoft Azure IoT Central.
+En este tutorial se explica cómo agregar un *dispositivo real* a la aplicación Microsoft Azure IoT Central. En este tutorial se codifica el dispositivo real mediante Node.js y se ejecuta el código en una máquina de escritorio. Para completar este tutorial, no necesita un dispositivo IoT independiente como, por ejemplo, un dispositivo MXChip IoT DevKit o Raspberry Pi.
 
 Este tutorial se compone de dos partes:
 
@@ -52,11 +52,11 @@ Para agregar un dispositivo real a la aplicación, usará la plantilla de dispos
 
    En **Device Explorer** (Explorador de dispositivos), se muestra la plantilla de dispositivo **Connected Air Conditioner** (Acondicionador de aire conectado) y un dispositivo simulado. IoT Central crea automáticamente un dispositivo simulado cuando se crea una plantilla de dispositivo.
 
-2. Para empezar a conectar un dispositivo de acondicionador de aire conectado real, seleccione **+** y, a continuación, **Real**:
+2. Tenga en cuenta que la plantilla de dispositivo **Connected Air Conditioner** (Aire acondicionado conectado) aparece seleccionada en **Explorador de dispositivos**. Para empezar a conectar un dispositivo de aire acondicionado real, seleccione **+** y **Real**:
 
    ![Primeros pasos para agregar un dispositivo de acondicionador de aire conectado real](media/tutorial-add-device/newreal.png)
 
-3. Escriba el identificador de dispositivo (debe estar en minúsculas) o use el identificador de dispositivo sugerido. También puede escribir el nombre del nuevo dispositivo y elegir **Crear**.
+3. Escriba su **Id. de dispositivo** propio (en minúsculas) o use el valor que se le sugiere. También puede escribir un **Nombre de dispositivo** para el nuevo dispositivo y elegir **Crear**.
 
    ![Cambio de nombre del dispositivo](media/tutorial-add-device/rename.png)
 
@@ -76,9 +76,9 @@ El dispositivo real se crea a partir de la plantilla de dispositivo **Connected 
 
 ## <a name="prepare-the-client-code"></a>Preparación del código de cliente
 
-El código de ejemplo de este artículo está escrito en [Node.js](https://nodejs.org/) y muestra el código necesario para:
+El código de ejemplo de este artículo está escrito en [Node.js](https://nodejs.org/) y muestra el código necesario para que un dispositivo pueda:
 
-* Conectarse como dispositivo a la aplicación de Azure IoT Central.
+* Conectarse a la aplicación de Azure IoT Central.
 * Enviar datos de telemetría de temperatura como un dispositivo de acondicionador de aire conectado.
 * Enviar propiedades de dispositivo a la aplicación de Azure IoT Central.
 * Responder a un operador que usa el valor **Set Temperature** (Establecer temperatura).
@@ -96,7 +96,7 @@ Los pasos siguientes muestran cómo preparar el código de ejemplo de [Node.js](
 
    ![Página del dispositivo con un vínculo de información de conexión](media/tutorial-add-device/connectionlink.png)
 
-1. En la página Conexión de dispositivos, tome nota de los valores de **Id. de ámbito**, **Id. de dispositivo** y **Clave principal**. Estos valores se usarán más adelante en el tutorial.
+1. En la página **Conexión del dispositivo**, tome nota de los valores de **Id. de ámbito**, **Id. de dispositivo** y **Clave principal**. Estos valores se usarán más adelante en el tutorial.
 
    ![Detalles de conexión](media/tutorial-add-device/device-connect.png)
 
@@ -139,7 +139,7 @@ Los pasos siguientes muestran cómo preparar el código de ejemplo de [Node.js](
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;
@@ -150,7 +150,7 @@ Los pasos siguientes muestran cómo preparar el código de ejemplo de [Node.js](
 
 ## <a name="review-client-code"></a>Revisión de código de cliente
 
-En la sección anterior, creó un esquema de proyecto de Node.js para una aplicación que se conecta a la aplicación de Azure IoT Central. El siguiente paso consiste en agregar código a:
+En la sección anterior creó un esquema de proyecto de Node.js para una aplicación de dispositivo que se conecta a la aplicación de Azure IoT Central. El siguiente paso consiste en agregar código a:
 
 * Conectarse a la aplicación de Azure IoT Central.
 * Enviar datos de telemetría a la aplicación de Azure IoT Central.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088475"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integración de Azure Active Directory con TOPdesk - Public
 
@@ -120,8 +120,10 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Public, re
 
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net`
 
-    e. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+    e. En el cuadro de texto **URL del identificador**, rellene la dirección URL de metadatos de TOPdesk que puede recuperar de la configuración de esta aplicación. Debe usar el patrón siguiente: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    
+    f. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net/tas/public/login/verify`.
+    
     > [!NOTE] 
     > Si los valores de **Identificador** y de **Dirección URL de respuesta** no se rellenan automáticamente, debe escribirlos manualmente. En Identificador, siga el patrón como se mencionó anteriormente y obtenga el valor de Dirección URL de respuesta en la sección **Configuración del inicio de sesión único de TOPdesk - Public**, que se explica más adelante en el tutorial. El valor de **Dirección URL de inicio de sesión** no es real de modo que debe actualizarla con esta. Póngase en contacto con el [equipo de soporte técnico de TOPdesk - Public](https://help.topdesk.com/saas/enterprise/user/) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 

@@ -1,18 +1,18 @@
 ---
 title: Introducción al servicio de base de datos relacional Azure Database for MariaDB
-description: Información general del servicio de base de datos relacional de Azure Database for MariaDB
+description: Obtenga más información acerca de Azure Database for MariaDB, que es un servicio de base de datos relacional de Microsoft Cloud basado en MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/13/2019
-ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013607"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177973"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>¿Qué es Azure Database for MariaDB?
 
@@ -55,7 +55,7 @@ El Acuerdo de Nivel de Servicio de Azure, con una disponibilidad líder del sect
 
 Los servicios de base de datos de Azure tienen una tradición de seguridad de datos que Azure Database for MariaDB mantiene. Azure Database for MariaDB ofrece características que limitan el acceso, prtegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/trustcenter/security).
 
-El servicio Azure Database for MariaDB usa el cifrado de almacenamiento de los datos en reposo y cumple la norma FIPS 140-2. Los datos, incluidas las copias de seguridad, se cifran en el disco. (Los archivos temporales creados por el motor cuando ejecuta consultas no se cifran en el disco). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage. Las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+El servicio Azure Database for MariaDB usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco, a excepción de los archivos temporales creados por el motor durante la ejecución de consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage. Las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 De forma predeterminada, el servicio Azure Database for MariaDB está configurado para exigir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento a través de la red. Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
 

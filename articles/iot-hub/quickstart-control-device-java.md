@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306482"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843345"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Inicio rápido: Control de un dispositivo conectado a una instancia de Azure IoT Hub con Java
 
@@ -119,7 +119,7 @@ Usará este valor más adelante en este inicio rápido. La cadena de conexión d
 
 ## <a name="listen-for-direct-method-calls"></a>Escuchas para llamadas de método directo
 
-La aplicación del dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub, envía los datos de telemetría simulados y escucha llamadas de método directo desde el centro. En este inicio rápido, la llamada de método directo desde el centro indica al dispositivo que debe cambiar el intervalo en el que envía los datos de telemetría. El dispositivo simulado envía una confirmación al centro después de que ejecute el método directo.
+La aplicación del dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub, envía los datos de telemetría simulados y escucha llamadas de método directo desde el centro. En este inicio rápido, la llamada de método directo desde el centro indica al dispositivo que debe cambiar el intervalo en el que envía los datos de telemetría. El dispositivo simulado envía una confirmación al centro después de que ejecuta el método directo.
 
 1. En una ventana de terminal local, vaya a la carpeta raíz del proyecto de Java de ejemplo. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device-2**.
 
@@ -141,11 +141,11 @@ La aplicación del dispositivo simulado se conecta a un punto de conexión espec
 
     La siguiente captura de pantalla muestra la salida en la que la aplicación de dispositivo simulado envía datos de telemetría a IoT Hub:
 
-    ![Ejecutar el dispositivo simulado](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Salida de los datos de telemetría enviados por el dispositivo al centro de IoT](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>Llamar al método directo
 
-La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hub. La aplicación realiza llamadas de método directo a un dispositivo con IoT Hub y realiza escuchas para confirmaciones. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube.
+La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hub. La aplicación realiza llamadas de método directo a un dispositivo con IoT Hub y escucha las confirmaciones. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube.
 
 1. En otra ventana de terminal local, vaya a la carpeta raíz del proyecto de Java de ejemplo. A continuación, vaya a la carpeta **iot-hub\Quickstarts\back-end-application**.
 
@@ -165,13 +165,13 @@ La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hu
     java -jar target/back-end-application-1.0.0-with-deps.jar
     ```
 
-    La siguiente captura de pantalla muestra la salida en la que la aplicación realiza una llamada de método directo en el dispositivo y recibe una confirmación:
+    En la siguiente captura de pantalla se muestra la salida en la que la aplicación realiza una llamada de método directo al dispositivo y recibe una confirmación:
 
-    ![Ejecutar la aplicación back-end](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![Salida cuando la aplicación realiza una llamada de método directo mediante IoT Hub](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     Después de ejecutar la aplicación back-end, verá un mensaje en la ventana de consola que ejecuta el dispositivo simulado y cambiará la velocidad a la que envía mensajes:
 
-    ![Cambio en el cliente simulado](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![El mensaje de la consola desde el dispositivo muestra la velocidad a la que cambia](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

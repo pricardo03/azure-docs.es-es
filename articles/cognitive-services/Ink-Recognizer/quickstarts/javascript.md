@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 5e3b97faaed84f2c07ea70ddb73bd8e8c9efa71d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212649"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996917"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y JavaScript
 
@@ -32,10 +32,11 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un explorador web
-- Los datos del trazo de entrada de lápiz digital para este inicio rápido están disponibles en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
+- Los datos de trazo de entrada de lápiz para este inicio rápido se pueden encontrar en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
+### <a name="create-an-ink-recognizer-resource"></a>Creación de un recurso de Ink Recognizer
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
 ## <a name="create-a-new-application"></a>Creación de una aplicación
 
@@ -110,10 +111,9 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
         // Your endpoint can be found in the Azure portal. For example: "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-        var SERVER_ADDRESS = "YOUR-SUBSCRIPTION-URL";
+        var SERVER_ADDRESS = process.env["INK_RECOGNITION_ENDPOINT"];
         var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
-        // Replace the subscriptionKey string value with your valid subscription key.
-        var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
+        var SUBSCRIPTION_KEY = process.env["INK_RECOGNITION_SUBSCRIPTION_KEY"];
         var xhttp = new XMLHttpRequest();
         ```
     2. Cree la función de devolución para el objeto `XMLHttpRequest`. Esta función analizará la respuesta de API desde una solicitud correcta y la mostrará en la aplicación. 

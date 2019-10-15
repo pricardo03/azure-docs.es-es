@@ -1,6 +1,6 @@
 ---
-title: 'Creación y administración de flujos de trabajo automatizados con Visual Studio Code: Azure Logic Apps'
-description: Guía de inicio rápido sobre cómo crear y administrar aplicaciones lógicas con JSON en Visual Studio Code (VS Code)
+title: 'Creación y administración de flujos de trabajo en Visual Studio Code: Azure Logic Apps'
+description: 'Inicio rápido: creación y administración de definiciones JSON de aplicaciones lógicas en Visual Studio Code (VS Code)'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,83 +12,82 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: b9f9a402ecde09dd00c2b070f784858a141e556b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308996"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035503"
 ---
-# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Inicio rápido: Creación y administración de flujos de trabajo automatizados de aplicaciones lógicas: Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de aplicaciones lógicas mediante Visual Studio Code
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Visual Studio Code, puede crear y administrar aplicaciones lógicas que le ayuden a automatizar tareas, flujos de trabajo y procesos para integrar aplicaciones, datos, sistemas y servicios entre organizaciones y empresas. En este tutorial rápido se muestra cómo puede crear y editar definiciones de flujo de trabajo de aplicación lógica mediante el esquema de definición de flujo de trabajo en JavaScript Object Notation (JSON) a través de una experiencia basada en código. También puede trabajar en aplicaciones lógicas existentes ya implementadas en Azure. 
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y Visual Studio Code, puede crear y administrar aplicaciones lógicas que le ayuden a automatizar tareas, flujos de trabajo y procesos para integrar aplicaciones, datos, sistemas y servicios entre organizaciones y empresas. En este tutorial rápido se muestra cómo puede crear y editar definiciones de flujo de trabajo de aplicación lógica mediante el esquema de definición de flujo de trabajo en JavaScript Object Notation (JSON) a través de una experiencia basada en código. También puede trabajar en aplicaciones lógicas existentes ya implementadas en Azure.
 
-Aunque puede realizar estas mismas tareas en Azure Portal (https://portal.azure.com) ) y en Visual Studio, puede empezar a trabajar con mayor rapidez en Visual Studio Code si ya tiene familiaridad con la aplicación lógica y desea trabajar directamente en el código. Por ejemplo, puede deshabilitar, habilitar, eliminar y actualizar las aplicaciones lógicas ya creadas. Además, puede trabajar en Logic Apps y las cuentas de integración desde cualquier plataforma de desarrollo donde se ejecute Visual Studio Code, como Linux, Windows y Mac.
+Aunque puede realizar estas mismas tareas en [Azure Portal](https://portal.azure.com) y en Visual Studio, puede empezar a trabajar con mayor rapidez en Visual Studio Code si ya tiene familiaridad con la aplicación lógica y desea trabajar directamente en el código. Por ejemplo, puede deshabilitar, habilitar, eliminar y actualizar las aplicaciones lógicas ya creadas. Además, puede trabajar en Logic Apps y las cuentas de integración desde cualquier plataforma de desarrollo donde se ejecute Visual Studio Code, como Linux, Windows y Mac.
 
-Para este artículo, puede crear la misma aplicación lógica que en la [guía de inicio rápido sobre la creación de una aplicación lógica en Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se centra más en los conceptos básicos. En Visual Studio Code, la aplicación lógica se parece a este ejemplo:
+En este artículo, puede crear la misma aplicación lógica desde este [inicio rápido](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se centra más en los conceptos básicos. En Visual Studio Code, la aplicación lógica se parece a este ejemplo:
 
-![Aplicación lógica terminada](./media/create-logic-apps-visual-studio-code/overview.png)
+![Definición del flujo de trabajo de la aplicación lógica de ejemplo](./media/create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
 Antes de empezar, asegúrese de que dispone de estos elementos:
 
 * Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Conocimientos básicos acerca de las [definiciones de flujos de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) y su estructura, que usa la notación de objetos JavaScript (JSON) 
+* Conocimientos básicos acerca de las [definiciones de flujos de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) y su estructura, que usa la notación de objetos JavaScript (JSON)
 
-  Si no está familiarizado con Logic Apps, pruebe la guía de inicio rápido, que se centra sobre todo en los conceptos básicos y le guía a través del proceso de [creación de su primera aplicación lógica en Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Si nunca ha usado Logic Apps, pruebe este [inicio rápido](../logic-apps/quickstart-create-first-logic-app-workflow.md), que crea las primeras aplicaciones lógicas en Azure Portal y se centra más en los conceptos básicos.
 
 * Acceso a la web para iniciar sesión en Azure y en su suscripción
 
-* Descargue e instale estas herramientas si no las tiene aún: 
+* Descargue e instale estas herramientas si no las tiene aún:
 
   * [Visual Studio Code versión 1.25.1 o posterior](https://code.visualstudio.com/), que es gratis
 
   * La extensión de Visual Studio Code para Azure Logic Apps
 
-    Puede descargar e instalar esta extensión desde [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) o directamente desde Visual Studio Code. 
-    Asegúrese de que se vuelva a cargar Visual Studio Code después de realizar la instalación. 
+    Puede descargar e instalar esta extensión desde [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) o directamente desde Visual Studio Code. Asegúrese de volver a cargar Visual Studio Code después de la instalación.
 
     ![Buscar "Extensión de Visual Studio Code para Azure Logic Apps"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
 
-    Para comprobar que la extensión se ha instalado correctamente, el icono de Azure debe aparecer en la barra de herramientas de Visual Studio Code. 
+    Para comprobar que la extensión se ha instalado correctamente, seleccione el icono de Azure que aparecer en la barra de herramientas de Visual Studio Code.
 
-    ![Extensión instalada](./media/create-logic-apps-visual-studio-code/installed-extension.png)
+    ![Confirmar que la extensión se ha instalado correctamente](./media/create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
-    Para más información, consulte [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) (Marketplace de extensiones). También puede ver y enviar sus contribuciones a la versión de código abierto de esta extensión; para ello, consulte la [extensión de Azure Logic Apps para Visual Studio Code en GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
+    Para más información, consulte [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) (Marketplace de extensiones). Para contribuir a la versión de código abierto de esta extensión; vaya a [Extensión de Azure Logic Apps para Visual Studio Code en GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
 <a name="sign-in-azure"></a>
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-1. Abra Visual Studio Code. En la barra de herramientas de Visual Studio Code, seleccione el icono de Azure. 
+1. Abra Visual Studio Code. En la barra de herramientas de Visual Studio Code, seleccione el icono de Azure.
 
-   ![Seleccionar icono de Azure](./media/create-logic-apps-visual-studio-code/open-extension.png)
+   ![Seleccione el icono de Azure en la barra de herramientas de Visual Studio Code](./media/create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. En la ventana de Azure, en **Logic Apps**, seleccione **Iniciar sesión en Azure**. 
+1. En la ventana de Azure, en **Logic Apps**, seleccione **Iniciar sesión en Azure**.
 
-   ![Seleccionar "Iniciar sesión en Azure"](./media/create-logic-apps-visual-studio-code/sign-in-azure.png)
+   ![Seleccionar "Iniciar sesión en Azure"](./media/create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   Ahora se le pedirá que inicie sesión mediante el código de autenticación proporcionado. 
+   Ahora se le pedirá que inicie sesión mediante el código de autenticación proporcionado.
 
-1. Copie el código de autenticación y, a continuación, elija **Copiar y abrir** y se abrirá una nueva ventana del explorador.
+1. Copie el código de autenticación y, después, seleccione **Copiar y abrir**, y se abrirá una nueva ventana del explorador.
 
-   ![Solicitud de inicio de sesión](./media/create-logic-apps-visual-studio-code/sign-in-prompt.png)
+   ![Copiar el código de autenticación que se usará para el inicio de sesión en Azure](./media/create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-1. Especifique el código de autenticación. Cuando se le solicite, elija **Continuar**.
+1. Especifique el código de autenticación. Cuando se le solicite, seleccione **Continuar**.
 
-   ![Especificar código](./media/create-logic-apps-visual-studio-code/authentication-code.png)
+   ![Escriba el código de autenticación para el inicio de sesión en Azure](./media/create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
 1. Seleccione su cuenta de Azure. Después de iniciar sesión, puede cerrar el explorador y volver a Visual Studio Code.
 
-   En la ventana de Azure, en el panel de Logic Apps y en el de cuentas de integración aparecerán ahora las suscripciones de Azure en su cuenta. 
+   En la ventana de Azure, en el panel de Logic Apps y en el de cuentas de integración aparecerán ahora las suscripciones de Azure en su cuenta.
 
-   ![Selección de la suscripción](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
+   ![Selección de su suscripción a Azure](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
-   Si no ve las suscripciones que espera, junto a la etiqueta **Logic Apps**, elija **Seleccionar suscripciones** (icono de filtro). Busque y seleccione las suscripciones que desea.
+   Si no ve las suscripciones que espera, junto a la etiqueta **Logic Apps**, seleccione **Seleccionar suscripciones** (icono de filtro). Busque las suscripciones que desea y selecciónelas.
 
 1. Para poder ver cualquier aplicación lógica o cuenta de integración de su suscripción de Azure, expanda la suscripción.
 
-   ![Ver aplicaciones lógicas y cuentas de integración](./media/create-logic-apps-visual-studio-code/existing-logic-apps.png)
+   ![Ver aplicaciones lógicas y cuentas de integración](./media/create-logic-apps-visual-studio-code/view-existing-logic-apps-azure.png)
 
 <a name="create-logic-app"></a>
 
@@ -98,39 +97,40 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
 1. En el menú contextual de la suscripción, seleccione **Crear**.
 
-   ![Seleccionar "Crear"](./media/create-logic-apps-visual-studio-code/create-logic-app.png)
+   ![Seleccione "Crear" en el menú de suscripción](./media/create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
-1. En la lista que muestra los grupos de recursos de Azure de su suscripción, seleccione un grupo de recursos existente o **cree uno nuevo**. 
+1. En la lista que muestra los grupos de recursos de Azure de su suscripción, seleccione un grupo de recursos existente o **cree uno nuevo**.
 
    En este ejemplo se crea un grupo de recursos nuevo:
 
-   ![Crear un grupo de recursos](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
+   ![Crear un grupo de recursos de Azure](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
 
 1. Proporcione un nombre para el grupo de recursos de Azure y, a continuación, presione ENTRAR.
 
-   ![Asignar un nombre al grupo de recursos](./media/create-logic-apps-visual-studio-code/enter-name-resource-group.png)
+   ![Especificar un nombre para el grupo de recursos de Azure](./media/create-logic-apps-visual-studio-code/enter-name-resource-group.png)
 
 1. Seleccione la ubicación del centro de datos para guardar los metadatos de la aplicación lógica.
 
-   ![Seleccionar ubicación](./media/create-logic-apps-visual-studio-code/select-location.png)
+   ![Seleccionar la ubicación de Azure para guardar los metadatos de la aplicación lógica](./media/create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
 
 1. Proporcione un nombre para la aplicación lógica y, a continuación, presione ENTRAR.
 
-   ![Asignar un nombre a la aplicación lógica](./media/create-logic-apps-visual-studio-code/enter-name-logic-app.png)
+   ![Especificar el nombre de la aplicación lógica](./media/create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
    La nueva aplicación lógica aparece ahora en la ventana de Azure, en su suscripción. Ahora puede empezar a crear la definición del flujo de trabajo de la aplicación lógica.
 
-1. En el menú contextual de la aplicación lógica, seleccione **Abrir en el editor**. 
+1. En el menú contextual de la aplicación lógica, seleccione **Abrir en el editor**.
 
-   ![Abrir aplicación lógica en el editor](./media/create-logic-apps-visual-studio-code/open-new-logic-app.png)
+   ![Abrir aplicación lógica en el editor de la vista del código](./media/create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
 
-   Visual Studio Code abre una plantilla de definición de flujo de trabajo de aplicación lógica (archivo logicapp.json) para que pueda empezar a crear el flujo de trabajo de la aplicación lógica.
+   Visual Studio Code abre una plantilla de definición de flujo de trabajo de la aplicación lógica (archivo .logicapp.json) para que pueda empezar a crear el flujo de trabajo de la aplicación lógica.
 
    ![Nueva definición del flujo de trabajo de la aplicación lógica](./media/create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
 
-1. En el archivo de plantilla de definición del flujo de trabajo de la aplicación lógica, empiece a compilar esta definición. Para más información técnica, consulte el [esquema del lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
+1. En el archivo de plantilla de definición del flujo de trabajo de la aplicación lógica, empiece a compilar esta definición.
+Para más información técnica, consulte el [esquema del lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
-   Este es un ejemplo de definición lógica. Normalmente, los elementos JSON aparecen ordenados alfabéticamente dentro de cada sección, pero este ejemplo muestra estos elementos aproximadamente en el mismo orden en el que aparecen los pasos de la aplicación lógica en el diseñador.
+   Este es un ejemplo de definición lógica. Normalmente, los elementos JSON aparecen en orden alfabético en cada sección. Sin embargo, en este ejemplo se muestran aproximadamente en el orden en que aparecen los pasos de la aplicación lógica en el diseñador.
 
    ```json
    {
@@ -185,28 +185,28 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
          }
       },
       "outputs": {}
-   }   
+   }
    ```
 
-1. Cuando haya terminado, guarde el archivo de definición de la aplicación lógica. Cuando Visual Studio Code le solicite que confirme la carga de la definición de la aplicación lógica en su suscripción de Azure, elija **Cargar**.
+1. Cuando haya terminado, guarde el archivo de definición de la aplicación lógica. Cuando Visual Studio Code le solicite que confirme la carga de la definición de la aplicación lógica en su suscripción de Azure, seleccione **Cargar**.
 
-   ![Cargar la nueva aplicación lógica](./media/create-logic-apps-visual-studio-code/upload-new-logic-app.png)
+   ![Cargar la aplicación lógica nueva en la suscripción de Azure](./media/create-logic-apps-visual-studio-code/upload-new-logic-app.png)
 
-   Una vez que Visual Studio Code publique la aplicación lógica en Azure, puede ver que la aplicación está ya activa y en ejecución en Azure Portal. 
+   Una vez que Visual Studio Code publique la aplicación lógica en Azure, puede ver que la aplicación está ya activa y en ejecución en Azure Portal.
 
-   ![Aplicación lógica publicada en Azure Portal](./media/create-logic-apps-visual-studio-code/published-logic-app.png)
+   ![Aplicación lógica publicada en Azure Portal](./media/create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
 <a name="edit-logic-app"></a>
 
 ## <a name="edit-logic-app"></a>Edición de la aplicación lógica
 
-Para trabajar en una aplicación lógica existente que ya esté implementada en Azure, puede abrir el archivo de definición del flujo de trabajo de la aplicación en Visual Studio Code.
+Para trabajar en una aplicación lógica publicada en Azure, puede abrir la definición de la aplicación lógica mediante Visual Studio Code.
 
 1. Si aún no ha iniciado sesión en su suscripción de Azure desde dentro de Visual Studio Code, siga los pasos descritos en este artículo para [iniciar sesión ahora](#sign-in-azure).
 
-1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción de Azure y seleccione la aplicación lógica que quiera. 
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción de Azure y seleccione la aplicación lógica que quiera.
 
-1. En el menú de la aplicación lógica, seleccione **Abrir en el editor**. O bien, junto al nombre de la aplicación lógica, elija el icono de edición.
+1. En el menú de la aplicación lógica, seleccione **Abrir en el editor**. O bien, junto al nombre de la aplicación lógica, seleccione el icono de edición.
 
    ![Abrir el editor para la aplicación lógica existente](./media/create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -218,9 +218,9 @@ Para trabajar en una aplicación lógica existente que ya esté implementada en 
 
 1. Cuando haya terminado, guarde los cambios.
 
-1. Cuando Visual Studio Code le solicite que actualice la carga de la definición de la aplicación lógica en su suscripción de Azure, elija **Cargar**. 
+1. Cuando Visual Studio Code le solicite que actualice la carga de la definición de la aplicación lógica en su suscripción de Azure, seleccione **Cargar**.
 
-   ![Cargar sus ediciones](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
+   ![Cargar las ediciones en la definición de la aplicación lógica](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

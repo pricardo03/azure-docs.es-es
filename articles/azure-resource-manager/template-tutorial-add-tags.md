@@ -1,0 +1,101 @@
+---
+title: 'Tutorial: Adición de etiquetas a recursos en una plantilla de Azure Resource Manager'
+description: Agregue etiquetas a los recursos que implemente en la plantilla de Azure Resource Manager. Las etiquetas permiten organizar los recursos de manera lógica.
+services: azure-resource-manager
+author: mumian
+manager: carmonmills
+ms.service: azure-resource-manager
+ms.date: 10/04/2019
+ms.topic: tutorial
+ms.author: jgao
+ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177566"
+---
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adición de etiquetas a la plantilla de Resource Manager
+
+En este tutorial, aprenderá a agregar etiquetas a los recursos de la plantilla. Las [etiquetas](resource-group-using-tags.md) le ayudan a organizar los recursos de forma lógica. Los valores de la etiqueta se muestran en los informes de costos. Este tutorial se realiza en **8 minutos**.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las plantillas de inicio rápido](template-tutorial-quickstart-template.md).
+
+Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
+
+## <a name="review-your-template"></a>Revisión de la plantilla
+
+La plantilla anterior implementó una cuenta de almacenamiento, un plan de App Service y una aplicación web.
+
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+
+Después de implementar estos recursos, es posible que tenga que realizar un seguimiento de los costos y encontrar los recursos que pertenecen a una categoría. Para ayudar a resolver estos problemas, puede agregar etiquetas.
+
+## <a name="add-tags"></a>Incorporación de etiquetas
+
+Etiquete los recursos para agregar valores que le ayuden a identificar su uso. Por ejemplo, puede agregar etiquetas que muestren el entorno y el proyecto. Podría agregar etiquetas que identificaran un centro de costos o el equipo que posee el recurso. Agregue valores que tengan sentido para su organización.
+
+En el ejemplo siguiente se resaltan los cambios en la plantilla. Copie el archivo completo y reemplace la plantilla por su contenido.
+
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
+
+## <a name="deploy-the-template"></a>Implementación de la plantilla
+
+Es momento de implementar la plantilla y examinar los resultados.
+
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name addtags `
+  -ResourceGroupName myResourceGroup `
+  -TemplateFile $templateFile `
+  -storagePrefix "store" `
+  -storageSKU Standard_LRS `
+  -webAppName demoapp
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az group deployment create \
+  --name addtags \
+  --resource-group myResourceGroup \
+  --template-file $templateFile \
+  --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
+```
+
+---
+
+## <a name="verify-the-deployment"></a>Comprobar la implementación
+
+Para comprobar la implementación, explore el grupo de recursos desde Azure Portal.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. En el menú izquierdo, seleccione **Grupos de recursos**.
+1. Seleccione el grupo de recursos en el que ha realizado la implementación.
+1. Seleccione uno de los recursos, por ejemplo, el recurso de cuenta de almacenamiento. Verá que ahora tiene etiquetas.
+
+   ![Mostrar etiquetas](./media/template-tutorial-add-tags/show-tags.png)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si va a pasar al siguiente tutorial, no es necesario que elimine el grupo de recursos.
+
+Si va a terminar ya, puede eliminar el grupo de recursos para limpiar los recursos que ha implementado.
+
+1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
+2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
+3. Seleccione el nombre del grupo de recursos.
+4. Seleccione **Eliminar grupo de recursos** del menú superior.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial, ha agregado etiquetas a los recursos. En el siguiente tutorial, aprenderá a usar archivos de parámetros para simplificar el paso de valores a la plantilla.
+
+> [!div class="nextstepaction"]
+> [Uso de archivos de parámetros](template-tutorial-use-parameter-file.md)

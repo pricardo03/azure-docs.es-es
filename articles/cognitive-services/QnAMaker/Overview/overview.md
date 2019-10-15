@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815505"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973798"
 ---
 # <a name="what-is-the-qna-maker-service"></a>¿Qué es el servicio QnA Maker?
 
@@ -36,7 +36,7 @@ Una vez publicada una base de conocimiento de QnA Maker, una aplicación cliente
 
 ![Formulación de una pregunta a un bot y respuesta del contenido de la base de conocimiento](../media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
-|Paso|.|
+|Paso|Acción|
 |:--|:--|
 |1|La aplicación cliente envía la _pregunta_  del usuario (texto en sus propias palabras) "Cómo actualizar mi base de conocimiento mediante programación?" al punto de conexión de la base de conocimiento.|
 |2|QnA Maker usa la base de conocimiento entrenada para proporcionar la respuesta correcta y las solicitudes de seguimiento que se pueden usar para refinar la búsqueda de la mejor respuesta. QnA Maker devuelve una respuesta con formato JSON.|
@@ -85,21 +85,8 @@ QnA Maker permite la creación, el entrenamiento y la publicación, además de o
 
 **Paso 4**: Desde la aplicación cliente, llame al punto de conexión de la base de conocimiento mediante programación y lea la respuesta JSON para mostrar la mejor respuesta al usuario.  
 
-## <a name="news-and-updates"></a>Noticias y actualizaciones
-
-Conozca las novedades de QnA Maker.
-
-* Junio de 2019
-    * Modelo de clasificación mejorado para francés, Italiano, alemán, español y portugués
-* Abril de 2019
-    * Extracción de contenido del sitio web de soporte
-    * Compatibilidad con documentos de SharePoint
-* Marzo de 2019
-    * Aprendizaje activo 
-    * Modelo de clasificación NLP mejorado para inglés 
-
 ## <a name="next-steps"></a>Pasos siguientes
 QnA Maker proporciona todo lo que necesita para compilar, administrar e implementar la base de conocimiento personalizada. 
 
 > [!div class="nextstepaction"]
-> [Crear un servicio QnA Maker](../how-to/set-up-qnamaker-service-azure.md)
+> [Revisar los últimos cambios](../whats-new.md)

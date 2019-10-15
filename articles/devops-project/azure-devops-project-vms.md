@@ -2,19 +2,19 @@
 title: 'Tutorial: Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Projects'
 description: DevOps Projects facilita tanto que se empiece a usar Azure como que se implemente una aplicación ASP.NET en máquinas virtuales de Azure en pocos pasos.
 ms.author: mlearned
-ms.manager: douge
+manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165703"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969555"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutorial: Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Projects
 
@@ -30,18 +30,18 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Azure Repos e implementarlos automáticamente en Azure
-> * A configurar la supervisión de Azure Application Insights
-> * A limpiar recursos
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
+> * Configurar la supervisión de Azure Application Insights
+> * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-deploy-your-aspnet-app"></a>Uso de DevOps Projects para implementar una aplicación ASP.NET
+## <a name="use-devops-projects-to-deploy-your-aspnet-app"></a>A usar DevOps Projects para implementar una aplicación ASP.NET
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como máquinas virtuales, en la suscripción de Azure que se elija.
 
@@ -93,7 +93,7 @@ DevOps Projects ha configurado automáticamente una canalización de CI/CD en Az
 1. Seleccione **Editar**.
 
 1. En este panel puede examinar las distintas tareas de la canalización de compilación.  
-    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas usadas para implementaciones.
+    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar las salidas usadas para implementaciones.
 
 1. En la parte superior de la canalización de compilación, seleccione el nombre de esta.
 
@@ -212,12 +212,12 @@ En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar de la canalización de CD
-> * A confirmar los cambios en Azure Repos e implementarlos automáticamente en Azure
-> * A configurar la supervisión de Azure Application Insights
-> * A limpiar recursos
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
+> * Configurar la supervisión de Azure Application Insights
+> * Limpieza de recursos
 
 Para más información acerca de la canalización de CI/CD, consulte:
 

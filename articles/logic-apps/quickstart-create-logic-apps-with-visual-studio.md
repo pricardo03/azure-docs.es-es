@@ -12,12 +12,12 @@ ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
-ms.openlocfilehash: c9248e5bcc9ebd819518b6ee609f529ea9b8f8bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 47b7609fe111ecbe41a161bfbff1f7225ad66357
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051700"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165926"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -27,7 +27,7 @@ Si no está familiarizado con Azure Logic Apps y solo desea conocer los concepto
 
 En este inicio rápido, crea la misma aplicación lógica que en el inicio rápido de Azure Portal, pero con Visual Studio. Esta aplicación lógica supervisa la fuente RSS de un sitio web y envía un correo electrónico para cada nuevo elemento de dicha fuente. La aplicación lógica finalizada se parecerá a este flujo de trabajo general:
 
-![Aplicación lógica terminada](./media/quickstart-create-logic-apps-with-visual-studio/overview.png)
+![Introducción al flujo de trabajo de una aplicación lógica de alto nivel](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -59,6 +59,8 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
     Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender [a instalar esta extensión desde Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
 
+* Para trabajar con distintos entornos de Azure, como Azure Government, puede instalar y usar la extensión [Azure Environment Selector](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector), que facilita el cambio de entorno. Para más información, consulte el artículo en el que se [presenta la extensión Azure Environment Selector de Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
+
 * Acceso a la web al usar el Diseñador de aplicaciones lógicas integrado
 
   El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica. 
@@ -76,7 +78,7 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 1. En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**. (Teclado: Ctrl+Mayús+N)
 
-   ![En el menú "Archivo", seleccione "Nuevo" > "Proyecto"](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
+   ![Creación de un nuevo proyecto de Visual Studio](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
 1. En **Instalado**, seleccione **Visual C#** o **Visual Basic**. Seleccione **Nube** > **Grupo de recursos de Azure**. Asigne un nombre al proyecto, por ejemplo:
 
@@ -95,7 +97,7 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 1. En la lista de plantillas, seleccione la plantilla **Logic App**. Elija **Aceptar**.
 
-   ![Selección de la plantilla de aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
+   ![Seleccione la plantilla "Aplicación lógica" para crear el proyecto](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
    Después de que Visual Studio cree el proyecto, el Explorador de soluciones se abre y muestra la solución. 
    En la solución, el archivo**LogicApp.json** no solo almacena la definición de la aplicación lógica, sino que también es una plantilla de Azure Resource Manager que puede configurar para la implementación.
@@ -142,7 +144,7 @@ En el cuadro de búsqueda, escriba "rss". En la lista de desencadenadores, selec
 
 1. Cuando el desencadenador se muestra en el diseñador, termine de crear la aplicación lógica, siga los pasos del flujo de trabajo en el [Inicio rápido de Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md#add-rss-trigger) y, después, vuelva a este artículo. Cuando haya terminado, la aplicación lógica se parecerá a este ejemplo:
 
-   ![Aplicación lógica terminada](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
+   ![Ejemplo de flujo de trabajo de aplicación lógica finalizado](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app-workflow.png)
 
 1. Guarde la solución de Visual Studio. (Teclado: Ctrl + S)
 
@@ -154,7 +156,7 @@ Antes de poder ejecutar y probar la aplicación lógica, implemente la aplicaci�
 
 1. En el Explorador de soluciones, en el menú contextual del proyecto, seleccione **Implementar** > **Nuevo**. Si se le pide, inicie sesión en su cuenta de Azure.
 
-   ![Creación de implementación de la aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
+   ![Creación de una implementación de aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
 1. Para esta implementación, mantenga la suscripción de Azure, el grupo de recursos y otras configuraciones predeterminadas. Elija **Implementar**.
 
@@ -166,18 +168,18 @@ Antes de poder ejecutar y probar la aplicación lógica, implemente la aplicaci�
 
    Cuando se inicia la implementación, aparece el estado de la implementación de la aplicación en la ventana **Salida** de Visual Studio. Si no aparece el estado, abra la lista **Mostrar salida de** y seleccione el grupo de recursos de Azure.
 
-   ![Salida del estado de la implementación](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
+   ![Estado de implementación en la ventana de salida de Visual Studio](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
    Si los conectores seleccionados necesitan que el usuario escriba datos, se abre una ventana de PowerShell en segundo plano y le solicita las contraseñas o claves secretas necesarias. Después de escribir esta información, la implementación continúa.
 
-   ![Ventana de PowerShell](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   ![Símbolo del sistema de PowerShell para contraseñas o claves secretas](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
 
    Una vez finalizada la implementación, la aplicación lógica está activa en Azure Portal y se ejecuta en función de la programación especificada (cada minuto). Si el desencadenador encuentra nuevos elementos de fuente, el desencadenador se activa, que crea una instancia de flujo de trabajo que ejecuta las acciones de la aplicación lógica. La aplicación lógica envía un correo electrónico por cada nuevo elemento. Si el desencadenador no encuentra nuevos elementos, no se activa y "omite" crear instancias del flujo de trabajo. La aplicación lógica espera hasta el siguiente intervalo antes de volver a realizar la comprobación.
 
    Estos son correos electrónicos de ejemplo que envía esta aplicación lógica. 
    Si no obtiene los mensajes de correo electrónico, compruebe la carpeta de correo electrónico no deseado.
 
-   ![Outlook envía un mensaje de correo electrónico para cada nuevo elemento RSS](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
+   ![Outlook envía un mensaje de correo electrónico para cada nuevo elemento RSS](./media/quickstart-create-logic-apps-with-visual-studio/example-outlook-email.png)
 
 Ya ha creado e implementado correctamente la aplicación lógica con Visual Studio. Para administrar la aplicación lógica y revisar su historial de ejecución, consulte [Administración de aplicaciones lógicas con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
@@ -191,11 +193,11 @@ Si tiene un proyecto de grupo de recursos de Azure existente, puede agregar una 
 
 1. Para agregar un recurso al archivo de plantilla, seleccione **Agregar recurso** en la parte superior de la ventana Esquema JSON. O, en la ventana Esquema de JSON, haga clic en **recursos** y seleccione **Agregar nuevo recurso**.
 
-   ![Ventana Esquema JSON](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+   ![En la ventana Esquema JSON, agregue un nuevo recurso](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. En el cuadro de diálogo **Agregar recurso**, busque y seleccione **Aplicación lógica**. Asigne un nombre a la aplicación lógica y elija **Agregar**.
 
-   ![Agregar recurso](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
+   ![Agregar un nuevo recurso de aplicación lógica al proyecto](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -208,7 +210,7 @@ Seleccione el grupo de recursos de la aplicación lógica y elija **Introducció
 
 1. En la página **Información general**, elija **Eliminar grupo de recursos**. Escriba el nombre del grupo de recursos como confirmación y elija **Eliminar**.
 
-   !["Grupos de recursos" > "Introducción" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   ![Eliminar grupo de recursos de aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 
 1. Elimine la solución de Visual Studio del equipo local.
 

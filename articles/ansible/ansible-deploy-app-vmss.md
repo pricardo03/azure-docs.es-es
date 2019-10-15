@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure con Ansible | Microsoft Docs'
+title: 'Tutorial: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure con Ansible'
 description: Obtenga información sobre cómo usar Ansible para configurar conjuntos de escalado de máquinas virtuales de Azure e implementar una aplicación en el conjunto de escalado.
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231052"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241746"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure con Ansible
 
@@ -36,7 +36,7 @@ ms.locfileid: "65231052"
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - **git** - [git](https://git-scm.com) se usa para descargar un ejemplo de Java utilizado en este tutorial.
-- **Java SE Development Kit (JDK)**: el [JDK](https://aka.ms/azure-jdks) se usa para compilar el proyecto de Java de ejemplo.
+- **Java SE Development Kit (JDK)** : el [JDK](https://aka.ms/azure-jdks) se usa para compilar el proyecto de Java de ejemplo.
 - **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) se usa para compilar el proyecto de Java de ejemplo.
 
 ## <a name="get-host-information"></a>Obtención de información sobre host
@@ -165,7 +165,7 @@ Hay dos formas de obtener el cuaderno de estrategias de ejemplo:
     poll: 0
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 * En la sección `vars`, reemplace el marcador de posición `{{ admin_password }}` por su propia contraseña.
 * Para usar el tipo de conexión ssh con contraseñas, instale el programa sshpass:

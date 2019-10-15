@@ -17,19 +17,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d6747193b8c82119e45a24e3e4bffc065db14e51
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8c3bc90b282092ede0e924d32b50b67e5c4e22b8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212163"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244500"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integración con App Service Mobile Apps
 
-> [!NOTE]
-> Microsoft se compromete a proporcionar compatibilidad total con App Service Mobile Apps, incluida la compatibilidad con la última versión del sistema operativo, las correcciones de errores, las mejoras de la documentación y las revisiones de PR de la comunidad. Tenga en cuenta que el equipo del producto no está invirtiendo actualmente en ningún trabajo sobre nuevas características para Azure Mobile Apps. Valoramos significativamente las contribuciones de la comunidad a todas las áreas de Azure Mobile Apps.
-
 Para facilitar una experiencia perfecta y unificadora entre servicios de Azure, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) tiene compatibilidad integrada con notificaciones push mediante Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) ofrece una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
+
+En la actualidad, Visual Studio App Center ofrece a los desarrolladores una solución para dispositivos móviles más moderna. Admite servicios integrados de un extremo a otro fundamentales para el desarrollo de aplicaciones móviles. Los desarrolladores pueden usar los servicios de **compilación**, **prueba** y **distribución** para configurar la canalización de integración y entrega continuas. Una vez que se ha implementado la aplicación, los desarrolladores pueden supervisar el estado y el uso de su aplicación con los servicios de **análisis** y **diagnóstico**, e interactuar con los usuarios que utilizan el servicio de **Push** (inserción). Además, los desarrolladores pueden aprovechar **Auth** para autenticar a los usuarios y el servicio de **datos** para almacenar y sincronizar los datos de la aplicación en la nube.
+
+> [!NOTE]
+> Si está pensando en integrar servicios en la nube en su aplicación para dispositivos móviles, regístrese en [App Center](https://appcenter.ms/signup?utm_source=NotificationHubs&utm_medium=Azure&utm_campaign=docs) hoy mismo.
 
 Los desarrolladores de aplicaciones móviles pueden usar Notification Hubs con el siguiente flujo de trabajo:
 

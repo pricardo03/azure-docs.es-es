@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5d842c2d6ff84a0f17c4e8be0bfade018edc48b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111333"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959972"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ Este artículo lo guía por los pasos necesarios para crear su primera zona y su
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Finalmente, para publicar la zona DNS en Internet, debe configurar los servidores de nombres para el dominio. A continuación, se describen cada uno de estos pasos.
 
-Azure DNS admite zonas DNS privadas (actualmente en versión preliminar pública). Para más información acerca de las zonas DNS privadas, consulte [Using Azure DNS for private domains](private-dns-overview.md) (Uso de Azure DNS para dominios privados). Para ver un ejemplo de cómo crear una zona DNS privada, consulte [Get started with Azure DNS Private Zones using CLI](./private-dns-getstarted-cli.md) (Introducción al uso de la CLI de Azure 2.0 con las zonas privadas de Azure DNS).
+Azure DNS también admite zonas DNS privadas. Para más información acerca de las zonas DNS privadas, consulte [Using Azure DNS for private domains](private-dns-overview.md) (Uso de Azure DNS para dominios privados). Para ver un ejemplo de cómo crear una zona DNS privada, consulte [Get started with Azure DNS Private Zones using CLI](./private-dns-getstarted-cli.md) (Introducción al uso de la CLI de Azure 2.0 con las zonas privadas de Azure DNS).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0c7d3ed7e2cbaee7d30f368efa004bbb3daaafdd
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211789"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996872"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#
 
@@ -41,38 +41,19 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
 
 - Los datos de trazo de entrada de lápiz para este inicio rápido se pueden encontrar en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+### <a name="create-an-ink-recognizer-resource"></a>Creación de un recurso de Ink Recognizer
 
+[!INCLUDE [creating-an-ink-recognizer-resource](../includes/setup-instructions.md)]
 
 ## <a name="create-a-new-application"></a>Creación de una aplicación
 
 1. En Visual Studio, cree una solución de consola y agregue los siguientes paquetes. 
+    
+    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    ```
+2. Cree variables para la clave de suscripción y el punto de conexión, y el archivo JSON de ejemplo. El punto de conexión se combinará más adelante con `inkRecognitionUrl` para acceder a la API. 
 
-2. Cree variables para la clave de suscripción y el punto de conexión. Reemplace el punto de conexión siguiente por el que se ha generado para el recurso de Ink Recognizer. Agréguelo al URI de Ink Recognizer para conectarse a la API.
-
-    ```csharp
-    // Replace the subscriptionKey string with your valid subscription key.
-    const string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Replace the dataPath string with a path to the JSON formatted ink stroke data.
-    const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
-
-    // URI information for ink recognition:
-    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-    const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
-    ```
+    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Creación de una función para enviar solicitudes
 
@@ -82,25 +63,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
  
 3. Envíe la solicitud con `PutAsync()`. Si la solicitud es correcta, devuelva la respuesta.  
     
-    ```csharp
-    static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
-        
-        using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            var content = new StringContent(requestData, Encoding.UTF8, "application/json");
-            var res = await client.PutAsync(endpoint, content);
-            if (res.IsSuccessStatusCode){
-                return await res.Content.ReadAsStringAsync();
-            }
-            else{
-                return $"ErrorCode: {res.StatusCode}";
-            }
-        }
-    }
-    ```
+    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Envío de una solicitud de reconocimiento de entada de lápiz
 
@@ -108,37 +71,13 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
 
 2. Deserialice el objeto JSON y escríbalo en la consola. 
     
-    ```csharp
-    static void recognizeInk(string requestData){
-
-        //construct the request
-        var result = Request(
-            endpoint,
-            inkRecognitionUrl,
-            subscriptionKey,
-            requestData).Result;
-
-        dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-        System.Console.WriteLine(jsonObj);
-    }
-    ```
+    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 
 ## <a name="load-your-digital-ink-data"></a>Carga de los datos de entrada de lápiz digital
 
 Cree una función llamada `LoadJson()` para cargar el archivo JSON de datos de entrada de lápiz. Use `StreamReader` y `JsonTextReader` para crear un objeto `JObject` y devolverlo.
-    
-```csharp
-public static JObject LoadJson(string fileLocation){
 
-    var jsonObj = new JObject();
-
-    using (StreamReader file = File.OpenText(fileLocation))
-    using (JsonTextReader reader = new JsonTextReader(file)){
-        jsonObj = (JObject)JToken.ReadFrom(reader);
-    }
-    return jsonObj;
-}
-```
+[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
 ## <a name="send-the-api-request"></a>Envío de la solicitud de API
 
@@ -146,16 +85,8 @@ public static JObject LoadJson(string fileLocation){
 
 2. Llame a la función `recognizeInk()` creada anteriormente. Use `System.Console.ReadKey()` para mantener abierta la ventana de consola después de ejecutar la aplicación.
     
-    ```csharp
-    static void Main(string[] args){
+    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 
-        var requestData = LoadJson(dataPath);
-        string requestString = requestData.ToString(Newtonsoft.Json.Formatting.None);
-        recognizeInk(requestString);
-        System.Console.WriteLine("\nPress any key to exit ");
-        System.Console.ReadKey();
-        }
-    ```
 
 ## <a name="run-the-application-and-view-the-response"></a>Ejecución de la aplicación y visualización de la respuesta
 

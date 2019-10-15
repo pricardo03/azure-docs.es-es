@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de cachés en Azure Redis Cache mediante Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de cachés en Azure Redis Cache mediante Ansible'
 description: Obtenga información sobre cómo usar Ansible para crear, escalar y reiniciar Azure Redis Cache.
 keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 693b042f631044352eaae708905fefca02f38415
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231022"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241794"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutorial: Configuración de cachés en Azure Redis Cache mediante Ansible
 

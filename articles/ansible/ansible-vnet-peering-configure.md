@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración del emparejamiento de redes virtuales de Azure con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración del emparejamiento de redes virtuales de Azure con Ansible'
 description: Obtenga información sobre cómo usar Ansible para conectar redes virtuales con el emparejamiento de redes virtuales.
 keywords: ansible, azure, devops, bash, playbook, networking, peering
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f51e7c857a22a362a3d295fbe087c54b25f85780
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230764"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241233"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutorial: Configuración del emparejamiento de redes virtuales de Azure con Ansible
 

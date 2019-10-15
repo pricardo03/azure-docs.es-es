@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/4/2019
+ms.date: 10/08/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241173"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001330"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -79,10 +79,6 @@ El tráfico de red entrante a la dirección IP pública de firewall se traduce (
 
 ## <a name="multiple-public-ip-addresses"></a>Varias direcciones IP públicas
 
-> [!IMPORTANT]
-> Azure Firewall con varias direcciones IP públicas está disponible mediante Azure Portal, Azure PowerShell, la CLI de Azure, REST y plantillas.
-
-
 Puede asociar varias direcciones IP públicas (hasta 100) con el firewall.
 
 Esto admite los siguientes escenarios:
@@ -118,7 +114,7 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |Availability Zones solo se puede configurar durante la implementación.|Availability Zones solo se puede configurar durante la implementación. No se puede configurar una vez implementado un firewall.|Esto es así por diseño.|
 |SNAT en conexiones entrantes|Además de DNAT, en las conexiones mediante la dirección IP pública del firewall (entrante) se aplica SNAT en una de las direcciones IP privadas del firewall. Este requisito hoy en día (también para aplicaciones virtuales de red activa/activa) es para garantizar el enrutamiento simétrico.|Para conservar el código fuente original para HTTP/S, considere el uso de encabezados [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Por ejemplo, use un servicio como [Azure Portal](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) delante del firewall. También puede agregar WAF como parte de Azure Front Door Service y la cadena al firewall.
 |El filtrado por nombre de dominio completo de SQL se admite solo en modo de proxy (puerto 1433)|Para Azure SQL Database, Azure SQL Data Warehouse e Instancia administrada de SQL Database:<br><br>Durante la versión preliminar, el filtrado por nombre de dominio completo de SQL se admite solo en modo de proxy (puerto 1433).<br><br>Para IaaS de Azure SQL:<br><br>Si va a usar puertos que no son los estándar, puede especificar esos puertos en las reglas de la aplicación.|Para SQL en modo de redirección, que es el valor predeterminado si se conecta desde dentro de Azure, puede filtrar en su lugar el acceso mediante la etiqueta de servicio de SQL como parte de las reglas de red de Azure Firewall.
-|No se permite el tráfico de salida en el puerto TCP 25.| Las conexiones SMTP salientes que usan el puerto TCP 25 se bloquearon. El puerto 25 se usa principalmente para la entrega de correo electrónico sin autenticación. Éste es el comportamiento predeterminado de la plataforma para las máquinas virtuales. Para más información, consulte [Solución de problemas de conectividad SMTP saliente en Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Sin embargo, a diferencia de las máquinas virtuales, actualmente no es posible habilitar esta funcionalidad en Azure Firewall.|Siga el método recomendado para enviar correo electrónico como se documenta en el artículo de solución de problemas de SMTP. Como alternativa, excluya la máquina virtual que necesita acceso SMTP saliente desde la ruta predeterminada al firewall y, en su lugar, configure el acceso saliente directamente a Internet.
+|No se permite tráfico de salida en el puerto TCP 25.| Las conexiones SMTP salientes que usan el puerto TCP 25 se bloquearon. El puerto 25 se usa principalmente para la entrega de correo electrónico sin autenticación. Éste es el comportamiento predeterminado de la plataforma para las máquinas virtuales. Para más información, consulte [Solución de problemas de conectividad SMTP saliente en Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Sin embargo, a diferencia de las máquinas virtuales, actualmente no es posible habilitar esta funcionalidad en Azure Firewall.|Siga el método recomendado para enviar correo electrónico como se documenta en el artículo de solución de problemas de SMTP. Como alternativa, excluya la máquina virtual que necesita acceso SMTP saliente desde la ruta predeterminada al firewall y, en su lugar, configure el acceso saliente directamente a Internet.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

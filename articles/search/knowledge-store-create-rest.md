@@ -7,100 +7,107 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: 26dc66474eecffd7f5a34bcfcaf93fd49f59606c
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936512"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244462"
 ---
-# <a name="create-an-azure-search-knowledge-store-using-rest"></a>Creación de un almacén de conocimiento de Azure Search con REST
+# <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>Creación de un almacén de conocimiento de Azure Search con REST
 
-El almacén de conocimiento es una característica de Azure Search que conserva la salida de una canalización de enriquecimiento de inteligencia artificial para su análisis posterior o para otro procesamiento descendente. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o archivos de texto no estructurados, los indexa mediante Azure Search, aplica los enriquecimientos de inteligencia artificial de Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y, a continuación, guarda los resultados en un almacén de conocimiento en Azure Storage. A continuación, puede usar herramientas como Power BI o el Explorador de Storage para explorar el almacén de conocimiento.
+El almacén de conocimiento es una característica de Azure Search que conserva la salida de una canalización de enriquecimiento de inteligencia artificial para su análisis o procesamiento posteriores. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Search, aplica los enriquecimientos de inteligencia artificial de Azure Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
 
-En este artículo usará la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de AI a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage y los resultados se guardan como almacén de conocimiento en Azure Table Storage.
+En este artículo se usa la interfaz de API REST para ingerir, indexar y aplicar los enriquecimientos de inteligencia artificial a un conjunto de reseñas sobre hoteles. Las reseñas sobre hoteles se importan en Azure Blob Storage. Los resultados se guardan como almacén de información en Azure Table Storage.
 
-Después de crear el almacén de conocimiento, aprenda a acceder a él mediante el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
+Después de crear el almacén de conocimiento, puede aprender a acceder a este mediante el [Explorador de Storage](knowledge-store-view-storage-explorer.md) o [Power BI](knowledge-store-connect-power-bi.md).
 
-## <a name="1---create-services"></a>1: Creación de servicios
+## <a name="create-services"></a>Creación de servicios
 
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
+Cree los servicios siguientes:
 
-+ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo y el almacén de conocimiento. La cuenta de almacenamiento debe usar la misma ubicación (por ejemplo, oeste de EE. UU.) para el servicio Azure Search. *Tipo de cuenta* debe ser *StorageV2 (de uso general V2)* (predeterminado) o *Storage (de uso general V1)* .
+- Cree un [servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
-+ Se recomienda: La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search. Puede usar API REST con cualquier herramienta capaz de trabajar con solicitudes y respuestas HTTP. Postman es una buena opción para explorar las API REST y se usará en este artículo. Además, el [código fuente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) de este artículo incluye una colección de solicitudes de Postman. 
+- Cree una [cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo y el almacén de conocimiento. La cuenta de almacenamiento debe usar la misma ubicación (por ejemplo, oeste de EE. UU.) para el servicio Azure Search. El valor de **Tipo de cuenta** debe ser **StorageV2 (de uso general V2)** (predeterminado) o **Storage (de uso general V1)** .
 
-## <a name="2---store-the-data"></a>2: Almacenamiento de los datos
+- Se recomienda: Obtenga la [aplicación de escritorio Postman](https://www.getpostman.com/) para enviar solicitudes a Azure Search. Puede usar API REST con cualquier herramienta capaz de trabajar con solicitudes y respuestas HTTP. Postman es una buena opción para explorar las API REST. En este artículo se usa Postman. Además, el [código fuente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) de este artículo incluye una recopilación de solicitudes de Postman. 
+
+## <a name="store-the-data"></a>Almacenamiento de los datos
 
 Cargue el archivo CSV de reseñas de hoteles en Azure Blob Storage para que un indexador de Azure Search pueda acceder a él y se pueda realizar el suministro mediante la canalización de enriquecimiento de inteligencia artificial.
 
-### <a name="create-an-azure-blob-container-with-the-data"></a>Creación de un contenedor de blobs de Azure con los datos
+### <a name="create-a-blob-container-by-using-the-data"></a>Creación de un contenedor de blobs mediante los datos
 
-1. [Descargue los datos de reseñas de hoteles guardados en un archivo CSV (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Estos datos proceden de Kaggle.com y contienen comentarios de los clientes sobre hoteles.
-1. [Inicie sesión en Azure Portal](https://portal.azure.com) y vaya a la cuenta de Azure Storage.
-1. [Cree un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Para crear el contenedor, en la barra de navegación izquierda de la cuenta de almacenamiento, haga clic en **Blobs** y en **+ Contenedor** en la barra de comandos.
-1. En el **Nombre** del nuevo contenedor, escriba `hotel-reviews`.
-1. Seleccione cualquier **Nivel de acceso público**. Usamos el valor predeterminado.
-1. Haga clic en **Aceptar** para crear el contenedor de blobs de Azure.
-1. Abra el nuevo contenedor `hotels-review`, haga clic en **Cargar** y seleccione el archivo **HotelReviews-Free.csv** que descargó en el primer paso.
+1. Descargue los [datos de reseñas sobre hoteles](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) guardados en un archivo CSV (HotelReviews_Free.csv). Estos datos proceden de Kaggle.com y contienen comentarios de los clientes sobre hoteles.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la cuenta de Azure Storage.
+1. Cree un [contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Para crear el contenedor, en el menú de la izquierda de la cuenta de almacenamiento, seleccione **Blobs** y **Contenedor**.
+1. En **Nombre** del nuevo contenedor, escriba **hotel-reviews**.
+1. Para **Nivel de acceso público**, seleccione cualquier valor. Usamos el valor predeterminado.
+1. Seleccione **Aceptar** para crear el contenedor de blobs.
+1. Abra el nuevo contenedor **hotel-reviews**, seleccione **Cargar** y, después, el archivo HotelReviews-Free.csv que descargó en el primer paso.
 
     ![Carga de los datos](media/knowledge-store-create-portal/upload-command-bar.png "Carga de las reseñas de hoteles")
 
-1. Haga clic en **Cargar** para importar el archivo CSV en Azure Blob Storage. Aparecerá el nuevo contenedor.
+1. Seleccione **Cargar** para importar el archivo CSV en Azure Blob Storage. Aparecerá el nuevo contenedor:
 
-    ![Creación del contenedor de blobs de Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
+    ![Creación del contenedor de blobs](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the blob container")
 
-## <a name="3---configure-postman"></a>3: Configuración de Postman
+## <a name="configure-postman"></a>Configuración de Postman
 
-Descargue el [código fuente de la colección de Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) e impórtelo en Postman mediante **File, Import...** (Archivo, Importar...). Cambie a la pestaña **Collections** (Colecciones), haga clic en el botón **...** y seleccione **Edit** (Editar). 
+Instale y configure Postman.
 
-![Aplicación Postman que muestra la navegación](media/knowledge-store-create-rest/postman-edit-menu.png "Dirección al menú Edit (Editar) en Postman")
+### <a name="download-and-install-postman"></a>Descarga e instalación de Postman
 
-En el cuadro de diálogo Edit (Editar) resultante, vaya a la pestaña **Variables** (Variables). 
+1. Descargue el [código fuente de la recopilación de Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json).
+1. Seleccione **Archivo** > **Importar** para importar el código fuente en Postman.
+1. Seleccione la pestaña **Recopilaciones** el botón **...** (puntos suspensivos).
+1. Seleccione **Editar**. 
+   
+   ![Aplicación Postman que muestra la navegación](media/knowledge-store-create-rest/postman-edit-menu.png "Dirección al menú Edit (Editar) en Postman")
+1. En el cuadro de diálogo **Edit** (Editar), seleccione la pestaña **Variables** (Variables). 
 
-La pestaña **Variables** (Variables) permite agregar valores que Postman intercambiará cada vez que los encuentre entre llaves dobles. Por ejemplo, Postman reemplazará el símbolo `{{admin-key}}` por el "valor actual" de `admin-key`. Postman realizará esta sustitución en las direcciones URL, los encabezados, el cuerpo de la solicitud, etc. 
+En la pestaña **Variables** (Variables) puede agregar valores para los intercambios de Postman cada vez que encuentre una variable específica entre llaves dobles. Por ejemplo, Postman reemplaza el símbolo `{{admin-key}}` por el valor actual que estableciera para `admin-key`. Postman realiza esta sustitución en las direcciones URL, los encabezados, el cuerpo de la solicitud, etc. 
 
-Encontrará el valor de `admin-key` en la pestaña **Keys** (Claves) de Search Service. Deberá cambiar `search-service-name` y `storage-account-name` a los valores que eligió en el [paso 1](#1---create-services). Establezca `storage-connection-string`con el valor de la pestaña **Claves de acceso** de la cuenta de almacenamiento. Los demás valores se pueden dejar sin cambios.
+Para obtener el valor de `admin-key`, vaya al servicio Azure Search y seleccione la pestaña **Claves**. Cambie `search-service-name` y `storage-account-name` por los valores que eligió en [Creación de servicios](#create-services). Establezca `storage-connection-string` con el valor de la pestaña **Claves de acceso** de la cuenta de almacenamiento. Puede dejar los valores predeterminados para los demás valores.
 
 ![Pestaña de variables de la aplicación Postman](media/knowledge-store-create-rest/postman-variables-window.png "Ventana de variables de Postman")
 
 
 | Variable    | Dónde obtenerla |
 |-------------|-----------------|
-| `admin-key` | Search Service, pestaña **Keys** (Claves)              |
-| `api-version` | Dejar como "2019-05-06-Preview" |
-| `datasource-name` | Dejar como "hotel-reviews-ds" | 
-| `indexer-name` | Dejar como "hotel-reviews-ixr" | 
-| `index-name` | Dejar como "hotel-reviews-ix" | 
-| `search-service-name` | Search Service, nombre principal. La dirección URL es `https://{{search-service-name}}.search.windows.net` | 
-| `skillset-name` | Dejar como "hotel-reviews-ss" | 
-| `storage-account-name` | Cuenta de almacenamiento, nombre principal | 
-| `storage-connection-string` | Cuenta de almacenamiento, pestaña **Claves de acceso**, **key1**, **Cadena de conexión** | 
-| `storage-container-name` | Dejar como "hotel-reviews" | 
+| `admin-key` | En la pestaña **Claves** del servicio Azure Search.  |
+| `api-version` | Déjela como **2019-05-06-Preview**. |
+| `datasource-name` | Déjela como **hotel-reviews-ds**. | 
+| `indexer-name` | Déjela como **hotel-reviews-ixr**. | 
+| `index-name` | Déjela como **hotel-reviews-ix**. | 
+| `search-service-name` | Nombre principal del servicio Azure Search. La dirección URL es `https://{{search-service-name}}.search.windows.net`. | 
+| `skillset-name` | Déjela como **hotel-reviews-ss**. | 
+| `storage-account-name` | Nombre principal de la cuenta de almacenamiento. | 
+| `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso**, seleccione **key1** > **Cadena de conexión**. | 
+| `storage-container-name` | Déjela como **hotel-reviews**. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Revisión de la colección de solicitudes en Postman
 
-La creación de un almacén de conocimiento requiere que se emitan cuatro solicitudes HTTP: 
+Al crear un almacén de información, debe emitir cuatro solicitudes HTTP: 
 
-1. Una solicitud PUT para crear el índice. Este índice contiene los datos usados y devueltos por Azure Search.
-1. Una solicitud POST para crear el origen de datos. Este origen de datos conecta su comportamiento de Azure Search con la cuenta de almacenamiento de datos y del almacén de conocimiento. 
-1. Una solicitud PUT para crear el conjunto de aptitudes. El conjunto de aptitudes especifica las características enriquecidas aplicadas a los datos y a la estructura del almacén de conocimiento.
-1. Una solicitud PUT para crear el indexador. Al ejecutar el indexador, se leen los datos, se aplica el conjunto de aptitudes y se almacenan los resultados. Debe ejecutar esta solicitud en último lugar.
+- **Una solicitud PUT para crear el índice**: Este índice contiene los datos usados y devueltos por Azure Search.
+- **Una solicitud POST para crear el origen de datos**: Este origen de datos conecta su comportamiento de Azure Search con la cuenta de almacenamiento de datos y del almacén de conocimiento. 
+- **Una solicitud PUT para crear el conjunto de aptitudes**: El conjunto de aptitudes especifica las características enriquecidas que se aplican a los datos y a la estructura del almacén de conocimiento.
+- **Una solicitud PUT para crear el indexador**: Al ejecutar el indexador, se leen los datos, se aplica el conjunto de aptitudes y se almacenan los resultados. Debe ejecutar esta solicitud en último lugar.
 
-El [código fuente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contiene una colección de Postman con estas cuatro solicitudes. Para emitir las solicitudes, cambie a la pestaña de la solicitud en Postman y agregue los encabezados de solicitud `api-key` y `Content-Type`. Establezca el valor de `api-key` en `{{admin-key}}`. Establezca el valor `Content-type` en `application/json`. 
+El [código fuente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contiene una recopilación de Postman con estas cuatro solicitudes. Para emitir las solicitudes, seleccione en Postman la pestaña de la solicitud. Después, agregue los encabezados de solicitud `api-key` y `Content-Type`. Establezca el valor de `api-key` en `{{admin-key}}`. Establezca el valor `Content-type` en `application/json`. 
 
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra la interfaz de Postman para los encabezados](media/knowledge-store-create-rest/postman-headers-ui.png)
+![Captura de pantalla que muestra la interfaz de Postman para los encabezados](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Tendrá que establecer los encabezados `api-key` y `Content-type` en todas las solicitudes. Si Postman reconoce una variable, se representará en texto naranja, como `{{admin-key}}` en la captura de pantalla. Si la variable está mal escrita, se representará en texto rojo.
+> Debe establecer los encabezados `api-key` y `Content-type` en todas las solicitudes. Si Postman reconoce una variable, esta aparece en texto naranja, como `{{admin-key}}` en la captura de pantalla anterior. Si la variable está mal escrita, aparece en texto rojo.
 >
 
-## <a name="4---create-an-azure-search-index"></a>4: Creación de un índice de Azure Search
+## <a name="create-an-azure-search-index"></a>Creación de un índice de Azure Search
 
-Debe crear un índice de Azure Search para representar los datos en los que desee realizar búsquedas, filtros y mejoras. Para crear el índice, emita una solicitud PUT a `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman reemplazará los símbolos entre llaves dobles, como `{{search-service-name}}`, `{{index-name}}` y `{{api-version}}`, por los valores especificados en el [paso 3](#3---configure-postman). Si usa otra herramienta para emitir los comandos REST, tendrá que sustituir esas variables por su cuenta.
+Cree un índice de Azure Search para representar los datos en los que desee realizar búsquedas, filtros y mejoras. Emita una solicitud PUT a `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}` para crear el índice. Postman reemplaza los símbolos que se incluyen entre llaves dobles (como `{{search-service-name}}`, `{{index-name}}` y `{{api-version}}`) por los valores establecidos en [Configuración de Postman](#configure-postman). Si usa otra herramienta para emitir los comandos REST, tendrá que sustituir esas variables por su cuenta.
 
-Especifique la estructura del índice de Azure Search en el cuerpo de la solicitud. En Postman, después de establecer los encabezados `api-key` y `Content-type`, cambie al panel **Body** (Cuerpo) de la solicitud. Debería ver el siguiente código JSON, pero, si no es así, elija **Raw** (Sin formato) y **JSON (application/json)** (JSON [aplicación/json]) y pegue el código siguiente como cuerpo:
+Establezca la estructura del índice de Azure Search en el cuerpo de la solicitud. En Postman, después de establecer los encabezados `api-key` y `Content-type`, vaya al panel **Body** (Cuerpo) de la solicitud. Debe ver el código JSON siguiente. Si no es el caso, seleccione **Sin formato** > **JSON (application/json)** (JSON [aplicación/json]) y pegue el código siguiente como cuerpo:
 
 ```JSON
 {
@@ -135,15 +142,15 @@ Especifique la estructura del índice de Azure Search en el cuerpo de la solicit
 
 ```
 
-Verá que esta definición de índice es una combinación de los datos que le gustaría presentar al usuario (el nombre del hotel, la revisión del contenido, la fecha, etc.), los metadatos de búsqueda y los datos de mejora de AI (opinión, frases clave e idioma).
+Esta definición de índice es una combinación de los datos que le gustaría presentar al usuario (el nombre del hotel, contenido de la reseña, la fecha), los metadatos de búsqueda y los datos de mejora de inteligencia artificial (opinión, frases clave e idioma).
 
-Presione el botón **Send** (Enviar) para emitir la solicitud PUT. Debería recibir el mensaje de estado `201 - Created`. Si recibe un estado diferente, en el panel **Body** (Cuerpo) se mostrará una respuesta JSON con un mensaje de error. 
+Seleccione **Enviar** para emitir la solicitud PUT. Debería ver el estado `201 - Created`. Si ve un estado diferente, en el panel **Body** (Cuerpo), busque una respuesta JSON que contenga un mensaje de error. 
 
-## <a name="5---create-the-datasource"></a>5: Creación del origen de datos
+## <a name="create-the-datasource"></a>Creación del origen de datos
 
-Ahora, debe conectar Azure Search a los datos de hotel que almacenó en el [paso 2](#2---store-the-data). La creación del origen de datos se realiza con una solicitud POST a `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. De nuevo, deberá establecer los encabezados `api-key` y `Content-Type` tal como se especificó anteriormente. 
+A continuación, conecte Azure Search a los datos de hotel que almacenó en [Almacenamiento de los datos](#store-the-data). Para crear el origen de datos, envíe una solicitud POST a `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Debe establecer los encabezados `api-key` y `Content-Type` como se explicó anteriormente. 
 
-En Postman, abra la solicitud "Create Datasource". Cambie al panel **Body** (Cuerpo), que debe tener el código siguiente:
+En Postman, vaya a la solicitud **Create Datasource** (Crear origen de datos) y al panel **Body** (Cuerpo). Debería ver el código siguiente:
 
 ```json
 {
@@ -155,18 +162,17 @@ En Postman, abra la solicitud "Create Datasource". Cambie al panel **Body** (Cue
 }
 ```
 
-Presione el botón **Send** (Enviar) para emitir la solicitud POST. 
+Seleccione **Enviar** para emitir la solicitud POST. 
 
-## <a name="6---create-the-skillset"></a>6: Creación del conjunto de aptitudes 
+## <a name="create-the-skillset"></a>Creación del conjunto de aptitudes 
 
-El siguiente paso consiste en especificar el conjunto de aptitudes, que especifica las mejoras que se van a aplicar y el almacén de conocimiento donde se almacenarán los resultados. En Postman, abra la pestaña "Create the Skillset" (Crear el conjunto de aptitudes). Así se envía una solicitud PUT a `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
-Establezca los encabezados `api-key` y `Content-type` tal como lo ha hecho anteriormente. 
+El siguiente paso consiste en especificar el conjunto de aptitudes, que especifica las mejoras que se van a aplicar y el almacén de conocimiento donde se almacenarán los resultados. En Postman, seleccione la pestaña **Create the Skillset** (Crear el conjunto de aptitudes). Así se envía una solicitud PUT a `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Establezca los encabezados `api-key` y `Content-type` como hizo anteriormente. 
 
-Hay dos grandes objetos de nivel superior: `"skills"` y `"knowledgeStore"`. Cada objeto del objeto `"skills"` es un servicio de enriquecimiento. Cada servicio de enriquecimiento tiene `"inputs"` y `"outputs"`. Observe cómo `LanguageDetectionSkill` tiene una salida `targetName` de `"Language"`. El valor de este nodo se usa en la mayoría de las demás aptitudes como entrada, con `document/Language` como origen. Esta capacidad de utilizar la salida de un nodo como entrada de otro es incluso más evidente en `ShaperSkill`, que especifica cómo fluyen los datos en las tablas del almacén de conocimiento.
+Hay dos grandes objetos de nivel superior: `skills` y `knowledgeStore`. Cada objeto del objeto `skills` es un servicio de enriquecimiento. Cada servicio de enriquecimiento tiene `inputs` y `outputs`. Observe cómo `LanguageDetectionSkill` tiene una salida `targetName` de `Language`. El valor de este nodo se usa en la mayoría de las demás aptitudes como entrada. El origen es `document/Language`. Esta capacidad de utilizar la salida de un nodo como entrada de otro es incluso más evidente en `ShaperSkill`, que especifica cómo fluyen los datos en las tablas del almacén de conocimiento.
 
-El objeto `"knowledge_store"` se conecta a la cuenta de almacenamiento mediante la variable de Postman `{{storage-connection-string}}`. Contiene un conjunto de asignaciones entre el documento mejorado y las tablas y columnas que estarán disponibles en el propio almacén de conocimiento. 
+El objeto `knowledge_store` se conecta a la cuenta de almacenamiento mediante la variable de Postman `{{storage-connection-string}}`. `knowledge_store` contiene un conjunto de asignaciones entre el documento mejorado y las tablas y columnas del almacén de conocimiento. 
 
-Para generar el conjunto de aptitudes, coloque la solicitud PUT al presionar el botón **Send** (Enviar) de Postman.
+Para generar el conjunto de aptitudes, seleccione el botón **Send** (Enviar) de Postman para colocar la solicitud PUT:
 
 ```json
 {
@@ -294,13 +300,13 @@ Para generar el conjunto de aptitudes, coloque la solicitud PUT al presionar el 
 }
 ```
 
-## <a name="7---create-the-indexer"></a>7: Creación del indexador
+## <a name="create-the-indexer"></a>Creación del indexador
 
-El paso final consiste en crear el indexador, que realmente lee los datos y activa el conjunto de aptitudes. En Postman, cambie a la solicitud "Create Indexer" y revise el cuerpo. Como puede ver, la definición del indexador hace referencia a otros recursos que ya ha creado: el origen de datos, el índice y el conjunto de aptitudes. 
+El último paso es crear el indexador. Este lee los datos y activa el conjunto de aptitudes. En Postman, seleccione la solicitud **Create Indexer** (Crear indexador) y revise el cuerpo de esta. La definición del indexador hace referencia a otros recursos que ya ha creado: el origen de datos, el índice y el conjunto de aptitudes. 
 
-El objeto `"parameters/configuration"` controla cómo ingiere el indexador los datos. En este caso, los datos de entrada se encuentran en un único documento con una línea de encabezado y valores separados por comas. La clave del documento es un identificador único de este, que antes de la codificación es la dirección URL del documento de origen. Por último, los valores de salida del conjunto de aptitudes, como el código de idioma, la opinión y las frases clave, se asignan a sus ubicaciones correspondientes en el documento. Observe que, aunque hay un valor único para `Language`, se aplica `Sentiment` a cada elemento de la matriz de `pages`. `Keyphrases` es en sí una matriz y también se aplica a cada elemento de la matriz `pages`.
+El objeto `parameters/configuration` controla cómo ingiere el indexador los datos. En este caso, los datos de entrada se encuentran en un único documento con una línea de encabezado y valores separados por comas. La clave del documento es un identificador único de este. Antes de la codificación, la clave del documento es la dirección URL del documento de origen. Por último, los valores de salida del conjunto de aptitudes, como el código de idioma, la opinión y las frases clave, se asignan a sus ubicaciones correspondientes en el documento. Aunque hay un valor único para `Language`, se aplica `Sentiment` a cada elemento de la matriz de `pages`. `Keyphrases` es una matriz y también se aplica a cada elemento de la matriz `pages`.
 
-Después de establecer los encabezados `api-key` y `Content-type` y de confirmar que el cuerpo de la solicitud es similar al código fuente que sigue, presione **Send** (Enviar) en Postman. Postman colocará la solicitud PUT en `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search creará y ejecutará el indexador. 
+Después de establecer los encabezados `api-key` y `Content-type`, y de confirmar que el cuerpo de la solicitud es similar al código fuente siguiente, seleccione **Send** (Enviar) en Postman. Postman envía una solicitud PUT a `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search crea y ejecuta el indexador. 
 
 ```json
 {
@@ -331,22 +337,22 @@ Después de establecer los encabezados `api-key` y `Content-type` y de confirmar
 }
 ```
 
-## <a name="8---run-the-indexer"></a>8: Ejecución del indexador 
+## <a name="run-the-indexer"></a>Ejecución del indexador 
 
-En Azure Portal, vaya a la **Información general** de Search Service y seleccione la pestaña **Indexers** (Indexadores). Haga clic en el **hotels-reviews-ixr** que creó en el paso anterior. Si el indexador aún no se ha ejecutado, presione el botón **Run** (Ejecutar). La tarea de indexación puede generar algunas advertencias relacionadas con el reconocimiento de idioma, ya que los datos incluyen algunas revisiones escritas en idiomas que todavía no son compatibles con los conocimientos cognitivos. 
+En Azure Portal, vaya a la página **Introducción** del servicio Azure Search. Seleccione la pestaña **Indexadores** y **hotel-reviews-ixr**. Si el indexador todavía no se ha ejecutado, seleccione **Ejecutar**. La tarea de indexación podría generar algunas advertencias relacionadas con el reconocimiento de idioma. Los datos incluyen algunas reseñas escritas en idiomas que las aptitudes cognitivas todavía no admiten. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha enriquecido los datos con servicios cognitivos y ha proyectado los resultados en un almacén de conocimiento, puede usar el Explorador de Storage o Power BI para explorar el conjunto de datos enriquecido.
+Ahora que ha enriquecido los datos con Cognitive Services y ha proyectado los resultados en un almacén de conocimiento, puede usar el Explorador de Storage o Power BI para explorar el conjunto de datos enriquecido.
 
-Para obtener información sobre cómo explorar este almacén de conocimiento con el Explorador de Storage, consulte el siguiente tutorial.
+Para aprender a explorar este almacén de conocimiento con el Explorador de Storage, consulte el siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Visualización con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
 
-Para obtener información sobre cómo conectar este almacén de conocimiento a Power BI, consulte el siguiente tutorial.
+Para aprender a conectar este almacén de conocimiento a Power BI, consulte el siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Conexión con Power BI](knowledge-store-connect-power-bi.md)
 
-Si desea repetir este ejercicio o realizar otro tutorial de enriquecimiento de inteligencia artificial, elimine el indexador *hotel-reviews-idxr*. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero.
+Si desea repetir este ejercicio o realizar otro tutorial de enriquecimiento de inteligencia artificial, elimine el indexador **hotel-reviews-idxr**. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero.

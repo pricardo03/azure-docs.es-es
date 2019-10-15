@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/18/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802047"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169410"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -166,7 +166,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
 
 ## <a name="upload-the-linked-template"></a>Carga de la plantilla vinculada
 
-La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada de una ubicación compartida. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
+La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada de un repositorio de GitHub. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
 
 > [!NOTE]
 > El script limita el uso del token SAS a un plazo de ocho horas. Si necesita más tiempo para completar este tutorial, aumente la hora de expiración.
@@ -179,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -259,7 +259,7 @@ La plantilla principal se llama azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},

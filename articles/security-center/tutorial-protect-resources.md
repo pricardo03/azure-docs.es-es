@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial de Azure Security Center: protección de los recursos con Azure Security Center | Microsoft Docs'
-description: En este tutorial se muestra cómo configurar una directiva de acceso a VM Just-In-Time y una directiva de control de aplicaciones.
+description: En este tutorial se muestra cómo configurar una directiva de acceso a las máquinas virtuales Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200660"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996326"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
-Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
+Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a las máquinas virtuales Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a las máquinas virtuales. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configuración de una directiva de acceso a VM Just-In-Time
+> * Configuración de una directiva de acceso a las máquinas virtuales Just-In-Time
 > * Configuración de una directiva de control de aplicación
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
@@ -40,23 +40,23 @@ El acceso a VM JIT se puede usar para bloquear el tráfico entrante a las VM de 
 
 No es necesario que los puertos de administración estén abiertos en todo momento. Solo deben estar abiertos mientras se está conectado a la máquina virtual, por ejemplo, para realizar tareas de administración o mantenimiento. Cuando se habilita Just-In-Time, Security Center usa las reglas del grupo de seguridad de red (NSG), que restringen el acceso a los puertos de administración para que no puedan ser objeto de ataques.
 
-1. En el menú principal de Security Center, seleccione **Just-in-Time VM access** (Acceso Just-In-Time a la máquina virtual) en **PROTECCIÓN EN LA NUBE AVANZADA**.
+1. En el menú principal de Security Center, seleccione **Acceso de máquina virtual Just-In-Time** en **PROTECCIÓN EN LA NUBE AVANZADA**.
 
-   ![Acceso Just-In-Time a la máquina virtual][1]
+   ![Acceso de máquina virtual Just-In-Time][1]
 
-   **Just-in-time VM access** (Acceso Just-In-Time a la máquina virtual) proporciona información acerca del estado de las máquinas virtuales:
+   **Just-in-time VM access** (Acceso a máquina virtual del tipo Just-In-Time) proporciona información acerca del estado de las máquinas virtuales:
 
    - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time.
-   - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello.
+   - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time, pero que no se han configurado para ello.
    - **Ninguna recomendación**: una máquina virtual podría no recomendarse por diversas razones:
 
-     - Falta el NSG: la solución Just-In-Time requiere que exista un NSG.
-     - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager.
-     - Otros: se incluirá una máquina virtual en esta categoría si la solución Just-In-Time está desactivada en la directiva de seguridad de la suscripción o del grupo de recursos, o si la máquina virtual no tiene una IP pública y no existe un NSG.
+     - Falta grupo de seguridad de red: la solución Just-In-Time requiere que exista un grupo de seguridad de red.
+     - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales implementadas mediante Azure Resource Manager.
+     - Otros: una máquina virtual de esta categoría si la solución Just-In-Time está desactivada en la directiva de seguridad de la suscripción o del grupo de recursos, o si la máquina virtual no tiene una IP pública y no existe ningún grupo de seguridad de red.
 
-2. Seleccione una VM recomendada y haga clic en **Enable JIT on 1 VM** (Habilitar JIT en 1 VM) para configurar una directiva Just-In-Time para esa VM:
+2. Seleccione una máquina virtual recomendada y haga clic en **Habilitar JIT en 1 VM** para configurar una directiva Just-In-Time para esa máquina virtual:
 
-   Puede guardar los puertos predeterminados que Security Center recomienda o puede agregar y configurar un puerto nuevo en el que desea habilitar la solución Just-In-Time. En este tutorial, vamos a agregar un puerto seleccionando **Agregar**.
+   Puede guardar los puertos predeterminados que Security Center recomienda o agregar y configurar un puerto nuevo donde desee habilitar la solución Just-In-Time. En este tutorial, vamos a agregar un puerto seleccionando **Agregar**.
 
    ![Adición de configuración de puerto][2]
 
@@ -119,7 +119,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 En este tutorial, aprendió a limitar la exposición a amenazas mediante:
 
 > [!div class="checklist"]
-> * La configuración de un directiva de acceso a VM Just-In-Time para proporcionar acceso controlado y auditado a VM solo cuando se necesita
+> * La configuración de un directiva de acceso a las máquinas virtuales Just-In-Time para proporcionar acceso controlado y auditado a las máquinas virtuales solo cuando sea necesario
 > * La configuración de una directiva de controles de aplicación adaptables para controlar qué aplicaciones se pueden ejecutar en las VM
 
 Pase al siguiente tutorial para aprender a responder a incidentes relacionados con la seguridad.

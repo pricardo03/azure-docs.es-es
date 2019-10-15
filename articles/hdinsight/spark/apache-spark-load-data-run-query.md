@@ -2,18 +2,18 @@
 title: 'Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight'
 description: 'Tutorial: Aprenda a cargar datos y a ejecutar consultas interactivas en clústeres de Spark en Azure HDInsight.'
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735270"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027796"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
@@ -30,11 +30,11 @@ Un clúster de Apache Spark en HDInsight. Vea [Creación de un clúster de Apach
 
 ## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
 
-Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
+Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas.
 
 1. Edite la dirección URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter`; para ello, reemplace `SPARKCLUSTER` por el nombre del clúster de Spark. Después, escriba la dirección URL editada en un explorador web. Cuando se le solicite, escriba las credenciales de inicio de sesión del clúster.
 
-2. En la página web de Jupyter, seleccione **New** (Nuevo)  > **PySpark** para crear un cuaderno. 
+2. En la página web de Jupyter, seleccione **New** (Nuevo)  > **PySpark** para crear un cuaderno.
 
    ![Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
@@ -45,8 +45,8 @@ Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguaj
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Creación de una trama de datos a partir de un archivo csv
 
-Las aplicaciones pueden crear tramas de datos directamente desde archivos o carpetas del almacenamiento remoto, como Azure Storage o Azure Data Lake Storage; desde una tabla de Hive; o desde otros orígenes de datos compatibles con Spark, como Cosmos DB, Azure SQL DB, DW, etc. La captura de pantalla siguiente muestra una instantánea del archivo HVAC.csv que se usa en este tutorial. El archivo csv incluye todos los clústeres de HDInsight Spark. Los datos capturan las variaciones de temperatura de varios edificios.
-    
+Las aplicaciones pueden crear tramas de datos directamente desde archivos o carpetas del almacenamiento remoto, como Azure Storage o Azure Data Lake Storage; desde una tabla de Hive; o desde otros orígenes de datos compatibles con Spark, como Cosmos DB, Azure SQL DB, DW, etc. La captura de pantalla siguiente muestra una instantánea del archivo HVAC.csv que se usa en este tutorial. El archivo csv incluye todos los clústeres de HDInsight Spark. Los datos capturan las variaciones de temperatura de varios edificios.
+
 ![Instantánea de los datos de consulta SQL interactiva de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantánea de los datos de consultas SQL interactivas de Spark")
 
 1. Pegue el código siguiente en una celda vacía del cuaderno de Jupyter y presione **MAYÚS + ENTRAR** para ejecutar el código. El código importa los tipos necesarios para este escenario:
@@ -60,7 +60,7 @@ Las aplicaciones pueden crear tramas de datos directamente desde archivos o carp
 
     ![Estado de consulta Spark SQL interactiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Estado de consulta Spark SQL interactiva")
 
-2. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**). 
+2. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data
@@ -93,7 +93,7 @@ Una vez creada la tabla, puede ejecutar una consulta interactiva en los datos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Con HDInsight, los datos y los cuadernos de Jupyter se almacenan en Azure Storage o Azure Data Lake Storage, por lo que puede eliminar de forma segura un clúster cuando no esté en uso. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable que no elimine el clúster.
+Con HDInsight, los datos y los cuadernos de Jupyter se almacenan en Azure Storage o Azure Data Lake Storage, por lo que puede eliminar de forma segura un clúster cuando no esté en uso. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se usen. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable que no elimine el clúster.
 
 Abra el clúster en Azure Portal y seleccione **Eliminar**.
 

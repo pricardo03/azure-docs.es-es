@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de aplicaciones en Azure App Service con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de aplicaciones en Azure App Service con Ansible'
 description: Obtenga información sobre cómo crear una aplicación en Azure App Service con Java 8 y el contenedor de Tomcat en tiempo de ejecución
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231240"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242050"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Tutorial: Configuración de aplicaciones en Azure App Service con Ansible
 
@@ -75,7 +75,7 @@ Guarde el siguiente cuaderno de estrategias como `firstwebapp.yml`:
               java_container_version: 8.5
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook firstwebapp.yml
@@ -199,7 +199,7 @@ Guarde el siguiente cuaderno de estrategias como `webapp.yml`:
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook webapp.yml

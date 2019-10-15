@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162681"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026265"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex Meetings
 
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Cisco Webex Meetings**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, puede configurar la aplicación en modo iniciado por **IDP** mediante la carga del archivo de **metadatos del proveedor de servicios** de la siguiente manera:
+1. En la página **Configurar el inicio de sesión único con SAML**, puede configurar la aplicación en modo iniciado por**IDP** mediante la carga del archivo de **metadatos del proveedor de servicios** de la siguiente manera:
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
@@ -97,7 +97,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     
     b. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón: ` https://<customername>.my.webex.com`
 
-5. La aplicación Cisco Webex Meetings espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
+5. La aplicación Cisco Webex Meetings espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
     ![imagen](common/edit-attribute.png)
 

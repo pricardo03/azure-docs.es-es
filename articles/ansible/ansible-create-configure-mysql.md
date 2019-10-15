@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de bases de datos en Azure Database for MySQL con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de bases de datos en Azure Database for MySQL con Ansible'
 description: Obtenga información acerca de cómo usar Ansible para crear y configurar un servidor de Azure Database for MySQL
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, mysql, base de datos
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1170ae9d609a07dbdaebf50e145de65faefa60ec
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230918"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241838"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: Configuración de bases de datos en Azure Database for MySQL con Ansible
 
@@ -330,7 +330,7 @@ Guarde el siguiente cuaderno de estrategias como `cleanup.yml`:
         state: absent
 ```
 
-Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
+Ejecute el comando de estrategias con el comando `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml

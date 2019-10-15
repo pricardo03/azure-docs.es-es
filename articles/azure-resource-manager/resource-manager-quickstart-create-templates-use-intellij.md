@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708198"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169443"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante IntelliJ IDEA
 
@@ -40,7 +40,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="deploy-a-quickstart-template"></a>Implementación de una plantilla de inicio rápido
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Define un recurso de la cuenta de almacenamiento de Azure. 
+En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resource Manager. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Define un recurso de la cuenta de almacenamiento de Azure.
 
 1. Haga clic con el botón derecho y guarde [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) y [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) en el equipo local.
 
@@ -89,10 +89,10 @@ En lugar de crear una plantilla desde cero, abra una plantilla en las [plantilla
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El objetivo principal de este inicio rápido consiste en utilizar IntelliJ IDEA para implementar una plantilla existente de las plantillas de inicio rápido de Azure. También ha aprendido a ver y actualizar una implementación existente en Azure. Es posible que las plantillas de inicio rápido de Azure no le proporcionen todo lo que necesita. En el siguiente tutorial se indica cómo encontrar la información en la referencia sobre plantillas para que pueda crear una cuenta de Azure Storage cifrada.
+El objetivo principal de este inicio rápido consiste en utilizar IntelliJ IDEA para implementar una plantilla existente de las plantillas de inicio rápido de Azure. También ha aprendido a ver y actualizar una implementación existente en Azure. Es posible que las plantillas de inicio rápido de Azure no le proporcionen todo lo que necesita. Para más información sobre el desarrollo de plantillas, consulte nuestra nueva serie de tutoriales para principiantes:
 
 > [!div class="nextstepaction"]
-> [Creación de una cuenta de almacenamiento cifrada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Tutoriales para principiantes](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Visite Java en el centro de desarrollo de Azure](https://docs.microsoft.com/azure/java)

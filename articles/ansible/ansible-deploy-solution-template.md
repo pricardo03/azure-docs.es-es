@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Implementación de la plantilla de solución de Ansible para Azure en CentOS | Microsoft Docs'
+title: 'Inicio rápido: Implementación de la plantilla de solución de Ansible para Azure en CentOS'
 description: En este inicio rápido, aprenderá a implementar la plantilla de solución de Ansible en una máquina virtual CentOS hospedada en Azure, junto con herramientas configuradas para funcionar con Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231006"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241710"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Inicio rápido: Implementación de la plantilla de solución de Ansible para Azure en CentOS
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de tablas de rutas de Azure con Ansible | Microsoft Docs'
+title: 'Tutorial: Configuración de tablas de rutas de Azure con Ansible'
 description: Aprenda a crear, cambiar y eliminar tablas de rutas de Azure con Ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, redes, ruta, tabla de rutas
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230889"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241777"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: Configuración de tablas de rutas de Azure con Ansible
 
@@ -253,7 +253,7 @@ Guarde el siguiente cuaderno de estrategias como `route_table_delete.yml`:
         state: absent
 ```
 
-Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
+Ejecute el comando de estrategias con el comando `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_delete.yml

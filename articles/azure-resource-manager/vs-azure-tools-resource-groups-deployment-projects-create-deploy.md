@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311293"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170250"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
-Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede implementar el host web, el sitio web y el código para el sitio web. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web.  
+Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede implementar el host web, el sitio web y el código del sitio web. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web.
 
 En este artículo se muestra cómo usar [Visual Studio 2019 o posterior con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/visualstudio/install/install-visual-studio?view=vs-2019). Si utiliza Visual Studio 2017, su experiencia es muy similar.
 
@@ -205,13 +205,13 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 
     ![Agregar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. En esta ocasión, seleccione **Web Deploy para Web Apps**. 
+1. En esta ocasión, seleccione **Web Deploy para Web Apps**.
 
     ![Agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    Guarde la plantilla.
 
-1. Hay algunos parámetros nuevos en la plantilla. Se han agregado en el paso anterior. No es necesario especificar valores en **_artifactsLocation** o **_artifactsLocationSasToken**, ya que se generan automáticamente. Sin embargo, debe establecer la carpeta y el nombre de archivo con la ruta de acceso que contiene el paquete de implementación. Los nombres de estos parámetros terminan con **PackageFolder** y **PackageFileName**. La primera parte del nombre es el nombre del recurso Web Deploy que agregó. En este artículo, se llaman **ExampleAppPackageFolder** y **ExampleAppPackageFileName**. 
+1. Hay algunos parámetros nuevos en la plantilla. Se han agregado en el paso anterior. No es necesario especificar valores en **_artifactsLocation** o **_artifactsLocationSasToken**, ya que se generan automáticamente. Sin embargo, debe establecer la carpeta y el nombre de archivo con la ruta de acceso que contiene el paquete de implementación. Los nombres de estos parámetros terminan con **PackageFolder** y **PackageFileName**. La primera parte del nombre es el nombre del recurso Web Deploy que agregó. En este artículo, se llaman **ExampleAppPackageFolder** y **ExampleAppPackageFileName**.
 
    Abra **Website.parameters.json** y establezca esos parámetros en los valores que ha visto en las propiedades de referencia. Establezca **ExampleAppPackageFolder** en el nombre de la carpeta. Establezca **ExampleAppPackageFileName** en el nombre del archivo ZIP.
 
@@ -386,7 +386,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, aprendió a crear e implementar plantillas con Visual Studio. En el siguiente tutorial se indica cómo encontrar la información en la referencia sobre plantillas para que pueda crear una cuenta de Azure Storage cifrada.
+En esta guía de inicio rápido, aprendió a crear e implementar plantillas con Visual Studio. Para más información sobre el desarrollo de plantillas, consulte nuestra nueva serie de tutoriales para principiantes:
 
 > [!div class="nextstepaction"]
-> [Creación de una cuenta de almacenamiento cifrada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Tutoriales para principiantes](./template-tutorial-create-first-template.md)

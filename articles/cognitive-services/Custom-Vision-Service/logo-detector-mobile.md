@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Uso del detector de logotipos personalizados para reconocer servicios de Azure: Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, examinará una aplicación de ejemplo que usa Azure Custom Vision como parte de un escenario de detección de logotipos. Obtenga información acerca de la forma en que Custom Vision se usa con otros componentes para proporcionar una aplicación de un extremo a otro.
+description: En este tutorial examinará una aplicación de ejemplo que usa Custom Vision como parte de un escenario de detección de logotipos. Obtenga información acerca de la forma en que Custom Vision se usa con otros componentes para proporcionar una aplicación de un extremo a otro.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261968"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177785"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
-En este tutorial, examinará una aplicación de muestra que usa Azure Custom Vision como parte de un escenario mayor. La aplicación AI Visual Provision es una aplicación de Xamarin.Forms para plataformas móviles que analiza imágenes de cámara de logotipos de servicios de Azure y, después, implementa dichos servicios en la cuenta de Azure del usuario. Aquí obtendrá información acerca de cómo usar Custom Vision en coordinación con otros componentes para proporcionar una útil aplicación de un extremo a otro. Puede ejecutar usted mismo toda la aplicación o bien completar solamente la parte de Custom Vision de la instalación y explorar la forma en que la aplicación lo usa.
+En este tutorial examinará una aplicación de ejemplo que usa Custom Vision como parte de un escenario mayor. La aplicación AI Visual Provision es una aplicación de Xamarin.Forms para plataformas móviles que analiza imágenes de cámara de logotipos de servicios de Azure y, después, implementa dichos servicios en la cuenta de Azure del usuario. Aquí obtendrá información acerca de cómo usar Custom Vision en coordinación con otros componentes para proporcionar una útil aplicación de un extremo a otro. Puede ejecutar usted mismo toda la aplicación o bien completar solamente la parte de Custom Vision de la instalación y explorar la forma en que la aplicación lo usa.
 
 Este tutorial le mostrará cómo:
 
