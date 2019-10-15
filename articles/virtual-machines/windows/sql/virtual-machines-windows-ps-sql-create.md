@@ -309,7 +309,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 ```
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Especificación de la imagen de la plataforma de la máquina virtual.
-El último paso de la configuración es especificar la imagen de la plataforma de la máquina virtual. Pata este tutorial, use la última imagen de SQL Server 2016 CTP. Use el cmdlet [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) para usar esta imagen con las variables que definió anteriormente.
+El último paso de la configuración es especificar la imagen de la plataforma de la máquina virtual. Para este tutorial, use la última imagen de SQL Server 2016 CTP. Use el cmdlet [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) para usar esta imagen con las variables que definió anteriormente.
 
 Ejecute este cmdlet para especificar la imagen de la plataforma de la máquina virtual.
 
