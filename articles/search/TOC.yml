@@ -299,8 +299,6 @@
           href: search-manage-powershell.md
         - name: Supervisión de la actividad y el registro
           href: search-monitor-usage.md
-        - name: Búsqueda de análisis de tráfico
-          href: search-traffic-analytics.md
 - name: Referencia
   items:
     - name: CLI de Azure
