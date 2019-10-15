@@ -443,7 +443,7 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 1.  Vuelva a Azure Portal. En el panel de navegación izquierdo, seleccione el servicio Azure Active Directory y, después, elija Registros de aplicaciones.
 2.  En la pantalla resultante, seleccione la aplicación WebApp-OpenIDConnect-DotNet-code-v2.
 3.  En la pestaña Autenticación o en la sección URI de redirección, seleccione Web en el cuadro combinado y agregue los siguientes URI de redirección.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc. En la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc. En la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
 4.  En la pestaña Personalización de marca, actualice la dirección URL de la página principal a la dirección del servicio de aplicación, por ejemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         Guarde la configuración.
 5.  Si la aplicación llama a una API web, asegúrese de aplicar los cambios necesarios en el archivo appsettings.json del proyecto, de forma que llame a la dirección URL de la API publicada en lugar de a localhost.
