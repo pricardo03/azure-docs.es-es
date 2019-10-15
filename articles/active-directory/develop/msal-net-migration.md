@@ -35,7 +35,7 @@ Tanto Microsoft Authentication Library for .NET (MSAL.NET) como Azure AD Authent
 
 **MSAL.NET es ahora la biblioteca de autenticación recomendada para la plataforma de identidad de Microsoft**. No se implementarán nuevas características en ADAL.NET. Los trabajos se centran en mejorar MSAL.
 
-En este artículo se describen las diferencias entre la biblioteca de autenticación de Microsoft pata .NET (MSAL.NET) y la biblioteca de autenticación de Azure AD para .NET (ADAL.NET), y contiene información para ayudarle a migrar a MSAL.  
+En este artículo se describen las diferencias entre la biblioteca de autenticación de Microsoft para .NET (MSAL.NET) y la biblioteca de autenticación de Azure AD para .NET (ADAL.NET), y contiene información para ayudarle a migrar a MSAL.  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Diferencias entre las aplicaciones de ADAL y MSAL
 
