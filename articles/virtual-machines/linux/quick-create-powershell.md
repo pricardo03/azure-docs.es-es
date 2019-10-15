@@ -56,7 +56,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](https://docs.micros
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-resources"></a>Crear recursos de red virtuales
+## <a name="create-virtual-network-resources"></a>Creación de recursos de red virtual
 
 Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red con la máquina virtual y conectarla a Internet:
 
@@ -131,7 +131,7 @@ $nic = New-AzNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Crear una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Para crear una máquina virtual en PowerShell, cree una configuración que tenga valores como, por ejemplo, la imagen que se va a usar, el tamaño y las opciones de autenticación. Después, la configuración se utiliza para crear la máquina virtual.
 
