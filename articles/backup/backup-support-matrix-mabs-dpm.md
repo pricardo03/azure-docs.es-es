@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949844"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981078"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -24,9 +24,11 @@ Puede usar el [servicio Azure Backup](backup-overview.md) para realizar copias d
 
 MABS es un producto de servidor que se puede usar para realizar una copia de seguridad de servidores físicos locales, máquinas virtuales y aplicaciones que se ejecutan en ellos.
 
-MABS se basa en System Center DPM y proporciona una funcionalidad similar con un par de diferencias:
+MABS se basa en System Center DPM y proporciona una funcionalidad similar con unas cuantas diferencias:
+
 - No se requiere ninguna licencia de System Center para ejecutar MABS.
 - Azure proporciona almacenamiento de copia de seguridad a largo plazo tanto para MABS como para DPM. Además, DPM permite realizar una copia de seguridad de los datos para su almacenamiento en cinta a largo plazo. MABS no proporciona esta funcionalidad.
+- Puede realizar una copia de seguridad de un servidor DPM principal con un servidor DPM secundario. El servidor secundario protegerá la base de datos del servidor principal y las réplicas del origen de datos almacenadas en el servidor principal. Si se produce un error en el servidor principal, el servidor secundario puede continuar protegiendo las cargas de trabajo que protege el servidor principal, hasta que este vuelva a estar disponible.  MABS no proporciona esta funcionalidad.
 
 Puede descargar MABS del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Se puede ejecutar de forma local o en una máquina virtual de Azure.
 
@@ -56,7 +58,6 @@ Para obtener más información:
 --- | --- | ---
 **Copia de seguridad de cargas de trabajo/máquinas locales** | El agente de protección de DPM/MABS se ejecuta en las máquinas de las que desea realizar una copia de seguridad.<br/><br/> El agente de MARS en el servidor de DPM/MABS.<br/> La versión mínima del agente de Microsoft Azure Recovery Services, o agente de Azure Backup, que se requiere para habilitar esta característica es 2.0.8719.0.  | DPM/MABS debe ejecutarse en el entorno local.
 
-
 ## <a name="supported-deployments"></a>Implementaciones admitidas
 
 DPM/MABS puede implementarse como se resume en la siguiente tabla.
@@ -66,7 +67,6 @@ DPM/MABS puede implementarse como se resume en la siguiente tabla.
 **Implementación local** | Servidor físico<br/><br/>Máquina virtual de Hyper-V<br/><br/> Máquina virtual de VMware | Si DPM/MABS está instalado como una máquina virtual de VMware, solo realiza una copia de seguridad de las máquinas virtuales de VMware y las cargas de trabajo que se ejecutan en dichas máquinas virtuales.
 **Implementación como una máquina virtual de Azure Stack** | Solo MABS | DPM no puede utilizarse para realizar una copia de seguridad de máquinas virtuales de Azure Stack.
 **Implementación como una máquina virtual de Azure** | Protege máquinas virtuales de Azure y las cargas de trabajo que se ejecutan en esas máquinas virtuales. | DPM/MABS en Azure no puede realizar una copia de seguridad de las máquinas locales.
-
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Sistemas operativos de MABS y DPM compatibles
 
@@ -79,8 +79,6 @@ Azure Backup puede realizar una copia de seguridad de instancias de DPM/MABS en 
 **MABS local** | Sistemas operativos compatibles de 64 bits:<br/><br/> MABS v3 y versiones posteriores: Windows Server 2019 (Standard, Datacenter y Essentials). <br/><br/> MABS v2 y versiones posteriores: Windows Server 2016 (Standard, Datacenter y Essentials).<br/><br/> Todas las versiones de MABS:  Windows Server 2012 R2.<br/><br/>Todas las versiones de MABS: Windows Storage Server 2012 R2.
 **DPM local** | Servidor físico/máquina virtual de Hyper-V: System Center 2012 SP1 o posterior.<br/><br/> Máquina virtual de VMware: System Center 2012 R2 con Update 5 o posterior.
 
-
-
 ## <a name="management-support"></a>Compatibilidad con la administración
 
 **Problema** | **Detalles**
@@ -90,7 +88,6 @@ Azure Backup puede realizar una copia de seguridad de instancias de DPM/MABS en 
 **Storage** | Modern Backup Storage (MBS) se admite desde DPM 2016/MABS v2 y versiones posteriores. No está disponible para MABS v1.
 **Actualización de MABS** | Puede instalar MABS v3 directamente o actualizar a MABS v3 desde MABS v2. [Más información](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Mover MABS** | Se admite la transferencia de MABS a un nuevo servidor mientras se conserva el almacenamiento si usa MBS.<br/><br/> El servidor debe tener el mismo nombre que el original. No se puede cambiar el nombre si desea mantener el mismo grupo de almacenamiento y usar la misma base de datos de MABS para almacenar puntos de recuperación de datos.<br/><br/> Necesitará una copia de seguridad de la base de datos de MABS, ya que necesitará restaurarla.
-
 
 ## <a name="mabs-support-on-azure-stack"></a>Compatibilidad con MABS en Azure Stack
 
@@ -144,8 +141,8 @@ Los datos de los que se ha realizado una copia de seguridad en DPM/MABS se almac
 **Almacenamiento de MABS en máquina virtual de Azure** | Los datos se almacenan en discos de Azure que están conectados a la máquina virtual de DPM/MABS y que se administran en DPM/MABS. El número de discos que se pueden usar para el grupo de almacenamiento de DPM/MABS está limitado por el tamaño de la máquina virtual.<br/><br/> VM A2: 4 discos; VM A3: 8 discos; VM A4: 16 discos con un tamaño máximo de 1 TB para cada disco. Esto determina el grupo de almacenamiento de copia de seguridad total que se encuentra disponible.<br/><br/> La cantidad de datos de los que puede realizar copias de seguridad depende del número y tamaño de los discos conectados.
 **Retención de datos de MABS en un máquina virtual de Azure** | Se recomienda conservar datos durante un día en el disco de Azure de DPM/MABS y realizar copias de seguridad de DPM/MABS en el almacén para una retención más prolongada. Por tanto, puede proteger un volumen de datos mayor si lo descarga en Azure Backup.
 
-
 ### <a name="modern-backup-storage-mbs"></a>Modern Backup Storage (MBS)
+
 A partir de DPM 2016/MABS v2 (en Windows Server 2016) y versiones posteriores, puede beneficiarse de Modern Backup Storage (MBS).
 
 - Las copias de seguridad de MBS se almacenan en un disco del Sistema de archivos resistente (ReFS).
@@ -153,11 +150,9 @@ A partir de DPM 2016/MABS v2 (en Windows Server 2016) y versiones posteriores, p
 - Cuando agrega volúmenes al grupo de almacenamiento local de DPM/MABS, se configuran con letras de unidad. Después, puede configurar el almacenamiento de la carga de trabajo en distintos volúmenes.
 - Al crear grupos de protección para realizar copias de seguridad de los datos en DPM/MABS, seleccione la unidad que desea usar. Por ejemplo, podría almacenar las copias de seguridad de SQL u otras cargas de trabajo con un número elevado de IOPS en una unidad de rendimiento alto y las cargas de trabajo de las que se realiza una copia de seguridad con menos frecuencia en una unidad de rendimiento más bajo.
 
-
 ## <a name="supported-backups-to-mabs"></a>Copias de seguridad admitidas en MABS
 
 En la tabla siguiente se resume de lo que se puede realizar una copia de seguridad en MABS desde máquinas locales y máquinas virtuales de Azure.
-
 
 **Copia de seguridad** | **Versiones** | **MABS** | **Detalles** |
 --- | --- | --- | --- |
@@ -177,13 +172,9 @@ En la tabla siguiente se resume de lo que se puede realizar una copia de segurid
 **Hyper-V en Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (con SP1)** | MABS v3, v2 | Local. | **Agente de MABS en el host de Hyper-V**: Copia de seguridad de máquinas virtuales completas y archivos de datos de host. Copia de seguridad de máquinas virtuales con almacenamiento local, máquinas virtuales en clúster con almacenamiento CSV y máquinas virtuales con almacenamiento de servidor de archivos de SMB.<br/><br/> **Agente de MABS en máquina virtual invitada**: Copia de seguridad de cargas de trabajo que se ejecutan en la máquina virtual. CSV.<br/><br/> **Recuperación**: Máquina virtual, recuperación de nivel de elemento de disco duro virtual, volúmenes, carpetas y archivos.<br/><br/> **Máquinas virtuales Linux**: Copia de seguridad cuando se ejecuta Hyper-V en Windows Server 2012 R2 y versiones posteriores. La recuperación de máquinas virtuales Linux es para toda la máquina. |
 **Máquinas virtuales de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | Local. | Copia de seguridad de máquinas virtuales de VMware en el almacenamiento CSV, NFS y SAN.<br/><br/> Recuperación de máquina virtual completa.<br/><br/> Copia de seguridad en Windows/Linux.<br/><br/> Recuperación a nivel de elemento de carpetas y archivos solo para máquinas virtuales Windows.<br/><br/> VMware vApps no compatible.<br/><br/> La recuperación de máquinas virtuales Linux es para toda la máquina. |
 
-
-
 ## <a name="supported-backups-to-dpm"></a>Copias de seguridad admitidas en DPM
 
 En la tabla siguiente se resume de lo que se puede realizar una copia de seguridad en DPM desde máquinas locales y máquinas virtuales de Azure.
-
-
 
 **Copia de seguridad** | **DPM** | **Detalles**
 --- | --- | ---
@@ -204,11 +195,8 @@ En la tabla siguiente se resume de lo que se puede realizar una copia de segurid
 **Hyper-V en Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (con SP1)** | Hyper-V en 2016 compatible para DPM 2016 y versiones posteriores.<br/><br/> Local. | **Agente de MABS en el host de Hyper-V**: Copia de seguridad de máquinas virtuales completas y archivos de datos de host. Copia de seguridad de máquinas virtuales con almacenamiento local, máquinas virtuales en clúster con almacenamiento CSV y máquinas virtuales con almacenamiento de servidor de archivos de SMB.<br/><br/> **Agente de MABS en máquina virtual invitada**: Copia de seguridad de cargas de trabajo que se ejecutan en la máquina virtual. CSV.<br/><br/> **Recuperación**: Máquina virtual, recuperación de nivel de elemento de disco duro virtual, volúmenes, carpetas y archivos.<br/><br/> **Máquinas virtuales Linux**: Copia de seguridad cuando se ejecuta Hyper-V en Windows Server 2012 R2 y versiones posteriores. La recuperación de máquinas virtuales Linux es para toda la máquina.
 **Máquinas virtuales de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 necesita el paquete acumulativo de actualizaciones 1 de System Center <br/><br/>Local. | Copia de seguridad de máquinas virtuales de VMware en el almacenamiento CSV, NFS y SAN.<br/><br/> Recuperación de máquina virtual completa.<br/><br/> Copia de seguridad en Windows/Linux.<br/><br/> Recuperación a nivel de elemento de carpetas y archivos solo para máquinas virtuales Windows.<br/><br/> VMware vApps no compatible.<br/><br/> La recuperación de máquinas virtuales Linux es para toda la máquina.
 
-
 - Las cargas de trabajo en clúster con copia de seguridad por DPM/MABS deben estar en el mismo dominio que DPM/MABS o en un dominio secundario o de confianza.
 - Puede usar la autenticación de certificado/NTLM para realizar copias de seguridad de datos en grupos de trabajo o dominios que no son de confianza.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

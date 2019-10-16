@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/02/2019
 ms.author: danlep
-ms.openlocfilehash: 36d27bc6089bbe3f4ada6862a9c1be1fa0bdbae7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 79b3e48373114bfcee6dca2e6142f23bed1699e6
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71305923"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972649"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Establecimiento de una directiva de retención para manifiestos sin etiqueta
 
@@ -27,12 +27,17 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ej
 > [!WARNING]
 > Establezca una directiva de retención con cuidado: los datos de imagen eliminados son IRRECUPERABLES. Si tiene sistemas que extraen imágenes por hash de manifiesto (en lugar de por nombre de la imagen), no debe establecer una política de retención para los manifiestos sin etiqueta. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado](container-registry-image-tag-version.md).
 
-Si quiere eliminar los manifiestos o las etiquetas de una sola imagen mediante comandos de la CLI de Azure, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
-
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
 * Solo los registros de contenedor **Premium** pueden configurarse con una directiva de retención. Para obtener información acerca de los niveles de servicio de registro, consulte [SKU de Azure Container Registry](container-registry-skus.md).
 * Solo puede establecer una directiva de retención para manifiestos sin etiqueta.
+* Actualmente la directiva de retención se aplica solo a los manifiestos que no están etiquetados *después* de habilitar esa directiva. Los manifiestos no etiquetados existentes en el registro no están sujetos a la directiva. Para eliminar los manifiestos sin etiquetar existentes, consulte los ejemplos que aparecen en [Eliminar imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
+
+## <a name="about-the-retention-policy"></a>Acerca de la directiva de retención
+
+Azure Container Registry hace referencia al recuento de manifiestos en el registro. Cuando un manifiesto no está etiquetado, comprueba la directiva de retención. Si se habilita una directiva de retención, se pone en cola una operación de eliminación de manifiestos, con una fecha concreta y según el número de días establecido en la directiva.
+
+Un trabajo de administración de colas independiente se encarga de procesar constantemente los mensajes, escalándolos según sea necesario. Por ejemplo, supongamos que ha etiquetado dos manifiestos con una hora de diferencia y en un registro con una directiva de retención de 30 días. Esos dos mensajes se pondrán en cola. A continuación, 30 días después y, aproximadamente, con una hora de diferencia, los mensajes se recuperan de la cola y se procesan, suponiendo que la directiva aún está en vigor.
 
 ## <a name="set-a-retention-policy---cli"></a>Establecimiento de una directiva de retención (CLI)
 
@@ -45,27 +50,38 @@ De forma predeterminada, no se establece ninguna directiva de retención en un r
 En el ejemplo siguiente se establece una directiva de retención de 30 días para los manifiestos sin etiqueta del registro *myregistry*:
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 30 --type UntaggedManifests
+az acr config retention update --registry myregistry --status enabled --days 30 --type UntaggedManifests
 ```
 
-En el ejemplo siguiente se establece una directiva para eliminar cualquier manifiesto del registro en cuanto no esté etiquetado. Para crear esta directiva, establezca un período de retención de 0 días:
+En el ejemplo siguiente se establece una directiva para eliminar cualquier manifiesto del registro en cuanto no esté etiquetado. Para crear esta directiva, establezca un período de retención de 0 días. 
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 0 --type UntaggedManifests
+az acr config retention update --registry myregistry --status enabled --days 0 --type UntaggedManifests
 ```
+
+### <a name="validate-a-retention-policy"></a>Validar una directiva de retención
+
+Si habilita la directiva anterior con un período de retención de 0 días, puede comprobar rápidamente si se eliminan los manifiestos sin etiquetar:
+
+1. Inserte una imagen de prueba `hello-world:latest` en su registro o sustituya otra imagen de prueba de su elección.
+1. Desetiquete la imagen `hello-world:latest`; por ejemplo, use el comando [az acr repository untag][az-acr-repository-untag]. El manifiesto sin etiquetar permanecerá en el registro.
+    ```azurecli
+    az acr repository untag --name myregistry --image hello-world:latest
+    ```
+1. A continuación, se elimina el manifiesto sin etiquetar en unos segundos. Puede comprobar la eliminación enumerando manifiestos en el repositorio; por ejemplo, puede usar para ello el comando [az acr repository show-manifests][az-acr-repository-show-manifests]. Si la imagen de prueba era la única del repositorio, se elimina el repositorio en sí.
 
 ### <a name="disable-a-retention-policy"></a>Deshabilitación de una directiva de retención
 
 Para ver la directiva de retención establecida en un registro, ejecute el comando [az acr config retention show][az-acr-config-retention-show]:
 
 ```azurecli
-az acr config retention show --name myregistry
+az acr config retention show --registry myregistry
 ```
 
 Para deshabilitar una directiva de retención de un registro, ejecute el comando [az acr config retention update][az-acr-config-retention-update] y establezca `--status disabled`:
 
 ```azurecli
-az acr config retention update --name myregistry --status disabled
+az acr config retention update --registry myregistry --status disabled --type UntaggedManifests
 ```
 
 ## <a name="set-a-retention-policy---portal"></a>Establecimiento de una directiva de retención (portal)
@@ -101,3 +117,5 @@ También puede establecer la directiva de retención de un registro en [Azure P
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-config-retention-update]: /cli/azure/acr/config/retention#az-acr-config-retention-update
 [az-acr-config-retention-show]: /cli/azure/acr/config/retention#az-acr-config-retention-show
+[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

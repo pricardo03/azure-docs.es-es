@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615758"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950336"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Información general sobre redes kubenet con una subred propia
 
@@ -38,9 +38,9 @@ Con *kubenet*, solo los nodos reciben una dirección IP en la subred de red virt
 
 ![Modelo de red kubenet con un clúster de AKS](media/use-kubenet/kubenet-overview.png)
 
-Azure admite un máximo de 400 rutas en un UDR, por lo que no puede tener un clúster de AKS que tenga más de 400 nodos. Las características de AKS como los [nodos virtuales][virtual-nodes] o las directivas de red no son compatibles con *kubenet*.
+Azure admite un máximo de 400 rutas en un UDR, por lo que no puede tener un clúster de AKS que tenga más de 400 nodos. Los [nodos virtuales][virtual-nodes] de AKS y las directivas de red de Azure no son compatibles con *kubenet*.  Puede usar las [directivas de red de Calico][calico-network-policies], ya que son compatibles con kubenet.
 
-Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comunicarse directamente con otros pods y servicios. Los clústeres pueden ser tan grandes como el intervalo de direcciones IP que especifique. Sin embargo, el intervalo de direcciones IP debe planearse por adelantado, y los nodos de AKS consumen todas las direcciones IP en función del número máximo de pods que pueden admitir. Los escenarios y las características avanzadas de red como los [nodos virtuales][virtual-nodes] o las directivas de red son compatibles con *Azure CNI*.
+Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comunicarse directamente con otros pods y servicios. Los clústeres pueden ser tan grandes como el intervalo de direcciones IP que especifique. Sin embargo, el intervalo de direcciones IP debe planearse por adelantado, y los nodos de AKS consumen todas las direcciones IP en función del número máximo de pods que pueden admitir. Los escenarios y las características avanzadas de red como los [nodos virtuales][virtual-nodes] o las directivas de red (de Azure o Calico) son compatibles con *Azure CNI*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidad y agotamiento de las direcciones IP
 
@@ -72,19 +72,16 @@ Use *kubenet* cuando:
 
 - Tenga un espacio de direcciones IP limitado.
 - La mayor parte de la comunicación de los pods se realice dentro del clúster.
-- No necesite características avanzadas como los nodos virtuales o la directiva de red.
+- No necesite características avanzadas de AKS como los nodos virtuales o la directiva de red de Azure.  Use [directivas de red de Calico][calico-network-policies].
 
 Use *Azure CNI* cuando:
 
 - Tenga espacio de direcciones IP disponible.
 - La mayor parte de la comunicación de los pods se realice con recursos fuera del clúster.
 - No desee administrar los UDR.
-- Necesite características avanzadas como los nodos virtuales o la directiva de red.
+- Necesite características avanzadas de AKS como los nodos virtuales o la directiva de red de Azure.  Use [directivas de red de Calico][calico-network-policies].
 
 Para más información que le ayude a decidir qué modelo de red usar, consulte la [Comparación de modelos de red y su ámbito de soporte][network-comparisons].
-
-> [!NOTE]
-> Kuberouter permite habilitar una directiva de red cuando se usa kubenet y se puede instalar como un daemonset en un clúster de AKS. Tenga en cuenta que kube-router está aún en versión beta y que Microsoft no ofrece soporte técnico para el proyecto.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
 
@@ -172,6 +169,24 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> Si quiere permitir que un clúster de AKS incluya una [directiva de red de Calico][calico-network-policies], puede usar el siguiente comando.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. Estos recursos de red los administra el plano de control de AKS. El grupo de seguridad de red se asocia automáticamente con la tarjetas de interfaz de red virtuales de los nodos. La tabla de ruta se asocia automáticamente con la subred de la red virtual. Las reglas y las tablas de ruta del grupo de seguridad de red se actualizan automáticamente cuando se crean y se exponen los servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -182,6 +197,7 @@ Con un clúster de AKS implementado en la subred de red virtual existente, ahora
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

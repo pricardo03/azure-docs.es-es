@@ -1,20 +1,20 @@
 ---
 title: Depuración de las UDF en Azure Digital Twins | Microsoft Docs
 description: Instrucciones para depurar las UDF en Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260860"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949898"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -55,6 +55,13 @@ AzureDiagnostics
 | Valor de la consulta | Reemplazar por |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | El identificador de correlación que se especificó en los datos del evento |
+
+Para ver todas las consultas de registros de telemetría recientes:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 Si habilita el registro para su función definida por el usuario, los registros aparecen en su instancia de análisis de registros con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta en el análisis de registros:
 

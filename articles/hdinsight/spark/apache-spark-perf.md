@@ -1,19 +1,19 @@
 ---
 title: Optimización de trabajos de Spark para mejorar el rendimiento en Azure HDInsight
 description: Se muestran estrategias comunes para obtener el mejor rendimiento de los clústeres de Apache Spark en Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/01/2019
+ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181083"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936838"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimización de trabajos de Apache Spark en HDInsight
 
@@ -55,22 +55,23 @@ El mejor formato para el rendimiento es parquet con *compresión eficiente*, que
 
 ## <a name="select-default-storage"></a>Selección del almacenamiento predeterminado
 
-Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure Blob Storage o Azure Data Lake Storage como almacenamiento predeterminado del clúster. Ambas opciones le ofrecen la ventaja de almacenamiento a largo plazo para clústeres transitorios, así los datos no se eliminan automáticamente al eliminar el clúster. Puede volver a crear un clúster transitorio y seguir teniendo acceso a los datos.
+Cuando se crea un nuevo clúster de Spark, puede seleccionar Azure Blob Storage o Azure Data Lake Storage como almacenamiento predeterminado del clúster. Ambas opciones le ofrecen la ventaja de almacenamiento a largo plazo para clústeres transitorios, así los datos no se eliminan automáticamente al eliminar el clúster. Puede volver a crear un clúster transitorio y seguir teniendo acceso a los datos.
 
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //url/ | **Estándar** | Sí | Clúster transitorio |
+| Azure Blob Storage (seguro) | **wasbs:** //url/ | **Estándar** | Sí | Clúster transitorio |
 | Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Más rápido** | Sí | Clúster transitorio |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Más rápido** | Sí | Clúster transitorio |
 | HDFS local | **hdfs:** //url/ | **El más rápido** | Sin | Clúster 24/7 interactivo |
 
 ## <a name="use-the-cache"></a>Uso de la caché
 
-Spark proporciona sus propios mecanismos nativos de almacenamiento, que se pueden usar a través de diferentes métodos, como `.persist()`, `.cache()` y `CACHE TABLE`. Este almacenamiento en caché nativo es efectivo con pequeños conjuntos de datos, así como en canalizaciones ETL donde tenga que almacenar en caché los resultados intermedios. Sin embargo, el almacenamiento en caché nativo de Spark no funciona bien actualmente con la creación de particiones, dado que la tabla almacenada en caché no retiene los datos de la creación de particiones. Una técnica de almacenamiento en caché más genérica y confiable es el *almacenamiento en caché de capas de almacenamiento*.
+Spark proporciona sus propios mecanismos nativos de almacenamiento, que se pueden usar a través de diferentes métodos, como `.persist()`, `.cache()` y `CACHE TABLE`. Este almacenamiento en caché nativo es efectivo con pequeños conjuntos de datos, así como en canalizaciones ETL donde tenga que almacenar en caché los resultados intermedios. Sin embargo, el almacenamiento en caché nativo de Spark no funciona bien actualmente con la creación de particiones, dado que la tabla almacenada en caché no conserva los datos de la creación de particiones. Una técnica de almacenamiento en caché más genérica y confiable es el *almacenamiento en caché de capas de almacenamiento*.
 
 * Almacenamiento en caché nativo de Spark (no se recomienda)
     * Adecuado para conjuntos de datos pequeños
-    * No funciona con la creación de particiones; sin embargo, esto puede cambiar en futuras versiones de Spark
+    * No funciona con la creación de particiones; sin embargo, esto puede cambiar en futuras versiones de Spark.
 
 * Almacenamiento en caché de capas de almacenamiento (recomendado)
     * Se puede implementar mediante [Alluxio](https://www.alluxio.org/)
@@ -127,7 +128,7 @@ Puede usar creación de particiones y creación de depósitos al mismo tiempo.
 
 ## <a name="optimize-joins-and-shuffles"></a>Optimización de combinaciones y órdenes aleatorios
 
-Si tiene trabajos lentos en una combinación o un orden aleatorio, es probable que la causa sea la *asimetría de datos* en el trabajo. Por ejemplo, un trabajo de asignación puede tardar 20 segundos, pero ejecutar un trabajo donde los datos se combinan o se ordenan de forma aleatoria puede tardar horas.   Para corregir la asimetría de los datos, debe usar el valor de salt en toda la clave o un *valor de salt aislado* únicamente para algunos subconjuntos de claves.  Si usa un valor de salt aislado, debe filtrar adicionalmente para aislar el subconjunto de claves con el valor de salt en las combinaciones de asignación. Otra opción consiste en insertar una columna de depósito y primero agregarla en los depósitos.
+Si tiene trabajos lentos en una combinación o un orden aleatorio, es probable que la causa sea la *asimetría de datos* en el trabajo. Por ejemplo, un trabajo de asignación puede tardar 20 segundos, pero ejecutar un trabajo donde los datos se combinan o se ordenan de forma aleatoria puede tardar horas. Para corregir la asimetría de los datos, debe usar el valor de salt en toda la clave o un *valor de salt aislado* únicamente para algunos subconjuntos de claves. Si usa un valor de salt aislado, debe filtrar adicionalmente para aislar el subconjunto de claves con el valor de salt en las combinaciones de asignación. Otra opción consiste en insertar una columna de depósito y primero agregarla en los depósitos.
 
 Otro factor causante de las combinaciones lentas podría ser el tipo de combinación. De forma predeterminada, Spark usa el tipo de combinación `SortMerge`. Este tipo de combinación es más adecuada para conjuntos de datos grandes, pero tiene la desventaja de que es cara desde el punto de vista computacional porque primero debe ordenar los lados izquierdo y derecho de los datos antes de combinarlos.
 
@@ -144,6 +145,7 @@ val df1 = spark.table("FactTableA")
 val df2 = spark.table("dimMP")
 df1.join(broadcast(df2), Seq("PK")).
     createOrReplaceTempView("V_JOIN")
+
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
@@ -151,7 +153,7 @@ Si usa tablas en depósitos, tiene un tercer tipo de combinación, la combinaci�
 
 El orden de las combinaciones importa, en especial en consultas más complejas. Comience con las combinaciones más selectivas. Además, mueva las combinaciones que aumentan el número de filas después de las agregaciones cuando sea posible.
 
-Para administrar el paralelismo, en concreto en el caso de las combinaciones cartesianas, puede agregar estructuras anidadas, ventanas y, quizás, omitir uno o varios pasos del trabajo de Spark.
+Para administrar el paralelismo en el caso de las combinaciones cartesianas, puede agregar estructuras anidadas, ventanas y, quizás, omitir uno o varios pasos del trabajo de Spark.
 
 ## <a name="customize-cluster-configuration"></a>Personalización de la configuración del clúster
 
@@ -179,17 +181,17 @@ A la hora de decidir la configuración del ejecutor, tenga en cuenta la sobrecar
     5. Opcional: aumente la utilización y la simultaneidad mediante la sobresuscripción de CPU.
 
 Como norma general al seleccionar el tamaño del ejecutor:
-    
+
 1. Comience con 30 GB por ejecutor y distribuya los núcleos de máquina disponibles.
 2. Aumente el número de núcleos de ejecutor para clústeres más grandes (> 100 ejecutores).
-3. Aumente o disminuya los tamaños según las ejecuciones de prueba y los factores anteriores, como la sobrecarga de GC.
+3. Modifique el tamaño según las ejecuciones de prueba y los factores anteriores, como la sobrecarga de GC.
 
 Al ejecutar consultas simultáneas, tenga en cuenta lo siguiente:
 
 1. Comience con 30 GB por ejecutor y todos los núcleos de la máquina.
 2. Cree varias aplicaciones de Spark paralelas mediante la sobresuscripción de CPU (mejora de la latencia en torno al 30 %).
 3. Distribuya las consultas entre aplicaciones paralelas.
-4. Aumente o disminuya los tamaños según las ejecuciones de prueba y los factores anteriores, como la sobrecarga de GC.
+4. Modifique el tamaño según las ejecuciones de prueba y los factores anteriores, como la sobrecarga de GC.
 
 Supervise el rendimiento de las consultas en busca de valores atípicos u otros problemas de rendimiento; puede usar para ello la vista de escala de tiempo, el gráfico SQL, las estadísticas de trabajos, etc. En ocasiones, uno o algunos de los ejecutores son más lentos que otros y las tareas tardan mucho más en ejecutarse. Esto sucede con frecuencia en clústeres más grandes (> 30 nodos). En este caso, divida el trabajo en un número de tareas más grande para que el programador pueda compensar las tareas lentas. Por ejemplo, debe tener al menos dos veces tantas tareas como el número de núcleos de ejecutor en la aplicación. También puede habilitar la ejecución especulativa de tareas con `conf: spark.speculation = true`.
 

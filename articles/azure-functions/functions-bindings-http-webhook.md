@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097341"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838914"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -727,7 +727,7 @@ Las claves se almacenan como parte de la aplicación de función en Azure y se c
 
 ![Administre las claves de función en el portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Puede obtener claves de función mediante programación con la [API de administración de claves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Puede obtener claves de función mediante programación con las [API de administración de claves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorización de la clave de API
 
@@ -740,8 +740,7 @@ La clave se puede incluir en una variable de cadena de consulta denominada `code
 Puede permitir solicitudes anónimas, que no requieren claves. También puede exigir que se use la clave principal. Cambie el nivel de autorización predeterminado mediante la propiedad `authLevel` en el JSON de enlace. Para más información, consulte [Desencadenador: configuración](#trigger---configuration).
 
 > [!NOTE]
-> Cuando las funciones se ejecutan localmente, la autorización se deshabilita independientemente del valor del nivel de autenticación especificado. Después de publicar en Azure, se aplica el valor `authLevel` del desencadenador.
-
+> Cuando las funciones se ejecutan localmente, la autorización se deshabilita independientemente del valor del nivel de autenticación especificado. Después de publicar en Azure, se aplica el valor `authLevel` del desencadenador. Las claves siguen siendo necesarias cuando se ejecutan [localmente en un contenedor](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteger un punto de conexión HTTP en producción

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266881"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973017"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -293,6 +293,10 @@ Sí
 **¿Está habilitado el servicio Storage Service Encryption de forma predeterminada al crear un disco administrado?**
 
 Sí.
+
+**¿El volumen de arranque está cifrado de forma predeterminada en un disco administrado?**
+
+Sí. De forma predeterminada, se cifran todos los discos administrados, incluido el disco del sistema operativo.
 
 **¿Quién administra las claves de cifrado?**
 

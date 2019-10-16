@@ -1,19 +1,19 @@
 ---
-title: Procesamiento de datos y funciones definidas por el usuario con Azure Digital Twins | Microsoft Docs
+title: 'Procesamiento de datos y funciones definidas por el usuario: Azure Digital Twins | Microsoft Docs'
 description: Introducción al procesamiento de datos, los buscadores de coincidencias y las funciones definidas por el usuario con Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178253"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949969"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 

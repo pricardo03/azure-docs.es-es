@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: Guías de procedimientos
       items:
+        - name: "Administración de actualizaciones y revisiones de Microsoft\_Azure Virtual Machines"
+          href: automation-tutorial-update-management.md
         - name: Administración de actualizaciones de varias máquinas virtuales
           href: manage-update-multi.md
         - name: Scripts anteriores y posteriores
@@ -157,6 +159,14 @@
         - name: Integración de SCCM con Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: Configuración de Windows Update para Update Management
+          href: automation-configure-windows-update.md
+        - name: Uso de grupos dinámicos con Update Management
+          href: automation-update-management-groups.md
+        - name: Consulta de registros de Update Management
+          href: automation-update-management-query-logs.md
+        - name: Visualización de valoraciones de las actualizaciones
+          href: automation-view-update-assessments.md
     - name: Solución de problemas
       items:
         - name: Incorporación
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: Credenciales
       href: automation-credentials.md
-    - name: Módulos
-      href: automation-integration-modules.md
+    - name: Módulos de PowerShell
+      items:
+        - name: Módulos
+          href: automation-integration-modules.md
+        - name: Uso de módulos de Az en Azure Automation
+          href: az-modules.md
+        - name: Actualización de módulos de Azure PowerShell
+          href: automation-update-azure-modules.md
     - name: Programaciones
       href: automation-schedules.md
     - name: variables
       href: automation-variables.md
-    - name: Actualización de módulos de Azure PowerShell
-      href: automation-update-azure-modules.md
     - name: Administración de paquetes de Python 2
       href: python-packages.md
     - name: Solución de problemas de recursos compartidos

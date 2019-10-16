@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677762"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838570"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), se puede [configurar mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones. En este artículo se describen las diferentes acciones de webhook que están disponibles y se muestra cómo configurar un webhook personalizado basado en JSON.
 
 > [!NOTE]
-> También se puede usar el [esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs) para las integraciones de webhook. Este esquema ofrece la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
+> También se puede usar el [esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs) para las integraciones de webhook. El esquema de alerta común ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta de Azure Monitor. Tenga en cuenta que el esquema de alerta común no respeta la opción de JSON personalizada para las alertas de registro. Se aplaza a la carga del esquema de alerta común si se selecciona con independencia de la personalización que haya realizado en el nivel de la regla de alerta. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Acciones de webhook
 

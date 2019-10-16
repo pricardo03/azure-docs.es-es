@@ -26,7 +26,7 @@
     - name: Streaming de datos mediante Event Hubs
       href: databricks-stream-from-eventhubs.md
     - name: Análisis de sentimiento mediante Cognitive Services
-  href: databricks-sentiment-analysis-cognitive-services.md
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Guías de procedimientos
   items:
     - name: Introducción
@@ -543,7 +543,7 @@
         - name: Introducción a Delta Lake
           href: /azure/databricks/delta/delta-intro
           maintainContext: true
-        - name: Primeros pasos con Delta
+        - name: Primeros pasos con Delta Lake
           href: /azure/databricks/delta/quick-start
           maintainContext: true
         - name: Cuadernos de introducción
@@ -617,6 +617,9 @@
               maintainContext: true
         - name: Preguntas más frecuentes
           href: /azure/databricks/delta/delta-faq
+          maintainContext: true
+        - name: Recursos de Delta adicionales
+          href: /azure/databricks/delta/delta-resources
           maintainContext: true
     - name: DataFrames y conjuntos de datos
       items:
@@ -772,9 +775,6 @@
             - name: PyTorch
               href: /azure/databricks/applications/deep-learning/single-node-training/pytorch
               maintainContext: true
-            - name: JCuda
-              href: /azure/databricks/applications/deep-learning/single-node-training/jcuda
-              maintainContext: true
             - name: PyTorch de nodo único a aprendizaje profundo distribuido
               href: /azure/databricks/applications/deep-learning/distributed-training/mnist-pytorch
               maintainContext: true
@@ -852,35 +852,28 @@
           maintainContext: true
     - name: Análisis de grafos
       items:
-        - name: Tutorial de análisis de grafos con GraphFrames
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: 'GraphFrames: Python'
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: 'GraphFrames: Scala'
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
-          maintainContext: true
-        - name: Análisis de grafos con GraphX (heredado)
-          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
-          maintainContext: true
         - name: Introducción al análisis de grafos
           href: /azure/databricks/spark/latest/graph-analysis/index
           maintainContext: true
-        - name: Tutorial de análisis de grafos
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: Introducción a GraphFrames
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/index
-          maintainContext: true
-        - name: 'GraphFrames: Python'
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: 'GraphFrames: Scala'
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+        - name: GraphFrames
+          items:
+            - name: Tutorial de análisis de grafos con GraphFrames
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
+              maintainContext: true
+            - name: 'GraphFrames: Python'
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
+              maintainContext: true
+            - name: 'GraphFrames: Scala'
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+              maintainContext: true
+        - name: Análisis de grafos con GraphX (heredado)
+          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
           maintainContext: true
     - name: Genomics
       items:
+        - name: Introducción a Genomics
+          href: /azure/databricks/applications/genomics/index
+          maintainContext: true
         - name: Introducción a la ETL de Genomics
           href: /azure/databricks/applications/genomics/etl/index
           maintainContext: true
@@ -921,6 +914,9 @@
             - name: Control de calidad de ejemplos
               href: /azure/databricks/applications/genomics/etl/sample-qc
               maintainContext: true
+            - name: Levantar
+              href: /azure/databricks/applications/genomics/etl/lift-over
+              maintainContext: true
         - name: Análisis terciario
           items:
             - name: Introducción al análisis terciario
@@ -937,9 +933,6 @@
               maintainContext: true
             - name: Pruebas de regresión
               href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: SAIGE y SAIGE-GENE
-              href: /azure/databricks/applications/genomics/tertiary/saige
               maintainContext: true
             - name: Bibliotecas de estadísticas de Python
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
@@ -1072,6 +1065,9 @@
               maintainContext: true
             - name: Emparejamiento de redes virtuales
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
+              maintainContext: true
+            - name: Actualización del área de trabajo de vista previa a GA
+              href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject-upgrade
               maintainContext: true
             - name: Implementación de Azure Databricks en una red virtual
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
@@ -1282,6 +1278,9 @@
               maintainContext: true
             - name: El trabajo de Spark se bloquea a causa de un UDF personalizado
               href: /azure/databricks/kb/jobs/spark-udf-performance
+              maintainContext: true
+            - name: Error en el trabajo maxresultsize
+              href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
               maintainContext: true
         - name: Bibliotecas
           items:
@@ -1587,8 +1586,17 @@
                 - name: Versiones del runtime compatibles
                   href: /azure/databricks/release-notes/runtime/supported
                   maintainContext: true
+                - name: "Databricks Runtime\_6.1"
+                  href: /azure/databricks/release-notes/runtime/6.1
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.1 ML"
+                  href: /azure/databricks/release-notes/runtime/6.1ml
+                  maintainContext: true
                 - name: "Databricks Runtime\_6.0"
                   href: /azure/databricks/release-notes/runtime/6.0
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.0 con Conda"
+                  href: /azure/databricks/release-notes/runtime/6.0conda
                   maintainContext: true
                 - name: "Databricks Runtime\_6.0 ML"
                   href: /azure/databricks/release-notes/runtime/6.0ml

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735418"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981104"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -59,7 +59,7 @@ Esto es lo que se admite si quiere hacer copias de seguridad de equipos locales:
 **Límite** | **Detalles**
 --- | ---
 **Discos de datos de máquinas virtuales de Azure** | Límite de 16.
-**Tamaño del disco de datos de la máquina virtual de Azure** | Los discos individuales pueden tener hasta 4095 GB.
+**Tamaño del disco de datos de la máquina virtual de Azure** | Admite la copia de seguridad de máquinas virtuales con cada tamaño de disco hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una VM.
 
 ### <a name="azure-vm-backup-options"></a>Opciones de copia de seguridad de máquinas virtuales de Azure
 

@@ -1,17 +1,17 @@
 ---
-title: Creación y administración de réplicas de lectura en Azure Database for MySQL
-description: En este artículo se describe cómo configurar y administrar réplicas de lectura en Azure Database for MySQL mediante Azure Portal.
+title: Creación y administración de réplicas de lectura (Azure Portal) - Azure Database for MySQL
+description: Aprenda a crear y administrar réplicas de lectura en Azure Database for MySQL mediante Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309499"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972869"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante Azure Portal
 

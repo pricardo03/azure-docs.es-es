@@ -1,19 +1,19 @@
 ---
-title: Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
-description: En este artículo se describe cómo utilizar sys_schema para detectar problemas de rendimiento y realizar el mantenimiento de bases de datos en Azure Database for MySQL.
+title: Usar sys_schema para optimizar el rendimiento y mantener Azure Database for MySQL
+description: Aprenda a usar sys_schema para detectar problemas de rendimiento y realizar el mantenimiento de bases de datos en Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422378"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972787"
 ---
-# <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
+# <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 
 La característica performance_schema de MySQL, disponible por primera vez en MySQL 5.5, proporciona instrumentación para muchos recursos importantes del servidor como la asignación de memoria, programas almacenados, bloqueo de metadatos, etc. No obstante, performance_schema contiene más de 80 tablas y obtener la información necesaria a menudo requiere unir las tablas de performance_schema, así como las tablas procedentes de information_schema. Tomando como base performance_schema e information_schema, la característica sys_schema proporciona un conjunto eficaz de [vistas fáciles de usar](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) en una base de datos de solo lectura y está completamente habilitada en Azure Database for MySQL versión 5.7.
 
@@ -33,7 +33,7 @@ Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empe
 
 ## <a name="performance-tuning"></a>Optimización del rendimiento
 
-### <a name="sysusersummarybyfileio"></a>*sys.user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
 E/S es la operación más costosa en la base de datos. Podemos averiguar el promedio de latencia de E/S consultando la vista *sys.user_summary_by_file_io*. Con el valor predeterminado de 125 GB de almacenamiento aprovisionado, la latencia de E/S es aproximadamente de 15 segundos.
 
@@ -43,13 +43,13 @@ Dado que Azure Database for MySQL escala E/S en relación al almacenamiento, des
 
 ![Latencia de E/S: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
-### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
 A pesar de efectuar un planeamiento cuidadoso, puede que muchas consultas aún resulten en recorridos de tabla completos. Para obtener información adicional acerca de los tipos de índices y cómo optimizarlos, puede consultar este artículo: [Solución de problemas relacionados con el rendimiento de consultas](./howto-troubleshoot-query-performance.md). Los recorridos de tabla completos requieren un uso intensivo de los recursos y reducen el rendimiento de la base de datos. La forma más rápida de buscar tablas con recorridos de tabla completos es consultar la vista *sys.schema_tables_with_full_table_scans*.
 
 ![recorridos de tabla completos](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 
-### <a name="sysusersummarybystatementtype"></a>*sys.user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
 Para solucionar los problemas de rendimiento de bases de datos, puede resultar útil identificar los eventos que se producen dentro de la base de datos y mediante la vista *sys.user_summary_by_statement_type* puede lograrlo.
 
@@ -59,7 +59,7 @@ En este ejemplo Azure Database for MySQL empleó 53 minutos en vaciar el registr
 
 ## <a name="database-maintenance"></a>Mantenimiento de base de datos
 
-### <a name="sysinnodbbufferstatsbytable"></a>*sys.innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 El grupo de búferes InnoDB reside en la memoria y es el principal mecanismo de memoria caché entre el sistema de administración de bases de datos y el almacenamiento. El tamaño del grupo de búferes InnoDB está vinculado al nivel de rendimiento y no se puede cambiar a menos que se elija una SKU de producto diferente. Al igual que con la memoria del sistema operativo, se intercambiaron páginas antiguas para dejar espacio a los datos más recientes. Para averiguar qué tablas consumen la mayor parte de la memoria del grupo de búferes InnoDB, puede consultar la vista *sys.innodb_buffer_stats_by_table*.
 
@@ -67,7 +67,7 @@ El grupo de búferes InnoDB reside en la memoria y es el principal mecanismo de 
 
 En el gráfico anterior, se puede ver que aparte de las tablas del sistema y las vistas, cada tabla de la base de datos mysqldatabase033, que hospeda uno de mis sitios de WordPress, ocupa 16 KB, o 1 página, de datos en memoria.
 
-### <a name="sysschemaunusedindexes--sysschemaredundantindexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
 Los índices son unas herramientas estupendas para mejorar el rendimiento de lectura, pero suponen costos adicionales por las inserciones y el almacenamiento. *Sys.schema_unused_indexes* and *sys.schema_redundant_indexes* proporcionan información sobre los índices sin usar o los duplicados.
 

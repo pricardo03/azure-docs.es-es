@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828760"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981146"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -114,7 +114,7 @@ Para realizar consultas autenticadas en las [API de REST de Time Series Insigh
 > * El elemento **AuthURL** de [ Cartero ](https://www.getpostman.com/) se ajusta por lo tanto a: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> Consulte el tutorial [Explorar la biblioteca de cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md#authentication) para ver cómo autenticarse con las API de Time Series Insights mediante la programación, mediante el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+> Consulte la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para ver cómo autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
 
 ### <a name="http-headers"></a>Encabezados HTTP
 

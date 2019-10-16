@@ -96,22 +96,22 @@
           items:
             - name: Creación y administración de laboratorios educativos
               href: classroom-labs/how-to-manage-classroom-labs.md
-            - name: Configuración y publicación de plantillas
+            - name: 'Configuración, personalización y publicación de plantillas'
               href: classroom-labs/how-to-create-manage-template.md
-            - name: Configuración y control del uso
+            - name: Configuración y administración del grupo de máquinas virtuales
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Incorporación y administración de usuarios de laboratorio
               href: classroom-labs/how-to-configure-student-usage.md
             - name: Creación y administración de programaciones
               href: classroom-labs/how-to-create-schedules.md
-            - name: Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla
-              href: classroom-labs/how-to-enable-multi-vm-environment.md
             - name: Uso de una galería de imágenes compartidas
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Habilitar conexión de escritorio remoto para Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
-            - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
-              href: classroom-labs/how-to-set-virtual-machine-passwords.md
             - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
               href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+            - name: Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
         - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
           items:
             - name: Acceso a laboratorios educativos

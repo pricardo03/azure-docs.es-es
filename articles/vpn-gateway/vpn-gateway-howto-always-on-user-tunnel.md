@@ -1,0 +1,168 @@
+---
+title: Configuración de un túnel Always On en VPN Gateway
+description: Pasos para configurar un túnel de usuario VPN de Always On para VPN Gateway
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: conceptual
+ms.date: 10/02/2019
+ms.author: cherylmc
+ms.openlocfilehash: dc0abf12c60f845fde0d16bd874a1436aef3b7ab
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71846376"
+---
+# <a name="configure-an-always-on-vpn-user-tunnel"></a>Configuración de un túnel de usuario VPN de Always On
+
+Una de las nuevas características del cliente de red privada virtual (VPN) de Windows 10 es la posibilidad de mantener una conexión VPN. Always On es una característica de Windows 10 que permite que el perfil activo de VPN se conecte automáticamente y permanezca conectado en función de los desencadenadores; es decir, los inicios de sesión de los usuarios, los cambios en el estado de la red o la activación de la pantalla del dispositivo.
+
+Las puertas de enlace de red virtual de Azure pueden utilizarse con Windows 10 Always On para establecer túneles de usuario persistentes, así como túneles de dispositivo dirigidos a Azure. Este artículo le ayudará a configurar un túnel de usuario VPN de Always On.
+
+Las conexiones VPN de Always On incluyen dos tipos de túneles:
+
+* **Túnel de dispositivo**: se conecta a los servidores VPN especificados antes de que los usuarios inicien sesión en el dispositivo. Los túneles de dispositivo se utilizan en escenarios de conectividad previos al inicio de sesión y para administrar dispositivos.
+
+* **Túnel de usuario**: solo se conecta cuando un usuario inicia sesión en el dispositivo. Los túneles de usuario permiten a los usuarios acceder a los recursos de la organización utilizando servidores VPN.
+
+Tanto los túneles de dispositivo como de usuario funcionan de forma independiente a los perfiles VPN. Pueden conectarse al mismo tiempo y utilizar diferentes métodos de autenticación u otras opciones de configuración de VPN en función de las necesidades.
+
+## <a name="1-configure-the-gateway"></a>1. Configuración de la puerta de enlace
+
+Configure la puerta de enlace VPN para que utilice IKEv2 y la autenticación basada en certificados. Para ello, siga este [artículo sobre las conexiones de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+
+## <a name="2-configure-the-user-tunnel"></a>2. Configuración del túnel de usuario
+
+1. Instale certificados de cliente en el cliente de Windows 10, tal y como se muestra en este [artículo sobre los clientes VPN de punto a sitio](point-to-site-how-to-vpn-client-install-azure-cert.md). El certificado debe estar en el almacén del usuario actual
+2. Configure el cliente VPN de Always On mediante PowerShell, SCCM o Intune siguiendo [estas instrucciones](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+
+### <a name="configuration-example-for-user-tunnel"></a>Ejemplo de configuración de túnel de usuario
+
+Una vez que haya configurado la puerta de enlace de red virtual e instalado el certificado de cliente en el almacén del equipo local del cliente de Windows 10, use los ejemplos siguientes para configurar un túnel de dispositivo de cliente.
+
+1. Copie el texto siguiente y guárdelo como ***usercert.ps1***.
+
+   ```
+   Param(
+   [string]$xmlFilePath,
+   [string]$ProfileName
+   )
+
+   $a = Test-Path $xmlFilePath
+   echo $a
+
+   $ProfileXML = Get-Content $xmlFilePath
+
+   echo $XML
+
+   $ProfileNameEscaped = $ProfileName -replace ' ', '%20'
+
+   $Version = 201606090004
+
+   $ProfileXML = $ProfileXML -replace '<', '&lt;'
+   $ProfileXML = $ProfileXML -replace '>', '&gt;'
+   $ProfileXML = $ProfileXML -replace '"', '&quot;'
+
+   $nodeCSPURI = './Vendor/MSFT/VPNv2'
+   $namespaceName = "root\cimv2\mdm\dmmap"
+   $className = "MDM_VPNv2_01"
+
+   $session = New-CimSession
+
+   try
+   {
+   $newInstance = New-Object Microsoft.Management.Infrastructure.CimInstance $className, $namespaceName
+   $property = [Microsoft.Management.Infrastructure.CimProperty]::Create("ParentID", "$nodeCSPURI", 'String', 'Key')
+   $newInstance.CimInstanceProperties.Add($property)
+   $property = [Microsoft.Management.Infrastructure.CimProperty]::Create("InstanceID", "$ProfileNameEscaped", 'String', 'Key')
+   $newInstance.CimInstanceProperties.Add($property)
+   $property = [Microsoft.Management.Infrastructure.CimProperty]::Create("ProfileXML", "$ProfileXML", 'String', 'Property')
+   $newInstance.CimInstanceProperties.Add($property)
+
+   $session.CreateInstance($namespaceName, $newInstance)
+   $Message = "Created $ProfileName profile."
+   Write-Host "$Message"
+   }
+   catch [Exception]
+   {
+   $Message = "Unable to create $ProfileName profile: $_"
+   Write-Host "$Message"
+   exit
+   }
+   $Message = "Complete."
+   Write-Host "$Message"
+   ```
+1. Copie el texto siguiente y guárdelo como ***VPNProfile.xml*** en la misma carpeta que **usercert.ps1**. Modifique el texto siguiente para adaptarlo a su entorno.
+
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
+   * `<Address>192.168.3.5</Address>`
+   * `<Address>192.168.3.4</Address>`
+
+   ```
+    <VPNProfile>  
+      <NativeProfile>  
+    <Servers>azuregateway-b115055e-0882-49bc-a9b9-7de45cba12c0-8e6946892333.vpn.azure.com</Servers>  
+    <NativeProtocolType>IKEv2</NativeProtocolType>  
+    <Authentication>  
+    <UserMethod>Eap</UserMethod>
+    <Eap>
+    <Configuration>
+    <EapHostConfig xmlns="http://www.microsoft.com/provisioning/EapHostConfig"><EapMethod><Type xmlns="http://www.microsoft.com/provisioning/EapCommon">13</Type><VendorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorId><VendorType xmlns="http://www.microsoft.com/provisioning/EapCommon">0</VendorType><AuthorId xmlns="http://www.microsoft.com/provisioning/EapCommon">0</AuthorId></EapMethod><Config xmlns="http://www.microsoft.com/provisioning/EapHostConfig"><Eap xmlns="http://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>13</Type><EapType xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV1"><CredentialsSource><CertificateStore><SimpleCertSelection>true</SimpleCertSelection></CertificateStore></CredentialsSource><ServerValidation><DisableUserPromptForServerValidation>false</DisableUserPromptForServerValidation><ServerNames></ServerNames></ServerValidation><DifferentUsername>false</DifferentUsername><PerformServerValidation xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">false</PerformServerValidation><AcceptServerName xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">false</AcceptServerName></EapType></Eap></Config></EapHostConfig>
+    </Configuration>
+    </Eap>
+    </Authentication>  
+    <RoutingPolicyType>SplitTunnel</RoutingPolicyType>  
+     <!-- disable the addition of a class based route for the assigned IP address on the VPN interface -->
+    <DisableClassBasedDefaultRoute>true</DisableClassBasedDefaultRoute>  
+      </NativeProfile> 
+      <!-- use host routes(/32) to prevent routing conflicts -->  
+      <Route>  
+    <Address>192.168.3.5</Address>  
+    <PrefixSize>32</PrefixSize>  
+      </Route>  
+      <Route>  
+    <Address>192.168.3.4</Address>  
+    <PrefixSize>32</PrefixSize>  
+      </Route>  
+    <!-- traffic filters for the routes specified above so that only this traffic can go over the device tunnel --> 
+      <TrafficFilter>  
+    <RemoteAddressRanges>192.168.3.4, 192.168.3.5</RemoteAddressRanges>  
+      </TrafficFilter>
+    <!-- need to specify always on = true --> 
+    <AlwaysOn>true</AlwaysOn>
+    <RememberCredentials>true</RememberCredentials>
+    <!--new node to register client IP address in DNS to enable manage out -->
+    <RegisterDNS>true</RegisterDNS>
+    </VPNProfile>
+   ```
+1. Ejecute PowerShell como administrador.
+
+1. En PowerShell, vaya la carpeta donde se encuentra **usercert.ps1** y **VPNProfile.xml** y ejecute el siguiente comando:
+
+   ```powershell
+   C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
+   ```
+   
+   ![MachineCertTest](./media/vpn-gateway-howto-always-on-user-tunnel/p2s2.jpg)
+1. Mire en Configuración de VPN.
+
+1. Busque la entrada **UserTest** y haga clic en **Conectar**.
+
+1. Si la conexión se realiza correctamente, habrá configurado correctamente un túnel de usuario de Always On.
+
+## <a name="cleanup"></a>Limpieza
+
+Para quitar el perfil, ejecute el siguiente comando:
+
+1. Desconecte la conexión y desactive la opción "Conectar automáticamente".
+
+   ```powershell
+   C:\> Remove-VpnConnection UserTest  
+   ```
+
+![Limpieza](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4..jpg)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para solucionar problemas, consulte [Problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

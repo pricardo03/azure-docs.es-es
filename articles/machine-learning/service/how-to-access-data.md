@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9de3232bcd7908f775dadff4dc584f2a687b0c68
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299754"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950115"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
 
-En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts.
+En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix).
 
 En este procedimiento se muestran ejemplos de las tareas siguientes:
 * [Registro de almacenes de datos](#access)
@@ -30,49 +30,81 @@ En este procedimiento se muestran ejemplos de las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar almacenes de datos, antes se necesita un [área de trabajo](concept-workspace.md).
+- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-Para empezar puede [crear una nueva área de trabajo](how-to-manage-workspace.md), o bien puede recuperar una existente:
+- Una cuenta de Azure Storage con un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-```Python
-import azureml.core
-from azureml.core import Workspace, Datastore
+- [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o acceso a la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com/).
 
-ws = Workspace.from_config()
-```
+- Un área de trabajo de Azure Machine Learning. 
+    - [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) o use una existente mediante el SDK de Python.
+
+        ```Python
+        import azureml.core
+        from azureml.core import Workspace, Datastore
+        
+        ws = Workspace.from_config()
+        ```
 
 <a name="access"></a>
 
-## <a name="register-datastores"></a>Registro de almacenes de datos
+## <a name="create-and-register-datastores"></a>Creación y registro de almacenes de datos
+
+Cuando se registra una solución de Azure Storage como un almacén de datos, se crea automáticamente ese almacén de datos en un área de trabajo específica. Puede crear y registrar almacenes de datos en un área de trabajo mediante el SDK de Python o la página de aterrizaje del área de trabajo.
+
+### <a name="using-the-python-sdk"></a>Uso del SDK de Python
 
 Todos los métodos de registro están en la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) y tienen la forma register_azure_*.
+
+La información necesaria para rellenar el método register() se puede encontrar a través de [Azure Portal](https://ms.portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para obtener información de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo. 
 
 Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob Container o un recurso compartido de archivos de Azure como un almacén de datos.
 
 + Para un **almacén de datos de un contenedor de blobs de Azure**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-  ```Python
-  datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                      datastore_name='your datastore name', 
-                                                      container_name='your azure blob container name',
-                                                      account_name='your storage account name', 
+    En el código siguiente se crea y registra el almacén de datos, `my_datastore`, en el área de trabajo, `ws`. Este almacén de datos tiene acceso al contenedor de blobs de Azure, `my_blob_container`, en la cuenta de Azure Storage, `my_storage_account`, con la clave de cuenta proporcionada.
+
+    ```Python
+       datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                          datastore_name='my_datastore', 
+                                                          container_name='my_blob_container',
+                                                          account_name='my_storage_account', 
+                                                          account_key='your storage account key',
+                                                          create_if_not_exists=True)
+    ```
+
++ Para un **almacén de datos de un recurso compartido de archivos de Azure**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+
+    En el código siguiente se crea y registra el almacén de datos, `my_datastore`, en el área de trabajo, `ws`. Este almacén de datos tiene acceso al recurso compartido de archivos de Azure, `my_file_share`, en la cuenta de Azure Storage, `my_storage_account`, con la clave de cuenta proporcionada.
+
+    ```Python
+       datastore = Datastore.register_azure_file_share(workspace=ws, 
+                                                      datastore_name='my_datastore', 
+                                                      file_share_name='my_file_share',
+                                                      account_name='my_storage account', 
                                                       account_key='your storage account key',
                                                       create_if_not_exists=True)
-  ```
-
-+ Para un **almacén de datos de un recurso compartido de archivos de Azure**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por ejemplo: 
-  ```Python
-  datastore = Datastore.register_azure_file_share(workspace=ws, 
-                                                  datastore_name='your datastore name', 
-                                                  file_share_name='your file share name',
-                                                  account_name='your storage account name', 
-                                                  account_key='your storage account key',
-                                                  create_if_not_exists=True)
-  ```
+    ```
 
 ####  <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
 Recomendamos el contenedor de blobs de Azure. El almacenamiento Estándar y Premium están disponibles para blobs. Aunque sea más costoso, se recomienda el almacenamiento premium debido a que la velocidad de rendimiento es mayor y puede mejorar la velocidad de las ejecuciones de entrenamiento, sobre todo si usa un gran conjunto de datos. Consulte la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) para obtener información sobre el costo de la cuenta de almacenamiento.
+
+### <a name="using-the-workspace-landing-page"></a>Uso de la página de aterrizaje del área de trabajo 
+
+Cree un nuevo almacén de datos en unos pocos pasos en la página de aterrizaje del área de trabajo.
+
+1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/).
+1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.
+1. Seleccione **+ Nuevo almacén de datos**.
+1. Complete el nuevo formulario de almacén de datos. El formulario se actualiza de forma inteligente según el tipo de almacenamiento de Azure y las selecciones de tipo de autenticación.
+  
+La información necesaria para rellenar el formulario se puede encontrar a través de [Azure Portal](https://ms.portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para los elementos de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo.
+
+En el ejemplo siguiente se muestra el aspecto que tendría el formulario para crear un almacén de datos de Azure Blob. 
+    
+ ![Nuevo almacén de datos](media/how-to-access-data/new-datastore-form.png)
+
 
 <a name="get"></a>
 
@@ -201,6 +233,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+<a name="matrix"></a>
 
 ### <a name="compute-and-datastore-matrix"></a>Proceso y matriz de almacén de datos
 

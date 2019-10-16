@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e8137bc0e75595b5f548584bb2d1644de2e0fecd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7903ec669772c3a3858a9c1d514ab3e6de6a2bd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508918"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936825"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configuración del autoservicio de restablecimiento de contraseña para los consumidores
 
@@ -30,6 +30,7 @@ De forma predeterminada, el directorio no tiene activado el autoservicio de rest
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción. Esta cuenta es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para crear el directorio.
 2. Abra **Azure Active Directory** (en la barra de navegación del lado izquierdo).
+3. Desplácese hacia abajo en la hoja de opciones y seleccione **Restablecimiento de contraseña**.
 4. Establezca **Se habilitó el restablecimiento de contraseña del autoservicio.** en **Todo**. 
 5. Haga clic en **Guardar** en la parte superior de la página. ¡Y ya está!
 

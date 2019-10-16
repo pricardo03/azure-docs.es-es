@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910526"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935602"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -187,7 +187,7 @@ Una recompilación (o una compilación nueva tras la expulsión de la caché) a�
 
 Una vez identificado el problema, puede ajustar las consultas del problema o actualizar el tamaño de proceso o el nivel de servicio para aumentar la capacidad de su instancia de SQL Database a fin de asimilar los requisitos de la CPU. 
 
-Para más información, consulte [Escalar recursos de base de datos única en Azure SQL Database](sql-database-single-database-scale.md) y [Escalar recursos de grupos elásticos en Azure SQL Database](sql-database-elastic-pool-scale.md). Para información sobre cómo escalar una instancia administrada, consulte [Límites de recursos de nivel de instancia](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Para más información, consulte [Escalar recursos de base de datos única en Azure SQL Database](sql-database-single-database-scale.md) y [Escalar recursos de grupos elásticos en Azure SQL Database](sql-database-elastic-pool-scale.md). Para información sobre cómo escalar una instancia administrada, consulte [Límites de recursos de nivel de servicio](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemas de rendimiento causados por un mayor volumen de carga de trabajo
 

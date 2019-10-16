@@ -103,7 +103,7 @@
           items:
             - name: Supervisión y ajuste
               href: concepts-monitoring.md
-            - name: Registros del servidor
+            - name: Registros
               href: concepts-server-logs.md
             - name: Registros de auditoría
               href: concepts-audit.md
@@ -207,7 +207,7 @@
               href: howto-auto-grow-storage-portal.md
             - name: CLI de Azure
               href: howto-auto-grow-storage-cli.md
-        - name: Acceso a registros de servidor
+        - name: Registros de acceso
           items:
             - name: Portal de Azure
               href: howto-configure-server-logs-in-portal.md
