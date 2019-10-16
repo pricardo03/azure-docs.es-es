@@ -3,6 +3,10 @@
 - name: Arquitectura y diseño
   href: overview.md
   expanded: false
+  items: null
+- name: Arquitectura y diseño
+  href: overview.md
+  expanded: false
   items:
     - name: Detección de amenazas avanzada
       displayName: 'vulnerability, virus, IDs, incident'
@@ -12,14 +16,7 @@
       href: log-audit.md
     - name: Azure Network Security
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: abstract-network-security.md
-    - name: Seguridad de plataforma sin servidor de Azure
-      href: abstract-serverless-platform-security.md
-    - name: Seguridad del contenedor en Azure
-      href: abstract-container-security.md
-    - name: Habilitación de la seguridad operativa
-      displayName: 'policy, policies, azure monitor, soc'
-      href: abstract-operational-security.md
+      href: 'https://azure.microsoft.com/resources/azure-network-security/'
     - name: Aislamiento en la nube de Azure
       displayName: trust boundary
       href: isolation-choices.md
@@ -28,8 +25,6 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Funcionalidades técnicas de seguridad
       href: technical-capabilities.md
-    - name: Desarrollo de aplicaciones seguras en Azure
-      href: abstract-develop-secure-apps.md
 - name: Seguridad y cifrado de datos
   href: encryption-overview.md
   items:
@@ -90,8 +85,6 @@
                     - name: Cifrado de disco con la aplicación de Azure AD para máquinas virtuales Linux
                       displayName: active directory
                       href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
-    - name: Seguridad de Azure Storage
-      href: storage-overview.md
     - name: Guía de seguridad de Storage
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Caja de seguridad del cliente
