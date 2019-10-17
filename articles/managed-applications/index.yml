@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentación sobre las aplicaciones administradas de Azure
 metadata:
-  title: 'Documentación sobre las aplicaciones administradas de Azure: tutoriales y referencia de API'
+  title: Documentación sobre las aplicaciones administradas de Azure
   description: Use las aplicaciones administradas de Azure para publicar soluciones en la nube que resulten más fáciles de mantener para los usuarios.
   services: managed-applications
   author: tfitzmac
@@ -25,7 +25,7 @@ sections:
         items:
           - image:
               src: /azure/managed-applications/media/index/cli.svg
-            text: Azure CLI
+            text: CLI de Azure
             href: /azure/managed-applications/managed-apps-quickstart-cli
   - title: Tutoriales detallados
     items:
