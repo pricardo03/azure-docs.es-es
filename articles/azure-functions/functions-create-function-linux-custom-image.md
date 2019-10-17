@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 54d7dc4e57991f6b773169f539a86fdc8451cbba
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950391"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329561"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creación de una función en Linux con una imagen personalizada
 
@@ -365,11 +365,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 Use la misma dirección URL que antes desde el explorador para desencadenar la función. Debería ver la misma respuesta. Sin embargo, esta vez, la cadena que se pasa como parámetro `name` se escribe en la cola de almacenamiento `outqueue`.
 
-### <a name="set-the-storage-account-connection"></a>Establecimiento de la conexión de la cuenta de almacenamiento
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Consulta de la cola de almacenamiento
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 

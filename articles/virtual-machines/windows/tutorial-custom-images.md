@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350836"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390566"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell
 
@@ -134,6 +134,7 @@ New-AzVm `
 ```
 
 Se recomienda limitar el número de implementaciones simultáneas a 20 máquinas virtuales desde una sola imagen. Si planea realizar implementaciones simultáneas a gran escala de más de 20 máquinas virtuales a partir de la misma imagen personalizada, debe usar [Shared Image Gallery](shared-image-galleries.md) con varias réplicas de imágenes. 
+
 
 ## <a name="image-management"></a>Administración de imágenes 
 
